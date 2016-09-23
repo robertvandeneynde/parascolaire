@@ -1,0 +1,92 @@
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <title>{{name}}</title>
+    <link href="python.png" rel="icon" type="image/png"/>
+    <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+    a, .stylechanger {
+        color: #999;
+    }
+    a {
+        text-decoration: none;
+    }
+    .stylechanger {
+        text-decoration: underline;
+    }
+    #numero_ligne {
+        display: inline-block;
+        vertical-align: top;
+    }
+    header {
+        -webkit-user-select: none; /* Chrome/Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+ */
+
+        /* Rules below not implemented in browsers yet */
+        -o-user-select: none;
+        user-select: none;
+    }
+    @media print {
+        pre {
+            white-space: pre-wrap;
+        }
+    }
+    </style>
+    </head>
+    <body class="hljs"><!--
+        --><header unselectable="on"> <!-- IE 9 IE9 downwards and Opera -->
+            <a href="index.html"><img style="width:24px; height:24px; vertical-align:middle;" src="home.png"/></a>
+            {{nav}}
+            <a href="#white" class="stylechanger" data-style="default">#White</a>
+            <a href="#dark" class="stylechanger" data-style="androidstudio">#Dark</a>
+            <a href="{{name}}.txt">#txt</a>
+            <a href="{{name}}">#{{ codelang }}</a>
+            {{postnav}}
+            <pre id="numero_ligne"></pre>
+        </header><!--
+        
+        --><section><pre><code id="code" class="{{ codelang }}">{{code}}</code></pre></section>
+            
+        <script>
+
+        hljs.initHighlightingOnLoad()
+        
+        var stylesheet = $('#stylesheet')
+        
+        var stylechanger = $('.stylechanger')
+        
+        function setStyle(style){
+            stylesheet.attr('href', 'http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/' + style + '.min.css')
+            stylechanger.each(function(){
+                $(this).attr('disabled', style != $(this).data('style') ? null : 'disabled')
+            })
+        }
+        
+        var styleToFancy = { 'default': 'white', 'androidstudio': 'dark' }
+        var fancyToStyle = { 'white': 'default', 'dark': 'androidstudio' }
+    
+        function setStyleFromHash() {
+            setStyle(fancyToStyle[window.location.hash.substr(1)] || 'default')
+        }
+        
+        setStyleFromHash()
+        window.addEventListener('hashchange', setStyleFromHash)
+        
+        stylechanger.on('click', function() {
+            /* setStyle($(this).data('style')) */
+            window.location.hash = '#' + (styleToFancy[$(this).data('style')] || '')
+        })
+        
+        $('.keephash').on('click', function(ev){
+            ev.preventDefault()
+            if($(this).attr('href')) {
+                window.location = $(this).attr('href') + window.location.hash
+            }
+        })
+        </script>
+    </body>
+</html>

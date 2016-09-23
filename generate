@@ -1,0 +1,4 @@
+./generate_txt.py
+./generate_html.py
+# ./generate_ln.py
+./generate_ls.py

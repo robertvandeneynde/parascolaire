@@ -1,0 +1,782 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link href="favicon.png" rel="icon" type="image/png"/>
+        <title>Parascolaire programmation de jeux vidéos</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="animations.js"></script>
+        <link rel="stylesheet" href="base.css" />
+    </head>
+    <body class="index">
+        <div id="selfdomain">
+            Disponible sur <a href="http://robertvandeneynde.be/parascolaire">robertvandeneynde.be/parascolaire</a> !
+        </div>
+        
+        <h1 class="remove-empty-text">
+            <img src="player.png" id="vaisseau" style="height: 64px; vertical-align:middle;" />
+            <span class="text">Parascolaire programmation de jeux vidéos</span>
+        </h1>
+        
+        <section>
+            <div class="part">
+                <img class="springpython" src="python.png" style="margin:5px; height: 45px; vertical-align:middle;"/>
+                <nav>
+                    <a href="#theorie">theorie</a>
+                    <a href="#exercice">exercice</a>
+                    <a href="#pygame">pygame</a>
+                </nav>
+            </div>
+            <div class="part">
+                <img id="tetris" src="tetris.png" style="margin:10px; height: 40px; vertical-align:middle;"/>
+                <nav>
+                    <a href="pythontutor.html">pythontutor</a>
+                    <a href="math.html">math</a>
+                    <a href="physique.html">physique</a>
+                    <a href="projets.html">projets</a>
+                </nav>
+            </div>
+            <div class="part">
+                <img id="invader" src="invader.png" style="height: 40px; margin: 0 5px; vertical-align:middle;"/>
+                <nav><a><strong id="emailize">robertvandeneynde[at]hotmail[dot]com</strong></a></nav>
+            </div>
+        </section>
+        
+        <div onclick="$('#svg-embed').slideToggle()" style="cursor:pointer; display:block; border: 1px solid #090; background: #beb; border-radius: 5px; margin-left: 20px; margin-top: 10px; margin-right: 20px; padding: 5px; text-align:center">
+            Cliquez ici pour voir le plan
+        </div>
+        
+        <div id="svg-embed" style="display: none; text-align:center; margin-top: 5px;">
+<!-- 675 323 -->
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid black;" viewBox="0 0 675 323" width="1350px" >
+    <g transform="matrix(0.5, 0, 0, 0.5, 150.10465116279073, -37.17500356038411)">
+      <g transform="matrix(1, 0, 0, 1, -289.2093023255814, 121.62402592148891)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#79C900" d="M 24.709302325581397,0 C 38.35587317895857,0 49.418604651162795,11.062731472204229 49.418604651162795,24.709302325581397 C 49.418604651162795,38.35587317895857 38.35587317895857,49.418604651162795 24.709302325581397,49.418604651162795 C 11.062731472204229,49.418604651162795 0,38.35587317895857 0,24.709302325581397 C 0,11.062731472204229 11.062731472204229,0 24.709302325581397,0 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.209302325581397, 17.409302325581397)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0">Start</text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 21.209302325581397)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 41.918604651162795, 21.209302325581397)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 21.209302325581397, 41.918604651162795)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -130, 76.35000712076823)">
+        <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#EFFAB4" d="M 0,0 L 60.75,0 L 81,8.966666666666667 L 81,35.86666666666667 L 0,35.86666666666667 z"/>
+        <text transform="matrix(1, 0, 0, 1, 5.5, 14.591666666666665)" stroke="none" fill="#454545" text-anchor="middle" style="font: bold 12pt Helvetica, Arial, sans-serif" y="12.675" x="35.5"><a xlink:href="theorie1_egal_if.py.html">Théorie 1</a></text>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -189, 130.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 85,0 L 85,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="theorie1_egal_if.py.html">Base 1 : =</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 39, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 77.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 39, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -71, 130.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 85,0 L 85,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="theorie1_egal_if.py.html">Base 2 : if</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 39, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 77.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 39, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 404, 78.35000712076823)">
+        <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#EFFAB4" d="M 0,0 L 60.75,0 L 81,8.966666666666667 L 81,35.86666666666667 L 0,35.86666666666667 z"/>
+        <text transform="matrix(1, 0, 0, 1, 5.5, 14.591666666666665)" stroke="none" fill="#454545" text-anchor="middle" style="font: bold 12pt Helvetica, Arial, sans-serif" y="12.675" x="35.5"><a xlink:href="theorie2_liste_while.py.html">Théorie 2</a></text>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 315.5, 127.53332824707032)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 112,0 L 112,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="theorie2_liste_while.py.html">Base 3 : while</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 52.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 104.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 52.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 458.99999999999994, 127.53332824707034)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 97,0 L 97,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="theorie2_liste_while.py.html">Base 4 : list</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 45, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 89.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 45, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 581, 348.399994913737)">
+        <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#EFFAB4" d="M 0,0 L 60.75,0 L 81,8.966666666666667 L 81,35.86666666666667 L 0,35.86666666666667 z"/>
+        <text transform="matrix(1, 0, 0, 1, 5.5, 14.591666666666665)" stroke="none" fill="#454545" text-anchor="middle" style="font: bold 12pt Helvetica, Arial, sans-serif" y="12.675" x="35.5"><a xlink:href="theorie3_fonctions_et_objets.py.html">Théorie 3</a></text>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 484, 392.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 121,0 L 121,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="theorie3_fonctions_et_objets.py.html">Base 5 : Objets</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 57, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 113.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 57, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 632.5, 392.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 146,0 L 146,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="theorie3_fonctions_et_objets.py.html">Base 6 : Fonctions</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 69.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 138.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 69.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -3.5, 190.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 88,0 L 88,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice0_trier_deux_nombres.py.html">Exercice 0</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 40.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 80.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 40.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 105.5, 190.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 24,0 L 24,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice1_minute_suivante.py.html">1</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 16.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 154.5, 190.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 24,0 L 24,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice2_minute_suivante_un_print.py.html">2</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 16.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 199.5, 190.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 24,0 L 24,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice3_trier_trois_nombres.py.html">3</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 16.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 248.5, 190.5333282470703)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 24,0 L 24,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice4_le_sept_parfait.py.html">4</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 16.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 538.4999999999999, 188.53332824707024)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 88,0 L 88,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice5_max_list.py.html">Exercice 5</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 40.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 80.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 40.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 666.5, 274.53332824707013)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 24,0 L 24,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice6_in_list.py.html">6</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 16.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 713.4999999999999, 274.48334045410166)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 24,0 L 24,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice7_filtre_des_grands.py.html">7</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 16.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 771.4999999999998, 274.48334045410166)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 24,0 L 24,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice8_somme.py.html">8</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 16.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 825.5000000000002, 274.48334045410166)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 24,0 L 24,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="exercice9_doublons">9</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 16.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 8.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 883.1511627906974, 269.98449103776795)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#DC3C00" d="M 20.348837209302328,0 C 31.587189676789407,0 40.697674418604656,9.110484741815249 40.697674418604656,20.348837209302328 C 40.697674418604656,31.587189676789407 31.587189676789407,40.697674418604656 20.348837209302328,40.697674418604656 C 9.110484741815249,40.697674418604656 0,31.587189676789407 0,20.348837209302328 C 0,9.110484741815249 9.110484741815249,0 20.348837209302328,0 z"/>
+          <text transform="matrix(1, 0, 0, 1, 6.848837209302325, 13.048837209302324)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0">End</text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 16.848837209302328, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 16.848837209302328)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 33.197674418604656, 16.848837209302328)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -298.20930232558146, 544.5740381285201)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#79C900" d="M 24.709302325581397,0 C 38.35587317895857,0 49.418604651162795,11.062731472204229 49.418604651162795,24.709302325581397 C 49.418604651162795,38.35587317895857 38.35587317895857,49.418604651162795 24.709302325581397,49.418604651162795 C 11.062731472204229,49.418604651162795 0,38.35587317895857 0,24.709302325581397 C 0,11.062731472204229 11.062731472204229,0 24.709302325581397,0 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.209302325581397, 17.409302325581397)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0">Start</text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 21.209302325581397)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 41.918604651162795, 21.209302325581397)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 21.209302325581397, 41.918604651162795)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -48.50000000000001, 553.4833404541014)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 134,0 L 134,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame0_code_minimal.py.html">[0] Code minimal</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 63.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 126.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 63.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -204.49999999999994, 613.4833404541017)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 74,0 L 74,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame1_dessin.py.html">[1] Draw</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 33.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 66.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 33.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -105.99999999999999, 613.4833404541017)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 67,0 L 67,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame2_tick.py.html">[2] Tick</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 30, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 59.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 30, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -12.5, 613.4833404541017)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 86,0 L 86,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame3_events.py.html">[3] Events</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 39.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 78.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 39.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 96.50000000000006, 613.4833404541017)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 110,0 L 110,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame4_animations.py.html">[4] Animation</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 51.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 102.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 51.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 573.5, 451.68334045410154)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 138,0 L 138,47.2 L 0,47.2 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame5_clavier_souris_events.py.html">[5] Clavier-Souris</a></text>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="27.300000000000004" x="0"><a xlink:href="pygame5_clavier_souris_events.py.html">(Events)</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 65.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 20.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 130.5, 20.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 65.5, 39.7)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 572.5, 516.6833404541015)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 138,0 L 138,47.2 L 0,47.2 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame6_clavier_souris_state.py.html">[6] Clavier-Souris</a></text>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="27.300000000000004" x="0"><a xlink:href="pygame6_clavier_souris_state.py.html">(États)</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 65.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 20.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 130.5, 20.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 65.5, 39.7)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 596.5, 618.4833404541016)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 88,0 L 88,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame7_images.py.html">[7] Images</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 40.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 80.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 40.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 602.5, 670.4833404541016)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 76,0 L 76,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="pygame8_texte.py.html">[8] Texte</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 34.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 68.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 34.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 254.5, 553.5333282470704)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 58,0 L 58,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0"><a xlink:href="projets.html">Projet</a></text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 25.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 50.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 25.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 346.5, 553.4833404541016)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 116,0 L 116,31.6 L 0,31.6 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0">Fonctionnalité</text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 54.5, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 108.5, 12.3)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 54.5, 24.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 836, 541.6833404541015)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#00A9C9" d="M 0,0 L 165,0 L 165,47.2 L 0,47.2 z"/>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0">Apprendre de</text>
+          <text transform="matrix(1, 0, 0, 1, 8.5, 8.5)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="27.300000000000004" x="0">nouveaux concepts ?</text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 79, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 20.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 157.5, 20.1)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 79, 39.7)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 1000.1511627906976, 675.9345032447992)">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)">
+          <path transform="matrix(1, 0, 0, 1, 0.5, 0.5)" stroke="none" fill="#DC3C00" d="M 20.348837209302328,0 C 31.587189676789407,0 40.697674418604656,9.110484741815249 40.697674418604656,20.348837209302328 C 40.697674418604656,31.587189676789407 31.587189676789407,40.697674418604656 20.348837209302328,40.697674418604656 C 9.110484741815249,40.697674418604656 0,31.587189676789407 0,20.348837209302328 C 0,9.110484741815249 9.110484741815249,0 20.348837209302328,0 z"/>
+          <text transform="matrix(1, 0, 0, 1, 6.848837209302325, 13.048837209302324)" stroke="none" fill="whitesmoke" text-anchor="start" style="font: bold 11pt Helvetica, Arial, sans-serif" y="11.700000000000001" x="0">End</text>
+        </g>
+        <path transform="matrix(1, 0, 0, 1, 16.848837209302328, 0.5)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 0.5, 16.848837209302328)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+        <path transform="matrix(1, 0, 0, 1, 33.197674418604656, 16.848837209302328)" stroke="none" fill="transparent" d="M 4,0 C 6.209138999323175,0 8,1.7908610006768257 8,4 C 8,6.209138999323175 6.209138999323175,8 4,8 C 1.7908610006768257,8 0,6.209138999323175 0,4 C 0,1.7908610006768257 1.7908610006768257,0 4,0 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -107, 136.42190449791633)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 28,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 28,0"/>
+        <path transform="matrix(1, 0, 0, 1, 27.5, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -39.13642374915397, 159.1333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 11.136423749153968, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 0,38.70000000000002 Q 0,43.70000000000002 5,43.70000000000002 L 20.5,43.70000000000002"/>
+        <path transform="matrix(1, 0, 0, 1, 11.136423749153968, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 0,38.70000000000002 Q 0,43.70000000000002 5,43.70000000000002 L 20.5,43.70000000000002"/>
+        <path transform="matrix(1, 0, 0, 1, 27.13642374915397, 43.70000000000002)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -242.7906976744186, 136.42190449791633)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 45.790697674418595,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 45.790697674418595,0"/>
+        <path transform="matrix(1, 0, 0, 1, 45.290697674418595, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 80.73857625084604, 196.42190449791633)">
+        <path transform="matrix(1, 0, 0, 1, 4.761423749153968, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 16,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4.761423749153968, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 16,0"/>
+        <path transform="matrix(1, 0, 0, 1, 16.26142374915397, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 424.5, 133.42190449791633)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 26.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 26.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 26, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 623.5, 200.8333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 14.5,0 Q 19.5,0 19.5,5 L 19.5,81 Q 19.5,86 24.5,86 L 35,86"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 14.5,0 Q 19.5,0 19.5,5 L 19.5,81 Q 19.5,86 24.5,86 L 35,86"/>
+        <path transform="matrix(1, 0, 0, 1, 34.5, 86)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 498.36357625084605, 156.1333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 9.636423749153911, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 0,39.70000000000002 Q 0,44.70000000000002 5.000000000000057,44.70000000000002 L 26.500000000000057,44.70000000000002"/>
+        <path transform="matrix(1, 0, 0, 1, 9.636423749153911, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 0,39.70000000000002 Q 0,44.70000000000002 5.000000000000057,44.70000000000002 L 26.500000000000057,44.70000000000002"/>
+        <path transform="matrix(1, 0, 0, 1, 31.63642374915397, 44.70000000000002)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 846.5, 280.39691060143196)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.386429852669593)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 16.325581395348763,0 L 16.325581395348763,0.04998779296869316 L 28.65116279069764,0.04998779296869316"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.386429852669593)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 16.325581395348763,0 L 16.325581395348763,0.04998779296869316 L 28.65116279069764,0.04998779296869316"/>
+        <path transform="matrix(1, 0, 0, 1, 28.15116279069764, 6.4364176456382864)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 623.5, 200.8333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 271.5,0 Q 276.5,0 276.5,5 L 276.5,61.15116279069764"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 271.5,0 Q 276.5,0 276.5,5 L 276.5,61.15116279069764"/>
+        <path transform="matrix(0, 1, -1, 0, 284.5, 60.65116279069764)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 459.5, 471.28334045410156)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,94 L 50,94 Q 55,94 55,89 L 55,5 Q 55,0 60,0 L 106,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,94 L 50,94 Q 55,94 55,89 L 55,5 Q 55,0 60,0 L 106,0"/>
+        <path transform="matrix(1, 0, 0, 1, 105.5, 0.5)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 459.5, 536.2833404541016)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,29 L 49.5,29 Q 54.5,29 54.5,24 L 54.5,5 Q 54.5,0 59.5,0 L 105,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,29 L 49.5,29 Q 54.5,29 54.5,24 L 54.5,5 Q 54.5,0 59.5,0 L 105,0"/>
+        <path transform="matrix(1, 0, 0, 1, 104.5, 0.5)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 459.5, 565.7833404541016)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 49.5,0 Q 54.5,0 54.5,5 L 54.5,60 Q 54.5,65 59.5,65 L 129,65"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 49.5,0 Q 54.5,0 54.5,5 L 54.5,60 Q 54.5,65 59.5,65 L 129,65"/>
+        <path transform="matrix(1, 0, 0, 1, 128.5, 65)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 459.5, 565.7833404541016)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 50.5,0 Q 55.5,0 55.5,5 L 55.5,112 Q 55.5,117 60.5,117 L 135,117"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 50.5,0 Q 55.5,0 55.5,5 L 55.5,112 Q 55.5,117 60.5,117 L 135,117"/>
+        <path transform="matrix(1, 0, 0, 1, 134.5, 117)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -251.7906976744186, 565.7833404541016)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 16.645348837209298,0 Q 21.645348837209298,0 21.645348837209298,5 L 21.645348837209298,55 Q 21.645348837209298,60 26.645348837209298,60 L 39.290697674418595,60"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 16.645348837209298,0 Q 21.645348837209298,0 21.645348837209298,5 L 21.645348837209298,55 Q 21.645348837209298,60 26.645348837209298,60 L 39.290697674418595,60"/>
+        <path transform="matrix(1, 0, 0, 1, 38.790697674418595, 60)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -133.5, 619.3719167049476)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 19.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 19.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 19, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -42, 619.3719167049476)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 21.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 21.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 21, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 70.5, 619.3719167049476)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 18,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 18,0"/>
+        <path transform="matrix(1, 0, 0, 1, 17.5, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -251.7906976744186, 559.3719167049476)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 195.2906976744186,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 195.2906976744186,0"/>
+        <path transform="matrix(1, 0, 0, 1, 194.7906976744186, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 82.5, 559.396910601432)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.386429852669593)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 84,0 L 84,0.04998779296875 L 164,0.04998779296875"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.386429852669593)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 84,0 L 84,0.04998779296875 L 164,0.04998779296875"/>
+        <path transform="matrix(1, 0, 0, 1, 163.5, 6.436417645638343)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 203.5, 565.3333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,59.95001220703125 L 18.5,59.95001220703125 Q 23.5,59.95001220703125 23.5,54.95001220703125 L 23.5,5 Q 23.5,0 28.5,0 L 43,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,59.95001220703125 L 18.5,59.95001220703125 Q 23.5,59.95001220703125 23.5,54.95001220703125 L 23.5,5 Q 23.5,0 28.5,0 L 43,0"/>
+        <path transform="matrix(1, 0, 0, 1, 42.5, 0.5)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 708.5, 471.78334045410156)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 56.75,0 Q 61.75,0 61.75,5 L 61.75,85 Q 61.75,90 66.75,90 L 119.5,90"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 56.75,0 Q 61.75,0 61.75,5 L 61.75,85 Q 61.75,90 66.75,90 L 119.5,90"/>
+        <path transform="matrix(1, 0, 0, 1, 119, 90)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 707.5, 536.7833404541016)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 57.25,0 Q 62.25,0 62.25,5 L 62.25,20 Q 62.25,25 67.25,25 L 120.5,25"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 57.25,0 Q 62.25,0 62.25,5 L 62.25,20 Q 62.25,25 67.25,25 L 120.5,25"/>
+        <path transform="matrix(1, 0, 0, 1, 120, 25)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 681.5, 561.2833404541016)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,69 L 83.5,69 Q 88.5,69 88.5,64 L 88.5,5 Q 88.5,0 93.5,0 L 146.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,69 L 83.5,69 Q 88.5,69 88.5,64 L 88.5,5 Q 88.5,0 93.5,0 L 146.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 146, 0.5)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 675.5, 561.2833404541016)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,121 L 89.5,121 Q 94.5,121 94.5,116 L 94.5,5 Q 94.5,0 99.5,0 L 152.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,121 L 89.5,121 Q 94.5,121 94.5,116 L 94.5,5 Q 94.5,0 99.5,0 L 152.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 152, 0.5)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 400.05617592255464, 322.8333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 4.443824077445331, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 597.5,238.95001220703125 L 622.5,238.95001220703125 Q 627.5,238.95001220703125 627.5,233.95001220703125 L 627.5,5 Q 627.5,0 622.5,0 L 5,0 Q 0,0 0,5 L 0,216.6500122070313 L 0.3002495322244272,222.65500285151995"/>
+        <path transform="matrix(1, 0, 0, 1, 4.443824077445331, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 597.5,238.95001220703125 L 622.5,238.95001220703125 Q 627.5,238.95001220703125 627.5,233.95001220703125 L 627.5,5 Q 627.5,0 622.5,0 L 5,0 Q 0,0 0,5 L 0,216.6500122070313 L 0.3002495322244272,222.65500285151995"/>
+        <path transform="matrix(0.04993761694389225, 0.9987523388778446, -0.9987523388778446, 0.04993761694389225, 8.514363688933626, 221.96086685879405)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 915, 585.8833404541016)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 0,101.89999999999998 Q 0,106.89999999999998 5,106.89999999999998 L 77.15116279069764,106.89999999999998"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 0,101.89999999999998 Q 0,106.89999999999998 5,106.89999999999998 L 77.15116279069764,106.89999999999998"/>
+        <path transform="matrix(1, 0, 0, 1, 76.65116279069764, 106.89999999999998)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 602, 398.42190449791633)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 22.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 22.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 22, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 458.98857625084605, 404.3333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 4.511423749153968, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,160.95001220703125 L 5.25,160.95001220703125 Q 10.25,160.95001220703125 10.25,155.95001220703125 L 10.25,5 Q 10.25,0 15.25,0 L 16.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4.511423749153968, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,160.95001220703125 L 5.25,160.95001220703125 Q 10.25,160.95001220703125 10.25,155.95001220703125 L 10.25,5 Q 10.25,0 15.25,0 L 16.5,0"/>
+        <path transform="matrix(1, 0, 0, 1, 16.51142374915397, 0.5)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 775.5, 404.8333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 23.25,0 Q 28.25,0 28.25,5 L 28.25,151.95001220703125 Q 28.25,156.95001220703125 33.25,156.95001220703125 L 52.5,156.95001220703125"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 23.25,0 Q 28.25,0 28.25,5 L 28.25,151.95001220703125 Q 28.25,156.95001220703125 33.25,156.95001220703125 L 52.5,156.95001220703125"/>
+        <path transform="matrix(1, 0, 0, 1, 52, 156.95001220703125)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 792.5, 280.3719167049476)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 25,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 25,0"/>
+        <path transform="matrix(1, 0, 0, 1, 24.5, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 734.5, 280.3719167049476)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 29,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 29,0"/>
+        <path transform="matrix(1, 0, 0, 1, 28.5, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 687.5, 280.39691060143196)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.386429852669593)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0.04998779296875 L 11,0.04998779296875 L 11,0 L 18,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.386429852669593)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0.04998779296875 L 11,0.04998779296875 L 11,0 L 18,0"/>
+        <path transform="matrix(1, 0, 0, 1, 17.5, 6.386429852669593)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 126.5, 196.42190449791633)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 20,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 20,0"/>
+        <path transform="matrix(1, 0, 0, 1, 19.5, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 174.73857625084602, 196.42190449791633)">
+        <path transform="matrix(1, 0, 0, 1, 4.761423749153968, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 16,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4.761423749153968, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 16,0"/>
+        <path transform="matrix(1, 0, 0, 1, 16.26142374915397, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 220.5, 196.42190449791633)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0 L 20,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.411423749153968)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0 L 20,0"/>
+        <path transform="matrix(1, 0, 0, 1, 19.5, 6.411423749153968)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 269.5, 139.3333282470703)">
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,63 L 16,63 Q 21,63 21,58 L 21,5 Q 21,0 26,0 L 38,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 4.5)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,63 L 16,63 Q 21,63 21,58 L 21,5 Q 21,0 26,0 L 38,0"/>
+        <path transform="matrix(1, 0, 0, 1, 37.5, 0.5)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 309.5, 559.396910601432)">
+        <path transform="matrix(1, 0, 0, 1, 4, 10.386429852669593)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="8" stroke="transparent" fill="none" d="M 0,0.04998779296875 L 16.5,0.04998779296875 L 16.5,0 L 29,0"/>
+        <path transform="matrix(1, 0, 0, 1, 4, 10.386429852669593)" stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt" stroke-width="2" stroke="gray" fill="none" d="M 0,0.04998779296875 L 16.5,0.04998779296875 L 16.5,0 L 29,0"/>
+        <path transform="matrix(1, 0, 0, 1, 28.5, 6.386429852669593)" stroke="none" fill="gray" d="M 0,0 L 8,4 L 0,8 L 2,4 z"/>
+      </g>
+    </g>
+</svg>
+        </div>
+        
+        <span class="notitle dir-name root">.</span>
+            
+                </section><section class="grouping" id="theorie"/><li class='ext-py'><a href='./theorie0_installation.py.html'>theorie0_installation.py</a></li>
+                <li class='ext-py'><a href='./theorie1_egal_if.py.html'>theorie1_egal_if.py</a></li>
+                <li class='ext-py'><a href='./theorie2_liste_while.py.html'>theorie2_liste_while.py</a></li>
+                <li class='ext-py'><a href='./theorie3_fonctions_et_objets.py.html'>theorie3_fonctions_et_objets.py</a></li>
+                <li class='ext-php'><a href='./theorie1_egal_if.php.html'>theorie1_egal_if.php</a></li>
+                <li class='ext-php'><a href='./theorie2_liste_while.php.html'>theorie2_liste_while.php</a></li>
+                <li class='ext-java'><a href='./theorie1_egal_if.java.html'>theorie1_egal_if.java</a></li>
+                <li class='ext-java'><a href='./theorie2_liste_while.java.html'>theorie2_liste_while.java</a></li>
+                </section><section class="grouping" id="exercice"/><li class='ext-py'><a href='./exercice0_trier_deux_nombres.py.html'>exercice0_trier_deux_nombres.py</a></li>
+                <li class='ext-py'><a href='./exercice1_minute_suivante.py.html'>exercice1_minute_suivante.py</a></li>
+                <li class='ext-py'><a href='./exercice2_minute_suivante_un_print.py.html'>exercice2_minute_suivante_un_print.py</a></li>
+                <li class='ext-py'><a href='./exercice3_trier_trois_nombres.py.html'>exercice3_trier_trois_nombres.py</a></li>
+                <li class='ext-py'><a href='./exercice4_le_sept_parfait.py.html'>exercice4_le_sept_parfait.py</a></li>
+                <li class='ext-py'><a href='./exercice5_max_list.py.html'>exercice5_max_list.py</a></li>
+                <li class='ext-py'><a href='./exercice6_in_list.py.html'>exercice6_in_list.py</a></li>
+                <li class='ext-py'><a href='./exercice7_filtre_des_grands.py.html'>exercice7_filtre_des_grands.py</a></li>
+                <li class='ext-py'><a href='./exercice8_somme.py.html'>exercice8_somme.py</a></li>
+                <li class='ext-py'><a href='./exercice9_doublons.py.html'>exercice9_doublons.py</a></li>
+                </section><section class="grouping" id="pygame"/><li class='ext-py'><a href='./pygame0_code_minimal.py.html'>pygame0_code_minimal.py</a></li>
+                <li class='ext-py'><a href='./pygame1_dessin.py.html'>pygame1_dessin.py</a></li>
+                <li class='ext-py'><a href='./pygame2_tick.py.html'>pygame2_tick.py</a></li>
+                <li class='ext-py'><a href='./pygame3_events.py.html'>pygame3_events.py</a></li>
+                <li class='ext-py'><a href='./pygame4_animations.py.html'>pygame4_animations.py</a></li>
+                <li class='ext-py'><a href='./pygame5_clavier_souris_events.py.html'>pygame5_clavier_souris_events.py</a></li>
+                <li class='ext-py'><a href='./pygame6_clavier_souris_state.py.html'>pygame6_clavier_souris_state.py</a></li>
+                <li class='ext-py'><a href='./pygame7_images.py.html'>pygame7_images.py</a></li>
+                <li class='ext-py'><a href='./pygame8_texte.py.html'>pygame8_texte.py</a></li>
+                </section><section class="grouping" id="progra"/><li class='ext-py'><a href='./progra_fichier.py.html'>progra_fichier.py</a></li>
+                <li class='ext-py'><a href='./progra_hasard.py.html'>progra_hasard.py</a></li>
+                <li class='ext-py'><a href='./progra_list_dict_set.py.html'>progra_list_dict_set.py</a></li>
+                </section><section class="grouping" id="gl"/><li class='ext-py'><a href='./gl_brick.py.html'>gl_brick.py</a></li>
+                <li class='ext-py'><a href='./gl_brick_with.py.html'>gl_brick_with.py</a></li>
+                <li class='ext-py'><a href='./gl_shaders.py.html'>gl_shaders.py</a></li>
+                <li class='ext-py'><a href='./gl_shaders_textures.py.html'>gl_shaders_textures.py</a></li>
+                <li class='ext-py'><a href='./gl_shaders_uniforms.py.html'>gl_shaders_uniforms.py</a></li>
+                </section><section class="grouping" id="lecture"/><li class='ext-py'><a href='./lecture01.py.html'>lecture01.py</a></li>
+                <li class='ext-py'><a href='./lecture02.py.html'>lecture02.py</a></li>
+                <li class='ext-py'><a href='./lecture03.py.html'>lecture03.py</a></li>
+                <li class='ext-py'><a href='./lecture04.py.html'>lecture04.py</a></li>
+                <li class='ext-py'><a href='./lecture05.py.html'>lecture05.py</a></li>
+                <li class='ext-py'><a href='./lecture06.py.html'>lecture06.py</a></li>
+                <li class='ext-py'><a href='./lecture07.py.html'>lecture07.py</a></li>
+                <li class='ext-py'><a href='./lecture08.py.html'>lecture08.py</a></li>
+                <li class='ext-py'><a href='./lecture09.py.html'>lecture09.py</a></li>
+                <li class='ext-py'><a href='./lecture10.py.html'>lecture10.py</a></li>
+                </section><section class="grouping" id="pdf"/><li class='ext-pdf'><a href='./pdf_theorie1_egal_if.py.pdf'>pdf_theorie1_egal_if.py.pdf</a></li>
+                <li class='ext-pdf'><a href='./pdf_theorie2_liste_while.py.pdf'>pdf_theorie2_liste_while.py.pdf</a></li>
+                <li class='ext-pdf'><a href='./pdf_theorie3_fonctions_et_objets.py.pdf'>pdf_theorie3_fonctions_et_objets.py.pdf</a></li>
+                </section><section class="grouping" id="projet"/><li class='ext-html'><a href='./projets.html'>projets.html</a></li>
+                <li class='ext-png'><a href='./projet-arnaud-screenshot.png'>projet-arnaud-screenshot.png</a></li>
+                <li class='ext-png'><a href='./projet-michal-screenshot.png'>projet-michal-screenshot.png</a></li>
+                <li class='ext-zip'><a href='./projet-arnaud.zip'>projet-arnaud.zip</a></li>
+                <li class='ext-zip'><a href='./projet-michal.zip'>projet-michal.zip</a></li>
+                </section><section class="grouping" id=""/><li class='ext-pdf'><a href='./flyer-A4.pdf'>flyer-A4.pdf</a></li>
+                <li class='ext-pdf'><a href='./flyer.pdf'>flyer.pdf</a></li>
+                <li class='ext-pdf'><a href='./tada.pdf'>tada.pdf</a></li>
+                <li class='ext-odp'><a href='./dessins.odp'>dessins.odp</a></li>
+                <li class='ext-odp'><a href='./flyer-A4.odp'>flyer-A4.odp</a></li>
+                <li class='ext-odp'><a href='./flyer.odp'>flyer.odp</a></li>
+                <li class='ext-html'><a href='./index.html'>index.html</a></li>
+                <li class='ext-html'><a href='./math.html'>math.html</a></li>
+                <li class='ext-html'><a href='./physique.html'>physique.html</a></li>
+                <li class='ext-html'><a href='./pythontutor.html'>pythontutor.html</a></li>
+                <li class='ext-html'><a href='./template.html'>template.html</a></li>
+                <li class='ext-html'><a href='./template_codefile.html'>template_codefile.html</a></li>
+                <li class='ext-css'><a href='./base.css'>base.css</a></li>
+                <li class='ext-css'><a href='./redaction.css'>redaction.css</a></li>
+                <li class='ext-png'><a href='./3d-pythagore-formules.png'>3d-pythagore-formules.png</a></li>
+                <li class='ext-png'><a href='./3d-pythagore.png'>3d-pythagore.png</a></li>
+                <li class='ext-png'><a href='./3d-spherique-formules.png'>3d-spherique-formules.png</a></li>
+                <li class='ext-png'><a href='./3d-spherique.png'>3d-spherique.png</a></li>
+                <li class='ext-png'><a href='./collision-cercles.png'>collision-cercles.png</a></li>
+                <li class='ext-png'><a href='./collision-intervalles-cas-1.png'>collision-intervalles-cas-1.png</a></li>
+                <li class='ext-png'><a href='./collision-intervalles-cas-2.png'>collision-intervalles-cas-2.png</a></li>
+                <li class='ext-png'><a href='./collision-intervalles-cas-3.png'>collision-intervalles-cas-3.png</a></li>
+                <li class='ext-png'><a href='./favicon.png'>favicon.png</a></li>
+                <li class='ext-png'><a href='./flyer.png'>flyer.png</a></li>
+                <li class='ext-png'><a href='./forces-ressort.png'>forces-ressort.png</a></li>
+                <li class='ext-png'><a href='./home.png'>home.png</a></li>
+                <li class='ext-png'><a href='./invader.png'>invader.png</a></li>
+                <li class='ext-png'><a href='./li-java.png'>li-java.png</a></li>
+                <li class='ext-png'><a href='./li-pdf.png'>li-pdf.png</a></li>
+                <li class='ext-png'><a href='./li-php.png'>li-php.png</a></li>
+                <li class='ext-png'><a href='./li-py.png'>li-py.png</a></li>
+                <li class='ext-png'><a href='./math1-distance.png'>math1-distance.png</a></li>
+                <li class='ext-png'><a href='./math1b-distance.png'>math1b-distance.png</a></li>
+                <li class='ext-png'><a href='./math1c-distance.png'>math1c-distance.png</a></li>
+                <li class='ext-png'><a href='./math2-avancer.png'>math2-avancer.png</a></li>
+                <li class='ext-png'><a href='./math2b-avancer.png'>math2b-avancer.png</a></li>
+                <li class='ext-png'><a href='./math2c-avancer.png'>math2c-avancer.png</a></li>
+                <li class='ext-png'><a href='./math2d-avancer.png'>math2d-avancer.png</a></li>
+                <li class='ext-png'><a href='./math3-regarder.png'>math3-regarder.png</a></li>
+                <li class='ext-png'><a href='./math3b-regarder.png'>math3b-regarder.png</a></li>
+                <li class='ext-png'><a href='./math4-avancer-vers.png'>math4-avancer-vers.png</a></li>
+                <li class='ext-png'><a href='./math4-milieu-segment.png'>math4-milieu-segment.png</a></li>
+                <li class='ext-png'><a href='./math4b-avancer-vers.png'>math4b-avancer-vers.png</a></li>
+                <li class='ext-png'><a href='./math4b-milieu-segment.png'>math4b-milieu-segment.png</a></li>
+                <li class='ext-png'><a href='./math4c-avancer-vers.png'>math4c-avancer-vers.png</a></li>
+                <li class='ext-png'><a href='./math4d-avancer-vers.png'>math4d-avancer-vers.png</a></li>
+                <li class='ext-png'><a href='./nail.png'>nail.png</a></li>
+                <li class='ext-png'><a href='./next.png'>next.png</a></li>
+                <li class='ext-png'><a href='./planet.png'>planet.png</a></li>
+                <li class='ext-png'><a href='./player.png'>player.png</a></li>
+                <li class='ext-png'><a href='./prev.png'>prev.png</a></li>
+                <li class='ext-png'><a href='./python.png'>python.png</a></li>
+                <li class='ext-png'><a href='./pythontutor1.png'>pythontutor1.png</a></li>
+                <li class='ext-png'><a href='./pythontutor2.png'>pythontutor2.png</a></li>
+                <li class='ext-png'><a href='./pythontutor3.png'>pythontutor3.png</a></li>
+                <li class='ext-png'><a href='./rock.png'>rock.png</a></li>
+                <li class='ext-png'><a href='./spring.png'>spring.png</a></li>
+                <li class='ext-png'><a href='./stick-icon-2.png'>stick-icon-2.png</a></li>
+                <li class='ext-png'><a href='./stick-icon.png'>stick-icon.png</a></li>
+                <li class='ext-png'><a href='./stick.png'>stick.png</a></li>
+                <li class='ext-png'><a href='./sun.png'>sun.png</a></li>
+                <li class='ext-png'><a href='./tetris.png'>tetris.png</a></li>
+                <li class='ext-png'><a href='./transformation-multiples-rectangle.png'>transformation-multiples-rectangle.png</a></li>
+                <li class='ext-png'><a href='./transformation-multiples.png'>transformation-multiples.png</a></li>
+                <li class='ext-png'><a href='./transformation-redimensionnement.png'>transformation-redimensionnement.png</a></li>
+                <li class='ext-png'><a href='./transformation-rotation-45.png'>transformation-rotation-45.png</a></li>
+                <li class='ext-png'><a href='./transformation-rotation.png'>transformation-rotation.png</a></li>
+                <li class='ext-png'><a href='./transformation-translation.png'>transformation-translation.png</a></li>
+                <li class='ext-png'><a href='./vecteur-bleu.png'>vecteur-bleu.png</a></li>
+                <li class='ext-png'><a href='./vecteur-vert.png'>vecteur-vert.png</a></li>
+                <li class='ext-png'><a href='./vecteur_v.png'>vecteur_v.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-base-informatique.png'>vecteurs-base-informatique.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-base-mathematique.png'>vecteurs-base-mathematique.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-deplacement.png'>vecteurs-deplacement.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-division.png'>vecteurs-division.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-echiquier.png'>vecteurs-echiquier.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-normaliser.png'>vecteurs-normaliser.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-norme-signee.png'>vecteurs-norme-signee.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-norme.png'>vecteurs-norme.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-oppose.png'>vecteurs-oppose.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-produit-par-un-scalaire.png'>vecteurs-produit-par-un-scalaire.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-produit-scalaire-algebrique.png'>vecteurs-produit-scalaire-algebrique.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-produit-scalaire-geometrique.png'>vecteurs-produit-scalaire-geometrique.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-produit-scalaire-negatif.png'>vecteurs-produit-scalaire-negatif.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-produit-scalaire-projection.png'>vecteurs-produit-scalaire-projection.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-somme-1.png'>vecteurs-somme-1.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-somme-2.png'>vecteurs-somme-2.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-somme-force.png'>vecteurs-somme-force.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-somme.png'>vecteurs-somme.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-soustraction-1.png'>vecteurs-soustraction-1.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-soustraction-2.png'>vecteurs-soustraction-2.png</a></li>
+                <li class='ext-png'><a href='./vecteurs-soustraction-3.png'>vecteurs-soustraction-3.png</a></li>
+                <li class='ext-jpg'><a href='./couleurs_paint.jpg'>couleurs_paint.jpg</a></li>
+                <li class='ext-jpg'><a href='./grid.jpg'>grid.jpg</a></li>
+                <li class='ext-py'><a href='./clean.py.html'>clean.py</a></li>
+                <li class='ext-py'><a href='./flow_translate.py.html'>flow_translate.py</a></li>
+                <li class='ext-py'><a href='./generate_html.py.html'>generate_html.py</a></li>
+                <li class='ext-py'><a href='./generate_ln.py.html'>generate_ln.py</a></li>
+                <li class='ext-py'><a href='./generate_ls.py.html'>generate_ls.py</a></li>
+                <li class='ext-py'><a href='./generate_txt.py.html'>generate_txt.py</a></li>
+                <li class='ext-py'><a href='./make_sequence_link.py.html'>make_sequence_link.py</a></li>
+                <li class='ext-/generate'><a href='./generate'>generate</a></li>
+                <li class='ext-/upload'><a href='./upload'>upload</a></li>
+                <li class='ext-js'><a href='./animations.js'>animations.js</a></li>
+                <li class='ext-js'><a href='./slides.js'>slides.js</a></li>
+                <li class='ext-json'><a href='./flow.json'>flow.json</a></li>
+                <li class='ext-json'><a href='./flow_translations.json'>flow_translations.json</a></li>
+                <li class='ext-svg'><a href='./dessins.svg'>dessins.svg</a></li>
+                <li class='ext-svg'><a href='./flow-translated.svg'>flow-translated.svg</a></li>
+                <li class='ext-svg'><a href='./flow.svg'>flow.svg</a></li>
+                <li class='ext-txt'><a href='./robots.txt'>robots.txt</a></li>
+            </section>
+        
+        <script>
+        document.getElementById('emailize').innerHTML = document.getElementById('emailize').innerHTML.replace('[at]', '@').replace('[dot]', '.')
+        
+        $('.remove-empty-text').each(function(){
+            var toDelete = []
+            
+            for(var i = 0; i < this.childNodes.length; i++) {
+                var y = this.childNodes[i]
+                if(y.nodeType == y.TEXT_NODE && y.nodeValue.trim() == "")
+                    toDelete.push(y)
+            }
+            
+            for(var i = 0; i < toDelete.length; i++)
+                toDelete[i].remove()
+                
+        })
+        
+        $('section[id]').click(function(){
+            $(this).removeClass('selected')
+        })
+        
+        if(location.hash && location.hash != -1) {
+            $(location.hash).each(function(){
+                var target = $(this)
+                target.addClass('selected')
+                setTimeout(function(){
+                    target.removeClass('selected')
+                }, 5000)
+            })
+        }
+        
+        $('nav a[href^="#"]').click(function(){
+            var target = $(this.getAttribute('href'))
+            target.addClass('selected')
+            setTimeout(function(){
+                target.removeClass('selected')
+            }, 5000)
+        })
+        </script>
+    </body>
+</html>

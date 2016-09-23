@@ -1,0 +1,8 @@
+#!/bin/bash
+for a in *; do
+if [[ $a == *.py ]]; then
+    cp $a ${a}.py3
+    2to3 -w ${a}.py3
+    rm -f ${a}.py3.bak
+fi
+done

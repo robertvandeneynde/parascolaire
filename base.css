@@ -1,0 +1,259 @@
+body {
+    margin: 15px;
+    background: #f6f6f6;
+    font-size: 16px; /* Google recommendation */
+}
+
+section {
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    
+    padding: 20px;
+    background: #F7F7FF;
+    border-radius: 0px 0px 25px 25px;
+}
+
+.index section:first-of-type {
+    padding-top: 0;
+    border-top: 0;
+    background: #fafafa;
+}
+
+.index section.grouping {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    border-radius: 25px;
+    transition: background 1s, border 1s;
+}
+
+.index section.grouping.selected {
+    background: #ffffff;
+    border-color: #999;
+}
+
+.index section.grouping[id=""] {
+    display: block;
+}
+
+.index .ext-py {
+    list-style-image: url('li-py.png');
+}
+
+.index .ext-php {
+    list-style-image: url('li-php.png');
+}
+
+.index .ext-java {
+    list-style-image: url('li-java.png');
+}
+
+.index .ext-pdf {
+    list-style-image: url('li-pdf.png');
+}
+
+section.notitle {
+    margin-top: 20px;
+    border-radius: 25px;
+}
+.index section.notitle {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+h2, h1 {
+    margin: 15px 0px 0px 0px;
+    border-radius: 25px 25px 0px 0px;
+    background: #fafafa;
+    border-width: 2px 2px 0 2px;
+    border-color: #ccc;
+    border-style: solid;
+}
+
+h2 {
+    padding: 20px 30px;
+}
+
+h1 {
+    color: #555;
+    white-space: nowrap;
+}
+
+.index h1 {
+    padding: 20px 30px;
+    border-bottom-width: 0;
+    padding-bottom: 0;
+}
+
+h1 .text {
+    display:inline-block;
+    padding: 0 10px;
+    white-space: normal;
+}
+
+.index h1 .text {
+    display: inline;
+    padding: 0;
+}
+
+h1.nocontent, h2.nocontent {
+    border-radius: 25px;
+    margin: 15px 0px 15px 0px;
+    border-bottom-width: 2px;
+}
+
+h1 .homeicon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 2.0em; /* height_of_text + padding */
+    border-radius: 25px 0px 0px;
+    width: 40px;
+    border-right: 2px solid rgb(204, 204, 204);
+    background-image: url("home.png");
+    background-size: 40px 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1.nocontent .homeicon {
+    border-radius: 25px 0 0 25px;
+}
+
+nav {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    background: #fafafa;
+}
+nav a {
+    display: inline-block;
+    padding: 10px;
+    border-left: 1px solid #ccc;
+}
+nav a:first-child {
+    border-left: 0px none;
+    border-radius: 5px 0 0 5px;
+}
+nav a:last-child {
+    border-radius: 0 5px 5px 0;
+}
+nav {
+    margin: 15px 15px 0 15px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 480px) {
+nav a {
+    display: block;
+    border: 0;
+    text-align: center;
+}
+nav {
+    width: 100%;
+}
+.index .part {
+    white-space: normal !important;
+    text-align: center;
+}
+}
+
+h1 .text {
+    vertical-align: middle;
+}
+h1 a.homepage {
+    vertical-align: middle;
+    display: inline-block;
+}
+h1 a.homepage img {
+    width: 24px;
+    height: 24px;
+    padding: 10px;
+}
+
+.index h1 .text {
+    margin-left: 10px;
+}
+
+.index li {
+    padding: 2px 0px;
+}
+
+a, a:visited {
+    color: #339; /* 009 */
+    text-decoration: none;
+}
+
+a:visited {
+    /* color: #66f; */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #33c;
+}
+
+a.next[href]:not([href=""])::after {
+    content:" ›"; /* U+203A */
+}
+
+a.prev[href]:not([href=""])::before {
+    content: "‹ "; /* U+2039 */
+}
+
+/*
+a.prev:not([href]), a.next:not([href]),
+a.prev[href=""], a.next[href=""] {
+    visibility: hidden;
+}
+*/
+
+.index h1 {
+    color: #063490;
+    margin: 0;
+    /* font-size: 24px; */
+}
+
+.index .part {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.index .part nav {
+    white-space: normal;
+}
+
+.index .part strong {
+    color: #3333cc;
+}
+
+.index .dir-name.root {
+    display: none;
+}
+
+.index hr {
+    height: 1px;
+    border: 0;
+    background: #ccc;
+}
+
+.index hr#theorie {
+    height: 0;
+}
+
+.index #selfdomain {
+    background: #ededed;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+figure .element {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+figure .element img {
+    display: block;
+}

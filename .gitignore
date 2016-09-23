@@ -1,0 +1,14 @@
+*.py.html
+*.py.txt
+*.java.html
+*.php.html
+*.js.html
+*.java.txt
+*.php.txt
+*.js.txt
+/index.html
+/private
+/.kateproject
+__pycache__
+/.kateproject.d/
+*.class

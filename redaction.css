@@ -1,0 +1,43 @@
+
+pre {
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    vertical-align: middle;
+    overflow-x: auto;
+}
+
+img:not(.free) {
+    border: 2px solid black;
+}
+
+img:not(.free), pre {
+    max-width: 100%;
+}
+
+.animation-components {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+.animation-components > * {
+    position: absolute;
+}
+
+.launch-animation {
+    cursor: pointer;
+    /* vertical-align: bottom */
+}
+
+.exercice {
+    display: inline-block;
+}
+.slide {
+    border: 1px solid #ccc;
+    max-width: 100%;
+}
+.next, .prev, h2 {
+    cursor: pointer;
+}

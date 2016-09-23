@@ -1,0 +1,395 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="stick-icon.png" rel="icon" type="image/png"/>
+    <title>Physique : Forces et mouvement</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="animations.js"></script>
+    <link rel="stylesheet" href="base.css"/>
+    <link rel="stylesheet" href="redaction.css"/>
+    <script type="text/javascript"
+        async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+    </script>
+    
+    <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <script>
+        $(function(){ hljs.initHighlightingOnLoad() })
+    </script>
+</head>
+<body class="math">
+    <h1 class="nocontent"><!--
+        --><a class="homeicon" href="index.html"></a><!--
+        --><span class="text">Physique : Forces et mouvement</span><!--
+    --></h1>
+    
+    <nav>
+        <a href="#mouvement">Mouvement</a>
+        <a href="#forces">F = ma</a>
+    </nav>
+    
+    <nav>
+        <a href="#chute-libre">Chute libre</a>
+        <a href="#gravite">Gravité - Attraction - Répulsion</a>
+        <a href="#ressort">Ressorts</a>
+        <a href="#frottement-lineaire">Frottement linéaire</a>
+        <a href="#frottement-air">Frottement de l'air</a>
+    </nav>
+    
+    <h2 id="mouvement"><a href="#">^</a> <a class="prev" href="#vecteurs"></a> <a class="next" href="#forces">Mouvement : déplacement, vitesse et accélération</a></h2>
+    
+    <section>
+    
+        <p>
+            Vous voulez faire de chouette animations réalistes comme un <a href="#chutelibre">saut</a> ou une <a href="#gravite">attraction de planètes</a> ?
+            Les forces sont la manière simple d'aborder ce problème !
+        </p>
+        
+        <p><em>
+            Le concept de vecteur doit être assimilé, j'en fait une explication plus détaillée <a href="math.html#vecteurs">ici</a> sur ma page de math.
+        </em></p>
+        
+        <p>
+            J'introduis de manière concise la notion de déplacement, vitesse et accélération.
+            Pour une autre introduction, je vous conseille les 4 vidéos 
+            <a href="http://www.clipedia.be/physique/cinematique/le-mouvement-position-et-deplacement">[1]</a>
+            <a href="http://www.clipedia.be/physique/cinematique/le-mouvement-fonction-et-graphe">[2]</a>
+            <a href="http://www.clipedia.be/physique/cinematique/le-mouvement-rectiligne-uniforme-introduction">[3]</a>
+            <a href="http://www.clipedia.be/physique/cinematique/le-mouvement-rectiligne-uniforme-generalisation">[4]</a>
+            sur le sujet sur
+            <a href="http://www.clipedia.be">Clipedia</a>.
+            Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les vidéos.
+            N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
+        </p>
+        
+        <p>La vitesse est le déplacement divisé par le temps. Si vous vous déplacez de <strong>5</strong> mètres pendant <strong>1</strong> seconde, vous faites du <strong>5</strong> m/s (si votre vitesse ne change pas pendant le trajet&nbsp;: vitesse <em>constante</em>).</p>
+        <p>$v = \cfrac{\Delta x}{\Delta t}$</p>
+        <p>Graphiquement, la vitesse est la <em>pente de la droite</em> dans le graphique <em>position en fonction du temps</em>.</p>
+        <p>La vitesse, comme la position et le déplacement, est une grandeur vectorielle. Si vous vous déplacez en arrière, votre vitesse est négative. On peut aussi se déplacer à 45, 60 ou 180 degrés.</p>
+        <p>$\vec{v} = \cfrac{\vec{\Delta x}}{\Delta t}$</p>
+        <p>De même, l'accélération est la différence de vitesse divisé par le temps. Si vous gagnez <strong>5</strong> m/s en une <strong>1</strong> seconde, vous subissez une accélération de $\cfrac{5\ m/s}{s}$ $= 5\cfrac{m}{s} \cfrac{1}{s}$ $= 5\cfrac{m}{s^2}$ = <strong>5 m/s²</strong> (si votre accélération est constante).</p>
+        <p>$\vec{a} = \cfrac{\vec{\Delta v}}{\Delta t}$</p>
+        <p>Dans une simulation numérique, on connaît l'accélération à chaque instant (à chaque <em>tick</em>). Par exemple dans une chute libre, l'accélération est constante vers le bas. Avec l'accélération, on calcule la différence de vitesse et donc la nouvelle vitesse.</p>
+        <p>$\vec{\Delta v} = \vec{a} \cdot \Delta t$
+        <br/> $\vec{v'} = \vec{v} + \vec{\Delta v}$</p>
+        
+        <p>Et puis le déplacement et donc la nouvelle position&nbsp;:</p>
+        <p>$\vec{\Delta x} = \vec{v'} \cdot \Delta t$
+        <br/>$\vec{x'} = \vec{x} + \vec{\Delta x}$</p>
+        
+        <p>Voici un bel exemple de simulation numérique de chute libre !</p>
+<pre><code class="python">...
+
+y = 300.0
+v = -5.00
+g = 0.05
+
+dt = 1
+
+fini = 0
+while fini == 0:
+    ...
+    
+    a = g # chute libre
+    v = v + a * dt
+    y = y + v * dt
+    
+    ...
+    
+    pygame.draw.rect(ecran, rouge, [100, y, 10, 10])
+    
+    ...
+</code></pre>
+
+    <p>Dans de vraies simulations, le paramètre dt est important pour la précision. Mais ici <strong>dt = 1</strong>. <strong>dt = 1 tick</strong>.</p>
+    
+    </section>
+    
+    <h2 id="forces"><a href="#">^</a> <a href="#mouvement" class="prev"></a> <a class="next">F = ma</a></h2>
+    
+    <!-- forces
+        loi-de-newton        La loi de Newton : F = ma
+        chute-libre           Chute libre
+        gravite              Gravité de planètes et attraction de charges
+        ressort              Ressort
+        frottement-lineaire  Frottement linéaire
+        frottement-air       Frottement de l'air
+    -->
+    
+    <section>
+        
+    <h3 id="loi-de-newton"><a href="#forces">^</a> <a href="#forces" class="prev"></a> <a href="#chute-libre" class="next"> La loi de Newton : F = ma</a></h3>
+        <p>
+            J'introduis de manière concise la notion de force avec quelques exemples.
+            Pour une autre introduction aux forces, je vous conseille la vidéo sur 
+            <a href="http://www.clipedia.be/physique/dynamique/la-loi-de-newton">la loi de Newton</a>.
+            Cette vidéo est la 4ème d'une série de 4 vidéos
+            <a href="http://www.clipedia.be/physique/dynamique/le-principe-de-relativite">[1]</a>
+            <a href="http://www.clipedia.be/physique/dynamique/le-principe-d-inertie">[2]</a>
+            <a href="http://www.clipedia.be/physique/dynamique/le-proces-de-galilee">[3]</a>
+            <a href="http://www.clipedia.be/physique/dynamique/la-loi-de-newton">[4]</a>
+            liées à ce sujet sur <a href="http://www.clipedia.be">Clipedia</a>.
+            Les trois premières vidéos sont une introdution historique mais la 4ème entre dans le vif du sujet.
+            Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les vidéos 2 à 4.
+            N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
+        </p>
+        
+        <p>
+            Dans le monde physique, ce qui crée des accélérations, ce sont des forces.
+            Par exemple pour la chute libre, nous avons la force de pesanteur.
+        </p>
+        
+        <p>
+            Un autre exemple est la force musculaire. Quand je pousse un objet il subit une accélération
+            dans le même sens que ma force.
+            Au plus l'objet est <strong>gros</strong> (masse élevée), au <strong>moins</strong> l'accélération est grande.
+            Nous avons&nbsp;:
+        </p>
+        
+        <p>
+            $\vec{a} = \cfrac{\vec{F}}{m}$ $\iff \vec{F} = m \vec{a}$
+        </p>
+        
+        <p>
+            La masse est en <strong>kg</strong>, l'accélération en <strong>m/s²</strong>. Les unités d'une force sont le Newton&nbsp;: $N = kg\cfrac{m}{s^2}$.
+        </p>
+        
+        <p>
+            Si je pousse un objet de <strong>1</strong>kg avec une force de <strong>1</strong>N, il subira une accélération de <strong>1</strong>m/s².
+            Si je pousse un objet de <strong>10</strong>kg avec une force de <strong>1</strong>N, il ne subira qu'une accélération de <strong>0.10</strong> m/s².
+        </p>
+        
+        <p>
+            Si un objet subit plusieurs forces, celles-ci s'additionne (vectoriellement !).
+            Ainsi si deux personnnes poussent un objet de <strong>1</strong>kg chacun avec force de <strong>20</strong>N à ± <strong>30°</strong> comme ceci&nbsp;:
+        </p>
+        
+        <p>
+            <img src="vecteurs-somme-force.png"/>
+        </p>
+        
+        <p>
+            L'objet subira une accélération horizontale d'uniquement $34.64\ m/s²$.
+            On a :
+        </p>
+        
+        <ul>
+            <li>$\vec{F_1} = 20N\ (\cos (30°),\ \sin (30°)) $$= (17.32,\ 10) N$</li>
+            <li>$\vec{F_2} = 20N\ (\cos (-30°),\ \sin (-30°)) $$= (17.32,\ -10) N$</li>
+            <li>$\vec{F_1} + \vec{F_2} = (17.32,\ 10) N $$+ (17.32, -10) N$ $= (34.64,\ 0) N$</li>
+        </ul>
+        
+        <p>
+            Les composantes en y des deux forces s'annulent.
+        </p>
+    
+    <h3 id="chute-libre"><a href="#forces">^</a> <a href="#loi-de-newton" class="prev"></a> <a href="#gravite" class="next"> Chute libre</a></h3>
+    
+        <p>La chute libre est très pratique pour faire un <strong>saut</strong> dans un jeu.</p>
+        
+        <p>L'accélération des corps sur la terre est la même pour tous ($a = g$), vu que $F = ma$ on a donc&nbsp;:</p>
+        
+        <p>$F_g = m g$</p>
+        
+        <pre><code class="python">F_chutelibre = m * g</code></pre>
+        
+        <div class="animation-components" style="left: 20px; top: -20px;">
+            <img class="free vecteur_accel" src="vecteur-vert.png" height=16 width=1/>
+            <img class="free vecteur_vitesse" src="vecteur-bleu.png" height=16 width=1/>
+            <img class="launch-animation free jumpstick" src="stick.png" height=64/>
+            <img class="free vecteur_accel" src="vecteur-vert.png" height=16 width=1/>
+            <img class="free vecteur_vitesse" src="vecteur-bleu.png" height=16 width=1/>
+        </div>
+        
+        <p><em>Clique sur gravity-master-light-saber pour voir une chute libre &ndash; Clic droit pour un ralenti &ndash; Tu peux apercevoir la <span style="color:#0066ff">vitesse</span> et l'<span style="color:#009900">accélération</span>.</em></p>
+        
+        <p>
+            La direction est vers le bas. Dans pygame on aura donc une force $(0,\ m g)$
+            mais dans les exercices de physique où l'axe y est vers le haut on aura sûrement $(0,\ - m g)$.
+        </p>
+    
+    <h3 id="gravite"><a href="#forces">^</a> <a href="#chute-libre" class="prev"></a> <a href="#ressort" class="next"> Gravité de planètes et attraction de charges</a></h3>
+    
+        <p>
+            Plus d'infos sur l'électricité dans la série de <a href="http://www.clipedia.be/physique/electricite-et-magnetisme/l-electricite-faconne-notre-univers">6 vidéos</a> sur <a href="http://www.clipedia.be">clipedia</a> !
+        </p>
+
+        
+        <div style="display: inline-block; vertical-align:middle">
+            <p>
+                $F_G = G \cfrac{m_1 m_2}{d^2}$
+            </p>
+            
+            <pre><code class="python">F_gravite = G * m1 * m2 / d ** 2</code></pre>
+        </div>
+        
+        <div style="height: 125px; width: 250px; display: inline-block; vertical-align: middle;">
+            <div class="animation-components" style="left: 36px; top: 100px;">
+                <img class="free sun" src="sun.png" height=64/>
+                <img class="free vecteur_accel" src="vecteur-vert.png" height=16 width=1/>
+                <img class="free vecteur_vitesse" src="vecteur-bleu.png" height=16 width=1/>
+                <img class="launch-animation free planet" src="planet.png" height=32/>
+            </div>
+        </div>
+        
+        <p>
+            La loi de gravitation universelle dit que la force est inversément proportionnelle au carré de la distance.
+            La direction est évidemment attractive.
+        </p>
+        
+        <p><em>Clique sur la terre pour voir la force de Newton en action &ndash; Clic droit pour un ralenti.</em></p>
+        
+        <p>Vectoriellement, vu que la force est attractive, on note&nbsp;:</p>
+        
+        <p>
+            $\vec{F_G} = G \cfrac{m_1 m_2}{d^2} \ \vec{1_d}$
+        </p>
+        
+        <p>Où $\vec{1_d}$ est le vecteur de direction par rapport à l'autre planète.</p>
+        
+        <p>
+            Pour savoir la valeur de $G$ dans la vraie vie, regardez sur <a href="https://fr.wikipedia.org/wiki/Constante_gravitationnelle">wikipedia</a>.
+        </p>
+        
+        <p>Dans l'approximation où la distance ne change pas lorsqu'on fait une chute libre. Nous retournons à $F = mg$. Essaie de trouver le lien entre $g$ et $G$ !</p>
+        
+        <p>
+            La loi de coulomb est une loi qui dicte l'attraction de charges électriques.
+            La formule est la même que la loi d'attraction (les masses sont des charges et la constante change) sauf qu'ici les charges peuvent être négatives ! Ce qui fait une répulsion.
+        </p>
+        
+        <p>
+            $\vec{F_E} = -\ k_C \cfrac{q_1 q_2}{d^2} \ \vec{1_d}$
+        </p>
+        
+        <pre><code class="python">F_electricite = - kC * q1 * q2 / d ** 2</code></pre>
+        
+        <ul>
+            <li>Si $q_1$ et $q_2$ sont de signes différents (l'un est positif et l'autre négatif). Alors $q_1 \cdot q_2 < 0$ et la force est attractive comme pour la gravitation.</li>
+            <li>Si $q_1$ et $q_2$ sont de même signe (tous les deux positifs ou tous les deux négatifs). Alors $q_1 \cdot q_2 > 0$ et la force est répulsive.</li>
+        </ul>
+        
+        <p>
+            La constante est ici la <a href="https://fr.wikipedia.org/wiki/Loi_de_Coulomb_%28%C3%A9lectrostatique%29">constante de coulomb</a>.
+        </p>
+        
+        <p>
+            Plus  d'infos sur cette équation dans la série de <a href="http://www.clipedia.be/physique/electricite-et-magnetisme/l-electricite-faconne-notre-univers">6 vidéos</a> sur <a href="http://www.clipedia.be">clipedia</a> !
+        </p>
+    
+    <h3 id="ressort"><a href="#forces">^</a> <a href="#gravite" class="prev"></a> <a href="#frottement-lineaire" class="next"> Ressort</a></h3>
+    
+        <p>$\vec{F_r} = -\ k\ \vec{x}$</p>
+        <pre><code class="python">F_ressort = - k * x</code></pre>
+        
+        <div style="height: 52px; width: 200px; display:inline-block; vertical-align: top; position: relative; top: 20px;" >
+            <div class="animation-components" style="left: 80px; top: 16px;">
+                <img class="free springimg" src="spring.png" width=32 />
+                <img class="free vecteur_accel" src="vecteur-vert.png" height=16 width=1/>
+                <img class="free vecteur_vitesse" src="vecteur-bleu.png" height=16 width=1/>
+                <img class="launch-animation free ressort" v0x="-15" v0y="0" times="4" src="rock.png" height=32 />
+                <img class="free springattach" src="nail.png" height=24 />
+            </div>
+        </div>
+        
+        <p><em>Clique sur la pierre pour voir le pouvoir du ressort &ndash; Clic droit pour un ralenti</em>.</p>
+        
+        <p>
+            Le x apparaîssant ici est le <strong>déplacement</strong> depuis la position de repos.
+            Autrement dit, le x représente l'élongation.
+        </p>
+        
+        <p>
+            $k$ est le coefficient de rappel du ressort. Plus il est grand, plus les mouvements seront forts !
+        </p>
+        
+        <p>
+            Un ressort est un objet qui a une position de repos (disons <strong>5cm</strong>).
+            Quand son élongation est de <strong>5cm</strong>. La force est nulle.
+        </p>
+        
+        <p>
+            S'il est en <strong>6cm</strong>, il est étiré de <strong>+1cm</strong> (1cm vers la droite) et emet une force disons de <strong>-1N</strong> (1N vers la gauche).
+            S'il est étiré de <strong>4cm</strong>, il est étiré de <strong>-1cm</strong> (1cm vers la gauche) et emet une force de <strong>-1N</strong> (1N vers la droite).
+        </p>
+        
+        <p>
+            Le ressort émet donc une force <strong>opposée</strong> et <strong>proportionnelle</strong> au déplacement par rapport au point de repos.
+        </p>
+        
+        <div style="display: inline-block; text-align:center; max-width: 100%;">
+            <img style="display:block" src="forces-ressort.png"/>
+            <div style="margin-top: 10px; display: inline-block; text-decoration: italic;">Accélération d'un ressort à position de repos x = 0</div>
+        </div>
+        
+        <p>
+            Nous avons donc une force opposée à l'élongation, la force fera en sorte de <strong>rappeler</strong> la masse vers la position de repos. On appelle donc cette force, <strong>force de rappel</strong>.
+        </p>
+        
+        </p>
+            En 1D, le x est réel qui peut être positif ou négatif, en 2D/3D, $\vec{x}$ est un vecteur.
+        </p>
+        
+        <p>
+            Clique sur la pierre ci dessous pour voir un déplacement 2D.
+        </p>
+        
+        <div style="height: 52px; width: 200px; display:inline-block; vertical-align: top; position: relative; top: 20px;" >
+            <div class="animation-components" style="left: 80px; top: 16px;">
+                <img class="free springimg" src="spring.png" width=32 />
+                <img class="free vecteur_accel" src="vecteur-vert.png" height=16 width=1/>
+                <img class="free vecteur_vitesse" src="vecteur-bleu.png" height=16 width=1/>
+                <img class="launch-animation free ressort" src="rock.png" v0x="0" v0y="20" times="1" height=32 />
+                <img class="free springattach" src="nail.png" height=24 />
+            </div>
+        </div>
+        
+        <p>Le x peut aussi être un angle, comme dans l'exemple suivant : <img class="springpython free" src="python.png" style="height: 25px; vertical-align: middle;"/></p>
+    
+    <h3 id="frottement-lineaire"><a href="#forces">^</a> <a href="#ressort" class="prev"></a> <a href="#frottement-air" class="next"> Frottement linéaire</a></h3>
+
+        <p>Notre ressort oscille à jamais avec l'équation prise telle quelle.</p>
+        <p>Afin de ralentir et stabiliser le mouvement, une force de frottement linéaire est souvent <strong>ajoutée</strong>.</p>
+            
+        <p>$\vec{F_f} = -\ \alpha\ \vec{v}$</p>
+        
+        <pre><code class="python">F_frottement = - alpha * v</code></pre>
+        
+        <img class="springpython free" src="python.png" style="margin:5px; height: 30px; vertical-align:middle;"/>
+        
+        <p><em>Clique sur le python pour observer un angle variant comme un ressort avec frottement linéaire.</em></p>
+        
+        <p>La direction est contre (opposée) à la vitesse et proportionnelle (linéaire) à la vitesse. Ainsi, au repos (v = 0), la force est nulle.</p>
+        
+        <p>$\alpha$ est le coefficient de frottement.</p>
+    
+    <h3 id="frottement-air"><a href="#forces">^</a> <a href="#frottement-lineaire" class="prev"></a> <a class="next"> Frottement de l'air</a></h3>
+    
+        <p>
+            Le frottement de l'air est très complexe.
+            Dans certains cas il peut être représenté par une force proportionnel au <strong>carré</strong>
+            de la vitesse.
+        </p>
+        
+        <p>$F_a = c\ v^2$</p>
+        <pre><code class="python">F_air = c * v ** 2</code></pre>
+        
+        <p>La direction est également opposé à la vitesse.</p>
+        
+        <p>$\vec{F_a} = - \ c\ v^2 \ \vec{1_v}$</p>
+        
+        <p>Attention à la précision, à haute vitesse votre simulation ne risque pas de se passer très bien.</p>
+        
+        <p>Dans la vraie vie, calculer $c$ est un processus complexe, il dépend fortement de la surface touchant l'air dans la direction du mouvement.</p>
+    
+    </section>
+    
+</body>
+</html>

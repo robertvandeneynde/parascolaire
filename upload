@@ -1,0 +1,2 @@
+# rsync -r --delete . denis:parascolaire --exclude=.git --exclude=private
+rsync -r --delete . surmaroute:siteperso/parascolaire --exclude=.git --exclude=private
