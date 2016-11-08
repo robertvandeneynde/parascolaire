@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -31,12 +32,18 @@
         
         <section>
             <p>Bien que vous pouvez faire ce que vous voulez, voici quelques idées si vous êtes à court. D'autres idées sont disponibles sur <a href="http://programarcadegames.com/index.php?chapter=introduction_to_sprites&amp;lang=fr#section_13">programarcadegames</a>. Section 13 - Paragraphe "Game Class"</p>
-            <p>N'importe quel projet vous apprendra beaucoup de mise en pratique des 4 éléments de base de la théorie (=, if, while, list). Quand votre projet grandira, ce sera nécessaire de lire le chapitre 3 de la théorie&nbsp; fonctions et objets.<p>
-            <p>Si vous êtes à l'aise et motivé, il est même possible d'apprendre plus, comme écrire dans les fichiers/bases de données. Faire du réseau (en LAN d'abord), ou même faire de la <a href="gl_brick.py.html">3D</a>.</p>
+            <p>N'importe quel projet vous apprendra beaucoup de mise en pratique des 4 éléments de base de la théorie (=, if, while, list). Quand votre projet grandira, ce sera nécessaire de lire le chapitre 3 de la théorie : fonctions et objets.<p>
+            <p>Si vous êtes à l'aise et motivé, il est même possible d'apprendre plus, comme écrire dans <a href="progra_fichier.py.html">les fichiers</a> ou bases de données. Faire du réseau (en LAN d'abord), ou même faire de la <a href="gl_brick.py.html">3D</a>.</p>
+            <p>Voici quelques projets de l'année passée : (cliquez pour voir en grand !)</p>
+            <figure>
+                <a href="projet-michal-screenshot.png"><img src="projet-michal-screenshot.png" height="300" /></a>
+                <a href="projet-arnaud-screenshot.png"><img src="projet-arnaud-screenshot.png" height="300" /></a>
+            </figure>
+            <p>Le code de ces projets est disponible ici : <a href="projet_michal_code.py.html">michal</a> [<a href="projet-michal.zip">zip</a>], <a href="projet_arnaud_code.py.html">arnaud</a> [<a href="projet-arnaud.zip">zip</a>], téléchargez le zip pour y jouer !</p>
         </section>
         
         <nav>
-            <a href="#annexes">Annexes</a> 
+            <a href="algos.html">Algos</a> 
         </nav>
         
         <nav>
@@ -49,17 +56,26 @@
             <a href="#rpg">RPG</a> 
         </nav>
         
-        <h2 id="pong"><a href="#">^</a> <a class="prev" href="#" ></a> <a class="next" href="#spaceinvaders">Pong</a></h2>
+        <h2 id="pong">Pong</h2>
         
         <section>
-            <p>Suite logique des exemples sur pygame.</p>
+            <p>Ce projet est le premier défi demandé au cours :</p>
             
-            <p>En commençant par le strict minimum&nbsp;</p>
+            <ul>
+                <li>Une balle se déplaçant vers la droite, il faut créer une <strong>variable</strong> <code>ma_position</code>. Au tout début du code, ma_position = 100 (par exemple). Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à ma_position.</li>
+                <li>Elle sort de l'écran... Vu que l'écran est de taille 700x500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.</li>
+                <li>Mainteant la balle reste dans l'écran mais ne rebondit pas, il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. On peut aussi dire 1 et 2, ou 0 et 1 !</li>
+                <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em></li>
+                <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.</li>
+                <li>On peut faire deux dessins différents en fonction du sens ! Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>. Les triangles peuvent être dessinés avec <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code> ou avec une <a href="pygame7_images.py">image</a>.</li>
+            </ul>
+            
+            <p>Ensuite on fait les fonctionnalités de base :</p>
             
             <ul>
                 <li>Une balle rebondissant sur les bords du plateau</li>
                 <li>Une palette à gauche qui se déplace avec les touches du clavier. Attention à ne pas sortir de l'écran</li>
-                <li>La balle retourne au centre si elle rate la palette (<a href="#collisions">collision</a> avec le bord gauche sans que la palette soit là)</li>
+                <li>La balle retourne au centre si elle rate la palette (<a href="algos.html#collisions">collision</a> avec le bord gauche sans que la palette soit là)</li>
                 <li>Une deuxième palette</li>
             </ul>
             
@@ -68,87 +84,87 @@
             <ul>
                 <li>La balle commence avec une direction au <a href="progra_hasard.py.html">hasard</a>.</li>
                 <li>Plusieurs balles. LISTE.</li>
-                <li>Missiles pour détruire l'adversaire ou l'immobiliser (<a href="#collisions">collisions</a>)</li>
-                <li>Plusieurs types de balles&nbsp;
+                <li>Missiles pour détruire l'adversaire ou l'immobiliser (<a href="algos.html#collisions">collisions</a>).</li>
+                <li>Plusieurs types de balles :
                     <ul>
-                        <li>Grandes</li>
-                        <li>Rapides</li>
-                        <li>Explosives</li>
-                        <li>Avec un bonus ou malus</li>
-                        <li>Avec de la gravité... Qui veut un 10/10 en <a href="physique.html">physique</a> ?</li>
+                        <li>Grandes.</li>
+                        <li>Rapides.</li>
+                        <li>Explosives.</li>
+                        <li>Avec un bonus ou malus.</li>
+                        <li>Avec de la gravité... Qui veut un 10/10 en <a href="physique.html">physique</a> ?</li>
                     </ul>
                 </li>
-                <li>Obstacles pour les balles</li>
-                <li>Plusieurs palettes pour jouer avec ses amis</li>
-                <li>Une IA pour remplacer ses amis trop mauvais</li>
-                <li>Rajouter des blocs pour faire un casse-brique</li>
+                <li>Obstacles pour les balles.</li>
+                <li>Plusieurs palettes pour jouer avec ses amis.</li>
+                <li>Une IA pour remplacer ses amis trop mauvais.</li>
+                <li>Rajouter des blocs pour faire un casse-brique.</li>
             </ul>
         </section>
         
-        <h2 id="spaceinvaders"><a href="#">^</a> <a class="prev" href="#pong" ></a> <a class="next" href="#snake">Space invaders</a></h2>
+        <h2 id="spaceinvaders">Space invaders</h2>
         
         <section>
-            <p>Avec votre <a href="player.png">vaisseau</a> et vos <a href="invader.png">invader</a>, exterminez les tous !</p>
+            <p>Avec votre <a href="player.png">vaisseau</a> et vos <a href="invader.png">invader</a>, exterminez les tous !</p>
             
             <ul>
-                <li>Un vaisseau que vous contrôlez avec les flèches gauche/droite</li>
+                <li>Un vaisseau que vous contrôlez avec les flèches gauche/droite.</li>
                 <li>Un android qui se déplace. Ligne 1, Ligne 2, Ligne 3... Ligne du vaisseau.</li>
-                <li>On peut tirer un et un seul missile, si celui-ci <a href="#collisions">touche</a> l'android, partie gagnée ! Si celui-ci atteint le bas de l'écran, partie perdue...</li>
+                <li>On peut tirer un et un seul missile, si celui-ci <a href="algos.html#collisions">touche</a> l'android, partie gagnée ! Si celui-ci atteint le bas de l'écran, partie perdue...</li>
                 <li>Plusieurs android et/ou plusieurs missiles. LISTE.</li>
             </ul>
                 
             <h3>Améliorations</h3>
             
-            <p>Plusieurs types d'android&nbsp;</p>
+            <p>Plusieurs types d'android :</p>
             <ul>
-                <li>Différents mouvements</li>
-                <li>Points de vie</li>
-                <li>Sorts/Missiles (<a href="physique.html#chutelibre">chute libre</a> de bombe)</li>
-                <li>IA pour des androids costauds</li>
+                <li>Différents mouvements.</li>
+                <li>Points de vie.</li>
+                <li>Sorts/Missiles (<a href="physique.html#chutelibre">chute libre</a> de bombe).</li>
+                <li>IA pour des androids costauds.</li>
             </ul>
             
-            <p>Plusieurs missiles/types d'armes&nbsp;</p>
+            <p>Plusieurs missiles/types d'armes :</p>
             <ul>
-                <li>Le rayon laser one shot</li>
-                <li>Le rayon laser continu</li>
-                <li>Le Gros rayon</a>
-                <li>L'explosif</li>
-                <li>Le missile à tête chercheuse</li>
-                <li>L'invocation, un autre vaisseau avec une IA</li>
+                <li>Le rayon laser one shot.</li>
+                <li>Le rayon laser continu.</li>
+                <li>Le Gros rayon.</a>
+                <li>L'explosif.</li>
+                <li>Le missile à tête chercheuse.</li>
+                <li>L'invocation, un autre vaisseau avec une IA.</li>
             </ul>
             
-            <p>Multijoueur&nbsp;</p>
+            <p>Multijoueur :</p>
             
             <ul>
-                <li>Plusieurs vaisseaux pour jouer avec vos amis</li>
-                <li>Une IA pour remplacer vos amis trop mauvais</li>
+                <li>Plusieurs vaisseaux pour jouer avec vos amis.</li>
+                <li>Une IA pour remplacer vos amis trop mauvais.</li>
             </ul>
         </section>
         
-        <h2 id="snake"><a href="#">^</a> <a class="prev" href="#spaceinvaders" ></a> <a class="next" href="#serveuse">Snake</a></h2>
+        <h2 id="snake">Snake</h2>
         
         <section>
         
-            <p>Le snake du vieux nokia 3310. Ah vous êtes trop jeune pour avoir connu ce téléphone ? #vieux</p>
+            <p>Le snake du vieux nokia 3310. Ah vous êtes trop jeune pour avoir connu ce téléphone ? #vieux</p>
             
             <ul>
                 <li>Un snake de Un carré. Il se déplace tout droit de case en case.</li>
                 <li>Quand on appuie sur une touche du clavier, il change de direction.</li>
-                <li>On perd quand on touche le bord de l'écran... ou bien on arrive de l'autre côté !</li>
+                <li>On perd quand on touche le bord de l'écran... ou bien on arrive de l'autre côté !</li>
                 <li>Une pomme est sur une case au <a href="progra_hasard.py.html">hasard</a>. Si le snake la touche (= est sur la même case), la pomme est sur une autre case au hasard.</li>
-                <li>Un vrai déplacement de snake&nbsp; LISTE de têtes. Le joueur perd si il touche une partie de son corps.</li>
+                <li>Un vrai déplacement de snake : LISTE de têtes. Le joueur perd si il touche une partie de son corps.</li>
             </ul>
             
             <h3>Améliorations</h3>
             
             <ul>
-                <li>Plusieurs snakes pour jouer avec vos amis</li>
-                <li>Un mode coop ou affrontement</il>
-                <li>Une IA pour remplacer vos amis trop mauvais</li>
+                <li>Plusieurs snakes pour jouer avec vos amis.</li>
+                <li>Un mode coop ou affrontement.</il>
+                <li>Une IA pour remplacer vos amis trop mauvais.</li>
             </ul>
         </section>
         
-        <h2 id="serveuse"><a href="#">^</a> <a class="prev" href="#snake" ></a> <a class="next" href="#agario">Serveuse</a></h2>
+        <h2 id="serveuse">Serveuse</h2>
         
         <section>
             <p>
@@ -160,17 +176,17 @@
                 Les clients mangent et quand ils partent en payant l'addition vous devez ramenez leur vaisselle en cuisine.
             </p>
             
-            <p>Je propose de faire cela dans cet ordre&nbsp;</p>
+            <p>Je propose de faire cela dans cet ordre :</p>
             
             <ul>
-                <li>Deux carrés&nbsp; la table, la cuisine</li>
-                <li>Un cercle&nbsp; la serveuse. Celle-ci peut se déplacer de l'un à l'autre avec le clic de la souris.</li>
+                <li>Deux carrés : la table, la cuisine.</li>
+                <li>Un cercle : la serveuse. Celle-ci peut se déplacer de l'un à l'autre avec le clic de la souris.</li>
                 <li>Toutes les 60 secondes (3600 ticks à 60fps donc), un client arrive et s'installe à la table. Si il y a déjà un client quand un nouveau arrive, vous perdez une vie ou la partie.</li>
-                <li>Le client a une envie de plat&nbsp; le 1, le 2, le 3 ... et pourquoi pas le 0 ? Une couleur peut être assignée à chaque plat.</li>
+                <li>Le client a une envie de plat : le 1, le 2, le 3 ... et pourquoi pas le 0 ? Une couleur peut être assignée à chaque plat.</li>
                 <li>Quand on clique sur le client assis et que la serveuse est à la table, la serveuse se souvient de la commande. Sa couleur change pour voir le plat <em>qui est dans sa mémoire</em>.</li>
                 <li>Quand on clique sur la cuisine et que la serveuse y est, elle demande à la cuisine le plat qu'elle a <em>dans sa tête</em>.</li>
                 <li>On attend un certain nombre de tick (cela peut dépendre du plat). Et finalement le plat est disponible à la cuisine.</li>
-                <li>Quand on clique sur la cuisine et qu'un plat est prêt, la serveuse le prend, une autre couleur montre <em>le plat sur son plateau</em></li>
+                <li>Quand on clique sur la cuisine et qu'un plat est prêt, la serveuse le prend, une autre couleur montre <em>le plat sur son plateau</em>.</li>
                 <li>Quand on clique sur une table occupée, le plat est donné au client, si c'est le mauvais plat, vous perdez une vie ou la partie.</li>
                 <li>Le client mange et finalement s'en va. Un autre client peut arriver.</li>
             </ul>
@@ -179,34 +195,34 @@
             
             <ul>
                 <li>Plusieurs tables, plusieurs clients. LISTE.</li>
-                <li>Un plateau plus grand, pour pouvoir prendre plusieurs plats</li>
-                <li>Des boissons</li>
-                <li>Des clients demandant plusieurs plats et ou boisson</li>
-                <li>Plusieurs cuisines</li>
-                <li>Une difficulté&nbsp; le nombre de client augmente linéairement avec le temps. Ou du <a href="progra_hasard.py.html">hasard</a> dans les arrivées.</li>
-                <li>Des récompenses si les clients sont servis rapidement</li>
+                <li>Un plateau plus grand, pour pouvoir prendre plusieurs plats.</li>
+                <li>Des boissons.</li>
+                <li>Des clients demandant plusieurs plats et ou boisson.</li>
+                <li>Plusieurs cuisines.</li>
+                <li>Une difficulté : le nombre de client augmente linéairement avec le temps. Ou du <a href="progra_hasard.py.html">hasard</a> dans les arrivées.</li>
+                <li>Des récompenses si les clients sont servis rapidement.</li>
             </ul>
             
-            <p>Multijoueur</p>
+            <p>Multijoueur :</p>
 
             <ul>
-                <li>Plusieurs serveuse pour jouer avec vos amis. Essayez de faire des contrôles au clavier pour le deuxième joueur</li>
+                <li>Plusieurs serveuse pour jouer avec vos amis. Essayez de faire des contrôles au clavier pour le deuxième joueur.</li>
                 <li>Une IA pour remplacer vos amis trop mauvais.</li>
             </ul>
         </section>
         
-        <h2 id="agario"><a href="#">^</a> <a class="prev" href="#serveuse" ></a> <a class="next" href="#bomberman">Agario</a></h2>
+        <h2 id="agario">Agario</h2>
         
         <section>
-            <p>Ici le but sera de faire une version offline de <a href="http://agar.io">agar.io</a></p>
+            <p>Ici le but sera de faire une version offline de <a href="http://agar.io">agar.io</a>.</p>
             
-            <p>Je propose de faire cela dans cet ordre&nbsp;</p>
+            <p>Je propose de faire cela dans cet ordre :</p>
             
             <ul>
                 <li>Un cercle (ou un carré) se déplace <strong>horizontalements</strong> comme ceci: si la souris est à gauche, va à gauche, sinon si la souris est à droite, va à droite, sinon ne bouge pas.</li>
                 <li>Faire indépendamment le déplacement vertical, cela donne donc 9 déplacements possibles (gauche, droite, haut, bas) et (bas-gauche, bas-droite, haut-droite, haut-gauche) et fixe.</li>
-                <li>(Optionnel) Faire toutes les directions en utilisant des maths. (voir note en bas)</li>
-                <li>Le agario, peut manger une petite cellule et ainsi devenir plus grand et plus lent. (<a href="#collisions">collisions</a>).</li>
+                <li>(Optionnel) Faire toutes les directions en utilisant des maths. (voir note en bas).</li>
+                <li>Le agario, peut manger une petite cellule et ainsi devenir plus grand et plus lent. (<a href="algos.html#collisions">collisions</a>).</li>
                 <li>Quand le agario mange la cellule, elle réapparaît <a href="progra_hasard.py.html">aléatoirement</a> autre part.</li>
             </ul>
             
@@ -222,7 +238,7 @@
                 <li>Le déplacement est donc caractérisé par un déplacement en X (dx) et un déplacement en Y (dy).</li>
                 
                 <li>
-                    Cette notation est dite <em>vectorielle</em>&nbsp; un déplacement est un <strong>vecteur</strong>.
+                    Cette notation est dite <em>vectorielle</em>, un déplacement est un <a href="math.html#vecteurs">vecteur</a>.
                     dx,dy sont les <strong>composantes</strong> de ce vecteur.
                     Il peut être représenté par une <strong>flèche</strong>.
                 </li>
@@ -233,98 +249,29 @@
             
             <ul>
                 <li>Plusieurs cellules de nouriture. LISTE.</li>
-                <li>Possibilité de <em>feed</em>. Pour le mouvement dans un premier temps tu peux le faire à vitesse constante sur une certaine distance, ensuite il serait plus intéressant de faire un <a href="physique.html#frottementlineaire">frottement linéaire</a></li>
+                <li>Possibilité de <em>feed</em>. Pour le mouvement dans un premier temps tu peux le faire à vitesse constante sur une certaine distance, ensuite il serait plus intéressant de faire un <a href="physique.html#frottementlineaire">frottement linéaire</a>.</li>
                 <li>Possibilité de <em>split</em>.</li>
             </ul>
             
             <p>Multijoueur</p>
             
             <ul>
-                <li>Plusieurs agario pour jouer avec vos amis. Essayez de faire des contrôles au clavier pour le deuxième joueur</li>
+                <li>Plusieurs agario pour jouer avec vos amis. Essayez de faire des contrôles au clavier pour le deuxième joueur.</li>
                 <li>Une IA pour remplacer vos amis trop mauvais.</li>
             </ul>
         </section>
         
-        <h2 id="bomberman"><a href="#">^</a> <a class="prev" href="#agario" ></a> <a class="next" href="#rpg">Bomberman</a></h2>
+        <h2 id="bomberman">Bomberman</h2>
         
         <section>
             <p>Jeu d'arcade où des joueurs doivent s'affronter sur un terrain quadrillé en posant des bombes qui détruisent les bombes ou les bomberman.</p>
         </section>
        
-        <h2 id="rpg"><a href="#">^</a> <a class="prev" href="#bomberman" ></a> <a class="next" href="#annexes">RPG</a></h2>
+        <h2 id="rpg">RPG</h2>
         
         <section>
             <p>Un rpg, comme Zelda en 2D. Ici c'est trop vaste pour vous proposer un projet, libre cours à votre imagination.</p>
             <p>Pokemon est également un chouette exemple de RPG.</p>
-        </section>
-        
-        <h2 class="nocontent" id="annexes"><a href="#">^</a> <a class="prev" href="#rpg" ></a> <a class="next" href="#collisions">Annexes</a></h2>
-        
-        <h2 id="collisions"><a href="#">^</a> <a class="prev" href="#annexes" ></a> <a class="next" href="#afficherint">Collisions</a></h2>
-            
-        <section>
-            
-            <h3>Rectangle Rectangle &ndash; Point Rectangle</h3>
-            
-            <p>Pour détecter une collision rectangle-rectangle, il faut comparer la collision en X et en Y. Il y a collision si il y a collision en X ET en Y.</p>
-            <p>Par exemple en X, on a 3 cas&nbsp; <em>trop à gauche</em>, <em>trop à droite</em>, et dans le dernier cas ça touche.</p>
-            
-<pre style="display:inline-block; vertical-align: middle;"><code class="python">if le premier rectangle est trop à gauche du deuxième:
-    ne touche pas
-else:
-    if le premier rectangle est trop à droite du deuxième:
-        ne touche pas
-    else:
-        touche</code></pre>
-        
-            <figure style="display:inline-block; vertical-align: middle;"><!--
-                --><div class="element"><img src="collision-intervalles-cas-1.png" /> <figcaption>Trop à gauche</figcaption></div>
-                <div class="element"><img src="collision-intervalles-cas-2.png" /> <figcaption>Trop à droite</figcaption></div>
-                <div class="element"><img src="collision-intervalles-cas-3.png" /> <figcaption>Collision</figcaption></div><!--
-            --></figure>
-            
-            <p>Donc en 2D, on continuera notre cascade de <code>if/else</code> : en nous demandant si il est trop haut, trop bas... Ce qui nous fait 4 conditions à tester.</p>
-            <p>Pour la 3D, on continuera notre cascade avec trop loin, trop proche. Nous menant à 6 conditions.</p>
-            
-            <p>Pour avoir une collision point-rectangle, on peut voir le point comme un rectangle de taille 0.</p>
-            
-            <h3>Cercle Cercle &ndash; Point Cercle</h3>
-            
-            <p>Pour une collision cercle-cercle il y a collision si la distance entre les deux cercles est plus petite que la somme des rayons. Pour calculer la distance entre deux points, utilisez <a href="math.html">Pythagore</a>.</p>
-            
-<pre style="display:inline-block; vertical-align: middle;"><code class="python">
-distance = pythagore(centre1, centre2)
-if distance &lt; rayon1 + rayon2:
-    touche
-else:
-    ne touche pas</code></pre>
-            
-            <figure style="display:inline-block; vertical-align: middle;"><!--
-                --><div class="element"><img src="collision-cercles.png" /> <figcaption>Deux cercles qui ne se touchent pas</figcaption></div><!--
-            --></figure>
-            
-            <p>Remarquez que vu que la condition <em>distance &lt; rayon1 + rayon2</em> est la même que <em>distance² &lt; (rayon1 + rayon2)²</em>, le calcul peut se faire sans racine carrée&nbsp;</p>
-
-<pre><code class="python">dx = centre1x - centre2x
-dy = centre1y - centre2y
-if dx * dx + dy * dy &lt; (rayon1 + rayon2) * (rayon1 + rayon2):
-    touche
-else:
-    ne touche pas</code></pre>
-            
-            <p>Pour avoir une collision point-cercle, on peut voir le point comme un cercle de rayon 0</p>
-            
-        </section>
-        
-        <h2 id="afficherint"><a href="#">^</a> <a class="prev" href="#collisions" ></a> <a class="next" >Afficher des entiers</a></h2>
-        
-        <section>
-            <p>Pour afficher des infos comme le nombre de vies ou les points, on a deux choix&nbsp;</p>
-            
-            <ul>
-                <li>Soit sous forme de nombre. (<a href="pygame8_texte.py.html">pygame8_texte.py</a>)</li>
-                <li>Soit afficher une étoile par point gagné/vie restante. Cela fera travailler les boucles !</li>
-            </ul>
         </section>
         
     </body>

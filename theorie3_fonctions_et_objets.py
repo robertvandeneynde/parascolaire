@@ -372,6 +372,14 @@ alice = Personnage(40, 70, 50)
 # méditez là dessus
 # les fonctions dans une classe sont liées aux... objets !
 
+class Personnage:
+    def __init__(self, vie, max_vie=None):
+        self.vie = vie
+        self.max_vie = 100 if max_vie == None else max_vie
+        
+    def boire_potion(self, x):
+        self.vie = min(self.vie + x, self.max_vie)
+
 class Guerrier(Personnage): # un Guerrier est un Personnage
     def crier(self): # mais qui fait "crier()" différemment
         print "Arrrrrrrrgggg"
@@ -380,12 +388,13 @@ class Magicien(Personnage):
     def crier(self):
         print "Wololo"
 
-alice = Magicien()
-bob = Guerrier()
-guy = Personnage()
-personnages = [alice, bob, guy]
+alice = Magicien(50)
+bob = Guerrier(75)
+guy = Personnage(20,80)
+personnages = [alice, bob, guy] # différentes classes, mais tous des Personnages
 for perso in personnages:
-    perso.crier()
+    perso.crier() # va appeler une fonction différente en fonction de la classe
+    perso.boire_potion(10) # la fonction boire_potion existe toujours
 
 # Pour réutiliser une fonction de la classe héritée, on fait comme ceci :
 
@@ -393,6 +402,32 @@ class MagicienDouble(Personnage):
     def crier(self):
         Personnage.crier(self) # on appelle la version de "crier" qui se trouve dans "Personnage"
         print "Wouloulou"
+
+# Comment ça se passe ?
+# Python regarde si la classe de l'objet a la fonction appelée
+# Si elle ne l'a pas, elle regarde dans sa classe parente
+# Et finalement si aucune des classes parentes n'a la fonction, il lance une exception
+
+# on peut savoir si un objet "est" d'une classe
+
+print isinstance(alice, Magicien) # True
+print isinstance(bob, Magicien) # False
+print isinstance(guy, Magicien) # False
+print isinstance(guy, int) # False
+
+print isinstance(alice, Personnage) # True car héritage
+
+# on peut donner plusieurs classes pour éviter de faire un "or"
+print isinstance(alice, Magicien) or isinstance(alice, Guerrier) # long
+print isinstance(alice, (Magicien, Guerrier)) # raccourci
+
+# bien que peu utile en pratique, on peut accéder à la classe d'un objet
+cls = alice.__class__
+print cls == Magicien # True
+print cls == Personnage # True
+# toujours utiliser "isinstance" quand vous voulez tester l'appartenance
+# si votre code fait quelque chose pour un Personnage, ça devrait être
+# la même chose pour un Magicien
 
 ### Références ###
 
@@ -410,7 +445,10 @@ a[0] = 2
 print a
 print b
 
-a = Perso()
+class Personnage:
+    pass
+
+a = Personnage()
 b = a
 a.vie = 1
 print a.vie

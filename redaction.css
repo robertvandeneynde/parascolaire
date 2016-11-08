@@ -1,4 +1,29 @@
 
+@media screen and (max-width: 400px) {
+    figure {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        padding-left: 5px;
+    }
+    
+    section {
+        /* text-align: justify; */ /* don't use, fuck things up on sentences with small number of words */
+    }
+}
+
+.if-then {
+    /* not implies */
+}
+
+.implies {
+    display: none;
+}
+
 pre {
     padding: 0px;
     margin: 0px;

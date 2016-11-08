@@ -41,17 +41,18 @@ while fini == 0:
     
     # 6) UPDATE : Faire quelque chose à chaque instant/image
     
-    ma_position += 1 # on bouge de 1 pixel à droite
+    ma_position = ma_position + 1 # on bouge de 1 pixel à droite
     
-    # 7) DESSIN : on remplit l'écran de BLANC
-    ecran.fill(BLANC)
+    # 7) DESSIN
     
-    # 8) on dessine quelque chose, sinon, on ne verra rien
+    ecran.fill(BLANC) # on remplit l'écran de BLANC
+    
+    # 8) dessiner les objets, sinon, on ne verra rien
     pygame.draw.rect(ecran, ROUGE, [100,200, 20,40]) # coin en haut à gauche : x=100 y=200, taille 20x40
     pygame.draw.circle(ecran, BLEU, [100,200], 20) # centre : x=100 y=200, rayon=20
     pygame.draw.circle(ecran, VERT, [ma_position, 20], 10) # un cercle vert qui bouge
     
-    # 9) mettre à jour 
+    # 9) mettre à jour
     pygame.display.flip()
     
     # 10) attendre la clock avec les bons fps !

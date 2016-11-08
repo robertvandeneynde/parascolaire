@@ -170,10 +170,10 @@ beaucoup_de_nom = prenom * 5 # "RobertRobertRobertRobertRobert"
 very_funny = 'ha' * 3 # "hahaha"
 
 # comparer, via l'alphabet
-if prenom[0] < 'F':
-    print "Avant F"
+if prenom < 'Frederic':
+    print "Avant Frederic"
 else:
-    print "Après F"
+    print "Après ou est Frederic"
 
 # Attention, majuscules, minuscules
 print('A' == 'a') # False
@@ -187,19 +187,20 @@ print caracs # ['R', 'o', 'b', 'e', 'r', 't']
 
 liste = ['A', 'B', 'C']
 chaine = ''.join(liste) # "ABC"
+chaine_v = ', '.join(liste) # "A, B, C"
 
 # str et conversions
 texte = str(52) # "52"
 nombre = int("23") # 23
 virgule = float("41.25") # 41.25
-list_of_str = "Hello World How Is Life".split() # ['Hello', 'World', 'How', 'Is', 'Life']
+list_of_str = " Hello World How Is Life  ".split() # ['Hello', 'World', 'How', 'Is', 'Life']
 some_names = "Hello World;Bonjour le monde;Donkey Konga".split(';') # ['Hello World', 'Bonjour le monde', 'Donkey Konga']
 no_space = " \t  Yeyo Yayo \n ".strip() # "Yeyo Yayo"
 
 # slicing
-print prenom[1:4] # "obe"
-print prenom[:3] # "Rob"
-print prenom[4:] # "rt"
+print prenom[1:4] # de 1 à 4 non compris : "obe"
+print prenom[:3] # du début à 3 non compris : "Rob"
+print prenom[4:] # de 4 à la fin : "rt"
 
 ## format : créer facilement une chaîne depuis un modèle
 

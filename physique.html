@@ -1,11 +1,13 @@
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="stick-icon.png" rel="icon" type="image/png"/>
-    <title>Physique : Forces et mouvement</title>
+    <title>Physique : Forces et mouvement</title>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="animations.js"></script>
+    <script src="smooth-links.js"></script>
     <link rel="stylesheet" href="base.css"/>
     <link rel="stylesheet" href="redaction.css"/>
     <script type="text/javascript"
@@ -27,7 +29,7 @@
 <body class="math">
     <h1 class="nocontent"><!--
         --><a class="homeicon" href="index.html"></a><!--
-        --><span class="text">Physique : Forces et mouvement</span><!--
+        --><span class="text">Physique : Forces et mouvement</span><!--
     --></h1>
     
     <nav>
@@ -43,12 +45,12 @@
         <a href="#frottement-air">Frottement de l'air</a>
     </nav>
     
-    <h2 id="mouvement"><a href="#">^</a> <a class="prev" href="#vecteurs"></a> <a class="next" href="#forces">Mouvement : déplacement, vitesse et accélération</a></h2>
+    <h2 id="mouvement">Mouvement : déplacement, vitesse et accélération</h2>
     
-    <section>
+    <section name="mouvement">
     
         <p>
-            Vous voulez faire de chouette animations réalistes comme un <a href="#chutelibre">saut</a> ou une <a href="#gravite">attraction de planètes</a> ?
+            Vous voulez faire de chouette animations réalistes comme un <a href="#chutelibre">saut</a> ou une <a href="#gravite">attraction de planètes</a> ?
             Les forces sont la manière simple d'aborder ce problème !
         </p>
         
@@ -69,7 +71,7 @@
             N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
         </p>
         
-        <p>La vitesse est le déplacement divisé par le temps. Si vous vous déplacez de <strong>5</strong> mètres pendant <strong>1</strong> seconde, vous faites du <strong>5</strong> m/s (si votre vitesse ne change pas pendant le trajet&nbsp;: vitesse <em>constante</em>).</p>
+        <p>La vitesse est le déplacement divisé par le temps. Si vous vous déplacez de <strong>5</strong> mètres pendant <strong>1</strong> seconde, vous faites du <strong>5</strong> m/s (si votre vitesse ne change pas pendant le trajet : vitesse <em>constante</em>).</p>
         <p>$v = \cfrac{\Delta x}{\Delta t}$</p>
         <p>Graphiquement, la vitesse est la <em>pente de la droite</em> dans le graphique <em>position en fonction du temps</em>.</p>
         <p>La vitesse, comme la position et le déplacement, est une grandeur vectorielle. Si vous vous déplacez en arrière, votre vitesse est négative. On peut aussi se déplacer à 45, 60 ou 180 degrés.</p>
@@ -80,7 +82,7 @@
         <p>$\vec{\Delta v} = \vec{a} \cdot \Delta t$
         <br/> $\vec{v'} = \vec{v} + \vec{\Delta v}$</p>
         
-        <p>Et puis le déplacement et donc la nouvelle position&nbsp;:</p>
+        <p>Et puis le déplacement et donc la nouvelle position :</p>
         <p>$\vec{\Delta x} = \vec{v'} \cdot \Delta t$
         <br/>$\vec{x'} = \vec{x} + \vec{\Delta x}$</p>
         
@@ -112,10 +114,10 @@ while fini == 0:
     
     </section>
     
-    <h2 id="forces"><a href="#">^</a> <a href="#mouvement" class="prev"></a> <a class="next">F = ma</a></h2>
+    <h2 id="forces">F = ma</h2>
     
     <!-- forces
-        loi-de-newton        La loi de Newton : F = ma
+        loi-de-newton        La loi de Newton : F = ma
         chute-libre           Chute libre
         gravite              Gravité de planètes et attraction de charges
         ressort              Ressort
@@ -123,9 +125,9 @@ while fini == 0:
         frottement-air       Frottement de l'air
     -->
     
-    <section>
+    <section name="forces">
         
-    <h3 id="loi-de-newton"><a href="#forces">^</a> <a href="#forces" class="prev"></a> <a href="#chute-libre" class="next"> La loi de Newton : F = ma</a></h3>
+    <h3 id="loi-de-newton">La loi de Newton : F = ma</h3>
         <p>
             J'introduis de manière concise la notion de force avec quelques exemples.
             Pour une autre introduction aux forces, je vous conseille la vidéo sur 
@@ -150,7 +152,7 @@ while fini == 0:
             Un autre exemple est la force musculaire. Quand je pousse un objet il subit une accélération
             dans le même sens que ma force.
             Au plus l'objet est <strong>gros</strong> (masse élevée), au <strong>moins</strong> l'accélération est grande.
-            Nous avons&nbsp;:
+            Nous avons :
         </p>
         
         <p>
@@ -158,7 +160,7 @@ while fini == 0:
         </p>
         
         <p>
-            La masse est en <strong>kg</strong>, l'accélération en <strong>m/s²</strong>. Les unités d'une force sont le Newton&nbsp;: $N = kg\cfrac{m}{s^2}$.
+            La masse est en <strong>kg</strong>, l'accélération en <strong>m/s²</strong>. Les unités d'une force sont le Newton : $N = kg\cfrac{m}{s^2}$.
         </p>
         
         <p>
@@ -168,7 +170,7 @@ while fini == 0:
         
         <p>
             Si un objet subit plusieurs forces, celles-ci s'additionne (vectoriellement !).
-            Ainsi si deux personnnes poussent un objet de <strong>1</strong>kg chacun avec force de <strong>20</strong>N à ± <strong>30°</strong> comme ceci&nbsp;:
+            Ainsi si deux personnnes poussent un objet de <strong>1</strong>kg chacun avec force de <strong>20</strong>N à ± <strong>30°</strong> comme ceci :
         </p>
         
         <p>
@@ -177,7 +179,7 @@ while fini == 0:
         
         <p>
             L'objet subira une accélération horizontale d'uniquement $34.64\ m/s²$.
-            On a :
+            On a :
         </p>
         
         <ul>
@@ -190,11 +192,11 @@ while fini == 0:
             Les composantes en y des deux forces s'annulent.
         </p>
     
-    <h3 id="chute-libre"><a href="#forces">^</a> <a href="#loi-de-newton" class="prev"></a> <a href="#gravite" class="next"> Chute libre</a></h3>
+    <h3 id="chute-libre">Chute libre</h3>
     
         <p>La chute libre est très pratique pour faire un <strong>saut</strong> dans un jeu.</p>
         
-        <p>L'accélération des corps sur la terre est la même pour tous ($a = g$), vu que $F = ma$ on a donc&nbsp;:</p>
+        <p>L'accélération des corps sur la terre est la même pour tous ($a = g$), vu que $F = ma$ on a donc :</p>
         
         <p>$F_g = m g$</p>
         
@@ -215,7 +217,7 @@ while fini == 0:
             mais dans les exercices de physique où l'axe y est vers le haut on aura sûrement $(0,\ - m g)$.
         </p>
     
-    <h3 id="gravite"><a href="#forces">^</a> <a href="#chute-libre" class="prev"></a> <a href="#ressort" class="next"> Gravité de planètes et attraction de charges</a></h3>
+    <h3 id="gravite">Gravité de planètes et attraction de charges</h3>
     
         <p>
             Plus d'infos sur l'électricité dans la série de <a href="http://www.clipedia.be/physique/electricite-et-magnetisme/l-electricite-faconne-notre-univers">6 vidéos</a> sur <a href="http://www.clipedia.be">clipedia</a> !
@@ -246,7 +248,7 @@ while fini == 0:
         
         <p><em>Clique sur la terre pour voir la force de Newton en action &ndash; Clic droit pour un ralenti.</em></p>
         
-        <p>Vectoriellement, vu que la force est attractive, on note&nbsp;:</p>
+        <p>Vectoriellement, vu que la force est attractive, on note :</p>
         
         <p>
             $\vec{F_G} = G \cfrac{m_1 m_2}{d^2} \ \vec{1_d}$
@@ -284,7 +286,7 @@ while fini == 0:
             Plus  d'infos sur cette équation dans la série de <a href="http://www.clipedia.be/physique/electricite-et-magnetisme/l-electricite-faconne-notre-univers">6 vidéos</a> sur <a href="http://www.clipedia.be">clipedia</a> !
         </p>
     
-    <h3 id="ressort"><a href="#forces">^</a> <a href="#gravite" class="prev"></a> <a href="#frottement-lineaire" class="next"> Ressort</a></h3>
+    <h3 id="ressort">Ressort</h3>
     
         <p>$\vec{F_r} = -\ k\ \vec{x}$</p>
         <pre><code class="python">F_ressort = - k * x</code></pre>
@@ -351,9 +353,9 @@ while fini == 0:
             </div>
         </div>
         
-        <p>Le x peut aussi être un angle, comme dans l'exemple suivant : <img class="springpython free" src="python.png" style="height: 25px; vertical-align: middle;"/></p>
+        <p>Le x peut aussi être un angle, comme dans l'exemple suivant : <img class="springpython free" src="python.png" style="height: 25px; vertical-align: middle;"/></p>
     
-    <h3 id="frottement-lineaire"><a href="#forces">^</a> <a href="#ressort" class="prev"></a> <a href="#frottement-air" class="next"> Frottement linéaire</a></h3>
+    <h3 id="frottement-lineaire">Frottement linéaire</h3>
 
         <p>Notre ressort oscille à jamais avec l'équation prise telle quelle.</p>
         <p>Afin de ralentir et stabiliser le mouvement, une force de frottement linéaire est souvent <strong>ajoutée</strong>.</p>
@@ -370,7 +372,7 @@ while fini == 0:
         
         <p>$\alpha$ est le coefficient de frottement.</p>
     
-    <h3 id="frottement-air"><a href="#forces">^</a> <a href="#frottement-lineaire" class="prev"></a> <a class="next"> Frottement de l'air</a></h3>
+    <h3 id="frottement-air">Frottement de l'air</h3>
     
         <p>
             Le frottement de l'air est très complexe.

@@ -10,10 +10,43 @@ def django_format(template, **args):
     ''' Difference with django : arguments are SAFE '''
     return re.sub(r'\{\{\s*([A-Za-z_][A-Za-z0-9_]*)\s*\}\}', lambda m: '{}'.format(args.get(m.group(1), '')), template)
 
+def format_list_ls_style(li, W=100, FW=None):
+    li = list(map("{}".format, li))
+    '''
+    Demo:
+    for i in range(0,70,5):
+        print(i * '-')
+        print(format_list_ls_style(['hello', 'world', 'how', 'is', 'life', 'yo', 'wadup', 'I have'], i))
+    '''
+    if FW is None: FW = W
+    # assert FW <= W
+    
+    if sum(map(len,li)) + len(li) < FW:
+        return ' '.join(li)
+    
+    M = 1 + max(map(len,li))
+    if M > W:
+        return '\n'.join(li)
+    
+    C = W // M # number of columns
+    it = iter(li)
+    lines = []
+    while True:
+        lines.append(
+            ''.join(
+                ("{:%d}" % M).format(x)
+                for y,x in zip(range(C), it)
+            )
+        )
+        if lines[-1] == '':
+            del lines[-1]
+            break
+    return '\n'.join(lines)
+
 from generate_ls import GROUPINGS
 
 if __name__ == '__main__':
-    RE0 = re.compile('.*\.(py|php|java)$')
+    RE0 = re.compile('.*\.(py|php|java|js)$')
     REE = re.compile('.*\.(.*)$')
     RE = re.compile('({})(\d+)'.format('|'.join(map(re.escape, GROUPINGS))))
 
@@ -61,8 +94,8 @@ if __name__ == '__main__':
                     '''.format(
                         name=f,
                         type=typename,
-                        url_prev = '{base}.html'.format(base=all_grouped[typename].get((num-1,t), 'index.html')),
-                        url_next = '{base}.html'.format(base=all_grouped[typename].get((num+1,t), 'index.html')),
+                        url_prev = '{}.html'.format(all_grouped[typename].get((num-1,t), 'index')),
+                        url_next = '{}.html'.format(all_grouped[typename].get((num+1,t), 'index')),
                     )
                 )
                 try:
@@ -75,4 +108,4 @@ if __name__ == '__main__':
                     with open(f + '.html', 'w') as fl:
                         fl.write(res)
                         
-    print("No files modified" if not modifs else "Files modified : ({}) {}".format(len(modifs), ' '.join(modifs)))
+    print("No code files modified" if not modifs else "Files modified : ({}) {}".format(len(modifs), format_list_ls_style(modifs, 100, 70)))

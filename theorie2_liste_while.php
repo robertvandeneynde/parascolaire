@@ -48,7 +48,7 @@ $ma_liste = array(1,2,7,2); // 4 éléments !
 $premier = $ma_liste[0] // l'élément numéro 0 est le premier
 $dernier = $ma_liste[3] // vu que notre liste est de taille 4, 3 est le dernier
 $taille = count($ma_liste) // count permet de savoir la taille (raccourci : sizeof)
-print $ma_liste[5] // la valeur n'existe pas, cela ne va rien afficher
+print $ma_liste[5] // il n'y a pas d'élément "5", cela ne va rien afficher
 
 // le "numéro" est appelé "l'indice", l'indice du "1" dans notre liste est donc 0
 

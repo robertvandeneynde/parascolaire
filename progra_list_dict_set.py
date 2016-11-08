@@ -1,32 +1,40 @@
 #!coding: utf-8
 
-## plus sur les LISTES !
+## plus sur les LISTES (et tuples) !
 # toutes les opérations décrites dessus pevuvent 
 # bien sûr être écrites avec les 4 opérations de base
 
-L = [1,2,7,2]
+L = [1,2,7,2] # T = (1,2,7,2)
+
+# itérer
+for x in L:
+    print x
+
+# itérer avec l'index
+for i,x in enumerate(L):
+    print i, x
 
 # chercher : est ce que je peux trouver un élément qui est égal à x ?
-if 2 in L:
+if 2 in L: # 2 in T
     print("2 est dans la liste")
     b = L.index(2) # savoir l'index
     print("... à la position", b)
 
-# comparer une liste : == !=
+# comparer deux listes/deux tuples : == !=
 
-if L == [1,2,7,2]:
+if L == [1,2,7,2]: # T == (1,2,7,2)
     print "L == [1,2,7,2]"
 
-if L != [1,2,2,7]:
+if L != [1,2,2,7]: # T == (1,2,2,7)
     print "L != [1,2,2,2]"
 
 # extend : "ajouter tous les éléments d'une autre list
 D = [8,6]
 L.extend(D) # L = [1,2,7,2,8,6]
 
-# comparer une liste : < > <= >=
+# comparer deux listes/deux tuples : < > <= >=
 
-if [1,2,3] < [1,2,4]:
+if [1,2,3] < [1,2,4]: # (1,2,3) < (1,2,4)
     print "[1,2,3] < [1,2,4]"
 
 if [1,2,3] >= [1,0,4]:
@@ -84,6 +92,9 @@ print len(D) # toujours 3 clef différentes
 
 del D[9] # supprimer l'élément à la clef 9
 
+if D != {2;1, 3:4}: # deux dicts sont égaux s'ils ont les mêmes clefs/valeurs
+    print "D != {2:1, 3:4}"
+
 # Vu que les élément sont identifiés par des clefs,
 # ils n'ont pas d'ordre 
 
@@ -116,7 +127,7 @@ S = {1,4,8,2}
 
 # tester l'appartenance
 
-if 2 in S:
+if 2 in S: # très rapide, même pour les grands set
     print "2 !"
     
 if 0 not in S:
@@ -141,9 +152,15 @@ S.discard(4) # enlève 4 et ne fait rien s'il n'est pas dedans
 A = {1,2,3}
 B = {2,3,4}
 
-print A & B # intersection : {2,3}
-print A | B # union : {1,2,3,4}
-print A - B # différence : {1} (les éléments de A sans les éléments de B)
+print A & B # intersection : {2,3} les éléments qui sont dans A ET dans B
+print A | B # union : {1,2,3,4} # les élements qui sont dans A OU dans B
+print A - B # différence : {1} (les éléments de A sans les éléments de B) # les éléments qui sont dans A ET NON B
+print A ^ B # différence symétrique = (A - B) | (B - A) : {1,4} # les élements qui sont dans A OU B mais pas les deux
+
+# A & B : les éléments qui sont dans A ET dans B
+# A | B : les élements qui sont dans A OU dans B
+# A - B : les éléments qui sont dans A ET NON B
+# A ^ B : les élements qui sont dans A OU B mais pas les deux
 
 # être un sous ensemble : ⊆ ⊇ ⊂ ⊃, en python : <= >= < > 
 
@@ -190,3 +207,103 @@ for perso in L:
 vivants = {alice, bob}
 
 vivants.add(bob) # vu que bob est dedans, ça ne fait rien !
+
+# frozenset
+F = frozenset([1,2,4])
+F.add(1) # error : ne peut être modifié (immutable)
+# grâce à l'immutabilité, peut-être mis dans un set/clef d'un dict !
+
+S = {
+    frozenset([1,2,4]),
+    frozenset([1,2]),
+    frozenset([2,1]),
+}
+
+print S == {frozenset([1,2,4]), frozenset([1,2])} # True
+
+print frozenset((1,4,2)) in S # True !
+
+# les 
+
+# CONVERSIONS / ITÉRABLES
+# list()/tuple() / set()/frozenset() / enumerate() acceptent n'importe quel itérable
+
+L = [1,2,7,2]
+S = set(L) # {1,7,2}
+T = tuple(L)
+Lb = list(S) # attention, on ne sait pas l'ordre d'itération
+a,b,c = S # le unpacking marche avec n'importe quel itérable
+D = {'hello':2, 'world':3}
+Lc = list(D) # Lc == ['hello', 'world'] dans un certain ordre car un dict est un itérable de clef
+Ld = list(D.items()) # Lc == [('hello', 2), ('world', 3)] dans un certain ordre car dict.items() est un itérable de tuple de taille 2
+
+# list(X), est donc un raccourci pour :
+def to_list(X):
+    L = []
+    for x in X:
+        L.append(x)
+    return L
+
+# set(X), est donc un raccourci pour :
+def to_set(X):
+    S = set()
+    for x in X:
+        S.add(x)
+    return S
+
+# generator expressions
+
+S = set([(i * i) % 5 for i in range(10)]) # pratique avec les list comprehesion
+S = set((i * i) % 5 for i in range(10))   # sans les [], ça crée un "itérable", parfait pour donner à set()
+
+# dict() accepte soit un autre dict, soit un itérable de tuple de taille 2
+L = [["hello",2],["world",3],["hello",8]]
+D = dict(L) # D == {'hello':8, 'world':3}, le dernier est pris
+D2 = dict(D)
+D2['world'] = 1
+
+# dict(X) est donc un raccourci pour
+def to_dict(X):
+    D = {}
+    if isinstance(X, dict):
+        for x,y in X.items():
+            D[x] = y
+    else:
+        for x,y in X:
+            D[x] = y
+    return D
+
+# un petit mix ?
+print dict(
+    (y,x)
+    for x,y in enumerate(
+        n * 2
+        for n in range(5,10)
+        if n % 3 != 0
+    )
+)
+
+# range(5,10)
+# -> 5,6,7,8,9
+
+# (n * 2 for n in _ if n % 3 != 0)
+#  > 5 ? 5 % 3 != 0, OK ! (5 * 2) = 10
+#  > 6 ? 5 % 3 == 0, PAS OK
+#  > 7 ? 5 % 3 != 0, OK ! (5 * 2) = 14
+#  > 8 ? 5 % 3 != 0, OK ! (5 * 2) = 16
+#  > 9 ? 5 % 3 == 0, PAS OK
+# -> 10, 14, 16
+
+# enumerate(_) ?
+# -> (0,10),(1,14),(2,16)
+
+# (y,x) for x,y in _ ?
+#  > x,y = 0,10 -> (10,0)
+#  > x,y = 1,14 -> (14,1)
+#  > x,y = 2,16 -> (16,2)
+# -> (10,0), (14,1), (16,2)
+
+# dict(_) ?
+# {10:0, 14:1, 16:2}
+
+    

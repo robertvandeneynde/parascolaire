@@ -114,8 +114,7 @@ public class theorie1_egal_if {
     // Ensuite tu peux faire les exercices 1 à 4 sans lire la suite
     // Cependant la suite PEUT être utile pour les exercices suivants
 
-    // On peut écrire des conditions combinées avec && (and) et || (or)
-    // par exemple
+    // On peut écrire des conditions combinées avec && (and) et || (or), par exemple
 
     if(a == 1 && b == 2) {
         System.out.println("Yo");

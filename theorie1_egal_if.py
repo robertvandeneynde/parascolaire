@@ -11,7 +11,7 @@ print a # python 3 : print(a)
 a = 6
 print a
 # on peut faire des maths
-b = a + 1 
+b = a + 1
 c = a + b * 2 # priorité des opérations
 d = (a + b) * 2 # parenthèses si nécessaire !
 a = a + 1 # a est augmenté de 1
@@ -88,8 +88,7 @@ print a
 # Ensuite tu peux faire les exercices 1 à 4 sans lire la suite
 # Cependant la suite PEUT être utile pour les exercices suivants
 
-# On peut écrire des conditions combinées avec "and" et "or"
-# par exemple
+# On peut écrire des conditions combinées avec "and" et "or", par exemple :
 
 if a == 1 and b == 2:
     print "Yo"
@@ -168,7 +167,8 @@ n =  6 % 5 # 1
 # si on ouvre une parenthèse, on peut passer à la ligne autant que l'ont veut
 x = (5 + 2 * 3
        + 7 * 2
-       + 1 - 2)
+       + 1
+       - 2)
 
 ## multiple comparaisons
 

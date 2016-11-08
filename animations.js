@@ -420,46 +420,41 @@ $(function(){
             }
         })
     })
+})
+
+function makeLinksBetweenTitles(titleTag, prevHref, nextHref) {
+    if(titleTag == null) titleTag = 'h2';
     
-    if(location.hash) {
-        var hash = document.location.hash;
-        if(hash.length > 1) {
-            var ahash = hash 
-            var target = $(hash);
-            target = target.length ? target : $('[name=' + hash.slice(1) +']');
-            if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top
-                }, 500, void 0, function(){
-                    location.hash = ahash
-                });
-            }
-        }
+    var H = $(titleTag).map(function(){
+        return $(this)
+    })
+    
+    var I = $(titleTag).map(function(x){
+        return '#' + this.id
+    })
+    
+    var N = H.length
+    
+    for(var i = 0; i < N; i++) {
+        var txt = H[i].text()
+        H[i].empty().append(
+            $('<a href=#>^</a>').css('margin-right', 5)
+        ).append(
+            $('<a class=prev>').attr('href', i == 0 ? prevHref : I[i-1])
+        ).append(
+            $('<a class=next>').attr('href', i == N-1 ? nextHref : I[i+1])
+            .text(txt)
+        )
     }
+}
+
+$(function(){
+    makeLinksBetweenTitles('h2', '#')
     
-    $('a[href^=#]').click(function(ev) {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-            if(this.hash.length > 1) {
-                var ahash = this.hash 
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 500, void 0, function(){
-                        location.hash = ahash
-                    });
-                    ev.preventDefault();
-                }
-            }
-        }
-    });
-    $('a[href=#]').click(function(ev){
-        $('html,body').animate({
-            scrollTop: 0
-        }, 500, void 0, function(){
-            location.hash = ''
-        });
-        ev.preventDefault();
+    // convention : each section that has h3, must have a name=id where id is the id of the corresponding h2
+    var A = $.makeArray( $('h2').map(function(){ return $(this).attr('id') }) )
+    A.forEach(function(x,i){
+        makeLinksBetweenTitles('section[name=%%] h3'.replace('%%', x), '#' + A[i], (A[i+1] ? '#' + A[i+1] : null))
     })
 })
+    

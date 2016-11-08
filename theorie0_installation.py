@@ -46,7 +46,7 @@ Option 2 : Installer
 - Téléchargez python 2.7 sur https://www.python.org/downloads/
 - Téléchargez pygame :
   - (windows) : https://bitbucket.org/pygame/pygame/downloads/pygame-1.9.1.win32-py2.7.msi
-  - (mac) : http://pygame.org/ftp/pygame-1.9.1release-python.org-32bit-py2.7-macosx10.3.dmg
+  - (mac) : suivez ceci : http://stackoverflow.com/questions/30743194/pygame-installation-mac-os-x
   - (linux) : sudo apt-get install python-pygame
 
 (Pour utiliser une version plus récente de python : python 3, lisez la remarque ci-dessous)
@@ -65,7 +65,6 @@ Pour ce cours ci ça ne change quasi rien, à part trois petites différences d�
 
 Si vous voulez suivre exactement le cours, prenez 2.7
 Si vous voulez suivre le cours en python 3, choisissez 3.4 (et non 3.5)
-Si vous êtes sous mac, il est plus facile d'installer python 2.7 (à cause de pygame, voir ci-dessous)
 
 Les 3 différences entre python 2 et python3 sont celles-ci :
 
@@ -86,10 +85,6 @@ Sur windows, c'est très simple : https://bitbucket.org/pygame/pygame/downloads
 Choisissez en fonction de la version de python et la version de votre ordi parmi
 win-amd64-py2.7.msi / win-amd64-py3.4.msi / win32-py2.7.msi / win32-py3.4.msi
 Si vous ne savez pas si votre ordi est 32 ou 64 bits, allez dans "Panneau de configuration > Système"
-
-Sur mac, je conseille surtout python2, vous pouvez trouver un installateur sur http://www.pygame.org/download.shtml
-pour python3, je vais devoir vous demander de suivre les instructions compliquées ici :
-http://programarcadegames.com/index.php?chapter=foreword&lang=fr
 
 Sur linux pour python2, c'est très simple : sudo apt-get install python-pygame
 Pour python3, veuillez suivre le lien ci dessous :

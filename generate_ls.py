@@ -19,6 +19,7 @@ EXTS = {
     '.py': 7,
     '.php': 8,
     '.java': 9,
+    '.js': 10,
 }
 
 def key(path):
@@ -35,6 +36,7 @@ def accepted(path):
             '\\.py\\.txt$', '\\.pyc$', '\\.py\\.html$',
             '\\.php\\.txt$', '\\.php\\.html$',
             '\\.java\\.txt$', '\\.class$', '\\.java\\.html$',
+            '\\.js\\.txt$', '\\.js\\.html$',
         )
     ) and not os.path.islink(path)
 
@@ -50,7 +52,7 @@ def content(path, indent=0):
     changegroup = g != lastgroup
     lastgroup = g
     
-    RE0 = re.compile('.*(py|php|java)$')
+    RE0 = re.compile('.*(py|php|java|js)$')
     REE = re.compile('.*\\.(.*)$')
     
     if not os.path.isdir(path):

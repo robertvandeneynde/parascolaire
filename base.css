@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box; /* when I mean width, I mean innerWidth + padding + border */
+}
+
 body {
     margin: 15px;
     background: #f6f6f6;
@@ -19,6 +23,18 @@ section {
     background: #fafafa;
 }
 
+.index section {
+    text-align: left;
+}
+
+.index {
+    text-align: center;
+}
+
+.index section.header-section {
+    text-align: center;
+}
+
 .index section.grouping {
     display: inline-block;
     vertical-align: top;
@@ -28,8 +44,8 @@ section {
 }
 
 .index section.grouping.selected {
-    background: #ffffff;
-    border-color: #999;
+    background: #ddffff;
+    border-color: #009;
 }
 
 .index section.grouping[id=""] {
@@ -52,6 +68,10 @@ section {
     list-style-image: url('li-pdf.png');
 }
 
+.index .ext-js {
+    list-style-image: url('li-js.png');
+}
+
 section.notitle {
     margin-top: 20px;
     border-radius: 25px;
@@ -61,13 +81,22 @@ section.notitle {
     padding: 5px;
 }
 
-h2, h1 {
+.index section.grouping {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+h2, h1, .exercice h3 {
     margin: 15px 0px 0px 0px;
     border-radius: 25px 25px 0px 0px;
     background: #fafafa;
     border-width: 2px 2px 0 2px;
     border-color: #ccc;
     border-style: solid;
+}
+
+.exercice h3 {
+    padding: 10px 15px;
+    text-align: center;
 }
 
 h2 {
@@ -86,7 +115,7 @@ h1 {
 }
 
 h1 .text {
-    display:inline-block;
+    /* display:inline-block; */
     padding: 0 10px;
     white-space: normal;
 }
@@ -142,7 +171,7 @@ nav {
     vertical-align: middle;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 620px) {
 nav a {
     display: block;
     border: 0;
@@ -150,11 +179,39 @@ nav a {
 }
 nav {
     width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 0 !important;
+    border-left-width: 0 !important;
+    border-right-width: 0 !important;
 }
 .index .part {
     white-space: normal !important;
     text-align: center;
+    width: 100%;
 }
+.header-section {
+    padding: 0 !important;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.index section {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-left-width: 0;
+    border-right-width: 0;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    width: 100%;
+}
+}
+
+section:not(.grouping) {
+    line-height: 1.4;
 }
 
 h1 .text {
@@ -168,6 +225,11 @@ h1 a.homepage img {
     width: 24px;
     height: 24px;
     padding: 10px;
+}
+
+ul li {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .index h1 .text {
