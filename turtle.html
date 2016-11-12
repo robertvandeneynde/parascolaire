@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <link href="turtle.png" rel="icon" type="image/png"/>
+        <title>Turtle</title>
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="smooth-links.js"></script>
+        <style>
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+            figcaption {
+                display: none;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+            $(function(){ hljs.initHighlightingOnLoad() })
+        </script>
+    </head>
+    <body class="algos">
+        <h1 class="nocontent"><!--
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">Turtle</span><!--
+        --></h1>
+        
+        <!--
+        <section>
+            <p>Turtle est un programme permettant de lang</p>
+        </section>
+        -->
+        
+        <nav>
+            <a href="#base">Avancer et tourner</a> 
+            <a href="#complexe">Des formes complexes</a>
+            <a href="#crayon-couleur">Crayon et couleurs</a>
+            <a href="#boucles">Boucles</a>
+            <a href="#fonctions">Fonctions</a>
+            <a href="#oeuvre-d-art">Oeuvre d'art</a>
+        </nav>
+        
+        <h2 id="base">Avancer et tourner</h2>
+        
+        <section name="base">
+            
+            <h3 id="exercice-1">Exercice 1 : Avancer, tourner</h3>
+            
+            <p>Allez sur <a href="turtle_test.html">cette page</a>, écrivez le code suivant et cliquez sur <em>Run</em>&nbsp;!</p>
+            
+            <pre><code class="py">forward(50)
+left(90)
+forward(100)
+right(45)
+</code></pre>
+
+            <p>En français, on pourrait traduire <em>forward</em> par <em>avancer</em> et <em>left/right</em> veut dire <em>gauche/droite</em>.</p>
+
+            <h3 id="exercice-2">Exercice 2 : raccourcis</h3>
+            
+            <p>
+                Écrire <code>forward</code>, c'est fatiguant, il existe le raccourci <code>fd</code>, de même on a <code>lt</code> et <code>rt</code>
+                qui veulent dire <strong>L</strong>eft/<strong>R</strong>ight <strong>T</strong>urn,
+                que l'on traduirait par <em>Tourner à gauche/droite</em>.
+            </p>
+            
+            <p>Que fait ce code&nbsp;?</p>
+            <pre><code class="py">fd(100)
+lt(120)
+fd(100)
+lt(120)
+fd(100)
+</code></pre>
+            
+            <p>Et celui-ci&nbsp;?</p>
+            
+            <pre><code class="py">fd(100)
+lt(180)
+fd(200)
+lt(180)
+fd(100)
+lt(90)
+fd(100)
+lt(180)
+fd(200)
+</code></pre>
+        
+        
+        </section>
+        
+        <h2 id="complexe">Formes complexes</h2>
+        
+        <section name="complexe">
+            <h3 id="exercice-3">Exercice 3 : Le carré</h3>
+            
+            <p>Maintenant, tu vas écrire le code&nbsp;! Essaie de dessiner un <strong>carré</strong> de côté <em>80</em>.</p>
+            
+            <figure>
+                <img src="carre.svg" />
+                <figcaption>Un carré de côté 80</figcaption>
+            </figure>
+            
+            <h3 id="exercice-4">Exercice 4 : La maison</h3>
+            
+            <p>Plus difficile, une maison&nbsp;:</p>
+
+            <figure>
+                <img src="house.svg" />
+                <figcaption>La maison</figcaption>
+            </figure>
+            
+            <p>Sauve ce code dans un nouveau fichier pour pouvoir le ré-utiliser plus tard&nbsp;!</p>
+            
+            <figure>
+                <img src="fichiers.png" />
+                <figcaption>Plusieurs fichiers</figcaption>
+            </figure>
+            
+        </section>
+        
+        <h2 id="crayon-couleur">Crayon et couleurs</h2>
+        
+        <section name="crayon-couleur">
+            
+            <p>
+                La nouvelle commande <code class="py">penup()</code> &mdash; raccourci <code>pu()</code> &mdash;
+                permet de lever le crayon, ainsi la tortue peut bouger sans dessiner.
+                Ensuite, <code>pendown()</code> &mdash; raccourci <code>pd()</code> &mdash; repose le crayon pour plus de dessins.
+            </p>
+            
+            <p>Que fait ce code-ci ?</p>
+            
+            <pre><code class="py">fd(50)
+penup()
+fd(100)
+pendown()
+fd(150)
+</code></pre>
+            
+            <p>
+                La nouvelle commande <code class="py">color("red")</code> (attention aux guillemets dans <code>"red"</code>&nbsp;!) permet de changer la couleur du trait en rouge.
+                D'autres couleurs existent par défaut comme <code>green</code>, <code>blue</code>, <code>yellow</code> et <a href="http://wiki.tcl.tk/16166">bien d'autres</a>.
+            </p>
+            
+            <p>
+                Pour pouvoir indiquer toutes les couleurs existantes, on regarde dans Paint&nbsp;:
+            </p>
+            
+            <figure>
+                <img src="couleurs_paint.jpg" />
+                <figcaption>Les composantes Rouge, Vert, Bleu d'une couleur, de 0 à 255.</figcaption>
+            </figure>
+            
+            <p>Pour ce magnifique orange, j'écrirai la commande <code>color(253, 126, 0)</code>.</p>
+            
+            <pre><code class="py">fd(100)
+color("yellow")
+fd(100)
+color("red")
+fd(100)
+color(253, 126, 0)
+fd(100)
+</code></pre>
+            
+            <h3 id="exercice-5">Exercice 5 : Deux carrés colorés</h3>
+            
+            <p>Essaie de faire ceci&nbsp;:</p>
+            
+            <figure>
+                <img src="two-colored-squares.svg" />
+                <figcaption>Deux carrés colorés</figcaption>
+            </figure>
+            
+        </section>
+        
+        <h2 id="boucles">Boucles</h2>
+        
+        <section name="boucles">
+            
+            <p>Dans le code du carré, on avait <strong>quatre fois</strong> le même code&nbsp;:</p>
+            
+            <pre><code class="py">fd(80)
+lt(90)
+
+fd(80)
+lt(90)
+
+fd(80)
+lt(90)
+
+fd(80)
+lt(90)
+</code></pre>
+
+        <p>Il existe une instruction qui permet de dire <em>Répète 4 fois ce qui suit</em>, c'est le <code class="py">for</code>&nbsp;:</p>
+        
+        <pre><code class="py">for i in range(4):
+    fd(80)
+    lt(90)
+</code></pre>
+
+        <p>Attention à ne pas oublier le <code>:</code>, de passer à la ligne et d'écrire au moins une instruction.</p>
+
+        <p>Quelle va être la différence avec le code suivant&nbsp;? Teste le et comprends pourquoi le résultat affiché est logique.</p>
+        
+        <pre><code class="py">for i in range(4):
+    fd(80)
+lt(90)
+</code></pre>
+        
+            <h3 id="exercice-6">Exercice 6 : L'hexagone</h3>
+            
+            <p>Essaie de faire un hexagone, n'hésite pas à utiliser le <code>for</code> pour simplifier ton code&nbsp;!</p>
+        
+            <figure>
+                <img src="hexagon.svg" />
+                <figcaption>Deux carrés colorés</figcaption>
+            </figure>
+        
+        </section>
+        
+        <h2 id="fonctions">Fonctions</h2>
+        
+        <section name="fonctions">
+            <p>Afin de réutiliser du code, on peut le mettre dans une <code>def</code>. Par exemple, je vais faire une fonction <code>carre</code> qui permet de dessiner un carré.</p>
+            
+            <pre><code class="py">def carre():
+    for i in range(4):
+        fd(80)
+        lt(90)
+</code></pre>
+
+            <p>Écris ce code en haut du fichier, et puis la nouvelle instruction <code>carre</code> sera disponible&nbsp;!</p>
+            
+            <pre><code class="py">fd(100)
+carre()
+lt(45)
+carre()
+fd(50)
+carre()
+</code></pre>
+
+            <p>On peut également mettre des <em>paramètres</em> à la fonction, de telle sorte on pourra faire varier une certaine partie du code, comme par exemple, la taille du carré.</p>
+            
+            <pre><code class="py">def carre(taille):
+    for i in range(4):
+        fd(taille)
+        lt(90)
+</code></pre>
+            
+            <p>Que l'on utilisera comme ceci&nbsp;:</p>
+            
+            <pre><code class="py">fd(100)
+carre(80)
+lt(45)
+carre(40)
+fd(50)
+carre(60)
+</code></pre>
+        
+            <p>On peut mettre autant de paramètres que l'on veut, séparés par des virgules, comme <code class="py">def carre(taille, couleur)</code></p>
+            
+            <p>On peut faire des opérations mathématiques comme <code class="py">50 + taille * 2 - (taille - 1)</code>, attention à la priorité des opérations&nbsp;!</p>
+            
+            <h3 id="exercice-7">Exercice 7 : La fleur</h3>
+            
+            <p>Faites une fonction <code>triangles</code>, qui va dessiner la forme suivante, mettez un paramètre <code>taille</code> et <code>couleur</code> afin de pouvoir l'appeler comme ceci&nbsp;:</p>
+            
+            <figure>
+                <img src="triangles.svg" />
+                <figcaption>Des triangles dans un hexagone</figcaption>
+            </figure>
+            
+        </section>
+        
+        <h2 id="ouvre">Oeuvre d'art</h2>
+        
+        <section>
+            
+            <h3 id="exercice-8">Exercice 8 : Votre oeuvre d'art</h3>
+            
+            <p>Dernier défi pour ce cours, laisse aller ton imagination pour créer un beau dessin !</p>
+            
+            <p>Voici le mien, il utilise une fonction <code>triangles</code> plusieurs fois&nbsp;!</p>
+            
+            <figure>
+                <img src="bike-and-tree.svg" />
+                <figcaption>Deux carrés colorés</figcaption>
+            </figure>
+            
+            <p>
+                Voilà, nous avons apprit à utiliser <em>turtle</em> en programmant en langage <em>python</em>. Il existe <a href="https://docs.python.org/2/library/turtle.html">d'autres commandes turtle</a> et bien sûr,
+                le <a href="/parascolaire">parascolaire de programmtion de jeux vidéos</a> dès la 3ème vous apprendra à faire de <a href="projets.html">petits jeux 2D</a>&nbps;!
+            </p>
+            
+            <p>Au revoir et pour toute question, je suis disponible par mail à <span onload="this.innerHTML += '@hotmail.com'">robertvandeneynde</span></p>
+        </section>
+        
+    </body>
+</html>

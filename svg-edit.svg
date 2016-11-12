@@ -13,8 +13,9 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="svg-edit.svg"
-   width="100%"
-   height="100%">
+   width="1300"
+   height="700"
+   >
   <metadata
      id="metadata9982">
     <rdf:RDF>
@@ -81,9 +82,9 @@
            d="m 411.59857,63.438702 c 0,7.378179 -5.98119,13.359375 -13.35937,13.359375 -7.37818,0 -13.35938,-5.981196 -13.35938,-13.359375 0,-7.378179 5.9812,-13.359375 13.35938,-13.359375 7.37818,0 13.35937,5.981196 13.35937,13.359375 z"
            transform="matrix(2.6801618,0,0,2.6801618,-1027.487,-144.81669)" />
         <text
-           style="font-size:12px;text-anchor:start;fill:#f5f5f5;stroke:none"
+           style="font: bold 11pt Helvetica, Arial, sans-serif; text-anchor:middle;fill:#f5f5f5;stroke:none"
            y="29.923166"
-           x="17.531298"
+           x="40"
            id="text9098">Théorie</text>
       </g>
     </g>
@@ -1745,17 +1746,26 @@
          inkscape:connector-curvature="0"
          style="fill:#808080;stroke:none" />
     </g>
-    <text
-       style="font: bold 11pt Helvetica, Arial, sans-seriftext-anchor:start;fill:#f5f5f5;stroke:none"
-       y="573.09387"
-       x="-303.2366"
-       id="text9098-5">Pratique</text>
     <g
        id="g10645-3"
        transform="translate(24.175357,403.74103)">
       <path
          transform="matrix(2.2591092,0,0,2.2591092,105.99026,109.72736)"
-         d="m 411.59857,63.438702 c 0,7.378179 -5.98119,13.359375 -13.35937,13.359375 -7.37818,0 -13.35938,-5.981196 -13.35938,-13.359375 0,-7.378179 5.9812,-13.359375 13.35938,-13.359375 7.37818,0 13.35937,5.981196 13.35937,13.359375 z"
+         d="
+            m 411.59857,63.438702
+            c 0,7.378179
+              -5.98119,13.359375
+              -13.35937,13.359375
+              -7.37818,0
+              -13.35938,-5.981196
+              -13.35938,-13.359375
+              0,-7.378179
+              5.9812,-13.359375
+              13.35938,-13.359375
+              7.37818,0
+              13.35937,5.981196
+              13.35937,13.359375
+            z"
          sodipodi:ry="13.359375"
          sodipodi:rx="13.359375"
          sodipodi:cy="63.438702"
@@ -1765,9 +1775,9 @@
          sodipodi:type="arc" />
       <text
          id="text9098-5-9-4"
-         x="997.08673"
-         y="257.60092"
-         style="font-size:12px;text-anchor:start;fill:#f5f5f5;stroke:none">Fin</text>
+         x="1005"
+         y="257"
+         style="font: bold 11pt Helvetica, Arial, sans-serif; text-anchor:middle;fill:#f5f5f5;stroke:none">Fin</text>
     </g>
     <g
        transform="translate(459.5,565.78334)"
@@ -1970,9 +1980,9 @@
            d="m 411.59857,63.438702 c 0,7.378179 -5.98119,13.359375 -13.35937,13.359375 -7.37818,0 -13.35938,-5.981196 -13.35938,-13.359375 0,-7.378179 5.9812,-13.359375 13.35938,-13.359375 7.37818,0 13.35937,5.981196 13.35937,13.359375 z"
            transform="matrix(2.6801618,0,0,2.6801618,-1027.487,-144.81669)" />
         <text
-           style="font-size:12px;text-anchor:start;fill:#f5f5f5;stroke:none"
-           y="28.519842"
-           x="14.592857"
+           style="font: bold 11pt Helvetica, Arial, sans-serif; text-anchor:middle;fill:#f5f5f5;stroke:none"
+           x="40"
+           y="30"
            id="text9098-0">Pratique</text>
       </g>
     </g>
@@ -1993,9 +2003,9 @@
            d="m 411.59857,63.438702 c 0,7.378179 -5.98119,13.359375 -13.35937,13.359375 -7.37818,0 -13.35938,-5.981196 -13.35938,-13.359375 0,-7.378179 5.9812,-13.359375 13.35938,-13.359375 7.37818,0 13.35937,5.981196 13.35937,13.359375 z"
            transform="matrix(2.6801618,0,0,2.6801618,-1027.487,-144.81669)" />
         <text
-           style="font-size:12px;text-anchor:start;fill:#f5f5f5;stroke:none"
-           y="28.519842"
-           x="14.592857"
+           style="font: bold 11pt Helvetica, Arial, sans-serif; text-anchor:middle;fill:#f5f5f5;stroke:none"
+           x="40"
+           y="30"
            id="text9098-0-2">Pratique</text>
       </g>
     </g>

@@ -58,6 +58,55 @@
                 location.hash = ''
             })
         })
+        $(function(){
+            var e = document.getElementById('emailize')
+            e.innerHTML = e.innerHTML.replace('[at]', '@').replace('[dot]', '.')
+            e.parentNode.setAttribute('href', 'mailto:' + e.innerHTML)
+            
+            $('.remove-empty-text').each(function(){
+                var toDelete = []
+                
+                for(var i = 0; i < this.childNodes.length; i++) {
+                    var y = this.childNodes[i]
+                    if(y.nodeType == y.TEXT_NODE && y.nodeValue.trim() == "")
+                        toDelete.push(y)
+                }
+                
+                for(var i = 0; i < toDelete.length; i++)
+                    toDelete[i].remove()
+                    
+            })
+        })
+        $(function(){
+            var globalTarget = null
+            
+            $('section[id]').click(function(){
+                $(this).removeClass('selected')
+            })
+            
+            function stuffOnTarget(target) {
+                setTimeout(function(){
+                    if(globalTarget)
+                        globalTarget.removeClass('selected')
+                    target.addClass('selected')
+                    setTimeout(function(){
+                        target.removeClass('selected')
+                        if(target == globalTarget)
+                            globalTarget = null
+                    }, 2000)
+                }, 300)
+            }
+            
+            if(location.hash && location.hash.indexOf('#') != -1) {
+                $(location.hash).each(function(){
+                    stuffOnTarget( $(this) )
+                })
+            }
+        
+            $('nav a[href^="#"]').click(function(){
+                stuffOnTarget( $(this.getAttribute('href')) )
+            })
+        })
         </script>
         <style>
         .annonce.style-1 {
@@ -95,6 +144,7 @@
                 <img id="tetris" src="tetris.png" style="margin:10px; height: 40px; vertical-align:middle;"/>
                 <nav>
                     <a href="pythontutor.html">pythontutor</a>
+                    <a href="turtle.html">turtle</a>
                     <a href="math.html">math</a>
                     <a href="physique.html">physique</a>
                     <a href="projets.html">projets</a>
@@ -130,7 +180,6 @@
             <div id="svg-close" style="display: none; position:absolute; left: 5px; top: 5px; background: #900; border-radius: 5px; padding:5px; color: white; border: 1px solid #600; cursor:pointer;">× Fermer</div>
         <div id="svg-embed" style="display: none; text-align:center; margin-top: 5px;">
 <!-- 675 323 -->
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -211,12 +260,28 @@
            sodipodi:cy="63.438702"
            sodipodi:rx="13.359375"
            sodipodi:ry="13.359375"
-           d="m 411.59857,63.438702 c 0,7.378179 -5.98119,13.359375 -13.35937,13.359375 -7.37818,0 -13.35938,-5.981196 -13.35938,-13.359375 0,-7.378179 5.9812,-13.359375 13.35938,-13.359375 7.37818,0 13.35937,5.981196 13.35937,13.359375 z"
+           d="m 411.59857,63.438702
+            c 0,7.378179
+              -5.98119,13.359375
+              -13.359375,13.359375
+              
+              -7.37818,0
+              -13.359375,-5.981196
+              -13.359375,-13.359375
+              
+              0,-7.378179
+              5.9812,-13.359375
+              13.359375,-13.359375
+              
+              7.37818,0
+              13.35937,5.981196
+              13.35937,13.359375
+            z"
            transform="matrix(2.6801618,0,0,2.6801618,-1027.487,-144.81669)" />
         <text
-           style="font-size:12px;text-anchor:start;fill:#f5f5f5;stroke:none"
+           style="font: bold 11pt Helvetica, Arial, sans-serif; text-anchor:middle;fill:#f5f5f5;stroke:none"
            y="29.923166"
-           x="17.531298"
+           x="40"
            id="text9098">Théorie</text>
       </g>
     </g>
@@ -1878,17 +1943,38 @@
          inkscape:connector-curvature="0"
          style="fill:#808080;stroke:none" />
     </g>
-    <text
-       style="font: bold 11pt Helvetica, Arial, sans-seriftext-anchor:start;fill:#f5f5f5;stroke:none"
-       y="573.09387"
-       x="-303.2366"
-       id="text9098-5">Pratique</text>
     <g
        id="g10645-3"
        transform="translate(24.175357,403.74103)">
+      <!--
+        inkscape makes a circle (or arc) by 4 cubic bezier
+        it stores the centrer in sodipodi:cx/xy
+        and the radiuses in sodipodi:rx/ry
+        It begins in point to the right (theta = 0) and goes trigonometric
+        (therefore clockwise in Y to bottom) (therefore to bottom)
+        So the first point (m x y OR M x y) is m cx + rx, cy
+        I don't understand why it not symmetric for the control point (5.98/13.35 is not 7.37/13.35)
+      -->
       <path
-         transform="matrix(2.2591092,0,0,2.2591092,105.99026,109.72736)"
-         d="m 411.59857,63.438702 c 0,7.378179 -5.98119,13.359375 -13.35937,13.359375 -7.37818,0 -13.35938,-5.981196 -13.35938,-13.359375 0,-7.378179 5.9812,-13.359375 13.35938,-13.359375 7.37818,0 13.35937,5.981196 13.35937,13.359375 z"
+         transform="translate(105.99026,109.72736) scale(2.2591092)"
+         d="
+            m 411.59857,63.438702
+            c 0,7.378179
+              -5.981196,13.359375
+              -13.359375,13.359375
+              
+              -7.378179,0
+              -13.359375,-5.981196
+              -13.359375,-13.359375
+              
+              0,-7.378179
+              5.981196,-13.359375
+              13.359375,-13.359375
+              
+              7.378179,0
+              13.359375,5.981196
+              13.359375,13.359375
+            z"
          sodipodi:ry="13.359375"
          sodipodi:rx="13.359375"
          sodipodi:cy="63.438702"
@@ -1898,9 +1984,11 @@
          sodipodi:type="arc" />
       <text
          id="text9098-5-9-4"
-         x="997.08673"
-         y="257.60092"
-         style="font-size:12px;text-anchor:start;fill:#f5f5f5;stroke:none">Fin</text>
+         x="1005"
+         y="257"
+         style="font: bold 11pt Helvetica, Arial, sans-serif; text-anchor:middle;fill:#f5f5f5;stroke:none"
+         
+         >Fin</text>
     </g>
     <g
        transform="translate(459.5,565.78334)"
@@ -2103,9 +2191,9 @@
            d="m 411.59857,63.438702 c 0,7.378179 -5.98119,13.359375 -13.35937,13.359375 -7.37818,0 -13.35938,-5.981196 -13.35938,-13.359375 0,-7.378179 5.9812,-13.359375 13.35938,-13.359375 7.37818,0 13.35937,5.981196 13.35937,13.359375 z"
            transform="matrix(2.6801618,0,0,2.6801618,-1027.487,-144.81669)" />
         <text
-           style="font-size:12px;text-anchor:start;fill:#f5f5f5;stroke:none"
-           y="28.519842"
-           x="14.592857"
+           style="font: bold 11pt Helvetica, Arial, sans-serif; text-anchor:middle;fill:#f5f5f5;stroke:none"
+           x="40"
+           y="30"
            id="text9098-0">Pratique</text>
       </g>
     </g>
@@ -2126,9 +2214,9 @@
            d="m 411.59857,63.438702 c 0,7.378179 -5.98119,13.359375 -13.35937,13.359375 -7.37818,0 -13.35938,-5.981196 -13.35938,-13.359375 0,-7.378179 5.9812,-13.359375 13.35938,-13.359375 7.37818,0 13.35937,5.981196 13.35937,13.359375 z"
            transform="matrix(2.6801618,0,0,2.6801618,-1027.487,-144.81669)" />
         <text
-           style="font-size:12px;text-anchor:start;fill:#f5f5f5;stroke:none"
-           y="28.519842"
-           x="14.592857"
+           style="font: bold 11pt Helvetica, Arial, sans-serif; text-anchor:middle;fill:#f5f5f5;stroke:none"
+           x="40"
+           y="30"
            id="text9098-0-2">Pratique</text>
       </g>
     </g>
@@ -2166,56 +2254,5 @@
         </div>
         
         %%
-        
-        <script>
-        var e = document.getElementById('emailize')
-        e.innerHTML = e.innerHTML.replace('[at]', '@').replace('[dot]', '.')
-        e.parentNode.setAttribute('href', 'mailto:' + e.innerHTML)
-        
-        $('.remove-empty-text').each(function(){
-            var toDelete = []
-            
-            for(var i = 0; i < this.childNodes.length; i++) {
-                var y = this.childNodes[i]
-                if(y.nodeType == y.TEXT_NODE && y.nodeValue.trim() == "")
-                    toDelete.push(y)
-            }
-            
-            for(var i = 0; i < toDelete.length; i++)
-                toDelete[i].remove()
-                
-        })
-        
-        ;(function(){
-            var globalTarget = null
-            
-            $('section[id]').click(function(){
-                $(this).removeClass('selected')
-            })
-            
-            function stuffOnTarget(target) {
-                setTimeout(function(){
-                    if(globalTarget)
-                        globalTarget.removeClass('selected')
-                    target.addClass('selected')
-                    setTimeout(function(){
-                        target.removeClass('selected')
-                        if(target == globalTarget)
-                            globalTarget = null
-                    }, 2000)
-                }, 300)
-            }
-            
-            if(location.hash && location.hash.indexOf('#') != -1) {
-                $(location.hash).each(function(){
-                    stuffOnTarget( $(this) )
-                })
-            }
-        
-            $('nav a[href^="#"]').click(function(){
-                stuffOnTarget( $(this.getAttribute('href')) )
-            })
-        })();
-        </script>
     </body>
 </html>
