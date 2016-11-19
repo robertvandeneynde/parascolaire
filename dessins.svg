@@ -23,17 +23,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.75"
-     inkscape:cx="52.747375"
-     inkscape:cy="34.705847"
+     inkscape:cx="48.424671"
+     inkscape:cy="33.920037"
      inkscape:document-units="cm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:object-paths="true"
      inkscape:object-nodes="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-height="1180"
      inkscape:window-x="-2"
-     inkscape:window-y="1077"
+     inkscape:window-y="-3"
      inkscape:window-maximized="1"
      units="cm"
      inkscape:snap-smooth-nodes="true"
@@ -12071,5 +12071,16 @@
          id="tspan8844"
          x="-726.66663"
          y="1164.3608">collision-rectangle-shape.svg</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+       x="-199.028"
+       y="1012.5984"
+       id="text8838-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8840-5"
+         x="-199.028"
+         y="1012.5984">triangle.svg</tspan></text>
   </g>
 </svg>

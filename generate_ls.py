@@ -14,12 +14,13 @@ EXTS = {
     '.odp': 2,
     '.html': 3,
     '.css': 4,
-    '.png': 5,
-    '.jpg': 6,
-    '.py': 7,
-    '.php': 8,
-    '.java': 9,
-    '.js': 10,
+    '.svg': 5,
+    '.png': 6,
+    '.jpg': 7,
+    '.py': 8,
+    '.php': 9,
+    '.java': 10,
+    '.js': 11,
 }
 
 def key(path):

@@ -4,7 +4,14 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
         <link href="turtle.png" rel="icon" type="image/png"/>
-        <title>Turtle</title>
+        <title>Programmez avec turtle !</title>
+        
+        <meta property="og:image" content="http://robertvandeneynde.be/parascolaire/bike-and-tree-and-turtle.png" />
+        <meta property="og:description" content="Apprenez à programmer avec turtle, une tortue que vous devez commander pour effectuer de jolis dessins !" />
+        <!-- <meta property="og:url" content="" /> -->
+        <meta property="og:title" content="Programmez avec turtle !" />
+        <meta property="og:type"   content="article" /> 
+        
         <link rel="stylesheet" type="text/css" href="base.css" />
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="animations.js"></script>
@@ -55,7 +62,7 @@
             
             <h3 id="exercice-1">Exercice 1 : Avancer, tourner</h3>
             
-            <p>Allez sur <a href="turtle_test.html">cette page</a>, écrivez le code suivant et cliquez sur <em>Run</em>&nbsp;!</p>
+            <p>Va sur <a href="turtle_test.html">cette page</a> dans nouvelle fenêtre (clic droit sur le lien → ouvrir dans une nouvelle fenêtre), écris le code suivant et clique sur <img alt="Run" src="run.png" style="vertical-align: middle"/>&nbsp;!</p>
             
             <pre><code class="py">forward(50)
 left(90)
@@ -63,14 +70,18 @@ forward(100)
 right(45)
 </code></pre>
 
-            <p>En français, on pourrait traduire <em>forward</em> par <em>avancer</em> et <em>left/right</em> veut dire <em>gauche/droite</em>.</p>
+            <p>Tu as normalement vu une tortue se déplacer vers l'avant d'une distance de 50, puis qui a tourné à gauche de 90 degrés, s'est redéplacée en avant d'une distance de 100 et a tourné à droite de 90 degrés.</p>
+            
+            <p>Je conseille de mettre les deux fenêtres côtes à côte, environ 1/3 de l'écran pour cette page et donc 2/3 pour le code et l'affichage de la tortue.</p>
+            
+            <p>En français, on peut traduire <em>forward</em> par <em>avancer</em> et <em>left/right</em> par <em>gauche/droite</em>.</p>
 
             <h3 id="exercice-2">Exercice 2 : raccourcis</h3>
             
             <p>
-                Écrire <code>forward</code>, c'est fatiguant, il existe le raccourci <code>fd</code>, de même on a <code>lt</code> et <code>rt</code>
-                qui veulent dire <strong>L</strong>eft/<strong>R</strong>ight <strong>T</strong>urn,
-                que l'on traduirait par <em>Tourner à gauche/droite</em>.
+                Écrire <code>forward</code>, c'est fatigant, il existe le raccourci <code>fd</code>, de même on a <code>lt</code> et <code>rt</code>
+                qui veulent dire <strong>L</strong>eft <strong>T</strong>urn et <strong>R</strong>ight <strong>T</strong>urn,
+                que l'on traduirait par <em>tourner à gauche</em> et <em>tourner à droite</em>.
             </p>
             
             <p>Que fait ce code&nbsp;?</p>
@@ -137,13 +148,13 @@ fd(200)
                 Ensuite, <code>pendown()</code> &mdash; raccourci <code>pd()</code> &mdash; repose le crayon pour plus de dessins.
             </p>
             
-            <p>Que fait ce code-ci ?</p>
+            <p>Que fait ce code&nbsp;?</p>
             
-            <pre><code class="py">fd(50)
+            <pre><code class="py">fd(25)
 penup()
-fd(100)
+fd(50)
 pendown()
-fd(150)
+fd(25)
 </code></pre>
             
             <p>
@@ -162,14 +173,16 @@ fd(150)
             
             <p>Pour ce magnifique orange, j'écrirai la commande <code>color(253, 126, 0)</code>.</p>
             
-            <pre><code class="py">fd(100)
+            <pre><code class="py">fd(50)
 color("yellow")
-fd(100)
+fd(50)
 color("red")
-fd(100)
+fd(50)
 color(253, 126, 0)
-fd(100)
+fd(50)
 </code></pre>
+
+            <p>Remarque, si <code>color(253, 126, 0)</code> fait une erreur, écris <code>colormode(255)</code> au début de ton programme.</p>
             
             <h3 id="exercice-5">Exercice 5 : Deux carrés colorés</h3>
             
@@ -186,25 +199,25 @@ fd(100)
         
         <section name="boucles">
             
-            <p>Dans le code du carré, on avait <strong>quatre fois</strong> le même code&nbsp;:</p>
+            <p>Dans le code du carré, on avait <strong>quatre fois</strong> le même code <strong>à la suite</strong>&nbsp;:</p>
             
-            <pre><code class="py">fd(80)
+            <pre><code class="py">fd(40)
 lt(90)
 
-fd(80)
+fd(40)
 lt(90)
 
-fd(80)
+fd(40)
 lt(90)
 
-fd(80)
+fd(40)
 lt(90)
 </code></pre>
 
         <p>Il existe une instruction qui permet de dire <em>Répète 4 fois ce qui suit</em>, c'est le <code class="py">for</code>&nbsp;:</p>
         
         <pre><code class="py">for i in range(4):
-    fd(80)
+    fd(40)
     lt(90)
 </code></pre>
 
@@ -219,7 +232,7 @@ lt(90)
         
             <h3 id="exercice-6">Exercice 6 : L'hexagone</h3>
             
-            <p>Essaie de faire un hexagone, n'hésite pas à utiliser le <code>for</code> pour simplifier ton code&nbsp;!</p>
+            <p>Essaie de faire un hexagone, n'hésites pas à utiliser le <code>for</code> pour simplifier ton code&nbsp;!</p>
         
             <figure>
                 <img src="hexagon.svg" />
@@ -231,7 +244,7 @@ lt(90)
         <h2 id="fonctions">Fonctions</h2>
         
         <section name="fonctions">
-            <p>Afin de réutiliser du code, on peut le mettre dans une <code>def</code>. Par exemple, je vais faire une fonction <code>carre</code> qui permet de dessiner un carré.</p>
+            <p>Afin de réutiliser du code, on peut le mettre dans une <em>fonction</em>. Par exemple, je vais faire une fonction <code>carre</code> qui permet de dessiner un carré.</p>
             
             <pre><code class="py">def carre():
     for i in range(4):
@@ -239,17 +252,16 @@ lt(90)
         lt(90)
 </code></pre>
 
-            <p>Écris ce code en haut du fichier, et puis la nouvelle instruction <code>carre</code> sera disponible&nbsp;!</p>
+            <p>Écris ce code en haut du fichier, et puis la nouvelle instruction <code>carre()</code> sera disponible&nbsp;!</p>
             
-            <pre><code class="py">fd(100)
-carre()
+            <pre><code class="py">carre()
 lt(45)
 carre()
 fd(50)
 carre()
 </code></pre>
 
-            <p>On peut également mettre des <em>paramètres</em> à la fonction, de telle sorte on pourra faire varier une certaine partie du code, comme par exemple, la taille du carré.</p>
+            <p>On peut également mettre des <em>paramètres</em> à la fonction, grâce à ça on pourra faire varier une certaine partie du code, comme par exemple, la taille du carré.</p>
             
             <pre><code class="py">def carre(taille):
     for i in range(4):
@@ -271,9 +283,11 @@ carre(60)
             
             <p>On peut faire des opérations mathématiques comme <code class="py">50 + taille * 2 - (taille - 1)</code>, attention à la priorité des opérations&nbsp;!</p>
             
-            <h3 id="exercice-7">Exercice 7 : La fleur</h3>
+            <h3 id="exercice-7">Exercice 7 : Des triangles</h3>
             
-            <p>Faites une fonction <code>triangles</code>, qui va dessiner la forme suivante, mettez un paramètre <code>taille</code> et <code>couleur</code> afin de pouvoir l'appeler comme ceci&nbsp;:</p>
+            <p>Fais une fonction <code>triangles</code>, qui va dessiner la forme suivante, met un paramètre <code>taille</code> et <code>couleur</code> afin de pouvoir l'appeler comme ceci&nbsp;:</p>
+            
+            <pre><code class="py">triangles(20, "red")</code></pre>
             
             <figure>
                 <img src="triangles.svg" />
@@ -282,27 +296,81 @@ carre(60)
             
         </section>
         
-        <h2 id="ouvre">Oeuvre d'art</h2>
+        <h2 id="oeuvre-d-art">Oeuvre d'art</h2>
         
-        <section>
+        <section name="oeuvre-d-art">
             
             <h3 id="exercice-8">Exercice 8 : Votre oeuvre d'art</h3>
             
             <p>Dernier défi pour ce cours, laisse aller ton imagination pour créer un beau dessin !</p>
             
-            <p>Voici le mien, il utilise une fonction <code>triangles</code> plusieurs fois&nbsp;!</p>
+            <p>Voici le mien, il utilise ma fonction <code>triangles</code> plusieurs fois&nbsp;!</p>
             
             <figure>
                 <img src="bike-and-tree.svg" />
                 <figcaption>Deux carrés colorés</figcaption>
             </figure>
             
-            <p>
-                Voilà, nous avons apprit à utiliser <em>turtle</em> en programmant en langage <em>python</em>. Il existe <a href="https://docs.python.org/2/library/turtle.html">d'autres commandes turtle</a> et bien sûr,
-                le <a href="/parascolaire">parascolaire de programmtion de jeux vidéos</a> dès la 3ème vous apprendra à faire de <a href="projets.html">petits jeux 2D</a>&nbps;!
-            </p>
+            <p>Voilà, nous avons appris à utiliser <em>turtle</em> en programmant en langage <em>python</em>. Il existe <a href="https://docs.python.org/2/library/turtle.html#turtle-methods">d'autres commandes turtle</a>.</p>
             
-            <p>Au revoir et pour toute question, je suis disponible par mail à <span onload="this.innerHTML += '@hotmail.com'">robertvandeneynde</span></p>
+            <h3 id="programmation-jeux-videos">Programmation de jeux vidéos</h3>
+            
+            <p>Dès la 3ème, le <a href="/parascolaire">parascolaire de programmation de jeux vidéos</a> vous apprendra à faire de <a href="projets.html">petits jeux 2D</a>&nbsp;!</p>
+            
+            <h3 id="pour-en-savoir-plus">Pour en savoir plus</h3>
+            
+            <p>Voici un aperçu d'autres fonctionnalités turtle/python.</p>
+            
+            <p>On peut créer plusieurs tortues (<em>objets</em> python)&nbsp;:</p>
+            
+            <pre><code class="py">bob = Turtle()
+bob.shape("turtle")
+bob.color("blue")
+bob.forward(50)
+alice = Turtle()
+alice.shape("turtle")
+alice.color("green")
+alice.fd(100)
+</code></pre>
+            
+            <p>Et créer des variables en fonction de la tortue.</p>
+            
+            <pre><code class="py">bob.deplacement = 5
+alice.deplacement = 10
+
+def avancer_en_traits(tortue):
+    for i in range(3):
+        tortue.penup()
+        tortue.fd(tortue.deplacement)
+        tortue.pendown()
+        tortue.fd(tortue.deplacement)
+
+bob.lt(90)
+alice.lt(90)
+        
+avancer_en_traits(bob)
+avancer_en_traits(alice)
+</code></pre>
+
+            <p>Ou créer des listes de tortues&nbsp;:</p>
+
+            <pre><code class="py">liste = [bob, alice]
+charles = Turtle()
+charles.shape("turtle")
+charles.deplacement = 7
+liste.append(charles) # ajouter à la fin
+
+for tortue in liste: # pour chaque tortue dans la liste
+    ancienne_couleur = tortue.color() # on sauve la couleur
+    tortue.color("blue")
+    avancer_en_traits(tortue)
+    tortue.color(ancienne_couleur) # on réapplique l'ancienne couleur
+</code></pre>
+            
+            <p>Au revoir et pour toute question, je suis disponible par mail via <code id="the-email">robertvandeneynde[at]hotmail.com</code></p>
+            <script>
+            document.getElementById('the-email').innerHTML = document.getElementById('the-email').innerHTML.replace('[at]', '@')
+            </script>
         </section>
         
     </body>

@@ -72,6 +72,22 @@ section {
     list-style-image: url('li-js.png');
 }
 
+.index .ext-svg {
+    list-style-image: url('li-svg.png');
+}
+
+.index .ext-png {
+    list-style-image: url('li-png.png');
+}
+
+.index .ext-html {
+    list-style-image: url('li-html.png');
+}
+
+.index .ext-zip {
+    list-style-image: url('li-zip.png');
+}
+
 section.notitle {
     margin-top: 20px;
     border-radius: 25px;
@@ -227,7 +243,7 @@ h1 a.homepage img {
     padding: 10px;
 }
 
-ul li {
+ul li, ol li {
     margin-top: 5px;
     margin-bottom: 5px;
 }

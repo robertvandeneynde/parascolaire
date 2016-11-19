@@ -77,7 +77,7 @@ if __name__ == '__main__':
             if m:
                 typename, num = (m.group(1), int(m.group(2)))
                 t = (REE.match(f).group(1) if REE.match(f) else '')
-                
+            
             with open(f) as fi:
                 res = django_format(
                     TEMPLATE, 

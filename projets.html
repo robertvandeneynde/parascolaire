@@ -31,15 +31,102 @@
         --></h1>
         
         <section>
-            <p>Bien que vous pouvez faire ce que vous voulez, voici quelques idées si vous êtes à court. D'autres idées sont disponibles sur <a href="http://programarcadegames.com/index.php?chapter=introduction_to_sprites&amp;lang=fr#section_13">programarcadegames</a>. Section 13 - Paragraphe "Game Class"</p>
-            <p>N'importe quel projet vous apprendra beaucoup de mise en pratique des 4 éléments de base de la théorie (=, if, while, list). Quand votre projet grandira, ce sera nécessaire de lire le chapitre 3 de la théorie : fonctions et objets.<p>
-            <p>Si vous êtes à l'aise et motivé, il est même possible d'apprendre plus, comme écrire dans <a href="progra_fichier.py.html">les fichiers</a> ou bases de données. Faire du réseau (en LAN d'abord), ou même faire de la <a href="gl_brick.py.html">3D</a>.</p>
-            <p>Voici quelques projets de l'année passée : (cliquez pour voir en grand !)</p>
+            <p>Voici quelques projets de l'année passée, cliquez pour voir en grand !</p>
             <figure>
                 <a href="projet-michal-screenshot.png"><img src="projet-michal-screenshot.png" height="300" /></a>
                 <a href="projet-arnaud-screenshot.png"><img src="projet-arnaud-screenshot.png" height="300" /></a>
             </figure>
             <p>Le code de ces projets est disponible ici : <a href="projet_michal_code.py.html">michal</a> [<a href="projet-michal.zip">zip</a>], <a href="projet_arnaud_code.py.html">arnaud</a> [<a href="projet-arnaud.zip">zip</a>], téléchargez le zip pour y jouer !</p>
+        
+        </section>
+        
+        <nav>
+            <a href="algos.html">Algos</a> 
+        </nav>
+        
+        <nav>
+            <a href="#pong">Pong</a> 
+            <a href="#spaceinvaders">Space invaders</a> 
+            <a href="#snake">Snake</a> 
+            <a href="#serveuse">Serveuse</a> 
+            <a href="#agario">Agario</a> 
+            <a href="#bomberman">Bomberman</a> 
+            <a href="#rpg">RPG</a> 
+        </nav>
+        
+        <section class="notitle">
+        
+            <p>Le premier défi demandé au cours sera de copier le <a href="pygame0_code_minimal.py.html">code de base</a> et d'effectuer ces exercices&nbsp;:</p>
+            
+            <ol>
+                <li>(Déjà dans le code) Une balle se déplaçant vers la droite, il faut créer une <strong>variable</strong> <code>ma_position</code>. Au tout début du code, ma_position = 100 (par exemple). Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à ma_position. Finalement, le cercle ne devra plus être dessiné en <code>[30, 80]</code> mais en <code>[ma_position, 80]</code>.</li>
+                <li>Elle avance un peu lentement, comment faire pour qu'elle avance de 5 pixels par tick&nbsp;?</li>
+                <li>Elle sort de l'écran... Vu que l'écran est de taille 700×500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.</li>
+                <li>Mainteant la balle reste dans l'écran mais ne rebondit pas, il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. On peut aussi dire 1 et 2, ou 0 et 1 !</li>
+                <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em></li>
+                <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.</li>
+                <li>On peut faire deux dessins différents en fonction du sens ! Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>. Les triangles peuvent être dessinés avec <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code> ou avec une <a href="pygame7_images.py">image</a>.
+                
+            
+            <figure>
+                <img src="triangle.svg" />
+                <figcaption>Un triangle dessiné grâce à la commande <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code></figcaption>
+            </figure>
+            
+                </li>
+                
+                <li>
+                    Que sera la commande <a>draw.polygon</a> pour que le triangle bouge avec le cercle&nbsp;?
+                </li>
+                
+                <li>
+                    Quel est la position du centre du triangle&nbsp;?
+                    Quelle sera la commande <a>draw.polygon</a> pour que ma_position représente le centre&nbsp;?
+                </li>
+            </ol>
+            
+        </section>
+        <section class="notitle">
+            <p>
+                Choisissez maintenant un projet&nbsp;! Si vous êtes à court, choisissez dans la liste en dessous de cette section.
+            </p>
+            
+            <p>
+                Vous aurez sûrement besoin des <a href="pygame5_clavier_souris_events.py.html">événements clavier et souris</a>,
+                de connaître <a href="pygame6_clavier_souris_state.py.html">l'état du clavier et de la souris</a>,
+                de faire des <a href="pygame7_images.py.html">images</a> (ou de la <a href="http://programarcadegames.com/python_examples/f.php?file=background_music.py">musique</a>) ou <a href="pygame8_texte.py.html">d'écrire du texte</a>.
+                Pour trouver des images et des sons, <a href="programarcadegames.com">programarcadegames</a> conseille les sites
+
+                <a href="http://Kenney.nl">Kenney.nl</a>,
+                <a href="http://OpenGameArt.org">OpenGameArt.org</a>,
+                <a href="http://HasGraphics.com">HasGraphics.com</a> pour les images et 
+                <a href="http://OpenGameArt.org">OpenGameArt.org</a>,
+                <a href="http://www.freesound.org">www.freesound.org</a> pour les sons.
+            </p>
+            
+            <p>
+                Afin de structurer son programme, on peut également faire des <a href="theorie3_fonctions_et_objets.py.html">objets et des fonctions</a>.
+            </p>
+            
+            <p>Plus de programmation&nbsp;? Lisez mes <a href="index.html#progra">fichiers de programmation</a>.</p>
+            
+            <p>
+                Vous pouvez également lire ma page de <a href="math.html">math</a>, par exemple pour faire des polygones réguliers.
+            </p>
+            
+            <figure>
+                <img src="hexagon-math.svg" />
+                <figcaption>Pour dessiner un hexagone avec la fonction <code>draw.polygon</code>, on fait des <a href="math.html">maths</a>&nbsp;!</figcaption>
+            </figure>
+            
+            <p>
+                Ou bien ma page de <a href="physique.html">physique</a> pour faire des effets de gravité&nbsp;?
+            </p>
+            
+            <p>
+                Si vous êtes à l'aise et motivé, il est même possible d'apprendre plus, comme écrire dans <a href="progra_fichier.py.html">les fichiers</a> ou bases de données. Faire de la <a href="gl_brick.py.html">3D</a> ou du réseau&nbsp;!
+            </p>
+            
         </section>
         
         <nav>
@@ -59,18 +146,7 @@
         <h2 id="pong">Pong</h2>
         
         <section>
-            <p>Ce projet est le premier défi demandé au cours :</p>
-            
-            <ul>
-                <li>Une balle se déplaçant vers la droite, il faut créer une <strong>variable</strong> <code>ma_position</code>. Au tout début du code, ma_position = 100 (par exemple). Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à ma_position.</li>
-                <li>Elle sort de l'écran... Vu que l'écran est de taille 700x500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.</li>
-                <li>Mainteant la balle reste dans l'écran mais ne rebondit pas, il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. On peut aussi dire 1 et 2, ou 0 et 1 !</li>
-                <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em></li>
-                <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.</li>
-                <li>On peut faire deux dessins différents en fonction du sens ! Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>. Les triangles peuvent être dessinés avec <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code> ou avec une <a href="pygame7_images.py">image</a>.</li>
-            </ul>
-            
-            <p>Ensuite on fait les fonctionnalités de base :</p>
+            <p>À la fin des exercices, vous aurez une balle qui rebondit, il vous faut donc rajouter les fonctionnalités de base&nbsp;:</p>
             
             <ul>
                 <li>Une balle rebondissant sur les bords du plateau</li>
