@@ -24,7 +24,7 @@ while fini == 0:
     
     # à chaque tick...
     # si Gauche est enfoncée
-    if pressed[276]: # 276: touche gauche
+    if pressed[276]: # 276: touche gauche (voir le fichier pygame5 pour connaître les numéros de toutes les touches)
         ma_position = ma_position - 5
     
     if pressed[275]: # 275: touche droite

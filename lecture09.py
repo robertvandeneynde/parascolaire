@@ -18,5 +18,5 @@ while i < 10:
     L.append(C) # une liste peut contenir une liste !
     
 
-print L[2]
-print L[2][0]
+print(L[2])
+print(L[2][0])

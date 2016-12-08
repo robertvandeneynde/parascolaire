@@ -22,7 +22,7 @@ while fini == 0:
         
         # elif est un raccourci pour "if... else... if ... else..."
         elif event.type == pygame.KEYDOWN:
-            print "La touche numero", event.key
+            print("La touche numero", event.key)
             if event.key == 276: # touche gauche
                 ma_position = ma_position - 100
             elif event.key == 275: # touche droite
@@ -30,7 +30,7 @@ while fini == 0:
         
         elif event.type == pygame.MOUSEBUTTONDOWN:
             # event.pos est une liste de taille 2 contenant le x et le y
-            print "Clic en", event.pos[0], event.pos[1]
+            print("Clic en", event.pos[0], event.pos[1])
             ma_position = event.pos[0]
     
     # dessin

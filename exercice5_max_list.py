@@ -8,7 +8,7 @@ l = [1,2,7,2]
 
 # insérer votre code calculant m ici..
 
-print m # affichera 7
+print(m) # affichera 7
 
 # écrire d'abord un code ne marchant que avec des listes de taille 4
 # ensuite utilisez un while pour permettre une liste de n'importe quelle taille

@@ -1,4 +1,6 @@
 #!coding: utf-8
+from __future__ import print_function, division
+
 ##################
 # Base UNE : "=" #
 ##################
@@ -7,21 +9,21 @@
 # print permet de voir à l'écran la valeur d'une variable
 
 a = 5
-print a # python 3 : print(a)
+print(a) # en python 2, les parenthèses n'étaient pas nécessaires
 a = 6
-print a
+print(a)
 # on peut faire des maths
 b = a + 1
 c = a + b * 2 # priorité des opérations
 d = (a + b) * 2 # parenthèses si nécessaire !
 a = a + 1 # a est augmenté de 1
-print a
-print b
-print c
-print d
+print(a)
+print(b)
+print(c)
+print(d)
 
 # pour afficher du texte, il faut le mettre entre guillemets
-print "fin"
+print("fin")
 
 ####################
 # Base DEUX : "if" #
@@ -30,8 +32,8 @@ print "fin"
 a = 7
 
 if a < 10:
-    print "Coucou"
-    print "Hello"
+    print("Coucou")
+    print("Hello")
     
 # ici le programme va afficher "Coucou", puis "Hello" seulement si a est plus petit que 10
 # sinon, il saute le bloc et donc, ne fait rien 
@@ -43,13 +45,13 @@ if vie > 100:
     vie = 100
 
 # pour afficher plusieurs choses on écrit une virgule
-print "Votre vie est", vie # py3: print("Votre vie est", vie)
+print("Votre vie est", vie) # en python 2, les parenthèses n'étaient pas obligatoires
 
 # on peut faire un else, le code ira dans le else si la condition est fausse
 if vie == 100:
-    print "You are full !"
+    print("You are full !")
 else:
-    print "You can drink potions."
+    print("You can drink potions.")
 
 a = 8
 b = 2
@@ -58,9 +60,9 @@ b = 2
 # par exemple, ce programme ci
 
 if a == 5:
-    print "Yo"
+    print("Yo")
 else:
-    print "Da"
+    print("Da")
 
 # affiche "Yo" si a est égal à 5 et "Da" sinon
 # essaie de réécrire ce code en utilisant l'opérateur "!=" (différent)
@@ -70,15 +72,15 @@ else:
 
 if a == 5:
     a = 2
-    print "Yo"
+    print("Yo")
     if b == 5:
-        print "Hello"
+        print("Hello")
     else:
-        print "Tada"
+        print("Tada")
 else:
-    print "Hum"
+    print("Hum")
    
-print a
+print(a)
     
 # Essaie ce programme avec a=5 b=5, a=5 b=2, a=2 b=2 et voit ce qu'il se passe
 
@@ -91,18 +93,18 @@ print a
 # On peut écrire des conditions combinées avec "and" et "or", par exemple :
 
 if a == 1 and b == 2:
-    print "Yo"
+    print("Yo")
 else:
-    print "Da"
+    print("Da")
 
 # est un programme qui affiche "Yo" si a est égal à 1 et b est égal à 2, sinon Da
 # les Deux conditions doivent être vraies
 # Celui ci
 
 if a == 1 or b == 2:
-    print "Yo"
+    print("Yo")
 else:
-    print "Da"
+    print("Da")
 
 # affiche Yo si a est égal à 1 ou b est égal à 2
 # ou moins une des deux conditions doit être vraie
@@ -111,14 +113,14 @@ else:
 # utilise des parenthèses pour bien préciser l'ordre des opérations
 
 if a == 2 or b == 2 and c == 2: # qui du "or" ou du "and" a la priorité ?
-    print "Yo"
+    print("Yo")
 
 # équivalent au précédent : or est "comme" un +, and est "comme" un *
 if a == 2 or (b == 2 and c == 2):
-    print "Yo"
+    print("Yo")
     
 if (a == 2 or b == 2) and c == 2:
-    print "Yo"
+    print("Yo")
     
 #######################
 # Pour en savoir plus #
@@ -173,10 +175,10 @@ x = (5 + 2 * 3
 ## multiple comparaisons
 
 if 2 <= a <= 5: # 2 <= a and a <= 5
-    print "a est entre 2 et 5"
+    print("a est entre 2 et 5")
 
 if a == b == 0: # a == b and b == 0
-    print "a et b valent 0"
+    print("a et b valent 0")
 
 ## not "inverser" une condition
 
@@ -205,43 +207,43 @@ if a != 5 or b >= 7: # équivalent au précédent
 ## elif : parfois, on a un "else" qui ne contient qu'une seule instruction, qui est un "if"
 
 if a < 5:
-    print "petit"
+    print("petit")
 else:
     if a < 10:
-        print "moyen"
+        print("moyen")
     else:
         if a < 15:
-            print "grand"
+            print("grand")
         else:
-            print "graaaand"
+            print("graaaand")
 
 # raccourci : elif (else if)
 
 if a < 5: # si a < 5
-    print "petit"
+    print("petit")
 elif a < 10: # sinon... si a < 10
-    print "moyen"
+    print("moyen")
 elif a < 15:
-    print "grand"
+    print("grand")
 else:
-    print "graaaand"
+    print("graaaand")
 
 ## bool: les conditions peuvent être mises dans des variables
 # un (booléen) vaut Vrai ou Faux (True / False)
 
 condition = (a < 5)
 if condition == True:
-    print "Plus petit !"
+    print("Plus petit !")
 else:
-    print "Plus grand ou egal"
+    print("Plus grand ou egal")
     
 # le "if" attend un bool, on peut donc enlever "== True"
 
 condition = a < 5 # parenthèse non nécessaires
 if condition: # == True enlevé
-    print "Plus petit"
+    print("Plus petit")
 else:
-    print "Plus grand ou egal"
+    print("Plus grand ou egal")
 
 # on peut donc faire des "opérations" sur les bool
 

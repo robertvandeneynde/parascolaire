@@ -116,18 +116,21 @@ if(a == 1 || b == 2) {
 // affiche Yo si a est égal à 1 ou b est égal à 2
 // ou moins une des deux conditions doit être vraie
 
-// attention, si tu mélanges des and et des or,
+// attention, si tu mélanges des && et des ||,
 // utilise des parenthèses pour bien préciser l'ordre des opérations
 
-if a == 2 or b == 2 and c == 2: # qui du "or" ou du "and" a la priorité ?
-    print "Yo"
+if(a == 2 || b == 2 && c == 2) { // qui du "or" ou du "and" a la priorité ?
+    console.log("Yo")
+}
 
-// équivalent au précédent : or est "comme" un +, and est "comme" un *
-if a == 2 or (b == 2 and c == 2):
-    print "Yo"
+// équivalent au précédent : || est "comme" un +, && est "comme" un *
+if(a == 2 || (b == 2 && c == 2)) {
+    console.log("Yo")
+}
     
-if (a == 2 or b == 2) and c == 2:
-    print "Yo"
+if((a == 2 || b == 2) && c == 2) {
+    console.log("Yo")
+}
     
 /////////////////////////
 // Pour en savoir plus //
@@ -162,7 +165,6 @@ x = (5 + 2 * 3
        + 1
        - 2)
 
-// !(not) "inverser" une condition
 // !(not) "inverser" une condition
 
 if(a == 5) { // si a == 5...

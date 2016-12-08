@@ -12,7 +12,7 @@ clock = pygame.time.Clock()
 
 fini = 0
 while fini == 0:
-    print "Tick"
+    print("Tick")
     
     # on demande à la clock de faire en sorte que notre jeu tourne à du 60 fps
     clock.tick(2)

@@ -24,7 +24,7 @@ def format_list_ls_style(li, W=100, FW=None):
     if sum(map(len,li)) + len(li) < FW:
         return ' '.join(li)
     
-    M = 1 + max(map(len,li))
+    M = 1 + max(list(map(len,li)))
     if M > W:
         return '\n'.join(li)
     
@@ -35,7 +35,7 @@ def format_list_ls_style(li, W=100, FW=None):
         lines.append(
             ''.join(
                 ("{:%d}" % M).format(x)
-                for y,x in zip(range(C), it)
+                for y,x in zip(list(range(C)), it)
             )
         )
         if lines[-1] == '':
@@ -107,5 +107,4 @@ if __name__ == '__main__':
                     modifs.append(f)
                     with open(f + '.html', 'w') as fl:
                         fl.write(res)
-                        
-    print("No code files modified" if not modifs else "Files modified : ({}) {}".format(len(modifs), format_list_ls_style(modifs, 100, 70)))
+    print('generate_html:', len(modifs), 'file' + 's' * (len(modifs) != 1) + ' modified' + ':' * bool(modifs), ' '.join(modifs))

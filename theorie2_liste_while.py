@@ -1,4 +1,5 @@
 #!coding: utf-8
+from __future__ import print_function, division
 
 ######################
 # Base TROIS : while #
@@ -9,10 +10,10 @@
 a = 5
 
 if a < 10:
-    print "Tada"
+    print("Tada")
     
 while a < 10:
-    print "Hello"
+    print("Hello")
     
 # ce programme va afficher "Hello" sans s'arrêter...
 # pour éviter de faire une "boucle infinie", il faudrait que la condition devienne fausse
@@ -20,7 +21,7 @@ while a < 10:
 
 i = 0
 while i < 10:
-    print "Hello"
+    print("Hello")
     i = i + 1
     
 # maintenant, Hello n'est affiché que dix fois ^^
@@ -29,7 +30,7 @@ while i < 10:
 
 i = 0
 while i < 10:
-    print "Hello", 2 * i + 5
+    print("Hello", 2 * i + 5)
     i = i + 1
 
 # affichera "Hello 5", "Hello 7", "Hello 9" etc.
@@ -46,7 +47,7 @@ ma_liste = [1,2,7,2] # 4 éléments !
 premier = ma_liste[0] # l'élément numéro 0 est le premier
 dernier = ma_liste[3] # vu que notre liste est de taille 4, 3 est le dernier
 taille = len(ma_liste) # len permet de savoir la taille
-print ma_liste[5] # ERREUR, il n'y a pas d'élément "5", le dernier était "3"
+print(ma_liste[5]) # ERREUR, il n'y a pas d'élément "5", le dernier était "3"
 
 # le "numéro" est appelé "l'indice", l'indice du "1" dans notre liste est donc 0
 
@@ -65,7 +66,7 @@ del ma_liste[1] # l'élément numéro "1" est supprimé, la liste vaut donc [9,7
 
 i = 0
 while i < len(ma_liste):
-    print ma_liste[i]
+    print(ma_liste[i])
     i = i + 1
 
 # Tu as toutes les bases pour faire tous les exercices
@@ -84,37 +85,37 @@ while i < len(ma_liste):
 
 # compter ! avec range
 for i in range(5):
-    print i
+    print(i)
     
 # ce code peut s'écrire comme ceci avec un while :
 i = 0
 while i < 5:
-    print i
+    print(i)
     i = i + 1
     
 # on peut aussi demander de ne pas commencer à 0
 
 for i in range(1,5):
-    print i
+    print(i)
 
 # ce qui peut s'écrire comme ceci :
 
 i = 1
 while i < 5:
-    print i
+    print(i)
     i = i + 1
 
 # parcourir une liste ! sans savoir l'index
 
 for nombre in ma_liste:
-    print nombre
+    print(nombre)
     
 # ce qui peut s'écrire comme ceci avec un while 
 
 i = 0
 while i < len(ma_liste):
     nombre = ma_liste[i]
-    print nombre
+    print(nombre)
     i = i + 1
 
 # attention, il existe quelques subtiles différences,
@@ -124,7 +125,7 @@ while i < len(ma_liste):
 
 # Indices négatifs
 ma_liste = [5,2,1,3]
-print ma_liste[-1] # 3
+print(ma_liste[-1]) # 3
 
 # D'autres structures ressemblent aux list
 # Mais la list est la plus générale : elle peut tout faire !
@@ -161,7 +162,7 @@ prenom = 'Robert' # même chose
 # on ne peut que les lire
 lettre = prenom[0] # 'R'
 taille = len(prenom) # 6
-print len(lettre) # 1
+print(len(lettre)) # 1
 
 # on peut faire de drôles de math avec !
 nom_de_famille = "Vanden Eynde"
@@ -171,9 +172,9 @@ very_funny = 'ha' * 3 # "hahaha"
 
 # comparer, via l'alphabet
 if prenom < 'Frederic':
-    print "Avant Frederic"
+    print("Avant Frederic")
 else:
-    print "Après ou est Frederic"
+    print("Après ou est Frederic")
 
 # Attention, majuscules, minuscules
 print('A' == 'a') # False
@@ -183,7 +184,7 @@ grand_robert = prenom.upper() # "ROBERT"
 
 # str et liste de str
 caracs = list("Robert")
-print caracs # ['R', 'o', 'b', 'e', 'r', 't']
+print(caracs) # ['R', 'o', 'b', 'e', 'r', 't']
 
 liste = ['A', 'B', 'C']
 chaine = ''.join(liste) # "ABC"
@@ -198,9 +199,9 @@ some_names = "Hello World;Bonjour le monde;Donkey Konga".split(';') # ['Hello Wo
 no_space = " \t  Yeyo Yayo \n ".strip() # "Yeyo Yayo"
 
 # slicing
-print prenom[1:4] # de 1 à 4 non compris : "obe"
-print prenom[:3] # du début à 3 non compris : "Rob"
-print prenom[4:] # de 4 à la fin : "rt"
+print(prenom[1:4]) # de 1 à 4 non compris : "obe"
+print(prenom[:3]) # du début à 3 non compris : "Rob"
+print(prenom[4:]) # de 4 à la fin : "rt"
 
 ## format : créer facilement une chaîne depuis un modèle
 

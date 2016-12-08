@@ -19,7 +19,7 @@ image_perso = pygame.image.load('player.png').convert_alpha()
 # convert_alpha va garder la transparence
 
 # on peut savoir sa taille
-print "Taille :", image_perso.get_width(), image_perso.get_height()
+print("Taille :", image_perso.get_width(), image_perso.get_height())
 
 # on peut même avoir une version tournée, et/ou redimensionnée
 image_perso_tournee = pygame.transform.rotozoom(image_perso, 30, 1) # 30 degrés, taille gardée (x1)

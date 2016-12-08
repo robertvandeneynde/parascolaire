@@ -8,6 +8,6 @@ l = [1,2,7,6,2,5,8]
 
 # insérer le code ici
 
-print resultat # devrait afficher [7,6,8]
+print(resultat) # devrait afficher [7,6,8]
 
 # variante: ne pas créer une nouvelle liste, faire des "del" dans l'ancienne

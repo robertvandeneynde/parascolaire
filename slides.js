@@ -27,6 +27,8 @@ $(function(){
         })
         
         function setNum(num) {
+            var N = self.find('.slide').length
+            num = (num + N) % N 
             self.data('current', num + 1)
             
             self.find('.slide').each(function(i){

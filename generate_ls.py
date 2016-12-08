@@ -75,15 +75,19 @@ def content(path, indent=0):
             name = os.path.basename(path) if not RE0.match(path) else os.path.basename(path[:-3]),
             sub = '\n'.join(
                 map(((1 + indent) * '    ' + '{}').format,
-                map(partial(content, indent=indent+1),
-                filter(accepted,
-                map(partial(os.path.join, path),
-                partial(sorted, key=key)(os.listdir(path))))))
+                list(map(partial(content, indent=indent+1),
+                list(filter(accepted,
+                list(map(partial(os.path.join, path),
+                partial(sorted, key=key)(os.listdir(path)))))))))
             )
         )
 if __name__ == '__main__':
     with open('template.html') as f:
         template = f.read()
 
-    with open('index.html', 'w') as f:
+    filename = 'index.html'
+    if os.path.isfile(filename):
+        os.chmod(filename, 0o644) # read write
+    with open(filename, 'w') as f:
         f.write(template.replace('%%', content('.', indent=3) + '</section>'))
+    os.chmod(filename, 0o444) # read only

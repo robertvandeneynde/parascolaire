@@ -5,17 +5,21 @@ De courts commentaires sont écrits pour pouvoir vous lancer rapidement dans un 
 Si vous voulez des explications progressives et plus détaillées lisez :
 pygame1_dessin.py, pygame2_tick.py, pygame3_events.py et pygame4_animations.py
 
-Les parties du code utiles à modifier sont les 4 parties INITIALISATION, ÉVÉNEMENTS, UPDATE, DESSIN
+Les parties du code utiles à modifier sont les 4 parties suivantes :
+INITIALISATION, ÉVÉNEMENTS, UPDATE, DESSIN
 '''
 
 # 0) importer pygame, et l'initialiser
 import pygame
 pygame.init()
 
-# 1) INITIALISATION : création des valeurs initiales des variables 
+# 1) créer un écran : je choisis 700x500 pixels
+taille = [700, 500]
+ecran = pygame.display.set_mode(taille)
 
-# mes variables 
-ma_position = 100 # On commence à 100 pixels
+# 2) INITIALISATION : création des valeurs initiales des variables 
+
+# ajoute ici tes variables !
 
 # mes couleurs : [Rouge, Vert, Bleu] (voir Paint)
 NOIR = [0, 0, 0]
@@ -23,10 +27,6 @@ BLANC = [255, 255, 255]
 ROUGE = [255, 0, 0]
 VERT = [0, 255, 0]
 BLEU = [0, 0, 255]
-
-# 2) créer un écran : 700x500 pixels pour nous !
-taille = [700, 500]
-ecran = pygame.display.set_mode(taille)
 
 # 3) faire une clock qui va gérer les fps
 clock = pygame.time.Clock()
@@ -42,7 +42,7 @@ while fini == 0:
     
     # 6) UPDATE : Faire quelque chose à chaque tick (60 fois par seconde)
     
-    ma_position = ma_position + 1 # on bouge de 1 pixel à droite
+    # à compléter !
     
     # 7) DESSIN
     
@@ -51,7 +51,7 @@ while fini == 0:
     # dessiner les objets, sinon, on ne verra rien
     pygame.draw.rect(ecran, ROUGE, [100,200, 20,40]) # coin en haut à gauche : x=100 y=200, taille 20x40
     pygame.draw.circle(ecran, BLEU, [100,200], 20) # centre : x=100 y=200, rayon=20
-    pygame.draw.circle(ecran, VERT, [ma_position, 80], 10) # un cercle vert qui bouge
+    pygame.draw.circle(ecran, VERT, [150, 80], 10) # un cercle vert
     
     # 8) mettre à jour les dessins
     pygame.display.flip()
@@ -61,4 +61,3 @@ while fini == 0:
     
 # 10) quitter... ça peut servir
 pygame.quit()
-    

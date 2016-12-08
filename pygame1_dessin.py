@@ -30,7 +30,7 @@ pygame.draw.circle(ecran, bleu, [110, 220], 20) # centre [110, 220], rayon 20
 pygame.display.flip()
 
 # bloquer le programme avec une fonction, input() par exemple
-input()
+eval(input())
 
 # pour ne pas avoir de problèmes avec pyscripter, on appelle "quit()" 
 pygame.quit()

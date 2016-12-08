@@ -8,10 +8,10 @@ a = L[4] # IndexError : list index out of range
 D = {'a': 5}
 a = D['b'] # KeyError : 'b'
 
-print x # NameError : name 'x' is not defined
+print(x) # NameError : name 'x' is not defined
 
 def f(x):
-    print x
+    print(x)
     
 f()    # TypeError, f() takes 1 positional arguments but 2 were given
 f(1,2) # TypeError, f() takes 1 positional arguments but 3 were given
@@ -31,7 +31,7 @@ except ValueError: # si le code du try lance une ValueError
 except KeyError:   # si le code du try lance une KeyError
     i = -1
 else: # si aucune erreur n'a été lancée
-    print "Yep" 
+    print("Yep") 
 
 # on peut également atrapper Toutes les exceptions
 try:
@@ -48,9 +48,9 @@ def f(x):
     return x * x
 
 try:
-    print f(-5)
+    print(f(-5))
 except ValueError:
-    print "Erreur"
+    print("Erreur")
 
 class MyException(Exception): # C'est une génériques
     def __init__(self, val):
@@ -59,4 +59,4 @@ class MyException(Exception): # C'est une génériques
 try:
     raise MyException(8)
 except MyException as e: # as pour avoir l'objet lancé
-    print "erreur :", e.val
+    print("erreur :", e.val)

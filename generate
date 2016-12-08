@@ -2,3 +2,4 @@
 ./generate_html.py
 # ./generate_ln.py
 ./generate_ls.py
+./generate_multilang.py

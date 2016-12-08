@@ -35,5 +35,5 @@ elif x == 1:
             if z == 4:
                 flag = 1
                 
-print flag
+print(flag)
 

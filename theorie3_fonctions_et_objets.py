@@ -1,4 +1,5 @@
 #!coding: utf-8
+from __future__ import print_function, division
 
 ######################
 # Base CINQ : Objets #
@@ -19,7 +20,7 @@ class Personnage:
 # Vu que la classe est vide, il n'y a pas de paramètres
 
 bob = Personnage()
-print bob # "objet de la classe Personnage à l'adresse mémoire 0x..."
+print(bob) # "objet de la classe Personnage à l'adresse mémoire 0x..."
 # bob est un personnage, oui oui
 # on peut lui mettre des variables !
 bob.vie = 60 
@@ -71,7 +72,7 @@ while i < len(ma_liste):
     if ma_liste[i] > m:
         m = ma_liste[i]
     i = i + 1
-print m
+print(m)
 
 # Ou encore, on aimerait donner 20 points de vie à un objet Personnage
 # sans dépasser son maximum de vie
@@ -172,17 +173,17 @@ def f(x,y):
 
 # 0 paramètre d'entrée, 0 de retour
 def afficher_description():
-    print "+------------------+"
-    print "| Hello !          |"
-    print "| Je suis Robert ! |"
-    print "+------------------+"
+    print("+------------------+")
+    print("| Hello !          |")
+    print("| Je suis Robert ! |")
+    print("+------------------+")
     
 afficher_description()
 
 # 1 paramètre d'entrée, 0 de retour
 def afficher_etoiles(nombre):
     for i in range(nombre):
-        print "*"
+        print("*")
         
 afficher_etoiles(5)
 
@@ -238,14 +239,14 @@ def f(x,y=5):
 # attention, ne mettre que des objets "immuable" : ni list ni objets
 # un bon défaut est "None" qui est une valeur spéciale
 
-print f(1)
-print f(1,2)
+print(f(1))
+print(f(1,2))
 
 ## appel utilisant les noms des paramètres
 
-print f(1, 2)
-print f(1, y=1)
-print f(x=5, y=2)
+print(f(1, 2))
+print(f(1, y=1))
+print(f(x=5, y=2))
 
 ## récursivité
 
@@ -254,7 +255,7 @@ print f(x=5, y=2)
 def f(x):
     if x > 0:
         f(x-1)
-        print "Hello", x
+        print("Hello", x)
         f(x-1)
 
 f(4)
@@ -264,10 +265,10 @@ f(4)
 g = 5
 p = 2
 def f(x):
-    print g
+    print(g)
     y = x + 1
     p = 5
-    print p
+    print(p)
 
 # LECTURE quand on lit une variable (print x par exemple), python fait ceci :
 # - Regarder si la variable existe dans la Fonction en cours (dans le bloc à gauche, en bas sur pythontutor)
@@ -291,7 +292,7 @@ def f():
     g = 2
 
 f()
-print g
+print(g)
 
 # comment éviter de marquer une variable comme "globale" ?
 # en RENVOYANT une info
@@ -323,7 +324,7 @@ class Personnage:
             
     def crier(self):
         """ Affiche un cri de guerre à l'écran """
-        print "Bouh!"
+        print("Bouh!")
 
 bob = Personnage()
 bob.vie = 60 
@@ -382,11 +383,11 @@ class Personnage:
 
 class Guerrier(Personnage): # un Guerrier est un Personnage
     def crier(self): # mais qui fait "crier()" différemment
-        print "Arrrrrrrrgggg"
+        print("Arrrrrrrrgggg")
     
 class Magicien(Personnage):
     def crier(self):
-        print "Wololo"
+        print("Wololo")
 
 alice = Magicien(50)
 bob = Guerrier(75)
@@ -401,7 +402,7 @@ for perso in personnages:
 class MagicienDouble(Personnage):
     def crier(self):
         Personnage.crier(self) # on appelle la version de "crier" qui se trouve dans "Personnage"
-        print "Wouloulou"
+        print("Wouloulou")
 
 # Comment ça se passe ?
 # Python regarde si la classe de l'objet a la fonction appelée
@@ -410,21 +411,21 @@ class MagicienDouble(Personnage):
 
 # on peut savoir si un objet "est" d'une classe
 
-print isinstance(alice, Magicien) # True
-print isinstance(bob, Magicien) # False
-print isinstance(guy, Magicien) # False
-print isinstance(guy, int) # False
+print(isinstance(alice, Magicien)) # True
+print(isinstance(bob, Magicien)) # False
+print(isinstance(guy, Magicien)) # False
+print(isinstance(guy, int)) # False
 
-print isinstance(alice, Personnage) # True car héritage
+print(isinstance(alice, Personnage)) # True car héritage
 
 # on peut donner plusieurs classes pour éviter de faire un "or"
-print isinstance(alice, Magicien) or isinstance(alice, Guerrier) # long
-print isinstance(alice, (Magicien, Guerrier)) # raccourci
+print(isinstance(alice, Magicien) or isinstance(alice, Guerrier)) # long
+print(isinstance(alice, (Magicien, Guerrier))) # raccourci
 
 # bien que peu utile en pratique, on peut accéder à la classe d'un objet
 cls = alice.__class__
-print cls == Magicien # True
-print cls == Personnage # True
+print(cls == Magicien) # True
+print(cls == Personnage) # True
 # toujours utiliser "isinstance" quand vous voulez tester l'appartenance
 # si votre code fait quelque chose pour un Personnage, ça devrait être
 # la même chose pour un Magicien
@@ -436,14 +437,14 @@ print cls == Personnage # True
 a = 5
 b = a
 a = 6
-print a
-print b
+print(a)
+print(b)
 
 a = [1,2,3]
 b = a
 a[0] = 2
-print a
-print b
+print(a)
+print(b)
 
 class Personnage:
     pass
@@ -451,8 +452,8 @@ class Personnage:
 a = Personnage()
 b = a
 a.vie = 1
-print a.vie
-print b.vie
+print(a.vie)
+print(b.vie)
 
 # plot twist : les listes sont des objets, de la classe "list"
 # quand on crée un objet (et donc une liste),

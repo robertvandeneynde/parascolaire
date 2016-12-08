@@ -72,7 +72,9 @@
     </h1>
     
     <nav>
-        <a href="#pythagore-trigonometrie">Pythagore et Trigonométrie</a>
+        <a href="#exercices">Exercices</a>
+        <a href="#pythagore">Pythagore</a>
+        <a href="#trigonometrie">Trigonométrie</a>
         <a href="#vecteurs">Vecteurs</a>
         <a href="#operations-vectorielles">Opérations vectorielles</a>
         <a href="#matrices">Matrices</a>
@@ -90,21 +92,15 @@
         <a href="#3D">3D</a>
     </nav>
     
-    <h2 id="pythagore-trigonometrie">Pythagore et Trigonométrie</h2>
+    <h2 id="exercices">Exercices de présentation</h2>
     
-    <section name="pythagore-trigonometrie">
-    
-    <p>
-        Voici quelques exercices de mathématiques très pratique pour les jeux vidéos en 2D.
-        Pour plus d'informations, regardez
-        <a href="https://www.clipedia.be/mathematiques/geometrie/le-theoreme-de-pythagore">le théorème de pythagore</a> pour l'exercice 1, 
-        <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/la-fonction-sinus">la trigonométrie</a> et le <a href="https://www.clipedia.be/mathematiques/geometrie/le-radian">radian</a> pour les exercices 2 et 3 sur <a href="https://www.clipedia.be">Clipedia</a>.
-        N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
-        Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les autres vidéos du sujet.
-    </p>
+    <section name="exercices">
     
     <p>
-        L'exercice 4 utilise le concept de <strong>vecteur</strong>, j'explique ce concept de manière plus détaillée en dessous de l'exercice.
+        Voici quelques exercices de mathématiques très pratiques pour les jeux vidéos en 2D, la théorie se trouve dans les sections en dessous de la page,
+        l'exercice 1 utilise le <strong>théorème de pythagore</strong>, 
+        les exercices 2 et 3 utilisent la <strong>trigonometrie</strong>,
+        l'exercice 4 utilise le concept de <strong>vecteur</strong>.
     </p>
     
     <article class="exercice" data-current="1">
@@ -120,7 +116,6 @@
             <button class="next solution">Voir la solution</button>
         </div>
     </article>
-    
     
     <article class="exercice" data-current="1">
         <h3>Exercice 2 : Avancer</h3>
@@ -165,6 +160,321 @@
         </div>
     </article>
     
+    </section>
+    
+    <h2 id="pythagore">Pythagore</h2>
+    
+    <section name="pythagore">
+    
+        <p>
+            Pour plus d'informations, regardez
+            <a href="https://www.clipedia.be/mathematiques/geometrie/le-theoreme-de-pythagore">le théorème de pythagore</a>
+            sur
+            <a href="https://www.clipedia.be">Clipedia</a>.
+        </p>
+        
+        <p>
+            N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
+            Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les autres vidéos du sujet.
+        </p>
+        
+    </section>
+    
+    <h2 id="trigonometrie">Trigonométrie</h2>
+    
+    <section name="trigonometrie">
+        <p>La trigonométrie permet de faire une correspondance entre les <strong>angles</strong> et les <strong>longueurs</strong>, grâce aux notions de base, on peut répondre à des questions telles que&nbsp;:</p>
+        
+        <ol>
+            <li>En 2D, un personnage est sur le point A de coordonnées (x = 140, y = 100) mètres, il regarde à 30° et avance de 200 mètres, où est-il à présent&nbsp;?</li>
+            <li>Un triangle a un côté de longueur 1, un autre de longueur 2, séparé par un angle de 30°, de quelles longueurs sont les autres côtés et que valent les autres angles&nbsp;?</li>
+            <li>Quelle est la hauteur d'un triangle de côtés 1, 2 et 3&nbsp;? Que vaut son aire&nbsp;?</li>
+        </ol>
+        
+        <h3 id="trigonometrie-base">Le cosinus et le sinus</h3>
+        
+        <p>La base de la trigonométrie est la définition du <strong>sinus</strong> d'un angle et du <strong>cosinus</strong> d'un angle.</p>
+        
+        <p>Un point P à une distance 1 de l'origine faisant un angle $\theta$ avec l'axe x (vers l'axe y) a une coordonnée $(x = \cos\theta,\ y = \sin\theta)$&nbsp;:</p>
+        
+        <figure class="exercice">
+            <img class="slide next" src="trigono.state-1.svg" />
+            <img class="slide next" src="trigono.state-2.svg" />
+            <figcaption>Le cercle trigonométrique</figcaption>
+        </figure>
+        
+        <p>
+            Par définition, on a donc
+            <em>le cosinus d'un angle est la coordonée <strong>x</strong> du point à distance 1 positionné à cet angle par rapport à l'axe x</em> et
+            <em>le cosinus d'un angle est la coordonée <strong>y</strong> du point à distance 1 positionné à cet angle par rapport à l'axe x</em>.
+        </p>
+        
+        <p>
+            Sur mon dessin, l'angle est de <strong>36°</strong> et le point a environ les coordonnées $(0.82, 0.55)$ (j'ai mesuré&nbsp;!),
+            on a donc $\cos(36°) = 0.82$ et $\sin(36°) = 0.55$
+        </p>
+        
+        <p><em>Cliquez sur la fiigure précédente pour voir les valeurs numériques.</em></p>
+        
+        <p>Attention, si l'axe y est vers le bas (comme souvent en informatique), l'angle tourne dans l'autre sens&nbsp;!</p>
+        
+        <ul>
+            <li>Quand Y est vers le <strong>haut</strong>, le sens <em>des aiguilles d'une montre</em> représente des valeurs d'angle qui <em>diminuent</em> alors que le sens <em>anti-horlogique</em> représente des valeurs qui <strong>augmentent</strong>.</li>
+            <li>Quand Y est vers le <strong>bas</strong>, le sens <em>des aiguilles d'une montre</em> représente des valeurs d'angle qui <strong>augmentent</strong> alors que le sens <em>anti-horlogique</em> représente des valeurs qui <em>diminuent</em>.</li>
+        </ul>
+        
+        <figure class="exercice">
+            <img class="slide next" src="trigono-y.state-1.svg" />
+            <img class="slide next" src="trigono-y.state-2.svg" />
+            <figcaption>Y vers le bas &mdash; <em>cliquez pour voir les valeurs numériques</em></figcaption>
+        </figure>
+        
+        <p>À cause des deux conventions d'axe Y, je préfère ne pas parler de <em>sens trigonométrique</em>, ou alors dire que le <em>sens trigonométrique</em>.</p>
+        
+        <h3 id="trigonometrie-distance-r">Distance r</h3>
+        
+        <p>
+            Maintenant, si le point est à une distance <strong>2</strong> et non 1, tout est <strong>2</strong> fois plus grand, ses coordonnées seront donc $(x = 2\cos\theta,\ y = 2\sin\theta)$.
+            Plus généralement, si sa distance est $r$, sa coordonnée sera donc $(x = r\cos\theta,\ y = r\sin\theta)$.
+        </p>
+        
+        <figure>
+            <img src="trigono-bigger.svg" />
+        </figure>
+        
+        <h3 id="trigonometrie-negatif">Coordonnées négatives</h3>
+        
+        <p>
+            Si l'angle est entre 90° et 270°, la coordonnée en <em>x</em> sera donc <strong>négative</strong>.
+            De même, pour un angle entre 180° et 360°, la coordonnée en <em>y</em> sera négative.
+            On voit donc que le sinus et le cosinus d'un angle peut être négatif&nbsp;!
+        </p>
+        
+        <div class="exercice">
+            <figure class="slides">
+                <img class="slide next" src="trigono-great-angle.state-1.svg" />
+                <img class="slide next" src="trigono-great-angle.state-2.svg" />
+            </figure>
+            <figcaption>Un cosinus négatif &mdash; <em>Cliquez pour voir les données numériques</em></figcaption>
+        </div>
+        
+        <p>
+            Le cercle que vous apercevez sur le dessin est souvent appelé le <em>cercle trigonométrique</em>, il permet d'illustrer les concepts de base de la trigonométrie, cependant, vu que le cercle est de rayon 1, le cosinus et le sinus d'un angle sera toujours <strong>entre -1 et 1</strong>.
+        </p>
+        
+        <h3 id="trigonometrie-relation-sinus-cosinus">La relation des sinus et cosinus</h3>
+        
+        <p>En appliquant pythagore dans le triangle rectangle apparu sur l'image, on a&nbsp;:</p>
+        
+        <p>
+            $(\sin\theta)^2 + (\cos\theta)^2 = 1^2$
+            $\iff \sin^2\theta + \cos^2\theta = 1$
+        </p>
+        
+        <h3 id="trigonometrie-angles-petits-et-grands">Angles petits et grands</h3>
+        
+        <p>
+            Un angle peut être négatif, un angle de <em>−45°</em> correspond à un angle de <em>315°</em>,
+            en effet, <em>tourner de 45° à gauche</em> revient à <em>tourner de 315° à droite</em>,
+            plus généralement, un angle de <em>−x</em> degrés correspond à un angle de <em>360−x</em> degrés.
+        </p>
+        
+        <p>
+            Un angle peut être plus grand que 360 degrés,
+            en effet, <em>tourner de 45°</em> revient à <em>tourner de 405°</em> (45° plus un tour de 360°),
+            plus généralement, un angle de <em>x</em> degrés correspond à un angle de <em>360+x</em> degrés.
+        </p>
+        
+        <p>
+            On peut faire plus qu'un tour, un angle de 45° revient à un angle de 45°+360°+360°+360°...
+        </p>
+        
+        <p>
+            Le point correspondant à l'angle <em>−45°</em> aura donc la même coordonnée que celui de l'angle <em>315°</em> et
+            le point correspondant à l'angle <em>45°</em> aura donc la même coordonnée que celui de l'angle <em>405°</em>.
+        </p>
+        
+        <p>
+            On a donc&nbsp;:
+            $
+            \begin{cases}
+            \cos(360° - \theta) = \cos(-\theta) \\
+            \sin(360° - \theta) = \sin(-\theta)
+            \end{cases}
+            $
+            et
+            $
+            \begin{cases}
+            \cos(\theta + 360°) = \cos \theta \\
+            \sin(\theta + 360°) = \sin \theta
+            \end{cases}
+            $
+        </p>
+        
+        <h3 id="trigonometrie-tangente">Tangente</h3>
+        
+        <p>
+            On définit&nbsp;:
+            $\tan\theta = \cfrac{\sin\theta}{\cos\theta}$
+            
+            la <em>tangente</em> de l'angle $\theta$, notée $\tan\theta$ ou $\mathrm{tg}\ \theta$ en littérature française, est définie comme le rapport du sinus sur le cosinus,
+            on utilise aussi parfois la cotangente, $\cot\theta = \cfrac{\cos\theta}{\sin\theta} = \cfrac{1}{\tan\theta}$
+        </p>
+        
+        <p>
+            La tangente (et la cotangente) peuvent aussi être vues comme une coordonnée sur le cercle trigonométrique&nbsp;:
+        </p>
+        
+        <figure>
+            <img src="https://it.openprof.com/ge/images/80/tancotit_640.png" />
+            <figcaption></figcaption>
+        </figure>
+        
+        <p>La tangente vaut donc la coordonnée y de l'intersection de la droite $x = 1$ et de la droite $OP$, la cotangente vaut la coordonnée x de l'intersection de la droite $y = 1$ et de la droite $OP$.</p>
+        
+        <p>Quand l'angle est entre 90 et 180 degrés (deuxième <em>quadrant</em>), le sinus est positif et le cosinus est négatif, donc la tangente est négative. Sur le dessin, on voit que l'intersection entre les deux droites se retrouve en dessous de l'axe des x.</p>
+        
+        <p>Quand l'angle est à 90°, le sinus vaut 1 et le cosinus est nul et donc la tangente n'existe pas, ou vaut $\frac{1}{0} = +\infty$, quand l'angle vaut −90°, le sinus vaut −1 et le cosinus est nul, donc la tangente vaut $\frac{-1}{0} = -\infty$, la cotangente a les mêmes considérations pour les angles de 0 et 180 degrés.</p>
+        
+        <h3 id="trigonometrie-triangle">Triangle rectangle</h3>
+        
+        <p>
+            Depuis un cercle de rayon $r$ doté d'un angle $\theta$, on peut observer un <strong>triangle rectangle</strong>.
+        </p>
+        
+        <div class="exercice">
+            <figure>
+                <img class="slide next" src="trigono-circle-to-triangle.state-1.svg" />
+                <img class="slide next" src="trigono-circle-to-triangle.state-2.svg" />
+                <img class="slide next" src="trigono-circle-to-triangle.state-3.svg" />
+                <img class="slide next" src="trigono-triangle.state-1.svg" />
+                <img class="slide next" src="trigono-triangle.state-2.svg" />
+            </figure>
+            <figcaption>
+                Du cercle trigonométrique au triangle rectangle &mdash; <em>Cliquez pour avancer dans la présentation, clic droit pour revenir en arrière.</em>
+            </figcaption>
+        </div>
+        
+        <p>Dans un triangle rectangle, le côté opposé à l'angle droit est appelée <em>l'hypothénuse</em> (longueur <em>h</em>). Quand on parle d'un des deux angles, on parlera du côté <em>adjacent</em> (longeur <em>a</em>) et côté <em>opposé</em> (longeur <em>o</em>).</p>
+        <p>On peut en conclure que, dans tout triangle rectangle, les sinus, cosinus et tangentes des angles représentent des <strong>rapport</strong>, une division de deux longueurs&nbsp;:</p>
+        
+        <p>
+            $\begin{cases}
+            r\ \sin\theta = o \\
+            h = r \\
+            \end{cases}$
+            $\iff \sin\theta = \cfrac{o}{h}$
+        </p>
+        
+        <p>
+            $\begin{cases}
+            r\ \cos\theta = a \\
+            h = r \\
+            \end{cases}$
+            $\iff \cos\theta = \cfrac{a}{h}$
+        </p>
+        
+        <p>
+            $\tan\theta = \cfrac{\sin\theta}{\cos\theta}$
+            $= \cfrac{\frac{o}{h}}{\frac{a}{h}}$
+            $= \cfrac{o}{a}$
+        </p>
+        
+        <ul>
+            <li>Le sinus d'un angle vaut la longueur du côté <strong>opposé</strong> à l'angle <em>sur</em> la longueur de l'<strong>hypothénuse</strong>&nbsp;: $\sin\theta = \frac{o}{h}$</li>
+            <li>Le cosinus d'un angle vaut la longueur du côté <strong>adjacent</strong> à l'angle <em>sur</em> la longueur de l'<strong>hypothénuse</strong>&nbsp;: $\cos\theta = \frac{a}{h}$</li>
+            <li>La tangente d'un angle vaut la longueur du côté <strong>opposé</strong> à l'angle <em>sur</em> la longueur du côté <strong>adjacent</strong>&nbsp;: $\tan\theta = \frac{o}{a}$</li>
+        </ul>
+        
+        <p>
+            Un moyen mnémonique bien connu est <strong>S</strong>OH<strong>C</strong>AH<strong>T</strong>OA,
+            le <strong>S</strong>inus de l'angle vaut la longueur du côté <strong>O</strong>pposé sur la longueur de l'<strong>H</strong>ypothénuse,
+            le <strong>C</strong>osinus de l'angle vaut la longueur du côté <strong>A</strong>djacent sur la longueur de l'<strong>H</strong>ypothénuse,
+            la <strong>T</strong>angente de l'angle vaut la longueur du côté <strong>O</strong>pposé sur la longueur du côté <strong>A</strong>djacent.
+        </p>
+        
+        <!--
+        <figure>[ Depuis n'importe quel cercle vers le triangle rectangle, et vice versa ]</figure>
+        
+        <p>
+            Si on applique la trigonométrie dans l'autre triangle rectangle présent sur la figure, on obtient
+            $\begin{cases}
+            \cos(90° - \theta) = \sin \theta \\
+            \sin(90° - \theta) = \cos \theta
+            \end{cases}$
+        </p>
+        
+        -->
+        
+        <h3 id="trigonometrie-radian">Le radian</h3>
+        
+        <p>
+            Le <strong>radian</strong> est une unité d'angle plus mathématique, on établit que 360 degrés sera $2\pi$ radians, car $2\pi$ c'est la circonférence du cercle de rayon 1.
+        </p>
+        
+        <p>
+            À l'angle de <em>1 radian</em>, on a la <em>longueur de l'arc</em> qui est égale au rayon du cercle&nbsp;:
+        </p>
+        
+        <figure>
+            <img src="http://courseware.cemc.uwaterloo.ca/web/Gr12AdFu000/Public_Html/RadianMeasure/images/radianintroduction_a.png" />
+        </figure>
+    
+        <p>
+            <a href="http://tauday.com/tau-manifesto">Certains mathématiciens</a> n'aiment pas $\pi$, et préfèrent utiliser $\tau = 2\pi$
+        </p>
+        
+        <p>
+            Donc, 360 degrés, c'est un tour complet, c'est $\tau$ radians&nbsp;!
+            Parler en $\tau$ <em>radians</em>, c'est comme parler en <em>tours</em>,
+            ainsi $\frac{3}{4}\tau$ radians est l'angle qui fait $\frac{3}{4}$ de tour, donc $\frac{3}{4}360 = 270$ degrés.
+        </p>
+        
+        <p>Pour convertir des degrés au radians&nbsp;:</p>
+        
+        <p>
+            $360\ \text{deg} = \tau\ \text{rad}$
+            <span class="developpement">
+            $\iff x\ 360\ \text{deg} = x\ \tau\ \text{rad}$
+            $\iff x\ \text{deg} = x \frac{\tau}{360}\ \text{rad}$
+            </span>
+            $\iff x\ \text{deg} = (x \times \tau / 360)\ \text{rad}$
+            $= (x \times \pi / 180)\ \text{rad}$
+        </p>
+        
+        <p>Et du radian au degré&nbsp;:</p>
+        
+        <p>
+            $x\ \text{deg} = (x \times \tau / 360)\ \text{rad}$
+            $\iff x\ \text{rad} = (x \times 360 / \tau)\ \text{deg}$
+            $= (x \times 180 / \pi)\ \text{rad}$
+        </p>
+        
+        <div class="exercice">
+            <img class="slide next" src="http://tauday.com/assets/figures/tau-angles.png" />
+            <img class="slide next" src="http://tauday.com/assets/figures/pi-angles.png" />
+            <figcaption>
+                Les angles 0°, 30°, 45°, 60°, 90°, 180°, 270° et 360° exprimés en radians &mdash; Cliquez pour utiliser $\pi$ et non $\tau = 2\pi$
+            </figcaption>
+        </div>
+        
+        <p>
+            Pour rappel, $\tau = 2\pi = 6.283185...$
+            donc $1\ \text{rad} \approx 57°$
+        </p>
+        
+        <h3 id="trigonometrie-clipedia">Clipedia</h3>
+        
+        <p>
+            Plus d'infos sur 
+            <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/la-fonction-sinus">la trigonométrie</a> et le <a href="https://www.clipedia.be/mathematiques/geometrie/le-radian">radian</a> sur clipedia&nbsp;!
+        </p>
+        
+        <p>
+            N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
+            Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les autres vidéos du sujet.
+        </p>
+        
     </section>
     
     <h2 id="vecteurs">Vecteurs</h2>
@@ -381,7 +691,7 @@
                 Le déplacement $\vec{d}$ est appelé <em>un vecteur directeur</em> de la droite.
             </p>
             
-            <figure>Picture</figure>
+            <figure>Image à venir</figure>
             
             <p>
                 Pour toute valeur de $t$, on obtient un point.
@@ -394,12 +704,12 @@
                 $\vec{r}(-1) = (-1,5);$
             </p>
             
-            <figure>Picture</figure>
+            <figure>Image à venir</figure>
             
             <p>
                 Si $\vec{d}$ est normé, le vecteur $\vec{r}(t)$ sera toujours à distance $|t|$ de $\vec{p}$.
                 Si $t$ est négatif, le point sera à distance $|t|$ de <em>l'autre côté</em> du vecteur $\vec{d}$.
-                Comme par exemple le point r(-1) sur la figure précédente.
+                Comme par exemple le point $r(-1)$ sur la figure précédente.
             </p>
             
             <p>
@@ -440,8 +750,7 @@
                 <li class="implies">$\vec{a} \parallel \vec{b} $$\implies \vec{a} \cdot \vec{b} = a \cdot b$</li>
             </ul>
             
-            <p>On peut voir facilement le produit scalaire comme une projection. Quand je projette $\vec{a}$ sur $\vec{b}$, j'obtiens une longueur $a_b$ et par la définition du cosinus, $a_b = \|\vec{a}\| \cos\theta$.
-            Le produit scalaire peut donc aussi s'écrire :</p>
+            <p>On peut voir facilement le produit scalaire comme une projection, quand je projette $\vec{a}$ sur $\vec{b}$, j'obtiens une longueur $a_b$ et par la définition du cosinus, $a_b = \|\vec{a}\| \cos\theta$, le produit scalaire peut donc aussi s'écrire :</p>
             
             <p>$\vec{a} \cdot \vec{b} = a_b\ \|\vec{b}\| = b_a \|\vec{a}\|$</p>
             
@@ -455,7 +764,7 @@
             
             <p>$\vec{1_a} \cdot \vec{1_b} = \cos\theta$</p>
             
-            <p>Le produit scalaire peut également être négatif (pour la définition géométrique, c'est parce que $\cos\theta < 0$, pour la définition par la projection c'est parce que $a_b < 0$) :</p>
+            <p>Le produit scalaire peut également être négatif, pour la définition géométrique, c'est parce que $\cos\theta < 0$ et pour la définition par la projection c'est parce que $a_b < 0$ :</p>
             
             <figure><img src="vecteurs-produit-scalaire-negatif.png" /></figure>
             
@@ -666,7 +975,7 @@
             </p>
             
             <p>
-                En physique une interprétation importante du est le <strong>moment de force</strong>. Plus d'infos sur <a href="https://clipedia.be/physique/forces/le-moment-de-force">Clipédia</a>.
+                En physique une interprétation importante du produit vectoriel est le <strong>moment de force</strong>. Plus d'infos sur <a href="https://clipedia.be/physique/forces/le-moment-de-force">Clipédia</a>.
             </p>
             
         <h3 id="equation-de-plan">Équation de plan</h3>
@@ -741,11 +1050,13 @@
                 $R_{90°}(x,y) = (-y,x)$
             </p>
             
-            <figure>Picture</figure>
+            <figure>
+                <img src="rotation-90.svg" />
+            </figure>
             
             <p>Et donc, on a $(n_x, n_y) = (-d_y, d_x)$</p>
             
-            <p>En développant les deux équations (vectorielles et cartesiennes), on obtient une équivalence :</p>
+            <p>En développant les deux équations (vectorielles et carthésiennes), on obtient une équivalence :</p>
             
             <p>
                 $\vec{r}(t) = \vec{p} + t \cdot \vec{d}$

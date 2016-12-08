@@ -8,4 +8,4 @@ l = [1,2,7,2]
 
 # insérer le code ici
 
-print s # devrait afficher 12
+print(s) # devrait afficher 12

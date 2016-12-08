@@ -93,7 +93,7 @@ def vec3(*args):
 def normalized(v):
     return v / linalg.norm(v)
 
-def PerpectiveMatrix(fovy, aspect, zNear, zFar):
+def PerspectiveMatrix(fovy, aspect, zNear, zFar):
     f = 1.0 / tan(radians(fovy) / 2.0)
     return array([
             [f/aspect, 0, 0, 0],
@@ -128,26 +128,26 @@ def LookAtMatrix(*args):
     LookAtMatrix((1,2,3), (4,5,6), (7,8,9))
     '''
     if len(args) == 3:
-        e,c,ur = args
+        e, c, up = args
     elif len(args) == 9:
-        e,c,ur = args[:3], args[3:6], args[6:]
+        e, c, up = args[:3], args[3:6], args[6:]
     else:
         raise TypeError("Accept 3 or 9 arguments")
-    e,c,ur = array(e), array(c), array(ur)
-    
-    U = normalized(ur)
+    e, c, up = array(e), array(c), array(up)
+
     f = normalized(c - e)
-    s = numpy.cross(f, U)
-    u = numpy.cross(normalized(s), f)
-    
+    s = normalized(numpy.cross(f, up))
+    u = numpy.cross(s, f)
+
     return array([
-        [ s[0],  s[1],  s[2], 0],
-        [ u[0],  u[1],  u[2], 0],
-        [-f[0], -f[1], -f[2], 0],
-        [    0,     0,     0, 1],
-    ], dtype=numpy.float32).dot(
-        TranslationMatrix(-e)
-    )
+        [s[0], s[1], s[2], -s.dot(e)],
+        [u[0], u[1], u[2], -u.dot(e)],
+        [-f[0], -f[1], -f[2], f.dot(e)],
+        [0, 0, 0, 1],
+    ], dtype=numpy.float32)
+    
+    # corresponds to M @ Translate(-e)
+
 
 def SimpleRotationMatrix(angle, axe=Axe.Z):
     '''
@@ -234,7 +234,6 @@ def create_object(shader):
     
     glBindVertexArray(0)
     
-    glDisableVertexAttribArray(position)
     glBindBuffer(GL_ARRAY_BUFFER, 0)
     
     return vertex_array_object
@@ -244,7 +243,7 @@ def display(shader, vertex_array_object, t):
     glUseProgram(shader)
     
     # build projection matrix
-    p = PerpectiveMatrix(45, 1.0 * 512/512, 0.1, 100)
+    p = PerspectiveMatrix(45, 1.0 * 512/512, 0.1, 100)
     
     # build view matrix (lookAt)
     v = LookAtMatrix(vec3(7 * polar(0.5 * t), 5), (0, 0, 0), (0, 0, 1))

@@ -11,4 +11,4 @@ m = 30
 
 # écris ton code sans print ici
 
-print h,m
+print(h,m)

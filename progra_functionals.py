@@ -14,23 +14,23 @@ def produit(X):
         s = s * x
     return s
 
-print produit(range(5,10))
+print(produit(list(range(5,10))))
 
 # any/all : il existe, pour tout
 
 L = [1,2,4,5,2,9]
 
-print any(x == 4 for x in L)           # il y a t il un 4 dans L ?
-print all(x != 3 for x in L)           # sont ils tous différents de 3 ?
-print any(x < 10 for x in L if x >= 5) # il y a t il nombre plus petit que 10 dans les éléments de L plus grand que 5 ?
-print any(x in (0,5,7) for x in L)
+print(any(x == 4 for x in L))           # il y a t il un 4 dans L ?
+print(all(x != 3 for x in L))           # sont ils tous différents de 3 ?
+print(any(x < 10 for x in L if x >= 5)) # il y a t il nombre plus petit que 10 dans les éléments de L plus grand que 5 ?
+print(any(x in (0,5,7) for x in L))
 
 # une longue expression/boucle A or B or C or D devient un any((A,B,C,D))
 # une longue expression/boucle A and B and C and D devient un all((A,B,C,D))
 
 Vide = []
-print any(x == 2 for x in Vide) # est ce qu'il existe un élement qui satistife x == 2 dans Vide ? Non
-print all(x == 2 for x in Vide) # est ce tous les élements de Vide satisfont x == 2 dans Vide ? Oui
+print(any(x == 2 for x in Vide)) # est ce qu'il existe un élement qui satistife x == 2 dans Vide ? Non
+print(all(x == 2 for x in Vide)) # est ce tous les élements de Vide satisfont x == 2 dans Vide ? Oui
 
 # any est un raccourci pour
 def to_any(iterable):
@@ -47,27 +47,27 @@ def to_all(iterable):
     return True
 
 # max/min/sort
-print max(L) # max : le plus grand élément : 9
-print min(L) # min : le plus petit élément : 1
+print(max(L)) # max : le plus grand élément : 9
+print(min(L)) # min : le plus petit élément : 1
 
 def fonction(x):
     return -x * x * (x * x - 10)
 
-print max(fonction(x) for x in L)      # pour tout les élements de L, le maximum de fonction(x) est 24
-print max(L, key=fonction)             # 2 est le x qui a le plus grand fonction(x)
-print max((fonction(x), x) for x in L) # tuple f_x, x va d'abord comparer f_x, et puis en cas d'égalité, x
+print(max(fonction(x) for x in L))      # pour tout les élements de L, le maximum de fonction(x) est 24
+print(max(L, key=fonction))             # 2 est le x qui a le plus grand fonction(x)
+print(max((fonction(x), x) for x in L)) # tuple f_x, x va d'abord comparer f_x, et puis en cas d'égalité, x
 
-print sorted(L)
-print sorted([(1,2),(4,5),(1,8),(4,5),(4,2)]) # [(1,2), (1,8), (4,2), (4,5), (4,5)]
-print sorted(L, key=fonction)
+print(sorted(L))
+print(sorted([(1,2),(4,5),(1,8),(4,5),(4,2)])) # [(1,2), (1,8), (4,2), (4,5), (4,5)]
+print(sorted(L, key=fonction))
 L.sort() # modifier la liste, ne pas renvoyer une nouvelle
 
 ## more bools
 
 # sum of bool
-print True + False # == 1, car True est converti en 1 et False en 0
-print sum(L) # somme
-print sum(x == 2 for x in L) # somme de booléens : comptage d'élements satifaisant une condition
+print(True + False) # == 1, car True est converti en 1 et False en 0
+print(sum(L)) # somme
+print(sum(x == 2 for x in L)) # somme de booléens : comptage d'élements satifaisant une condition
 
 # cast to bool
 
@@ -76,16 +76,16 @@ class Personnage:
 
 bob = Personnage()
 
-print bool(1)     # True
-print bool(2)     # True
-print bool(0)     # False
-print bool(-1)    # True
-print bool([])    # False
-print bool({})    # False
-print bool(set()) # False
-print bool('')    # False
-print bool(None)  # False
-print bool(bob)   # True
+print(bool(1))     # True
+print(bool(2))     # True
+print(bool(0))     # False
+print(bool(-1))    # True
+print(bool([]))    # False
+print(bool({}))    # False
+print(bool(set())) # False
+print(bool(''))    # False
+print(bool(None))  # False
+print(bool(bob))   # True
 
 S = []
 if S: # cast to bool, shortcut here for len(S) > 0
@@ -125,7 +125,7 @@ bob = Personnage(20)
 # une variable peut avoir une fonction
 
 f = stuff
-print f(alice, bob, 8)
+print(f(alice, bob, 8))
 
 f = Personnage.boire_potion
 f(alice, 7)
@@ -135,19 +135,19 @@ f(10)
 
 from functools import partial
 g = partial(stuff, alice, bob) # on donne déjà les 2 premiers arguments
-print g(8) # et puis le 3ème
-print g(7) # idem
+print(g(8)) # et puis le 3ème
+print(g(7)) # idem
 
 h = partial(nombre=7) # on donne déjà nombre, il reste donc (perso1, perso2)
-print h(alice, bob)
-print h(bob, alice)
+print(h(alice, bob))
+print(h(bob, alice))
 
 def apply_to(liste_perso, fonction):
     for p in liste_perso:
         fonction(p)
         
 L = [alice, bob]
-apply_to(L, 
+apply_to(L, Personnage.boire_potion)
          
 # fonction dans fonction
 
@@ -180,4 +180,4 @@ def f(x):
     return g
 
 p = f(8)
-print p(1) # 10
+print(p(1)) # 10

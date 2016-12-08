@@ -11,12 +11,12 @@ b = 2
 
 if a > 0:
     if b > 1:
-        print a
+        print(a)
     else:
-        print b
+        print(b)
 else:
     if b > 1:
-        print a + b
+        print(a + b)
     else:
-        print b
+        print(b)
         

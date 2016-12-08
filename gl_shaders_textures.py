@@ -108,8 +108,8 @@ def main():
     screen = pygame.display.set_mode((512, 512), pygame.OPENGL|pygame.DOUBLEBUF)
     glClearColor(0.5, 0.5, 0.5, 1.0)
     glEnable(GL_DEPTH_TEST)
-    glEnable(GL_ALPHA_TEST);
-    glAlphaFunc(GL_GREATER, 0);
+    # glEnable(GL_ALPHA_TEST)
+    # glAlphaFunc(GL_GREATER, 0);
     # glEnable(GL_TEXTURE_2D)
     # glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 

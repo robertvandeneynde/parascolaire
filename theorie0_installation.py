@@ -43,13 +43,35 @@ Cependant dès que nous ferons des fenêtres, vous devrez installer pygame et do
 
 Option 2 : Installer
 --------------------
-- Téléchargez python 2.7 sur https://www.python.org/downloads/
-- Téléchargez pygame :
-  - (windows) : https://bitbucket.org/pygame/pygame/downloads/pygame-1.9.1.win32-py2.7.msi
-  - (mac) : suivez ceci : http://stackoverflow.com/questions/30743194/pygame-installation-mac-os-x
-  - (linux) : sudo apt-get install python-pygame
 
-(Pour utiliser une version plus récente de python : python 3, lisez la remarque ci-dessous)
+Si vous avez un souci, envoyez moi un mail !
+
+- Téléchargez python 3.5 sur https://www.python.org/downloads/
+
+- Téléchargez pygame :
+  - (windows) : téléchargez un des deux whl suivants sur http://www.lfd.uci.edu/~gohlke/pythonlibs/
+    (windows 64 bits) pygame‑1.9.2rc1‑cp35‑cp35m‑win_amd64.whl
+    (windows 32 bits) pygame‑1.9.2rc1‑cp35‑cp35m‑win32.whl
+    Si vous ne savez pas si votre ordi est 32 ou 64 bits, allez dans "Panneau de configuration > Système"
+    
+    Placez ce fichier dans le dossier existant C:\Python35\Script\
+    (Bouton windows > Ordinateur > C > Python35 > Script)
+    
+    Ouvrez "cmd" (cliquez sur le bouton windows, tappez "cmd") et entrez les deux commandes suivantes :
+    
+    cd C:\Python35\Script\
+    pip.exe pygame‑1.9.2rc1‑cp35‑cp35m‑win_amd64.whl
+    
+    (changer le nom du fichier whl si nécessaire)
+    
+  - (mac) : suivez ceci : http://stackoverflow.com/questions/30743194/pygame-installation-mac-os-x
+    Vous devez donc d'abord installer XCode via l'AppStore
+    Puis lancer une commande ruby pour installer homebrew (brew)
+    Puis lancer plein de commandes brew pour installer le reste 
+    
+  - (linux) : suivez ceci : http://askubuntu.com/questions/401342/how-to-download-pygame-in-python3-3
+
+(Si vous utilisez l'ancienne version de python : python 2, lisez la remarque ci dessous
 
 Ensuite vous lancer le programme "IDLE",
 vous faites "File > New", écrivez du code, enregistrez le fichier sur votre bureau,
@@ -59,14 +81,9 @@ et appuyez sur F5 (ou "Run" dans les menus) pour le lancer.
 
 Remarque sur les versions de python
 -----------------------------------
-Le cours utilise la version 2.7 à cause des contraintes des salles informatiques à l'école,
-mais le futur de python sont les versions 3.x ! (Comme 3.4)
-Pour ce cours ci ça ne change quasi rien, à part trois petites différences décrites ci-dessous.
-
-Si vous voulez suivre exactement le cours, prenez 2.7
-Si vous voulez suivre le cours en python 3, choisissez 3.4 (et non 3.5)
-
-Les 3 différences entre python 2 et python3 sont celles-ci :
+Si vous avez reçu une clef usb avec python, la version est 2.7 (ancienne version)
+Les ordis à l'école ont la version récente : 3.5 (nouvelle version)
+Pour ce cours, ça ne change quasi rien, à part trois petites différences suivantes :
 
 1) (python2) print a,b | (python3) print(a,b)
 2) (python2) 7/2 == 3  | (python3) 7/2 == 3.5
@@ -78,21 +95,10 @@ from __future__ import print_function  # pour le print
 from __future__ import division        # pour la division
 Pour les accents, c'est plus compliqué, mais from __future__ import unicode_litterals est un bon début
 
-Pygame et versions de python :
-
-À partir de la 5ème séance, nous ferons des fenêtres, et vous devrez installer pygame.
-Sur windows, c'est très simple : https://bitbucket.org/pygame/pygame/downloads
-Choisissez en fonction de la version de python et la version de votre ordi parmi
-win-amd64-py2.7.msi / win-amd64-py3.4.msi / win32-py2.7.msi / win32-py3.4.msi
-Si vous ne savez pas si votre ordi est 32 ou 64 bits, allez dans "Panneau de configuration > Système"
-
-Sur linux pour python2, c'est très simple : sudo apt-get install python-pygame
-Pour python3, veuillez suivre le lien ci dessous :
-http://programarcadegames.com/index.php?chapter=foreword&lang=fr
-Copier coller 4 commandes et hop, c'est fait.
-
 Autres éditeurs de texte
 ------------------------
+PYCHARM: https://www.jetbrains.com/pycharm/download/
+
 WINDOWS: notepad++
 Téléchargez le sur https://notepad-plus-plus.org/
 et vous pourrez aisément modifier des fichiers python (entre autres !)
@@ -107,5 +113,8 @@ Opengl
 À la fin du cours je ferai une introduction à la 3D pour les intéressés.
 Il faut installer pyOpenGL (http://pyopengl.sourceforge.net/)
 et numpy (http://www.scipy.org/scipylib/download.html)
-Je n'ai pas encore essayé d'installer ceux-ci sous windows. Google est votre ami.
+PyOpengl et numpy sont installés sur les ordis de l'école.
+Si vous êtes intéressés de l'installer chez vous, contactez moi.
+Sous windows pous pouvez faire la même chose qu'avec pygame.
+(via http://www.lfd.uci.edu/~gohlke/pythonlibs/)
 '''

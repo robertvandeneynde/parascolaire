@@ -101,7 +101,7 @@ else:
     ne touche pas
 </code></pre>
             
-            <p>Pour certains jeux (Mario), on traite les collisions différemment en fonction du côté de collision (par exemple dans Mario, une collision par le haut d'un ennemi le tue, alors qu'une collision par le côté tue Mario) et donc on gardera la cascade de <code>if/elif</code></p>
+            <p>Pour certains jeux, on traite les collisions différemment en fonction du côté de collision (par exemple dans Mario, une collision par le haut d'un ennemi le tue, alors qu'une collision par le côté tue Mario) et donc on gardera la cascade de <code>if/elif</code></p>
             
             
             <h3 id="point-rectangle">Point Rectangle</h3>
@@ -125,10 +125,10 @@ else:
     ne touche pas</code></pre>
             
             <figure style="display:inline-block; vertical-align: middle;"><!--
-                --><div class="element"><img src="collision-cercles.png" /> <figcaption>Deux cercles qui ne se touchent pas</figcaption></div><!--
+                --><div class="element"><img src="collision-circle.png" /> <figcaption>Deux cercles qui ne se touchent pas</figcaption></div><!--
             --></figure>
             
-            <p>Remarquez que vu que la condition <em>distance &lt; rayon1 + rayon2</em> est la même que <em>distance² &lt; (rayon1 + rayon2)²</em>, le calcul peut se faire sans racine carrée </p>
+            <p>Remarquez que vu que la condition <em>distance &lt; rayon1 + rayon2</em> est la même que <em>distance² &lt; (rayon1 + rayon2)²</em>, le calcul peut se faire sans racine carrée :</p>
 
 <pre><code class="python">dx = centre1x - centre2x
 dy = centre1y - centre2y

@@ -14,4 +14,4 @@ while i < len(L) and L[i] != c:
 if i == len(L):
     i = -1
 
-print i
+print(i)

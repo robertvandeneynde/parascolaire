@@ -46,10 +46,10 @@ last = partial(
     tag = args.tag
 )
 
-print('\n'.join([
+print(('\n'.join([
     first(**D[0])
 ] + [
     middle(**d) for d in D[1:-1]
 ] + [
     last(**D[-1])
-]))
+])))

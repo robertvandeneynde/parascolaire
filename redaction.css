@@ -16,6 +16,11 @@
     }
 }
 
+figure figcaption {
+    display: block;
+    text-align: center;
+}
+
 .if-then {
     /* not implies */
 }
@@ -39,6 +44,10 @@ img:not(.free) {
 
 img:not(.free), pre {
     max-width: 100%;
+}
+
+img[src$=".svg"] {
+    background: white;
 }
 
 .animation-components {
