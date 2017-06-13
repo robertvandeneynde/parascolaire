@@ -1,4 +1,4 @@
-<!-- <!doctype html> --> <!-- make weird padding to sections becase they are list -->
+<!-- <!DOCTYPE html> --> <!-- make weird padding to sections becase they are list -->
 <html>
     <head>
         <meta charset="utf-8"/>
@@ -7,7 +7,6 @@
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="animations.js"></script>
-        <!-- not smooth-links.js -->
         <link rel="stylesheet" href="base.css" />
         <script>
         $(function(){
@@ -47,22 +46,23 @@
                 }
             }).trigger('hashchange')
             
-            $('a[href^=#]').click(function(ev){
+            $('a[href^=#]').click(function(ev) {
                 ev.preventDefault()
                 location.hash = $(this).attr('href')
             })
             
-            $('#svg-close').click(function(ev){
+            $('#svg-close').click(function(ev) {
                 ev.preventDefault()
                 location.hash = ''
             })
         })
         $(function(){
-            var e = document.getElementById('emailize')
-            e.innerHTML = e.innerHTML.replace('[at]', '@').replace('[dot]', '.')
-            e.parentNode.setAttribute('href', 'mailto:' + e.innerHTML)
+            $('.emailize').each(function(){
+                this.innerHTML = this.innerHTML.replace(/\[at\]/g, '@').replace(/\[dot\]/g, '.')
+                this.setAttribute('href', 'mailto:' + this.innerHTML)
+            })
             
-            $('.remove-empty-text').each(function(){
+            $('.remove-empty-text').each(function() {
                 var toDelete = []
                 
                 for(var i = 0; i < this.childNodes.length; i++) {
@@ -117,12 +117,22 @@
             margin: 5px;
             cursor: pointer;
         }
+        .annonce a {
+            color: white;
+            text-decoration: underline;
+        }
         .annonce.style-1 {
             background: #f90;
         }
         .annonce.style-2 {
             background: #090;
             border-color: #060;
+        }
+        .emailize {
+            font-weight: bold;
+        }
+        nav .name {
+            padding:5px;
         }
         </style>
     </head>
@@ -145,27 +155,51 @@
                  --><a href="#exercice">exercice</a><!--
                  --><a href="#pygame">pygame</a><!--
                 --></nav>
+                <nav><span class="name">Dropbox</a><!--
+                --><a href="https://www.dropbox.com/sh/96cat87k7vizmdk/AABy6VRcH_-RGeaXDl_wgTF_a?dl=0">Lundi</a><!--
+                --><a href="https://www.dropbox.com/sh/czddv5pcbkcqnfs/AABRwUTKEYNgSEJjk33M_-Qia?dl=0">Jeudi</a><!--
+                --></nav>
             </div>
             <div class="part">
                 <img id="tetris" src="tetris.png" style="margin:10px; height: 40px; vertical-align:middle;"/>
-                <nav>
-                    <a href="projets.html">projets</a>
-                    <a href="pythontutor.html">pythontutor</a>
-                    <a href="turtle.html">turtle</a>
-                    <a href="math.html">math</a>
-                    <a href="physique.html">physique</a>
-                    <a href="algos.html">algos</a>
-                </nav>
+                <nav><!--
+                    --><a href="theorie0_installation.html">installation</a><!--
+                    --><a href="projets.html" style="background: #beb;">projets</a><!--
+                    --><a href="pythontutor.html">pythontutor</a><!--
+                    --><a href="turtle.html" style="background: #beb;">turtle</a><!--
+                    --><a href="math.html">math</a><!--
+                    --><a href="physique.html">physique</a><!--
+                    --><a href="algos.html">algos</a><!--
+                --></nav>
             </div>
             <div class="part">
                 <img id="invader" src="invader.png" style="height: 40px; margin: 0 5px; vertical-align:middle;"/>
-                <nav><a><strong id="emailize">robertvandeneynde@hotmail.com</strong></a></nav>
+                <nav><!--
+                    --><a class="emailize">meessen[dot]thomas[at]gmail[dot]com</a><!--
+                    --><a class="emailize">robertvandeneynde[at]hotmail[dot]com</a><!--
+                --></nav>
             </div>
         </section>
         
+        <!--
+        <div class="annonce style-2">
+            Les dropbox sont disponibles <a href="https://www.dropbox.com/sh/96cat87k7vizmdk/AABy6VRcH_-RGeaXDl_wgTF_a?dl=0">ici (lundi)</a> et <a href="https://www.dropbox.com/sh/czddv5pcbkcqnfs/AABRwUTKEYNgSEJjk33M_-Qia?dl=0">ici (jeudi)</a> !
+        </div>
+        <div class="annonce style-1">
+            Le mercredi 1er février, auront lieux les <a href="http://beoi.be-oi.be/fr/"><strong>olympiades d'informatiques</strong></a>, jetez un coup d'oeil sur <a href="http://beoi.be-oi.be/fr/">le site</a>, aucun prérequis (même pas le parascolaire) !
+        </div>
+        -->
+        <!--
+        <div class="annonce style-2">
+            Le parascolaire recommence dès Lundi 9 Janvier et Jeudi 12 Janvier.
+            Pour les élèves de deuxième qui seraient par hasard sur mon site, vous êtes toujours les bienvenus le lundi ou jeudi midi pour découvrir l'informatique via turtle ou le parascolaire.
+        </div>
+        -->
+        <!--
         <div class="annonce style-2">
             Je serai à l'école la semaine du 5 au 8 décembre, donc si vous voulez, vous pouvez pour faire du turtle ou du parascolaire le lundi, mardi, mercredi ou jeudi midi&nbsp;!
         </div>
+        -->
         <!--
         <div class="annonce style-1">
             J'ai installé python et plein d'autres programmes sur les machines de l'école, plus besoin des clés&nbsp;! L'éditeur est bien meilleur, on fera du python moderne, et même peut-être des dessins 3D (Blender) et 2D (Inkscape).
@@ -2273,8 +2307,11 @@
         
         <span class="notitle dir-name root">.</span>
             
-                </section><section class="grouping" id="theorie"/><li class='ext-py'><a href='./theorie0_installation.py.html'>theorie0_installation.py</a></li>
+                </section><section class="grouping" id="theorie"/><li class='ext-html'><a href='./theorie0_installation.html'>theorie0_installation.html</a></li>
                 <li class='ext-py'><a href='./theorie1_egal_if.py.html'>theorie1_egal_if.py</a></li>
+                <li class='ext-py'><a href='./theorie1_egal_if_en.py.html'>theorie1_egal_if_en.py</a></li>
+                <li class='ext-py'><a href='./theorie1_egal_if_fr.py.html'>theorie1_egal_if_fr.py</a></li>
+                <li class='ext-py'><a href='./theorie1_egal_if_multilang.py.html'>theorie1_egal_if_multilang.py</a></li>
                 <li class='ext-py'><a href='./theorie2_liste_while.py.html'>theorie2_liste_while.py</a></li>
                 <li class='ext-py'><a href='./theorie3_fonctions_et_objets.py.html'>theorie3_fonctions_et_objets.py</a></li>
                 <li class='ext-php'><a href='./theorie1_egal_if.php.html'>theorie1_egal_if.php</a></li>
@@ -2283,9 +2320,6 @@
                 <li class='ext-java'><a href='./theorie2_liste_while.java.html'>theorie2_liste_while.java</a></li>
                 <li class='ext-js'><a href='./theorie1_egal_if.js.html'>theorie1_egal_if.js</a></li>
                 <li class='ext-js'><a href='./theorie2_liste_while.js.html'>theorie2_liste_while.js</a></li>
-                <li class='ext-bak'><a href='./theorie1_egal_if.py.bak'>theorie1_egal_if.py.bak</a></li>
-                <li class='ext-bak'><a href='./theorie2_liste_while.py.bak'>theorie2_liste_while.py.bak</a></li>
-                <li class='ext-bak'><a href='./theorie3_fonctions_et_objets.py.bak'>theorie3_fonctions_et_objets.py.bak</a></li>
                 </section><section class="grouping" id="exercice"/><li class='ext-py'><a href='./exercice0_trier_deux_nombres.py.html'>exercice0_trier_deux_nombres.py</a></li>
                 <li class='ext-py'><a href='./exercice1_minute_suivante.py.html'>exercice1_minute_suivante.py</a></li>
                 <li class='ext-py'><a href='./exercice2_minute_suivante_un_print.py.html'>exercice2_minute_suivante_un_print.py</a></li>
@@ -2296,10 +2330,6 @@
                 <li class='ext-py'><a href='./exercice7_filtre_des_grands.py.html'>exercice7_filtre_des_grands.py</a></li>
                 <li class='ext-py'><a href='./exercice8_somme.py.html'>exercice8_somme.py</a></li>
                 <li class='ext-py'><a href='./exercice9_doublons.py.html'>exercice9_doublons.py</a></li>
-                <li class='ext-bak'><a href='./exercice2_minute_suivante_un_print.py.bak'>exercice2_minute_suivante_un_print.py.bak</a></li>
-                <li class='ext-bak'><a href='./exercice5_max_list.py.bak'>exercice5_max_list.py.bak</a></li>
-                <li class='ext-bak'><a href='./exercice7_filtre_des_grands.py.bak'>exercice7_filtre_des_grands.py.bak</a></li>
-                <li class='ext-bak'><a href='./exercice8_somme.py.bak'>exercice8_somme.py.bak</a></li>
                 </section><section class="grouping" id="pygame"/><li class='ext-py'><a href='./pygame0_code_minimal.py.html'>pygame0_code_minimal.py</a></li>
                 <li class='ext-py'><a href='./pygame1_dessin.py.html'>pygame1_dessin.py</a></li>
                 <li class='ext-py'><a href='./pygame2_tick.py.html'>pygame2_tick.py</a></li>
@@ -2309,10 +2339,6 @@
                 <li class='ext-py'><a href='./pygame6_clavier_souris_state.py.html'>pygame6_clavier_souris_state.py</a></li>
                 <li class='ext-py'><a href='./pygame7_images.py.html'>pygame7_images.py</a></li>
                 <li class='ext-py'><a href='./pygame8_texte.py.html'>pygame8_texte.py</a></li>
-                <li class='ext-bak'><a href='./pygame1_dessin.py.bak'>pygame1_dessin.py.bak</a></li>
-                <li class='ext-bak'><a href='./pygame2_tick.py.bak'>pygame2_tick.py.bak</a></li>
-                <li class='ext-bak'><a href='./pygame5_clavier_souris_events.py.bak'>pygame5_clavier_souris_events.py.bak</a></li>
-                <li class='ext-bak'><a href='./pygame7_images.py.bak'>pygame7_images.py.bak</a></li>
                 </section><section class="grouping" id="progra"/><li class='ext-py'><a href='./progra_exceptions.py.html'>progra_exceptions.py</a></li>
                 <li class='ext-py'><a href='./progra_fichier.py.html'>progra_fichier.py</a></li>
                 <li class='ext-py'><a href='./progra_functionals.py.html'>progra_functionals.py</a></li>
@@ -2320,11 +2346,9 @@
                 <li class='ext-py'><a href='./progra_import.py.html'>progra_import.py</a></li>
                 <li class='ext-py'><a href='./progra_list_dict_set.py.html'>progra_list_dict_set.py</a></li>
                 <li class='ext-py'><a href='./progra_module_exemple.py.html'>progra_module_exemple.py</a></li>
-                <li class='ext-bak'><a href='./progra_exceptions.py.bak'>progra_exceptions.py.bak</a></li>
-                <li class='ext-bak'><a href='./progra_functionals.py.bak'>progra_functionals.py.bak</a></li>
-                <li class='ext-bak'><a href='./progra_hasard.py.bak'>progra_hasard.py.bak</a></li>
                 </section><section class="grouping" id="gl"/><li class='ext-py'><a href='./gl_brick.py.html'>gl_brick.py</a></li>
                 <li class='ext-py'><a href='./gl_brick_2d.py.html'>gl_brick_2d.py</a></li>
+                <li class='ext-py'><a href='./gl_brick_shaders.py.html'>gl_brick_shaders.py</a></li>
                 <li class='ext-py'><a href='./gl_brick_with.py.html'>gl_brick_with.py</a></li>
                 <li class='ext-py'><a href='./gl_shaders.py.html'>gl_shaders.py</a></li>
                 <li class='ext-py'><a href='./gl_shaders_textures.py.html'>gl_shaders_textures.py</a></li>
@@ -2339,15 +2363,12 @@
                 <li class='ext-py'><a href='./lecture08.py.html'>lecture08.py</a></li>
                 <li class='ext-py'><a href='./lecture09.py.html'>lecture09.py</a></li>
                 <li class='ext-py'><a href='./lecture10.py.html'>lecture10.py</a></li>
-                <li class='ext-bak'><a href='./lecture02.py.bak'>lecture02.py.bak</a></li>
-                <li class='ext-bak'><a href='./lecture03.py.bak'>lecture03.py.bak</a></li>
-                <li class='ext-bak'><a href='./lecture08.py.bak'>lecture08.py.bak</a></li>
-                <li class='ext-bak'><a href='./lecture09.py.bak'>lecture09.py.bak</a></li>
-                <li class='ext-bak'><a href='./lecture10.py.bak'>lecture10.py.bak</a></li>
+                <li class='ext-py'><a href='./lecture11.py.html'>lecture11.py</a></li>
                 </section><section class="grouping" id="pdf"/><li class='ext-pdf'><a href='./pdf_theorie1_egal_if.py.pdf'>pdf_theorie1_egal_if.py.pdf</a></li>
                 <li class='ext-pdf'><a href='./pdf_theorie2_liste_while.py.pdf'>pdf_theorie2_liste_while.py.pdf</a></li>
                 <li class='ext-pdf'><a href='./pdf_theorie3_fonctions_et_objets.py.pdf'>pdf_theorie3_fonctions_et_objets.py.pdf</a></li>
                 </section><section class="grouping" id="projet"/><li class='ext-html'><a href='./projets.html'>projets.html</a></li>
+                <li class='ext-html'><a href='./projets.multilang_as_projects.html'>projets.multilang_as_projects.html</a></li>
                 <li class='ext-png'><a href='./projet-arnaud-screenshot.png'>projet-arnaud-screenshot.png</a></li>
                 <li class='ext-png'><a href='./projet-michal-screenshot.png'>projet-michal-screenshot.png</a></li>
                 <li class='ext-py'><a href='./projet_arnaud_code.py.html'>projet_arnaud_code.py</a></li>
@@ -2362,17 +2383,14 @@
                 <li class='ext-odp'><a href='./flyer-A4.odp'>flyer-A4.odp</a></li>
                 <li class='ext-odp'><a href='./flyer.odp'>flyer.odp</a></li>
                 <li class='ext-html'><a href='./algos.html'>algos.html</a></li>
-                <li class='ext-html'><a href='./index-serveur.html'>index-serveur.html</a></li>
                 <li class='ext-html'><a href='./index.html'>index.html</a></li>
                 <li class='ext-html'><a href='./math.html'>math.html</a></li>
                 <li class='ext-html'><a href='./physique.html'>physique.html</a></li>
+                <li class='ext-html'><a href='./projects.html'>projects.html</a></li>
                 <li class='ext-html'><a href='./pythontutor.html'>pythontutor.html</a></li>
                 <li class='ext-html'><a href='./template.html'>template.html</a></li>
                 <li class='ext-html'><a href='./template_codefile.html'>template_codefile.html</a></li>
-                <li class='ext-html'><a href='./turtle.en.html'>turtle.en.html</a></li>
-                <li class='ext-html'><a href='./turtle.fr.html'>turtle.fr.html</a></li>
                 <li class='ext-html'><a href='./turtle.html'>turtle.html</a></li>
-                <li class='ext-html'><a href='./turtle.multilang.html'>turtle.multilang.html</a></li>
                 <li class='ext-html'><a href='./turtle_instructions.html'>turtle_instructions.html</a></li>
                 <li class='ext-html'><a href='./turtle_test.html'>turtle_test.html</a></li>
                 <li class='ext-css'><a href='./base.css'>base.css</a></li>
@@ -2393,6 +2411,16 @@
                 <li class='ext-svg'><a href='./hexagon.svg'>hexagon.svg</a></li>
                 <li class='ext-svg'><a href='./house.svg'>house.svg</a></li>
                 <li class='ext-svg'><a href='./math1-distance.svg'>math1-distance.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Angle X.svg'>reflexion.state-Angle X.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Angle Y.svg'>reflexion.state-Angle Y.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Presentation.svg'>reflexion.state-Presentation.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Reflexion.svg'>reflexion.state-Reflexion.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Vector Elements.svg'>reflexion.state-Vector Elements.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Vector X.svg'>reflexion.state-Vector X.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Vector Y.svg'>reflexion.state-Vector Y.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Vector.state-Vector.svg'>reflexion.state-Vector.state-Vector.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.state-Vector.svg'>reflexion.state-Vector.svg</a></li>
+                <li class='ext-svg'><a href='./reflexion.svg'>reflexion.svg</a></li>
                 <li class='ext-svg'><a href='./rotation-90.svg'>rotation-90.svg</a></li>
                 <li class='ext-svg'><a href='./svg-edit.svg'>svg-edit.svg</a></li>
                 <li class='ext-svg'><a href='./transformation-multiples.svg'>transformation-multiples.svg</a></li>
@@ -2514,27 +2542,25 @@
                 <li class='ext-jpg'><a href='./grid.jpg'>grid.jpg</a></li>
                 <li class='ext-py'><a href='./clean.py.html'>clean.py</a></li>
                 <li class='ext-py'><a href='./flow_translate.py.html'>flow_translate.py</a></li>
+                <li class='ext-py'><a href='./generate_.py.html'>generate_.py</a></li>
                 <li class='ext-py'><a href='./generate_html.py.html'>generate_html.py</a></li>
                 <li class='ext-py'><a href='./generate_ln.py.html'>generate_ln.py</a></li>
                 <li class='ext-py'><a href='./generate_ls.py.html'>generate_ls.py</a></li>
                 <li class='ext-py'><a href='./generate_multilang.py.html'>generate_multilang.py</a></li>
+                <li class='ext-py'><a href='./generate_state_svg.py.html'>generate_state_svg.py</a></li>
                 <li class='ext-py'><a href='./generate_txt.py.html'>generate_txt.py</a></li>
                 <li class='ext-py'><a href='./maison.py.html'>maison.py</a></li>
                 <li class='ext-py'><a href='./make_sequence_link.py.html'>make_sequence_link.py</a></li>
                 <li class='ext-js'><a href='./animations.js.html'>animations.js</a></li>
                 <li class='ext-js'><a href='./slides.js.html'>slides.js</a></li>
-                <li class='ext-js'><a href='./smooth-links.js.html'>smooth-links.js</a></li>
+                <li class='ext-js'><a href='./utils.js.html'>utils.js</a></li>
                 <li class='ext-/generate'><a href='./generate'>generate</a></li>
                 <li class='ext-/generate_py3'><a href='./generate_py3'>generate_py3</a></li>
                 <li class='ext-/upload'><a href='./upload'>upload</a></li>
-                <li class='ext-bak'><a href='./flow_translate.py.bak'>flow_translate.py.bak</a></li>
-                <li class='ext-bak'><a href='./generate_html.py.bak'>generate_html.py.bak</a></li>
-                <li class='ext-bak'><a href='./generate_ls.py.bak'>generate_ls.py.bak</a></li>
-                <li class='ext-bak'><a href='./generate_multilang.py.bak'>generate_multilang.py.bak</a></li>
-                <li class='ext-bak'><a href='./make_sequence_link.py.bak'>make_sequence_link.py.bak</a></li>
                 <li class='ext-ico'><a href='./js-512.ico'>js-512.ico</a></li>
                 <li class='ext-json'><a href='./flow.json'>flow.json</a></li>
                 <li class='ext-json'><a href='./flow_translations.json'>flow_translations.json</a></li>
+                <li class='ext-txt'><a href='./colors.txt'>colors.txt</a></li>
                 <li class='ext-txt'><a href='./robots.txt'>robots.txt</a></li>
             </section>
     </body>

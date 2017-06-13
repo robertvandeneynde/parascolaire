@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from __future__ import print_function
+
 import os, re
 from functools import partial
 import textwrap

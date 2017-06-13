@@ -263,7 +263,7 @@ def LookAtMatrix(*args):
         e, c, up = args[:3], args[3:6], args[6:]
     else:
         raise TypeError("Accept 3 or 9 arguments")
-    e, c, up = array(e), array(c), array(up)
+    c = array(c)
 
     f = normalized(c - e)
     s = normalized(numpy.cross(f, up))

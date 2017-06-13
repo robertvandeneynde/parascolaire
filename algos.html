@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -8,7 +8,8 @@
         <link rel="stylesheet" type="text/css" href="base.css" />
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="animations.js"></script>
-        <script src="smooth-links.js"></script>
+        <script src="utils.js"></script>
+        <script src="slides.js"></script>
         <style>
             img:not(.free), pre {
                 max-width: 100%;
@@ -17,29 +18,52 @@
                 overflow-x: auto;
                 border: 1px solid #ccc;
             }
+            section[name=rebond] img {
+                background-color: white;
+                border: 2px solid black;
+                padding: 5px;
+            }
+            section[name=rebond] .slideshow .slide.next {
+                cursor: pointer;
+            }
+            
+            section[name=rebond] figure, section[name=rebond] img {
+                width: 500px;
+                text-align: center;
+            }
         </style>
         
         <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script>
-            $(function(){ hljs.initHighlightingOnLoad() })
+            $(function(){
+                utils.dedentPreCode()
+                hljs.initHighlightingOnLoad()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
         </script>
     </head>
     <body class="algos">
         <h1 class="nocontent"><!--
             --><a class="homeicon" href="index.html"></a><!--
-            --><span class="text">Algorithmes utiles</span><!--
+            --><span class="text"> Algorithmes utiles </span><!--
         --></h1>
         
         <nav>
-            <a href="projets.html">Projets</a> 
+            <a href="algos.en.html">EN</a>
         </nav>
         
         <nav>
-            <a href="#collisions">Collisions</a> 
-            <a href="#afficherint">Afficher des entiers</a> 
-            <a href="#supprimer">Supprimer</a> 
-            <a href="#monde-infini">Monde infini</a> 
+            <a href="projets.html"> Projets </a> 
+        </nav>
+        
+        <nav>
+            <a href="#collisions">Collisions</a>
+            <a href="#afficherint"> Afficher des entiers </a> 
+            <a href="#rebond"> Rebond </a>
+            <a href="#supprimer"> Supprimer </a> 
+            <a href="#monde-infini"> Monde infini </a> 
         </nav>
         
         <h2 id="collisions">Collisions</h2>
@@ -48,16 +72,23 @@
             
             <h3 id="rectangle-rectangle">Rectangle Rectangle</h3>
             
-            <p>Pour détecter une collision rectangle-rectangle, il faut comparer la collision en X et en Y. Il y a collision si il y a collision en X ET en Y.</p>
-            <p>Par exemple en X, on a 3 cas  <em>trop à gauche</em>, <em>trop à droite</em>, et dans le dernier cas ça touche.</p>
+            <p>
+            Pour détecter une collision rectangle-rectangle, il faut comparer la collision en X et en Y. Il y a collision si il y a collision en X ET en Y.
+            </p>
             
-<pre style="display:inline-block; vertical-align: middle;"><code class="python">if le premier rectangle est trop à gauche du deuxième:
-    ne touche pas
-else:
-    if le premier rectangle est trop à droite du deuxième:
-        ne touche pas
-    else:
-        touche</code></pre>
+            <p>
+            Par exemple en X, on a 3 cas : <em>trop à gauche</em>, <em>trop à droite</em>, et dans le dernier cas ça touche.
+            
+            
+            <pre style="display:inline-block; vertical-align: middle;"><code class="python">
+            if le premier rectangle est totalement à gauche du deuxième:
+                ne touche pas
+            else:
+                if le premier rectangle est totalement à droite du deuxième:
+                    ne touche pas
+                else:
+                    touche
+            </code></pre>
         
             <figure style="display:inline-block; vertical-align: middle;"><!--
                 --><div class="element"><img src="collision-intervalles-cas-1.png" /> <figcaption>Trop à gauche</figcaption></div>
@@ -65,213 +96,437 @@ else:
                 <div class="element"><img src="collision-intervalles-cas-3.png" /> <figcaption>Collision</figcaption></div><!--
             --></figure>
             
-            <p>Donc en 2D, on continuera notre cascade de <code>if/else</code> : en nous demandant si il est trop haut, trop bas... Ce qui nous fait 4 conditions à tester.</p>
-<pre style="display:inline-block; vertical-align: middle;"><code class="python"># perso et objet sont des rectangles définis par x1, y1, x2, y2 (voir figure)
-if perso.x2 < objet.x1: # perso est trop à gauche
-    ne touche pas
-elif perso.x1 > objet.x2: # perso est trop à droite
-    ne touche pas
-elif perso.y2 < objet.y1: # perso est trop en haut
-    ne touche pas
-elif perso.y1 > objet.y2: # perso est trop en bas
-    ne touche pas
-else:
-    touche
-</code></pre>
+            <p>
+            On continuera notre cascade de <code>if/else</code> en nous demandant si il est <em>trop haut</em> et <em>trop bas</em>. Ce qui nous fait 4 conditions à tester.
+            </p>
+            
+            <pre style="display:inline-block; vertical-align: middle;"><code class="python">
+            # perso et obj (objet) sont des rectangles définis par x1, y1, x2, y2 (voir figure)
+            if perso.x2 < obj.x1: # perso est trop à gauche
+                ne touche pas
+            elif perso.x1 > obj.x2: # perso est trop à droite
+                ne touche pas
+            elif perso.y2 < obj.y1: # perso est trop en haut
+                ne touche pas
+            elif perso.y1 > obj.y2: # perso est trop en bas
+                ne touche pas
+            else:
+                touche
+            </code></pre>
 
             <figure style="display:inline-block; vertical-align: middle;">
                 <img height="400" src="collision-rectangle-shape-clean.svg" />
-                <figcaption>Un rectangle et ses métriques ainsi que l'appel pygame <code>draw.rect</code> pour en dessiner un.</figcaption>
+                <figcaption>
+                Un rectangle et ses métriques ainsi que l'appel pygame <code>draw.rect</code> pour en dessiner un.
+                </figcaption>
             </figure>
 
-            <p>Pour la 3D, on continuera notre cascade avec trop loin, trop proche. Nous menant à 6 conditions.</p>
+            <p>
+            Pour la 3D, on continuera notre cascade avec <em>trop loin</em> et <em>trop proche</em>. Nous menant à 6 conditions.
+            </p>
             
-            <p>Cela peut s'écrire en une seule ligne avec des <em>or</em>.</p>
+            <p>
+            Cela peut s'écrire en une seule ligne avec des <em>or</em>.
+            </p>
             
-            <pre><code class="python">if perso.x2 < objet.x1 or perso.x1 > objet.x2 or perso.y2 < objet.y1 or perso.y1 > objet.y2:
-    ne touche pas
-else:
-    touche
-</code></pre>
+            <pre><code class="python">
+            if perso.x2 < obj.x1 or perso.x1 > obj.x2 or perso.y2 < obj.y1 or perso.y1 > obj.y2:
+                touche
+            else:
+                ne touche pas
+            </code></pre>
 
-            <p>Et inverser la condition avec <em>not</em>.</p>
-            <pre><code class="python">if not(perso.x2 < objet.x1 or perso.x1 > objet.x2 or perso.y2 < objet.y1 or perso.y1 > objet.y2):
-    touche
-else:
-    ne touche pas
-</code></pre>
+            <p>
+            Et inverser la condition avec <em>not</em>.
+            </p>
+
+            <pre><code class="python">
+            if not(perso.x2 < objet.x1 or perso.x1 > objet.x2 or perso.y2 < objet.y1 or perso.y1 > objet.y2):
+                touche
+            else:
+                ne touche pas
+            </code></pre>
             
-            <p>Pour certains jeux, on traite les collisions différemment en fonction du côté de collision (par exemple dans Mario, une collision par le haut d'un ennemi le tue, alors qu'une collision par le côté tue Mario) et donc on gardera la cascade de <code>if/elif</code></p>
-            
+            <p>
+            Pour certains jeux, on traite les collisions différemment en fonction du côté de collision, par exemple dans Mario, une collision par le haut d'un ennemi le tue, alors qu'une collision par le côté tue Mario. On gardera donc la cascade de <code>if/elif</code>.
+            </p>
             
             <h3 id="point-rectangle">Point Rectangle</h3>
             
-            <p>Pour avoir une collision point-rectangle, on peut voir le point comme un rectangle de taille 0.</p>
+            <p>
+            Pour avoir une collision point-rectangle, on peut voir le point comme un rectangle de taille zéro.
+            </p>
             
-            <pre><code class="python">if not(perso.x2 < objet.x or perso.x1 > objet.x or perso.y2 < objet.y or perso.y1 > objet.y):
-    touche
-else:
-    ne touche pas
-</code></pre>
+            <pre><code class="python">
+            if not(perso.x2 < obj.x or perso.x1 > obj.x or perso.y2 < obj.y or perso.y1 > obj.y):
+                touche
+            else:
+                ne touche pas
+            </code></pre>
             
             <h3 id="cercle-cercle">Cercle Cercle</h3>
             
-            <p>Pour une collision cercle-cercle il y a collision si la distance entre les deux cercles est plus petite que la somme des rayons. Pour calculer la distance entre deux points, utilisez <a href="math.html">Pythagore</a>.</p>
+            <p>
+            Pour une collision cercle-cercle, il y a collision si la distance entre les deux centres est plus petite que la somme des rayons. Pour calculer la distance entre deux points, utilisez <a href="math.{{fr.html#pythagore">Pythagore</a>.
+            | To have a circle-circle collision, there is a collision if the distance between the two centers is smaller than the sum of the rfadii. To compute the distance between two points, use <a href="math.fr.html#pythagore">Pythagore</a>.
+            }}</p>
             
-<pre style="display:inline-block; vertical-align: middle;"><code class="python">distance = pythagore(centre1, centre2)
-if distance &lt; rayon1 + rayon2:
-    touche
-else:
-    ne touche pas</code></pre>
+            <pre style="display:inline-block; vertical-align: middle;"><code class="python">
+            distance = pythagore(centre1X - centre2X, centre1Y - centre2Y) # = sqrt(a*a + b*b) = sqrt(a**2 + b**2)
+            if distance &lt; rayon1 + rayon2:
+                touche
+            else:
+                ne touche pas
+            </code></pre>
             
             <figure style="display:inline-block; vertical-align: middle;"><!--
                 --><div class="element"><img src="collision-circle.png" /> <figcaption>Deux cercles qui ne se touchent pas</figcaption></div><!--
             --></figure>
             
-            <p>Remarquez que vu que la condition <em>distance &lt; rayon1 + rayon2</em> est la même que <em>distance² &lt; (rayon1 + rayon2)²</em>, le calcul peut se faire sans racine carrée :</p>
+            <p>
+            Remarquez que vu que la condition <em>distance &lt; rayon1 + rayon2</em> est la même que <em>distance² &lt; (rayon1 + rayon2)²</em>, le calcul peut se faire sans racine carrée :
+            </p>
 
-<pre><code class="python">dx = centre1x - centre2x
-dy = centre1y - centre2y
-if dx ** 2 + dy ** 2 &lt; (rayon1 + rayon2) ** 2:
-    touche
-else:
-    ne touche pas</code></pre>
+            <pre><code class="python">
+            dx = centre1x - centre2x
+            dy = centre1y - centre2y
+            if dx ** 2 + dy ** 2 &lt; (rayon1 + rayon2) ** 2:
+                touche
+            else:
+                ne touche pas
+            </code></pre>
             
             <h3 id="point-cercle">Point Cercle</h3>
             
-            <p>Pour avoir une collision point-cercle, on peut voir le point comme un cercle de rayon 0.</p>
+            <p>
+            Pour avoir une collision point-cercle, on peut voir le point comme un cercle de rayon zéro.
+            </p>
             
-            <pre><code class="python">dx = centrex - px
-dy = centrey - py
-if dx ** 2 + dy ** 2 &lt; rayon ** 2:
-    touche
-else:
-    ne touche pas</code></pre>
+            <pre><code class="python">
+            dx = centrex - px
+            dy = centrey - py
+            if dx ** 2 + dy ** 2 &lt; rayon ** 2:
+                touche
+            else:
+                ne touche pas
+            </code></pre>
+            
+            <h3 id="cercle-rectangle">Cercle Rectangle</h3>
+            
+            <p>Voici le code :</p>
+            
+            <pre><code class="python">
+            # cx,cy = centre du cercle
+            # rx,ry = centre du rectangle
+            # w,h = largeur/hauteur du rectangle
+
+            hrx, hry = w/2, h/2
+            clampX = min(max(cx - rx, -hrx), +hrx)
+            clampY = min(max(cy - ry, -hry), +hry)
+            closestX = rx + clampX
+            closestY = ry + clampY
+            if pythagore((closestX, closestY), (cx,cy)) &lt;= rayon:
+                touche
+            else:
+                ne touche pas
+            </code></pre>
+            
+            <p>
+                Ce code vient de
+                <a href="https://learnopengl.com/#!In-Practice/2D-Game/Collisions/Collision-detection">cette page</a>,
+                chapitre <em>AABB - Circle collision detection</em>.
+            </p>
+            
+            <p>
+                Remarquez que faire
+                <code>y = min(max(x, m), M)</code>
+                revient à faire :
+            </p>
+            
+            <pre><code class="python">
+            y = x
+            if y &lt; m: # pas plus petit que le minimum !
+                y = m
+            else:
+                if y &gt; M: # pas plus grand que le maximum !
+                    y = M
+            </code></pre>
+            
+            <p>
+            Le site <a href="http://learnopengl.com">learnopengl.com</a> est un très bon tutoriel pour apprendre de l'opengl <em>moderne</em> (2010) et donc la <em>programmation de shaders</em>.
+            </p>
+
+        </section>
+        
+        <h2 id="rebond">Rebond</h2>
+        
+        <section name="rebond">
+            <p>
+            Quand une balle (ou un rayon de lumière) rebondit sur un mur, il se passe ceci :
+            </p>
+            
+            <figure>
+                <img class="slide" src="reflexion.state-Presentation.svg" />
+            </figure>
+            
+            <h3>Angle</h3>
+            <p>
+            Une manière de voir le rebond est que <em>l'angle change</em> :
+            </p>
+            
+            <figure class="slideshow">
+                <img class="slide next" src="reflexion.state-Angle X.svg" />
+                <img class="slide next" src="reflexion.state-Angle Y.svg" />
+                <div>
+                    <button class="goto" s="1">Droite &ndash; Gauche</button>
+                    <button class="goto" s="2">Haut &ndash; Bas</button>
+                </div>
+            </figure>
+            
+            <ul>
+                <li>
+                Quand la balle rebondit sur le mur de droite (ou gauche), on a donc <em>θ' = 180° &minus; θ</em>.
+                </li>
+                
+                <li>
+                Quand la balle rebondit sur le mur du bas (ou du haut), on a donc <em>θ' = &minus; θ</em>.
+                </li>
+            </ul>
+            
+            <p>
+            On peut également trouver la formule pour quand le mur est à un angle quelquonque <em>α</em>. Pour le mur de droite, nous avions <em>&alpha; = 180°</em>, pour le mur du haut nous avions <em>&alpha; = 270°</em>.
+            </p>
+            
+            <h3>Vecteur</h3>
+            <p>
+            On peut également voir ça <a href="math.html#vecteurs">vectoriellement</a>, on cherche à on cherche à calculer le nouveau <em>vecteur vitesse v'</em>.
+            </p>
+            
+            <figure>
+                <img class="slide next" src="reflexion.state-Vector Elements.svg" />
+            </figure>
+            
+            <ul>
+                <li>
+                Pour le mur de gauche (ou de droite), on a donc
+                 <em>x' = &minus; x</em> et <em>y' = y</em>.</li>
+                
+                <li>
+                Pour le mur du haut (ou du bas), on a donc
+                 <em>y' = &minus; y</em> et <em>x' = x</em>.</li>
+            </ul>
+            
+            <h3>Cas général</h3>
+            
+            <p>
+            Le cas général, qui marche aussi en 3D, est quand le mur a un <em>vecteur normal</em> <strong>n</strong>, la formule sera donnée par la loi de la réflexion :
+            </p>
+            
+            <pre><code class="py">
+                n = n / norm(n) # on normalise n, norm(n) = sqrt(n.x ** 2 + n.y ** 2)
+                nouveau_v = v + 2 * dot(n, v) * n # dot est le <a href="math.html#produit-scalaire">produit scalaire</a>, dot(n,v) = n.x * v.x + n.y * v.y
+            </code></pre>
+            
+            <figure class="slideshow">
+                <img class="slide next" src="reflexion.state-Vector X.svg" /> 
+                <img class="slide next" src="reflexion.state-Reflexion.svg" />
+                <div>
+                    <button class="goto" s="1">Normale</button>
+                    <button class="goto" s="2">Réflexion</button>
+                </div>
+            </figure>
+            
+            <p>
+            Remarquez que le <strong>signe</strong> du produit scalaire présent dans la formule permet de savoir si la balle rentre dans le mur (produit négatif) ou non (produit positif), si le produit est nul, elle avance paralèlement au mur (<strong>v</strong> et <strong>n</strong> sont perpendiculaires).
+            </p>
+            
+            <p>
+            En 3D, nous rebondissons bien-sûr sur un <strong>plan</strong>, les plans ont également des <em>normales</em>.
+            </p>
             
         </section>
         
         <h2 id="afficherint">Afficher des entiers</h2>
         
         <section name="afficherint">
-            <p>Pour afficher des infos comme le nombre de vies ou les points, on a deux choix :</p>
+            <p>
+            Pour afficher des infos comme le nombre de vies ou les points, on a deux choix :
+            </p>
             
             <ul>
-                <li>Soit sous forme de nombre. Voir <a href="pygame8_texte.py.html">pygame8_texte.py</a> et <a href="theorie2_liste_while.py.html">theorie2 (en savoir plus)</a>.</li>
-                <li>Soit afficher une étoile par point gagné/vie restante. Cela fera travailler les boucles !</li>
+                <li>
+                Soit sous forme de nombre. Voir <a href="pygame8_texte.py.html">pygame8_texte.py</a> et <a href="theorie2_liste_while.py.html">theorie2 (en savoir plus)</a>.
+                </li>
+                
+                <li>
+                Soit afficher une étoile par point gagné/vie restante. Cela fera travailler les boucles !
+                </li>
             </ul>
         </section>
         
         <h2 id="supprimer">Supprimer correctement d'une liste</h2>
         
         <section name="supprimer">
-            <p>Souvent dans les jeux, on a besoin de supprimer depuis une liste des éléments selon un critère.</p>
-            <p>Par exemple, on veut supprimer toutes les pièces qui sont en contact avec le joueur.</p>
-            <p>Prenons un exemple plus simple, nous avons une liste et voulons supprimer tous les nombres plus grand que 5.</p>
-            <p>L'approche naïve ne marche pas :</p>
-<pre><code class="py">L = [1,2,7,8,1,3,6,7]
-i = 0
-while i < len(L):
-    if L[i] > 5:
-        del L[i]
-    i = i + 1
-</code></pre>
-            <p>La boucle <em>sautera</em> un élément. Je vous invite à tester le code dans pythontutor pour voir le problème.</p>
-            <p>La solution est de ne pas incrémenter le compteur quand l'élement est supprimé :</p>
-<pre><code class="py">L = [1,2,7,8,1,3,6,7]
-i = 0
-while i < len(L):
-    if L[i] > 5:
-        del L[i]
-    else:
-        i = i + 1
-</code></pre>
+            <p>
+            Souvent dans les jeux, on a besoin de supprimer depuis une liste des éléments selon un critère.
+            Often in games, one needs to delete from a list some elements that have a property.
+            }}</p>
+            <p>{{
+            Par exemple, on veut supprimer toutes les pièces qui sont en contact avec le joueur, ou o aimerait enlever de la liste des joueurs tout ceux qui n'ont plus de vie.
+            </p>
+            <p>
+            Prenons un exemple plus simple, nous avons une liste de nombre et voulons supprimer tous les nombres plus grand que 5.
+            </p>
+            <p>
+            L'approche naïve ne marche pas :
+            </p>
+            <pre><code class="py">
+            L = [1,2,7,8,1,3,6,7]
+            i = 0
+            while i < len(L):
+                if L[i] > 5:
+                    del L[i]
+                i = i + 1
+            </code></pre>
+            
+            <p>
+            La boucle <em>sautera</em> un élément. Je vous invite à tester le code dans <a href="pythontutor.html">pythontutor</a> pour voir le problème.
+            </p>
+            <p>
+            La solution est de ne pas incrémenter le compteur quand l'élement est supprimé :
+            </p>
+            <pre><code class="py">
+            L = [1,2,7,8,1,3,6,7]
+            i = 0
+            while i < len(L):
+                if L[i] > 5:
+                    del L[i]
+                else:
+                    i = i + 1
+            </code></pre>
 
-            <p>Autre astuce : créer une variable pour se souvenir de la suppression.</p>
+            <p>
+            Autre astuce : créer une variable pour se souvenir de la suppression.
+            </p>
 
-<pre><code class="py">L = [1,2,7,8,1,3,6,7]
-i = 0
-while i < len(L):
-    to_delete = False
-    if L[i] > 5:
-        to_delete = True
-    
-    if to_delete:
-        del L[i]
-    else:
-        i = i + 1
-</code></pre>
+            <pre><code class="py">
+            L = [1,2,7,8,1,3,6,7]
+            i = 0
+            while i < len(L):
+                to_delete = False
+                if L[i] > 5:
+                    to_delete = True
+                
+                if to_delete:
+                    del L[i]
+                else:
+                    i = i + 1
+            </code></pre>
+            
         </section>
         
         <h2 id="monde-infini">Monde infini</h2>
         
         <section name="monde-infini">
-            <p>Cette technique est utile pour faire un monde de taille bien plus grande que la fenêtre.</p>
+            <p>
+            Cette technique est utile pour faire un monde de taille bien plus grande que la fenêtre.
+            </p>
             
-            <p>Imaginez avoir un personnage (image), des pièces (cercles), des ennemis (cercles) et des batiments (rectangles), chacun ont leur classe, leur position (x,y), largeur (w), hauteur (h), rayon (r) et sont tous dans leur listes respective.</p>
+            <p>
+            Imaginez avoir un personnage (image), des pièces (cercles), des ennemis (cercles) et des batiments (rectangles), chacun ont leur classe, leur position (x,y), largeur (w), hauteur (h), rayon (r) et sont tous dans leur listes respective.
+            </p>
             
-            <p>Ma fenêtre est de taille <code>(700, 500)</code> mais mon monde est bien plus grand.</p>
+            <p>
+            Ma fenêtre est de taille <code>(700, 500)</code> mais mon monde est bien plus grand.
+            </p>
             
-            <p>L'approche classique est de dessiner la scène comme ceci :</p>
+            <p>
+            L'approche classique est de dessiner la scène comme ceci :
+            </p>
             
-            <pre><code class="py"># personnage
-image_perso.blit(ecran, [perso.x, perso.y])
+            <pre><code class="py">
+            # personnage
+            image_perso.blit(ecran, [charac.x, charac.y])
 
-# scène
-for p in liste_piece:
-    pygame.draw.circle(ecran, JAUNE, [p.x, p.y], p.r)
-for e in liste_ennemi:
-    pygame.draw.circle(ecran, ROUGE, [e.x, e.y], e.r)
-for b in liste_batiment:
-    pygame.draw.rect(ecran, BLEU, [b.x, b.y, b.x + b.w, b.y + b.h])
-</code></pre>
-            <p>Je ne pourrai alors que voir les points entre <code>(0,0)</code> et <code>(700,500)</code> de mon monde.</p>
+            # scène
+            for p in liste_piece:
+                pygame.draw.circle(ecran, JAUNE, [p.x, p.y], p.r)
+            for e in liste_ennemi:
+                pygame.draw.circle(ecran, ROUGE, [e.x, e.y], e.r)
+            for b in liste_batiment:
+                pygame.draw.rect(ecran, BLEU, [b.x, b.y, b.w, b.h])
+            </code></pre>
+
+            <p>
+            Je ne pourrai alors que voir les points entre <code>(0,0)</code> et <code>(700,500)</code> de mon monde.
+            </p>
             
-            <p>L'idée est d'avoir une <em>caméra</em> qui se déplace, ici elle est en <code>(0,0)</code> mais si elle était en <code>(50,100)</code>, on verrait les points de <code>(50,100)</code> à <code>(750,800)</code>.</p>
+            <p>
+            L'idée est d'avoir une <em>caméra</em> qui se déplace, ici elle est en <code>(0,0)</code> mais si elle était en <code>(50,100)</code>, on verrait les points de <code>(50,100)</code> à <code>(750,800)</code>.
+            </p>
             
-            <p>Un élément dont la <em>position du monde</em> vaut <code>(150,270)</code> se verrait alors dessiné en <code>(100,170)</code>.</p>
-            
-            <figure>
+            <p>
+            Un élément dont la <em>position dans le monde</em> vaut <code>(150,270)</code> se verrait alors dessiné sur l'écran en <code>(100,170)</code>.
+            </p>
+            <figure style="max-width:500px; text-align:center">
                 <img src="camera.svg" height=300 /> 
-                <figcaption>Une caméra déplacée et quatre points avec leurs coordonnées dans le monde (en vert) et à l'écran (rouge).</figcaption>
+                <figcaption>
+                Une caméra déplacée et quatre points avec leurs coordonnées dans le monde (en vert) et à l'écran (rouge).
+                </figcaption>
             </figure>
             
-            <p>Nous devons donc dessiner tous nos éléments en <code>(x - camera.x, y - camera.y)</code>.</p>
+            <p>
+            Nous devons donc dessiner tous nos éléments en <code>(x - camera.x, y - camera.y)</code>.
+            </p>
             
-            <pre><code class="py"># personnage
-image_perso.blit(ecran, [perso.x <mark>- camera.x</mark>, perso.y <mark>- camera.x</mark>])
+            <pre><code class="py">
+            # personnage
+            image_perso.blit(ecran, [charac.x <mark>- camera.x</mark>, charac.y <mark>- camera.x</mark>])
 
-# scène
-for p in liste_piece:
-    pygame.draw.circle(ecran, JAUNE, [p.x <mark>- camera.x</mark>, p.y <mark>- camera.y</mark>], p.r)
-for e in liste_ennemi:
-    pygame.draw.circle(ecran, ROUGE, [e.x <mark>- camera.x</mark>, e.y <mark>- camera.y</mark>], e.r)
-for b in liste_batiment:
-    pygame.draw.rect(ecran, BLEU, [b.x <mark>- camera.x</mark>, b.y <mark>- camera.y</mark>, b.x + b.w <mark>- camera.x</mark>, b.y + b.h <mark>- camera.y</mark>])
-</code></pre>
+            # scène
+            for p in liste_piece:
+                pygame.draw.circle(ecran, JAUNE, [p.x <mark>- camera.x</mark>, p.y <mark>- camera.x</mark>], p.r)
+            for e in liste_ennemi:
+                pygame.draw.circle(ecran, ROUGE, [e.x <mark>- camera.x</mark>, e.y <mark>- camera.x</mark>], e.r)
+            for b in liste_batiment:
+                pygame.draw.rect(ecran, BLEU, [b.x <mark>- camera.x</mark>, b.y <mark>- camera.x</mark>, b.w, b.h])
+            </code></pre>
 
-            <p>Pour un rpg, le plus simple est généralement, qu'à chaque tick, la caméra soit sur le joueur. Nous rajouterons donc la logique suivante à chaque tick :</p>
+            <p>
+            Pour un rpg, le plus simple est généralement qu'à chaque tick, la caméra soit sur le joueur. Nous rajouterons donc la logique suivante à chaque tick :
+            </p>
             
-            <pre><code class="py"># la camera suit automatiquement le perso
-camera.x = perso.x
-camera.y = perso.y
-</code></pre>
+            <pre><code class="py">
+            # la camera suit automatiquement le perso
+            camera.x = perso.x
+            camera.y = perso.y
+            </code></pre>
 
-            <p>Vu que le perso est dessiné en <code>(perso.x - camera.x, perso.y - camera.y)</code>, le perso sera toujours dessiné en <code>(0,0)</code>, on peut mettre la caméra un peu plus loin pour que le perso soit au milieu de l'écran (<code>350,250</code>) :</p>
+            <p>
+            Vu que le perso est dessiné en <code>(perso.x - camera.x, perso.y - camera.y)</code>, le perso sera toujours dessiné en <code>(0,0)</code>, on peut mettre la caméra un peu plus loin pour que le perso soit au milieu de l'écran (<code>350,250</code>) :
+            </p>
             
-            <pre><code class="py"># la camera suit automatiquement le perso
-camera.x = perso.x - 350
-camera.y = perso.y - 250
-</code></pre>
+            <pre><code class="py">
+            # la camera suit automatiquement le perso
+            camera.x = perso.x - 350
+            camera.y = perso.y - 250
+            </code></pre>
             
-            <p>La position à l'écran du perso vaudra donc <code>(perso.x - camera.x, perso.y - camera.y) = (perso.x - (perso.x - 350), perso.y - (perso.y - 250)) = (+350, +250)</code></p>
+            <p>
+            La position à l'écran du perso vaudra donc <code>(perso.x - camera.x, perso.y - camera.y) = (perso.x - (perso.x - 350), perso.y - (perso.y - 250)) = (+350, +250)</code>
+            .x - camera.x, perso.y - camera.y) = (perso.x - (perso.x - 350), perso.y - (perso.y - 250)) = (+350, +250)</code>
+            }}</p>
             
-            <p>Mais libre à vous de faire une caméra plus fantaisiste ! Pour un jeu, j'ai appliqué un <a href="physique.html#ressort">ressort</a> avec <a href="physique.html#frottement-lineaire">frottement linéaire</a> entre la caméra et le joueur et ça donnait très bien !</p>
+            <p>
+            Mais libre à vous de faire une caméra plus fantaisiste ! Pour <a href="http://robertvandeneynde.be/jeu3D">un jeu que j'ai créé</a>, j'ai appliqué un <a href="physique.html#ressort">ressort</a> avec <a href="physique.html#frottement-lineaire">frottement linéaire</a> entre la caméra et le joueur et ça donnait très bien !
+            </p>
             
-            <pre><code class="py"># la camera suit automatiquement le perso mais avec un peu de retard
-alpha = 0.80 # 80% du déplacement est pris à chaque tick
-camera.x = camera.x + alpha * (perso.x - 350 - camera.x)
-camera.y = camera.y + alpha * (perso.y - 250 - camera.y)
-</code></pre>
+            <pre><code class="py">
+            # la camera suit automatiquement le perso mais avec un peu de retard
+            alpha = 0.80 # 80% du déplacement est pris à chaque tick
+            camera.x = camera.x + alpha * (perso.x - 350 - camera.x)
+            camera.y = camera.y + alpha * (perso.y - 250 - camera.y)
+            </code></pre>
             
         </section>
         

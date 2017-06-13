@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="{{fr|en}}">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="vecteur_v.png" rel="icon" type="image/png"/>
+    <title>{{Mathématiques : Trigonométrie, vecteurs et matrices|Mathematics: Trigonometry, vectors and matrices}}</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="animations.js"></script>
+    <script src="utils.js"></script>
+    <link rel="stylesheet" href="base.css"/>
+    <link rel="stylesheet" href="redaction.css"/>
+    
+    <script type="text/javascript"
+        async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+        // CommonHTML: { linebreaks: { automatic: true } },
+        // "HTML-CSS": { linebreaks: { automatic: true } },
+        // SVG: { linebreaks: { automatic: true } }
+    });
+    </script>
+    
+    <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <script>
+        $(function(){
+            hljs.initHighlightingOnLoad()
+            utils.makeTitleLinks()
+            utils.smoothLinks()
+        })
+    </script>
+    
+    <script src="slides.js" type="text/javascript"></script>
+    
+    <script>
+    $(function(){
+        $('.developpement').each(function(){
+            var self = $(this)
+            var state = true
+            self.hide().before(
+                $('<button>').text(
+                    (self.attr('symbol') == 'iff' ? '⇔' : self.attr('symbol') != null ? self.attr('symbol') : '⇔')
+                    + ' ... '
+                    + (self.attr('symbolpost') == 'iff' ? '⇔' : self.attr('symbolpost') != null ? self.attr('symbolpost') : '')
+                 ).click(function(){
+                    $(this).hide()
+                    self.fadeIn(1500)
+                })
+            )
+        })
+        /*
+        $('.exercice h2').click(function(){
+            if($(window).width() < 600) {
+                $(this).parent().find('.slides, .controls').slideToggle()
+            }
+        })
+        
+        if($(window).width() < 600) {
+            $('.exercice').find('.slides, .controls').hide()
+        }
+        
+        $(window).resize(function(){
+            if($(window).width() < 600) {
+                
+            }
+        })
+        */
+    })
+    </script>
+</head>
+<body class="math">
+    <h1 class="nocontent"><!--
+        --><a class="homeicon" href="index.html"></a><!--
+        --><span class="text">{{Mathématiques : Trigonométrie, vecteurs et matrices|Mathematics: Trigonometry, vectors and matrices}}</span>
+    </h1>
+    
+    <nav>
+        <a href="#{{exercices|exercises}}">{{Exercices|Exercises}}</a>
+        <a href="#{{pythagore|pythagoras}}">{{Pythagore|Pythagoras}}</a>
+        <a href="#{{trigonometrie|trigonometry}}">{{Trigonométrie|Trigonometry}}</a>
+        <a href="#{{vecteurs|vectors}}">{{Vecteurs|Vectors}}</a>
+        <a href="#{{operations-vectorielles|vectorial-operations}}">{{Opérations vectorielles|Vectorial operations}}</a>
+        <a href="#matrices">Matrices</a>
+        <a href="#transformations">Transformations</a>
+    </nav>
+    
+    <nav>
+        <a href="#{{transformations-systeme|system-transformation}}">{{Système|System}}</a>
+        <a href="#code-python">Python</a>
+        <a href="#identit{{e|y}}">{{Identité|Identity}}</a>
+        <a href="#{{redimensionnement|scaling}}">{{Redimensionnement|Scaling}}</a>
+        <a href="#rotation">Rotation</a>
+        <a href="#translation">Translation</a>
+        <a href="#sequence-transformations">{{Séquence|Sequence}}</a>
+        <a href="#3D">3D</a>
+    </nav>
+    
+    <h2 id="{{exercices|exercises}}">{{Exercices de présentation|Presentation exercises}}</h2>
+    
+    <section name="{{exercices|exercises}}">
+    
+    <div><em>{{<a href="math.en.html" lang="en" hreflang="en">English here!</a>|<a href="math.fr.html" lang="fr" hreflang="fr">Français ici&nbsp;!</a>}}</em></div>
+    
+    <p>{{
+        Voici quelques exercices de mathématiques très pratiques pour les jeux vidéos en 2D, la théorie se trouve dans les sections en dessous de la page,
+        l'exercice 1 utilise le <strong>théorème de pythagore</strong>, 
+        les exercices 2 et 3 utilisent la <strong>trigonometrie</strong>,
+        l'exercice 4 utilise le concept de <strong>vecteur</strong>.
+    |
+        Here are some math exercises very handy for 2D videogames, the theory is in the sections below,
+        exercise number 1 use the <strong>pythagoreas theorem</strong>,
+        exercises number 2 and 3 use <strong>trigonometry</strong>,
+        exercise number 4 use the <strong>vector</strong> concept.
+    }}</p>
+    
+    <article class="slideshow exercice" data-current="1">
+        <h3>Exerci{{c|s}}e 1{{ |}}: Distance</h3>
+        <div class="slides">
+            <img class="slide next" src="math1-distance.png" />
+            <img class="slide next" src="math1b-distance.png"/>
+            <img class="slide" src="math1c-distance.png" />
+        </div>
+        <div class="controls">
+            <button class="prev">{{Précédent|Previous}}</button>
+            <button class="next normal">{{Suivant|Next}}</button>
+            <button class="next solution">{{Voir la solution|See solution}}</button>
+        </div>
+    </article>
+    
+    <article class="slideshow exercice" data-current="1">
+        <h3>Exerci{{c|s}}e 2{{ |}}: {{Avancer|Go forward}}</h3>
+        <div class="slides">
+            <img class="slide next" src="math2-avancer.png" />
+            <img class="slide next" src="math2b-avancer.png" />
+            <img class="slide next" src="math2c-avancer.png" />
+            <img class="slide" src="math2d-avancer.png" />
+        </div>
+        <div class="controls">
+            <button class="prev">{{Précédent|Previous}}</button>
+            <button class="next normal">{{Suivant|Next}}</button>
+            <button class="next solution">{{Voir la solution|See solution}}</button>
+        </div>
+    </article>
+    
+    <article class="slideshow exercice" data-current="1">
+        <h3>Exerci{{c|s}}e 3{{ |}}: {{Regarder|Look at}}</h3>
+        <div class="slides">
+        <img class="slide next" src="math3-regarder.png" />
+        <img class="slide" src="math3b-regarder.png" />
+        </div>
+        <div class="controls">
+            <button class="prev">{{Précédent|Previous}}</button>
+            <button class="next normal">{{Suivant|Next}}</button>
+            <button class="next solution">{{Voir la solution|See solution}}</button>
+        </div>
+    </article>
+    
+    <article class="slideshow exercice" data-current="1">
+        <h3>Exerci{{c|s}}e 4{{ |}}: {{Vecteur unitaire|Unit vector}}</h3>
+        <div class="slides">
+            <img class="slide next" src="math4-avancer-vers.png" />
+            <img class="slide next" src="math4b-avancer-vers.png" />
+            <img class="slide next" src="math4c-avancer-vers.png" />
+            <img class="slide" src="math4d-avancer-vers.png" />
+        </div>
+        <div class="controls">
+            <button class="prev">{{Précédent|Previous}}</button>
+            <button class="next normal">{{Suivant|Next}}</button>
+            <button class="next solution">{{Voir la solution|See solution}}</button>
+        </div>
+    </article>
+    
+    </section>
+    
+    <h2 id="{{pythagore|pythagoras}}">{{Pythagore|Pythagoras}}</h2>
+    
+    <section name="{{pythagore|pythagoras}}">
+    
+        <p>{{
+            Pour plus d'informations, regardez
+            <a href="https://www.clipedia.be/mathematiques/geometrie/le-theoreme-de-pythagore">le théorème de Pythagore</a>
+            sur
+            <a href="https://www.clipedia.be">Clipedia</a>.
+        |
+            For more informations, look at 
+            <a href="https://www.clipedia.be/mathematiques/geometrie/le-theoreme-de-pythagore">the Pythagoras theorem</a>
+            on
+            <a href="https://www.clipedia.be">Clipedia</a> (french only at the moment).
+        }}</p>
+        
+        <p>{{
+            N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
+            Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les autres vidéos du sujet.
+        |
+            Do not hesitate to put the video in <strong>fullscreen</strong>, to <strong>stop</strong> or <strong>go back</strong> if you want to, or even to look at the video in <strong>fast-forward</strong> by clicking on the <strong>speed</strong> button of the player.
+            Click on <em>linked videos</em> at the bottom of the video to look at other videos of the same subject.
+        }}</p>
+        
+    </section>
+    
+    <h2 id="{{trigonometrie|trigonometry}}">{{Trigonométrie|Trigonometry}}</h2>
+    
+    <section name="{{trigonometrie|trigonometry}}">
+        <p>{{La trigonométrie permet de faire une correspondance entre les <strong>angles</strong> et les <strong>longueurs</strong>, grâce aux notions de base, on peut répondre à des questions telles que :|
+            Trigonometry makes it possible to link <strong>angles</strong> and <strong>distances</strong>, thanks to the basic notions, one can answser to questions such as:
+        }}</p>
+        
+        <ol>
+            <li>{{En 2D, un personnage est sur le point A de coordonnées (x = 140, y = 100) mètres, il regarde à 30° et avance de 200 mètres, où est-il à présent ?|In 2D, a character is on the point A of coordinates (x = 140, y = 100) meters, it is looking at 30° and go forward 200 meters, where is it now?}}</li>
+            <li>{{Un triangle a un côté de longueur 1, un autre de longueur 2, séparé par un angle de 30°, de quelles longueurs sont les autres côtés et que valent les autres angles ?|A triangle has one side of length 1, one other side of length 2, separated by an angle of 30°, what are the lengths of the other sides and what are the values of the other angles?}}</li>
+            <li>{{Quelle est la hauteur d'un triangle de côtés 1, 2 et 3 ? Que vaut son aire ?|What is the height of a triangle of sides 1, 2 and 3?}}</li>
+            <li>{{Comment couper parfaitement une pizza en 6 ?|How to perfectly cut a pizza in 6?}}</li>
+        </ol>
+        
+        <h3 id="trigonometrie-base">{{Le cosinus et le sinus|Cosine and sine}}</h3>
+        
+        <p>{{La base de la trigonométrie est la définition du <strong>sinus</strong> d'un angle et du <strong>cosinus</strong> d'un angle.|The basics of trigonometry is the definition of the <strong>sine</strong> of an angle and the <strong>cosine</strong> of an angle.}}</p>
+        
+        <p>{{Un point P à une distance 1 de l'origine faisant un angle $\theta$ avec l'axe x (vers l'axe y) a une coordonnée|A point P at distance 1 of the origin that has an angle $\theta$ with x axis (in the direction of y axis) has the coordinates}} $(x = \cos\theta,\ y = \sin\theta)${{ |}}:</p>
+        
+        <figure class="slideshow exercice">
+            <img class="slide next" src="trigono.state-1.svg" />
+            <img class="slide next" src="trigono.state-2.svg" />
+            <figcaption>{{Le cercle trigonométrique|The trigonometry circle}}</figcaption>
+        </figure>
+        
+        <p>{{
+            Par définition, on a donc
+            <em>le cosinus d'un angle est la coordonée <strong>x</strong> du point à distance 1 positionné à cet angle par rapport à l'axe x</em> et
+            <em>le sinus d'un angle est la coordonée <strong>y</strong> du point à distance 1 positionné à cet angle par rapport à l'axe x</em>.
+        |
+            By definition,
+            <em>the cosine of an angle is the coordinate <strong>x</strong> of the point at distance 1 placed at that angle with respect to x axis</em> and
+            <em>the sine of an angle is the coordinate <strong>y</strong> of the point at distance 1 placed at that angle with respect to x axis</em>.
+        }}</p>
+        
+        <p>{{
+            Sur mon dessin, l'angle est de <strong>36°</strong> et le point a environ les coordonnées $(0.82, 0.55)$ (j'ai mesuré !),
+            on a donc $\cos(36°) = 0.82$ et $\sin(36°) = 0.55$
+        |
+            On my drawing, the angle is equal to <strong>36°</strong> and the point has approximately the coordinates $(0.82, 0.55)$ (I measured!),
+            one has $\cos(36°) = 0.82$ and $\sin(36°) = 0.55$
+        }}</p>
+        
+        <p><em>{{Cliquez sur la figure précédente pour voir les valeurs numériques.|Click on the previous figure to see the numerical values.}}</em></p>
+        
+        <p>{{Attention, si l'axe y est vers le bas (comme souvent en informatique), l'angle tourne dans l'autre sens !|Beware, if the y axis is to the bottom (as it is often in computer sciene), the angle rotates in the other direction!}}</p>
+        
+        <ul>
+            <li>{{Quand Y est vers le <strong>haut</strong>, le sens <em>des aiguilles d'une montre</em> représente des valeurs d'angle qui <em>diminuent</em> alors que le sens <em>anti-horlogique</em> représente des valeurs qui <strong>augmentent</strong>.|When Y is in the <strong>top</strong> direction, <em>clockwise</em> is the direction where the values of the angle go <em>down</em> whereas <em>anti-clockwise</em> is the direction where the values go <em>up</em>.}}</li>
+            <li>{{Quand Y est vers le <strong>bas</strong>, le sens <em>des aiguilles d'une montre</em> représente des valeurs d'angle qui <strong>augmentent</strong> alors que le sens <em>anti-horlogique</em> représente des valeurs qui <em>diminuent</em>.|When Y is in the <strong>bottom</strong> direction, <em>clockwise</em> is the direction where the values of the angle go <em>up</em> whereas <em>anti-clockwise</em> is the direction where the values go <em>down</em>.}}</li>
+        </ul>
+        
+        <figure class="slideshow exercice">
+            <img class="slide next" src="trigono-y.state-1.svg" />
+            <img class="slide next" src="trigono-y.state-2.svg" />
+            <figcaption>{{Y vers le bas|Y in bottom direction}} &mdash; <em>{{cliquez pour voir les valeurs numériques|click to see numerical values}}</em></figcaption>
+        </figure>
+        
+        <p>{{À cause des deux conventions d'axe Y, je préfère ne pas parler de <em>sens trigonométrique</em>, ou alors dire que le <em>sens trigonométrique</em> est le <em>sens qui fait que cos(1°) et sin(1°) sont positifs</em>.|Because of the two different Y-axis convention, I prefer not to talk about <em>trigonometric</em> direction of rotation, or I like to say that the <em>trigonometric</em> direction of rotation is the <em>direction that is such as cos(1°) and sin(1°) are positives</em>.}}</p>
+        
+        <h3 id="trigonometrie-distance-r">Distance r</h3>
+        
+        <p>
+            {{Maintenant, si le point est à une distance <strong>2</strong> et non 1, tout est <strong>2</strong> fois plus grand, ses coordonnées seront donc|Now, if the point is at distance <strong>2</strong> and not 1, everything is <strong>2</strong> times bigger, its coordinates are therefore}} $(x = 2\cos\theta,\ y = 2\sin\theta)$.
+            {{Plus généralement, si sa distance est $r$, sa coordonnée sera donc|In more general terms, if its distance is $r$, its coordinate will then be }} $(x = r\cos\theta,\ y = r\sin\theta)$.
+        </p>
+        
+        <figure>
+            <img src="trigono-bigger.svg" />
+        </figure>
+        
+        <h3 id="{{trigonometrie-negatif|trigonometry-negative}}">{{Coordonnées négatives|Negative coordinates}}</h3>
+        
+        <p>{{
+            Si l'angle est entre 90° et 270°, la coordonnée en <em>x</em> sera donc <strong>négative</strong>.
+            De même, pour un angle entre 180° et 360°, la coordonnée en <em>y</em> sera négative.
+            On voit donc que le sinus et le cosinus d'un angle peut être négatif !
+        |
+            If the angle is between 90° et 270°, the <em>x</em> coordinate is then <strong>negative</strong>.
+            If the angle is between 180° and 360°, the <em>y</em> coordinate will be negative.
+            One can see that the sine and the cosine of an angle can be negative!
+        }}</p>
+        
+        <figure class="slideshow">
+            <img class="slide next" src="trigono-great-angle.state-1.svg" />
+            <img class="slide next" src="trigono-great-angle.state-2.svg" />
+            <figcaption>{{Un cosinus négatif|A negative cosine}} &mdash; <em>{{Cliquez pour voir les valeurs numériques|Click to see numerical values}}</em></figcaption>
+        </figure>
+        
+        <p>{{
+            Le cercle que vous apercevez sur le dessin est souvent appelé le <em>cercle trigonométrique</em>, il permet d'illustrer les concepts de base de la trigonométrie, cependant, vu que le cercle est de rayon 1, le cosinus et le sinus d'un angle sera toujours <strong>entre &minus;1 et 1</strong>.
+        |
+            The circle that you can see on the drawing is often called the <em>trigonometry circle</em>, because it shows the basic concepts of trigonometry, however, because the the circle has a radius 1, the cosine and the sine of an angle are always <strong>between &minus;1 and 1</strong>.
+        }}</p>
+        
+        <h3 id="{{trigonometrie-relation-sinus-cosinus|trigonometry-relation-sine-cosine}}">{{La relation des sinus et cosinus|The sine cosine relation}}</h3>
+        
+        <p>{{En appliquant pythagore dans le triangle rectangle apparu sur l'image, on a :|By applying pythagoras in the right-angled triangle on the image, one has:}}</p>
+        
+        <p>
+            $(\sin\theta)^2 + (\cos\theta)^2 = 1^2$
+            $\iff \sin^2\theta + \cos^2\theta = 1$
+        </p>
+        
+        <h3 id="{{trigonometrie-angles-petits-et-grands|trigonometry-small-and-big-angles}}">{{Angles petits et grands|Small and big angles}}</h3>
+        
+        <p>{{
+            Un angle peut être négatif, un angle de <em>−45°</em> correspond à un angle de <em>315°</em>,
+            en effet, <em>tourner de 45° à gauche</em> revient à <em>tourner de 315° à droite</em>,
+            plus généralement, un angle de <em>−x</em> degrés correspond à un angle de <em>360−x</em> degrés.
+        |
+            An angle can be negative, an angle of <em>−45°</em> corresponds to an angle of <em>315°</em>,
+            indeed, <em>rotate 45° to the left</em> is the same as <em>rotate 315° to the right</em>,
+            more generally, an angle of <em>−x</em> degrees corresponds to an angle of <em>360−x</em> degrees.
+        }}</p>
+        
+        <p>{{
+            Un angle peut être plus grand que 360 degrés,
+            en effet, <em>tourner de 45°</em> revient à <em>tourner de 405°</em> (45° plus un tour de 360°),
+            plus généralement, un angle de <em>x</em> degrés correspond à un angle de <em>360+x</em> degrés.
+        |
+            An angle may be bigger than 360 degrees,
+            indeed, <em>rotating 45°</em> is the same as <em>rotating 405°</em> (45° plus one turn of 360°),
+            more generally, an angle of <em>x</em> degrees corresponds to an angle of <em>360+x</em> degrees.
+        }}</p>
+        
+        <p>{{
+            On peut faire plus qu'un tour, un angle de 45° revient à un angle de 45°+360°+360°+360°...
+        |
+            One can do more than one turn, an angle of 45° is equivalent to an angle of 45°+360°+360°+360°...
+        }}</p>
+        
+        <p>{{
+            Le point correspondant à l'angle <em>−45°</em> aura donc la même coordonnée que celui de l'angle <em>315°</em> et
+            le point correspondant à l'angle <em>45°</em> aura donc la même coordonnée que celui de l'angle <em>405°</em>.
+        |
+            The point corresponding to angle <em>−45°</em> will then have the same coordinates than the angle <em>315°</em> and
+            the point corresponding to angle <em>45°</em> will then have the same coordinates than the angle <em>405°</em>.
+        }}</p>
+        
+        <p>
+            {{On a donc :|One has then:}}
+            $
+            \begin{cases}
+            \cos(360° - \theta) = \cos(-\theta) \\
+            \sin(360° - \theta) = \sin(-\theta)
+            \end{cases}
+            $
+            {{et|and}}
+            $
+            \begin{cases}
+            \cos(\theta + 360°) = \cos \theta \\
+            \sin(\theta + 360°) = \sin \theta
+            \end{cases}
+            $
+        </p>
+        
+        <h3 id="{{trigonometrie-tangente|trigonometry-tangent}}">{{Tangente|Tangent}}</h3>
+        
+        <p>
+            {{On définit :|By definition:}}
+            $\tan\theta = \cfrac{\sin\theta}{\cos\theta}$
+            
+            {{la <em>tangente</em> de l'angle $\theta$, notée $\tan\theta$ ou $\mathrm{tg}\ \theta$ en littérature française. La tangente est définie comme le rapport du sinus sur le cosinus|the <em>tangent</em> of angle $\theta$, also written $\tan\theta$. The tangent is defined by the ratio of sine over cosine}},
+            {{on utilise aussi parfois la cotangente|one can also use the cotangent}}, $\cot\theta = \cfrac{\cos\theta}{\sin\theta} = \cfrac{1}{\tan\theta}$
+        </p>
+        
+        <p>{{
+            La tangente (et la cotangente) peuvent aussi être vues comme une coordonnée sur le cercle trigonométrique :
+        |
+            The tangent (and the cotangent) can also be seen as a coordinate on the trigonometric circle:
+        }}</p>
+        
+        <figure>
+            <img src="https://it.openprof.com/ge/images/80/tancotit_640.png" />
+            <figcaption></figcaption>
+        </figure>
+        
+        <p>{{La tangente vaut donc la coordonnée y de l'intersection de la droite $x = 1$ et de la droite $OP$, la cotangente vaut la coordonnée x de l'intersection de la droite $y = 1$ et de la droite $OP$.|The tangent is equal to the y coordinate of the intersection of the straight line $x = 1$ and the straight line $OP$, the cotangent is equal to the x coordinate of the intersection of the straight line $y = 1$ and the straight line $OP$.}}</p>
+        
+        <p>{{Quand l'angle est entre 90 et 180 degrés (deuxième <em>quadrant</em>), le sinus est positif et le cosinus est négatif, donc la tangente est négative. Sur le dessin, on voit que l'intersection entre les deux droites se retrouve en dessous de l'axe des x.|When the angle is between 90 and 180 degrees (second <em>quadrant</em>), the sine is positive and the cosine is negative, therefore the tangent is negatif. On the drawing, one can see that the intersection between the two straight lines is beneath the x axis.}}</p>
+        
+        <p>{{Quand l'angle est à 90°, le sinus vaut 1 et le cosinus est nul et donc la tangente n'existe pas, ou vaut $\frac{1}{0} = +\infty$, quand l'angle vaut −90°, le sinus vaut −1 et le cosinus est nul, donc la tangente vaut $\frac{-1}{0} = -\infty$, la cotangente a les mêmes considérations pour les angles de 0 et 180 degrés.|When the angle is 90°, the sine is 1 and the cosine is 0 and the tangent does not exist, or is equal to $\frac{1}{0} = +\infty$, when the angle is equal to −90°, the sine is equal to −1 and the cosine is 0, then the tangent is equal to $\frac{-1}{0} = -\infty$, the cotangent has the same considerations for angles 0 and 180 degrees.}}</p>
+        
+        <h3 id="{{trigonometrie-triangle|trigonometry-triangle}}">{{Triangle rectangle|Right angled triangle}}</h3>
+        
+        <p>{{
+            Depuis un cercle de rayon $r$ doté d'un angle $\theta$, on peut observer un <strong>triangle rectangle</strong>.
+        |
+            In a circle of radius $r$ with an angle $\theta$, one can observe a <strong>right-angled triangle</strong>
+        }}</p>
+        
+        <figure class="slideshow">
+            <img class="slide next" src="trigono-circle-to-triangle.state-1.svg" />
+            <img class="slide next" src="trigono-circle-to-triangle.state-2.svg" />
+            <img class="slide next" src="trigono-circle-to-triangle.state-3.svg" />
+            <img class="slide next" src="trigono-triangle.state-1.svg" />
+            <img class="slide next" src="trigono-triangle.state-2.svg" />
+            <figcaption>
+                {{Du cercle trigonométrique au triangle rectangle|From the trigonometric circle to the right-angled triangle}} &mdash; <em>{{Cliquez pour avancer dans la présentation, clic droit pour revenir en arrière.|Click to go forward in the Presentation, right click to go back.}}</em>
+            </figcaption>
+        </figure>
+        
+        <p>{{
+            Dans un triangle rectangle, le côté opposé à l'angle droit est appelée <em>l'hypothénuse</em> (longueur <em>h</em>). Quand on parle d'un des deux angles, on parlera du côté <em>adjacent</em> (longeur <em>a</em>) et côté <em>opposé</em> (longeur <em>o</em>).
+            |
+            In a right angled triangle, the opposite side of the right angle is called the <em>hypothenuse</em> (length <em>h</em>). When one talks about one of the two angle, one will talk about the <em>adjacent</em> side (length <em>a</em>) and the <em>opposite</em> side (length <em>o</em>).
+        }}</p>
+        
+        <p>{{
+            On peut en conclure que, dans tout triangle rectangle, les sinus, cosinus et tangentes des angles représentent des <strong>rapport</strong>, une division de deux longueurs :
+            |
+            One can conclude that, in every right-angled triangle, the sine, cosine and tangent of the angles represent <strong>ratios</strong>, a division of two length:
+        }}</p>
+        
+        <p>
+            <span class="developpement" symbol="" symbolpost="iff">
+            $\begin{cases}
+            r\ \sin\theta = o \\
+            h = r \\
+            \end{cases} \iff$
+            </span>
+            $\sin\theta = \cfrac{o}{h}$
+        </p>
+        
+        <p>
+            <span class="developpement" symbol="" symbolpost="iff">
+            $\begin{cases}
+            r\ \cos\theta = a \\
+            h = r \\
+            \end{cases} \iff$
+            </span>
+            $\cos\theta = \cfrac{a}{h}$
+        </p>
+        
+        <p>
+            $\tan\theta$
+            <span class="developpement" symbol="=">
+            $= \cfrac{\sin\theta}{\cos\theta}$
+            $= \cfrac{\frac{o}{h}}{\frac{a}{h}}$
+            </span>
+            $= \cfrac{o}{a}$
+        </p>
+        
+        <ul>
+            <li>{{Le sinus d'un angle vaut la longueur du côté <strong>opposé</strong> à l'angle <em>sur</em> la longueur de l'<strong>hypothénuse</strong> :
+                |The sine of an angle is equal to the length of the side <strong>opposite</strong> to the angle <em>divided by</em> the length of the <strong>hypothenuse</strong>:}}
+                $\sin\theta = \frac{o}{h}$</li>
+            <li>{{Le cosinus d'un angle vaut la longueur du côté <strong>adjacent</strong> à l'angle <em>sur</em> la longueur de l'<strong>hypothénuse</strong> :
+                |The cosine of an angle is equal to the length of the side <strong>adjacent</strong> to the angle <em>divided by</em> the length of the <strong>hypothenuse</strong>:}}
+                $\cos\theta = \frac{a}{h}$</li>
+            <li>{{La tangente d'un angle vaut la longueur du côté <strong>opposé</strong> à l'angle <em>sur</em> la longueur du côté <strong>adjacent</strong> :
+                |The tangent of an angle is equal to the length of the side <strong>opposite</strong> to the angle <em>divided by</em> the length of the side <strong>adjacent</strong>:}}
+                $\tan\theta = \frac{o}{a}$</li>
+        </ul>
+        
+        <p>
+            {{Un moyen mnémonique bien connu est|A well known mnemonic is}} 
+            <strong>S</strong>OH<strong>C</strong>AH<strong>T</strong>OA,
+            
+            {{le <strong>S</strong>inus de l'angle vaut la longueur du côté <strong>O</strong>pposé sur la longueur de l'<strong>H</strong>ypothénuse,
+            |the <strong>S</strong>ine of the angle is equal to the length of the <strong>O</strong>pposite side divided by the length of the <strong>H</strong>ypothenuse,}}
+            
+            {{le <strong>C</strong>osinus de l'angle vaut la longueur du côté <strong>A</strong>djacent sur la longueur de l'<strong>H</strong>ypothénuse,
+            |the <strong>C</strong>osine of the angle is equal to the length of the <strong>A</strong>djacent side divided by the length of the <strong>H</strong>ypothenuse,}}
+            
+            {{la <strong>T</strong>angente de l'angle vaut la longueur du côté <strong>O</strong>pposé sur la longueur du côté <strong>A</strong>djacent.
+            |the <strong>T</strong>angent of the angle is equal to the length of the <strong>O</strong>pposite side divided by the length of the <strong>A</strong>djacent.}}
+        </p>
+        
+        <!--
+        <figure>[ Depuis n'importe quel cercle vers le triangle rectangle, et vice versa ]</figure>
+        
+        <p>
+            Si on applique la trigonométrie dans l'autre triangle rectangle présent sur la figure, on obtient
+            $\begin{cases}
+            \cos(90° - \theta) = \sin \theta \\
+            \sin(90° - \theta) = \cos \theta
+            \end{cases}$
+        </p>
+        
+        -->
+        
+        <h3 id="{{trigonometrie|trigonometry}}-radian">{{Le|The}} radian</h3>
+        
+        <p>{{
+            Le <strong>radian</strong> est une unité d'angle plus mathématique, on établit que 360 degrés sera $2\pi$ radians, car $2\pi$ c'est la circonférence du cercle de rayon 1.
+        |
+            The <strong>radian</strong> is an angle unit more mathematical, such that 360 degrees is $2\pi$ radians becase $2\pi$ is the circumference of a circle of radius 1.
+        }}</p>
+        
+        <p>{{
+            À l'angle de <em>1 radian</em>, on a la <em>longueur de l'arc</em> qui est égale au rayon du cercle :
+        |
+            At angle <em>1 radian</em>, one has the <em>length of the arc</em> is equal to the radius of the circle:
+        }}</p>
+        
+        <figure>
+            <img src="http://courseware.cemc.uwaterloo.ca/web/Gr12AdFu000/Public_Html/RadianMeasure/images/radianintroduction_a.png" />
+        </figure>
+    
+        <p>{{
+            <a href="http://tauday.com/tau-manifesto">Certains mathématiciens</a> n'aiment pas $\pi$, et préfèrent utiliser $\tau = 2\pi$
+        |
+            <a href="http://tauday.com/tau-manifesto">Some mathematicians</a> do not like $\pi$, and prefer to use $\tau = 2\pi$
+        }}</p>
+        
+        <p>{{
+            Donc, 360 degrés, c'est un tour complet, c'est $\tau$ radians !
+            Parler en $\tau$ <em>radians</em>, c'est comme parler en <em>tours</em>,
+            ainsi $\frac{3}{4}\tau$ radians est l'angle qui fait $\frac{3}{4}$ de tour, donc $\frac{3}{4}360 = 270$ degrés.
+        |
+            therefore, 360 degrees, it's a full turn, it's $\tau$ radians!
+            Talking about $\tau$ <em>radians</em> is like talking about <em>turns</em>,
+            therefore $\frac{3}{4}\tau$ radians is the angle that does $\frac{3}{4}$ of one turn, then $\frac{3}{4}360 = 270$ degrees.
+        }}</p>
+        
+        <p>{{Pour convertir des degrés au radians :|To convert from degrees to radians:}}</p>
+        
+        <p>
+            $360\ \text{deg} = \tau\ \text{rad}$
+            <span class="developpement">
+            $\iff x\ 360\ \text{deg} = x\ \tau\ \text{rad}$
+            $\iff x\ \text{deg} = x \frac{\tau}{360}\ \text{rad}$
+            </span>
+            $\iff x\ \text{deg} = (x \times \tau / 360)\ \text{rad}$
+            $= (x \times \pi / 180)\ \text{rad}$
+        </p>
+        
+        <p>{{Et du radian au degré :|And from radians to degrees:}}</p>
+        
+        <p>
+            $x\ \text{deg} = (x \times \tau / 360)\ \text{rad}$
+            $\iff x\ \text{rad} = (x \times 360 / \tau)\ \text{deg}$
+            $= (x \times 180 / \pi)\ \text{rad}$
+        </p>
+        
+        <figure class="slideshow exercice">
+            <img class="slide next" src="http://tauday.com/assets/figures/tau-angles.png" />
+            <img class="slide next" src="http://tauday.com/assets/figures/pi-angles.png" />
+            <figcaption>
+                {{Les angles 0°, 30°, 45°, 60°, 90°, 180°, 270° et 360° exprimés en radians|The angles 0°, 30°, 45°, 60°, 90°, 180°, 270° et 360° in radians}} &mdash; {{Cliquez pour utiliser $\pi$ et non $\tau = 2\pi$|Click here to use $\pi$ and not $\tau = 2\pi$}}
+            </figcaption>
+        </figure>
+        
+        <p>{{
+            Pour rappel, $\tau = 2\pi = 6.283185...$
+            donc $1\ \text{rad} \approx 57°$
+        |
+            Let's recall that $\tau = 2\pi = 6.283185...$
+            then $1\ \text{rad} \approx 57°$
+        }}</p>
+        
+        <h3 id="{{trigonometrie|trigonometry}}-clipedia">Clipedia</h3>
+        
+        <p>
+            {{Plus d'infos sur|More infos on}} 
+            <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/la-fonction-sinus">{{la trigonométrie|trigonometry}}</a> {{et le|and the}} <a href="https://www.clipedia.be/mathematiques/geometrie/le-radian">radian</a> {{sur clipedia !|on clipedia! (french only at the moment)}} 
+        </p>
+        
+        <p>{{
+            N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
+            Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les autres vidéos du sujet.
+            |
+            Do not hesitate to put the video in <strong>fullscreen</strong>, to <strong>stop</strong> or <strong>go back</strong> if you want to, or even to look at the video in <strong>fast-forward</strong> by clicking on the <strong>speed</strong> button of the player.
+            Click on <em>linked videos</em> at the bottom of the video to look at other videos of the same subject.
+        }}</p>
+        
+    </section>
+    
+    <h2 id="{{vecteurs|vectors}}">{{Vecteurs|Vectors}}</h2>
+    
+    <!-- vecteurs
+        vecteurs-base    Opérations de base
+        vecteurs-deduit  Opérations déduites
+        vecteurs-exemple Exemple
+        vecteurs-resume  Résumé
+    -->
+    
+    <section name="{{vecteurs|vectors}}">
+        <p>
+            {{Dans l'exercice 4, nous utilisons le concept de|Exercise 4 uses a concept called}} <strong>{{vecteur|vector}}.</strong>
+            {{En un mot, un vecteur c'est un|In one word, a vector is a}} <strong>{{déplacement|displacement}}</strong>.
+            {{Les vecteurs permettent de faire certaines opérations de la même manière en|Vectors permit to do some operations the same way in}} 1D, 2D {{et|and}} 3D.
+            {{Le concept de déplacement est en effet commun aux 3 dimensions.|The concept of displacement is indeed common to the 3 dimensions.}}
+        </p>
+        
+        <p>
+            {{Pour une autre explication plus détaillée sur les vecteurs, je conseille les|For an other explanation, more detailed, on vectors, I suggest these}}
+            {{3 vidéos|3 videos}}
+            <a href="https://www.clipedia.be/mathematiques/vecteurs-et-matrices/les-vecteurs-introduction">[1]</a>
+            <a href="https://www.clipedia.be/mathematiques/vecteurs-et-matrices/les-vecteurs-a-deux-dimensions-introduction">[2]</a>
+            <a href="https://www.clipedia.be/mathematiques/vecteurs-et-matrices/la-norme-d-un-vecteur">[3]</a>
+            {{sur le sujet sur|on the subject on}}
+            <a href="https://www.clipedia.be">Clipedia{{| (french only at the moment)}}</a>.
+            
+            {{
+                N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
+                Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les autres vidéos du sujet.
+            |
+                Do not hesitate to put the video in <strong>fullscreen</strong>, to <strong>stop</strong> or <strong>go back</strong> if you want to, or even to look at the video in <strong>fast-forward</strong> by clicking on the <strong>speed</strong> button of the player.
+                Click on <em>linked videos</em> at the bottom of the video to look at other videos of the same subject.
+            }}
+        </p>
+        
+        <h3 id="{{vecteurs|vectors}}-{{base|basics}}">{{Opérations de base|Basic operations}}</h3>
+        
+            <figure>
+                <img src="vecteurs-echiquier.png" />
+            </figure>
+            
+            <p>
+                Imaginez que vous êtes sur un échiquier en case <strong>b1</strong> et que vous vous déplacez en case <strong>c3</strong>,
+                vous faites un déplacement de <strong>1</strong> case vers la droite et <strong>2</strong> cases vers le haut.
+                Si on appelle votre vecteur de déplacement $\vec{d}$, on notera $\vec{d} = (1,\ 2)$.
+                Les nombres 1 et 2 sont appelés les <strong>composantes</strong> du vecteur $\vec{d}$.
+            </p>
+            <p>
+                La flèche au dessus de la lettre <em>d</em> permet de rappeler que $\vec{d}$ est un vecteur.
+                D'autres notations existent : sans la pointe de la flèche $\bar{d}$, en majuscule $D$, ou sur ordinateur, en gras $\mathbf{D}.$.
+            </p>
+            
+            <p>Géométriquement, la flèche peut se déplacer, le déplacement de <strong>b1</strong> vers <strong>c3</strong> est le même que celui de <strong>g1</strong> à <strong>h3</strong>.</p>
+            
+            <p>
+                Un déplacement peut avoir des composantes négatives,
+                si je suis en <strong>b8</strong> et que je vais en <strong>c6</strong>, $\vec{d} = (1,-2)$.
+                Se déplacer de <strong>2</strong> cases vers le <strong>bas</strong>, c'est la même chose que de se déplacer de <strong>&minus;2</strong> cases vers le <strong>haut</strong>.
+            </p>
+            
+            <p>Il existe 3 opérations de base sur les vecteurs 2D : l'addition, la multiplication par un nombre et la norme.</p>
+            
+            <h4>Addition : $\vec{v} + \vec{w} = (v_x + w_x,\ v_y + w_y)$</h4>
+                
+            <p>Exemple: $(3,\ 5) + (-2,\ 1) = (1,\ 6)$.</p>
+            
+            <p><em>
+                Un déplacement de <strong>3</strong> cases vers la droite et <strong>5</strong> cases vers le haut
+                + Un déplacement de <strong>&minus;2</strong> cases vers la droite et <strong>1</strong> case vers le haut
+                = Un déplacement de <strong>1</strong> case vers la droite et <strong>6</strong> cases vers le haut.
+            </em></p>
+
+            <p>Voici une représentation géométrique de l'addition vectorielle.</p>
+            <figure><img src="vecteurs-somme-1.png" /> <img src="vecteurs-somme-2.png" /></figure>
+            
+            <h4>Multiplication par un nombre : $k \cdot \vec{v}  = (k \cdot v_x,\ k \cdot v_y)$</h4>
+            
+            <p>Exemple: $2 \cdot (-4,\ 3) = (-8,\ 6)$</p>
+            
+            <p><em>
+                <strong>2 fois</strong> Un déplacement de <strong>&minus;4</strong> cases vers la droite et <strong>3</strong> cases vers le haut
+                = Un déplacement de <strong>&minus;8</strong> cases vers la droite et <strong>6</strong> cases vers le haut.
+            </em></p>
+            
+            <p>Voici une représentation géométrique de la multiplication par un nombre.</p>
+            <p><img src="vecteurs-produit-par-un-scalaire.png" /></p>
+            
+            <h4>Norme (ou <em>longueur</em>, <em>taille</em>) : $\|\vec{v}\| = \sqrt{v_x^2 + v_y^2}$</h4>
+            
+            <p>$\|(6,3)\| = \sqrt{6^2 + 3^2}$ $= \sqrt{45}$ $\simeq 6.70 $</p> <!-- responsive : break "=" into multiple equations! -->
+            
+            <p>La norme est calculée avec <a href="math.html">pythagore</a>. Voici une représentation graphique du calcul de la norme de $\vec{a} = (6, 3)$</p>
+            
+            <figure><img src="vecteurs-norme.png"/></figure>
+            
+            <p>Remarquez que cela marche également avec des composantes négatives !</p>
+            
+            <p>$\|(-6,3)\| = \sqrt{(-6)^2 + 3^2}$ $= \sqrt{6^2 + 3^2}$ $= \sqrt{45}$ $\simeq 6.70 $</p> <!-- responsive : break "=" into multiple equations! -->
+            
+            <p>Deux vecteurs particuliers forment la <em>base</em> pour tous les vecteurs, c'est $\vec{e_x} = (1,0)$ et $\vec{e_y} = (0,1)$. Ainsi tout vecteur $\vec{v} = (a,b)$ peut s'écrire $\vec{v} = a \cdot \vec{e_x} + b \cdot \vec{e_y}$</p>
+            
+            <figure><img src="vecteurs-base-informatique.png"/> <img src="vecteurs-base-mathematique.png"/></figure>
+        
+        <h3 id="vecteurs-deduit">Opérations déduites</h3>
+        
+            <p>Depuis ces formules de base, nous déduisons :</p>
+
+            
+            <h4>Vecteur opposé : $- \vec{v} = (-1) \cdot \vec{v} = (-v_x,\ -v_y)$</h4>
+                <p><img src="vecteurs-oppose.png" /></p>
+                <p>On dit que ce vecteur a la <em>même <strong>direction</strong></em>, mais un <em><strong>sens</strong> opposé</em>.</p>
+                <p>La somme de ces deux vecteurs donne bien le vecteur nul : $\vec{v} + (-\vec{v}) = \vec{0} = (0,0)$</p>
+                
+            <h4>Soustraction : $\vec{v} - \vec{w} = \vec{v} + (- \vec{w}) = (v_x - w_x,\ v_y - w_y)$</h4>
+                <figure><img src="vecteurs-soustraction-1.png" /> <img src="vecteurs-soustraction-2.png" /> <img src="vecteurs-soustraction-3.png" /></figure>
+                <p>Le meilleur moyen de voir la soustraction est de poser la question <em>quel est le déplacement $\vec{d}$ qui va du point $\vec{a}$ au point $\vec{b}$ ? $\vec{d} = \vec{b} - \vec{a}$</em></p>
+                <p>On notera $\vec{AB}$ le vecteur qui <em>va du point A au point B</em>. On a $\vec{AB} = \vec{b} - \vec{a}$ </p>
+                <p>Quand on a trois points $A$, $B$, $C$, on a naturellement : $\vec{AB} + \vec{BC} = \vec{AC}$ (relation de Chasles)</p>
+                <p>Et si on inverse les deux points, on obtient le vecteur opposé : $\vec{BA} = - \vec{AB}$</p>
+            <h4>Division par un nombre : $\vec{v} / k = (1/k) \cdot \vec{v}$</h4>
+                <figure><img src="vecteurs-division.png" /></figure>
+            
+            <h4>Vecteur normalisé (de taille <strong>1</strong>) : $\vec{1_v} = \vec{v} / \|\vec{v}\|$</h4>
+            
+            <p>
+                Si je multiple un vecteur par <strong>2</strong>, sa norme (taille) est également multipliée par <strong>2</strong>.
+                De même, si un vecteur de longueur <strong>5</strong> est divisé par <strong>5</strong>, il devient de longueur <strong>1</strong>.
+                Le vecteur normalisé $\vec{1_v}$ est donc le vecteur dans la même direction et sens que $\vec{v}$, mais de longueur $1$.
+                Un exemple ici :
+            </p>
+            
+            <p class="if-then">Si $\vec{d} = (4,3)$ alors $\vec{1_d}$ $= \vec{d}/\|\vec{d}\|$ $= (4,\ 3)/5$ $= (0.80,\ 0.60)$</p>
+            <p class="implies">$\vec{d} = (4,3)$ $\implies \vec{1_d}$ $= \vec{d}/\|\vec{d}\|$ $= (4,\ 3)/5$ $= (0.80,\ 0.60)$</p>
+            
+            <figure><img src="vecteurs-normaliser.png" /></figure>
+            
+            <p>Un avantage pratique d'un vecteur normalisé, est que si je le multiple par <strong>5</strong>, il sera de taille <strong>5</strong> !</p>
+            
+        <h3 id="vecteurs-exemple">Exemple</h3>
+        
+            <p>
+                Je vais du point $A(6,3)$ (mètres) au point $B(4,7)$ (mètres),
+                j'ai parcouru une distance de $4.47m$.
+            </p>
+            
+            <figure>
+                <img src="vecteurs-deplacement.png" />
+            </figure>
+            
+            <p>
+                Pour ce déplacement, je peux dire :
+                <ul>
+                    <li><em>Je me suis déplacé de &minus;2 mètres en x et +4 mètres en y</em></li>
+                    <li><em>Je me suis déplacé de 4.47m à 116.5°</em></li>
+                </ul>
+            </p>
+            
+            <p>
+                Une direction peut être représentée par un <strong>angle</strong> ($\theta$) ou un <strong>vecteur unitaire</strong>, un vecteur unitaire a une norme = $1$.
+                L'utilité d'un tel vecteur est que si on le multiplie par un nombre positif $n$, le vecteur final aura la norme $n$.
+            </p>
+            
+            <ul>
+                <li>
+                    On peut représenter le déplacement via ses <strong>composantes x,y</strong> :
+                    <p> $\vec{d} = \vec{AB}$ $= \vec{b} - \vec{a}$ $= (4,\ 7) - (6,\ 3)$ $= (-2,\ 4)$ </p>
+                </li>
+                
+                <li>
+                    Ou avec la <strong>direction et la norme</strong> :
+                    <p><em>Vecteur unitaire depuis l'angle</em></p>
+                    <p> $\vec{1_d} = (\cos\theta,\ \sin\theta) $$= (\cos 116.5°,\ \sin 116.5°)$ $= (-0.44,\ 0.89)$  </p>
+                    <p><em>Vecteur unitaire depuis un vecteur</em><p>
+                    <p> $\vec{1_d} $$= \vec{d} / \|\vec{d}\| = (-2,\ 4) / 4.47$ $= (-0.44,\ 0.89)$ </p>
+                    <p><em>Vecteur depuis un vecteur unitaire et une longueur</em></p>
+                    <p> $\vec{d} $$= \|\vec{d}\| \cdot \vec{1_d}$ $= 4.47 \cdot (-0.44,\ 0.89)$ $= (-2,\ 4)$ </p>
+                </li>
+                
+            </ul>
+            
+            <p> Une dernière petite notation souvent rencontrée, quand on a un vecteur $\vec{a}$, on note souvent $a$ (sans flèche) pour la norme <em>signée</em>. $a$ peut donc être négatif (dans ce cas le vecteur est renversé). </p>
+            <figure><img src="vecteurs-norme-signee.png" /></figure>
+            
+            <p>Voilà, j'espère que tu as mieux compris l'exercice 4 et que tu n'as pas peur d'utiliser les vecteurs en <a href="physique.html">physique</a> ou dans des opérations plus complexes dans la section suivante !</p>
+        
+        <h3 id="vecteurs-resume">Résumé</h3>
+        
+            <ul>
+                <li>Un vecteur $\vec{v} = (v_x,v_y)$, c'est un déplacement, avec ses composantes $v_x,v_y$.</li>
+                <li>$\vec{v} + \vec{w} = (v_x + w_x,\ v_y + w_y)$</li>
+                <li>$k \cdot \vec{v}  = (k \cdot v_x,\ k \cdot v_y)$</li>
+                <li>$\|\vec{v}\| = \sqrt{v_x^2 + v_y^2}$</li>
+                <li>$- \vec{v} = (-1) \cdot \vec{v} $$= (-v_x,\ -v_y)$</li>
+                <li>$\vec{v} - \vec{w} = \vec{v} + (- \vec{w}) $$= (v_x - w_x,\ v_y - w_y)$</li>
+                <li>$\vec{1_v} = \vec{v} / \|\vec{v}\|$</li>
+                <li>$\|\vec{1_v}\| = 1$</li>
+                <li>$\vec{1_v} = (\cos\theta,\ \sin\theta)$</li>
+                <li>$\|k \vec{1_v}\| = |k|$</li>
+            </ul>
+        
+    </section>
+    
+    <h2 id="{{operations-vectorielles|vectorial-operations}}">Opérations vectorielles</h2>
+    
+    <section name="{{operations-vectorielles|vectorial-operations}}">
+        
+        <p>Voici une vue d'ensemble d'autres opérations vectorielles utiles dans d'autres contextes.</p>
+        
+        <h3 id="equation-de-droite">Équation de droite</h3>
+
+            <p>
+                Une droite (2D ou 3D !) est représentée avec un point $\vec{p}$ et un déplacement $\vec{d}$. On a :
+                $\vec{r}(t) = \vec{p} + t \cdot \vec{d}$
+                où $t$ est un nombre réel.
+            </p>
+            
+            <p>
+                Le déplacement $\vec{d}$ est appelé <em>un vecteur directeur</em> de la droite,
+                si l'on connaît deux points de la droite $\vec{p_0}$ et $\vec{p_1}$, il est facile de 
+                calculer un vecteur directeur
+                $\vec{d} = \vec{p_1} - \vec{p_0}$.
+            </p>
+            
+            <figure>Image à venir</figure>
+            
+            <p>
+                Pour toute valeur de $t$, on obtient un point.
+                Par exemple, la droite passant par $\vec{p} = (1,2)$ de vecteur directeur
+                $\vec{d} = (2,-3)$ contient ces 5 points :
+            </p>
+                
+                <p>$\vec{r}(0) = (1,2) + 0 \cdot (2,-3) = (1,2)$
+                <br/>$\vec{r}(0.5) = (1,2) + 0.5 \cdot (2,-3) = (1.5,-0.5)$
+                <br/>$\vec{r}(1) = (1,2) + 1 \cdot (2,-3) = (3,-1)$
+                <br/>$\vec{r}(2) = (1,2) + 2 \cdot (2,-3) = (5,-4)$
+                <br/>$\vec{r}(-1) = (1,2) + (-1) \cdot (2,-3) = (-1,5)$
+            </p>
+            
+            <figure>Image à venir</figure>
+            
+            <p>
+                Si $t$ est négatif, le point de <em>l'autre côté</em> du vecteur $\vec{d}$.
+                Comme par exemple le point $\vec{r}(-1)$ sur la figure précédente.
+            </p>
+                
+            <p>
+                Si $\vec{d}$ est normé, le vecteur $\vec{r}(t)$ sera toujours à distance $|t|$ de $\vec{p}$.
+                On peut donc facile résoudre le problème suivant : <em>quels sont les deux points de la droite à distance $k$ de $\vec{p}$</em> ?
+                Il s'agit de $\vec{p} \pm k\ \vec{1_d}$
+            </p>
+            
+            <p>
+                Pour représenter un segment, il suffit de prendre $t \in [0,1]$
+            </p>
+            
+            <p>
+                Plus d'infos sur <a href="https://www.clipedia.be/mathematiques/geometrie/la-droite-dans-le-plan-equation-parametrique">Clipédia</a>.
+            </p>
+            
+        <h3 id="produit-scalaire">Produit scalaire</h3>
+        
+            <p>Une opération pratique est le <strong>produit scalaire</strong> noté $\vec{a} \cdot \vec{b}$ ou parfois $\langle \vec{a}, \vec{b} \rangle$, c'est une opération qui prend deux vecteurs et renvoie un <strong>nombre</strong> (un <em>scalaire</em>).</p>
+            <p>Une des propriétés de ce produit est que deux vecteurs <strong>perpendiculaires</strong> ont un produit scalaire <strong>nul</strong>.</p>
+            <p>Le produit scalaire a une formule <em>géométrique</em> et <em>algébrique</em> équivalentes.</p>
+            <p>$\vec{a} \cdot \vec{b}$ $=\|\vec{a}\|\ \|\vec{b}\|\ \cos \theta$</p>
+            <p>$\vec{a} \cdot \vec{b}$ $= a_x b_x + a_y b_y$</p>
+            <figure><img src="vecteurs-produit-scalaire-geometrique.png"/> <img src="vecteurs-produit-scalaire-algebrique.png"/></figure>
+            
+            <p>
+                Comme cas particuliers, on a :
+            </p>
+            
+            <ul>
+                <li class="if-then">Si $\theta = 90° $ alors $\cos\theta = 0 $$\implies \vec{a} \perp \vec{b} $$\implies \vec{a} \cdot \vec{b} = 0$</li>
+                <li class="if-then">Si $\theta = 0° $ alors $\cos\theta = 1$$\implies \vec{a} \parallel \vec{b} $$\implies \vec{a} \cdot \vec{b} = \|\vec{a}\|\ \|\vec{b}\|$</li>
+                <li class="if-then">Si $\theta = 180° $ alors $\cos\theta = -1$$\implies \vec{a} \parallel \vec{b} $$\implies \vec{a} \cdot \vec{b} = - \|\vec{a}\|\ \|\vec{b}\|$</li>
+                <li class="if-then">Si $\vec{a} \parallel \vec{b} $ alors $\vec{a} \cdot \vec{b} = a \cdot b$</li>
+                <li class="implies">$\theta = 90° $$\implies \cos\theta = 0 $$\implies \vec{a} \perp \vec{b} $$\implies \vec{a} \cdot \vec{b} = 0$</li>
+                <li class="implies">$\theta = 0° $$\implies \cos\theta = 1$$\implies \vec{a} \parallel \vec{b} $$\implies \vec{a} \cdot \vec{b} = \|\vec{a}\|\ \|\vec{b}\|$</li>
+                <li class="implies">$\theta = 180° $$\implies \cos\theta = -1$$\implies \vec{a} \parallel \vec{b} $$\implies \vec{a} \cdot \vec{b} = - \|\vec{a}\|\ \|\vec{b}\|$</li>
+                <li class="implies">$\vec{a} \parallel \vec{b} $$\implies \vec{a} \cdot \vec{b} = a \cdot b$</li>
+            </ul>
+            
+            <p>On peut voir facilement le produit scalaire comme une projection, quand je projette $\vec{a}$ sur $\vec{b}$, j'obtiens une longueur $a_b$ et par la définition du cosinus, $a_b = \|\vec{a}\| \cos\theta$, le produit scalaire peut donc aussi s'écrire :</p>
+            <p>$\vec{a} \cdot \vec{b} = a_b\ \|\vec{b}\| = b_a \|\vec{a}\|$</p>
+            <p><img src="vecteurs-produit-scalaire-projection.png" /></p>
+            
+            <p>Quand un des vecteurs est normé, la norme vaut $1$ et donc le produit scalaire vaut cette projection :</p>
+            <p>$\vec{a} \cdot \vec{1_b} = a_b$</p>
+            
+            <p>Et quand les deux vecteurs sont normés, le produit scalaire vaut le cosinus :</p>
+            <p>$\vec{1_a} \cdot \vec{1_b} = \cos\theta$</p>
+            
+            <p>Le produit scalaire peut également être négatif, pour la définition géométrique, c'est parce que $\cos\theta < 0$ et pour la définition par la projection c'est parce que $a_b < 0$ :</p>
+            
+            <figure><img src="vecteurs-produit-scalaire-negatif.png" /></figure>
+            
+            <p>Le nom de <em>produit</em> vient de la distributivité : $\vec{a} \cdot (\vec{b} + \vec{c}) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}$
+            et de l'homogénéité : $k (\vec{a} \cdot \vec{b}) = (k \vec{a}) \cdot \vec{b}$. Ces deux priorités en font par définition une transformation <em>linéaire</em>.</p>
+            
+            <p>Avec les cas particuliers et la linéarité, on retrouve la formule algébrique : <em>(clique sur le bouton pour voir le développement avec plus de détails !)</em></p>
+            
+            <p>
+                $\vec{a} \cdot \vec{b} $
+                $= (\color{red}{a_x \vec{1_x}} + \color{green}{a_y \vec{1_y}}) \cdot (\color{red}{b_x \vec{1_x}} + \color{green}{b_y \vec{1_y}}) $
+                
+                <span class="developpement" symbol="=">
+                $= \color{red}{a_x b_x}                (\underbrace{\color{red}{\vec{1_x}} \cdot \color{red}{\vec{1_x}}}_{1}) $
+                $+ \color{red}{a_x} \color{green}{b_y} (\underbrace{\color{red}{\vec{1_x}} \cdot \color{green}{\vec{1_y}}}_{0}) $
+                $+ \color{green}{a_y} \color{red}{b_x} (\underbrace{\color{green}{\vec{1_y}} \cdot \color{red}{\vec{1_x}}}_{0}) $
+                $+ \color{green}{a_y b_y}              (\underbrace{\color{green}{\vec{1_y}} \cdot \color{green}{\vec{1_y}}}_{1})$
+                </span>
+                
+                $= \color{red}{a_x b_x} + \color{green}{a_y b_y}$
+            </p>
+            
+            <p>En python avec numpy, il existe la fonction <code>numpy.dot</code></p>
+            <pre><code class="py">numpy.dot([1,2],[3,4]) # 1*3+2*4</code></pre>
+            
+            <p>
+                Cette opération a une interprétation physique très importante qui est la notion de <em>travail</em>.
+            </p>
+            
+            
+            <p>
+                Voici <a href="https://www.clipedia.be/mathematiques/geometrie/le-produit-scalaire">une vidéo</a> montrant le rapport entre produit scalaire et travail.
+            </p>
+                
+            <p>
+                Le travail et l'énergie sont des notions importantes en physique, plus d'infos sur
+                <a href="https://www.clipedia.be/physique/forces/le-travail">clipedia</a> dans la série des 4 vidéos sur
+                <a href="https://www.clipedia.be/physique/forces/energie-introduction">l'énergie</a>.
+                Cependant, dans la vidéo, on était en une dimension, on avait la force $F$ et le déplacement $x$, et donc $W = F \cdot x$.
+                En plusieurs dimensions, ce sont tous les deux des vecteurs, et on a donc le travail qui vaut $W = \vec{F} \cdot \vec{x}$, qui est un produit scalaire !
+                La page de <a href="physique.html">physique</a> parle avec plus de détails des forces comme vecteurs.
+            </p>
+            
+            <p>
+                En anglais, le produit scalaire s'appelle <em>scalar product</em> ou <em>dot product</em> (<em>dot</em> voulant dire <em>point</em> comme dans la notation $\vec{a} \cdot \vec{b}$).
+                Une explication du <a href="https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/"><em>dot product</em></a> en anglais est donnée sur <a href="https://betterexplained.com/">betterexplained</a>.
+            </p>
+            
+            <!--
+            <p>
+                https://www.clipedia.be/mathematiques/geometrie/equation-cartesienne-de-la-droite-dans-le-plan-forme-vectorielle
+            </p>
+            -->
+        
+        <h3 id="norme-3d">Norme 3D</h3>
+
+            <p>Pour la 3D, les opérations de bases restent les mêmes, ce qui fait que la majorité des équations vectorielles sont aussi valides en 3D.</p>
+            
+            <p>La norme s'étend naturellement avec <em>pythagore en 3D</em> : $\|\vec{v}\| = \sqrt{v_x^2 + v_y^2 + v_z^2}$</p>
+            <figure> <img src="3d-pythagore.png"/> <img src="3d-pythagore-formules.png"/> </figure>
+            
+            <p>Petite remarque sur la représentation des vecteurs 3D dans le plan, on peut faire un dessin en perspective comme sur la figure précédente. Mais on peut aussi considérer un plan, comment dessiner le vecteur $\vec{1_z} = (0,0,1)$ dans le plan <em>XY</em> ?</p>
+            <p>Si je prend mon dessin précédent et représente le plan <em>XY</em> en <em>Z = 0</em>, j'aurai :</p>
+            
+            <figure>Picture</figure>
+            
+            <p>Le vecteur $\vec{1_z}$ <em>sort</em> de l'écran, il va <em>vers toi</em>. On le représentera avec le symbole $\odot$, s'il <em>rentrait dans l'écran</em>, on aurait utilisé le symbole $\otimes$.</p>
+        
+        <h3 id="coordonnees-spheriques">Coordonnées sphériques</h3>
+
+            <p>Pour représenter une direction, le vecteur unitaire devient encore plus pratique. On peut également représenter une direction avec 2 angles et les <a href="https://fr.wikipedia.org/wiki/Coordonnées_sphériques">coordonnées sphériques.</a></p>
+            <figure> <img src="3d-spherique.png"/> <img src="3d-spherique-formules.png"/> </figure>
+            
+            <p>
+                L'angle $\theta$ est appelée <em>angle azimutal</em> ou <em>longitude</em> et varie dans l'intervalle $[\small{0°},\small{360°}[$ ou $]-\small{180°}, +\small{180°}]$
+                <br/>
+                L'angle $\phi$ est appelée <em>angle zénithal</em> ou <em>colatitude</em> et varie dans l'intervalle $[\small{0°},\small{180°}[$
+            </p>
+            
+            <p>Attention : souvent en physique, $\theta$ est appelé $\phi$ et $\phi$ est appelé $\theta$ !</p>
+            
+            <p>La relation inverse s'obtient via $\theta = \mathrm{atan2}(y, x)$ et $\phi = \mathrm{acos}(z/r)$.</p>
+        
+        <h3 id="produit-vectoriel">Produit vectoriel</h3>
+            <p> Surtout utile en 3D, nous avons le <a href="https://fr.wikipedia.org/wiki/Produit_vectoriel">produit vectoriel</a> noté $\vec{a} \times \vec{b}$ ou $\vec{a} \wedge \vec{b}$. </p>
+            <p> C'est une opération 3D prenant deux vecteurs et renvoyant un troisième <strong>vecteur</strong> qui sera <strong>perpendiculaire</strong> aux <strong>deux</strong> vecteurs d'entrée. </p>
+            <p> Si les deux vecteurs sont parallèles, le résultat sera le <strong>vecteur nul</strong>, les deux vecteurs représentent la même direction ou la direction opposée.</p>
+            
+            <p>
+                $\vec{a} \times \vec{b}$
+                $= (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y}
+                ,\ \color{blue}{a_z} \color{red}{b_x} - \color{red}{a_x} \color{blue}{b_z}
+                ,\ \color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x})$
+            </p>
+            
+            <p>Si vous connaissez les déterminants, voici un moyen facile de se rappeler de la formule :</p>
+            
+            <p>$\vec{a} \times \vec{b}$
+            
+                $= \begin{vmatrix}
+                \vec{1_x}&\vec{1_y}&\vec{1_z}\\
+                \color{red}{a_x}&\color{green}{a_y}&\color{blue}{a_z}\\
+                \color{red}{b_x}&\color{green}{b_y}&\color{blue}{b_z}
+                \end{vmatrix}$
+                <span class="developpement" symbol="=">
+                    $= \vec{1_x} \begin{vmatrix}\color{green}{a_y}&\color{blue}{a_z}\\\color{green}{b_y}&\color{blue}{b_z}\end{vmatrix}$
+                    $- \vec{1_y} \begin{vmatrix}\color{red}{a_x}&\color{blue}{a_z}\\\color{red}{b_x}&\color{blue}{b_z}\end{vmatrix}$
+                    $+ \vec{1_z} \begin{vmatrix}\color{red}{a_x}&\color{green}{a_y}\\\color{red}{b_x}&\color{green}{b_y}\end{vmatrix}$
+                    
+                    $= \vec{1_x} (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y})$
+                    $- \vec{1_y} (\color{red}{a_x} \color{blue}{b_z} - \color{blue}{a_z} \color{red}{b_x})$
+                    $+ \vec{1_z} (\color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x})$
+                    
+                    $= (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y}
+                    ,\ -(\color{red}{a_x} \color{blue}{b_z - \color{blue}{a_z} \color{red}{b_x}})
+                    ,\ \color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x})$
+                    
+                    $= (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y}
+                    ,\ \color{blue}{a_z} \color{red}{b_x} - \color{red}{a_x} \color{blue}{b_z}
+                    ,\ \color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x})$
+                </span>
+            </p>
+            
+            <p class="if-then">Si $\vec{c} = \vec{a} \times \vec{b}$ alors $c = a\ b\ \sin \theta$</p>
+            <p class="implies">Si $\vec{c} = \vec{a} \times \vec{b} \implies c = a\ b\ \sin \theta$</p>
+            <p>Un moyen mnémotechnique pour se rappeler du sens de $\vec{c}$ est la <em>règle de la main droite</em>. Vous pouvez essayer sur la figure suivante : sur votre main <em>droite</em>, $\vec{a}$ est votre pouce, $\vec{b}$ votre index, et $\vec{a} \times \vec{b}$ votre majeur.</p>
+            
+            <figure>
+                <a href="https://commons.wikimedia.org/wiki/File:Cross_product_vector.svg#/media/File:Cross_product_vector.svg"><img height=300 style="background:white" alt="Cross product vector.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Cross_product_vector.svg/1200px-Cross_product_vector.svg.png"></a>
+                <a href="https://commons.wikimedia.org/wiki/File:Cross_product.gif#/media/File:Cross_product.gif"><img height=300 alt="Cross product.gif" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Cross_product.gif"></a>
+            </figure>
+            
+            <p>
+                Attention,
+                <span class="if-then">si $\theta > \small{180°}$ alors $\sin \theta < 0$ et donc </span>
+                <span class="implies">$\theta > \small{180°} \implies \sin \theta < 0$ $\implies$</span>
+                le vecteur est opposé à la règle de la main droite.
+            </p>
+            
+            <p>Une autre règle de la main droite est expliqué en deux minutes dans <a href="https://clipedia.be/physique/forces/le-moment-de-force">cette vidéo</a> (à la <a href="https://youtu.be/w9R4fuV0fhM?t=21m40s">minute 21:40</a>). La discussion pour $\theta > \small{180°}$ est à la minute <a href="https://youtu.be/w9R4fuV0fhM?t=25m30s">25:30</a>.</p>
+            
+            <p>
+                Comme vue sur l'image animée précédente,
+                <span class="if-then">si $\vec{a} \parallel \vec{b}$ alors $\sin\theta = 0$ et donc $\vec{a} \times \vec{b} = \vec{0}$.</span>
+                <span class="implies">$\vec{a} \parallel \vec{b}\implies \sin\theta = 0$ $\implies \vec{a} \times \vec{b} = \vec{0}$.</span>
+                
+                De même,
+                <span class="if-then">si $\vec{a} \perp \vec{b}$ alors $\sin\theta = \pm 1$</span>
+                <span class="implies">$\vec{a} \perp \vec{b}$ $\implies \sin\theta = \pm 1$</span>
+                $\implies \|\vec{a} \times \vec{b}\| = \pm\ \|\vec{a}\|\ \|\vec{b}\|$
+                (utilisez la règle de la main droite pour se souvenir du sens).
+            </p>
+            
+            <p>Si les deux vecteurs d'entrée sont de norme 1 et perpendiculaires, le vecteur résultant sera aussi de norme 1. En particulier, on a (pour un repère dextrogyre) :</p>
+            
+            <p>
+                $\color{red}{\vec{1_x}} \times \color{green}{\vec{1_y}} = \color{blue}{\vec{1_z}}$
+                $\quad $;$\quad \color{green}{\vec{1_y}} \times \color{blue}{\vec{1_z}} = \color{red}{\vec{1_x}}$
+                $\quad $;$\quad \color{blue}{\vec{1_z}} \times \color{red}{\vec{1_x}} = \color{green}{\vec{1_y}}$
+            </p>
+            
+            <p>
+                $\color{green}{\vec{1_y}} \times \color{red}{\vec{1_x}} = - \color{blue}{\vec{1_z}}$
+                $\quad $;$\quad \color{blue}{\vec{1_z}} \times \color{green}{\vec{1_y}} = - \color{red}{\vec{1_x}}$
+                $\quad $;$\quad \color{red}{\vec{1_x}} \times \color{blue}{\vec{1_z}} = - \color{green}{\vec{1_y}}$
+            </p>
+            
+            <p>Un moyen mnémotechnique pour se rappeler de ceci est que, si les deux vecteurs sont dans <em>l'ordre</em> (dans la séquence <em>x y z x y z</em>) alors c'est <em>+</em>, sinon c'est <em>-</em>.</p>
+            
+            <p>Le nom de <em>produit</em> vient de la distributivité : $\vec{a} \times (\vec{b} + \vec{c}) = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}$
+            et de l'homogénéité : $k (\vec{a} \times \vec{b}) = (k \vec{a}) \times \vec{b}$</p>
+            
+            <p>Avec les cas particuliers et la linéarité, on retrouve la formule : <em>(clique sur le bouton pour voir le développement avec plus de détails !)</em></p>
+            
+            <p>
+                $\vec{a} \times \vec{b}$
+                $= (\color{red}{a_x} \color{red}{\vec{1_x}} + \color{green}{a_y}\ \color{green}{\vec{1_y}} + \color{blue}{a_z}\ \color{blue}{\vec{1_z}}) $$\times (\color{red}{b_x} \color{red}{\vec{1_x}} + \color{green}{b_y}\ \color{green}{\vec{1_y}} + \color{blue}{b_z}\ \color{blue}{\vec{1_z}})$
+            </p>
+            
+            <span class="developpement" symbol="=">
+                <p>
+                    $= \color{red}{a_x} \color{red}{b_x} (\underbrace{\color{red}{\vec{1_x}} \times \color{red}{\vec{1_x}}}_{\vec{0}})$
+                    $+ \color{red}{a_x} \color{green}{b_y} (\underbrace{\color{red}{\vec{1_x}} \times \color{green}{\vec{1_y}}}_{\color{blue}{\vec{1_z}}})$
+                    $+ \color{red}{a_x} \color{blue}{b_z} (\underbrace{\color{red}{\vec{1_x}} \times \color{blue}{\vec{1_z}}}_{-\color{green}{\vec{1_y}}})$
+                </p>
+                <p>
+                    $+ \color{green}{a_y} \color{red}{b_x} (\underbrace{\color{green}{\vec{1_y}} \times \color{red}{\vec{1_x}}}_{-\color{blue}{\vec{1_z}}})$
+                    $+ \color{green}{a_y} \color{green}{b_y} (\underbrace{\color{green}{\vec{1_y}} \times \color{green}{\vec{1_y}}}_{\vec{0}})$
+                    $+ \color{green}{a_y} \color{blue}{b_z} (\underbrace{\color{green}{\vec{1_y}} \times \color{blue}{\vec{1_z}}}_{\color{red}{\vec{1_x}}})$
+                </p>
+                <p>
+                    $+ \color{blue}{a_z} \color{red}{b_x} (\underbrace{\color{blue}{\vec{1_z}} \times \color{red}{\vec{1_x}}}_{\color{green}{\vec{1_y}}})$
+                    $+ \color{blue}{a_z} \color{green}{b_y} (\underbrace{\color{blue}{\vec{1_z}} \times \color{green}{\vec{1_y}}}_{-\color{red}{\vec{1_x}}})$
+                    $+ \color{blue}{a_z} \color{blue}{b_z} (\underbrace{\color{blue}{\vec{1_z}} \times \color{blue}{\vec{1_z}}}_{\vec{0}})$
+                </p>
+                <p>
+                    $= \color{red}{a_x} \color{green}{b_y} \color{blue}{\vec{1_z}}$
+                    $- \color{red}{a_x} \color{blue}{b_z} \color{green}{\vec{1_y}}$
+                    
+                    $\quad- \color{green}{a_y} \color{red}{b_x} \color{blue}{\vec{1_z}}$
+                    $+ \color{green}{a_y} \color{blue}{b_z} \color{red}{\vec{1_x}}$
+                    
+                    $\quad+ \color{blue}{a_z} \color{red}{b_x} \color{green}{\vec{1_y}}$
+                    $- \color{blue}{a_z} \color{green}{b_y} \color{red}{\vec{1_x}}$
+                </p>
+            </span>
+            
+            <p>
+                $= (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y})\color{red}{\vec{1_x}}
+                $$+ (\ \color{blue}{a_z} \color{red}{b_x} - \color{red}{a_x} \color{blue}{b_z}) \color{green}{\vec{1_y}}
+                $$+ (\ \color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x}) \color{blue}{\vec{1_z}}$
+            </p>
+            
+            <p>En python avec numpy, il existe la fonction <code>numpy.cross</code></p>
+            <pre><code class="py">numpy.cross([1,0,0],[0,1,0]) # array([0,0,1]) </code></pre>
+            
+            <p>
+                En physique une interprétation importante du produit vectoriel est le <strong>moment de force</strong>. Plus d'infos sur <a href="https://clipedia.be/physique/forces/le-moment-de-force">Clipédia</a>.
+            </p>
+            
+        <h3 id="equation-de-plan">Équation de plan</h3>
+            <p>
+                Un plan est souvent représenté à l'aide d'un point $\vec{p}$ et une direction normale $\vec{n}$.
+                Parfois ce vecteur est normé ($\vec{1_n}$), parfois non.
+            </p>
+            
+            <p>
+                Remarque qu'un plan a une infinité de <em>vecteur normal</em>.
+                Si $\vec{n}$ est normal (perpendiculaire) au plan,
+                les vecteurs $2\vec{n}, -\vec{n}, -5\vec{n}$ le seront aussi ($k\ \vec{n}\quad \forall k \in \mathbb{R_{\ne 0}})$
+            </p>
+            
+            <p>
+                La distance d'un point $\vec{r}$ par rapport à un plan est alors facilement exprimable avec un produit scalaire $(\vec{r} - \vec{p}) \cdot \vec{1_n}$.
+            </p>
+            
+            <p>
+                Attention, il faut prendre la valeur absolue de ce produit scalaire pour obtenir la distance, une valeur négative représente une distance <em>de l'autre côté du vecteur $\vec{n}$</em>.
+            </p>
+            
+            <p>
+                On peut facilement définir l'équation du plan en exprimant le fait que tous les points sont à une distance <em>0</em> :
+            </p>
+            
+            <p>
+                $(\vec{r} - \vec{p}) \cdot \vec{1_n} = 0$
+                <span class="developpement" symbol="iff">
+                $\iff ((\vec{r} - \vec{p}) \cdot \vec{1_n})\ \|\vec{n}\| = 0 \|\vec{n}\|$
+                $\iff (\vec{r} - \vec{p}) \cdot (\vec{1_n}\ \|\vec{n}\|) = 0$
+                </span>
+                $\iff (\vec{r} - \vec{p}) \cdot \vec{n} = 0$
+                $\iff \vec{r} \cdot \vec{n} - \vec{p} \cdot \vec{n} = 0$
+                $\iff \underbrace{\vec{r}}_{(x,y,z)} \cdot \underbrace{\vec{n}}_{(a,b,c)} = \underbrace{\vec{p} \cdot \vec{n}}_{d}$
+                $\iff ax + by + cz = d$
+            </p>
+        
+        <h3 id="equation-de-droite-2D">Équation de droite 2D</h3>
+        
+            <p>
+                En 2D, ce concept de <em>vecteur normal</em> peut être appliqué à la <strong>droite</strong>.
+                Et donc, en 2D, une droite de vecteur normal $\vec{n}$ aura l'équation :
+            </p>
+            
+            <p>
+                $(\vec{r} - \vec{p}) \cdot \vec{1_n} = 0$
+                <span class="developpement" symbol="iff">
+                $\iff ((\vec{r} - \vec{p}) \cdot \vec{1_n})\ \|\vec{n}\| = 0 \|\vec{n}\|$
+                $\iff (\vec{r} - \vec{p}) \cdot (\vec{1_n}\ \|\vec{n}\|) = 0$
+                $\iff (\vec{r} - \vec{p}) \cdot \vec{n} = 0$
+                $\iff \vec{r} \cdot \vec{n} - \vec{p} \cdot \vec{n} = 0$
+                </span>
+                $\iff \underbrace{\vec{r}}_{(x,y)} \cdot \underbrace{\vec{n}}_{(a,b)} = \underbrace{\vec{p} \cdot \vec{n}}_{c}$
+                $\iff ax + by = c$
+            </p>
+            
+            <p>
+                La distance point droite se calculera facilement avec le produit scalaire $(\vec{r} - \vec{p}) \cdot \vec{1_n}$
+                où $\vec{p}$ est un point de la droite et $\vec{r}$ est le point pour lequel on veut calculer la distance.
+            </p>
+            
+            <p>
+                Nous connaissons également l'équation <em>vectorielle</em> de la droite en 2D :
+                $\vec{r}(t) = \vec{p} + t \cdot \vec{d}$
+            </p>
+            
+            <p>
+                Le vecteur directeur et le vecteur normal sont bien sûr perpendiculaires.
+                Pour avoir un vecteur normal quand on a un vecteur directeur, il suffit de faire tourner le vecteur de 90°.</p>
+                La formule pour faire tourner un vecteur $(x,y)$ de 90° est très simple à retenir :
+                $R_{90°}(x,y) = (-y,x)$
+            </p>
+            
+            <figure>
+                <img src="rotation-90.svg" />
+            </figure>
+            
+            <p>Et donc, on a $(n_x, n_y) = (-d_y, d_x)$</p>
+            
+            <p>En développant les deux équations (vectorielles et carthésiennes), on obtient une équivalence :</p>
+            
+            <p>
+                $\vec{r}(t) = \vec{p} + t \cdot \vec{d}$
+                <span class="developpement">
+                $\iff \cases{
+                    r_x = p_x + t \cdot d_x\\
+                    r_y = p_y + t \cdot d_y
+                }$
+                $\iff \cases{
+                    t = (r_x - p_x) / d_x \cdot d_x\quad (1)\\
+                    r_y = p_y + (r_x - p_x) / d_x \cdot d_y\quad (2)
+                }$
+                $(2) \iff d_x\ r_y = p_y\ d_x + d_y\ (r_x - p_x) $
+                $\iff d_x\ r_y = d_x\ p_y + d_y\ r_x - d_y\ p_x$
+                $\iff -d_y\ r_x + d_x\ r_y = - d_y\ p_x + d_x\ p_y $
+                $\iff n_x\ r_x + n_y\ r_y = n_x\ p_x + n_y\ p_y$
+                $\iff \vec{n} \cdot \vec{r} = \vec{n} \cdot \vec{p}$
+                </span>
+                $\iff \vec{r} \cdot \vec{n} = \vec{p} \cdot \vec{n}$
+            </p>
+            
+        <h3 id="intersections-3d">Intersections 3D</h3>
+            <p>
+                Trouver l'intersection $\vec{r}$ entre un <em>plan</em> contenant $\vec{p}$, dont la normale est $\vec{n}$ et une droite contenant
+                $\vec{a}$ de vecteur directeur $\vec{d}$ :
+            </p>
+            
+            <p>
+                $\cases{\vec{r} = \vec{a} + t\ \vec{d}\\(\vec{r} - \vec{p}) \cdot \vec{n} = 0}$
+                $\iff (\vec{a} + t\ \vec{d} - \vec{p}) \cdot \vec{n} = 0$
+                <span class="developpement" symbol="iff"><!--
+                -->$\iff ((\vec{a} - \vec{p}) + t\ \vec{d}) \cdot \vec{n}  = 0$
+                </span>
+                $\iff (\vec{a} - \vec{p}) \cdot \vec{n} + t\ (\vec{d} \cdot \vec{n}) = 0$
+                <span class="developpement" symbol="iff"><!--
+                -->$\iff t\ (\vec{d} \cdot \vec{n}) = -(\vec{a} - \vec{p}) \cdot \vec{n}$
+                </span>
+                $\iff t = \cfrac{(\vec{p} - \vec{a}) \cdot \vec{n}}{\vec{d} \cdot \vec{n}}$
+            </p>
+        
+        <h3 id="vecteurs-physique">Physique</h3>
+            <p>
+                Beaucoup d'objet physique sont représentés par des vecteurs comme les <strong>forces</strong>, la <strong>position</strong>, la <strong>vitesse</strong> et l'<strong>accélération</strong>,
+                jette un œil à ma page <a href="">physique</a> !
+            </p>
+        
+    </section>
+    
+    <h2 id="matrices">Matrices</h2>
+    
+    <!--
+        matrices-motivation  Motivation
+        matrices-definition  Définition
+        produit-matriciel    Produit Matriciel
+    -->
+    
+    <section name="matrices">
+        <h3 id="matrices-motivation">Motivation</h3>
+        
+            <p>Nous allons voir les matrices, un élément mathématique simple pour traiter des choses linéaires. Comme par exemple les transformations en 3D. Un vaisseau en 3D par exemple peut être transformé : on peut le redimensionner, le tourner, le déplacer.</p>
+            
+            <p>Ce chapitre et le suivant pourront répondre à des questions comme celles-ci :</p>
+            
+            <p><em>J'ai un point $(2,1)$, je le tourne de $45°$, où est-il maintenant ?</em></p>
+            
+            <figure><img src="transformation-rotation-45.png"
+            style="background:white"/></figure>
+            
+            <p><em>J'ai un point $(2,1)$, je le tourne de $45°$ et puis je le redimensionne d'un facteur $4$, je le déplace de $(-6,-4)$, puis je le tourne de $30°$, où est-il maintenant ?</em></p>
+            
+            <figure><img src="transformation-multiples.png"
+            style="background:white"/></figure>
+            
+        <h3 id="matrices-definition">Définition</h3>
+            <p>
+                Une matrice, c'est un tableau de nombres avec des lignes et des colonnes.
+                Par exemple $\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$ est une matrice à <em>2</em> lignes et <em>3</em> colonnes, on parle alors de matrice de forme (ou de dimensions) $(2 \times 3)$ ou simplement de matrice $(2 \times 3)$.
+                Dans la littérature anglaise, on voit souvent la notation avec des bords droits : $\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}$
+            </p>
+            
+            <p>Une matrice <em>ligne</em> est une matrice à une ligne (une $(n \times 1)$), une matrice <em>colonne</em> est une matrice à une colonne (une $(1 \times n)$). Une matrice <em>carrée</em> a autant de lignes que de colonnes (une $(n \times n)$). On peut alors parler de matrice colonne <em>de taille 5</em> (une $(5 \times 1)$), de matrice ligne <em>de taille 5</em> (une $(1 \times 5)$), ou de matrice carrée <em>de taille 5</em> (une $(5 \times 5)$).</p>
+            
+            <p>
+                Quelques opérations de base sont définies de la même manière qu'avec les vecteurs :
+            </p>
+            
+            <ul style="line-height:2">
+                <li>
+                    L'addition :
+                    $  \begin{pmatrix}7&14&18\\14&16&7\end{pmatrix} $
+                    $+ \begin{pmatrix}1&1&18\\4&11&0\end{pmatrix}$
+                    $= \begin{pmatrix}1+7&14+1&18+18\\14+4&16+11&7+0\end{pmatrix}$
+                    $= \begin{pmatrix}8&15&36\\18&27&7\end{pmatrix}$
+                    
+                    <br/>Les matrices doivent bien entendu être de même taille.
+                </li>
+                <li>La multiplication par un nombre : $4 \cdot \begin{pmatrix}1&-1&18\\-4&11&0\end{pmatrix}$ $= \begin{pmatrix}4&-4&72\\-16&44&0\end{pmatrix}$</li>
+                <li>La soustraction : $A - B = A + (-1) \cdot B$</li>
+                <li>La division par un nombre : $A / k = A \cdot (1/k)$</li>
+            </ul>
+            
+            <p>La <em>multiplication matricielle</em> sera différente (voir plus bas).</p>
+            
+            <ul style="line-height:2">
+                <li>
+                    La <strong>transposée</strong> d'une matrice est celle obtenue en <em>échangant</em> les lignes et les colonnes : 
+                    $\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^T $$= \begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}$
+                </li>
+                <li>
+                    Une matrice carrée est <strong>symétrique</strong> si elle est égale à sa transposée : $\forall i,j : A_{i,j} = A_{j,i}$.
+                    
+                    <p>Cette matrice est symétrique :
+                    $\begin{pmatrix}1&\color{green}{2}\\\color{green}{2}&3\end{pmatrix}$</p>
+                    <p>Celle ci ne l'est pas :
+                    $\begin{pmatrix}1&\color{red}{2}\\\color{red}{7}&3\end{pmatrix}$</p>
+                </li>
+            </ul>
+            
+        <h3 id="produit-matriciel">Produit matriciel</h3>
+            
+            <p>
+                Cependant, les matrices ont un concept important : le <strong>produit matriciel</strong>, noté $A \times B$, $A \cdot B$ ou $AB$.
+            </p>
+            
+            <h4>Condition</h4>
+            
+            <p>
+                Si $A$ est une matrice de taille $(a \times b)$ et $B$ est une matrice de taille $(c \times d)$, le produit $A \times B$ existe seulement si $b = c$.
+                Le résultat sera alors une matrice $(a \times d)$.
+                
+                Par exemple, on peut multiplier une $(\color{red}{7} \times \color{green}{2})$
+                avec une $(\color{green}{2} \times \color{blue}{4})$ mais pas une avec une $(\color{red}{7} \times \color{green}{2})$ avec une $(\color{orange}{4} \times \color{blue}{4})$.
+                En d'autres mots :
+            </p>
+            
+            <p><em>
+                Pour deux matrices $A$ et $B$ : $A \times B$ existe <strong>si</strong> le nombre de <strong>colonnes</strong> de $A$ $=$ le nombre de <strong>lignes</strong> de $B$
+            </em></p>
+            
+            <p>
+                Quand cette condition est remplie, la matrice résultante aura autant de lignes que la première matrice et autant de colonnes que la deuxième.
+                
+                Par exemple, une $(\color{red}{7} \times \color{green}{2})$
+                avec une $(\color{green}{2} \times \color{blue}{4})$ donne une $(\color{red}{7} \times \color{blue}{4})$
+            </p>
+            
+            <p><em>
+                Une $(\color{red}{a} \times \color{green}{b})$ fois une $(\color{green}{b} \times \color{blue}{c})$ donnera une $(\color{red}{a} \times \color{blue}{c})$.
+            </em></p>
+            
+            <h4>Une ligne fois une colonne</h4>
+            
+            <p>
+                Pour avoir la matrice résultante, il faut d'abord savoir multiplier une <strong>ligne</strong> avec une <strong>colonne</strong>. de même <strong>taille</strong>. C'est la même opération que le produit scalaire.
+            </p>
+            
+            <p>
+            $
+                \begin{pmatrix}\color{red}{x}&\color{red}{y}&\color{red}{z}\end{pmatrix}
+                \begin{pmatrix}\color{blue}{x'}\\\color{blue}{y'}\\\color{blue}{z'}\end{pmatrix}
+            $
+            $=
+                \begin{pmatrix}
+                    \color{red}{x}\color{blue}{x'}
+                    + \color{red}{y}\color{blue}{y'}
+                    + \color{red}{z}\color{blue}{z'}
+                \end{pmatrix}
+            $
+            </p>
+            
+            <p>Une matrice $(1 \times n)$ fois une matrice $(n \times 1)$ fait donc une matrice $(1 \times 1)$ donc <strong>un seul nombre</strong>.</p>
+            
+            <h4>Une matrice fois une matrice</h4>
+            
+            <p>Maintenant, pour multiplier une matrice $(a \times b)$ avec une matrice de taille $(b \times c)$, on a donc une matrice $(a \times c)$. La règle est celle-ci :</p>
+            
+            <p>
+                <em>Pour avoir le nombre à la colonne i et ligne j, on multiplie la colonne i de la première matrice avec la ligne j de la deuxième.</em>
+            </p>
+            
+            <p>Voici un exemple d'une matrice de taille $(2 \times 3)$ avec une matrice de taille $(3 \times 4)$. Donnant donc une matrice de taille $(2 \times 4)$</p>
+            
+            <p>$\begin{pmatrix}1&4&-7\\0&8&-4\end{pmatrix} \begin{pmatrix}1&-2&1&7\\0&8&-4&2\\7&1&0&4\end{pmatrix}$ $= \begin{pmatrix}?&?&?&?\\?&?&?&?\end{pmatrix}$</p>
+            
+            <p><strong>Première</strong> ligne <strong>première</strong> colonne...</p>
+            
+            <p>$\begin{pmatrix}\color{red}{1}&\color{red}{4}&\color{red}{-7}\\0&8&-4\end{pmatrix} \begin{pmatrix}\color{blue}{1}&-2&1&7\\\color{blue}{0}&8&-4&2\\\color{blue}{7}&1&0&4\end{pmatrix}$ $= \begin{pmatrix}\color{red}{1} \cdot \color{blue}{1} + \color{red}{4} \cdot \color{blue}{0} + \color{red}{-7} \cdot \color{blue}{7} = -48&?&?&?\\?&?&?&?\end{pmatrix}$</p>
+            
+            <p><strong>Première</strong> ligne <strong>deuxième</strong> colonne...</p>
+            
+            <p>$\begin{pmatrix}\color{red}{1}&\color{red}{4}&\color{red}{-7}\\0&8&-4\end{pmatrix} \begin{pmatrix}1&\color{blue}{-2}&1&7\\0&\color{blue}{8}&-4&2\\7&\color{blue}{1}&0&4\end{pmatrix}$ $= \begin{pmatrix}-48&\color{red}{1} \cdot \color{blue}{-2} + \color{red}{4} \cdot \color{blue}{8} + \color{red}{-7} \cdot \color{blue}{1} = 23&?&?\\?&?&?&?\end{pmatrix}$</p>
+            
+            <p>Et cetera...</p>
+            
+            <p>
+                $\begin{pmatrix}1&4&-7\\0&8&-4\end{pmatrix} \begin{pmatrix}1&-2&1&7\\0&8&-4&2\\7&1&0&4\end{pmatrix}$
+                <span class="developpement" symbol="=">
+                $= \begin{pmatrix}
+                    \color{red}{1} \cdot \color{blue}{1}  + \color{red}{4} \cdot \color{blue}{0}  + \color{red}{-7} \cdot \color{blue}{7}
+                    &             
+                    \color{red}{1} \cdot \color{blue}{-2} + \color{red}{4} \cdot \color{blue}{8}  + \color{red}{-7} \cdot \color{blue}{1}
+                    &             
+                    \color{red}{1} \cdot \color{blue}{1}  + \color{red}{4} \cdot \color{blue}{-4} + \color{red}{-7} \cdot \color{blue}{0}
+                    &             
+                    \color{red}{1} \cdot \color{blue}{7}  + \color{red}{4} \cdot \color{blue}{2}  + \color{red}{-7} \cdot \color{blue}{4}
+                    \\            
+                                  
+                    \color{red}{0} \cdot \color{blue}{1}  + \color{red}{8} \cdot \color{blue}{0}  + \color{red}{-4} \cdot \color{blue}{7}
+                    &             
+                    \color{red}{0} \cdot \color{blue}{-2} + \color{red}{8} \cdot \color{blue}{8}  + \color{red}{-4} \cdot \color{blue}{1}
+                    &             
+                    \color{red}{0} \cdot \color{blue}{1}  + \color{red}{8} \cdot \color{blue}{-4} + \color{red}{-4} \cdot \color{blue}{0}
+                    &             
+                    \color{red}{0} \cdot \color{blue}{7}  + \color{red}{8} \cdot \color{blue}{2}  + \color{red}{-4} \cdot \color{blue}{4}
+                \end{pmatrix}$
+                </span>
+                $= \begin{pmatrix}-48&23&-15&-13\\-28&60&-32&0\end{pmatrix}$
+            </p>
+            
+            <p>Cette opération sera bien sûr effectuée par des calculettes adaptées (<em>python</em> est bien sûr adapté).</p>
+            
+            <p>Dans le cas où la condition de multiplication est respectée (colonne de l'une = lignes de l'autre), le produit matriciel a quelques propriétés :</p>
+            
+            <ul>
+                <li>Le produit matriciel n'est <strong>pas commutatif</strong>. Donc $\exists A,B : AB \neq BA$.</li>
+                <li>Le produit matriciel est <strong>associatif</strong> : $ABC = (AB)C = A(BC)$.</li>
+                <li>Le produit matriciel est distributif : $A(B + C) = AB + AC$</li>
+            </ul>
+    </section>
+    
+    <h2 id="transformations">Transformations</h2>
+    
+    <section name="transformations">
+        <h3 id="{{transformations-systeme|system-transformation}}">Système d'équation et matrice</h3>
+            <p>En informatique, on manipule surtout des matrices colonnes de taille 2, 3 ou 4 et des matrices carrées de même taille.</p>
+            
+            <p>Un point est souvent représenté avec une matrice colonne, par exemple en 2D, le point $(1,\ 2)$ sera souvent représenté $\begin{pmatrix}1\\2\end{pmatrix}$.</p>
+            
+            <p>Une transformation 2D <em>linéaire</em> sera représentée par une matrice $(2 \times 2)$. Si on multiple une telle matrice par un point, on obtient un autre point. En effet, une matrice de taille $(2 \times 2)$ avec une matrice de taille $(2 \times 1)$ fait une matrice de taille $(2 \times 1)$.</p>
+            
+            <p>Donc en général, si on a une matrice $M = \begin{pmatrix}a&b\\c&d\end{pmatrix}$ et un point $P = \begin{pmatrix}x\\y\end{pmatrix}$, on s'intéressera au point $P' = \begin{pmatrix}x'\\y'\end{pmatrix}$. La matrice représente une transformation, il suffit de multiplier $M$ par $P$ pour avoir $P'$.</p>
+            
+            <p>
+                $P' = MP$
+                $\iff \begin{pmatrix}x'\\y'\end{pmatrix} = \begin{pmatrix}\color{red}a&\color{red}b\\\color{blue}c&\color{blue}d\end{pmatrix} \begin{pmatrix}x\\y\end{pmatrix}$
+                $\iff \begin{cases}x' = \color{red}{a}\ x + \color{red}{b}\ y\\y' = \color{blue}{c}\ x + \color{blue}{d}\ y\end{cases}$
+            </p>
+            
+            <p>Trois représentations équivalentes de la transformation $P' = MP$</p>
+            
+            <p>En terme plus mathématique, une matrice peut représenter toute transformation <em>linéaire</em>. Une transformation $T$ est <em>linéaire</em> si $\forall\ \vec{a}, \vec{b}, k$ :</p>
+            
+            <ul>
+                <li>$T(\vec{a} + \vec{b}) = T(\vec{a}) + T(\vec{b})$</li>
+                <li>$T(k\ \vec{a}) = k\ T(\vec{a})$</li>
+            </ul>
+            
+            <p>Par exemple $T(\vec{v}) = 2 \cdot \vec{v}$ ou $T(\vec{v}) = (v_y, -v_x)$ sont linéaires mais $T(\vec{v}) = \vec{v} + (1,0)$ ne l'est pas, remplacez $T$ dans la définition et vous verrez quand les égalités sont respectées.</p>
+            
+            <p>
+                $T(\vec{v}) \equiv 2 \cdot \vec{v}$
+                $= (2\ v_x, 2\ v_y)$
+            </p><p>
+                <span class="developpement" symbol="+">
+                $\implies \forall \vec{a}, \vec{b} : T(\vec{a} + \vec{b})$
+                $= 2 \cdot ((a_x + b_x, a_y + b_y))$
+                $= (2 a_x + 2 b_x, 2 a_y + 2 b_y)$
+                $= (2 a_x, 2 a_y) + (2 b_x + 2 b_y)$
+                $= (2 a_x, 2 a_y) + (2 b_x + 2 b_y)$
+                $= T(\vec{a}) + T(\vec{b})$
+                </span>
+            </p><p>
+                <span class="developpement" symbol="*">
+                $\implies \forall \vec{a}, k : T(k\ \vec{a}) $
+                $= 2 \cdot (k \cdot (v_x, v_y))$
+                $= 2 \cdot (k\ v_x, k\ v_y)$
+                $= (2\ k\ v_x, 2\ k\ v_y)$
+                $= k\ (2\ v_x, 2\ v_y)$
+                $= k\ T(\vec{v})$
+                </span>
+            </p>
+            
+            <p>
+                $T(\vec{v}) \equiv (v_y, -v_x)$
+            </p><p>
+                <span class="developpement" symbol="+">
+                $\implies \forall \vec{a}, \vec{b} : T(\vec{a} + \vec{b})$
+                $= (a_y + b_y, -(a_x + b_x))$
+                $= (a_y + b_y, -a_x - b_x)$
+                $= (a_y + b_y, -a_x - b_x)$
+                $= (a_y, -a_x) + (b_y, -b_x)$
+                $= T(\vec{a}) + T(\vec{b})$
+                </span>
+            </p><p>
+                <span class="developpement" symbol="*">
+                $\implies \forall \vec{a}, k : T(k\ \vec{a}) $
+                $= (k v_y, - k v_x)$
+                $= k\ (v_y, - v_x)$
+                $= k\ T(\vec{v})$
+                </span>
+            </p>
+        
+        <h3 id="code-python">Code python</h3>
+            <p>En python, une manière simple de manipuler des matrices et des vecteurs est la bibliothèque <code>numpy</code>.</p>
+            <p>Soit on utilise la classe générique <code>numpy.array</code> (méthode que je recommande) :</p>
+            
+            <pre><code class="python">from numpy import array
+P = array([1,2])         # Un vecteur 2D
+M = array([[5,6],[7,8]]) # Une matrice carrée 2x2
+G = array([[1,1],[9,0]]) # Une autre matrice carrée 2x2
+Q = 2 * P       # multiplication par un nombre
+R = P + R       # addition vectorielle/matricielle
+S = M.dot(P)    # multiplication matricielle, S est un vecteur
+S = M @ P       # multiplication matricielle, Python 3.5 uniquement
+H = M.dot(G)    # Une 2x2 fois une 2x2 donne une 2x2
+H = M @ G       # multiplication matricielle, Python 3.5 uniquement
+T = M.T         # T est la transposée de M
+a = M[0][1]     # lire les éléments d'une matrice, ici première ligne, deuxième colonne
+x = P[0]        # lire les 2 composantes du vecteur comme ...
+y = P[1]        # ... ceci
+x,y = P         # Raccourci pour la lecture d'un vecteur
+(a,b),(c,d) = M # Raccourci pour la lecture d'une matrice
+print(P.size)   # 2 éléments
+print(P.shape)  # (2,) une dimension de taille 2
+print(M.size)   # 4 éléments
+print(M.shape)  # (2,2) deux dimensions, shape = (2 x 2)
+</code></pre>
+        
+            <p>Soit la classe <code>numpy.matrix</code> :</p>
+            
+            <pre><code class="python">from numpy import matrix
+P = matrix([[1],[2]])     # Une matrice colonne de taille 2
+M = matrix([[5,6],[7,8]]) # Une matrice carrée 2x2
+M = matrix('5 6; 7 8')    # Version allégée, pratique pour utiliser python comme calculette
+G = matrix([[1,1],[9,0]]) # Une autre matrice carrée 2x2
+Q = 2 * P       # multiplication par un nombre
+R = P + R       # addition vectorielle/matricielle
+S = M * P       # multiplication matricielle, S est une une matrice colonne
+S = M @ P       # multiplication matricielle, Python 3.5 uniquement
+H = M * G       # Une 2x2 fois une 2x2 donne une 2x2 
+H = M @ G       # multiplication matricielle, Python 3.5 uniquement
+T = M.T         # T est la transposée de M
+a = M[0,1]      # lire les éléments d'une matrice, ici première ligne, deuxième colonne
+x = P[0,0]      #  lire les 2 composantes de la matrice comme ...
+y = P[1,0]      # ... ceci
+print(P.size)   # 2 éléments
+print(P.shape)  # (2,1) en deux dimensions shape = (2 x 1)
+print(M.size)   # 4 éléments
+print(M.shape)  # (2,2) en deux dimensions shape = (2 x 2)
+</code></pre>
+            
+            <p>Faites donc attention à l'opérateur <code>*</code> (et <code>**</code>) qui n'a pas la même sémantique dans les deux cas :</p>
+            
+            <pre><code class="python">A = matrix([[1,2],[3,4]]) * matrix([[1,2],[3,4]]) # [[1*1, 2*2], [3*3, 4*4]]
+B = matrix([[1,2],[3,4]]) * matrix([[1,2],[3,4]]) # [[1*1+2*3, 1*2+2*4], [3*1+4*3, 3*2+4*4]]
+
+C = matrix([[1,2],[3,4]]) ** matrix([[1,2],[3,4]]) # matrix([[1**1,2**2],[3**3,4**4]])
+D = matrix([[1,2],[3,4]]) ** 2 # matrix([[1**2,2**2],[3**2,4**2]])
+B = matrix([[1,2],[3,4]]) ** 2 # [[1*1+2*3, 1*2+2*4], [3*1+4*3, 3*2+4*4]]
+            </code></pre>
+            
+            <p>Beaucoup d'opérations qui marchent sur les nombres ont une <em>version numpy</em> qui marche avec les array et parfois matrix :</p>
+            
+            <pre><code class="python">A = array([4,5]) + 3 # array([5,6])
+A = array([4,5]) ** 2 # array([4**2, 5**2])
+numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
+</code></pre>
+            
+        <h3 id="{{identite|identity}}">Identité</h3>
+        
+            <p>Quelle est la matrice qui ne change pas un point ? On part d'un point $P$, on le transforme via $M$, et on obtient le même $P$. On cherche donc $M$ tel quel $P = MP$ pour tout $P$.</p>
+            <p>On part de la définition en équation, vers la notation matricielle :</p>
+            
+            <p>
+                $\begin{cases}x' = x\\y' = y\end{cases}$
+                $\iff \begin{cases}x' = \color{red}1\cdot x + \color{red}0 \cdot y\\y' = \color{blue}0 \cdot x + \color{blue}1 \cdot y\end{cases}$
+                $\iff \begin{pmatrix}x'\\y'\end{pmatrix} =  \underbrace{\begin{pmatrix}\color{red}1&\color{red}0\\\color{blue}0&\color{blue}1\end{pmatrix}}_{I} \begin{pmatrix}x\\y\end{pmatrix}$
+            </p>
+            
+            <p>On appelle cette matrice <em>matrice unité</em>, on la note $I$, ou $I_2$ pour spécifier qu'elle est de taille 2.</p>
+            <p>Pour toute matrice $M$ de n'importe quelle dimension, on a $MI = IM = M$.</p>
+        
+        <h3 id="{{redimensionnement|scaling}}">Redimensionnement</h3>
+        
+            <p>
+                Le redimensionnement, ou <em>scale</em> en anglais, ou <em>homothétie</em> en terme plus mathématique,
+                permet de redimensionner un objet.
+                Prenons un rectangle de côtés <strong>2</strong> et <strong>3</strong> centré en l'origine.
+                On peut appliquer une transformation de ses points pour qu'il devienne <strong>3</strong> fois plus grand ! (Transformation en <span class="color:blue">bleu</span> sur la figure)
+                Ou une transformation pour qu'il devienne <strong>2</strong> fois plus petit ! (Transformation en <span class="color:#008000">vert</span> sur la figure)
+            </p>
+            
+            <figure><img src="transformation-redimensionnement.png" /></figure>
+            
+            <p>Le vecteur correspondant à ses points sera multiplié par un certain facteur $k$, dans notre exemple $k = 3$.</p>
+            <p>On se rappelera que $2$ fois plus petit, c'est $1/2$ fois plus grand.</p>
+            
+            <p>
+                $\cases{x' = k x\\y' = k y}$
+                $\iff \cases{x' = \color{red}{k}\cdot x + \color{red}{0} \cdot y\\y' = \color{blue}{k} \cdot x + \color{blue}{k} \cdot y}$
+                $\iff \begin{pmatrix}x'\\y'\end{pmatrix} = \begin{pmatrix}\color{red}{k}&\color{red}{0}\\\color{blue}{0}&\color{blue}{k}\end{pmatrix} \begin{pmatrix}x\\y\end{pmatrix}$
+            </p>
+            
+            <p>On a donc, en toute généralité pour un facteur $k$ :</p>
+            
+            <p>$S_k = \begin{pmatrix}k&0\\0&k\end{pmatrix}$</p>
+            
+            <p>On peut également avoir un facteur différent en $x$ et $y$, par exemple si $k_x = 2, k_y = 3$ un carré de côté $2$ centré en $(0,0)$ deviendra un rectangle de dimension $(4,6)$ centré en $(0,0)$.</p>
+            
+            <p>
+                Des facteurs de k sont également possible, si $k = -1$ la transformation retourne le modèle sans changer sa taille,
+                si $k_x = 1, k_y = -1$, on fait une transformation mirroir par rapport à l'axe $x$ et dans ce cas un <em>M</em> deviendrait un <em>W</em>.
+            </p>
+            
+            <p>$S_\vec{k} = \begin{pmatrix}k_x&0\\0&k_y\end{pmatrix}$</p>
+        
+        <h3 id="rotation">Rotation</h3>
+        
+            <p>J'ai un point ou un vecteur $(2,1)$, et je le tourne de $\theta = 50°$ :</p>
+            
+            <figure><img src="transformation-rotation.png"/></figure>
+            
+            <p>
+                En utilisant la trigonométrie de base et la formule d'addition des 
+                <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/formule-d-addition-du-sinus">sinus</a>
+                et des
+                <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/formule-d-addition-du-cosinus">cosinus</a>, on obtient :
+                <em>(clique sur le bouton pour voir le développement avec plus de détails !)</em>
+            </p>
+            
+            <p>
+                $\begin{cases}x = r\ \cos\alpha\\y = r\ \sin\alpha \\ x' = r\ \cos\alpha'\\y' = r\ \sin\alpha' \\ \alpha' = \alpha + \theta\end{cases}$
+                
+                <span class="developpement" symbol="iff">
+                $\iff \begin{cases}x = r\ \cos\alpha\\y = r\ \sin\alpha \\ x' = r\ \cos(\alpha + \theta)\\ y' = r\ \sin(\alpha + \theta)\end{cases}$
+                $\iff \begin{cases}x = r\ \cos\alpha\\y = r\ \sin\alpha \\ x' = r\ (\cos\alpha\ \cos\theta - \sin\alpha\ \sin\theta)\\ y' = r\ (\cos\alpha\ \sin\theta + \sin\alpha\ \cos\theta)\end{cases}$
+                $\iff \begin{cases}x = r\ \cos\alpha\\y = r\ \sin\alpha \\ x' = (r\ \cos\alpha)\ \cos\theta - (r\ \sin\alpha)\ \sin\theta \\ y' = (r\ \cos\alpha)\ \sin\theta + (r\ \sin\alpha)\ \cos\theta\end{cases}$
+                $\iff \begin{cases}x' = x\ \cos\theta - y\ \sin\theta\\ y' = x\ \sin\theta + y\ \cos\theta\end{cases}$
+                </span>
+                
+                $\iff \begin{cases}x' = \color{red}{\cos\theta}\cdot x \color{red}{- \sin\theta}\cdot y\\y' = \color{blue}{\sin\theta}\cdot x + \color{blue}{\cos\theta}\cdot y\end{cases}$
+                $\iff \begin{pmatrix}x'\\y'\end{pmatrix} = \begin{pmatrix}\color{red}{\cos\theta}& \color{red}{- \sin\theta} \\\color{blue}{\sin\theta}& \color{blue}{\cos\theta}\end{pmatrix} \begin{pmatrix}x\\y\end{pmatrix}$
+            </p>
+            
+            <p>On a donc, en toute généralité pour un angle $\theta$ :</p>
+            
+            <p>$R_\theta = \begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$</p>
+            
+            <p>Pour notre exemple, la rotation du vecteur $(2,1)$ de $45°$ vaut :</p>
+            
+            <p>
+                $\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix} \begin{pmatrix}2\\1\end{pmatrix}$
+                $\simeq \begin{pmatrix}0.707&-0.707\\0.707&0.707\end{pmatrix} \begin{pmatrix}2\\1\end{pmatrix}$
+                $= \begin{pmatrix}0.70\\2.12\end{pmatrix}$
+            </p>
+            
+            <p>Cela marche également pour $\theta < 0$, une rotation de $-50°$, c'est une rotation de $50°$ dans l'autre sens.</p>
+        
+        <h3 id="translation">Translation et coordonnées homogènes</h3>
+        
+            <p>J'ai un point en $(1,2)$ et on le déplace d'un vecteur $\vec{t} = (4,2)$</p>
+            
+            <figure><img src="transformation-translation.png"/></figure>
+            
+            <p>Notre équation est donc :</p>
+            
+            <p>$\cases{x' = x + 4\\y' = y + 2}$</p>
+            
+            <p>Cependant, ce n'est pas une transformation représentable par une matrice. En terme technique on dit qu'elle n'est pas <em>linéaire</em>. Mais on remarque ceci :</p>
+            
+            <p>$\cases{x' = \color{red}{1} \cdot x + \color{red}{0} \cdot y + \color{red}{4} \cdot 1\\y' = \color{blue}{1} \cdot x + \color{blue}{0} \cdot y + \color{blue}{2} \cdot 1}$</p>
+            
+            <p>Ceci a l'air linéaire, mais avec une dimension en plus. On va donc représenter nos points avec <strong>3</strong> composantes, dont la dernière vaut <strong>1</strong>.</p>
+            
+            <p>
+                $
+                P = \begin{pmatrix}x\\y\\w = 1\end{pmatrix}
+                \quad $;$\quad
+                P' = \begin{pmatrix}x'\\y'\\w' = 1\end{pmatrix}
+                $
+            </p>
+            
+            <p>
+                $\cases{x' = \color{red}{1} \cdot x + \color{red}{0} \cdot y + \color{red}{4} \cdot w\\y' = \color{blue}{1} \cdot x + \color{blue}{0} \cdot y + \color{blue}{2} \cdot w\\w' = \color{black}{0} \cdot x + \color{black}{0} \cdot y + \color{black}{1} \cdot w}$
+                $\iff \begin{pmatrix}x'\\y'\\w'\end{pmatrix} =  \begin{pmatrix}\color{red}1&\color{red}0&\color{red}4\\\color{blue}0&\color{blue}1&\color{blue}2\\\color{black}0&0&1\end{pmatrix} \begin{pmatrix}x\\y\\w\end{pmatrix}$
+            </p>
+            
+            <p>Les coordonnées $(x,y,w)$ d'un point $(x,y)$ sont appelées ses <em>coordonnées homogènes</em>.</p>
+            
+            <p>En toute généralité, pour une translation d'un vecteur $\vec{t}$ on a :</p>
+            
+            <p>$T_\vec{t} = \begin{pmatrix}1&0&t_x\\0&1&t_y\\0&0&1\end{pmatrix}$</p>
+        
+        <h3 id="sequence-transformations">Séquence de transformations</h3>
+        
+            <p>En 2D, on va donc représenter un point avec <strong>3</strong> composantes, dont la dernière vaut <strong>1</strong>. En suite on a ces matrices de <em>redimensionnement</em>, <em>rotation</em> et <em>translation</em>.</p>
+            
+            <p>
+                $
+                S_\vec{k} = \begin{pmatrix}k_x&0&0\\0&k_y&0\\0&0&1\end{pmatrix}
+                \quad $;$\quad
+                R_\theta = \begin{pmatrix}\cos\theta&-\sin\theta&0\\\sin\theta&\cos\theta&0\\0&0&1\end{pmatrix}
+                \quad $;$\quad
+                T_\vec{t} = \begin{pmatrix}1&0&t_x\\0&1&t_y\\0&0&1\end{pmatrix}
+                $
+            </p>
+            
+            <p>Nous pouvons maintenant, résoudre l'exemple donné au début !</p>
+            
+            <p><em>J'ai un point (2,1), je le tourne de 45° et puis je le redimensionne d'un facteur 4, je le déplace de (-6,-4), puis je le tourne de 30°, où est-il maintenant ?</em></p>
+            
+            <figure><img src="transformation-multiples.png" style="background:white" /></figure>
+            
+            <p>On représente le point $(\color{red}{2},\color{blue}1)$ avec $P = \begin{pmatrix}\color{red}2\\\color{blue}1\\\color{black}1\end{pmatrix}$.</p>
+            
+            <p>On a $P_1 = R_{45°}\times P$ pour la première transformation, puis on continue, en appliquant à chaque fois sur le point reçu précédemment.</p>
+            
+            <p>
+                $
+                P_1 = R_{45°}\times P
+                \quad$;$\quad
+                P_2 = S_4\times P_1
+                \quad$;$\quad
+                P_3 = T_{(-6,-4)}\times P_2
+                \quad$;$\quad
+                P' = R_{30°}\times P_3
+                $
+            </p>
+            
+            <span class="developpement">
+            <p>$\iff P' = R_{30°}\times (T_{(-6,-4)}\times P_2)$</p>
+            <p>$\iff P' = R_{30°}\times (T_{(-6,-4)}\times (S_4\times P_1))$</p>
+            </span>
+            
+            <p>$\iff P' = R_{30°}\times (T_{(-6,-4)}\times (S_4\times (R_{45°}\times P)))$</p>
+            
+            <p>Et grâce à l'<strong>associativité</strong>, on peut mettre tout ça dans une seule matrice !</p>
+            
+            <p>$P' = \underbrace{(R_{30°}\times T_{(-6,-4)}\times S_4\times R_{45°})}_{M}\times P$</p>
+            
+            <p>Voici les valeurs numériques :</p>
+            
+            <p>
+                $S_4 = \begin{pmatrix}4&0&0\\0&4&0\\0&0&1\end{pmatrix}$
+                $\quad R_{45°} $
+                <span class="developpement" symbol="=">
+                $= \begin{pmatrix}\cos{45°}&-\sin{45°}&0\\\sin{45°}&\cos{45°}&0\\0&0&1\end{pmatrix} $
+                </span>
+                $\simeq \begin{pmatrix}0.707&-0.707&0\\0.707&0.707&0\\0&0&1\end{pmatrix}$
+                $\quad T_{(-6,-4)} = \begin{pmatrix}1&0&-6\\0&1&-4\\0&0&1\end{pmatrix}$
+                $\quad R_{30°} $
+                <span class="developpement" symbol="=">
+                $= \begin{pmatrix}\cos{30°}&-\sin{30°}&0\\\sin{30°}&\cos{30°}&0\\0&0&1\end{pmatrix} $
+                </span>
+                $\simeq \begin{pmatrix}0.866&-0.500&0\\0.500&0.866&0\\0&0&1\end{pmatrix}$
+            </p>
+            
+            <p>$M = \begin{pmatrix}1.035&-3.863&-3.196\\3.863&1.035&-6.464\\0&0&1\end{pmatrix}$ $\quad P' = \begin{pmatrix}-4.989\\2.298\\1\end{pmatrix}$</p>
+            
+            <p>Le point $(1,2)$ est donc transformé en $(-4.989, 2.298)$. Et si on a un autre point avec la même transformation ? On peut réutiliser la même matrice !</p>
+            
+            <p>Par exemple, le rectangle $R = ((2,1), (2,-1), (-2,-1), (-2,1))$ sera transformé de la même manière.</p>
+            
+            <p>
+                $R_1' = M R_1 = (-4.989,\   2.298)$
+                $\quad R_2' = M R_2 = (2.738,\   0.228)$
+                $\quad R_3' = M R_3 = (-1.403,\ -15.226)$
+                $\quad R_4' = M R_4 = (-9.130,\ -13.156)$
+            </p>
+
+            <figure><img src="transformation-multiples-rectangle.png" /></figure>
+            
+            <p>En pratique, on aura plus que 4 points, et la carte graphique s'occupe de la multiplication de matrice en grande quantité, regardez comme les modèles suivants ont un nombre élevé de points !</p>
+            
+            <figure>
+                <img src="http://vignette4.wikia.nocookie.net/memoryalpha/images/8/87/Akira_class_CGI_wireframe_model_by_ILM.jpg/revision/latest?cb=20130221104236&path-prefix=en" height=300>
+                <img src="http://orig11.deviantart.net/8ef1/f/2011/143/0/e/3d_model___f16_wire_frame_by_doubleohzero-d3h1j6j.png" height=300 />
+            </figure>
+        
+        <!-- <h3>Repères</h3>
+        <p>
+            D'autres vecteurs peuvent être choisis pour faire une <em>base</em>, cela donne un changement de repère.
+            Si je choisis par exemple $\vec{h_1} = (1,1), \vec{h_2} = (2,-1)$. Le vecteur $\vec{a} = (0,1)$ s'exprime $\vec{a} = 2 \cdot \vec{h_1} + (-1) \cdot \vec{h_2}$ et donc aura les coordonnées $(2,-1)$ dans le repère $h = (\vec{h_1}, \vec{h_2})$.
+            En terme mathématiques, on dit que $2 \cdot \vec{h_1} + (-1) \cdot \vec{h_2}$ est une <em>combinaison linéaire</em> des vecteurs $\vec{h_1}, \vec{h_2}$.
+            Biensûr, je ne peux pas choisir deux vecteurs dans la même direction, ils ne permetteront pas de reconstruire n'importe quel vecteur. Si ma base avait été $\vec{e_x} = (1,0), \vec{e_y} = (-2,0)$, j'aurais du mal à faire le vecteur $(1,1)$.
+        </p>
+        -->
+        
+        <h3 id="3D">En 3D</h3>
+        
+            <p>En 3D, nous utiliserons donc <strong>4</strong> composantes $\begin{pmatrix}x\\y\\z\\w = 1\end{pmatrix}$ et des matrices $(4 \times 4)$, les rotations se feront autour d'un axe, on a donc 3 matrices de rotation élémentaires : $R_{x,\theta}, R_{y,\theta}, R_{z,\theta}$</p>
+            
+            <p>
+                $
+                S_\vec{k} = \begin{pmatrix}k_x&0&0&0\\0&k_y&0&0\\0&0&k_z&0\\0&0&0&1\end{pmatrix}
+                \quad $;$\quad
+                T_\vec{t} = \begin{pmatrix}1&0&0&t_x\\0&1&0&t_y\\0&0&1&t_z\\0&0&0&1\end{pmatrix}
+                \quad $;$\quad
+                R_{x,\theta} = \begin{pmatrix}1&0&0&0\\0&\cos\theta&-\sin\theta&0\\0&\sin\theta&\cos\theta&0\\0&0&0&1\end{pmatrix}
+                \quad $;$\quad
+                R_{y,\theta} = \begin{pmatrix}\cos\theta&0&\sin\theta&0\\0&1&0&0\\-\sin\theta&0&\cos\theta&0\\0&0&0&1\end{pmatrix}
+                \quad $;$\quad
+                R_{z,\theta} = \begin{pmatrix}\cos\theta&-\sin\theta&0&0\\\sin\theta&\cos\theta&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix}
+                $
+            </p>
+            
+            <p>On peut aussi définir la rotation autour d'un axe quelquonque $\vec{A} = (A_x, A_y, A_z)$. Si $c = \cos\theta$, $\quad k = 1-c$, $\quad s = \sin\theta$, $\quad \vec{u} = \vec{A} / \|A\|$, $\quad \vec{u} = (x,y,z)$ ça nous donne cette matrice-ci :</p>
+            
+            <p>$\quad R_{\vec{A},\theta} = \begin{pmatrix}
+            c + x^2 k & x y k - z s & x z k + y s & 0
+            \\ y x k + z s & c + y^2k & y z k - x s & 0
+            \\ z x k - y s & z y k + x s & c + z^2k & 0
+            \\0&0&0&1
+            \end{pmatrix}$</p>
+            
+            <p>Ou sous une forme plus compacte, la matrice $(3 \times 3)$ est donnée via :</p>
+            
+            <p>$R_{\vec{A},\theta} = (\cos\theta)\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}
+            $$+ (1-\cos\theta)\begin{pmatrix}x^2&x y&x z\\x y&y^2&y z\\x z&y z&z^2\end{pmatrix}
+            $$+ \ (\sin\theta)\begin{pmatrix}0&-z&y\\z&0&-x\\-y&x&0\end{pmatrix}$</p>
+            
+            <figure>
+                <a href="https://commons.wikimedia.org/wiki/File:Rodrigues-formula.svg#/media/File:Rodrigues-formula.svg" style="background:white">
+                <img height=300 style="background:white" alt="Rodrigues-formula.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Rodrigues-formula.svg/1200px-Rodrigues-formula.svg.png">
+                </a>
+                <br />
+                Rotation d'un vecteur $\vec{v}$ autour d'un axe $\vec{k}$ d'un angle $\theta$ donnant le vecteur $\vec{v_{rot}}$
+            </figure>
+            
+            <p>C'est la <a href="https://fr.wikipedia.org/wiki/Rotation_vectorielle#Cas_g.C3.A9n.C3.A9ral">formule de Rodriguez</a>, j'ai dû la redémontrer à un examen, très belle application des vecteurs.</p>
+        
+    </section>
+    
+</body>
+</html>

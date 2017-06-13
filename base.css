@@ -270,13 +270,35 @@ a:hover {
     color: #33c;
 }
 
-a.next[href]:not([href=""])::after {
-    content:" ›"; /* U+203A */
+a.totop::before {
+    content: "↑"; /* U+2191 */
 }
 
-a.prev[href]:not([href=""])::before {
-    content: "‹ "; /* U+2039 */
+a.permalink {
+    margin-left: 5px;
 }
+a.permalink::before {
+    content: "⁋"; /* U+204B; */
+}
+
+a.next[href]:not([href=""]) {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+}
+a.next[href]:not([href=""])::after {
+    content:"›"; /* U+203A */
+}
+
+a.prev[href]:not([href=""]) {
+    padding-right: 10px;
+    padding-left: 10px;
+    display: inline-block;
+}
+a.prev[href]:not([href=""])::before {
+    content: "‹"; /* U+2039 */
+}
+
 
 /*
 a.prev:not([href]), a.next:not([href]),

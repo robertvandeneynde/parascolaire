@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from __future__ import print_function
+
 import os, re
 import textwrap
 try:
@@ -43,6 +46,29 @@ def format_list_ls_style(li, W=100, FW=None):
             break
     return '\n'.join(lines)
 
+def replace_markdown(code):
+    """
+    takes a html escaped python string and replace markdown in one line comments
+    # [](http://google.be) => <a href="http://google.be">a link</a>
+    # [a link](http://google.be) => <a href="http://google.be">a link</a>
+    # [a link](http://google.be) => <a href="http://google.be">a link</a>
+    
+    # will not do the job in triple quote comments
+    """
+    lines = code.split('\n')
+    comment = re.compile('^(.*#)(.*)$') # this does not work with "#" in strings
+    for i,line in enumerate(lines):
+        m = comment.match(line)
+        if m:
+            a,b = m.groups()
+            if a.count("'") % 2 == 1 or a.count("'") % 2 == 1:
+                continue # we are in a string !
+            for x in {'ATTENTION', 'TEST'}:
+                b = re.sub(x, lambda m: '<span class="{}">{}</span>'.format(x.lower(), m.group(0)), b)
+            b = re.sub('\[([^]]*)\]\(([^)]*)\)', lambda m: '<a class="added" href="{}">{}</a>'.format(m.group(2) or m.group(1), m.group(1) or m.group(2)), b)
+            lines[i] = a + b
+    return '\n'.join(lines)
+
 from generate_ls import GROUPINGS
 
 if __name__ == '__main__':
@@ -80,8 +106,8 @@ if __name__ == '__main__':
             
             with open(f) as fi:
                 res = django_format(
-                    TEMPLATE, 
-                    code=html.escape(fi.read(), quote=False),
+                    TEMPLATE,
+                    code=replace_markdown(html.escape(fi.read(), quote=False)),
                     codelang = m0.group(1),
                     name=f,
                     postnav='' if not os.path.isfile(pdf_name) else '''

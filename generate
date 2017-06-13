@@ -1,5 +1,5 @@
-./generate_txt.py
+# ./generate_txt.py
+./generate_multilang.py --langs fr en
 ./generate_html.py
 # ./generate_ln.py
-./generate_ls.py
-./generate_multilang.py
+./generate_ls.py # keep last

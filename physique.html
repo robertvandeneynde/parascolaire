@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,12 +7,12 @@
     <title>Physique : Forces et mouvement</title>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="animations.js"></script>
-    <script src="smooth-links.js"></script>
+    <script src="utils.js"></script>
     <link rel="stylesheet" href="base.css"/>
     <link rel="stylesheet" href="redaction.css"/>
     <script type="text/javascript"
         async
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -23,7 +23,11 @@
     <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
     <script>
-        $(function(){ hljs.initHighlightingOnLoad() })
+        $(function(){
+            hljs.initHighlightingOnLoad()
+            utils.makeTitleLinks()
+            utils.smoothLinks()
+        })
     </script>
 </head>
 <body class="math">

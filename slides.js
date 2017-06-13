@@ -1,34 +1,33 @@
 $(function(){
     function setVisibility(elem, bool){
-        if(bool)    
-            elem.show()
-        else
-            elem.hide()
+        elem[bool ? 'show' : 'hide']()
     }
     
     function setVisibilityWidth(elem, bool){
         elem.css('visibility', bool ? '' : 'hidden')
     }
     
-    $('.exercice').each(function(){
+    $('.slideshow').each(function(){
         var self = $(this)
         
         function getNum() {
             return (self.data('current') || 1) - 1
         }
         
-        self.find('img').each(function(){
+        self.find('slide .next').each(function(){
             this.addEventListener('contextmenu', function(ev) {
-                ev.preventDefault()
-                if(getNum() > 0) {
-                    setNum(getNum() - 1)
+                if(!ev.ctrlKey) {
+                    ev.preventDefault()
+                    if(getNum() > 0) {
+                        setNum(getNum() - 1)
+                    }
                 }
             })
         })
         
         function setNum(num) {
             var N = self.find('.slide').length
-            num = (num + N) % N 
+            num = (num + N) % N // python "num"
             self.data('current', num + 1)
             
             self.find('.slide').each(function(i){
@@ -37,33 +36,25 @@ $(function(){
             
             setVisibilityWidth(
                 self.find('.next:not(.slide,h2)'),
-                !!self.find('.slide')[num + 1]
-            )
+                !!self.find('.slide')[num + 1])
             
             setVisibilityWidth(
                 self.find('.prev:not(.slide,h2)'), 
-                !!self.find('.slide')[num - 1]
-            )
-            
-            if(num == 0) {
-                setVisibilityWidth(self.find('.next.normal'), false)
-            } else {
-                setVisibilityWidth(self.find('.next.solution'), false)
-            }
+                !!self.find('.slide')[num - 1])
         }
         
         self.find('.next').on('click', function(){
-            setNum(getNum() + 1)
+            setNum(getNum() + parseInt(this.getAttribute('n') || this.getAttribute('s') || '1'))
         })
         
         self.find('.prev').on('click', function(){
-            setNum(getNum() - 1)
+            setNum(getNum() - parseInt(this.getAttribute('n') || this.getAttribute('s') || '1'))
         })
         
-        self.find('.slide.next').attr('title', function(i){
-            if(i == 0)
-                return "Voir la solution"
-            return "Suivant"
+        self.find('.goto').on('click', function(){
+            setNum(this.getAttribute('n') ? parseInt(this.getAttribute('n')) :
+                   this.getAttribute('s') ? (function(x){ return x < 0 ? x : x - 1 })(parseInt(this.getAttribute('s'))) : 
+                   -1)
         })
         
         setNum(getNum() || 0)

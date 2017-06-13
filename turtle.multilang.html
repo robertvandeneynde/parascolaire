@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="{{fr|en}}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <link href="turtle.png" rel="icon" type="image/png"/>
+        <title>{{ Programmez avec turtle ! | Programming with turtle! }}</title>
+        
+        <meta property="og:image" content="http://robertvandeneynde.be/parascolaire/bike-and-tree-and-turtle.png" />
+        <meta property="og:description" content="{{ Apprenez à programmer avec turtle, une tortue que vous devez commander pour effectuer de jolis dessins ! | Learn computer programming with a turtle you have to give orders to achieve some beautiful drawings! }}" />
+        <!-- <meta property="og:url" content="" /> -->
+        <meta property="og:title" content="{{ Programmez avec turtle ! | Programming with turtle! }}" />
+        <meta property="og:type"   content="article" /> 
+        
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="utils.js"></script>
+        <style>
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+            figcaption {
+                display: none;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                utils.dedentPreCode()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
+        </script>
+    </head>
+    <body class="algos">
+        <h1 class="nocontent"><!--
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">Turtle</span><!--
+        --></h1>
+        
+        <!--
+        <section>
+            <p>Turtle est un programme permettant de lang</p>
+        </section>
+        -->
+        
+        <nav>
+            <a href="#base">{{ Avancer et tourner | Forward and turn }}</a> 
+            <a href="#complex{{e|}}">{{ Des formes complexes | Complex shapes }}</a>
+            <a href="#{{crayon-couleur|pen-color}}">{{ Crayon et couleurs | Pen and colors }}</a>
+            <a href="#{{fonctions|functions}}">{{ Fonctions | Functions }}</a>
+            <a href="#{{boucles|loops}}">{{ Boucles | Loops }}</a>
+            <a href="#{{oeuvre-d-art|masterpiece}}">{{ Oeuvre d'art | Masterpiece }}</a>
+        </nav>
+        
+        <h2 id="base">{{ Avancer et tourner | Forward and turn }}</h2>
+        
+        <section name="base">
+            
+            <div><em>{{<a href="turtle.en.html" lang="en" hreflang="en">English here!</a>|<a href="turtle.fr.html" lang="fr" hreflang="fr">Français ici&nbsp;!</a>}}</em></div>
+            
+            <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: {{ Avancer, tourner | Forward, turn }}</h3>
+            
+            <p>{{
+                Dans une <strong>nouvelle fenêtre</strong>, va sur <a href="turtle_test.html">cette page</a>
+                (clic <strong>droit</strong> sur le lien → ouvrir dans une nouvelle fenêtre),
+                écris le code suivant et clique sur
+                |
+                In a <strong>new window</strong>, go on <a href="turtle_test.html">this page</a>
+                (<strong>right</strong> click on the link → open in a new window),
+                write the following code and click on
+            }}<img alt="Run" src="run.png" style="vertical-align: middle"/> !
+            
+            <pre><code class="py">
+                forward(50)
+                left(90)
+                forward(100)
+                right(45)
+            </code></pre>
+
+            <p>{{
+                Tu as normalement vu une tortue se déplacer vers l'avant d'une distance de 50, puis qui a tourné à gauche de 90 degrés, s'est redéplacée en avant d'une distance de 100 et finalement a tourné à droite de 45 degrés.
+                |
+                You should have seen a turtle move forward by a distance of 50, then turned left 90 degrees, moved forward again by a distance of 100 and finally turned right of 45 degrees.
+            }}</p>
+            
+            <p>{{
+                Je conseille de mettre les deux fenêtres côtes à côte, environ 1/3 de l'écran pour cette page et donc 2/3 pour le code et l'affichage de la tortue.
+                |
+                I suggest to put the two windows next to each other, around 1/3 of the screen for this windows and therefore 2/3 for the code and the rendering of the turtle.
+            }}</p>
+            
+            {{
+            <p>En français, on peut traduire <em>forward</em> par <em>avancer</em> et <em>left/right</em> par <em>gauche/droite</em>.</p>
+            |
+            }}
+
+            <h3 id="exerci{{c|s}}e-2">Exerci{{c|s}}e 2{{ |}}: {{Raccourcis|Shortcuts}}</h3>
+            
+            <p>{{
+                Écrire <code>forward</code>, c'est fatigant, il existe le raccourci <code>fd</code>.
+                De même on a <code>lt</code> et <code>rt</code>
+                qui veulent dire <strong>L</strong>eft <strong>T</strong>urn et <strong>R</strong>ight <strong>T</strong>urn,
+                que l'on traduirait par <em>tourner à gauche</em> et <em>tourner à droite</em>.
+                |
+                To write <code>forward</code> is exhausting, there exists a shortcut <code>fd</code>.
+                for <strong>L</strong>eft <strong>T</strong>urn and <strong>R</strong>ight <strong>T</strong>urn,
+                there exist the shortcuts <code>lt</code> and <code>rt</code>.
+            }}</p>
+            
+            <p>{{ Que fait ce code ? | What is this code doing?}}</p>
+            
+            <pre><code class="py">
+                fd(100)
+                lt(120)
+                fd(100)
+                lt(120)
+                fd(100)
+            </code></pre>
+            
+            <p>{{ Et celui-ci ? | And this one? }}</p>
+            
+            <pre><code class="py">
+                fd(100)
+                lt(180)
+                fd(200)
+                lt(180)
+                fd(100)
+                lt(90)
+                fd(100)
+                lt(90 + 90)
+                fd(100 * 2)
+            </code></pre>
+        
+        
+        </section>
+        
+        <h2 id="complex{{e|}}">{{ Formes complexes | Complex shapes }}</h2>
+        
+        <section name="complex{{e|}}">
+            <h3 id="exerci{{c|s}}e-3">Exerci{{c|s}}e 3{{ |}}: {{ Le carré | The square }}</h3>
+            
+            <p>{{
+                Maintenant, tu vas écrire le code ! Essaie de dessiner un <strong>carré</strong> de côté <em>80</em>.
+                |
+                Now, you are going to write the code! Try to draw a <strong>square</strong> with side <em>80</em>.
+            }}</p>
+            
+            <figure>
+                <img src="carre.svg" />
+                <figcaption>{{ Un carré de côté 80 | A square of side 80 }}</figcaption>
+            </figure>
+            
+            <h3 id="exerci{{c|s}}e-4">Exerci{{c|s}}e 4{{ |}}: {{ La maison | The house }}</h3>
+            
+            <p>{{
+                Plus difficile, une maison :
+                |
+                More difficult, a house:
+            }}</p>
+
+            <figure>
+                <img src="house.svg" />
+                <figcaption>{{ La maison | The house }}</figcaption>
+            </figure>
+            
+            <p>{{
+                Sauve ce code dans un nouveau fichier pour pouvoir le ré-utiliser plus tard !
+                |
+                Save this code in a new file to reuse it afterwards!
+            }}</p>
+            
+            <figure>
+                <img src="fichiers.png" />
+                <figcaption>{{ Plusieurs fichiers | Multiple files }}</figcaption>
+            </figure>
+            
+        </section>
+        
+        <h2 id="{{crayon-couleur|pen-color}}">{{ Crayon et couleurs | Pen and colors }}</h2>
+        
+        <section name="{{crayon-couleur|pen-color}}">
+            
+            <h3 id="pen"><code>penup/pendown</code></h3>
+            
+            <p>{{
+                La nouvelle commande <code class="py">penup()</code> &mdash; raccourci <code>pu()</code> &mdash;
+                permet de lever le crayon, ainsi la tortue peut bouger sans dessiner.
+                Ensuite, <code>pendown()</code> &mdash; raccourci <code>pd()</code> &mdash; repose le crayon pour plus de dessins.
+                |
+                The new command <code class="py">penup()</code> &mdash; shortcut <code>pu()</code> &mdash;
+                can lift the pen up, so that the turtlecan move without drawing.
+                We also have, <code>pendown()</code> &mdash; shortcut <code>pd()</code> &mdash; to put the pen back down for more drawing.
+            }}</p>
+            
+            <p>{{ Que fait ce code ? | What is this code doing? }}</p>
+            
+            <pre><code class="py">
+                fd(25)
+                penup()
+                fd(50)
+                pendown()
+                fd(25)
+            </code></pre>
+            
+            <h3 id="color"><code>color</code></h3>
+            
+            <p>{{
+                La nouvelle commande <code class="py">color("red")</code> (attention aux guillemets dans <code>"red"</code> !)
+                permet de changer la couleur du trait en rouge.
+                D'autres couleurs existent par défaut comme <code>green</code>, <code>blue</code>, <code>yellow</code>
+                et <a href="http://wiki.tcl.tk/16166">bien d'autres</a>.
+                |
+                The new command <code class="py">color("red")</code> (beware of the quotes in <code>"red"</code>!)
+                changes the color of the pen to red.
+                Other colors exist like <code>green</code>, <code>blue</code>, <code>yellow</code>
+                and <a href="http://wiki.tcl.tk/16166">many others</a>.
+            }}</p>
+            
+            <p>{{
+                Pour pouvoir indiquer toutes les couleurs existantes, on regarde dans Paint :
+                |
+                To have all the existing colors, we go in Paint:
+            }}</p>
+            
+            <figure>
+                <img src="couleurs_paint.jpg" />
+                <figcaption>{{
+                    Les composantes Rouge, Vert, Bleu d'une couleur, de 0 à 255.
+                    |
+                    The Red, Green, Blue components of a color, from 0 to 255.
+                }}</figcaption>
+            </figure>
+            
+            <p>{{
+                Pour ce magnifique orange, j'écrirai la commande <code>color(253, 126, 0)</code>.
+                |
+                For this amazing orange, I will write the command <code>color(253, 126, 0)</code>.
+            }}</p>
+            
+            <pre><code class="py">
+                fd(50)
+                color("yellow")
+                fd(50)
+                color("red")
+                fd(50)
+                color(253, 126, 0)
+                fd(50)
+            </code></pre>
+
+            <p>{{
+                Remarque, si <code>color(253, 126, 0)</code> fait une erreur, écris <code>colormode(255)</code> au début de ton programme.
+                |
+                Let's notice that, if <code>color(253, 126, 0)</code> gives you an error, write <code>colormode(255)</code> in the beginning of your program.
+            }}</p>
+            
+            <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: {{ Deux carrés colorés | Two colored squares }}</h3>
+            
+            <p>{{ Essaie de dessiner ceci : || Try to draw this: }}</p>
+            
+            <figure>
+                <img src="two-colored-squares.svg" />
+                <figcaption>{{
+                    Deux carrés colorés
+                    |
+                    Two colored squares
+                }}</figcaption>
+            </figure>
+            
+            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: {{ La maison en couleurs | House in color }}</h3>
+            
+            <p>{{
+                Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert&nbsp;!
+                |
+                Or you can color your house, the door in red and the roof in green!
+            }}</p>
+            
+            <figure>
+                <img src="colored-house.svg" />
+                <figcaption>{{
+                    La maison en couleurs
+                    |
+                    House in color 
+                }}</figcaption>
+            </figure>
+            
+        </section>
+        
+        <h2 id="f{{o|u}}nctions">{{ Fonctions | Functions }}</h2>
+        
+        <section name="f{{o|u}}nctions">
+            <p>{{
+                Afin de réutiliser du code, on peut le mettre dans une <em>fonction</em>. Par exemple, je vais faire une fonction <code>carre</code> qui permet de dessiner un carré.
+                |
+                In order to reuse some code, we can put it in a <em>function</em>. For instance, I will write a function <code>square</code> that allows me to draw a square.
+            }}</p>
+            
+            <pre><code class="py">
+            def {{carre|square}}():
+              fd(80)
+              lt(90)
+              fd(80)
+              lt(90)
+              fd(80)
+              lt(90)
+              fd(80)
+              lt(90)
+            </code></pre>
+
+            <p>{{
+                Écris ce code en haut du fichier, et puis la nouvelle instruction <code>carre()</code> sera disponible !
+                |
+                Write this code at the top of the file, then the new instruction <code>square()</code> will be available!
+            }}</p>
+            
+            <pre><code class="py">
+            {{carre|square}}()
+            lt(45)
+            {{carre|square}}()
+            fd(50)
+            {{carre|square}}()
+            </code></pre>
+
+            <p>{{
+                On peut également mettre des <em>paramètres</em> à la fonction, grâce à ça on pourra faire varier une certaine partie du code, comme par exemple, la taille du carré.
+                |
+                We can also add <em>parameters</em> to the function, thanks to them we can vary some part of the code, like the size of the square.
+            }}</p>
+            
+            <pre><code class="py">
+            def {{carre|square}}({{taille|size}}):
+              fd({{taille|size}})
+              lt(90)
+              fd({{taille|size}})
+              lt(90)
+              fd({{taille|size}})
+              lt(90)
+              fd({{taille|size}})
+              lt(90)
+            </code></pre>
+            
+            <p>{{
+                Que l'on utilisera comme ceci :
+                |
+                We will use it like this:
+            }}</p>
+            
+            <pre><code class="py">
+            fd(100)
+            {{carre|square}}(80)
+            lt(45)
+            {{carre|square}}(40)
+            fd(50)
+            {{carre|square}}(60)
+            </code></pre>
+        
+            <p>{{
+                On peut mettre autant de paramètres que l'on veut, séparés par des virgules, comme <code class="py">def carre(taille, couleur)</code>.
+                |
+                We can add all the parameters we want, separated by commas, like <code class="py">def square(size, the_color)</code>.
+            }}</p>
+            
+            <p>{{
+                On peut faire des opérations mathématiques comme <code class="py">50 + taille * 2 - (taille - 1)</code>, attention à la priorité des opérations !
+                |
+                We can do some maths like <code class="py">50 * size * 2 - (size - 1)</code>, be careful to the priority of operations!
+            }}</p>
+            
+            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: {{ Modèles de maison | House patterns }}</h3>
+            
+            <p>{{
+                Le code de la maison se trouve <a href="maison.py.html">ici</a>, met le dans une fonction à deux paramètres pour pouvoir effectuer une maison colorée en une ligne&nbsp;:
+                |
+                You can find the code of the house <a href="maison.py.html">here</a>, put in in a function 
+                with two parameters so that you can draw a house with one line&nbsp;
+            }}</p>
+            
+            <pre><code class="py">
+            {{maison|house}}(20, "red")
+            {{maison|house}}(60, "blue")
+            </code></pre>
+            
+            <p>{{
+                Les deux paramètres sont la <strong>hauteur</strong> et la <strong>couleur</strong> de la porte.
+            |
+                The parameters are the <strong>height</strong> and the <strong>color</strong> of the door.
+            }}</p>
+            
+            <figure>
+                <img src="two-different-houses.svg" />
+                <figcaption>{{
+                    Deux maisons différentes
+                    |
+                    Two different houses 
+                }}</figcaption>
+            </figure>
+            
+        </section>
+        
+        <h2 id="{{boucles|loops}}">{{ Boucles | Loops }}</h2>
+        
+        <section name="{{boucles|loops}}">
+            
+            <p>{{
+                Dans le code du carré, on avait <strong>quatre fois</strong> le même code <strong>à la suite</strong> :
+                |
+                In the code for drawing a square, we have <strong>four times</strong> the same code <strong>in a row</strong>
+            }}</p>
+            
+            <pre><code class="py">
+                fd(40)
+                lt(90)
+
+                fd(40)
+                lt(90)
+
+                fd(40)
+                lt(90)
+
+                fd(40)
+                lt(90)
+            </code></pre>
+
+        <p>{{
+            Il existe une instruction qui permet de dire <em>Répète 4 fois ce qui suit</em>, c'est le <code class="py">for</code> :
+            |
+            There exists an instruction that gives you the opportunity to say <em>Repeat 4 times what follows</em>, it's the <code class="py">for</code>:
+        }}</p>
+        
+        <pre><code class="py">
+        for i in range(4):
+          fd(40)
+          lt(90)
+        </code></pre>
+
+        <p>{{
+            Attention à ne pas oublier le <code>:</code>, de passer à la ligne et d'écrire au moins une instruction.
+            |
+            Be careful to not forget the <code>:</code>, to enter a new line and to write at least one instruction.
+        }}</p>
+
+        <p>{{
+            Quelle va être la différence avec le code suivant ? Teste le et comprends pourquoi le résultat affiché correspond bien au code.
+            |
+            What will be the difference with the following code? Test it and understand why the rendered result corresponds to the code.
+        }}</p>
+        
+        <pre><code class="py">
+        for i in range(4):
+          fd(40)
+        lt(90)
+        </code></pre>
+        
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: {{ L'hexagone | The hexagon }}</h3>
+            
+            <p>{{
+                Essaie de dessiner un hexagone, n'hésite pas à utiliser le <code>for</code> pour simplifier ton code !
+                |
+                Try to draw an hexagon, do not hesitate to use the <code>for</code> to simplify your code!
+            }}</p>
+        
+            <figure>
+                <img src="hexagon.svg" />
+                <figcaption>{{ Géométrie d'un hexagone | Geometry of an hexagon }}</figcaption>
+            </figure>
+            
+            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: {{ Des triangles | Some triangles }}</h3>
+            
+            <p>{{
+                Fais une fonction <code>triangles</code>, qui va dessiner la forme suivante, ajoute les paramètres <code>taille</code> et <code>couleur</code> afin de pouvoir l'appeler comme ceci :
+                |
+                Write a function <code>triangles</code>, that will draw the following shape, add the parameters <code>size</code> and <code>the_color</code> in order to call it like this:
+            }}</p>
+            
+            <pre><code class="py">triangles(20, "red")</code></pre>
+            
+            <p>{{
+                Utilise les boucles et cette figure peut se faire en moins de 10 lignes&nbsp;!
+                |
+                With the help of loops, this figure can be drawin in less than 10 lines!
+            }}</p>
+            
+            <figure>
+                <img src="triangles.svg" />
+                <figcaption>{{ Des triangles dans un hexagone || Some triangles in an hexagon }}</figcaption>
+            </figure>
+            
+            <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 11{{ |}}: {{ Le village | The village }}</h3>
+            
+            <p>{{
+                Utilise les boucles et ta fonction <code>maison</code> pour créer facilement un village à deux rues comme ceci&nbsp;:
+                |
+                Use loops and your <code>house</code> function to create easily a village with two streets like this:
+            }}</p>
+            
+            <figure>
+                <img src="village.svg" />
+                <figcaption>{{ Un village à deux rues | A village with two streets }}</figcaption>
+            </figure>
+        
+        </section>
+        
+        <h2 id="{{oeuvre-d-art|masterpiece}}">{{ Oeuvre d'art | Masterpiece }}</h2>
+        
+        <section name="{{oeuvre-d-art|masterpiece}}">
+            
+            <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: {{ Votre oeuvre d'art | Your masterpiece }}</h3>
+            
+            <p>{{
+                Dernier défi pour ce cours, laisse aller ton imagination pour créer un beau dessin !
+                |
+                Last challenge for that course, let your imagination go to create a nice drawing!
+            }}</p>
+            
+            <p>{{
+                Voici le mien, il utilise ma fonction <code>triangles</code> plusieurs fois !
+                |
+                Here's mine, it uses my function <code>triangles</code> multiple times!
+            }}</p>
+            
+            <figure>
+                <img src="bike-and-tree.svg" />
+                <figcaption>{{ Un dessin avec un vélo, un arbre et des nuages | A drawing with a bike, a tree and some clouds! }}</figcaption>
+            </figure>
+            
+            <p>{{
+                Voilà, nous avons appris à utiliser <em>turtle</em> en programmant en langage <em>python</em>.
+                |
+                It's over, we have learned to use <em>turtle</em> by programming in the <em>python</em> language.
+            }}</p>
+            
+            <p>{{
+                Il existe <a href="https://docs.python.org/2/library/turtle.html#turtle-methods">d'autres commandes turtle</a>.
+                |
+                There exist <a href="https://docs.python.org/2/library/turtle.html#turtle-methods">other turtle commands</a>.
+            }}</p>
+            
+            <h3 id="{{programmation-jeux-videos|videogames-programming}}">{{ Programmation de jeux vidéos | Videogames programming }}</h3>
+            
+            <p>{{
+                Dès la 3ème, le <a href="index.html">parascolaire de programmation de jeux vidéos</a> vous apprendra à faire de <a href="projets.html">petits jeux 2D</a> !
+                |
+                Check here my <a href="index.html">videogames programming course</a> to create some <a href="projets.html">small 2D games</a>!
+                Currently the names of the files are in french only (I'm currently translating the content) but almost all words are almost the same in english (<strong>théorie</strong> is theory, <strong>exercice</strong> is exercise, etc.)
+            }}</p>
+            
+            <h3 id="{{pour-en-savoir-plus|to-know-more}}">{{ Pour en savoir plus | To know more }}</h3>
+            
+            <p>{{
+                Voici un aperçu d'autres fonctionnalités turtle/python.
+                |
+                Here is an overview of other turtle/python functionalities.
+            }}</p>
+            
+            <p>{{
+                On peut créer plusieurs tortues (<em>objets</em> python) :
+                |
+                We can create multiple turtles (python <em>objects</em>):
+            }}</p>
+            
+            <pre><code class="py">
+            bob = Turtle() # {{ou|or}} Pen()
+            bob.shape("turtle")
+            bob.color("blue")
+            bob.forward(50)
+            alice = Turtle()
+            alice.shape("turtle")
+            alice.color("green")
+            alice.fd(100)
+            </code></pre>
+            
+            <p>{{
+                Et créer des variables en fonction de la tortue.
+                |
+                And create variables dependent of the turtle.
+            }}</p>
+            
+            <pre><code class="py">
+            bob.d{{e|is}}placement = 5
+            alice.d{{e|is}}placement = 10
+
+            def {{avancer_en_traits|forward_with_dashes}}({{tortue|the_turtle}}):
+              for i in range(3):
+                {{tortue|the_turtle}}.penup()
+                {{tortue|the_turtle}}.fd({{tortue|the_turtle}}.d{{e|is}}placement)
+                {{tortue|the_turtle}}.pendown()
+                {{tortue|the_turtle}}.fd({{tortue|the_turtle}}.d{{e|is}}placement)
+
+            bob.lt(90)
+            alice.lt(90)
+                    
+            {{avancer_en_traits|forward_with_dashes}}(bob)
+            {{avancer_en_traits|forward_with_dashes}}(alice)
+            </code></pre>
+
+            <p>{{
+                Ou créer des listes de tortues :
+                |
+                Or create list of turtles:
+            }}</p>
+
+            <pre><code class="py">
+            {{liste|the_list}} = [bob, alice]
+            charles = Turtle()
+            charles.shape("turtle")
+            charles.d{{e|is}}placement = 7
+            liste.append(charles) {{# ajouter à la fin|}}
+
+            for {{tortue|the_turtle}} in {{liste|the_list}}: # {{ pour chaque tortue dans la liste | for every turtle in the list }} 
+              {{ancienne_couleur|previous_color}} = {{tortue|the_turtle}}.color() #{{ on sauve la couleur | we save the color }}
+              {{tortue|the_turtle}}.color("blue")
+              {{avancer_en_traits|forward_with_dashes}}({{tortue|the_turtle}})
+              {{tortue|the_turtle}}.color({{ancienne_couleur|previous_color}}) #{{ on réapplique l'ancienne couleur | we restore the prevous color }}
+            </code></pre>
+            
+            <p>{{
+            Ou encore créer des conditions pour changer de logique&nbsp;:
+            |
+            Or write conditions to change the logic:
+            }}</p>
+            
+            <pre><code class="py">
+            penup()
+            fd(-100)
+            n = 0
+            for i in range(45):
+              penup()
+              fd(20)
+              pendown()
+              fd(20)
+              n = n + 1
+              if n == 4:
+                right(90)
+                color("red")
+              else:
+                if n == 7:
+                  right(90)
+                  color("blue")
+                else:
+                  if n == 9:
+                    right(90)
+                    n = 0
+            </code></pre>
+
+            <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: {{ Le village variable | The variable village }}</h3>
+
+            <p>{{ Essaie de faire des tailles variables&nbsp;:| Try to make houses with variable sizes: }}</p>
+            
+            <figure>
+                <img src="village-variable.svg" />
+                <figcaption>{{ Un village avec des maisons de toutes les tailles | A village with a lot of different house sizes }}</figcaption>
+            </figure>
+            
+            <p>{{
+                Au revoir et pour toute question, je suis disponible par mail via <code id="the-email">robertvandeneynde[at]hotmail.com</code>
+                |
+                Bye bye and for every question, I'm available by mail via <code id="the-email">robertvandeneynde[at]hotmail.com</code>
+            }}</p>
+            <script>
+            document.getElementById('the-email').innerHTML = document.getElementById('the-email').innerHTML.replace('[at]', '@')
+            </script>
+        </section>
+        
+    </body>
+</html>

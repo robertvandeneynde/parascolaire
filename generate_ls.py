@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
+
+from __future__ import print_function
+
 import os, re
 from functools import partial
 import textwrap
 
 GROUPINGS = ('theorie', 'exercice', 'pygame', 'progra', 'gl', 'lecture', 'pdf', 'projet', '')
-
-def get_group_i(name):
-    return next(i for i,n in enumerate(GROUPINGS) if name.startswith(n))
-    # return next(i for i,n in enumerate(re.match('(theorie)|(exercice)|(math)|(pythontutor)|()', name).groups()) if n is not None)
 
 EXTS = {
     '.pdf': 1,
@@ -23,6 +22,10 @@ EXTS = {
     '.js': 11,
 }
 
+def get_group_i(name):
+    return next(i for i,n in enumerate(GROUPINGS) if name.startswith(n))
+    # return next(i for i,n in enumerate(re.match('(theorie)|(exercice)|(math)|(pythontutor)|()', name).groups()) if n is not None)
+
 def key(path):
     name = os.path.basename(path)
     ext = os.path.splitext(path)[1]
@@ -33,8 +36,9 @@ def accepted(path):
     return not any(
         re.search(m, name)
         for m in (
-            '^\\.', '^__pycache__$', '^private$',
+            '^\\.', '^__pycache__$', '^private$', '^presences$',
             '\\.py\\.txt$', '\\.pyc$', '\\.py\\.html$',
+            '\\.en\\.html$', '\\.fr\\.html$', '\\.multilang\\.html$',
             '\\.php\\.txt$', '\\.php\\.html$',
             '\\.java\\.txt$', '\\.class$', '\\.java\\.html$',
             '\\.js\\.txt$', '\\.js\\.html$',

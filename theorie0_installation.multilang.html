@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <link href="python.png" rel="icon" type="image/png"/>
+        <title>Installation</title>
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="utils.js"></script>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            table td, table th {
+                border: 1px solid black;
+                padding: 3px;
+            }
+            table td {
+                text-align: center;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css" />
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/dos.min.js"></script>
+        <script>
+            $(function(){
+                utils.dedentPreCode()
+                hljs.initHighlightingOnLoad()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
+        </script>
+    </head>
+    <body>
+        <h1><!--
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">Installation</span><!--
+        --></h1>
+        
+        <section>
+        <div><em>{{<a href="turtle.en.html" lang="en" hreflang="en">English here!</a>|<a href="turtle.fr.html" lang="fr" hreflang="fr">Français ici&nbsp;!</a>}}</em></div>
+
+        <p>{{ Bonjour ! | Hello! }}</p>
+
+        <p>
+        {{ Voici comment installer les logiciels pour le cours.|Here are all the softwares you need to install for the class.}}
+        {{ La théorie de ce cours se veut très courte et va droit au but. | The theory is meant to be very short and goes straight to the point. }}
+        {{ Dans chaque chapitre de théorie, je demande de lire la partie <em>Base</em>. | In each chapter of the theory, I ask to read the <em>Base</em> part. }}
+        {{ Il existe aussi une partie <em>Pour en savoir plus</em> qui est facultative. | There is also a part <em>To know more</em> that is facultative. }}
+        {{ Pour donner un chiffre sur <em>se veut très courte</em>, voici le nombre de pages A4 pour chaque chapitre : | To give a number on <em>meant to be short</em>, here are the number of A4 pages for each chapter: }}
+        </p>
+        
+        <table>
+            <tr>
+                <th style="border:0"></th>
+                <th><a href="pdf_theorie1_egal_if.py.pdf">theor{{ie|y}}1</a></th>
+                <th><a href="pdf_theorie2_liste_while.py.pdf">theor{{ie|y}}2</a></th>
+                <th><a href="pdf_theorie3_fonctions_et_objets.py.pdf">theor{{ie|y}}3</a></th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <th>Base</th>
+                <td>2</td>
+                <td>1</td>
+                <td>3</td>
+                <th>6</th>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>5</td>
+                <td>4</td>
+                <td>8</td>
+                <th>15</th>
+            </tr>
+        </table>    
+            
+        <p>
+        {{ En moins de 10 pages, vous avez toute la théorie nécessaire.
+        |  In less than 10 pages, you will have all the necessary theory. }}
+        </p>
+        
+        <p>
+        {{ Dans le cadre du parascolaire, je fais les deux premiers chapitres de théorie pendant 4h,
+        puis on attaque la partie graphique (faire des fenêtres !) pour les 14h restantes.
+        Le chapitre 3 de la théorie sera appris à chaque étudiant en fonction de son avancée de projet.
+        | In the extracurricular class, I do the first two chapters of theory for 4h,
+        then we go on the graphical part (make windows !) for the 14h remaining.
+        The chapter number 3 of the theory will be taught to each student depending on his/her advancement in his/her project. }}
+        </p>
+        
+        <p>
+        {{ Pour tester un code, vous avez deux options, la première n'installe rien du tout
+        et la deuxième vous installe tout ce qu'il vous faut (obligatoire à partir de la séance 5) !
+        | To test a code, you have two options, the first one does not require any installation
+        and the second one lets you install everything you need (mandatory from the 5th session)! }}
+        </p>
+        
+        <p>
+        {{ Que vous choisissez l'option 1 ou l'option 2, je vous souhaite un Happy Coding et vous
+        invite à cliquer <a href="theorie1_egal_if.py.html">ici</a> pour commencer la théorie numéro 1 !
+        | Whatever you choose the option 1 or 2, I wish you a Happy Coding and I suggest
+        you to click <a href="theorie1_egal_if_en.py.html">here</a> to begin the theory number 1! }}
+        </p>
+        
+        </section>
+        
+        <h2 id="en-ligne">{{ Option 1 : Tester en ligne | Option 1: Test online }}</h2>
+        <section name="en-ligne">
+
+        <p>
+        Tester votre code en ligne sur <a href="http://pythontutor.com/visualize.html">pythontutor</a>.
+        Choisissez votre version de python (probablement Python 3, sinon lisez la remarque voir ci-dessous).
+        et cliquez sur <em>exécuter</em>, le programme s'exécute pas à pas.
+        Appuyez sur <em>Next</em> pour avancer d'une ligne.
+        Vous pouvez aussi sauter à la fin en appuyant sur <em>End</em>.
+        </p>
+        
+        <p>
+        Un exemple <a href="pythontutor.html">ici</a>.
+        </p>
+        
+        <p>
+        Cependant dès que nous ferons des fenêtres, vous devrez installer pygame et donc faire l'Option 2.
+        </p>
+        </section>
+        
+        <h2 id="installation">Option 2 : Installer</h2>
+        
+        <section name="installation">
+        
+        <p>
+        Vous devrez installer :
+        </p>
+        <ul>
+            <li>python</li>
+            <li>pygame (pour les fenêtres)</li>
+        </ul>
+        <p>
+        Et pour les intéressés :
+        </p>
+        <ul>
+            <li>numpy (pour les matrices utiles en 3D)</li>
+            <li>opengl (pour la 3D)</li>
+        </ul>
+        
+        <p>
+        Le mieux est toujours d'avoir la dernière version de python (3.6)
+        mais sous windows l'installation de pygame est plus facile avec python 3.4
+        </p>
+
+        <p>
+        Pour installer python 3.4 et pygame sous windows, faites ceci :
+        </p>
+        <ul>
+            <li>Téléchargez python 3.4 version 32 bits <a href="https://www.python.org/ftp/python/3.4.3/python-3.4.3.msi">ici</a>.</li>
+            <li>Pygame pour python 3.4 version 32 bits <a href="https://bitbucket.org/pygame/pygame/downloads/pygame-1.9.2a0-hg_5974ff8dae3c+.win32-py3.4.msi">ici</a>.</li>
+        </ul>
+
+        <p>
+        Ensuite vous lancer le programme <strong>IDLE</strong>,
+        vous faites <strong>File → New</strong>, écrivez du code, enregistrez le fichier sur votre bureau,
+        et appuyez sur F5 (ou <strong>Run</strong> dans les menus) pour le lancer.
+        </p>
+        
+        <p>
+        Pour un autre éditeur python, je conseille <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a>, la version <em>Community</em> ou <em>Education</em> est tout à fait gratuite !
+        </p>
+
+        <p>
+        Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (3.5, 3.6...).
+        Ou bien si vous êtes sous mac, c'est le même niveau de difficulté que d'installer 3.6 que 3.4
+        </p>
+        
+        </section>
+        
+        <h2 id="pip-whl">Option 3 : Installer via pip et les whl</h2>
+
+        <section name="pip-whl">
+        
+        <p>
+        Si vous avez un souci, envoyez moi un <a href="..">mail</a> !
+        </p>
+        
+        <p>Téléchargez la dernière version de python (3.6) sur <a href="https://www.python.org/downloads/">python.org</a>.</p>
+        
+        <p>Nous allons utiliser <em>pip</em> qui permet d'installer n'importe quel paquet python ! Ici nous allons installer le paquet <em>pygame</em> pour faire des fenêtres.</p>
+        
+        <p>Une ancienne version de python existe : python 2, pour savoir les différences avec python 3, lisez la remarque ci dessous.</p>
+
+        <h3>Windows</h3>
+          <ul>
+            
+            <li>
+                Déterminez si votre version de python est 32 bits ou 64 bits, quand vous allez dans le menu windows et tappez "python" cela devrait être marqué.
+                Même si votre ordinateur est 64 bits, il se peut que vous ayez téléchargé python 32 bits (et ça marchera très bien)
+                Pour savoir si votre ordi est 32 ou 64 bits, allez dans "Panneau de configuration → Système"
+            </li>
+            
+            <li>
+                Téléchargez pygame <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame">ici</a>,
+                et téléchargez en fonction de votre version de python (32 bits, 64 bits) (cp36 pour Python 3.6).
+            </li>
+            
+            <li>Placez le fichier téléchargé dans le dossier (existant) qui se trouve ici (remplacez 32 par 64 si votre version de python est 64 bits) :
+            <pre><code class="dos"><em>&lt;Dossier Caché AppData></em>\Local\Programs\Python36-32\Script\</code></pre>
+            </li>
+            
+            <li>Pour aller dans le dossier caché AppData :
+                <ul>
+                    <li>Allez dans <code>C:\Users\&lt;VotreNom></code> (bouton windows en bas à gauche de l'écran → Ordinateur → Utilisateur → VotreNom)</li>
+                    <li>
+                        Activez <em>afficher les dossiers cachés</em>
+                        <a href="http://cdn2.windows10themes.net/pics/unhide-hidden-files.png">[Windows 8/10]</a> ou
+                        <a href="http://www.clubic.com/windows-os/windows-7/aide-astuce-tuto/windows-7-comment-faire-apparaitre-mes-dossiers-caches-2518.html">[Windows 7]</a>
+                    </li>
+                    
+                    <li>Cliquez sur le dossier AppData !</li>
+                </ul>
+            </li>
+                    
+            <li>Ouvrez <code>cmd</code> (cliquez sur le bouton windows en bas à gauche de l'écran → tappez cmd)</li>
+                
+            <li>(32 bits) entrez les commandes suivantes :
+            
+                <pre><code class="dos">
+                cd %AppData%\..\Local\Programs\Python36-32\Script\
+                pip.exe install pygame-1.9.2-cp36-cp36m-win32.whl
+                </code></pre>
+            </li>
+            
+            <li>(64 bits) entrez les commandes suivantes :
+            
+                <pre><code class="dos">
+                cd %AppData%\..\Local\Programs\Python36-64\Script\
+                pip.exe install pygame-1.9.2-cp36-cp36m-win_amd64.whl
+                </code></pre>
+            </li>
+            
+          </ul>
+        
+        <h3>Mac</h3>
+        
+        <p>Téléchargez la dernière version de python (3.6) sur <a href="https://www.python.org/downloads/">python.org</a>.</p>
+        <p>Ouvrez un terminal (cliquez sur l'icône de recherche et tappez <em>Terminal</em> ou bien suivez <a href="http://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac">ceci</a>).</p>
+        <p>Pour tester que python version 3 s'est bien installé, tappez <code>python3</code> puis appuyez sur Enter.</p>
+        <p>Vous devriez voir le texte <em>Python 3.6</em> affiché à l'écran.</p>
+        <p>Si vous voyez une phrase du style <em>commande introuvable: python3</em>, c'est qu'il s'est pas installé.</p>
+        
+        <p>Fermez le terminal et relancez en un autre, tappez maintenant les commandes suivantes&nbsp;:</p>
+        
+        <ul>
+            <li>Installer XCode via l'AppStore</li>
+            <li>Puis lancer une commande ruby pour installer homebrew (brew).
+                <pre><code class="bash">
+                    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+                </code></pre>
+            </li>
+            <li>Puis lancer plein de commandes brew et pip pour installer le reste.
+                <pre><code class="bash">
+                    brew install caskroom/cask/brew-cask
+                    brew cask install xquartz
+                    brew install python3
+                    brew install python
+                    brew linkapps python3
+                    brew linkapps python
+                    brew install git
+                    brew install sdl sdl_image sdl_ttf portmidi libogg libvorbis
+                    brew install sdl_mixer --with-libvorbis
+                    brew tap homebrew/headonly
+                    brew install smpeg
+                    brew install mercurial
+                </code></pre>
+            </li>
+            
+            <li>Et finalement, installer pygame en une seule ligne&nbsp;:
+                <pre><code class="bash">
+                    pip3 install hg+http://bitbucket.org/pygame/pygame
+                </code></pre>
+            </li>
+        </ul>
+        
+        <p>Les instructions viennent de <a href="http://stackoverflow.com/a/34081126/1980630">cette page</a>.</p>
+            
+        <h3>Linux</h3>
+        
+        <p>Suivez <a href="http://askubuntu.com/questions/401342/how-to-download-pygame-in-python3-3">ceci</a>.</p>
+
+        </section>
+        
+        <h2 id="version-python">Remarque sur les versions de python</h2>
+        
+        <section name="version-python">
+        <p>
+        Si vous avez reçu une clef usb avec python, la version est 2.7 (ancienne version)
+        Les ordis à l'école ont la version récente : 3.5 (nouvelle version)
+        Pour ce cours, ça ne change quasi rien, à part trois petites différences suivantes :
+        </p>
+        
+        <table>
+            <tr>
+                <th>Python 2</th>
+                <th>Python 3</th>
+            </tr>
+            <tr>
+                <td><code>print a,b</code></td>
+                <td><code>print(a,b)</code></td>
+            </tr>
+            <tr>
+                <td><code>7/2 == 3</code></td>
+                <td><code>7/2 == 3.5</code></td>
+            </tr>
+            <tr>
+                <td colspan="2">La gestion des accents dans les chaînes de caractères.</td>
+            </tr>
+        </table>
+        
+        <p>
+        Si vous avez python 2 et voulez utiliser certaines fonctionnalités de python3,
+        ajoutez une ligne comme ceci au début du fichier :
+        </p>
+        
+        <pre><code class="python">
+            from __future__ import print_function  # pour le print
+            from __future__ import division        # pour la division
+        </code></pre>
+        
+        <p>
+        Pour les accents, c'est plus compliqué, mais <code>from __future__ import unicode_litterals</code> est un bon début
+        </p>
+        </section>
+
+        <h2 id="librairies">Opengl / Numpy et autres librairies</h2>
+        
+        <section name="librairies">
+        <p>
+        À la fin du cours je ferai une introduction à la 3D pour les intéressés.
+        Il faut installer <a href="http://pyopengl.sourceforge.net/">pyOpenGL</a>
+        et <a href="http://www.scipy.org/scipylib/download.html">numpy</a>.
+        Ils sont installés sur les ordis de l'école.
+        </p>
+        
+        <p>
+        Si vous êtes intéressés de l'installer chez vous sous windows pous pouvez faire la même chose qu'avec pygame (la version avec AppData, pip et les whl).
+        </p>
+        <p>
+        Les whl pour windows sont sur <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">ce site non officiel</a>.
+        </p>
+        </section>
+</body>
+</html>

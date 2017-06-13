@@ -90,7 +90,7 @@ console.log(a)
 // Essaie ce programme avec a=5 b=5, a=5 b=2, a=2 b=2 et voit ce qu'il se passe
 
 // Fais maintenant l'exercice 0 (trier_deux_nombres)
-// regarde la correction sur pythontutor (http://robertvandeneynde.be/parascolaire/pythontutor.html)
+// regarde la correction sur [pythontutor](pythontutor.html)
 
 // Ensuite tu peux faire les exercices 1 à 4 sans lire la suite
 // Cependant la suite PEUT être utile pour les exercices suivants

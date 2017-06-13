@@ -133,7 +133,7 @@ def LookAtMatrix(*args):
         e, c, up = args[:3], args[3:6], args[6:]
     else:
         raise TypeError("Accept 3 or 9 arguments")
-    e, c, up = array(e), array(c), array(up)
+    c = array(c)
 
     f = normalized(c - e)
     s = normalized(numpy.cross(f, up))
@@ -258,7 +258,7 @@ def display(shader, vertex_array_object, t):
     
     # set matrix
     loc_matrix = glGetUniformLocation(shader, 'pvmMatrix')
-    glUniformMatrix4fv(loc_matrix, 1, False, pvm.T)
+    glUniformMatrix4fv(loc_matrix, 1, True, pvm)
     
     # draw
     glPointSize(5)

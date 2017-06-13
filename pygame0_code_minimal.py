@@ -1,13 +1,14 @@
 #!coding: utf-8
-'''
+from __future__ import print_function, division
+"""
 Ceci est le code pygame de base pour afficher une fenêtre.
 De courts commentaires sont écrits pour pouvoir vous lancer rapidement dans un projet.
 Si vous voulez des explications progressives et plus détaillées lisez :
-pygame1_dessin.py, pygame2_tick.py, pygame3_events.py et pygame4_animations.py
+[pygame1_dessin.py](), [pygame2_tick.py](), [pygame3_events.py]() et [pygame4_animations.py]()
 
 Les parties du code utiles à modifier sont les 4 parties suivantes :
 INITIALISATION, ÉVÉNEMENTS, UPDATE, DESSIN
-'''
+"""
 
 # 0) importer pygame, et l'initialiser
 import pygame
@@ -21,7 +22,7 @@ ecran = pygame.display.set_mode(taille)
 
 # ajoute ici tes variables !
 
-# mes couleurs : [Rouge, Vert, Bleu] (voir Paint)
+# mes couleurs : [Rouge, Vert, Bleu] (voir [Paint](robertvandeneynde.be/parascolaire/couleurs_paint.jpg))
 NOIR = [0, 0, 0]
 BLANC = [255, 255, 255]
 ROUGE = [255, 0, 0]
@@ -35,7 +36,7 @@ clock = pygame.time.Clock()
 fini = 0
 while fini == 0:
     
-    # 5) ÉVÉNEMENTS : rajoutez des "elif" en dessous du "if" pour de nouveaux événements (pygame5_clavier_souris_events.py)
+    # 5) ÉVÉNEMENTS : rajoutez des "elif" en dessous du "if" pour de nouveaux événements ([pygame5_clavier_souris_events.py](robertvandeneynde.be/parascolaire/pygame5_clavier_souris_events.py))
     for event in pygame.event.get(): # pour chaque événement qui s'est passé depuis la dernière fois
         if event.type == pygame.QUIT: # si on a cliqué sur la croix...
             fini = 1 # la boucle principale va s'arrêter

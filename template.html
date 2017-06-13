@@ -1,4 +1,4 @@
-<!-- <!doctype html> --> <!-- make weird padding to sections becase they are list -->
+<!-- <!DOCTYPE html> --> <!-- make weird padding to sections becase they are list -->
 <html>
     <head>
         <meta charset="utf-8"/>
@@ -7,7 +7,6 @@
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="animations.js"></script>
-        <!-- not smooth-links.js -->
         <link rel="stylesheet" href="base.css" />
         <script>
         $(function(){
@@ -47,22 +46,23 @@
                 }
             }).trigger('hashchange')
             
-            $('a[href^=#]').click(function(ev){
+            $('a[href^=#]').click(function(ev) {
                 ev.preventDefault()
                 location.hash = $(this).attr('href')
             })
             
-            $('#svg-close').click(function(ev){
+            $('#svg-close').click(function(ev) {
                 ev.preventDefault()
                 location.hash = ''
             })
         })
         $(function(){
-            var e = document.getElementById('emailize')
-            e.innerHTML = e.innerHTML.replace('[at]', '@').replace('[dot]', '.')
-            e.parentNode.setAttribute('href', 'mailto:' + e.innerHTML)
+            $('.emailize').each(function(){
+                this.innerHTML = this.innerHTML.replace(/\[at\]/g, '@').replace(/\[dot\]/g, '.')
+                this.setAttribute('href', 'mailto:' + this.innerHTML)
+            })
             
-            $('.remove-empty-text').each(function(){
+            $('.remove-empty-text').each(function() {
                 var toDelete = []
                 
                 for(var i = 0; i < this.childNodes.length; i++) {
@@ -117,12 +117,22 @@
             margin: 5px;
             cursor: pointer;
         }
+        .annonce a {
+            color: white;
+            text-decoration: underline;
+        }
         .annonce.style-1 {
             background: #f90;
         }
         .annonce.style-2 {
             background: #090;
             border-color: #060;
+        }
+        .emailize {
+            font-weight: bold;
+        }
+        nav .name {
+            padding:5px;
         }
         </style>
     </head>
@@ -145,27 +155,51 @@
                  --><a href="#exercice">exercice</a><!--
                  --><a href="#pygame">pygame</a><!--
                 --></nav>
+                <nav><span class="name">Dropbox</a><!--
+                --><a href="https://www.dropbox.com/sh/96cat87k7vizmdk/AABy6VRcH_-RGeaXDl_wgTF_a?dl=0">Lundi</a><!--
+                --><a href="https://www.dropbox.com/sh/czddv5pcbkcqnfs/AABRwUTKEYNgSEJjk33M_-Qia?dl=0">Jeudi</a><!--
+                --></nav>
             </div>
             <div class="part">
                 <img id="tetris" src="tetris.png" style="margin:10px; height: 40px; vertical-align:middle;"/>
-                <nav>
-                    <a href="projets.html">projets</a>
-                    <a href="pythontutor.html">pythontutor</a>
-                    <a href="turtle.html">turtle</a>
-                    <a href="math.html">math</a>
-                    <a href="physique.html">physique</a>
-                    <a href="algos.html">algos</a>
-                </nav>
+                <nav><!--
+                    --><a href="theorie0_installation.html">installation</a><!--
+                    --><a href="projets.html" style="background: #beb;">projets</a><!--
+                    --><a href="pythontutor.html">pythontutor</a><!--
+                    --><a href="turtle.html" style="background: #beb;">turtle</a><!--
+                    --><a href="math.html">math</a><!--
+                    --><a href="physique.html">physique</a><!--
+                    --><a href="algos.html">algos</a><!--
+                --></nav>
             </div>
             <div class="part">
                 <img id="invader" src="invader.png" style="height: 40px; margin: 0 5px; vertical-align:middle;"/>
-                <nav><a><strong id="emailize">robertvandeneynde@hotmail.com</strong></a></nav>
+                <nav><!--
+                    --><a class="emailize">meessen[dot]thomas[at]gmail[dot]com</a><!--
+                    --><a class="emailize">robertvandeneynde[at]hotmail[dot]com</a><!--
+                --></nav>
             </div>
         </section>
         
+        <!--
+        <div class="annonce style-2">
+            Les dropbox sont disponibles <a href="https://www.dropbox.com/sh/96cat87k7vizmdk/AABy6VRcH_-RGeaXDl_wgTF_a?dl=0">ici (lundi)</a> et <a href="https://www.dropbox.com/sh/czddv5pcbkcqnfs/AABRwUTKEYNgSEJjk33M_-Qia?dl=0">ici (jeudi)</a> !
+        </div>
+        <div class="annonce style-1">
+            Le mercredi 1er février, auront lieux les <a href="http://beoi.be-oi.be/fr/"><strong>olympiades d'informatiques</strong></a>, jetez un coup d'oeil sur <a href="http://beoi.be-oi.be/fr/">le site</a>, aucun prérequis (même pas le parascolaire) !
+        </div>
+        -->
+        <!--
+        <div class="annonce style-2">
+            Le parascolaire recommence dès Lundi 9 Janvier et Jeudi 12 Janvier.
+            Pour les élèves de deuxième qui seraient par hasard sur mon site, vous êtes toujours les bienvenus le lundi ou jeudi midi pour découvrir l'informatique via turtle ou le parascolaire.
+        </div>
+        -->
+        <!--
         <div class="annonce style-2">
             Je serai à l'école la semaine du 5 au 8 décembre, donc si vous voulez, vous pouvez pour faire du turtle ou du parascolaire le lundi, mardi, mercredi ou jeudi midi&nbsp;!
         </div>
+        -->
         <!--
         <div class="annonce style-1">
             J'ai installé python et plein d'autres programmes sur les machines de l'école, plus besoin des clés&nbsp;! L'éditeur est bien meilleur, on fera du python moderne, et même peut-être des dessins 3D (Blender) et 2D (Inkscape).

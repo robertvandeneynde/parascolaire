@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
     <meta charset="utf-8" />
@@ -36,21 +36,30 @@
             white-space: pre-wrap;
         }
     }
+    .attention .hljs-comment {
+        background: #f33;
+        color: white !important;
+        font-weight: bold;
+    }
+    pre a {
+        text-decoration: underline;
+        font-weight: bold;
+    }
     </style>
     </head>
     <body class="hljs"><!--
         --><header unselectable="on"> <!-- IE 9 IE9 downwards and Opera -->
             <a href="index.html"><img style="width:24px; height:24px; vertical-align:middle;" src="home.png"/></a>
-            {{nav}}
+            {{ nav }}
             <a href="#white" class="stylechanger" data-style="default">#White</a>
             <a href="#dark" class="stylechanger" data-style="androidstudio">#Dark</a>
             <a href="{{name}}.txt">#txt</a>
             <a href="{{name}}">#download</a>
-            {{postnav}}
+            {{ postnav }}
             <pre id="numero_ligne"></pre>
         </header><!--
         
-        --><section><pre><code id="code" class="{{ codelang }}">{{code}}</code></pre></section>
+        --><section><pre><code id="code" class="{{ codelang }}">{{ code }}</code></pre></section>
             
         <script>
 

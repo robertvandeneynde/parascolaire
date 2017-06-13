@@ -34,7 +34,7 @@ alice.vie = 40
 alice.max_vie = 70
 alice.mana = 50
 
-# imaginez une liste de personnage !
+# imaginez une liste de personnages !
 les_personnages = [alice, bob]
 
 p = Personnage()
@@ -55,7 +55,7 @@ les_personnages.append(p)
 # plus d'infos sur ces flèches dans la section "En savoir plus"
 
 # essayez de créer une liste de 100 personnages différents en moins de 10 lignes de code
-# remarquez qu'un personnage peut être différent d'un autre même s'il a les mêmes stats
+# remarquez qu'un personnage peut être différent d'un autre même s'il a les mêmes stats (vie, mana, ...)
 
 ########################
 # Base SIX : Fonctions #
@@ -231,6 +231,99 @@ def yo(x):
 
 ### fonctions ###
 
+## simplifications automatiques
+
+# avant:
+def f():
+    ...
+    if COND:
+        return X
+    else:
+        return Y
+    
+# après (if fonctionnel)
+def f():
+    ...
+    return X if CONDITION else Y
+
+# avant
+def f():
+    ...
+    if CONDITION:
+        return True
+    else:
+        return False
+    
+# après (bool)
+def f():
+    ...
+    return CONDITION
+
+# le return se lira alors "si et seulement si"
+# exemple: def voyelle(x): return x == 'a' or x == 'e' or x == 'i' or x = 'o' or x = 'u'
+# se lit "x est une voyelle ssi x == 'a' or x == 'e' or x == 'i' or x = 'o' or x = 'u'"
+
+# avant
+def f():
+    if CONDITION:
+        A
+        return X
+    else:
+        B
+        return Y
+    
+# après (return)
+def f():
+    if CONDITION:
+        A
+        return X
+    B
+    return Y
+
+# A et B sont une suite de 0 ou plus instructions
+# conseil: faire ceci si il y a peut d'instructions dans "A" et beaucoup dans "B"
+
+# avant
+def f():
+    ...
+    for X in L:
+        if CONDITION:
+            return True
+    return False
+
+# après : (voir fichier progra_functionals)
+def f():
+    ...
+    return any(CONDITION for X in L)
+# lire ça comme "il existe un X dans L qui vérifie CONDITION"
+# exemple: any(x == 2 for x in L) : il existe un "2" dans L
+# ... ou "il existe un X dans L tel que CONDITION"
+# ... any(x == 2 for x in L): il existe un x dans L tel que x == 2
+# ... ∃ x ∈ L: x == 2
+
+# conseil: passer à la ligne en fonction de la longueur dans le "any" !
+# ... si c'est return False, puis return True : return not any(...)
+
+# avant
+def f():
+    ...
+    for X in L:
+        if not CONDITION:
+            return False
+    return True
+
+# après : (voir fichier progra_functionals)
+def f():
+    ...
+    return all(CONDITION for X in L)
+# lire ça comme "tous les X de L vérifient CONDITION"
+# exemple: all(x > 0 for x in L) : tous les nombres de l sont > 0
+# ... ou "quel que soit X, il vérifie CONDITION
+# ... all(x > 0 for x in L)
+# ... ou "pour tous les éléments de X, il vérifie CONDITION"
+# ... all(x > 0 for x in L) : pour tous les élements x de L on a x > 0
+# ... ∀ x ∈ L: x > 0
+
 ## paramètres par défaut
 
 def f(x,y=5):
@@ -363,20 +456,23 @@ class Personnage:
     def __init__(self, a, b, c):
         self.vie = a
         self.max_vie = b
-        self.mana = b
+        self.mana = c
         
 bob = Personnage(60, 100, 10)
 alice = Personnage(40, 70, 50)
 
 ### Héritage ###
 
-# méditez là dessus
-# les fonctions dans une classe sont liées aux... objets !
+# méditez là dessus (pythontutor)
 
 class Personnage:
-    def __init__(self, vie, max_vie=None):
+    def __init__(self, vie, max_vie):
         self.vie = vie
-        self.max_vie = 100 if max_vie == None else max_vie
+        self.max_vie = max_vie
+        
+    def crier(self):
+        """ Affiche un cri de guerre à l'écran """
+        print("Bouh!")
         
     def boire_potion(self, x):
         self.vie = min(self.vie + x, self.max_vie)
@@ -389,32 +485,52 @@ class Magicien(Personnage):
     def crier(self):
         print("Wololo")
 
-alice = Magicien(50)
-bob = Guerrier(75)
+alice = Magicien(50, 100)
+bob = Guerrier(75, 125)
 guy = Personnage(20,80)
 personnages = [alice, bob, guy] # différentes classes, mais tous des Personnages
 for perso in personnages:
-    perso.crier() # va appeler une fonction différente en fonction de la classe
-    perso.boire_potion(10) # la fonction boire_potion existe toujours
+    perso.crier()               # va appeler une version différente en fonction de la classe
+    perso.boire_potion(10)      # la fonction boire_potion existe toujours
 
 # Pour réutiliser une fonction de la classe héritée, on fait comme ceci :
 
-class MagicienDouble(Personnage):
+class Chou(Personnage):
     def crier(self):
         Personnage.crier(self) # on appelle la version de "crier" qui se trouve dans "Personnage"
         print("Wouloulou")
+      
+class Marchand(Personnage):
+    def __init__(self): # on crée un Marchand sans paramètre
+        Personnage.__init__(self, 50, 100) # on appelle la version de __init__ dans Personnage
+        self.argent = 10 # une nouvelle variable
+    
+    def crier(self):
+        if self.argent > 0:
+            print("Je suis un Marchand riche !")
+        else:
+            print("Je suis un Marchand fauché...")
+        
+denis = Chou(20, 40)
+denis.crier() # Affiche "Bouh!", puis "Wouloulou"
+
+marc = Marchand()  # pas de paramètres vu que Marchand.__init__ n'a pas de paramètres
+print(marc.vie)    # 50
+print(marc.argent) # 10
+marc.crier()
 
 # Comment ça se passe ?
 # Python regarde si la classe de l'objet a la fonction appelée
-# Si elle ne l'a pas, elle regarde dans sa classe parente
+# Si elle l'a, il l'appele,
+# Sinon, il regarde dans sa classe parente,
 # Et finalement si aucune des classes parentes n'a la fonction, il lance une exception
 
 # on peut savoir si un objet "est" d'une classe
 
 print(isinstance(alice, Magicien)) # True
-print(isinstance(bob, Magicien)) # False
-print(isinstance(guy, Magicien)) # False
-print(isinstance(guy, int)) # False
+print(isinstance(bob, Magicien))   # False
+print(isinstance(guy, Magicien))   # False
+print(isinstance(guy, int))        # False
 
 print(isinstance(alice, Personnage)) # True car héritage
 
@@ -424,11 +540,11 @@ print(isinstance(alice, (Magicien, Guerrier))) # raccourci
 
 # bien que peu utile en pratique, on peut accéder à la classe d'un objet
 cls = alice.__class__
-print(cls == Magicien) # True
-print(cls == Personnage) # True
+print(cls == Magicien)   # True
+print(cls == Personnage) # False
 # toujours utiliser "isinstance" quand vous voulez tester l'appartenance
-# si votre code fait quelque chose pour un Personnage, ça devrait être
-# la même chose pour un Magicien
+# si votre code fait quelque chose pour un Personnage, ça devrait également
+# marcher avec un Magicien
 
 ### Références ###
 

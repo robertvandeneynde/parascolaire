@@ -1,13 +1,14 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
         <link href="python.png" rel="icon" type="image/png"/>
-        <title>Idées de projet</title>
+        <title> Tutoriel et idées de projet </title>
         <link rel="stylesheet" type="text/css" href="base.css" />
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="animations.js"></script>
+        <script src="utils.js"></script>
         <style>
             img:not(.free), pre {
                 max-width: 100%;
@@ -21,23 +22,39 @@
         <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script>
-            $(function(){ hljs.initHighlightingOnLoad() })
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                utils.makeTitleLinks()
+            })
         </script>
     </head>
     <body class="projets">
         <h1><!--
             --><a class="homeicon" href="index.html"></a><!--
-            --><span class="text">Idées de projet</span><!--
+            --><span class="text"> Tutoriel et idées de projet </span><!--
         --></h1>
         
         <section>
-            <p>Voici quelques projets de l'année passée, cliquez pour voir en grand !</p>
+            <div><em><a href="projects.html" lang="en" hreflang="en">English here!</a></em></div>
+            
+            <p>
+                Voici ci-dessous des projets faits par mes étudiants de l'année passée, cliquez pour voir en grand !
+                </p>
+            <p>
+                Les élèves ont de 14 à 16 ans, ils débutent l'année avec <strong>zéro</strong> connaissances d'informatique, et finissent par coder ces projets après 16h de programmation avec moi  ! Le rythme est de 1h par semaine, les projets montrés sont les plus développés du groupe, ces étudiants ont également travaillé de leur plein gré à la maison pour améliorer leur projet au cours de l'année.
+                </p>
+            <p>
+                 Le code source de ces projets est disponible ici :
+                
+                <a href="projet_michal_code.py.html">Michal</a> [<a href="projet-michal.zip">zip</a>],
+                <a href="projet_arnaud_code.py.html">Arnaud</a> [<a href="projet-arnaud.zip">zip</a>],
+                 téléchargez le zip et <a href="theorie0_installation.fr.html">installez python et pygame</a> pour y jouer !
+                
+            </p>
             <figure>
                 <a href="projet-michal-screenshot.png"><img src="projet-michal-screenshot.png" height="300" /></a>
                 <a href="projet-arnaud-screenshot.png"><img src="projet-arnaud-screenshot.png" height="300" /></a>
             </figure>
-            <p>Le code de ces projets est disponible ici : <a href="projet_michal_code.py.html">michal</a> [<a href="projet-michal.zip">zip</a>], <a href="projet_arnaud_code.py.html">arnaud</a> [<a href="projet-arnaud.zip">zip</a>], téléchargez le zip pour y jouer !</p>
-        
         </section>
         
         <nav>
@@ -54,13 +71,14 @@
             <a href="#rpg">RPG</a> 
         </nav>
         
-        <section class="notitle">
+        <h2 id="tutoriel"> Tutoriel </h2>
+        <section name="tutoriel">
         
             <p>Le premier défi demandé au cours sera de copier le <a href="pygame0_code_minimal.py.html">code de base</a> et d'effectuer ces exercices&nbsp;:</p>
             
             <ol>
                 <li>Une balle se déplaçant vers la droite, il faut créer une <strong>variable</strong> <code>ma_position</code>. Au tout début du code, ma_position = 100 (par exemple). Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à ma_position. Finalement, le cercle ne devra plus être dessiné en <code>[30, 80]</code> mais en <code>[ma_position, 80]</code>.</li>
-                <li>Elle avance un peu lentement, comment faire pour qu'elle avance de 5 pixels par tick&nbsp;?</li>
+                <li>Elle avance un peu lentement, comment faire pour qu'elle avance de 5 pixels par tick ?</li>
                 <li>Elle sort de l'écran... Vu que l'écran est de taille 700×500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.</li>
                 <li>Mainteant la balle reste dans l'écran mais ne rebondit pas, il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. On peut aussi dire 1 et 2, ou 0 et 1 !</li>
                 <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em></li>
@@ -76,25 +94,25 @@
                 </li>
                 
                 <li>
-                    Que sera la commande <a>draw.polygon</a> pour que le triangle bouge avec le cercle&nbsp;?
+                    Que sera la commande <code>draw.polygon</code> pour que le triangle bouge avec le cercle ?
                 </li>
                 
                 <li>
-                    Quel est la position du centre du triangle&nbsp;?
-                    Quelle sera la commande <a>draw.polygon</a> pour que ma_position représente le centre&nbsp;?
+                    Quel est la position du centre du triangle ?
+                    Quelle sera la commande <code>draw.polygon</code> pour que <code>ma_position</code> représente le centre ?
                 </li>
                 <li>
-                    Le cercle bleu ne bouge pas, utilise <a>le clavier</a> (version ponctuelle) pour faire pour le faire bouger&nbsp;!
+                    Le cercle bleu ne bouge pas, utilise <a href="pygame6_clavier_souris_state.py.html">le clavier</a> (version ponctuelle) pour faire pour le faire bouger !
                 </li>
                 <li>
-                    Le cercle bleu ne bouge pas, utilise <a>le clavier</a> (version ponctuelle) pour faire pour le faire bouger&nbsp;!
+                    Cependant, ce déplacement est saccadé, il faut appuyer 5 fois sur <em>gauche</em> pour que le cercle avance plusieurs fois, utilise plutôt la <a href="pygame5_clavier_souris_events.py.html">version continue</a> des événements pour faire pour le faire bouger !
                 </li>
             </ol>
             
         </section>
         <section class="notitle">
             <p>
-                Choisissez maintenant un projet&nbsp;! Si vous êtes à court, choisissez dans la liste en dessous de cette section.
+                Choisissez maintenant un projet ! Si vous êtes à court, choisissez dans la liste en dessous de cette section.
             </p>
             
             <p>

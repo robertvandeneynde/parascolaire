@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="base.css" />
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="animations.js"></script>
-        <script src="smooth-links.js"></script>
+        <script src="utils.js"></script>
         <style>
             img:not(.free), pre {
                 max-width: 100%;
@@ -32,7 +32,12 @@
         <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script>
-            $(function(){ hljs.initHighlightingOnLoad() })
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                utils.dedentPreCode()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
         </script>
     </head>
     <body class="algos">
@@ -59,24 +64,23 @@
         <h2 id="base"> Avancer et tourner </h2>
         
         <section name="base">
-
-            <div><em><a href="turtle.en.html">English here!</a></em></div>
+            
+            <div><em><a href="turtle.en.html" lang="en" hreflang="en">English here!</a></em></div>
             
             <h3 id="exercice-1">Exercice 1 :  Avancer, tourner </h3>
             
             <p>
-                 Va sur  <a href="turtle_test.html"> cette page </a>
-                 dans nouvelle fenêtre 
-                ( clic droit sur le lien  →  ouvrir dans une nouvelle fenêtre ),
-                 écris le code suivant et clique sur 
+                Dans une <strong>nouvelle fenêtre</strong>, va sur <a href="turtle_test.html">cette page</a>
+                (clic <strong>droit</strong> sur le lien → ouvrir dans une nouvelle fenêtre),
+                écris le code suivant et clique sur
                 <img alt="Run" src="run.png" style="vertical-align: middle"/> !
-            </p>
             
-            <pre><code class="py">forward(50)
-left(90)
-forward(100)
-right(45)
-</code></pre>
+            <pre><code class="py">
+                forward(50)
+                left(90)
+                forward(100)
+                right(45)
+            </code></pre>
 
             <p>
                 Tu as normalement vu une tortue se déplacer vers l'avant d'une distance de 50, puis qui a tourné à gauche de 90 degrés, s'est redéplacée en avant d'une distance de 100 et finalement a tourné à droite de 45 degrés.
@@ -93,31 +97,35 @@ right(45)
             <h3 id="exercice-2">Exercice 2 : Raccourcis</h3>
             
             <p>
-                Écrire <code>forward</code>, c'est fatigant, il existe le raccourci <code>fd</code>, de même on a <code>lt</code> et <code>rt</code>
+                Écrire <code>forward</code>, c'est fatigant, il existe le raccourci <code>fd</code>.
+                De même on a <code>lt</code> et <code>rt</code>
                 qui veulent dire <strong>L</strong>eft <strong>T</strong>urn et <strong>R</strong>ight <strong>T</strong>urn,
                 que l'on traduirait par <em>tourner à gauche</em> et <em>tourner à droite</em>.
                 </p>
             
             <p> Que fait ce code ? </p>
-            <pre><code class="py">fd(100)
-lt(120)
-fd(100)
-lt(120)
-fd(100)
-</code></pre>
+            
+            <pre><code class="py">
+                fd(100)
+                lt(120)
+                fd(100)
+                lt(120)
+                fd(100)
+            </code></pre>
             
             <p> Et celui-ci ? </p>
             
-            <pre><code class="py">fd(100)
-lt(180)
-fd(200)
-lt(180)
-fd(100)
-lt(90)
-fd(100)
-lt(180)
-fd(200)
-</code></pre>
+            <pre><code class="py">
+                fd(100)
+                lt(180)
+                fd(200)
+                lt(180)
+                fd(100)
+                lt(90)
+                fd(100)
+                lt(90 + 90)
+                fd(100 * 2)
+            </code></pre>
         
         
         </section>
@@ -172,12 +180,13 @@ fd(200)
             
             <p> Que fait ce code ? </p>
             
-            <pre><code class="py">fd(25)
-penup()
-fd(50)
-pendown()
-fd(25)
-</code></pre>
+            <pre><code class="py">
+                fd(25)
+                penup()
+                fd(50)
+                pendown()
+                fd(25)
+            </code></pre>
             
             <h3 id="color"><code>color</code></h3>
             
@@ -203,14 +212,15 @@ fd(25)
                 Pour ce magnifique orange, j'écrirai la commande <code>color(253, 126, 0)</code>.
                 </p>
             
-            <pre><code class="py">fd(50)
-color("yellow")
-fd(50)
-color("red")
-fd(50)
-color(253, 126, 0)
-fd(50)
-</code></pre>
+            <pre><code class="py">
+                fd(50)
+                color("yellow")
+                fd(50)
+                color("red")
+                fd(50)
+                color(253, 126, 0)
+                fd(50)
+            </code></pre>
 
             <p>
                 Remarque, si <code>color(253, 126, 0)</code> fait une erreur, écris <code>colormode(255)</code> au début de ton programme.
@@ -249,54 +259,58 @@ fd(50)
                 Afin de réutiliser du code, on peut le mettre dans une <em>fonction</em>. Par exemple, je vais faire une fonction <code>carre</code> qui permet de dessiner un carré.
                 </p>
             
-            <pre><code class="py">def carre():
-  fd(80)
-  lt(90)
-  fd(80)
-  lt(90)
-  fd(80)
-  lt(90)
-  fd(80)
-  lt(90)
-</code></pre>
+            <pre><code class="py">
+            def carre():
+              fd(80)
+              lt(90)
+              fd(80)
+              lt(90)
+              fd(80)
+              lt(90)
+              fd(80)
+              lt(90)
+            </code></pre>
 
             <p>
                 Écris ce code en haut du fichier, et puis la nouvelle instruction <code>carre()</code> sera disponible !
                 </p>
             
-            <pre><code class="py">carre()
-lt(45)
-carre()
-fd(50)
-carre()
-</code></pre>
+            <pre><code class="py">
+            carre()
+            lt(45)
+            carre()
+            fd(50)
+            carre()
+            </code></pre>
 
             <p>
                 On peut également mettre des <em>paramètres</em> à la fonction, grâce à ça on pourra faire varier une certaine partie du code, comme par exemple, la taille du carré.
                 </p>
             
-            <pre><code class="py">def carre(taille):
-  fd(taille)
-  lt(90)
-  fd(taille)
-  lt(90)
-  fd(taille)
-  lt(90)
-  fd(taille)
-  lt(90)
-</code></pre>
+            <pre><code class="py">
+            def carre(taille):
+              fd(taille)
+              lt(90)
+              fd(taille)
+              lt(90)
+              fd(taille)
+              lt(90)
+              fd(taille)
+              lt(90)
+            </code></pre>
             
             <p>
                 Que l'on utilisera comme ceci :
                 </p>
             
-            <pre><code class="py">fd(100)
-carre(80)
-lt(45)
-carre(40)
-fd(50)
-carre(60)
-</code></pre>
+            <pre><code class="py">
+            fd(100)
+            carre(80)
+            lt(45)
+            carre(40)
+            fd(50)
+            carre(60)
+            </code></pre>
         
             <p>
                 On peut mettre autant de paramètres que l'on veut, séparés par des virgules, comme <code class="py">def carre(taille, couleur)</code>.
@@ -312,9 +326,10 @@ carre(60)
                 Le code de la maison se trouve <a href="maison.py.html">ici</a>, met le dans une fonction à deux paramètres pour pouvoir effectuer une maison colorée en une ligne&nbsp;:
                 </p>
             
-            <pre><code class="py">maison(20, "red")
-maison(60, "blue")
-</code></pre>
+            <pre><code class="py">
+            maison(20, "red")
+            maison(60, "blue")
+            </code></pre>
             
             <p>
                 Les deux paramètres sont la <strong>hauteur</strong> et la <strong>couleur</strong> de la porte.
@@ -337,27 +352,29 @@ maison(60, "blue")
                 Dans le code du carré, on avait <strong>quatre fois</strong> le même code <strong>à la suite</strong> :
                 </p>
             
-            <pre><code class="py">fd(40)
-lt(90)
+            <pre><code class="py">
+                fd(40)
+                lt(90)
 
-fd(40)
-lt(90)
+                fd(40)
+                lt(90)
 
-fd(40)
-lt(90)
+                fd(40)
+                lt(90)
 
-fd(40)
-lt(90)
-</code></pre>
+                fd(40)
+                lt(90)
+            </code></pre>
 
         <p>
             Il existe une instruction qui permet de dire <em>Répète 4 fois ce qui suit</em>, c'est le <code class="py">for</code> :
             </p>
         
-        <pre><code class="py">for i in range(4):
-  fd(40)
-  lt(90)
-</code></pre>
+        <pre><code class="py">
+        for i in range(4):
+          fd(40)
+          lt(90)
+        </code></pre>
 
         <p>
             Attention à ne pas oublier le <code>:</code>, de passer à la ligne et d'écrire au moins une instruction.
@@ -367,10 +384,11 @@ lt(90)
             Quelle va être la différence avec le code suivant ? Teste le et comprends pourquoi le résultat affiché correspond bien au code.
             </p>
         
-        <pre><code class="py">for i in range(4):
-  fd(80)
-lt(90)
-</code></pre>
+        <pre><code class="py">
+        for i in range(4):
+          fd(40)
+        lt(90)
+        </code></pre>
         
             <h3 id="exercice-9">Exercice 9 :  L'hexagone </h3>
             
@@ -456,79 +474,83 @@ lt(90)
                 On peut créer plusieurs tortues (<em>objets</em> python) :
                 </p>
             
-            <pre><code class="py">bob = Turtle() # ou Pen()
-bob.shape("turtle")
-bob.color("blue")
-bob.forward(50)
-alice = Turtle()
-alice.shape("turtle")
-alice.color("green")
-alice.fd(100)
-</code></pre>
+            <pre><code class="py">
+            bob = Turtle() # ou Pen()
+            bob.shape("turtle")
+            bob.color("blue")
+            bob.forward(50)
+            alice = Turtle()
+            alice.shape("turtle")
+            alice.color("green")
+            alice.fd(100)
+            </code></pre>
             
             <p>
                 Et créer des variables en fonction de la tortue.
                 </p>
             
-            <pre><code class="py">bob.deplacement = 5
-alice.deplacement = 10
+            <pre><code class="py">
+            bob.deplacement = 5
+            alice.deplacement = 10
 
-def avancer_en_traits(tortue):
-  for i in range(3):
-    tortue.penup()
-    tortue.fd(tortue.deplacement)
-    tortue.pendown()
-    tortue.fd(tortue.deplacement)
+            def avancer_en_traits(tortue):
+              for i in range(3):
+                tortue.penup()
+                tortue.fd(tortue.deplacement)
+                tortue.pendown()
+                tortue.fd(tortue.deplacement)
 
-bob.lt(90)
-alice.lt(90)
-        
-avancer_en_traits(bob)
-avancer_en_traits(alice)
-</code></pre>
+            bob.lt(90)
+            alice.lt(90)
+                    
+            avancer_en_traits(bob)
+            avancer_en_traits(alice)
+            </code></pre>
 
             <p>
                 Ou créer des listes de tortues :
                 </p>
 
-            <pre><code class="py">liste = [bob, alice]
-charles = Turtle()
-charles.shape("turtle")
-charles.deplacement = 7
-liste.append(charles) # ajouter à la fin
+            <pre><code class="py">
+            liste = [bob, alice]
+            charles = Turtle()
+            charles.shape("turtle")
+            charles.deplacement = 7
+            liste.append(charles) # ajouter à la fin
 
-for tortue in liste: #  pour chaque tortue dans la liste  
-  ancienne_couleur = tortue.color() # on sauve la couleur 
-  tortue.color("blue")
-  avancer_en_traits(tortue)
-  tortue.color(ancienne_couleur) # on réapplique l'ancienne couleur 
-</code></pre>
+            for tortue in liste: #  pour chaque tortue dans la liste  
+              ancienne_couleur = tortue.color() # on sauve la couleur 
+              tortue.color("blue")
+              avancer_en_traits(tortue)
+              tortue.color(ancienne_couleur) # on réapplique l'ancienne couleur 
+            </code></pre>
             
             <p>
             Ou encore créer des conditions pour changer de logique&nbsp;:
             </p>
             
-            <pre><code class="py">penup()
-fd(-100)
-n = 0
-for i in range(45):
-  penup()
-  fd(20)
-  pendown()
-  fd(20)
-  n = n + 1
-  if n == 4:
-    right(90)
-    color("red")
-  else:
-    if n == 7:
-      right(90)
-      color("blue")
-    else:
-      if n == 9:
-        right(90)
-        n = 0
-</code></pre>
+            <pre><code class="py">
+            penup()
+            fd(-100)
+            n = 0
+            for i in range(45):
+              penup()
+              fd(20)
+              pendown()
+              fd(20)
+              n = n + 1
+              if n == 4:
+                right(90)
+                color("red")
+              else:
+                if n == 7:
+                  right(90)
+                  color("blue")
+                else:
+                  if n == 9:
+                    right(90)
+                    n = 0
+            </code></pre>
 
             <h3 id="exercice-13">Exercice 13 :  Le village variable </h3>
 

@@ -72,9 +72,9 @@ while i < len(ma_liste):
 # Tu as toutes les bases pour faire tous les exercices
 # Je conseille de faire au moins le 5 (max list) et puis de passer à pygame pour créer des fenêtres !
 # Deux approches sont possibles pour commencer pygame :
-# - Soit tu lances pygame0_code_minimal.py et essaie de comprendre|modifier en lisant les commentaires
-# - Soit tu fais pas à pas les petits codes pygame1_dessin.py, pygame2_tick.py, pygame3_events.py, pygame4_animations.py qui expliquent séparément les concepts du code minimal
-# Ensuite tu peux essayer de faire ton projet et lire les chapitres suivants quand nécessaire (clavier, souris, images)
+# - Soit tu lances [pygame0_code_minimal.py](pygame0_code_minimal.py.html) et essaie de comprendre|modifier en lisant les commentaires
+# - Soit tu fais pas à pas les petits codes [pygame1_dessin.py](pygame1_dessin.py.html), [pygame2_tick.py](pygame2_tick.py.html), [pygame3_events.py](pygame3_events.py.html), [pygame4_animations.py](pygame4_animations.py.html) qui expliquent séparément les concepts du code minimal
+# Ensuite, suis le tuto sur [](projets.html) !
 
 ##########################
 # Pour en savoir plus... #
@@ -83,7 +83,7 @@ while i < len(ma_liste):
 ### while ###
 # certaines structures "while" sont très utilisées, et peuvent être remplacées par des "for"
 
-# compter ! avec range
+## compter ! avec range
 for i in range(5):
     print(i)
     
@@ -95,7 +95,7 @@ while i < 5:
     
 # on peut aussi demander de ne pas commencer à 0
 
-for i in range(1,5):
+for i in range(1,5): # 1 2 3 4 : range(5) => range(0, 5)
     print(i)
 
 # ce qui peut s'écrire comme ceci :
@@ -105,7 +105,7 @@ while i < 5:
     print(i)
     i = i + 1
 
-# parcourir une liste ! sans savoir l'index
+## parcourir une liste ! sans savoir l'index
 
 for nombre in ma_liste:
     print(nombre)
@@ -155,6 +155,10 @@ a,b,c = [1,2,3]
 a,b,c = (1,2,3)
 a,b,c = 1,2,3 # version la plus cool !
 
+# si on connaît une taille minimale... (python 3)
+a,b,*c = 1,2,3,4,5   # python 3 # a = 1; b = 2; c = [3,4,5]
+a,b,*c,d = 1,2,3,4,5 # python 3 # a = 1; b = 2; c = [3,4]; d = 5
+
 ## les str (string / chaînes de caractères)
 prenom = "Robert"
 prenom = 'Robert' # même chose
@@ -164,7 +168,7 @@ lettre = prenom[0] # 'R'
 taille = len(prenom) # 6
 print(len(lettre)) # 1
 
-# on peut faire de drôles de math avec !
+# on peut faire de drôles de math avec ! (marche aussi sur les list/tuple)
 nom_de_famille = "Vanden Eynde"
 long_nom = prenom + " " + nom_de_famille # "Robert Vanden Eynde"
 beaucoup_de_nom = prenom * 5 # "RobertRobertRobertRobertRobert"
@@ -190,18 +194,37 @@ liste = ['A', 'B', 'C']
 chaine = ''.join(liste) # "ABC"
 chaine_v = ', '.join(liste) # "A, B, C"
 
+# caractères spéciauxx
+a = "Hello \"World\"" # si on veut mettre le caractère ", il faut l'échapper
+a = 'Hello "World"' # même chose
+b = "Hello\nWorld"  # \n est le charactère 'à la ligne' (LineFeed, LF, ascii numéro 10)
+print(b) # affiche Hello World sur deux lignes
+
 # str et conversions
 texte = str(52) # "52"
 nombre = int("23") # 23
+binaire = int("100", 2) # 4
 virgule = float("41.25") # 41.25
 list_of_str = " Hello World How Is Life  ".split() # ['Hello', 'World', 'How', 'Is', 'Life']
 some_names = "Hello World;Bonjour le monde;Donkey Konga".split(';') # ['Hello World', 'Bonjour le monde', 'Donkey Konga']
 no_space = " \t  Yeyo Yayo \n ".strip() # "Yeyo Yayo"
 
-# slicing
+# vers/depuis code unicode (les codes unicode de 0 à 127 sont appelés "ascii"
+print(ord('A'))  # 65
+print(ord('a'))  # 97
+print(ord('\n')) # 10
+print(chr(65))   # A
+
+# slicing (marche aussi sur les list/tuple)
 print(prenom[1:4]) # de 1 à 4 non compris : "obe"
 print(prenom[:3]) # du début à 3 non compris : "Rob"
 print(prenom[4:]) # de 4 à la fin : "rt"
+
+# string sur plusieurs lignes
+a = '''
+Hello
+'''
+print(a == '\nHello\n') # True
 
 ## format : créer facilement une chaîne depuis un modèle
 
@@ -209,22 +232,37 @@ phrase = "Bonjour {}, vous avez {} ans".format("Bob", 25)
 # cela permet de séparer le modèle, des données (ici Bob et 25)
 
 # on peut utiliser des chiffres pour faire référence à une certaine donnée (on commence à 0)
-phrase = "Bonjour {0}, vous avez {1} ans. Aurevoir {0}".format("Bob", 25)
+phrase = "Bonjour {0}, vous avez {1} ans. Au revoir {0}.".format("Bob", 25)
 
 # ou des noms
-phrase = "Bonjour {nom}, vous avez {age} ans. Aurevoir {nom}".format(nom="Bob", age=25)
+phrase = "Bonjour {nom}, vous avez {age} ans. Au revoir {nom}".format(nom="Bob", age=25)
 
 # n'hésitez pas à passer à la ligne !
+longue_phrase = "Bonjour {nom}, vous avez {age}. Votre score est de {score}.".format(
+    nom = "Bob",
+    age = 25,
+    score = 24)
+
+# ou sous un autre style de passage à la ligne :
 longue_phrase = "Bonjour {nom}, vous avez {age}. Votre score est de {score}.".format(
     nom = "Bob",
     age = 25,
     score = 24,
 )
 
+# si les variables existent déjà...
+nom = "Bob"
+age = 25
+
+# vous pouvez utiliser le "trick" suivant (non conseillé)
+phrase = "Bonjour {nom}, vous avez {age} ans. Au revoir {nom}.".format(**locals())
+
+# ou si vous êtes sous Python 3.6, une "f-string" !
+phrase = f"Bonjour {nom}, vous avez {age} ans. Au revoir {nom}." # python 3.6
+
 ## comprehension list (programmation fonctionnelle)
 
 # souvent, on a un code comme ceci :
-
 L = [] # On crée une liste vide
 for i in range(50): # on fait un for
     L.append(i*i) # et la seule instruction du for est L.append(...)
@@ -232,18 +270,16 @@ for i in range(50): # on fait un for
 # Avec les comprehension list on peut faire ça "en une ligne" :
 L = [i*i for i in range(50)]
 
-# de même, s'il y a un if (sans else !)
-
+# de même, si le for ne contient qu'une seule instruction, qui est un if sans else :
 L = []
 for i in range(50):
     if 10 <= i <= 15:
         L.append(i*i)
 
-# en une ligne :        
+# en une ligne :
 L = [i*i for i in range(50) if 10 <= i <= 15]
 
 # on peut même avoir plusieurs for et if
-
 L = []
 for i in range(50):
     for j in range(10):

@@ -1,9 +1,44 @@
 #!coding: utf-8
 
+## if fonctionnel (ou "if en une ligne")
+
+a = 5
+# rappel que ce code :
+if a == 5:
+    x = 2
+else:
+    x = 4
+# peut se transformer en ce code :
+x = (2 if a == 5 else 4)
+# parenthèses non nécessaires
+x = 2 if a == 5 else 4
+
+# et que l'on peut peut passer à la ligne au milieu d'une instruction
+# ... si on ouvre une parenthèse
+
+# avant :
+if a == 5:
+    x = 2
+elif a == 10;
+    x = 4
+elif a < 0:
+    x = -1
+else:
+    x = 10
+
+# après :
+x = (2 if a == 5 else
+     4 if a == 10 else
+     -1 if a < 0 else
+     10)
+
+# ce "if" est appelé "if fonctionnel"
+
 ## Fonctions pour itérables d'itérables
 
-# comme vu dans list_dict_set, on peut créer des itérables "en une ligne"
-# et puis les envoyer à list() pour les convertir en liste par exemple
+# comme vu dans le fichier [](progra_list_dict_set.py.html)
+# ... on peut créer des itérables "en une ligne"
+# ... et puis les envoyer à list() pour les convertir en liste par exemple
 L = list((i * i) % 5 for i in range(10))
 L = [(i * i) % 5 for i in range(10)]
 
@@ -69,7 +104,7 @@ print(True + False) # == 1, car True est converti en 1 et False en 0
 print(sum(L)) # somme
 print(sum(x == 2 for x in L)) # somme de booléens : comptage d'élements satifaisant une condition
 
-# cast to bool
+# cast to bool (transformation en bool)
 
 class Personnage:
     pass
@@ -88,7 +123,7 @@ print(bool(None))  # False
 print(bool(bob))   # True
 
 S = []
-if S: # cast to bool, shortcut here for len(S) > 0
+if S: # cast to bool, raccourci ici pour len(S) > 0
     pass
 
 if not S: # cast to bool
@@ -97,8 +132,8 @@ if not S: # cast to bool
 # quand transformé en bool, ces valeurs-ci sont False :
 # False
 # None
-# les int/float == 0
-# les collections vides (list,tuple,set,dict,range,str tel que len(S) == 0)
+# les int/float nuls => x == 0
+# les collections vides (list,tuple,set,dict,range,str) => len(S) == 0
 # le reste est True
 
 # None représente le Néant, souvent utilisé quand on a besoin de représenter "Rien"
@@ -115,14 +150,18 @@ class Personnage:
         self.vie = vie
     def boire_potion(self, x):
         self.x = min(self.vie + x, 100)
+    def get_ratio(self):
+        return self.vie / 100
+    def en_vie(self):
+        return self.vie > 0
 
 def stuff(perso1, perso2, nombre):
-    return perso1.vie + 2*perso2.vie + nombre + 2
+    return perso1.vie + 2 * perso2.vie + nombre + 2
 
 alice = Personnage(50)
 bob = Personnage(20)
 
-# une variable peut avoir une fonction
+# une variable peut avoir une fonction comme valeur
 
 f = stuff
 print(f(alice, bob, 8))
@@ -142,13 +181,37 @@ h = partial(nombre=7) # on donne déjà nombre, il reste donc (perso1, perso2)
 print(h(alice, bob))
 print(h(bob, alice))
 
-def apply_to(liste_perso, fonction):
+def apply_to(fonction, liste_perso):
     for p in liste_perso:
         fonction(p)
         
 L = [alice, bob]
-apply_to(L, Personnage.boire_potion)
-         
+apply_to(Personnage.boire_potion, L)
+
+# map/filter
+def apply_and_return_list(fonction, liste_perso):
+    L = []
+    for p in liste_perso:
+        L.append(fonction(p))
+    return L
+
+# raccourci: map
+L = apply_and_return_list(Personnage.get_ratio, liste_perso)
+L = list(map(Personnage.get_ratio, liste_perso))
+
+def return_by_filter(fonction, liste_perso):
+    L = []
+    for p in liste_perso:
+        if fonction(p):
+            L.append(p)
+    return L
+
+# raccourci: filter
+L = return_by_filter(Personnage.en_vie, liste_perso)
+L = list(filter(Personnage.en_vie, liste_perso))
+
+# si L est utilisé qu'une seule fois dans un for ... in L, on peut enlever le "list(...)"
+
 # fonction dans fonction
 
 def f(x):
