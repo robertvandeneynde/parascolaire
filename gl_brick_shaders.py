@@ -1,20 +1,5 @@
 #!coding: utf-8
 from __future__ import print_function, division
-"""
-Ce code montre que pour faire un jeu en 3D, une seule chose varie : le DESSIN
-Ainsi un jeu purement 2D peut être affiché en 3D, comme ce casse brique.
-Pour comparer la version 2D et la version 3D, regardez le code gl_brick_2D.py
-
-On fait de la 3D grâce à OpenGL.
-ATTENTION: Ce code utilise de la Vielle 3D (années 2000)
-On parle d'OpenGL "version 2" ou de "fixed pipeline" ou "mode immédiat" ou "opengl sans shaders"
-Il est vivement conseillé d'apprendre les shaders dès le début de votre apprentissage OpenGL
-pour pouvoir faire de puissants effets modernes.
-Il y a plein de fichier d'exemples pour les shaders sur le site.
-
-Cependant, ce code est très utile pour comprendre les bases de la 3D et les matrices.
-(Ou pour avoir vite fait un affichage)
-"""
 
 import pygame
 import random
@@ -68,110 +53,50 @@ void main()
 }
 """
 
-def couleur01(r,g,b):
-    return [r/255, g/255, b/255]
+###########
+# glutils #
+###########
 
-def couleur(s):
-    if s in couleur.DATA:
-        r,g,b = couleur.DATA[s]
-        return couleur01(r,g,b)
-    
-    if s.startswith('#'):
-        s = s[1:]
-    
-    if len(s) == 6: # "ffc030"
-        r,g,b = s[0:2], s[2:4], s[4,6]
-    elif len(s) == 3: # "fc9"
-        r,g,b = s
-        r,g,b = r * 2, g * 2, b * 2
+def farray(x):
+    return numpy.array(x, numpy.float32)
+
+def cosd(x):
+    return cos(radians(x))
+
+def sind(x):
+    return sin(radians(x))
+
+def vec2(x, y):
+    """ Create vector in 2 dimensions of correct type (numpy float32)
+    >>> vec2(4,5)
+    array([4.0, 5.0], dtype=float32)
+    """
+    return farray((x, y))
+
+def vec3(*args):
+    """ Create vector in 3 dimensions of correct type (numpy float32)
+    >>> vec3(1,2,3)
+    array([1.0, 2.0, 3.0], dtype=float32)
+    >>> vec3((1,2),3)
+    array([1.0, 2.0, 3.0], dtype=float32)
+    """
+    if len(args) == 3:
+        x, y, z = args
+    elif len(args) == 2:
+        (x, y), z = args
     else:
-        raise ValueError('string {} is not a color'.format(s))
-    return couleur01(int(r, 16), int(g, 16), int(b, 16))
+        raise TypeError('Accept 2 or 3 arguments')
 
-import os
-couleur.DATA = {
-    'yellow':     couleur01(255, 255, 0),  
-    'honeydew':   couleur01(240, 255, 240),
-    'magenta':    couleur01(255, 0,   255),
-    'cornsilk':   couleur01(255, 248, 220),
-    'peru':       couleur01(205, 133, 63), 
-    'black':      couleur01(0,   0,   0),  
-    'linen':      couleur01(250, 240, 230),
-    'brown':      couleur01(165, 42,  42), 
-    'cyan':       couleur01(0,   255, 255),
-    'coral':      couleur01(255, 127, 80), 
-    'orchid':     couleur01(218, 112, 214),
-    'orange':     couleur01(255, 165, 0),  
-    'aquamarine': couleur01(127, 255, 212),
-    'white':      couleur01(255, 255, 255),
-    'turquoise':  couleur01(64,  224, 208),
-    'green':      couleur01(0,   255, 0),  
-    'blue':       couleur01(0,   0,   255),
-    'chocolate':  couleur01(210, 105, 30), 
-    'lavender':   couleur01(230, 230, 250),
-    'moccasin':   couleur01(255, 228, 181),
-    'seashell':   couleur01(255, 245, 238),
-    'khaki':      couleur01(240, 230, 140),
-    'firebrick':  couleur01(178, 34,  34), 
-    'maroon':     couleur01(176, 48,  96), 
-    'tan':        couleur01(210, 180, 140),
-    'gainsboro':  couleur01(220, 220, 220),
-    'violet':     couleur01(238, 130, 238),
-    'pink':       couleur01(255, 192, 203),
-    'burlywood':  couleur01(222, 184, 135),
-    'azure':      couleur01(240, 255, 255),
-    'tomato':     couleur01(255, 99,  71), 
-    'grey':       couleur01(190, 190, 190),
-    'thistle':    couleur01(216, 191, 216),
-    'gray':       couleur01(190, 190, 190),
-    'gold':       couleur01(255, 215, 0),  
-    'bisque':     couleur01(255, 228, 196),
-    'beige':      couleur01(245, 245, 220),
-    'wheat':      couleur01(245, 222, 179),
-    'chartreuse': couleur01(127, 255, 0),  
-    'red':        couleur01(255, 0,   0),  
-    'snow':       couleur01(255, 250, 250),
-    'ivory':      couleur01(255, 255, 240),
-    'plum':       couleur01(221, 160, 221),
-    'purple':     couleur01(160, 32,  240),
-    'goldenrod':  couleur01(218, 165, 32), 
-    'navy':       couleur01(0,   0,   128),
-    'sienna':     couleur01(160, 82,  45), 
-    'salmon':     couleur01(250, 128, 114),
-}
-
-def importColors(filename='colors.txt'):
-
-    if os.path.isfile(filename):
-        with open(filename) as f:
-            for l in f:
-                try:
-                    l = l.split()
-                    name = ' '.join(l[:-3])
-                    r,b,g = l[-3:]
-                    couleur.DATA[name] = int(r) / 255, int(g) / 255, int(b) / 255
-                except:
-                    pass
-                
-importColors()
-                
-def couleurHexNumber(x):
-    return couleur01((x & 0xFF0000) >> 16, (x & 0xFF00) >> 8, x & 0xFF)
-
-def couleurHexNumberAlpha(x):
-    r,g,b,a = (x & 0xFF000000) >> 8*3, (x & 0xFF0000) >> 8*2, (x & 0xFF0000) >> 8*2, x & 0xFF
-    return r / 255, g / 255, b / 255, a / 255
-
-class Axe:
-    pass
-
-
-Axe.X = 0
-Axe.Y = 1
-Axe.Z = 2
+    return farray((x, y, z))
 
 
 def polar(*args):
+    """ Polar coordinate in radians
+    >>> polar(pi/3)
+    array([0.5, 0.8660254])
+    >>> polar(10, pi/3)
+    array([5.0, 8.66025404])
+    """
     if len(args) == 2:
         r, t = args
     elif len(args) == 1:
@@ -183,6 +108,12 @@ def polar(*args):
 
 
 def polard(*args):
+    """ Polar coordinate in degrees
+    >>> polard(60)
+    array([0.5, 0.8660254])
+    >>> polar(10, 60)
+    array([5.0, 8.66025404])
+    """
     if len(args) == 2:
         r, t = args
     elif len(args) == 1:
@@ -192,71 +123,27 @@ def polard(*args):
 
     return r * polar(radians(t))
 
-
-def vec2(x, y):
-    return array((x, y), dtype=numpy.float32)
-
-
-def vec3(*args):
-    '''
-    returns a vector in 3 dimensions
-    vec3(1,2,3)
-    vec3((1,2),3)
-    '''
-    if len(args) == 3:
-        x, y, z = args
-    elif len(args) == 2:
-        (x, y), z = args
-    else:
-        raise TypeError('Accept 2 or 3 arguments')
-
-    return array((x, y, z), dtype=numpy.float32)
-
-
 def normalized(v):
     return v / linalg.norm(v)
 
 
 def PerspectiveMatrix(fovy, aspect, zNear, zFar):
+    """ PerspectiveMatrix
+    PerspectiveMatrix(45, 16/9.0, 100, 2000)
+    """
     f = 1.0 / tan(radians(fovy) / 2.0)
-    return array([
+    return farray([
         [f / aspect, 0, 0, 0],
         [0, f, 0, 0],
         [0, 0, 1. * (zFar + zNear) / (zNear - zFar), 2.0 * zFar * zNear / (zNear - zFar)],
         [0, 0, -1, 0]
-    ], dtype=numpy.float32)
-
-
-def TranslationMatrix(*args):
-    '''
-    returns the TranslationMatrix
-    TranslationMatrix(2,1,0)
-    TranslationMatrix(2,1)
-    TranslationMatrix((2,1,0))
-    '''
-    if len(args) == 3:
-        tx, ty, tz = args
-    elif len(args) == 2:
-        (tx, ty), tz = args, 0
-    elif len(args) == 1:
-        tx, ty, tz = args[0]
-    else:
-        raise TypeError("Accept 1, 2 or 3 arguments")
-
-    return array([
-        [1, 0, 0, tx],
-        [0, 1, 0, ty],
-        [0, 0, 1, tz],
-        [0, 0, 0, 1]
-    ], dtype=numpy.float32)
-
+    ])
 
 def LookAtMatrix(*args):
-    '''
-    returns the LookAt matrix
+    """ returns the LookAt matrix
     LookAtMatrix(1,2,3, 4,5,6, 7,8,9)
     LookAtMatrix((1,2,3), (4,5,6), (7,8,9))
-    '''
+    """
     if len(args) == 3:
         e, c, up = args
     elif len(args) == 9:
@@ -269,30 +156,56 @@ def LookAtMatrix(*args):
     s = normalized(numpy.cross(f, up))
     u = numpy.cross(s, f)
 
-    return array([
+    return farray([
         [s[0], s[1], s[2], -s.dot(e)],
         [u[0], u[1], u[2], -u.dot(e)],
         [-f[0], -f[1], -f[2], f.dot(e)],
         [0, 0, 0, 1],
-    ], dtype=numpy.float32)
-    
-    # corresponds to M @ Translate(-e)
+    ]) # corresponds to M @ Translate(-e)
 
+
+def TranslationMatrix(*args):
+    """ TranslationMatrix
+    TranslationMatrix(2,1,0)
+    TranslationMatrix(2,1)
+    TranslationMatrix((2,1,0))
+    """
+    if len(args) == 3:
+        tx, ty, tz = args
+    elif len(args) == 2:
+        (tx, ty), tz = args, 0
+    elif len(args) == 1:
+        tx, ty, tz = args[0]
+    else:
+        raise TypeError("Accept 1, 2 or 3 arguments")
+
+    return farray([
+        [1, 0, 0, tx],
+        [0, 1, 0, ty],
+        [0, 0, 1, tz],
+        [0, 0, 0, 1]
+    ])
+
+
+class Axe:
+    X = 0
+    Y = 1
+    Z = 2
 
 def SimpleRotationMatrix(angle, axe=Axe.Z):
-    '''
-    returns the rotation matrix for angle in degree around X Y or Z
-    '''
+    """ Rotation matrix for angle in degree around X Y or Z
+    SimpleRotationMatrix(30, Axe.Z)
+    """
     if angle % 90 == 0:
-        x = angle % 360
-        c = 1 if x == 0 else -1 if x == 180 else 0
-        s = 1 if x == 90 else -1 if x == 270 else 0
+        a = angle % 360
+        c = 1 if a == 0 else -1 if a == 180 else 0
+        s = 1 if a == 90 else -1 if a == 270 else 0
     else:
         t = radians(angle)
         c = cos(t)
         s = sin(t)
 
-    return array([
+    return farray([
          [c, -s, 0, 0],
          [s, c, 0, 0],
          [0, 0, 1, 0],
@@ -307,53 +220,68 @@ def SimpleRotationMatrix(angle, axe=Axe.Z):
         [0, c, -s, 0],
         [0, s, c, 0],
         [0, 0, 0, 1]
-    ], dtype=numpy.float32)
+    ])
 
 
 def GenericRotationMatrix(angle, axe):
-    '''
-    returns the rotation matrix for angle in degree around any axe
-    '''
+    """ Rotation matrix for angle in degree around any axe
+    GenericRotationMatrix(30, (0,0,1))
+    """
     x, y, z = normalized(axe)
 
     if angle % 90 == 0:
-        x = angle % 360
-        c = 1 if x == 0 else -1 if x == 180 else 0
-        s = 1 if x == 90 else -1 if x == 270 else 0
+        a = angle % 360
+        c = 1 if a == 0 else -1 if a == 180 else 0
+        s = 1 if a == 90 else -1 if a == 270 else 0
     else:
         t = radians(angle)
         c = cos(t)
         s = sin(t)
+
     k = 1 - c
 
     # Rodriguez rotation formula
-    return array([
+    return farray([
         [x * x * k + c, x * y * k - z * s, x * z * k + y * s, 0],
         [y * x * k + z * s, y * y * k + c, y * z * k - x * s, 0],
         [x * z * k - y * s, y * z * k + x * s, z * z * k + c, 0],
         [0, 0, 0, 1]
-    ], dtype=numpy.float32)
+    ])
 
 
 def ScaleMatrix(kx, ky=None, kz=None):
+    """ ScaleMatrix
+    ScaleMatrix(2) = ScaleMatrix(2,2,2)
+    ScaleMatrix(1,2,3)
+    """
     if ky is None:
         ky = kx
     if kz is None:
         kz = kx
-    return array([
+    return farray([
         [kx, 0, 0, 0],
         [0, ky, 0, 0],
         [0, 0, kz, 0],
         [0, 0, 0, 1]
-    ], dtype=numpy.float32)
+    ])
 
 def IdentityMatrix():
-    return array([
+    """ IdentityMatrix
+    IdentityMatrix()
+    """
+    return farray([
         [1, 0, 0, 0],
         [0, 1, 0, 0],
         [0, 0, 1, 0],
         [0, 0, 0, 1]
-    ], dtype=numpy.float32)
+    ])
+
+###############
+# END glutils #
+###############
+
+def couleur01(r,g,b):
+    return [r/255, g/255, b/255]
 
 ROUGE = couleur01(255, 0, 0)
 VERT = couleur01(0, 255, 0)
@@ -374,21 +302,21 @@ def nouvel_ecran(W, H):
 
 tx,ty = taille = [12*60, 500]
 
-sol_points = array([
+sol_points = farray([
     0, 0, 0,
     tx, 0, 0,
     tx, ty, 0,
     0, ty, 0,
-], dtype=numpy.float32)
+])
 
-sol_normals = array([0,0,1] * 4, dtype=numpy.float32)
+sol_normals = farray([0,0,1] * 4)
 
 """
 quads
 from (0,0,0) to (1,1,1)
 faces are ccw (counter clockwise : sens contraire des aiguilles d'une montre)
 """
-cube_points = array([
+cube_points = farray([
     # up
     0, 0, 1,
     1, 0, 1,
@@ -424,16 +352,15 @@ cube_points = array([
     1, 0, 1,
     0, 0, 1,
     0, 0, 0,
-], dtype=numpy.float32)
+])
 
-cube_normals = array(
+cube_normals = farray(
     [0, 0, 1] * 4
     + [0, 0, -1] * 4
     + [1, 0, 0] * 4
     + [-1, 0, 0] * 4
     + [0, 1, 0] * 4
-    + [0, -1, 0] * 4
-    , dtype=numpy.float32)
+    + [0, -1, 0] * 4)
 
 
 def creer_vao_sol(shader):
@@ -445,27 +372,27 @@ def creer_vao_sol(shader):
     vao = glGenVertexArrays(1)
     glBindVertexArray(vao)
     
-    vbo = glGenBuffers(1)
-    glBindBuffer(GL_ARRAY_BUFFER, vbo)
-    glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(sol_points), sol_points, GL_STATIC_DRAW)
-
     position = glGetAttribLocation(shader, 'position')
     if position != -1:
+        vbo = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, vbo)
+        glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(sol_points), sol_points, GL_STATIC_DRAW)
+
         glEnableVertexAttribArray(position)
         glVertexAttribPointer(position, 3, GL_FLOAT, False, 0, ctypes.c_void_p())
     else:
-        print('inactive attribute "{}"'.format('position'))
-    
-    vbo = glGenBuffers(1)
-    glBindBuffer(GL_ARRAY_BUFFER, vbo)
-    glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(sol_normals), sol_normals, GL_STATIC_DRAW)
+        print('Inactive attribute "{}"'.format('position'))
     
     normal = glGetAttribLocation(shader, 'normal')
     if normal != -1:
+        vbo = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, vbo)
+        glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(sol_normals), sol_normals, GL_STATIC_DRAW)
+    
         glEnableVertexAttribArray(normal)
         glVertexAttribPointer(normal, 3, GL_FLOAT, False, 0, ctypes.c_void_p())
     else:
-        print('inactive attribute "{}"'.format('normal'))
+        print('Inactive attribute "{}"'.format('normal'))
 
     glBindBuffer(GL_ARRAY_BUFFER, 0)
     glBindVertexArray(0)
@@ -545,8 +472,7 @@ def main():
 
     shader = shaders.compileProgram(
         shaders.compileShader(vertex_shader, GL_VERTEX_SHADER),
-        shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER)
-    )
+        shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER))
 
     vao_sol = creer_vao_sol(shader)
     vao_cube = creer_vao_cube(shader)

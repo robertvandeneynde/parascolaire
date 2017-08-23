@@ -4,6 +4,8 @@ from __future__ import print_function
 import os, re, shutil, json
 import argparse
 
+from generate_utils import OutFile
+
 p = argparse.ArgumentParser()
 p.add_argument('--files', nargs='*', help='to implement') # TODO to implement
 p.add_argument('-l', '--langs', nargs='+')
@@ -64,18 +66,16 @@ for f in filter(RE.match, os.listdir('.')):
         if prev_str != next_str:
             modified.append(filename)
                 
-            if os.path.isfile(filename):
-                os.chmod(filename, 0o644) # read write
-            with open(filename, 'w') as f:
+            with OutFile(filename) as f:
                 f.write(next_str)
-            os.chmod(filename, 0o444) # read only
             
             if i == 0:
-                if os.path.isfile(basename + ending):
-                    os.chmod(basename + ending, 0o600) # read write
-                shutil.copy(filename, basename + ending)
-                os.chmod(basename + ending, 0o444) # read only
-                print('Copy', filename, '->', '(read only)', simple_name)
+                new = OutFile(basename + ending)
+                new.unlock()
+                shutil.copy(filename, new.filename)
+                new.lock()
+                print('Copy', filename, '->', '(read only)', new.filename)
+                del new
             
             # TODO: redirects/symlink
             # in: trucs.multilang_as_stuffs.txt
@@ -90,13 +90,13 @@ for f in filter(RE.match, os.listdir('.')):
             
             if filename != simple_name:
                 try:
-                    if os.path.isfile(simple_name):
-                        assert not is_user_writable(simple_name), ""
-                        os.chmod(simple_name, 0o600) # read write
+                    new = OutFile(simple_name)
+                    new.unlock()
                     shutil.copy(filename, simple_name)
-                    os.chmod(simple_name, 0o444) # read only
+                    new.lock()
                     print('Copy', filename, '->', '(read only)', simple_name)
-                except AssertionError:
+                    del new
+                except ValueError:
                     print('simple_name exists and is writable')
 
 print('multilang:', len(modified), 'file' + 's' * (len(modified) != 1) + ' modified' + ':' * bool(modified), ' '.join(modified))

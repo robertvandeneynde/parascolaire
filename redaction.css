@@ -1,4 +1,3 @@
-
 @media screen and (max-width: 400px) {
     figure {
         margin: 0;
@@ -65,7 +64,7 @@ img[src$=".svg"] {
     /* vertical-align: bottom */
 }
 
-.exercice {
+.exercice, .slideshow {
     display: inline-block;
 }
 .slide {

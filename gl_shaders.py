@@ -1,4 +1,6 @@
-#!encoding=utf-8
+#!coding: utf-8
+from __future__ import print_function, division
+
 from OpenGL.GL import *
 from OpenGL.GL import shaders
 import ctypes
@@ -39,7 +41,7 @@ vertices = (numpy.array(vertices, dtype=numpy.float32) if USE_NUMPY else
 def create_object(shader):
     # Create a new VAO (Vertex Array Object) and bind it
     vertex_array_object = glGenVertexArrays(1)
-    glBindVertexArray( vertex_array_object )
+    glBindVertexArray(vertex_array_object)
     
     # Generate buffers to hold our vertices
     vertex_buffer = glGenBuffers(1)
@@ -47,16 +49,19 @@ def create_object(shader):
     
     # Get the position of the 'position' in parameter of our shader and bind it.
     position = glGetAttribLocation(shader, 'position')
-    glEnableVertexAttribArray(position)
+    if position != -1: # maybe the attribute is useless and was discarded by the compiler
+        glEnableVertexAttribArray(position)
     
-    # Describe the position data layout in the buffer
-    glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
+        # Describe the position data layout in the buffer
+        glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
     
-    # Send the data over to the buffer
-    glBufferData(GL_ARRAY_BUFFER, 48, vertices if USE_NUMPY else vertices.tostring(), GL_STATIC_DRAW)
+        # Send the data over to the buffer
+        glBufferData(GL_ARRAY_BUFFER, 48, vertices if USE_NUMPY else vertices.tostring(), GL_STATIC_DRAW)
+    else:
+        print('Inactive attribute "{}"'.format('position'))
     
     # Unbind the VAO first (Important)
-    glBindVertexArray( 0 )
+    glBindVertexArray(0)
     
     # Unbind other stuff
     glDisableVertexAttribArray(position)
@@ -68,9 +73,9 @@ def display(shader, vertex_array_object):
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glUseProgram(shader)
     
-    glBindVertexArray( vertex_array_object )
+    glBindVertexArray(vertex_array_object)
     glDrawArrays(GL_TRIANGLES, 0, 3)
-    glBindVertexArray( 0 )
+    glBindVertexArray(0)
     
     glUseProgram(0)
 
@@ -82,8 +87,7 @@ def main():
 
     shader = shaders.compileProgram(
         shaders.compileShader(vertex_shader, GL_VERTEX_SHADER),
-        shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER)
-    )
+        shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER))
     
     vertex_array_object = create_object(shader)
     
@@ -97,6 +101,7 @@ def main():
         
         display(shader, vertex_array_object)
         pygame.display.flip()
+        clock.tick(60)
 
 if __name__ == '__main__':
     try:

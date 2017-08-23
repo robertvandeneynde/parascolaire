@@ -215,8 +215,7 @@ while fini == 0:
     cible_camera_z = 0 # regarde par terre
     
     gluLookAt(camera_x, camera_y, camera_z, cible_camera_x, cible_camera_y, cible_camera_z, 0,0,1)
-    global V
-    V = (glGetFloatv(GL_MODELVIEW_MATRIX))
+    
     # position de la lampe :
     light_x, light_y = tx / 2, ty / 2 # lampe au milieu de l'arène
     light_z = 150 # un peu au dessus des briques (hauteur : 100)

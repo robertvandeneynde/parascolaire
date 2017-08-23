@@ -32,6 +32,7 @@
             hljs.initHighlightingOnLoad()
             utils.makeTitleLinks()
             utils.smoothLinks()
+            utils.dedentPreCode()
         })
     </script>
     
@@ -90,8 +91,8 @@
     </nav>
     
     <nav>
-        <a href="#{{transformations-systeme|system-transformation}}">{{Système|System}}</a>
         <a href="#code-python">Python</a>
+        <a href="#{{transformations-systeme|system-transformation}}">{{Système|System}}</a>
         <a href="#identit{{e|y}}">{{Identité|Identity}}</a>
         <a href="#{{redimensionnement|scaling}}">{{Redimensionnement|Scaling}}</a>
         <a href="#rotation">Rotation</a>
@@ -542,8 +543,8 @@
         </p>
         
         <figure class="slideshow exercice">
-            <img class="slide next" src="http://tauday.com/assets/figures/tau-angles.png" />
-            <img class="slide next" src="http://tauday.com/assets/figures/pi-angles.png" />
+            <img class="slide next" src="tau-angles.png" /> <!-- http://tauday.com/assets/figures/tau-angles.png" /> -->
+            <img class="slide next" src="pi-angles.png" /> <!-- http://tauday.com/assets/figures/pi-angles.png" /> -->
             <figcaption>
                 {{Les angles 0°, 30°, 45°, 60°, 90°, 180°, 270° et 360° exprimés en radians|The angles 0°, 30°, 45°, 60°, 90°, 180°, 270° et 360° in radians}} &mdash; {{Cliquez pour utiliser $\pi$ et non $\tau = 2\pi$|Click here to use $\pi$ and not $\tau = 2\pi$}}
             </figcaption>
@@ -607,6 +608,11 @@
                 Do not hesitate to put the video in <strong>fullscreen</strong>, to <strong>stop</strong> or <strong>go back</strong> if you want to, or even to look at the video in <strong>fast-forward</strong> by clicking on the <strong>speed</strong> button of the player.
                 Click on <em>linked videos</em> at the bottom of the video to look at other videos of the same subject.
             }}
+        </p>
+        
+        <p>
+            {{Ou <a href="https://www.youtube.com/watch?v=fNk_zzaMoSs&index=2&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">la vidéo sur les vecteurs</a> dans la <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">playlist sur l'algèbre linéaire</a> en anglais sous-titré français fait par la chaîne <a href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a>.
+            | Or <a href="https://www.youtube.com/watch?v=fNk_zzaMoSs&index=2&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">this video on vectors</a> part of the <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">playlist about linear algebra</a> from channel <a href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a>. }}
         </p>
         
         <h3 id="{{vecteurs|vectors}}-{{base|basics}}">{{Opérations de base|Basic operations}}</h3>
@@ -711,6 +717,8 @@
             <figure><img src="vecteurs-normaliser.png" /></figure>
             
             <p>Un avantage pratique d'un vecteur normalisé, est que si je le multiple par <strong>5</strong>, il sera de taille <strong>5</strong> !</p>
+            
+            <p>Dans la littérature anglaise on retrouve la notation $\hat{v}$ ou $\mathbf{\hat{v}}$ pour $\vec{1_{v}}$, l'accent circonflexe signifiant que la norme vaut 1.</p>
             
         <h3 id="vecteurs-exemple">Exemple</h3>
         
@@ -821,7 +829,7 @@
                 
             <p>
                 Si $\vec{d}$ est normé, le vecteur $\vec{r}(t)$ sera toujours à distance $|t|$ de $\vec{p}$.
-                On peut donc facile résoudre le problème suivant : <em>quels sont les deux points de la droite à distance $k$ de $\vec{p}$</em> ?
+                On peut donc facile résoudre le problème suivant : <em>quels sont les deux points de la droite à distance $k$ de $\vec{p}$</em> ?
                 Il s'agit de $\vec{p} \pm k\ \vec{1_d}$
             </p>
             
@@ -837,9 +845,15 @@
         
             <p>Une opération pratique est le <strong>produit scalaire</strong> noté $\vec{a} \cdot \vec{b}$ ou parfois $\langle \vec{a}, \vec{b} \rangle$, c'est une opération qui prend deux vecteurs et renvoie un <strong>nombre</strong> (un <em>scalaire</em>).</p>
             <p>Une des propriétés de ce produit est que deux vecteurs <strong>perpendiculaires</strong> ont un produit scalaire <strong>nul</strong>.</p>
-            <p>Le produit scalaire a une formule <em>géométrique</em> et <em>algébrique</em> équivalentes.</p>
-            <p>$\vec{a} \cdot \vec{b}$ $=\|\vec{a}\|\ \|\vec{b}\|\ \cos \theta$</p>
-            <p>$\vec{a} \cdot \vec{b}$ $= a_x b_x + a_y b_y$</p>
+            <p>Le produit scalaire a une formule <em>géométrique</em> et <em>algébrique</em> équivalentes :</p>
+            
+            <p>
+                $\begin{cases}
+                \vec{a} \cdot \vec{b} =\|\vec{a}\|\ \|\vec{b}\|\ \cos \theta \\
+                \vec{a} \cdot \vec{b} = a_x b_x + a_y b_y
+                \end{cases}$
+            </p>
+            
             <figure><img src="vecteurs-produit-scalaire-geometrique.png"/> <img src="vecteurs-produit-scalaire-algebrique.png"/></figure>
             
             <p>
@@ -874,7 +888,7 @@
             <p>Le nom de <em>produit</em> vient de la distributivité : $\vec{a} \cdot (\vec{b} + \vec{c}) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}$
             et de l'homogénéité : $k (\vec{a} \cdot \vec{b}) = (k \vec{a}) \cdot \vec{b}$. Ces deux priorités en font par définition une transformation <em>linéaire</em>.</p>
             
-            <p>Avec les cas particuliers et la linéarité, on retrouve la formule algébrique : <em>(clique sur le bouton pour voir le développement avec plus de détails !)</em></p>
+            <p>Avec les cas particuliers et la linéarité, on retrouve la formule algébrique : <em>(clique sur le bouton pour voir le développement avec plus de détails !)</em></p>
             
             <p>
                 $\vec{a} \cdot \vec{b} $
@@ -890,7 +904,7 @@
                 $= \color{red}{a_x b_x} + \color{green}{a_y b_y}$
             </p>
             
-            <p>En python avec numpy, il existe la fonction <code>numpy.dot</code></p>
+            <p>En python avec numpy, il existe la fonction <code>numpy.dot</code> :</p>
             <pre><code class="py">numpy.dot([1,2],[3,4]) # 1*3+2*4</code></pre>
             
             <p>
@@ -954,8 +968,9 @@
         <h3 id="produit-vectoriel">Produit vectoriel</h3>
             <p> Surtout utile en 3D, nous avons le <a href="https://fr.wikipedia.org/wiki/Produit_vectoriel">produit vectoriel</a> noté $\vec{a} \times \vec{b}$ ou $\vec{a} \wedge \vec{b}$. </p>
             <p> C'est une opération 3D prenant deux vecteurs et renvoyant un troisième <strong>vecteur</strong> qui sera <strong>perpendiculaire</strong> aux <strong>deux</strong> vecteurs d'entrée. </p>
-            <p> Si les deux vecteurs sont parallèles, le résultat sera le <strong>vecteur nul</strong>, les deux vecteurs représentent la même direction ou la direction opposée.</p>
+            <p> Si les deux vecteurs sont parallèles, le résultat sera le <strong>vecteur nul</strong>, dans ce cas les deux vecteurs représentent la même direction ou la direction opposée.</p>
             
+            <p>Voici une définition du produit vectoriel :</p>
             <p>
                 $\vec{a} \times \vec{b}$
                 $= (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y}
@@ -991,8 +1006,8 @@
                 </span>
             </p>
             
-            <p class="if-then">Si $\vec{c} = \vec{a} \times \vec{b}$ alors $c = a\ b\ \sin \theta$</p>
-            <p class="implies">Si $\vec{c} = \vec{a} \times \vec{b} \implies c = a\ b\ \sin \theta$</p>
+            <p class="if-then">Si $\vec{c} = \vec{a} \times \vec{b}$ alors $c = a\ b\ \sin \theta$.</p>
+            <p class="implies">Si $\vec{c} = \vec{a} \times \vec{b} \implies c = a\ b\ \sin \theta$.</p>
             <p>Un moyen mnémotechnique pour se rappeler du sens de $\vec{c}$ est la <em>règle de la main droite</em>. Vous pouvez essayer sur la figure suivante : sur votre main <em>droite</em>, $\vec{a}$ est votre pouce, $\vec{b}$ votre index, et $\vec{a} \times \vec{b}$ votre majeur.</p>
             
             <figure>
@@ -1007,10 +1022,10 @@
                 le vecteur est opposé à la règle de la main droite.
             </p>
             
-            <p>Une autre règle de la main droite est expliqué en deux minutes dans <a href="https://clipedia.be/physique/forces/le-moment-de-force">cette vidéo</a> (à la <a href="https://youtu.be/w9R4fuV0fhM?t=21m40s">minute 21:40</a>). La discussion pour $\theta > \small{180°}$ est à la minute <a href="https://youtu.be/w9R4fuV0fhM?t=25m30s">25:30</a>.</p>
+            <p>Une autre règle de la main droite est expliquée en deux minutes dans <a href="https://clipedia.be/physique/forces/le-moment-de-force">cette vidéo</a> (à la <a href="https://youtu.be/w9R4fuV0fhM?t=21m40s">minute 21:40</a>). La discussion pour $\theta > \small{180°}$ est à la minute <a href="https://youtu.be/w9R4fuV0fhM?t=25m30s">25:30</a>.</p>
             
             <p>
-                Comme vue sur l'image animée précédente,
+                Comme vu sur l'image animée précédente,
                 <span class="if-then">si $\vec{a} \parallel \vec{b}$ alors $\sin\theta = 0$ et donc $\vec{a} \times \vec{b} = \vec{0}$.</span>
                 <span class="implies">$\vec{a} \parallel \vec{b}\implies \sin\theta = 0$ $\implies \vec{a} \times \vec{b} = \vec{0}$.</span>
                 
@@ -1024,21 +1039,24 @@
             <p>Si les deux vecteurs d'entrée sont de norme 1 et perpendiculaires, le vecteur résultant sera aussi de norme 1. En particulier, on a (pour un repère dextrogyre) :</p>
             
             <p>
-                $\color{red}{\vec{1_x}} \times \color{green}{\vec{1_y}} = \color{blue}{\vec{1_z}}$
-                $\quad $;$\quad \color{green}{\vec{1_y}} \times \color{blue}{\vec{1_z}} = \color{red}{\vec{1_x}}$
-                $\quad $;$\quad \color{blue}{\vec{1_z}} \times \color{red}{\vec{1_x}} = \color{green}{\vec{1_y}}$
+                $\begin{cases}
+                \color{red}{\vec{1_x}} \times \color{green}{\vec{1_y}} = \color{blue}{\vec{1_z}} \\
+                \color{green}{\vec{1_y}} \times \color{blue}{\vec{1_z}} = \color{red}{\vec{1_x}} \\
+                \color{blue}{\vec{1_z}} \times \color{red}{\vec{1_x}} = \color{green}{\vec{1_y}} \\
+                \end{cases} \quad$
+                $\begin{cases}
+                \color{green}{\vec{1_y}} \times \color{red}{\vec{1_x}} = - \color{blue}{\vec{1_z}} \\
+                \color{blue}{\vec{1_z}} \times \color{green}{\vec{1_y}} = - \color{red}{\vec{1_x}} \\
+                \color{red}{\vec{1_x}} \times \color{blue}{\vec{1_z}} = - \color{green}{\vec{1_y}} \\
+                \end{cases}$
             </p>
             
-            <p>
-                $\color{green}{\vec{1_y}} \times \color{red}{\vec{1_x}} = - \color{blue}{\vec{1_z}}$
-                $\quad $;$\quad \color{blue}{\vec{1_z}} \times \color{green}{\vec{1_y}} = - \color{red}{\vec{1_x}}$
-                $\quad $;$\quad \color{red}{\vec{1_x}} \times \color{blue}{\vec{1_z}} = - \color{green}{\vec{1_y}}$
-            </p>
-            
-            <p>Un moyen mnémotechnique pour se rappeler de ceci est que, si les deux vecteurs sont dans <em>l'ordre</em> (dans la séquence <em>x y z x y z</em>) alors c'est <em>+</em>, sinon c'est <em>-</em>.</p>
+            <p>Un moyen mnémotechnique pour se rappeler de ceci est que, si les deux vecteurs sont dans <em>l'ordre</em> (dans la séquence <em>x y z x y z</em>) alors c'est <em>+</em>, sinon c'est <em>−</em>.</p>
             
             <p>Le nom de <em>produit</em> vient de la distributivité : $\vec{a} \times (\vec{b} + \vec{c}) = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}$
-            et de l'homogénéité : $k (\vec{a} \times \vec{b}) = (k \vec{a}) \times \vec{b}$</p>
+            et de l'homogénéité : $k (\vec{a} \times \vec{b}) = (k \vec{a}) \times \vec{b}$.</p>
+            
+            <p>Attention, le produit vectoriel est anti-commutatif : $\vec{b} \times \vec{a} = \color{red}{\mathbf{-}}\  \vec{a} \times \vec{b}$.</p>
             
             <p>Avec les cas particuliers et la linéarité, on retrouve la formule : <em>(clique sur le bouton pour voir le développement avec plus de détails !)</em></p>
             
@@ -1081,7 +1099,7 @@
                 $$+ (\ \color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x}) \color{blue}{\vec{1_z}}$
             </p>
             
-            <p>En python avec numpy, il existe la fonction <code>numpy.cross</code></p>
+            <p>En python avec numpy, il existe la fonction <code>numpy.cross</code> :</p>
             <pre><code class="py">numpy.cross([1,0,0],[0,1,0]) # array([0,0,1]) </code></pre>
             
             <p>
@@ -1097,7 +1115,7 @@
             <p>
                 Remarque qu'un plan a une infinité de <em>vecteur normal</em>.
                 Si $\vec{n}$ est normal (perpendiculaire) au plan,
-                les vecteurs $2\vec{n}, -\vec{n}, -5\vec{n}$ le seront aussi ($k\ \vec{n}\quad \forall k \in \mathbb{R_{\ne 0}})$
+                les vecteurs $2\vec{n}, -\vec{n}, -5\vec{n}$ le seront aussi ($k\ \vec{n}\quad \forall k \in \mathbb{R}_{\ne 0})$
             </p>
             
             <p>
@@ -1190,7 +1208,7 @@
             
         <h3 id="intersections-3d">Intersections 3D</h3>
             <p>
-                Trouver l'intersection $\vec{r}$ entre un <em>plan</em> contenant $\vec{p}$, dont la normale est $\vec{n}$ et une droite contenant
+                Trouver l'intersection $\vec{r}$ entre un <em>plan</em> contenant le point $\vec{p}$, dont la normale est $\vec{n}$ et une <em>droite</em> contenant
                 $\vec{a}$ de vecteur directeur $\vec{d}$ :
             </p>
             
@@ -1209,7 +1227,7 @@
         
         <h3 id="vecteurs-physique">Physique</h3>
             <p>
-                Beaucoup d'objet physique sont représentés par des vecteurs comme les <strong>forces</strong>, la <strong>position</strong>, la <strong>vitesse</strong> et l'<strong>accélération</strong>,
+                Beaucoup d'objets physiques sont représentés par des vecteurs comme les <strong>forces</strong>, la <strong>position</strong>, la <strong>vitesse</strong> et l'<strong>accélération</strong>,
                 jette un œil à ma page <a href="">physique</a> !
             </p>
         
@@ -1393,13 +1411,97 @@
             <ul>
                 <li>Le produit matriciel n'est <strong>pas commutatif</strong>. Donc $\exists A,B : AB \neq BA$.</li>
                 <li>Le produit matriciel est <strong>associatif</strong> : $ABC = (AB)C = A(BC)$.</li>
-                <li>Le produit matriciel est distributif : $A(B + C) = AB + AC$</li>
+                <li>Le produit matriciel est distributif : $A(B + C) = AB + AC$.</li>
             </ul>
     </section>
     
     <h2 id="transformations">Transformations</h2>
     
     <section name="transformations">
+        <h3 id="code-python">Code python</h3>
+            <p>En python, une manière simple de manipuler des matrices et des vecteurs est la bibliothèque <code>numpy</code>.</p>
+            <p>Soit on utilise la classe générique <code>numpy.array</code> (méthode que je recommande) :</p>
+            
+            <pre><code class="python">
+            from numpy import array
+            P = array([1,2])         # Un vecteur 2D
+            M = array([[5,6],[7,8]]) # Une matrice carrée 2x2
+            G = array([[1,1],[9,0]]) # Une autre matrice carrée 2x2
+            Q = 2 * P       # multiplication par un nombre
+            R = P + R       # addition vectorielle/matricielle
+            S = M.dot(P)    # multiplication matricielle, S est un vecteur
+            S = M @ P       # multiplication matricielle, Python 3.5 uniquement
+            H = M.dot(G)    # Une 2x2 fois une 2x2 donne une 2x2
+            H = M @ G       # multiplication matricielle, Python 3.5 uniquement
+            T = M.T         # T est la transposée de M
+            a = M[0][1]     # lire les éléments d'une matrice, ici première ligne, deuxième colonne
+            x = P[0]        # lire les 2 composantes du vecteur comme ...
+            y = P[1]        # ... ceci
+            x,y = P         # Raccourci pour la lecture d'un vecteur
+            (a,b),(c,d) = M # Raccourci pour la lecture d'une matrice
+            print(P.size)   # 2 éléments
+            print(P.shape)  # (2,) une dimension de taille 2
+            print(M.size)   # 4 éléments
+            print(M.shape)  # (2,2) deux dimensions, shape = (2 x 2)
+            </code></pre>
+        
+            <p>Soit la classe <code>numpy.matrix</code> :</p>
+            
+            <pre><code class="python">
+            from numpy import matrix
+            P = matrix([[1],[2]])     # Une matrice colonne de taille 2
+            M = matrix([[5,6],[7,8]]) # Une matrice carrée 2x2
+            M = matrix('5 6; 7 8')    # Version allégée, pratique pour utiliser python comme calculette
+            G = matrix([[1,1],[9,0]]) # Une autre matrice carrée 2x2
+            Q = 2 * P       # multiplication par un nombre
+            R = P + R       # addition vectorielle/matricielle
+            S = M * P       # multiplication matricielle, S est une une matrice colonne
+            S = M @ P       # multiplication matricielle, Python 3.5 uniquement
+            H = M * G       # Une 2x2 fois une 2x2 donne une 2x2 
+            H = M @ G       # multiplication matricielle, Python 3.5 uniquement
+            T = M.T         # T est la transposée de M
+            a = M[0,1]      # lire les éléments d'une matrice, ici première ligne, deuxième colonne
+            x = P[0,0]      #  lire les 2 composantes de la matrice comme ...
+            y = P[1,0]      # ... ceci
+            print(P.size)   # 2 éléments
+            print(P.shape)  # (2,1) en deux dimensions shape = (2 x 1)
+            print(M.size)   # 4 éléments
+            print(M.shape)  # (2,2) en deux dimensions shape = (2 x 2)
+            </code></pre>
+            
+            <p>Faites donc attention à l'opérateur <code>*</code> (et <code>**</code>) qui n'a pas la même sémantique dans les deux cas :</p>
+            
+            <pre><code class="python">
+            A =  array([[1,2],[3,4]]) *  array([[1,2],[3,4]]) # [[1*1, 2*2], [3*3, 4*4]]
+            B = matrix([[1,2],[3,4]]) * matrix([[1,2],[3,4]]) # [[1*1+2*3, 1*2+2*4], [3*1+4*3, 3*2+4*4]]
+
+            C =  array([[1,2],[3,4]]) **  array([[1,2],[3,4]]) # [[1**1,2**2],[3**3,4**4]]
+            D =  array([[1,2],[3,4]]) ** 2 # [[1**2,2**2],[3**2,4**2]]
+            B = matrix([[1,2],[3,4]]) ** 2 # [[1*1+2*3, 1*2+2*4], [3*1+4*3, 3*2+4*4]]
+            </code></pre>
+            
+            <p>En Python 3.5, veuillez utiliser l'opérateur <code>@</code> pour toutes vos multiplications de matrices.</p>
+            
+            <p>Beaucoup d'opérations qui marchent sur les nombres ont une <em>version numpy</em> qui marche avec les array et parfois matrix :</p>
+            
+            <pre><code class="python">
+            A = array([4,5]) + 3 # array([5,6])
+            A = array([4,5]) ** 2 # array([4**2, 5**2])
+            numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
+            </code></pre>
+            
+            <p>Si vous connaissez les déterminants et les inversions de matrice, ça se passe dans <code>numpy.linalg</code> :</p>
+            <pre><code class="python">
+            from numpy.linalg import det, inv 
+            M = matrix('1 2; 3 4')
+            A = array([[1,2], [3,4]])
+            d = det(M) # -2.0 {{rapide car utilise une décomposition LU et LAPACK|fast because it uses LU decomposition and LAPACK}}
+            d = det(A) # -2.0
+            I = inv(M) # {{matrice inverse|inverse matrix}}: matrix('-2 1; 1.5 -0.5')
+            I = inv(A) # {{matrice inverse|inverse matrix}}: array([[-2, 1], [1.5, -0.5]])
+            I = M ** -1 # matrix {{comprend les exposants négatifs de matrice|does understand negative matrix exponent}}
+            </code></pre>
+        
         <h3 id="{{transformations-systeme|system-transformation}}">Système d'équation et matrice</h3>
             <p>En informatique, on manipule surtout des matrices colonnes de taille 2, 3 ou 4 et des matrices carrées de même taille.</p>
             
@@ -1415,9 +1517,9 @@
                 $\iff \begin{cases}x' = \color{red}{a}\ x + \color{red}{b}\ y\\y' = \color{blue}{c}\ x + \color{blue}{d}\ y\end{cases}$
             </p>
             
-            <p>Trois représentations équivalentes de la transformation $P' = MP$</p>
+            <p>Trois représentations équivalentes de la transformation $P' = MP$.</p>
             
-            <p>En terme plus mathématique, une matrice peut représenter toute transformation <em>linéaire</em>. Une transformation $T$ est <em>linéaire</em> si $\forall\ \vec{a}, \vec{b}, k$ :</p>
+            <p>En termes plus mathématique, une matrice peut représenter toute transformation <em>linéaire</em>. Une transformation $T$ est <em>linéaire</em> si $\forall\ \vec{a}, \vec{b}, k$ :</p>
             
             <ul>
                 <li>$T(\vec{a} + \vec{b}) = T(\vec{a}) + T(\vec{b})$</li>
@@ -1469,72 +1571,6 @@
                 </span>
             </p>
         
-        <h3 id="code-python">Code python</h3>
-            <p>En python, une manière simple de manipuler des matrices et des vecteurs est la bibliothèque <code>numpy</code>.</p>
-            <p>Soit on utilise la classe générique <code>numpy.array</code> (méthode que je recommande) :</p>
-            
-            <pre><code class="python">from numpy import array
-P = array([1,2])         # Un vecteur 2D
-M = array([[5,6],[7,8]]) # Une matrice carrée 2x2
-G = array([[1,1],[9,0]]) # Une autre matrice carrée 2x2
-Q = 2 * P       # multiplication par un nombre
-R = P + R       # addition vectorielle/matricielle
-S = M.dot(P)    # multiplication matricielle, S est un vecteur
-S = M @ P       # multiplication matricielle, Python 3.5 uniquement
-H = M.dot(G)    # Une 2x2 fois une 2x2 donne une 2x2
-H = M @ G       # multiplication matricielle, Python 3.5 uniquement
-T = M.T         # T est la transposée de M
-a = M[0][1]     # lire les éléments d'une matrice, ici première ligne, deuxième colonne
-x = P[0]        # lire les 2 composantes du vecteur comme ...
-y = P[1]        # ... ceci
-x,y = P         # Raccourci pour la lecture d'un vecteur
-(a,b),(c,d) = M # Raccourci pour la lecture d'une matrice
-print(P.size)   # 2 éléments
-print(P.shape)  # (2,) une dimension de taille 2
-print(M.size)   # 4 éléments
-print(M.shape)  # (2,2) deux dimensions, shape = (2 x 2)
-</code></pre>
-        
-            <p>Soit la classe <code>numpy.matrix</code> :</p>
-            
-            <pre><code class="python">from numpy import matrix
-P = matrix([[1],[2]])     # Une matrice colonne de taille 2
-M = matrix([[5,6],[7,8]]) # Une matrice carrée 2x2
-M = matrix('5 6; 7 8')    # Version allégée, pratique pour utiliser python comme calculette
-G = matrix([[1,1],[9,0]]) # Une autre matrice carrée 2x2
-Q = 2 * P       # multiplication par un nombre
-R = P + R       # addition vectorielle/matricielle
-S = M * P       # multiplication matricielle, S est une une matrice colonne
-S = M @ P       # multiplication matricielle, Python 3.5 uniquement
-H = M * G       # Une 2x2 fois une 2x2 donne une 2x2 
-H = M @ G       # multiplication matricielle, Python 3.5 uniquement
-T = M.T         # T est la transposée de M
-a = M[0,1]      # lire les éléments d'une matrice, ici première ligne, deuxième colonne
-x = P[0,0]      #  lire les 2 composantes de la matrice comme ...
-y = P[1,0]      # ... ceci
-print(P.size)   # 2 éléments
-print(P.shape)  # (2,1) en deux dimensions shape = (2 x 1)
-print(M.size)   # 4 éléments
-print(M.shape)  # (2,2) en deux dimensions shape = (2 x 2)
-</code></pre>
-            
-            <p>Faites donc attention à l'opérateur <code>*</code> (et <code>**</code>) qui n'a pas la même sémantique dans les deux cas :</p>
-            
-            <pre><code class="python">A = matrix([[1,2],[3,4]]) * matrix([[1,2],[3,4]]) # [[1*1, 2*2], [3*3, 4*4]]
-B = matrix([[1,2],[3,4]]) * matrix([[1,2],[3,4]]) # [[1*1+2*3, 1*2+2*4], [3*1+4*3, 3*2+4*4]]
-
-C = matrix([[1,2],[3,4]]) ** matrix([[1,2],[3,4]]) # matrix([[1**1,2**2],[3**3,4**4]])
-D = matrix([[1,2],[3,4]]) ** 2 # matrix([[1**2,2**2],[3**2,4**2]])
-B = matrix([[1,2],[3,4]]) ** 2 # [[1*1+2*3, 1*2+2*4], [3*1+4*3, 3*2+4*4]]
-            </code></pre>
-            
-            <p>Beaucoup d'opérations qui marchent sur les nombres ont une <em>version numpy</em> qui marche avec les array et parfois matrix :</p>
-            
-            <pre><code class="python">A = array([4,5]) + 3 # array([5,6])
-A = array([4,5]) ** 2 # array([4**2, 5**2])
-numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
-</code></pre>
-            
         <h3 id="{{identite|identity}}">Identité</h3>
         
             <p>Quelle est la matrice qui ne change pas un point ? On part d'un point $P$, on le transforme via $M$, et on obtient le même $P$. On cherche donc $M$ tel quel $P = MP$ pour tout $P$.</p>
@@ -1555,8 +1591,8 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
                 Le redimensionnement, ou <em>scale</em> en anglais, ou <em>homothétie</em> en terme plus mathématique,
                 permet de redimensionner un objet.
                 Prenons un rectangle de côtés <strong>2</strong> et <strong>3</strong> centré en l'origine.
-                On peut appliquer une transformation de ses points pour qu'il devienne <strong>3</strong> fois plus grand ! (Transformation en <span class="color:blue">bleu</span> sur la figure)
-                Ou une transformation pour qu'il devienne <strong>2</strong> fois plus petit ! (Transformation en <span class="color:#008000">vert</span> sur la figure)
+                On peut appliquer une transformation de ses points pour qu'il devienne <strong>3</strong> fois plus grand (transformation en <span class="color:blue">bleu</span> sur la figure)
+                ou une transformation pour qu'il devienne <strong>2</strong> fois plus petit (transformation en <span class="color:#008000">vert</span> sur la figure).
             </p>
             
             <figure><img src="transformation-redimensionnement.png" /></figure>
@@ -1577,7 +1613,7 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
             <p>On peut également avoir un facteur différent en $x$ et $y$, par exemple si $k_x = 2, k_y = 3$ un carré de côté $2$ centré en $(0,0)$ deviendra un rectangle de dimension $(4,6)$ centré en $(0,0)$.</p>
             
             <p>
-                Des facteurs de k sont également possible, si $k = -1$ la transformation retourne le modèle sans changer sa taille,
+                Des facteurs de k négatifs sont également possible, si $k = -1$ la transformation retourne le modèle sans changer sa taille,
                 si $k_x = 1, k_y = -1$, on fait une transformation mirroir par rapport à l'axe $x$ et dans ce cas un <em>M</em> deviendrait un <em>W</em>.
             </p>
             
@@ -1585,7 +1621,7 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
         
         <h3 id="rotation">Rotation</h3>
         
-            <p>J'ai un point ou un vecteur $(2,1)$, et je le tourne de $\theta = 50°$ :</p>
+            <p>J'ai un point ou un vecteur $P = (2,1)$, et je le tourne de $\theta = 50°$ :</p>
             
             <figure><img src="transformation-rotation.png"/></figure>
             
@@ -1659,7 +1695,9 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
             <p>En toute généralité, pour une translation d'un vecteur $\vec{t}$ on a :</p>
             
             <p>$T_\vec{t} = \begin{pmatrix}1&0&t_x\\0&1&t_y\\0&0&1\end{pmatrix}$</p>
-        
+            
+            <p>Je ne vais pas rentrer dans les détails des coordonnées homogènes, mais sachez que si $w \neq 1$, on peut diviser les trois composantes par $w$ pour obtenir le point. Ainsi $(4,2,1)$, $(8,4,2)$ et $(-4,-2,-1)$ représentent tous le même point $(4,2)$. De plus si $w = 0$, on parlera de <em>point à l'infini</em> dans la direction $(x,y)$.</p>
+            
         <h3 id="sequence-transformations">Séquence de transformations</h3>
         
             <p>En 2D, on va donc représenter un point avec <strong>3</strong> composantes, dont la dernière vaut <strong>1</strong>. En suite on a ces matrices de <em>redimensionnement</em>, <em>rotation</em> et <em>translation</em>.</p>
@@ -1676,7 +1714,7 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
             
             <p>Nous pouvons maintenant, résoudre l'exemple donné au début !</p>
             
-            <p><em>J'ai un point (2,1), je le tourne de 45° et puis je le redimensionne d'un facteur 4, je le déplace de (-6,-4), puis je le tourne de 30°, où est-il maintenant ?</em></p>
+            <p><em>J'ai un point (2,1), je le tourne de 45° et puis je le redimensionne d'un facteur 4, je le déplace de (−6,−4), puis je le tourne de 30°, où est-il maintenant ?</em></p>
             
             <figure><img src="transformation-multiples.png" style="background:white" /></figure>
             
@@ -1685,14 +1723,12 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
             <p>On a $P_1 = R_{45°}\times P$ pour la première transformation, puis on continue, en appliquant à chaque fois sur le point reçu précédemment.</p>
             
             <p>
-                $
-                P_1 = R_{45°}\times P
-                \quad$;$\quad
-                P_2 = S_4\times P_1
-                \quad$;$\quad
-                P_3 = T_{(-6,-4)}\times P_2
-                \quad$;$\quad
-                P' = R_{30°}\times P_3
+                $\begin{cases}
+                P_1 = R_{45°}\times P \\
+                P_2 = S_4\times P_1 \\
+                P_3 = T_{(-6,-4)}\times P_2 \\
+                P' = R_{30°}\times P_3 \\
+                \end{cases}
                 $
             </p>
             
@@ -1711,30 +1747,43 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
             
             <p>
                 $S_4 = \begin{pmatrix}4&0&0\\0&4&0\\0&0&1\end{pmatrix}$
-                $\quad R_{45°} $
+            </p>
+            
+            <p>
+                $R_{45°} $
                 <span class="developpement" symbol="=">
                 $= \begin{pmatrix}\cos{45°}&-\sin{45°}&0\\\sin{45°}&\cos{45°}&0\\0&0&1\end{pmatrix} $
                 </span>
                 $\simeq \begin{pmatrix}0.707&-0.707&0\\0.707&0.707&0\\0&0&1\end{pmatrix}$
-                $\quad T_{(-6,-4)} = \begin{pmatrix}1&0&-6\\0&1&-4\\0&0&1\end{pmatrix}$
-                $\quad R_{30°} $
+            </p>
+            
+            <p>
+                $T_{(-6,-4)} = \begin{pmatrix}1&0&-6\\0&1&-4\\0&0&1\end{pmatrix}$
+            </p>
+            
+            <p>
+                $R_{30°} $
                 <span class="developpement" symbol="=">
                 $= \begin{pmatrix}\cos{30°}&-\sin{30°}&0\\\sin{30°}&\cos{30°}&0\\0&0&1\end{pmatrix} $
                 </span>
                 $\simeq \begin{pmatrix}0.866&-0.500&0\\0.500&0.866&0\\0&0&1\end{pmatrix}$
             </p>
             
-            <p>$M = \begin{pmatrix}1.035&-3.863&-3.196\\3.863&1.035&-6.464\\0&0&1\end{pmatrix}$ $\quad P' = \begin{pmatrix}-4.989\\2.298\\1\end{pmatrix}$</p>
+            <p>$M = \begin{pmatrix}1.035&-3.863&-3.196\\3.863&1.035&-6.464\\0&0&1\end{pmatrix}$</p>
+            <p>$P' = \begin{pmatrix}-4.989\\2.298\\1\end{pmatrix}$</p>
             
-            <p>Le point $(1,2)$ est donc transformé en $(-4.989, 2.298)$. Et si on a un autre point avec la même transformation ? On peut réutiliser la même matrice !</p>
+            <p>Le point $(1,2)$ est donc transformé en $(-4.989, 2.298)$.</p>
+            <p>Et si on a un autre point avec la même transformation ? On peut réutiliser la même matrice !</p>
             
             <p>Par exemple, le rectangle $R = ((2,1), (2,-1), (-2,-1), (-2,1))$ sera transformé de la même manière.</p>
             
             <p>
-                $R_1' = M R_1 = (-4.989,\   2.298)$
-                $\quad R_2' = M R_2 = (2.738,\   0.228)$
-                $\quad R_3' = M R_3 = (-1.403,\ -15.226)$
-                $\quad R_4' = M R_4 = (-9.130,\ -13.156)$
+                $\begin{cases}
+                R_1' = M R_1 = (-4.989,\   2.298) \\
+                R_2' = M R_2 = (2.738,\   0.228) \\
+                R_3' = M R_3 = (-1.403,\ -15.226) \\
+                R_4' = M R_4 = (-9.130,\ -13.156)
+                \end{cases}$
             </p>
 
             <figure><img src="transformation-multiples-rectangle.png" /></figure>
@@ -1745,6 +1794,13 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
                 <img src="http://vignette4.wikia.nocookie.net/memoryalpha/images/8/87/Akira_class_CGI_wireframe_model_by_ILM.jpg/revision/latest?cb=20130221104236&path-prefix=en" height=300>
                 <img src="http://orig11.deviantart.net/8ef1/f/2011/143/0/e/3d_model___f16_wire_frame_by_doubleohzero-d3h1j6j.png" height=300 />
             </figure>
+            
+            <p>Petit exercice de matrices, quelle est la matrice de rotation autour d'un point autre que $(0,0)$ ?</p>
+            
+            <span class="developpement" symbol="Réponse">
+                <p>Si $\vec{c}$ est le centre de rotation et $\theta$ l'angle :</p>
+                <p>$M = T_{\vec{c}} \times R_{\theta} \times T_{-\vec{c}}$</p>
+            </span>
         
         <!-- <h3>Repères</h3>
         <p>
@@ -1762,20 +1818,29 @@ numpy.cos(array([1,2,3])) # array([cos(1),cos(2),cos(3)])
             <p>
                 $
                 S_\vec{k} = \begin{pmatrix}k_x&0&0&0\\0&k_y&0&0\\0&0&k_z&0\\0&0&0&1\end{pmatrix}
-                \quad $;$\quad
+                ;\quad$$\
                 T_\vec{t} = \begin{pmatrix}1&0&0&t_x\\0&1&0&t_y\\0&0&1&t_z\\0&0&0&1\end{pmatrix}
-                \quad $;$\quad
+                ;\quad $$
                 R_{x,\theta} = \begin{pmatrix}1&0&0&0\\0&\cos\theta&-\sin\theta&0\\0&\sin\theta&\cos\theta&0\\0&0&0&1\end{pmatrix}
-                \quad $;$\quad
+                ;\quad $$
                 R_{y,\theta} = \begin{pmatrix}\cos\theta&0&\sin\theta&0\\0&1&0&0\\-\sin\theta&0&\cos\theta&0\\0&0&0&1\end{pmatrix}
-                \quad $;$\quad
+                ;\quad $$
                 R_{z,\theta} = \begin{pmatrix}\cos\theta&-\sin\theta&0&0\\\sin\theta&\cos\theta&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix}
                 $
             </p>
             
-            <p>On peut aussi définir la rotation autour d'un axe quelquonque $\vec{A} = (A_x, A_y, A_z)$. Si $c = \cos\theta$, $\quad k = 1-c$, $\quad s = \sin\theta$, $\quad \vec{u} = \vec{A} / \|A\|$, $\quad \vec{u} = (x,y,z)$ ça nous donne cette matrice-ci :</p>
+            <p>On peut aussi définir la rotation autour d'un axe quelquonque $\vec{A} = (A_x, A_y, A_z)$. En utilisant les variables $c, k, s, x, y, z$ pour simplifier les notations, on a :</p>
             
-            <p>$\quad R_{\vec{A},\theta} = \begin{pmatrix}
+            <p>$
+            \begin{cases}
+            c = \cos\theta \\
+            k = 1-c \\
+            s = \sin\theta \\
+            (x,y,z) = \vec{1_{A}} = \vec{A} / \|A\|
+            \end{cases}
+            $</p>
+            
+            <p>$\implies R_{\vec{A},\theta} = \begin{pmatrix}
             c + x^2 k & x y k - z s & x z k + y s & 0
             \\ y x k + z s & c + y^2k & y z k - x s & 0
             \\ z x k - y s & z y k + x s & c + z^2k & 0

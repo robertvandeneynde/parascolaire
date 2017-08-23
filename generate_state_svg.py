@@ -6,6 +6,8 @@ import argparse
 import xml.dom.minidom
 import re
 
+from generate_utils import OutFile
+
 p = argparse.ArgumentParser(description='''
     In a svg file {x}.svg, look for every layer and creates {x}.state-{i}.svg
     for all detected states.
@@ -111,8 +113,8 @@ for svg_file in args.svg_file:
         slides = set_union(info for layer, info in all_infos)
 
         for slide in slides:
-            filename = "{}.state-{}.svg".format(svg_filename, slide)
-            with open(filename, 'w') as f:
+            new = OutFile("{}.state-{}.svg".format(svg_filename, slide))
+            with new as f:
                 for layer, info in all_infos:
                     if slide not in info:
                         root.removeChild(layer)
@@ -120,4 +122,4 @@ for svg_file in args.svg_file:
                 for layer, info in reversed(all_infos):
                     if slide not in info:
                         root.insertBefore(layer, nexts[layer])
-            print('Created', filename)
+            print('Created', new.filename)

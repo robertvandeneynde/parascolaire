@@ -1,3 +1,6 @@
+#!coding: utf-8
+from __future__ import print_function, division
+
 from OpenGL.GL import *
 from OpenGL.GL import shaders
 import ctypes
@@ -48,7 +51,7 @@ texcoords = (numpy.array(texcoords, dtype=numpy.float32) if USE_NUMPY else
 def create_object(shader):
     # Create a new VAO (Vertex Array Object) and bind it
     vertex_array_object = glGenVertexArrays(1)
-    glBindVertexArray( vertex_array_object )
+    glBindVertexArray(vertex_array_object)
     
     # Generate buffers to hold our vertices
     vertex_buffer = glGenBuffers(1)
@@ -56,9 +59,12 @@ def create_object(shader):
     
     # Get the position of the 'position' in parameter of our shader and bind it.
     position = glGetAttribLocation(shader, 'position')
-    glEnableVertexAttribArray(position)
-    glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
-    glBufferData(GL_ARRAY_BUFFER, 48, vertices if USE_NUMPY else vertices.tostring(), GL_STATIC_DRAW)
+    if position != -1:
+        glEnableVertexAttribArray(position)
+        glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
+        glBufferData(GL_ARRAY_BUFFER, 48, vertices if USE_NUMPY else vertices.tostring(), GL_STATIC_DRAW)
+    else:
+        print('Inactive attribute "{}"'.format('position'))
     
     texcoord_buffer = glGenBuffers(1)
     glBindBuffer(GL_ARRAY_BUFFER, texcoord_buffer)
@@ -81,7 +87,7 @@ def create_object(shader):
     glBindTexture(GL_TEXTURE_2D, 0)
     
     # Unbind the VAO first (Important)
-    glBindVertexArray( 0 )
+    glBindVertexArray(0)
     
     # Unbind other stuff
     # glDisableVertexAttribArray(position)
@@ -93,13 +99,13 @@ def display(shader, vertex_array_object):
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glUseProgram(shader)
     
-    glBindVertexArray( vertex_array_object )
+    glBindVertexArray(vertex_array_object)
     glActiveTexture(GL_TEXTURE0) # tex 0 on GPU
     glBindTexture(GL_TEXTURE_2D, vaisseau_tex) # is vaisseau_tex
     loc_vaisseau = glGetUniformLocation(shader, 'vaisseau')
     glUniform1i(loc_vaisseau, 0) # vaisseau is tex unit 0
     glDrawArrays(GL_TRIANGLES, 0, 3)
-    glBindVertexArray( 0 )
+    glBindVertexArray(0)
     
     glUseProgram(0)
 
@@ -109,27 +115,27 @@ def main():
     glClearColor(0.5, 0.5, 0.5, 1.0)
     glEnable(GL_DEPTH_TEST)
     # glEnable(GL_ALPHA_TEST)
-    # glAlphaFunc(GL_GREATER, 0);
+    # glAlphaFunc(GL_GREATER, 0)
     # glEnable(GL_TEXTURE_2D)
-    # glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    # glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 
     shader = shaders.compileProgram(
         shaders.compileShader(vertex_shader, GL_VERTEX_SHADER),
-        shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER)
-    )
+        shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER))
     
     vertex_array_object = create_object(shader)
     
     clock = pygame.time.Clock()
     
     done = False
-    while not done:     
+    while not done:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
         
         display(shader, vertex_array_object)
         pygame.display.flip()
+        clock.tick(60)
 
 if __name__ == '__main__':
     try:

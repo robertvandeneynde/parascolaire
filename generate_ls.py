@@ -6,6 +6,8 @@ import os, re
 from functools import partial
 import textwrap
 
+from generate_utils import OutFile
+
 GROUPINGS = ('theorie', 'exercice', 'pygame', 'progra', 'gl', 'lecture', 'pdf', 'projet', '')
 
 EXTS = {
@@ -79,19 +81,15 @@ def content(path, indent=0):
             name = os.path.basename(path) if not RE0.match(path) else os.path.basename(path[:-3]),
             sub = '\n'.join(
                 map(((1 + indent) * '    ' + '{}').format,
-                list(map(partial(content, indent=indent+1),
-                list(filter(accepted,
-                list(map(partial(os.path.join, path),
-                partial(sorted, key=key)(os.listdir(path)))))))))
+                map(partial(content, indent=indent+1),
+                filter(accepted,
+                map(partial(os.path.join, path),
+                partial(sorted, key=key)(os.listdir(path))))))
             )
         )
 if __name__ == '__main__':
     with open('template.html') as f:
         template = f.read()
 
-    filename = 'index.html'
-    if os.path.isfile(filename):
-        os.chmod(filename, 0o644) # read write
-    with open(filename, 'w') as f:
+    with OutFile('index.html') as f:
         f.write(template.replace('%%', content('.', indent=3) + '</section>'))
-    os.chmod(filename, 0o444) # read only
