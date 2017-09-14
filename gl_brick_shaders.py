@@ -139,29 +139,29 @@ def PerspectiveMatrix(fovy, aspect, zNear, zFar):
         [0, 0, -1, 0]
     ])
 
-def LookAtMatrix(*args):
-    """ returns the LookAt matrix
+def LookAtMatrix(eye, target, up, *others):
+    """ LookAt: I am in "eye" I look at "target" and the up is "up"
     LookAtMatrix(1,2,3, 4,5,6, 7,8,9)
     LookAtMatrix((1,2,3), (4,5,6), (7,8,9))
     """
-    if len(args) == 3:
-        e, c, up = args
-    elif len(args) == 9:
-        e, c, up = args[:3], args[3:6], args[6:]
+    if len(others) == 0:
+        pass
+    elif len(others) == 6:
+        eye, target, up = (eye, target, up), others[:3], others[3:]
     else:
         raise TypeError("Accept 3 or 9 arguments")
-    c = array(c)
+    target = array(target)
 
-    f = normalized(c - e)
+    f = normalized(target - eye)
     s = normalized(numpy.cross(f, up))
     u = numpy.cross(s, f)
 
     return farray([
-        [s[0], s[1], s[2], -s.dot(e)],
-        [u[0], u[1], u[2], -u.dot(e)],
-        [-f[0], -f[1], -f[2], f.dot(e)],
+        [s[0], s[1], s[2], -s.dot(eye)],
+        [u[0], u[1], u[2], -u.dot(eye)],
+        [-f[0], -f[1], -f[2], f.dot(eye)],
         [0, 0, 0, 1],
-    ]) # corresponds to M @ Translate(-e)
+    ]) # corresponds to M(s, u, -f).to4x4 @ Translate(-eye)
 
 
 def TranslationMatrix(*args):
@@ -305,14 +305,16 @@ tx,ty = taille = [12*60, 500]
 sol_points = farray([
     0, 0, 0,
     tx, 0, 0,
+    0, ty, 0,
+    tx, 0, 0,
     tx, ty, 0,
     0, ty, 0,
 ])
 
-sol_normals = farray([0,0,1] * 4)
+sol_normals = farray([0,0,1] * 6)
 
 """
-quads
+triangles (quads are deprecated)
 from (0,0,0) to (1,1,1)
 faces are ccw (counter clockwise : sens contraire des aiguilles d'une montre)
 """
@@ -320,11 +322,15 @@ cube_points = farray([
     # up
     0, 0, 1,
     1, 0, 1,
+    0, 1, 1,
+    1, 0, 1,
     1, 1, 1,
     0, 1, 1,
 
     # down
     0, 0, 0,
+    0, 1, 0,
+    1, 0, 0,
     0, 1, 0,
     1, 1, 0,
     1, 0, 0,
@@ -332,11 +338,15 @@ cube_points = farray([
     # right
     1, 0, 0,
     1, 1, 0,
+    1, 0, 1,
+    1, 1, 0,
     1, 1, 1,
     1, 0, 1,
 
     # left
     0, 0, 0,
+    0, 0, 1,
+    0, 1, 0,
     0, 0, 1,
     0, 1, 1,
     0, 1, 0,
@@ -344,23 +354,27 @@ cube_points = farray([
     # back
     0, 1, 0,
     0, 1, 1,
+    1, 1, 0,
+    0, 1, 1,
     1, 1, 1,
     1, 1, 0,
 
     # front
     1, 0, 0,
     1, 0, 1,
+    0, 0, 0,
+    1, 0, 1,
     0, 0, 1,
     0, 0, 0,
 ])
 
 cube_normals = farray(
-    [0, 0, 1] * 4
-    + [0, 0, -1] * 4
-    + [1, 0, 0] * 4
-    + [-1, 0, 0] * 4
-    + [0, 1, 0] * 4
-    + [0, -1, 0] * 4)
+    [0, 0, 1] * 6
+    + [0, 0, -1] * 6
+    + [1, 0, 0] * 6
+    + [-1, 0, 0] * 6
+    + [0, 1, 0] * 6
+    + [0, -1, 0] * 6)
 
 
 def creer_vao_sol(shader):
@@ -481,11 +495,10 @@ def main():
 
     fini = 0
     while fini == 0:
-        # pour tous les événements qui se sont passsés depuis la dernière fois
         for event in pygame.event.get():
-            if event.type == pygame.QUIT: # si l'event est de type QUIT
-                fini = 1 # on met fini à 1, ce qui va quitter la boucle à la fin de ce tick
-            elif event.type == pygame.VIDEORESIZE:
+            if event.type == pygame.QUIT:
+                fini = 1
+            elif event.type == pygame.VIDEORESIZE: # la fenêtre a été redimensionnée
                 # on s'adapte à la nouvelle fenêtre
                 ecran = nouvel_ecran(event.w, event.h) # re créer l'écran !
 
@@ -538,7 +551,7 @@ def main():
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glUseProgram(shader)
 
-        P = PerspectiveMatrix(45, 1.0 * tx / ty, 100, 2000) # fov 45°, ratio tx / ty, distance min : 100, distance max : 2000
+        P = PerspectiveMatrix(45, tx / ty, 100, 2000) # fov 45°, ratio tx / ty, distance min : 100, distance max : 2000
 
         # position et orientation de la camera :
         camera_x = tx/2 # au milieu de l'arène
@@ -555,7 +568,7 @@ def main():
         light_z = 150 # un peu au dessus des briques (hauteur : 100)
         glUniform3f(glGetUniformLocation(shader, 'lightPos'), light_x, light_y, light_z)
 
-        PV = P.dot(V)
+        PV = P @ V # P.dot(V) si Python < 3.5
         # dessin du sol
         glBindVertexArray(vao_sol)
 
@@ -563,7 +576,7 @@ def main():
         glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, IdentityMatrix())
         glUniform3fv(glGetUniformLocation(shader, 'color'), 1, BLEU_CLAIR)
 
-        glDrawArrays(GL_QUADS, 0, 4)
+        glDrawArrays(GL_TRIANGLES, 0, 6)
 
         glBindVertexArray(0)
 
@@ -575,22 +588,22 @@ def main():
         M = TranslationMatrix(0, -50, 0).dot(ScaleMatrix(tx, 50, 50))
         glUniformMatrix4fv(glGetUniformLocation(shader, 'pvMatrix'), 1, True, PV)
         glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, M)
-        glDrawArrays(GL_QUADS, 0, 24)
+        glDrawArrays(GL_TRIANGLES, 0, 36)
 
         M = TranslationMatrix(0, ty, 0).dot(ScaleMatrix(tx, 50, 50))
         glUniformMatrix4fv(glGetUniformLocation(shader, 'pvMatrix'), 1, True, PV)
         glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, M)
-        glDrawArrays(GL_QUADS, 0, 24)
+        glDrawArrays(GL_TRIANGLES, 0, 36)
 
         M = TranslationMatrix(-50, 0, 0).dot(ScaleMatrix(50, ty, 50))
         glUniformMatrix4fv(glGetUniformLocation(shader, 'pvMatrix'), 1, True, PV)
         glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, M)
-        glDrawArrays(GL_QUADS, 0, 24)
+        glDrawArrays(GL_TRIANGLES, 0, 36)
         
         M = TranslationMatrix(tx, 0, 0).dot(ScaleMatrix(50, ty, 50))
         glUniformMatrix4fv(glGetUniformLocation(shader, 'pvMatrix'), 1, True, PV)
         glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, M)
-        glDrawArrays(GL_QUADS, 0, 24)
+        glDrawArrays(GL_TRIANGLES, 0, 36)
 
         # dessin des briques
         for r in briques:
@@ -604,8 +617,8 @@ def main():
             T = TranslationMatrix(r.x + d, ty - (r.y + d) - (r.taille_y - 2*d), 0)
             S = ScaleMatrix(r.taille_x - 2*d, r.taille_y - 2*d, 100)
             glUniformMatrix4fv(glGetUniformLocation(shader, 'pvMatrix'), 1, True, PV)
-            glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, T.dot(S))
-            glDrawArrays(GL_QUADS, 0, 24)
+            glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, T @ S) # T.dot(S) si Python < 3.5
+            glDrawArrays(GL_TRIANGLES, 0, 36)
         
         # dessin des balles
         glUniform3fv(glGetUniformLocation(shader, 'color'), 1, ORANGE)
@@ -613,8 +626,8 @@ def main():
             T = TranslationMatrix(b.x, ty - b.y - b.taille, 0)
             S = ScaleMatrix(b.taille, b.taille, b.taille)
             glUniformMatrix4fv(glGetUniformLocation(shader, 'pvMatrix'), 1, True, PV)
-            glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, T.dot(S))
-            glDrawArrays(GL_QUADS, 0, 24)
+            glUniformMatrix4fv(glGetUniformLocation(shader, 'mMatrix'), 1, True, T @ S) # T.dot(S) si Python < 3.5
+            glDrawArrays(GL_TRIANGLES, 0, 36)
 
         glUseProgram(0)
         # dessin du repère en (0,0,100) (sans lighting)

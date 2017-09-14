@@ -11,6 +11,9 @@
         <script src="utils.js"></script>
         <script src="slides.js"></script>
         <style>
+            body {
+                background: url('diamond.jpg');
+            }
             img:not(.free), pre {
                 max-width: 100%;
             }
@@ -33,8 +36,8 @@
             }
         </style>
         
-        <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script>
             $(function(){
                 utils.dedentPreCode()
@@ -421,6 +424,20 @@
                     del L[i]
                 else:
                     i = i + 1
+            </code></pre>
+            
+            <p>
+            Autre astuce un peu moins efficace mais probablement plus facile à coder, créer une corbeille :
+            </p>
+            
+            <pre><code class="py">
+            L = [1,2,7,8,1,3,6,7]
+            corbeille = []
+            for x in L:
+                if i > 5:
+                    corbeille.append(x)
+            for y in corbeille:
+                L.remove(y)
             </code></pre>
             
         </section>

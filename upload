@@ -1,2 +1,2 @@
-# rsync -r --delete . denis:parascolaire --exclude=.git --exclude=private
+cd /home/robert/parascolaire
 rsync -r --delete . robert@robertvandeneynde.be:siteperso/parascolaire --exclude=upload --exclude=.git --exclude=private --exclude=presences

@@ -13,8 +13,13 @@
     
     <script type="text/javascript"
         async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"
     ></script>
+    <style>
+    body {
+        background: url('diamond.jpg');
+    }
+    </style>
     
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -25,8 +30,8 @@
     });
     </script>
     
-    <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <link id="stylesheet" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
     <script>
         $(function(){
             hljs.initHighlightingOnLoad()
@@ -207,8 +212,8 @@
     <h2 id="{{trigonometrie|trigonometry}}">{{Trigonométrie|Trigonometry}}</h2>
     
     <section name="{{trigonometrie|trigonometry}}">
-        <p>{{La trigonométrie permet de faire une correspondance entre les <strong>angles</strong> et les <strong>longueurs</strong>, grâce aux notions de base, on peut répondre à des questions telles que :|
-            Trigonometry makes it possible to link <strong>angles</strong> and <strong>distances</strong>, thanks to the basic notions, one can answser to questions such as:
+        <p>{{La trigonométrie permet de faire une correspondance entre les <strong>angles</strong> et les <strong>longueurs</strong>, grâce aux notions de base, on peut répondre à des questions telles que :
+            |Trigonometry makes it possible to link <strong>angles</strong> and <strong>distances</strong>, thanks to the basic notions, one can answser to questions such as:
         }}</p>
         
         <ol>
@@ -774,8 +779,8 @@
                 <li>$\vec{v} + \vec{w} = (v_x + w_x,\ v_y + w_y)$</li>
                 <li>$k \cdot \vec{v}  = (k \cdot v_x,\ k \cdot v_y)$</li>
                 <li>$\|\vec{v}\| = \sqrt{v_x^2 + v_y^2}$</li>
-                <li>$- \vec{v} = (-1) \cdot \vec{v} $$= (-v_x,\ -v_y)$</li>
-                <li>$\vec{v} - \vec{w} = \vec{v} + (- \vec{w}) $$= (v_x - w_x,\ v_y - w_y)$</li>
+                <li>$- \vec{v} = (-1) \cdot \vec{v}$ $= (-v_x,\ -v_y)$</li>
+                <li>$\vec{v} - \vec{w} = \vec{v} + (- \vec{w})$ $= (v_x - w_x,\ v_y - w_y)$</li>
                 <li>$\vec{1_v} = \vec{v} / \|\vec{v}\|$</li>
                 <li>$\|\vec{1_v}\| = 1$</li>
                 <li>$\vec{1_v} = (\cos\theta,\ \sin\theta)$</li>
@@ -1526,6 +1531,8 @@
                 <li>$T(k\ \vec{a}) = k\ T(\vec{a})$</li>
             </ul>
             
+            <p>Une transformation possédant la première propriété est dite <em>additive</em>, et, pour la seconde, <em>homogène</em>.</p>
+            
             <p>Par exemple $T(\vec{v}) = 2 \cdot \vec{v}$ ou $T(\vec{v}) = (v_y, -v_x)$ sont linéaires mais $T(\vec{v}) = \vec{v} + (1,0)$ ne l'est pas, remplacez $T$ dans la définition et vous verrez quand les égalités sont respectées.</p>
             
             <p>
@@ -1570,6 +1577,43 @@
                 $= k\ T(\vec{v})$
                 </span>
             </p>
+            
+            <p>
+                Une petite remarque sur la structure d'une matrice de transformation,
+                la première <strong>colonne</strong> représente en fait les coordonnées du vecteur $\vec{1_x}$ <strong>transformé</strong>.
+            </p>
+            <p>$
+                \begin{pmatrix}
+                a & b \\
+                c & d \\
+                \end{pmatrix}
+                \times
+                \begin{pmatrix}
+                1 \\ 0
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                a \\ c
+                \end{pmatrix}
+            $<p>
+            
+            <p>De la même manière, la deuxième <strong>colonne</strong> représente les coordonnées du vecteur $\vec{1_y}$ <sstrong>transformé</strong>.</p>
+            <p>$
+                \begin{pmatrix}
+                a & b \\
+                c & d \\
+                \end{pmatrix}
+                \times
+                \begin{pmatrix}
+                0 \\ 1
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                b \\ d
+                \end{pmatrix}
+            $<p>
+            
+            <p>On peut donc retrouver la matrice d'une transformation linéaire en calculant les coordonnées de la transformation de chaque vecteur de base.</p>
         
         <h3 id="{{identite|identity}}">Identité</h3>
         
@@ -1660,6 +1704,9 @@
             </p>
             
             <p>Cela marche également pour $\theta < 0$, une rotation de $-50°$, c'est une rotation de $50°$ dans l'autre sens.</p>
+            
+            <p>En utilisant la structure d'une matrice de transformation et en sachant que la rotation est linéaire, on aurait aussi pu se demander les coordonnées de la transformation de $\vec{1_x}$ et $\vec{1_y}$.</p>
+            <p>Dessine un dessin pour voir que en effet que $\vec{1_x}$ est envoyé sur les coordonnées $(\cos\theta,\ \sin\theta)$ et que $\vec{1_y}$ est envoyé sur $(-\sin\theta,\ \cos\theta)$</p>
         
         <h3 id="translation">Translation et coordonnées homogènes</h3>
         

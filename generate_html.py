@@ -49,9 +49,9 @@ def format_list_ls_style(li, W=100, FW=None):
 def replace_markdown(code):
     """
     takes a html escaped python string and replace markdown in one line comments
-    # [](http://google.be) => <a href="http://google.be">a link</a>
-    # [a link](http://google.be) => <a href="http://google.be">a link</a>
-    # [a link](http://google.be) => <a href="http://google.be">a link</a>
+    # [](https://google.be) => <a href="https://google.be">a link</a>
+    # [a link](https://google.be) => <a href="https://google.be">a link</a>
+    # [a link](https://google.be) => <a href="https://google.be">a link</a>
     
     # will not do the job in triple quote comments
     """

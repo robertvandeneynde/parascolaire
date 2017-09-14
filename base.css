@@ -20,7 +20,7 @@ section {
 .index section:first-of-type {
     padding-top: 0;
     border-top: 0;
-    background: #fafafa;
+    background: rgba(250, 250, 250, .8); /* #fafafacc; */
 }
 
 .index section {
@@ -103,8 +103,8 @@ section.notitle {
 
 h2, h1, .exercice h3 {
     margin: 15px 0px 0px 0px;
+    background: rgba(250, 250, 250, .8); /* #fafafacc; */
     border-radius: 25px 25px 0px 0px;
-    background: #fafafa;
     border-width: 2px 2px 0 2px;
     border-color: #ccc;
     border-style: solid;
@@ -168,7 +168,7 @@ nav {
     border: 2px solid #ccc;
     border-radius: 5px;
     display: inline-block;
-    background: #fafafa;
+    background: rgba(250, 250, 250, .8); /* #fafafacc; hexadecimal with hex value https://stackoverflow.com/a/31029864/1980630 */ /* https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgba() */
 }
 nav a {
     display: inline-block;

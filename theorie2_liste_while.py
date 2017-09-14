@@ -239,15 +239,15 @@ phrase = "Bonjour {nom}, vous avez {age} ans. Au revoir {nom}".format(nom="Bob",
 
 # n'hésitez pas à passer à la ligne !
 longue_phrase = "Bonjour {nom}, vous avez {age}. Votre score est de {score}.".format(
-    nom = "Bob",
-    age = 25,
-    score = 24)
+    nom="Bob",
+    age=25,
+    score=24)
 
 # ou sous un autre style de passage à la ligne :
 longue_phrase = "Bonjour {nom}, vous avez {age}. Votre score est de {score}.".format(
-    nom = "Bob",
-    age = 25,
-    score = 24,
+    nom="Bob",
+    age=25,
+    score=24,
 )
 
 # si les variables existent déjà...

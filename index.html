@@ -137,6 +137,13 @@
         body {
             background: url('diamond.jpg');
         }
+        #svg-embed-wrap {
+            position:relative;
+            background: white;
+        }
+        #svg-embed-wrap svg {
+            background: white;
+        }
         </style>
     </head>
     <body class="index">
@@ -178,8 +185,8 @@
             <div class="part">
                 <img id="invader" src="invader.png" style="height: 40px; margin: 0 5px; vertical-align:middle;"/>
                 <nav><!--
-                    --><a class="emailize">meessen[dot]thomas[at]gmail[dot]com</a><!--
                     --><a class="emailize">robertvandeneynde[at]hotmail[dot]com</a><!--
+                    --><a class="emailize">meessen[dot]thomas[at]gmail[dot]com</a><!--
                 --></nav>
             </div>
         </section>
@@ -231,7 +238,7 @@
         $('.annonce').click(function(){ $(this).slideUp() })
         </script>
         
-        <div style="position:relative" id="svg-embed-wrap">
+        <div id="svg-embed-wrap">
             <div id="svg-close" style="display: none; position:absolute; left: 5px; top: 5px; background: #900; border-radius: 5px; padding:5px; color: white; border: 1px solid #600; cursor:pointer;">× Fermer</div>
         <div id="svg-embed" style="display: none; text-align:center; margin-top: 5px;">
 <!-- 675 323 -->
@@ -2388,6 +2395,7 @@
                 <li class='ext-odp'><a href='./flyer-A4.odp'>flyer-A4.odp</a></li>
                 <li class='ext-odp'><a href='./flyer.odp'>flyer.odp</a></li>
                 <li class='ext-html'><a href='./algos.html'>algos.html</a></li>
+                <li class='ext-html'><a href='./calculette.html'>calculette.html</a></li>
                 <li class='ext-html'><a href='./index.html'>index.html</a></li>
                 <li class='ext-html'><a href='./math.html'>math.html</a></li>
                 <li class='ext-html'><a href='./physique.html'>physique.html</a></li>
@@ -2416,6 +2424,7 @@
                 <li class='ext-svg'><a href='./hexagon.svg'>hexagon.svg</a></li>
                 <li class='ext-svg'><a href='./house.svg'>house.svg</a></li>
                 <li class='ext-svg'><a href='./math1-distance.svg'>math1-distance.svg</a></li>
+                <li class='ext-svg'><a href='./math1-distance_backup.svg'>math1-distance_backup.svg</a></li>
                 <li class='ext-svg'><a href='./reflexion.state-Angle X.svg'>reflexion.state-Angle X.svg</a></li>
                 <li class='ext-svg'><a href='./reflexion.state-Angle Y.svg'>reflexion.state-Angle Y.svg</a></li>
                 <li class='ext-svg'><a href='./reflexion.state-Presentation.svg'>reflexion.state-Presentation.svg</a></li>
@@ -2551,7 +2560,6 @@
                 <li class='ext-jpg'><a href='./grid.jpg'>grid.jpg</a></li>
                 <li class='ext-py'><a href='./clean.py.html'>clean.py</a></li>
                 <li class='ext-py'><a href='./flow_translate.py.html'>flow_translate.py</a></li>
-                <li class='ext-py'><a href='./generate_.py.html'>generate_.py</a></li>
                 <li class='ext-py'><a href='./generate_html.py.html'>generate_html.py</a></li>
                 <li class='ext-py'><a href='./generate_ln.py.html'>generate_ln.py</a></li>
                 <li class='ext-py'><a href='./generate_ls.py.html'>generate_ls.py</a></li>

@@ -112,7 +112,7 @@ while fini == 0:
         pygame.draw.rect(ecran, color, [r.x+1, r.y+1, r.taille_x-2, r.taille_y-2])
         
     for b in balles:
-        pygame.draw.rect(ecran, orange, [b.x, b.y, b.taille, b.taille])
+        pygame.draw.rect(ecran, ORANGE, [b.x, b.y, b.taille, b.taille])
     
     pygame.display.flip()
     clock.tick(60)

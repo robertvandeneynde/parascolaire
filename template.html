@@ -137,6 +137,13 @@
         body {
             background: url('diamond.jpg');
         }
+        #svg-embed-wrap {
+            position:relative;
+            background: white;
+        }
+        #svg-embed-wrap svg {
+            background: white;
+        }
         </style>
     </head>
     <body class="index">
@@ -178,8 +185,8 @@
             <div class="part">
                 <img id="invader" src="invader.png" style="height: 40px; margin: 0 5px; vertical-align:middle;"/>
                 <nav><!--
-                    --><a class="emailize">meessen[dot]thomas[at]gmail[dot]com</a><!--
                     --><a class="emailize">robertvandeneynde[at]hotmail[dot]com</a><!--
+                    --><a class="emailize">meessen[dot]thomas[at]gmail[dot]com</a><!--
                 --></nav>
             </div>
         </section>
@@ -231,7 +238,7 @@
         $('.annonce').click(function(){ $(this).slideUp() })
         </script>
         
-        <div style="position:relative" id="svg-embed-wrap">
+        <div id="svg-embed-wrap">
             <div id="svg-close" style="display: none; position:absolute; left: 5px; top: 5px; background: #900; border-radius: 5px; padding:5px; color: white; border: 1px solid #600; cursor:pointer;">× Fermer</div>
         <div id="svg-embed" style="display: none; text-align:center; margin-top: 5px;">
 <!-- 675 323 -->

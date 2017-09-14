@@ -5,8 +5,8 @@
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <title>{{name}}</title>
     <link href="python.png" rel="icon" type="image/png"/>
-    <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <link id="stylesheet" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
     a, .stylechanger {
@@ -70,7 +70,7 @@
         var stylechanger = $('.stylechanger')
         
         function setStyle(style){
-            stylesheet.attr('href', 'http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/' + style + '.min.css')
+            stylesheet.attr('href', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/' + style + '.min.css')
             stylechanger.each(function(){
                 $(this).attr('disabled', style != $(this).data('style') ? null : 'disabled')
             })
