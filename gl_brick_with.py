@@ -104,10 +104,12 @@ def draw_cube():
     from (0,0,0) to (1,1,1)
     faces are ccw (counter clockwise : sens contraire des aiguilles d'une montre)
     '''
-    with BeginEnd(GL_QUADS):
+    with BeginEnd(GL_TRIANGLES): # GL_QUADS is deprecated
     
         glNormal3f(0, 0, 1) # up
         glVertex3f(0, 0, 1)
+        glVertex3f(1, 0, 1)
+        glVertex3f(0, 1, 1) 
         glVertex3f(1, 0, 1)
         glVertex3f(1, 1, 1)
         glVertex3f(0, 1, 1) 
@@ -115,11 +117,15 @@ def draw_cube():
         glNormal3f(0, 0, -1) # down  
         glVertex3f(0, 0, 0)
         glVertex3f(0, 1, 0)
+        glVertex3f(1, 0, 0)
+        glVertex3f(0, 1, 0)
         glVertex3f(1, 1, 0)
         glVertex3f(1, 0, 0)
         
         glNormal3f(1, 0, 0) # right
         glVertex3f(1, 0, 0)
+        glVertex3f(1, 1, 0)
+        glVertex3f(1, 0, 1)
         glVertex3f(1, 1, 0)
         glVertex3f(1, 1, 1)
         glVertex3f(1, 0, 1)
@@ -127,17 +133,23 @@ def draw_cube():
         glNormal3f(-1, 0, 0) # left
         glVertex3f(0, 0, 0)
         glVertex3f(0, 0, 1)
+        glVertex3f(0, 1, 0)
+        glVertex3f(0, 0, 1)
         glVertex3f(0, 1, 1)
         glVertex3f(0, 1, 0)
         
         glNormal3f(0, 1, 0) # back
         glVertex3f(0, 1, 0)
         glVertex3f(0, 1, 1)
+        glVertex3f(1, 1, 0)
+        glVertex3f(0, 1, 1)
         glVertex3f(1, 1, 1)
         glVertex3f(1, 1, 0)
         
         glNormal3f(0, -1, 0) # front
         glVertex3f(1, 0, 0)
+        glVertex3f(1, 0, 1)
+        glVertex3f(0, 0, 0)
         glVertex3f(1, 0, 1)
         glVertex3f(0, 0, 1)
         glVertex3f(0, 0, 0)
@@ -225,7 +237,7 @@ while fini == 0:
     
     # dessin du sol
     glColor3ubv(BLEU_CLAIR) # 3ubv signifie que l'on indique la couleur avec une liste de 3 int de 0 à 255
-    with BeginEnd(GL_QUADS):
+    with BeginEnd(GL_TRIANGLES): # GL_QUADS is deprecated
         glNormal3f(0, 0, 1)
         glVertex3f(0, 0, 0)
         glVertex3f(taille[0], 0, 0)
