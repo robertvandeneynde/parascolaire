@@ -13,7 +13,7 @@
     
     <script type="text/javascript"
         async
-        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"
     ></script>
     <style>
     body {
@@ -30,8 +30,8 @@
     });
     </script>
     
-    <link id="stylesheet" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
     <script>
         $(function(){
             hljs.initHighlightingOnLoad()
@@ -80,6 +80,7 @@
     </script>
 </head>
 <body class="math">
+<div id="wrapper">
     <h1 class="nocontent"><!--
         --><a class="homeicon" href="index.html"></a><!--
         --><span class="text">Mathématiques : Trigonométrie, vecteurs et matrices</span>
@@ -457,6 +458,7 @@
         
         <figure>
             <img src="http://courseware.cemc.uwaterloo.ca/web/Gr12AdFu000/Public_Html/RadianMeasure/images/radianintroduction_a.png" />
+            <!-- not available in https (2017-09-15 23:36:49 CEST) -->
         </figure>
     
         <p>
@@ -1196,6 +1198,11 @@
             <figure><img src="transformation-multiples.png"
             style="background:white"/></figure>
             
+            <p>Et finalement, </em>$(2,1)$ était en fait un des 4 sommets d'un rectangle $(\pm 2, \pm 1)$, où tomberont leurs 3 autres points après la transformation ?</em> Sur la figure, le rectangle <span style="color:red">rouge</span> est transformé en rectangle <span style="color:blue">bleu</span>.</p>
+            
+            <figure><img src="transformation-multiples-rectangle.png"
+            style="background:white; width: 272.5px; height: 275px;"/></figure>
+            
         <h3 id="matrices-definition">Définition</h3>
             <p>
                 Une matrice, c'est un tableau de nombres avec des lignes et des colonnes.
@@ -1771,8 +1778,8 @@
             <p>En pratique, on aura plus que 4 points, et la carte graphique s'occupe de la multiplication de matrice en grande quantité, regardez comme les modèles suivants ont un nombre élevé de points !</p>
             
             <figure>
-                <img src="http://vignette4.wikia.nocookie.net/memoryalpha/images/8/87/Akira_class_CGI_wireframe_model_by_ILM.jpg/revision/latest?cb=20130221104236&path-prefix=en" height=300>
-                <img src="http://orig11.deviantart.net/8ef1/f/2011/143/0/e/3d_model___f16_wire_frame_by_doubleohzero-d3h1j6j.png" height=300 />
+                <img src="https://vignette4.wikia.nocookie.net/memoryalpha/images/8/87/Akira_class_CGI_wireframe_model_by_ILM.jpg/revision/latest?cb=20130221104236&path-prefix=en" height=300>
+                <img src="https://orig11.deviantart.net/8ef1/f/2011/143/0/e/3d_model___f16_wire_frame_by_doubleohzero-d3h1j6j.png" height=300 />
             </figure>
             
             <p>Petit exercice de matrices, quelle est la matrice de rotation autour d'un point autre que $(0,0)$ ?</p>
@@ -1844,6 +1851,6 @@
             <p>C'est la <a href="https://fr.wikipedia.org/wiki/Rotation_vectorielle#Cas_g.C3.A9n.C3.A9ral">formule de Rodriguez</a>, j'ai dû la redémontrer à un examen, très belle application des vecteurs.</p>
         
     </section>
-    
+</div>
 </body>
 </html>

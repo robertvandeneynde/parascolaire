@@ -52,10 +52,7 @@ for svg_file in args.svg_file:
 
     def set_union(iterable):
         it = iter(iterable)
-        try:
-            S1 = next(it)
-        except StopIteration:
-            return set()
+        S1 = next(it, set())
         return set.union(S1, *it)
 
     INK = 'http://www.inkscape.org/namespaces/inkscape'

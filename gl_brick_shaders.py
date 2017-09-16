@@ -632,40 +632,6 @@ def main():
         glUseProgram(0)
         # dessin du repère en (0,0,100) (sans lighting)
         
-        """
-
-        glDisable(GL_LIGHTING)
-        glPushMatrix()
-        glTranslatef(0,0,100)
-        glScalef(50,50,50)
-
-        glBegin(GL_LINES)
-        glColor3ubv(ROUGE)
-        glVertex3f(0, 0, 0)
-        glVertex3f(1, 0, 0)
-        glColor3ubv(VERT)
-        glVertex3f(0, 0, 0)
-        glVertex3f(0, 1, 0)
-        glColor3ubv(BLEU)
-        glVertex3f(0, 0, 0)
-        glVertex3f(0, 0, 1)
-        glEnd()
-
-        glPointSize(5)
-
-        glBegin(GL_POINTS)
-        glColor3ubv(ROUGE)
-        glVertex3f(1, 0, 0)
-        glColor3ubv(VERT)
-        glVertex3f(0, 1, 0)
-        glColor3ubv(BLEU)
-        glVertex3f(0, 0, 1)
-        glEnd()
-
-        glEnable(GL_LIGHTING)
-        glPopMatrix()
-        """
-
         # appliquer les dessins
         pygame.display.flip()
         clock.tick(60)
