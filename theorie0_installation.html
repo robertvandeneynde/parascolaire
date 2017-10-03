@@ -41,7 +41,7 @@
         --></h1>
         
         <section>
-        <div><em><a href="turtle.en.html" lang="en" hreflang="en">English here!</a></em></div>
+        <div><em><a href="theorie0_installation.en.html" lang="en" hreflang="en">English here!</a></em></div>
 
         <p> Bonjour ! </p>
 
@@ -107,20 +107,28 @@
         <section name="en-ligne">
 
         <p>
-        Tester votre code en ligne sur <a href="http://pythontutor.com/visualize.html">pythontutor</a>.
-        Choisissez votre version de python (probablement Python 3, sinon lisez la remarque voir ci-dessous).
-        et cliquez sur <em>exécuter</em>, le programme s'exécute pas à pas.
-        Appuyez sur <em>Next</em> pour avancer d'une ligne.
-        Vous pouvez aussi sauter à la fin en appuyant sur <em>End</em>.
+         Tester votre code en ligne sur <a href="http://pythontutor.com/visualize.html">pythontutor</a>.
+        
+        
+         Choisissez votre version de python (probablement Python 3, sinon lisez la remarque voir <a href="#version-python">ci-dessous</a>).
+           et cliquez sur <em>exécuter</em>, le programme s'exécute pas à pas.
+        
+           
+         Appuyez sur <em>Next</em> pour avancer d'une ligne.
+           Vous pouvez aussi sauter à la fin en appuyant sur <em>End</em>.
+        
         </p>
         
         <p>
-        Un exemple <a href="pythontutor.html">ici</a>.
+         Un exemple <a href="pythontutor.html">ici</a>.
+        
         </p>
         
         <p>
-        Cependant dès que nous ferons des fenêtres, vous devrez installer pygame et donc faire l'Option 2.
+         Cependant dès que nous ferons des fenêtres, vous devrez installer pygame et donc faire l'Option 2.
+        
         </p>
+        
         </section>
         
         <h2 id="installation">Option 2 : Installer</h2>
@@ -136,10 +144,11 @@
         </ul>
         <p>
         Et pour les intéressés :
+        
         </p>
         <ul>
-            <li>numpy (pour les matrices utiles en 3D)</li>
             <li>opengl (pour la 3D)</li>
+            <li>numpy (pour les matrices, utiles en 3D)</li>
         </ul>
         
         <p>
@@ -148,7 +157,8 @@
         </p>
 
         <p>
-        Pour installer python 3.4 et pygame sous windows, faites ceci :
+         Pour installer python 3.4 et pygame sous Windows, faites ceci :
+        
         </p>
         <ul>
             <li>Téléchargez python 3.4 version 32 bits <a href="https://www.python.org/ftp/python/3.4.3/python-3.4.3.msi">ici</a>.</li>
@@ -156,18 +166,22 @@
         </ul>
 
         <p>
-        Ensuite vous lancer le programme <strong>IDLE</strong>,
+         Ensuite vous lancer le programme <strong>IDLE</strong>,
         vous faites <strong>File → New</strong>, écrivez du code, enregistrez le fichier sur votre bureau,
         et appuyez sur F5 (ou <strong>Run</strong> dans les menus) pour le lancer.
+        
         </p>
         
         <p>
-        Pour un autre éditeur python, je conseille <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a>, la version <em>Community</em> ou <em>Education</em> est tout à fait gratuite !
+        Pour un autre éditeur python, je conseille <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a>,
+        la version <em>Community</em> ou <em>Education</em> est tout à fait gratuite !
+        
         </p>
 
         <p>
-        Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (3.5, 3.6...).
+         Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (3.5, 3.6...).
         Ou bien si vous êtes sous mac, c'est le même niveau de difficulté que d'installer 3.6 que 3.4
+        
         </p>
         
         </section>
@@ -178,26 +192,29 @@
         
         <p>
         Si vous avez un souci, envoyez moi un <a href="..">mail</a> !
+        
         </p>
         
         <p>Téléchargez la dernière version de python (3.6) sur <a href="https://www.python.org/downloads/">python.org</a>.</p>
         
-        <p>Nous allons utiliser <em>pip</em> qui permet d'installer n'importe quel paquet python ! Ici nous allons installer le paquet <em>pygame</em> pour faire des fenêtres.</p>
+        <p>Nous allons utiliser <em>pip</em> qui permet d'installer n'importe quel paquet python ! Ici nous allons installer le paquet <em>pygame</em> pour faire des fenêtres.
+        </p>
         
-        <p>Une ancienne version de python existe : python 2, pour savoir les différences avec python 3, lisez la remarque ci dessous.</p>
+        <p>Une ancienne version de python existe : python 2, pour savoir les différences avec python 3, lisez la remarque ci <a href="version-python">dessous</a>.
+        </p>
 
-        <h3>Windows</h3>
+        <h3 id="windows">Windows</h3>
           <ul>
             
             <li>
-                Déterminez si votre version de python est 32 bits ou 64 bits, quand vous allez dans le menu windows et tappez "python" cela devrait être marqué.
-                Même si votre ordinateur est 64 bits, il se peut que vous ayez téléchargé python 32 bits (et ça marchera très bien)
+                Déterminez si votre version de <strong>python</strong> est 32 bits ou 64 bits, quand vous allez dans le menu windows et tappez "python" cela devrait être marqué.
+                Même si votre ordinateur est 64 bits, il se peut que vous ayez téléchargé python 32 bits (et ça marchera très bien).
                 Pour savoir si votre ordi est 32 ou 64 bits, allez dans "Panneau de configuration → Système"
             </li>
             
             <li>
                 Téléchargez pygame <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame">ici</a>,
-                et téléchargez en fonction de votre version de python (32 bits, 64 bits) (cp36 pour Python 3.6).
+                et téléchargez le fichier whl en fonction de votre version de python (par exemple <code>pygame‑1.9.3‑cp36‑cp36m‑win32.whl</code> si j'ai python 32 bits version 3.6)
             </li>
             
             <li>Placez le fichier téléchargé dans le dossier (existant) qui se trouve ici (remplacez 32 par 64 si votre version de python est 64 bits) :
@@ -237,50 +254,58 @@
             
           </ul>
         
-        <h3>Mac</h3>
-        
-        <p>Téléchargez la dernière version de python (3.6) sur <a href="https://www.python.org/downloads/">python.org</a>.</p>
-        <p>Ouvrez un terminal (cliquez sur l'icône de recherche et tappez <em>Terminal</em> ou bien suivez <a href="http://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac">ceci</a>).</p>
-        <p>Pour tester que python version 3 s'est bien installé, tappez <code>python3</code> puis appuyez sur Enter.</p>
-        <p>Vous devriez voir le texte <em>Python 3.6</em> affiché à l'écran.</p>
-        <p>Si vous voyez une phrase du style <em>commande introuvable: python3</em>, c'est qu'il s'est pas installé.</p>
-        
-        <p>Fermez le terminal et relancez en un autre, tappez maintenant les commandes suivantes&nbsp;:</p>
+        <h3 id="mac">Mac</h3>
         
         <ul>
-            <li>Installer XCode via l'AppStore</li>
-            <li>Puis lancer une commande ruby pour installer homebrew (brew).
-                <pre><code class="bash">
-                    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-                </code></pre>
+        
+            <li>Téléchargez la dernière version de python (3.6) sur <a href="https://www.python.org/downloads/">python.org</a>.</li>
+            <li>Ouvrez un terminal (cliquez sur l'icône de recherche <img style="border:1px solid #999; vertical-align:middle;" src="mac-search.png" /> en haut à droite de l'écran et tappez <em>Terminal</em> ou bien suivez <a href="http://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac">ceci</a>).
+                <ul>
+                    <li>Pour tester que python version 3 s'est bien installé, tappez <code>python3</code> puis appuyez sur Enter.</li>
+                    <li>Vous devriez voir le texte <em>Python 3.6</em> et qui finit par <code>>>> </code> affiché à l'écran.</li>
+                    <li>Par contre, si vous voyez une phrase du style <em>commande introuvable: python3</em> ou <em>command not found: python3</em>, c'est qu'il s'est pas installé.</li>
+                    <li>Fermez le terminal</li>
+                </ul>
             </li>
-            <li>Puis lancer plein de commandes brew et pip pour installer le reste.
-                <pre><code class="bash">
-                    brew install caskroom/cask/brew-cask
-                    brew cask install xquartz
-                    brew install python3
-                    brew install python
-                    brew linkapps python3
-                    brew linkapps python
-                    brew install git
-                    brew install sdl sdl_image sdl_ttf portmidi libogg libvorbis
-                    brew install sdl_mixer --with-libvorbis
-                    brew tap homebrew/headonly
-                    brew install smpeg
-                    brew install mercurial
-                </code></pre>
-            </li>
+        
+            <li>Installez XCode via l'AppStore... Ça risque de prendre un peu de temps...</li>
             
-            <li>Et finalement, installer pygame en une seule ligne&nbsp;:
-                <pre><code class="bash">
-                    pip3 install hg+http://bitbucket.org/pygame/pygame
-                </code></pre>
+            <li>Lancez un autre Terminal (de la même manière qu'avant) et entrez les commandes suivantes :
+            
+            <ul>
+                <li>
+                    Cette commande ruby qui installe homebrew (brew) :
+                    <pre><code class="bash">
+                        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+                    </code></pre>
+                </li>
+                
+                <li>
+                    Ces commandes brew qui installent des trucs nécessaires (xquartz, sdl, des bibliothèques d'images et de son, et mercurial):
+                    <pre><code class="bash">
+                        brew install caskroom/cask/brew-cask
+                        brew cask install xquartz
+                        brew install sdl sdl_image sdl_ttf portmidi libogg libvorbis
+                        brew install sdl_mixer --with-libvorbis
+                        brew tap homebrew/headonly
+                        brew install smpeg
+                        brew install mercurial
+                    </code></pre>
+                </li>
+                
+                <li>
+                    Cette commande pip installe pygame en une seule ligne :
+                    <pre><code class="bash">
+                        pip3 install hg+http://bitbucket.org/pygame/pygame
+                    </code></pre>
+                </li>
+            </ul>
             </li>
         </ul>
         
         <p>Les instructions viennent de <a href="http://stackoverflow.com/a/34081126/1980630">cette page</a>.</p>
             
-        <h3>Linux</h3>
+        <h3 id="linux">Linux</h3>
         
         <p>Suivez <a href="http://askubuntu.com/questions/401342/how-to-download-pygame-in-python3-3">ceci</a>.</p>
 
@@ -290,9 +315,10 @@
         
         <section name="version-python">
         <p>
-        Si vous avez reçu une clef usb avec python, la version est 2.7 (ancienne version)
+         Si vous avez reçu une clef usb avec python, la version est 2.7 (ancienne version)
         Les ordis à l'école ont la version récente : 3.5 (nouvelle version)
         Pour ce cours, ça ne change quasi rien, à part trois petites différences suivantes :
+        
         </p>
         
         <table>
@@ -315,7 +341,7 @@
         
         <p>
         Si vous avez python 2 et voulez utiliser certaines fonctionnalités de python3,
-        ajoutez une ligne comme ceci au début du fichier :
+        ajoutez une ligne comme ceci au <strong>début</strong> du fichier :
         </p>
         
         <pre><code class="python">
@@ -324,7 +350,7 @@
         </code></pre>
         
         <p>
-        Pour les accents, c'est plus compliqué, mais <code>from __future__ import unicode_litterals</code> est un bon début
+        Pour les accents, c'est plus compliqué, mais <code>from __future__ import unicode_litterals</code> est un bon début.
         </p>
         </section>
 
@@ -333,14 +359,18 @@
         <section name="librairies">
         <p>
         À la fin du cours je ferai une introduction à la 3D pour les intéressés.
-        Il faut installer <a href="http://pyopengl.sourceforge.net/">pyOpenGL</a>
+         
+        
+        Il faut installer<a href="http://pyopengl.sourceforge.net/">pyOpenGL</a>
         et <a href="http://www.scipy.org/scipylib/download.html">numpy</a>.
         Ils sont installés sur les ordis de l'école.
         </p>
         
         <p>
         Si vous êtes intéressés de l'installer chez vous sous windows pous pouvez faire la même chose qu'avec pygame (la version avec AppData, pip et les whl).
+         
         </p>
+        
         <p>
         Les whl pour windows sont sur <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">ce site non officiel</a>.
         </p>

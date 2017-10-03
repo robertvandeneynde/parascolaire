@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-        <link href="turtle.png" rel="icon" type="image/png"/>
+        <link href="turtle.png" rel="icon" type="image/png" />
         <title> Programmez avec turtle ! </title>
         
         <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/bike-and-tree-and-turtle.png" />
@@ -32,10 +32,13 @@
             figcaption {
                 display: none;
             }
+            p > code {
+                display: inline;
+            }
         </style>
         
-        <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script>
             $(function(){
                 hljs.initHighlightingOnLoad()
@@ -46,6 +49,7 @@
         </script>
     </head>
     <body class="algos">
+    <div id="wrapper">
         <h1 class="nocontent"><!--
             --><a class="homeicon" href="index.html"></a><!--
             --><span class="text">Turtle</span><!--
@@ -92,7 +96,7 @@
                 </p>
             
             <p>
-                Je conseille de mettre les deux fenêtres côtes à côte, environ 1/3 de l'écran pour cette page et donc 2/3 pour le code et l'affichage de la tortue.
+                Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
                 </p>
             
             
@@ -131,8 +135,7 @@
                 lt(90 + 90)
                 fd(100 * 2)
             </code></pre>
-        
-        
+            
         </section>
         
         <h2 id="complexe"> Formes complexes </h2>
@@ -161,13 +164,74 @@
             </figure>
             
             <p>
-                Sauve ce code dans un nouveau fichier pour pouvoir le ré-utiliser plus tard !
+                Sauve ce code dans un nouveau fichier pour pouvoir le réutiliser plus tard !
                 </p>
             
             <figure>
                 <img src="fichiers.png" />
                 <figcaption> Plusieurs fichiers </figcaption>
             </figure>
+            
+            <h3 id="raccourcis">Raccourcis claviers</h3>
+            
+            <p>
+                Quelques raccourcis clavier très utiles pour éditer du texte :
+                </p>
+            
+            <ul>
+                <li><kbd>Ctrl+→</kbd>: 
+                    <em><strong>Mot</strong> suivant</em> (<kbd>⌥+→</kbd> sur Mac).
+                    </li>
+                <li><kbd>Ctrl+←</kbd>: 
+                    <em><strong>Mot</strong> précédent</em> (<kbd>⌥+←</kbd> sur Mac).
+                    </li>
+                <li><kbd>Shift+→</kbd>: 
+                    <em><strong>Sélectionner</strong> un caractère vers la droite</em> (<kbd>⇧+→</kbd> sur Mac).
+                    </li>
+                <li><kbd>Shift+←</kbd>: 
+                    <em><strong>Sélectionner</strong> un caractère vers la gauche</em> (<kbd>⇧+←</kbd> sur Mac).
+                    </li>
+                <li><kbd>Ctrl+Shift+→</kbd>: 
+                    <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la droite</em> (<kbd>⌥+⇧+→</kbd> sur Mac).
+                    </li>
+                <li><kbd>Ctrl+Shift+←</kbd>: 
+                    <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la gauche</em> (<kbd>⌥+⇧+←</kbd> sur Mac).
+                    </li>
+            </ul>
+            
+            <p>
+                Ça marche partout même sur Facebook ! Et remarquez qu'il y a une touche Ctrl et Shift juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec uniquement la main droite!
+                </p>
+            
+            <p>
+                En plus de ça, quelques raccourcis utiles quand vous éditez du code:
+                </p>
+            
+            <ul>
+                <li><kbd>Ctrl+D</kbd>: 
+                    <em>Supprimer une ligne</em> (<kbd>⌘+D</kbd> sur Mac).
+                    </li>
+                <li><kbd>Ctrl+Shift+D</kbd>: 
+                    <em>Dupliquer une ligne</em> (<kbd>⌘+⇧+D</kbd> sur Mac).
+                    </li>
+            </ul>
+            
+            <p>
+                Ça marche aussi quand vous avez plusieurs lignes sélectionnées.
+                </p>
+            
+            <p>
+            Et finalement d'autres ne marchant pas sur mon site mais que je conseille :
+            </p>
+            
+            <ul>
+                <li><kbd>Ctrl+Shift+↑</kbd>: 
+                    <em>Déplacer la ligne vers le haut</em> (<kbd>⌘+Shift+↑</kbd> sur Mac)
+                    </li>
+                <li><kbd>Ctrl+Shift+↓</kbd>: 
+                    <em>Déplacer la ligne vers le bas</em> (<kbd>⌘+Shift+↓</kbd> sur Mac)
+                    </li>
+            </ul>
             
         </section>
         
@@ -177,10 +241,15 @@
             
             <h3 id="pen"><code>penup/pendown</code></h3>
             
+            <figure>
+                <img src="pendrawing.jpg" />
+                <figcaption>Un stylo dessinant une ligne</figcaption>
+            </figure>
+            
             <p>
-                La nouvelle commande <code class="py">penup()</code> &mdash; raccourci <code>pu()</code> &mdash;
+                La nouvelle commande <code class="py">penup()</code>, raccourci <code>pu()</code>,
                 permet de lever le crayon, ainsi la tortue peut bouger sans dessiner.
-                Ensuite, <code>pendown()</code> &mdash; raccourci <code>pd()</code> &mdash; repose le crayon pour plus de dessins.
+                Ensuite, <code>pendown()</code>, raccourci <code>pd()</code>, repose le crayon pour plus de dessins.
                 </p>
             
             <p> Que fait ce code ? </p>
@@ -217,19 +286,36 @@
                 Pour ce magnifique orange, j'écrirai la commande <code>color(253, 126, 0)</code>.
                 </p>
             
+            <p>
+            Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code>#ff0060</code> qui peut s'insérer en écrivant
+             <code class="py">color("#ff9900")</code>.</p>
+            
             <pre><code class="py">
-                fd(50)
+                fd(30)
                 color("yellow")
-                fd(50)
+                fd(30)
                 color("red")
-                fd(50)
+                fd(30)
                 color(253, 126, 0)
-                fd(50)
+                fd(30)
+                color("#ff0060")
+                fd(30)
             </code></pre>
 
             <p>
                 Remarque, si <code>color(253, 126, 0)</code> fait une erreur, écris <code>colormode(255)</code> au début de ton programme.
                 </p>
+            
+            <p>
+            Ainsi, une couleur est un mélange de rouge, vert et bleu et ces composantes sont souvent affichées sous différentes formes. Prenons mon <span style="color:#ff9900">orange</span> favori, il peut être exprimé...
+            </p>
+            <ul>
+                <li>En pourcentages : <em>100%, 60%, 0%</em>.</li>
+                <li>En ratios : <em>1.0, 0.6, 0</em>.</li>
+                <li>Avec des entiers entre 0 et 255 : <em>255, 153, 0</em> vu que <em>153 = 60% 255</em>.</li>
+                <li>Avec des entiers écris en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a> : <code>ff, 99, 00 = #ff9900</code> vu que 255 vaut <code>ff</code> en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a> et 153 vaut <code>99</code>.</li>
+                <li>Et quand les deux chiffres hexadécimaux sont les mêmes pour les trois composantes on ne les répète souvent pas : <code>#f90</code>.</li>
+            </ul>
             
             <h3 id="exercice-5">Exercice 5 :  Deux carrés colorés </h3>
             
@@ -245,7 +331,7 @@
             <h3 id="exercice-6">Exercice 6 :  La maison en couleurs </h3>
             
             <p>
-                Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert&nbsp;!
+                Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert !
                 </p>
             
             <figure>
@@ -277,7 +363,7 @@
             </code></pre>
 
             <p>
-                Écris ce code en haut du fichier, et puis la nouvelle instruction <code>carre()</code> sera disponible !
+                Écris le code ci-dessus et puis la nouvelle instruction <code>carre()</code> sera disponible ! Écris le code ci-dessous ensuite.
                 </p>
             
             <pre><code class="py">
@@ -325,14 +411,18 @@
                 On peut faire des opérations mathématiques comme <code class="py">50 + taille * 2 - (taille - 1)</code>, attention à la priorité des opérations !
                 </p>
             
+            <p>
+                Un petit raccourci clavier pour <em>décaler des lignes</em> vers la droite : sélectionnez les lignes en questions et appuyez sur <kbd>Tab</kbd>. L'opération inverse est disponible via <kbd>Shift+Tab</kbd>.
+                </p>
+            
             <h3 id="exercice-8">Exercice 8 :  Modèles de maison </h3>
             
             <p>
-                Le code de la maison se trouve <a href="maison.py.html">ici</a>, met le dans une fonction à deux paramètres pour pouvoir effectuer une maison colorée en une ligne&nbsp;:
+                Le code de la maison se trouve <a href="maison.py.html">ici</a>, met le dans une fonction à deux paramètres pour pouvoir effectuer une maison colorée en une ligne :
                 </p>
             
             <pre><code class="py">
-            maison(20, "red")
+            maison(40, "red")
             maison(60, "blue")
             </code></pre>
             
@@ -415,7 +505,7 @@
             <pre><code class="py">triangles(20, "red")</code></pre>
             
             <p>
-                Utilise les boucles et cette figure peut se faire en moins de 10 lignes&nbsp;!
+                Utilise les boucles et cette figure peut se faire en moins de 10 lignes !
                 </p>
             
             <figure>
@@ -426,7 +516,7 @@
             <h3 id="exercice-11">Exercice 11 :  Le village </h3>
             
             <p>
-                Utilise les boucles et ta fonction <code>maison</code> pour créer facilement un village à deux rues comme ceci&nbsp;:
+                Utilise les boucles et ta fonction <code>maison</code> pour créer facilement un village à deux rues comme ceci :
                 </p>
             
             <figure>
@@ -531,7 +621,7 @@
             </code></pre>
             
             <p>
-            Ou encore créer des conditions pour changer de logique&nbsp;:
+            Ou encore créer des conditions pour changer de logique :
             </p>
             
             <pre><code class="py">
@@ -559,7 +649,7 @@
 
             <h3 id="exercice-13">Exercice 13 :  Le village variable </h3>
 
-            <p> Essaie de faire des tailles variables&nbsp;:</p>
+            <p> Essaie de faire des tailles variables :</p>
             
             <figure>
                 <img src="village-variable.svg" />
@@ -574,5 +664,6 @@
             </script>
         </section>
         
+    </div>
     </body>
 </html>

@@ -17,7 +17,7 @@ for i,x in enumerate(L):
 # chercher : est ce que je peux trouver un élément qui est égal à x ?
 if 2 in L: # 2 in T
     print("2 est dans la liste")
-    b = L.index(2) # savoir l'index
+    b = L.index(2) # connaître l'index
     print("... à la position", b)
 
 # comparer deux listes/deux tuples : == !=
@@ -201,12 +201,12 @@ alice = Personnage()
 bob = Personnage()
 
 D = {alice: 5, bob: 1}
-print D[alice]
+print(D[alice])
 
 L = [alice, bob]
 
 for perso in L:
-    print D[perso]
+    print(D[perso])
 
 vivants = {alice, bob}
 
@@ -223,9 +223,9 @@ S = {
     frozenset([2,1]),
 }
 
-print S == {frozenset([1,2,4]), frozenset([1,2])} # True
+print(S == {frozenset([1,2,4]), frozenset([1,2])}) # True
 
-print frozenset((1,4,2)) in S # True !
+print(frozenset((1,4,2)) in S) # True !
 
 # les 
 

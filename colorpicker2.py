@@ -5,7 +5,7 @@ La flèche droite permet maintenant de parcourir les couleurs dans le sens inver
 Les couleurs sont maintenant rajoutées à la liste "couleurs" en utilisant .append() est ce que tu trouves ça plus pratique ?
 Une boucle "for" permet maintenant de rajouter plein de couleurs générées automatiquement à la liste.
 Est-ce que tu sais obtenir de nouvelles couleurs en modifiant la manière dont les valeurs rouge, vert et bleu sont calculées ?
-Note : range(1, 26) fait que i vaudra successivement 1, 2, 3, ..., 24, 25.
+Note: range(1, 26) fait que i vaudra successivement 1, 2, 3, ..., 24, 25.
 Attention seules les valeurs entre 0 et 255 sont admises! 0 représentant "pas de couleur" et 255 "couleur maximale"
 Ainsi (255, 0, 0) veut dire "un max de rouge, pas de vert, pas de bleu"
 Ainsi (255, 255, 255) veut dire "un max de rouge, de vert et de bleu" donc du blanc (lumière pure)

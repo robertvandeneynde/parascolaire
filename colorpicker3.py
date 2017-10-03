@@ -10,31 +10,24 @@ fenetre = pygame.display.set_mode(taille_fenetre)
 horloge = pygame.time.Clock()
 
 class Couleur: # Permets de manipuler l'objet Color de pygame mais en ajoutant des foncitonalités.
-    rouge = 0
-    vert = 0
-    bleu = 0
-
     def __init__(self, rouge, vert, bleu):
         self.rouge = rouge
         self.bleu = bleu
         self.vert = vert
 
     def modifier_rouge(self, ajout):
-        nouveau_rouge = self.rouge
-        nouveau_rouge += ajout
-        if nouveau_rouge > 0 and nouveau_rouge < 256:
+        nouveau_rouge = self.rouge + ajout
+        if nouveau_rouge >= 0 and nouveau_rouge <= 255:
             self.rouge = nouveau_rouge
 
     def modifier_bleu(self, ajout):
-        nouveau_bleu = self.bleu
-        nouveau_bleu += ajout
-        if nouveau_bleu > 0 and nouveau_bleu < 256:
+        nouveau_bleu = self.bleu + ajout
+        if nouveau_bleu >= 0 and nouveau_bleu <= 255:
             self.bleu = nouveau_bleu
 
     def modifier_vert(self, ajout):
-        nouveau_vert = self.vert
-        nouveau_vert += ajout
-        if nouveau_vert > 0 and nouveau_vert < 256:
+        nouveau_vert = self.vert + ajout
+        if nouveau_vert >= 0 and nouveau_vert <= 255:
             self.vert = nouveau_vert
 
     def get_couleur(self):

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-        <link href="turtle.png" rel="icon" type="image/png"/>
+        <link href="turtle.png" rel="icon" type="image/png" />
         <title>{{ Programmez avec turtle ! | Programming with turtle! }}</title>
         
         <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/bike-and-tree-and-turtle.png" />
@@ -32,10 +32,13 @@
             figcaption {
                 display: none;
             }
+            p > code {
+                display: inline;
+            }
         </style>
         
-        <link id="stylesheet" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script>
             $(function(){
                 hljs.initHighlightingOnLoad()
@@ -46,6 +49,7 @@
         </script>
     </head>
     <body class="algos">
+    <div id="wrapper">
         <h1 class="nocontent"><!--
             --><a class="homeicon" href="index.html"></a><!--
             --><span class="text">Turtle</span><!--
@@ -70,7 +74,7 @@
         
         <section name="base">
             
-            <div><em>{{<a href="turtle.en.html" lang="en" hreflang="en">English here!</a>|<a href="turtle.fr.html" lang="fr" hreflang="fr">Français ici&nbsp;!</a>}}</em></div>
+            <div><em>{{<a href="turtle.en.html" lang="en" hreflang="en">English here!</a>|<a href="turtle.fr.html" lang="fr" hreflang="fr">Français ici !</a>}}</em></div>
             
             <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: {{ Avancer, tourner | Forward, turn }}</h3>
             
@@ -98,9 +102,9 @@
             }}</p>
             
             <p>{{
-                Je conseille de mettre les deux fenêtres côtes à côte, environ 1/3 de l'écran pour cette page et donc 2/3 pour le code et l'affichage de la tortue.
+                Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
                 |
-                I suggest to put the two windows next to each other, around 1/3 of the screen for this windows and therefore 2/3 for the code and the rendering of the turtle.
+                I suggest to put the two windows next to each other, around ⅓ of the screen for this windows and therefore ⅔ for the code and the rendering of the turtle.
             }}</p>
             
             {{
@@ -144,8 +148,7 @@
                 lt(90 + 90)
                 fd(100 * 2)
             </code></pre>
-        
-        
+            
         </section>
         
         <h2 id="complex{{e|}}">{{ Formes complexes | Complex shapes }}</h2>
@@ -156,7 +159,7 @@
             <p>{{
                 Maintenant, tu vas écrire le code ! Essaie de dessiner un <strong>carré</strong> de côté <em>80</em>.
                 |
-                Now, you are going to write the code! Try to draw a <strong>square</strong> with side <em>80</em>.
+                Now, you are going to write the code! Try to draw a <strong>square</strong> of side <em>80</em>.
             }}</p>
             
             <figure>
@@ -178,7 +181,7 @@
             </figure>
             
             <p>{{
-                Sauve ce code dans un nouveau fichier pour pouvoir le ré-utiliser plus tard !
+                Sauve ce code dans un nouveau fichier pour pouvoir le réutiliser plus tard !
                 |
                 Save this code in a new file to reuse it afterwards!
             }}</p>
@@ -188,6 +191,82 @@
                 <figcaption>{{ Plusieurs fichiers | Multiple files }}</figcaption>
             </figure>
             
+            <h3 id="{{raccourcis|shortcuts}}">{{Raccourcis claviers|Keyboard shortcuts}}</h3>
+            
+            <p>{{
+                Quelques raccourcis clavier très utiles pour éditer du texte :
+                | Some keyboard shortcuts very useful to edit text:
+            }}</p>
+            
+            <ul>
+                <li><kbd>Ctrl+→</kbd>: {{
+                    <em><strong>Mot</strong> suivant</em> (<kbd>⌥+→</kbd> sur Mac).
+                    | <em>Next <strong>word</strong></em> (<kbd>⌥+→</kbd> on Mac).
+                }}</li>
+                <li><kbd>Ctrl+←</kbd>: {{
+                    <em><strong>Mot</strong> précédent</em> (<kbd>⌥+←</kbd> sur Mac).
+                    | <em>Previous <strong>word</strong></em> (<kbd>⌥+←</kbd> on Mac).
+                }}</li>
+                <li><kbd>Shift+→</kbd>: {{
+                    <em><strong>Sélectionner</strong> un caractère vers la droite</em> (<kbd>⇧+→</kbd> sur Mac).
+                    | <em><strong>Select</strong> a character to the right</em> (<kbd>⇧+→</kbd> on Mac).
+                }}</li>
+                <li><kbd>Shift+←</kbd>: {{
+                    <em><strong>Sélectionner</strong> un caractère vers la gauche</em> (<kbd>⇧+←</kbd> sur Mac).
+                    | <em><strong>Select</strong> a character to the left</em> (<kbd>⇧+←</kbd> on Mac).
+                }}</li>
+                <li><kbd>Ctrl+Shift+→</kbd>: {{
+                    <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la droite</em> (<kbd>⌥+⇧+→</kbd> sur Mac).
+                    | <em><strong>Select</strong> a <strong>word</strong> to the right</em> (<kbd>⌥+⇧+→</kbd> on Mac).
+                }}</li>
+                <li><kbd>Ctrl+Shift+←</kbd>: {{
+                    <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la gauche</em> (<kbd>⌥+⇧+←</kbd> sur Mac).
+                    | <em><strong>Select</strong> a <strong>word</strong> to the left</em> (<kbd>⌥+⇧+←</kbd> on Mac).
+                }}</li>
+            </ul>
+            
+            <p>{{
+                Ça marche partout même sur Facebook ! Et remarquez qu'il y a une touche Ctrl et Shift juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec uniquement la main droite!
+                | It works everywhere even on Facebook! And let's notice that there is a Ctrl and Shift key next to the arrow keys so all of these shortcuts can be done with the right hand only!
+            }}</p>
+            
+            <p>{{
+                En plus de ça, quelques raccourcis utiles quand vous éditez du code:
+                |Moreover, here are some useful shortcuts when you edit code:
+            }}</p>
+            
+            <ul>
+                <li><kbd>Ctrl+D</kbd>: {{
+                    <em>Supprimer une ligne</em> (<kbd>⌘+D</kbd> sur Mac).
+                    | <em>Delete a line</em> (<kbd>⌘+D</kbd> on Mac).
+                }}</li>
+                <li><kbd>Ctrl+Shift+D</kbd>: {{
+                    <em>Dupliquer une ligne</em> (<kbd>⌘+⇧+D</kbd> sur Mac).
+                    | <em>Duplicate a line</em> (<kbd>⌘+⇧+D</kbd> on Mac).
+                }}</li>
+            </ul>
+            
+            <p>{{
+                Ça marche aussi quand vous avez plusieurs lignes sélectionnées.
+                | It also works when you have multiple selected lines.
+            }}</p>
+            
+            <p>{{
+            Et finalement d'autres ne marchant pas sur mon site mais que je conseille :
+            | And finally others that do not work on my site but that I recommend:
+            }}</p>
+            
+            <ul>
+                <li><kbd>Ctrl+Shift+↑</kbd>: {{
+                    <em>Déplacer la ligne vers le haut</em> (<kbd>⌘+Shift+↑</kbd> sur Mac)
+                    | <em>Move line up</em> (<kbd>⌘+Shift+↑</kbd> on Mac)
+                }}</li>
+                <li><kbd>Ctrl+Shift+↓</kbd>: {{
+                    <em>Déplacer la ligne vers le bas</em> (<kbd>⌘+Shift+↓</kbd> sur Mac)
+                    | <em>Move line down</em> (<kbd>⌘+Shift+↓</kbd> on Mac)
+                }}</li>
+            </ul>
+            
         </section>
         
         <h2 id="{{crayon-couleur|pen-color}}">{{ Crayon et couleurs | Pen and colors }}</h2>
@@ -196,14 +275,19 @@
             
             <h3 id="pen"><code>penup/pendown</code></h3>
             
+            <figure>
+                <img src="pendrawing.jpg" />
+                <figcaption>{{Un stylo dessinant une ligne|A pen drawing a line}}</figcaption>
+            </figure>
+            
             <p>{{
-                La nouvelle commande <code class="py">penup()</code> &mdash; raccourci <code>pu()</code> &mdash;
+                La nouvelle commande <code class="py">penup()</code>, raccourci <code>pu()</code>,
                 permet de lever le crayon, ainsi la tortue peut bouger sans dessiner.
-                Ensuite, <code>pendown()</code> &mdash; raccourci <code>pd()</code> &mdash; repose le crayon pour plus de dessins.
+                Ensuite, <code>pendown()</code>, raccourci <code>pd()</code>, repose le crayon pour plus de dessins.
                 |
-                The new command <code class="py">penup()</code> &mdash; shortcut <code>pu()</code> &mdash;
+                The new command <code class="py">penup()</code>, shortcut <code>pu()</code>,
                 can lift the pen up, so that the turtlecan move without drawing.
-                We also have, <code>pendown()</code> &mdash; shortcut <code>pd()</code> &mdash; to put the pen back down for more drawing.
+                We also have, <code>pendown()</code>, shortcut <code>pd()</code>, to put the pen back down for more drawing.
             }}</p>
             
             <p>{{ Que fait ce code ? | What is this code doing? }}</p>
@@ -251,14 +335,21 @@
                 For this amazing orange, I will write the command <code>color(253, 126, 0)</code>.
             }}</p>
             
+            <p>{{
+            Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code>#ff0060</code> qui peut s'insérer en écrivant
+            | A lot of <a href="http://hexpicker.com">tools</a> give the color <em>hexadecimal code</em> (<em>hex code</em>), for example I have a nice <span style="color: #ff0060">pink</span> written <code>#ff0060</code> that can be inserted using
+            }} <code class="py">color("#ff9900")</code>.</p>
+            
             <pre><code class="py">
-                fd(50)
+                fd(30)
                 color("yellow")
-                fd(50)
+                fd(30)
                 color("red")
-                fd(50)
+                fd(30)
                 color(253, 126, 0)
-                fd(50)
+                fd(30)
+                color("#ff0060")
+                fd(30)
             </code></pre>
 
             <p>{{
@@ -267,9 +358,21 @@
                 Let's notice that, if <code>color(253, 126, 0)</code> gives you an error, write <code>colormode(255)</code> in the beginning of your program.
             }}</p>
             
+            <p>{{
+            Ainsi, une couleur est un mélange de rouge, vert et bleu et ces composantes sont souvent affichées sous différentes formes. Prenons mon <span style="color:#ff9900">orange</span> favori, il peut être exprimé...
+            | Therefore, color is a mix of red, green, blue and these components are often displayed in various forms. Let's take my favorite <span style="color:#ff9900">orange</span>, it can be written...
+            }}</p>
+            <ul>
+                <li>{{En pourcentages :|As percentages:}} <em>100%, 60%, 0%</em>.</li>
+                <li>{{En ratios :|As ratios:}} <em>1.0, 0.6, 0</em>.</li>
+                <li>{{Avec des entiers entre 0 et 255 :|With integers ranging from 0 to 255:}} <em>255, 153, 0</em> {{vu que|because}} <em>153 = 60% 255</em>.</li>
+                <li>{{Avec des entiers écris en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a> :|With integers written in <a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>:}} <code>ff, 99, 00 = #ff9900</code> {{vu que 255 vaut|because 255 is}} <code>ff</code> {{en|in}} {{<a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a>|<a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>}} {{et 153 vaut|and 153 is}} <code>99</code>.</li>
+                <li>{{Et quand les deux chiffres hexadécimaux sont les mêmes pour les trois composantes on ne les répète souvent pas :|And when both hexadecimal digits for the three components are equal, one does not repeat it:}} <code>#f90</code>.</li>
+            </ul>
+            
             <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: {{ Deux carrés colorés | Two colored squares }}</h3>
             
-            <p>{{ Essaie de dessiner ceci : || Try to draw this: }}</p>
+            <p>{{ Essaie de dessiner ceci : | Try to draw this: }}</p>
             
             <figure>
                 <img src="two-colored-squares.svg" />
@@ -283,7 +386,7 @@
             <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: {{ La maison en couleurs | House in color }}</h3>
             
             <p>{{
-                Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert&nbsp;!
+                Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert !
                 |
                 Or you can color your house, the door in red and the roof in green!
             }}</p>
@@ -321,9 +424,9 @@
             </code></pre>
 
             <p>{{
-                Écris ce code en haut du fichier, et puis la nouvelle instruction <code>carre()</code> sera disponible !
+                Écris le code ci-dessus et puis la nouvelle instruction <code>carre()</code> sera disponible ! Écris le code ci-dessous ensuite.
                 |
-                Write this code at the top of the file, then the new instruction <code>square()</code> will be available!
+                Write the code above and then the new instruction <code>square()</code> will be available! Then write the code below.
             }}</p>
             
             <pre><code class="py">
@@ -379,17 +482,22 @@
                 We can do some maths like <code class="py">50 * size * 2 - (size - 1)</code>, be careful to the priority of operations!
             }}</p>
             
+            <p>{{
+                Un petit raccourci clavier pour <em>décaler des lignes</em> vers la droite : sélectionnez les lignes en questions et appuyez sur <kbd>Tab</kbd>. L'opération inverse est disponible via <kbd>Shift+Tab</kbd>.
+                | A small keyboard shortcut to <em>shift lines</em> to the right: select the lines you want to shift and hit <kbd>Tab</kbd>. The reverse operation can be done via <kbd>Shift+Tab</kbd>.
+            }}</p>
+            
             <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: {{ Modèles de maison | House patterns }}</h3>
             
             <p>{{
-                Le code de la maison se trouve <a href="maison.py.html">ici</a>, met le dans une fonction à deux paramètres pour pouvoir effectuer une maison colorée en une ligne&nbsp;:
+                Le code de la maison se trouve <a href="maison.py.html">ici</a>, met le dans une fonction à deux paramètres pour pouvoir effectuer une maison colorée en une ligne :
                 |
                 You can find the code of the house <a href="maison.py.html">here</a>, put in in a function 
-                with two parameters so that you can draw a house with one line&nbsp;
+                with two parameters so that you can draw a house with one line:
             }}</p>
             
             <pre><code class="py">
-            {{maison|house}}(20, "red")
+            {{maison|house}}(40, "red")
             {{maison|house}}(60, "blue")
             </code></pre>
             
@@ -488,7 +596,7 @@
             <pre><code class="py">triangles(20, "red")</code></pre>
             
             <p>{{
-                Utilise les boucles et cette figure peut se faire en moins de 10 lignes&nbsp;!
+                Utilise les boucles et cette figure peut se faire en moins de 10 lignes !
                 |
                 With the help of loops, this figure can be drawin in less than 10 lines!
             }}</p>
@@ -501,7 +609,7 @@
             <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 11{{ |}}: {{ Le village | The village }}</h3>
             
             <p>{{
-                Utilise les boucles et ta fonction <code>maison</code> pour créer facilement un village à deux rues comme ceci&nbsp;:
+                Utilise les boucles et ta fonction <code>maison</code> pour créer facilement un village à deux rues comme ceci :
                 |
                 Use loops and your <code>house</code> function to create easily a village with two streets like this:
             }}</p>
@@ -627,7 +735,7 @@
             </code></pre>
             
             <p>{{
-            Ou encore créer des conditions pour changer de logique&nbsp;:
+            Ou encore créer des conditions pour changer de logique :
             |
             Or write conditions to change the logic:
             }}</p>
@@ -657,7 +765,7 @@
 
             <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: {{ Le village variable | The variable village }}</h3>
 
-            <p>{{ Essaie de faire des tailles variables&nbsp;:| Try to make houses with variable sizes: }}</p>
+            <p>{{ Essaie de faire des tailles variables :| Try to make houses with variable sizes: }}</p>
             
             <figure>
                 <img src="village-variable.svg" />
@@ -674,5 +782,6 @@
             </script>
         </section>
         
+    </div>
     </body>
 </html>

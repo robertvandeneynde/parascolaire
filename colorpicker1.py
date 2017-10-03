@@ -2,7 +2,7 @@
 """
 Fichier 1: Changer avec les flèches les couleurs de l'arrière plan.
 Es-tu capable de compléter le code afin que l'on puisse également utiliser la flèche droite? (pygame.K_RIGHT)
-Note : couleur_active désigne le numéro de la couleurs actuellement affichée. Les couleurs sont numérotées de la manière suivante : 0, 1, 2 ,3, 4.
+Note: couleur_active désigne le numéro de la couleurs actuellement affichée. Les couleurs sont numérotées de la manière suivante : 0, 1, 2 ,3, 4.
 Il faut faire attention à ce que couleur_active ne prennent pas de valeur < 0 et > 4. Sinon une erreur se produira.
 
 Si tu souhaites rajouter une couleur à la liste, combien de ligne devras tu modifier ? Est-ce que cela te semble long à faire ?

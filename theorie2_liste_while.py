@@ -46,7 +46,7 @@ ma_liste = [1,2,7,2] # 4 éléments !
 # 1) Lire
 premier = ma_liste[0] # l'élément numéro 0 est le premier
 dernier = ma_liste[3] # vu que notre liste est de taille 4, 3 est le dernier
-taille = len(ma_liste) # len permet de savoir la taille
+taille = len(ma_liste) # len permet de connaître la taille
 print(ma_liste[5]) # ERREUR, il n'y a pas d'élément "5", le dernier était "3"
 
 # le "numéro" est appelé "l'indice", l'indice du "1" dans notre liste est donc 0
@@ -105,7 +105,7 @@ while i < 5:
     print(i)
     i = i + 1
 
-## parcourir une liste ! sans savoir l'index
+## parcourir une liste ! sans connaître l'index
 
 for nombre in ma_liste:
     print(nombre)
@@ -178,7 +178,7 @@ very_funny = 'ha' * 3 # "hahaha"
 if prenom < 'Frederic':
     print("Avant Frederic")
 else:
-    print("Après ou est Frederic")
+    print("Après ou est égal à Frederic")
 
 # Attention, majuscules, minuscules
 print('A' == 'a') # False
@@ -207,24 +207,26 @@ binaire = int("100", 2) # 4
 virgule = float("41.25") # 41.25
 list_of_str = " Hello World How Is Life  ".split() # ['Hello', 'World', 'How', 'Is', 'Life']
 some_names = "Hello World;Bonjour le monde;Donkey Konga".split(';') # ['Hello World', 'Bonjour le monde', 'Donkey Konga']
-no_space = " \t  Yeyo Yayo \n ".strip() # "Yeyo Yayo"
+no_space = "  Yeyo Yayo  ".strip() # Sans les espaces du début et fin: "Yeyo Yayo"
+no_space = " \t Yeyo Yayo \n  ".strip() # marche avec n'importe quel whitespace comme TAB (\t) ou À_LA_LIGNE (\n)
 
-# vers/depuis code unicode (les codes unicode de 0 à 127 sont appelés "ascii"
+# vers/depuis code unicode (les codes unicode de 0 à 127 sont appelés "ascii") Voir [ici](https://robertvandeneynde.be/blog/2017/07/06/unicode.html)
 print(ord('A'))  # 65
 print(ord('a'))  # 97
-print(ord('\n')) # 10
+print(ord('\n')) # 10 le caractère À_LA_LIGNE (LINE FEED: LF)
 print(chr(65))   # A
 
 # slicing (marche aussi sur les list/tuple)
 print(prenom[1:4]) # de 1 à 4 non compris : "obe"
-print(prenom[:3]) # du début à 3 non compris : "Rob"
+print(prenom[:3]) # du début à 3 non compris : "Rob" : les 3 premiers
 print(prenom[4:]) # de 4 à la fin : "rt"
+print(prenom[-3:]) # de -3 à la fin : "ert" : les 3 derniers
 
 # string sur plusieurs lignes
 a = '''
 Hello
 '''
-print(a == '\nHello\n') # True
+print(a == '\nHello\n') # True # \n est le caractère À_LA_LIGNE (LINE FEED: LF)
 
 ## format : créer facilement une chaîne depuis un modèle
 
@@ -284,13 +286,13 @@ L = []
 for i in range(50):
     for j in range(10):
         if i != 0:
-            if j % 2 == 5:
-                for k in range(90):
+            if j % 3 == 2:
+                for k in range(5):
                     L.append(i+j+k)
 
 # en une ligne, mais on passe à la ligne, c'est plus joli
 L = [i+j+k for i in range(50)
            for j in range(10)
            if i != 0
-           if j % 2 == 5
-           for k in range(90)]
+           if j % 3 == 2
+           for k in range(5)]

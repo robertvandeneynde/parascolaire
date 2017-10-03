@@ -8,7 +8,7 @@ import textwrap
 
 from generate_utils import OutFile
 
-GROUPINGS = ('theorie', 'exercice', 'pygame', 'progra', 'gl', 'lecture', 'pdf', 'projet', '')
+GROUPINGS = ('theorie', 'exercice', 'pygame', 'progra', 'gl', 'lecture', 'pdf', 'projet', 'colorpicker', '')
 
 EXTS = {
     '.pdf': 1,
