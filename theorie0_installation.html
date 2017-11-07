@@ -83,8 +83,8 @@
         </p>
         
         <p>
-         Dans le cadre du parascolaire, je fais les deux premiers chapitres de théorie pendant 4h,
-        puis on attaque la partie graphique (faire des fenêtres !) pour les 14h restantes.
+         Dans le cadre du parascolaire, je fais les deux premiers chapitres de théorie pendant 4 à 6 heures,
+        puis on attaque la partie graphique (faire des fenêtres !) pour les 12 à 14 heures restantes.
         Le chapitre 3 de la théorie sera appris à chaque étudiant en fonction de son avancée de projet.
         
         </p>
@@ -153,7 +153,7 @@
         
         <p>
         Le mieux est toujours d'avoir la dernière version de python (3.6)
-        mais sous windows l'installation de pygame est plus facile avec python 3.4
+        mais sous windows l'installation de pygame est plus facile avec python 3.4.
         </p>
 
         <p>
@@ -164,9 +164,9 @@
             <li>Téléchargez python 3.4 version 32 bits <a href="https://www.python.org/ftp/python/3.4.3/python-3.4.3.msi">ici</a>.</li>
             <li>Pygame pour python 3.4 version 32 bits <a href="https://bitbucket.org/pygame/pygame/downloads/pygame-1.9.2a0-hg_5974ff8dae3c+.win32-py3.4.msi">ici</a>.</li>
         </ul>
-
+        
         <p>
-         Ensuite vous lancer le programme <strong>IDLE</strong>,
+         Ensuite vous lancez le programme <strong>IDLE</strong>,
         vous faites <strong>File → New</strong>, écrivez du code, enregistrez le fichier sur votre bureau,
         et appuyez sur F5 (ou <strong>Run</strong> dans les menus) pour le lancer.
         
@@ -207,9 +207,9 @@
           <ul>
             
             <li>
-                Déterminez si votre version de <strong>python</strong> est 32 bits ou 64 bits, quand vous allez dans le menu windows et tappez "python" cela devrait être marqué.
+                Déterminez si votre version de <strong>python</strong> est 32 bits ou 64 bits, quand vous allez dans le menu windows et tappez <em>python</em> cela devrait être marqué.
                 Même si votre ordinateur est 64 bits, il se peut que vous ayez téléchargé python 32 bits (et ça marchera très bien).
-                Pour savoir si votre ordi est 32 ou 64 bits, allez dans "Panneau de configuration → Système"
+                Pour savoir si votre ordi est 32 ou 64 bits, allez dans <em>Panneau de configuration → Système</em>.
             </li>
             
             <li>
@@ -240,7 +240,7 @@
             
                 <pre><code class="dos">
                 cd %AppData%\..\Local\Programs\Python36-32\Scripts\
-                pip.exe install pygame-1.9.2-cp36-cp36m-win32.whl
+                pip.exe install pygame-1.9.3-cp36-cp36m-win32.whl
                 </code></pre>
             </li>
             
@@ -248,7 +248,7 @@
             
                 <pre><code class="dos">
                 cd %AppData%\..\Local\Programs\Python36-64\Scripts\
-                pip.exe install pygame-1.9.2-cp36-cp36m-win_amd64.whl
+                pip.exe install pygame-1.9.3-cp36-cp36m-win_amd64.whl
                 </code></pre>
             </li>
             
@@ -263,7 +263,7 @@
                 <ul>
                     <li>Pour tester que python version 3 s'est bien installé, tappez <code>python3</code> puis appuyez sur Enter.</li>
                     <li>Vous devriez voir le texte <em>Python 3.6</em> et qui finit par <code>>>> </code> affiché à l'écran.</li>
-                    <li>Par contre, si vous voyez une phrase du style <em>commande introuvable: python3</em> ou <em>command not found: python3</em>, c'est qu'il s'est pas installé.</li>
+                    <li>Par contre, si vous voyez une phrase du style <em>commande introuvable: python3</em> ou <em>command not found: python3</em>, c'est qu'il ne s'est pas installé.</li>
                     <li>Fermez le terminal</li>
                 </ul>
             </li>
@@ -276,7 +276,7 @@
                 <li>
                     Cette commande ruby qui installe homebrew (brew) :
                     <pre><code class="bash">
-                        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+                        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
                     </code></pre>
                 </li>
                 
@@ -315,8 +315,8 @@
         
         <section name="version-python">
         <p>
-         Si vous avez reçu une clef usb avec python, la version est 2.7 (ancienne version)
-        Les ordis à l'école ont la version récente : 3.5 (nouvelle version)
+         Si vous avez reçu une clef usb avec python, la version est 2.7 (ancienne version).
+        Les ordis à l'école ont la version récente : 3.5 (nouvelle version).
         Pour ce cours, ça ne change quasi rien, à part trois petites différences suivantes :
         
         </p>
@@ -361,19 +361,21 @@
         À la fin du cours je ferai une introduction à la 3D pour les intéressés.
          
         
-        Il faut installer<a href="http://pyopengl.sourceforge.net/">pyOpenGL</a>
+        Il faut installer <a href="http://pyopengl.sourceforge.net/">pyOpenGL</a>
         et <a href="http://www.scipy.org/scipylib/download.html">numpy</a>.
         Ils sont installés sur les ordis de l'école.
         </p>
         
         <p>
-        Si vous êtes intéressés de l'installer chez vous sous windows pous pouvez faire la même chose qu'avec pygame (la version avec AppData, pip et les whl).
+        Si vous êtes intéressés par l'installer chez vous sous Windows pous pouvez faire la même chose qu'avec pygame (la version avec AppData, pip et les whl).
          
         </p>
         
         <p>
         Les whl pour windows sont sur <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">ce site non officiel</a>.
         </p>
+        
+        <p>Pour Mac ou Linux, un simple <code>pip3 install PyOpenGL PyOpenGL_accelerate numpy</code> suffira.</p>
         </section>
 </body>
 </html>

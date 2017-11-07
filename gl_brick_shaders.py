@@ -223,9 +223,9 @@ def SimpleRotationMatrix(angle, axe=Axe.Z):
     ])
 
 
-def GenericRotationMatrix(angle, axe):
+def RotationMatrix(angle, axe):
     """ Rotation matrix for angle in degree around any axe
-    GenericRotationMatrix(30, (0,0,1))
+    RotationMatrix(30, (0,0,1))
     """
     x, y, z = normalized(axe)
 
