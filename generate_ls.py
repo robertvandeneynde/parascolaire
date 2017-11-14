@@ -43,7 +43,7 @@ def accepted(path):
             '\\.en\\.html$', '\\.fr\\.html$', '\\.multilang\\.html$',
             '\\.php\\.txt$', '\\.php\\.html$',
             '\\.java\\.txt$', '\\.class$', '\\.java\\.html$',
-            '\\.js\\.txt$', '\\.js\\.html$',
+            '\\.js\\.txt$', '\\.js\\.html$', '^home$'
         )
     ) and not os.path.islink(path)
 
