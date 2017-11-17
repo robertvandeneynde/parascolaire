@@ -3,3 +3,6 @@
 ./generate_html.py
 # ./generate_ln.py
 ./generate_ls.py # keep last
+cd home/2017-2018
+./generate_index.py
+cd ../..
