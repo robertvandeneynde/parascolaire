@@ -13,6 +13,8 @@ ROUGE = [255, 0, 0]
 VERT = [0, 255, 0]
 BLEU = [0, 0, 255]
 
+# DÉBUT
+
 clock = pygame.time.Clock()
 
 fini = 0
@@ -22,7 +24,11 @@ while fini == 0:
         if event.type == pygame.QUIT:
             fini = 1
     
+    # TICK
+    
     ecran.fill(BLANC)
+    
+    # DESSIN
     
     pygame.draw.rect(ecran, ROUGE, [100,200, 20,40])
     pygame.draw.circle(ecran, BLEU, [100,200], 20)

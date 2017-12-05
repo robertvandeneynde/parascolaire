@@ -29,7 +29,7 @@ $(function(){
         })
     })
     
-    $('.springpython').each(function(){
+    $('.springpython, #folder').each(function(){
         var self = $(this)
         var v = 0;
         
@@ -68,7 +68,7 @@ $(function(){
         })
     })
     
-    $('#tetris').each(function(){
+    $('#tetris, #vecteur_v').each(function(){
         var self = $(this)
         
         self.css('cursor', 'pointer')

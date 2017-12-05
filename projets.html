@@ -85,9 +85,13 @@
                 <li>Une balle se déplaçant vers la droite, il faut créer une <strong>variable</strong> <code>ma_position</code>. Au tout début du code, ma_position = 100 (par exemple). Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à ma_position. Finalement, le cercle ne devra plus être dessiné en <code>[30, 80]</code> mais en <code>[ma_position, 80]</code>.</li>
                 <li>Elle avance un peu lentement, comment faire pour qu'elle avance de 5 pixels par tick ?</li>
                 <li>Elle sort de l'écran... Vu que l'écran est de taille 700×500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.</li>
-                <li>Maintenant la balle reste dans l'écran mais ne rebondit pas, il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. À la place de <code>-1</code> et <code>1</code>, on peut aussi dire 1 et 2, ou 0 et 1 !</li>
-                <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em></li>
-                <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.</li>
+                <li>Maintenant la balle reste dans l'écran mais ne rebondit pas, nous faisons ça en trois étapes :
+                    <ol>
+                        <li>Il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. À la place de <code>-1</code> et <code>1</code>, on peut aussi dire 1 et 2, ou 0 et 1 !</li>
+                        <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em></li>
+                        <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.</li>
+                    </ol>
+                </li>
                 <li>On peut faire deux dessins différents en fonction du sens ! Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>. Les triangles peuvent être dessinés avec <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code> ou avec une <a href="pygame7_images.py">image</a>.
                 
             

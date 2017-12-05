@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<!--         <link href="turtle.png" rel="icon" type="image/png" /> -->
+        <title>{{ filename }}</title>
+        
+<!--         <meta property="og:image" content="https://..." /> -->
+<!--         <meta property="og:description" content="" /> -->
+        <!-- <meta property="og:url" content="" /> -->
+<!--         <meta property="og:title" content="" /> -->
+<!--         <meta property="og:type"   content="article" />  -->
+        
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="utils.js"></script>
+        <style>
+            body {
+                /* background: url('diamond.jpg'); */
+/*                 background: url('bike-and-tree-and-turtle.png'); */
+/*                 background-size: 400px; */
+            }
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+            figcaption {
+                display: none;
+            }
+            p > code {
+                display: inline;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                utils.dedentPreCode()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
+        </script>
+    </head>
+    <body class="codeformat">
+    <div id="wrapper">
+        <h1 class=""><!-- nocontent
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">{{ name }}
+            
+            {% if download_link %}
+                <a href="{{ download_link }}"><img height=32 src="python.png" /></a>
+            {% endif %}
+            
+            </span><!--
+        --></h1>
+        
+        <section>
+            <div><em>
+                {% for other_lang in other_langs %}
+                <a href="{{ other_lang.filename }}"
+                   lang="{{ other_lang.lang }}"
+                   hreflang="{{ other_lang.lang }}">{{ other_lang.text }}</a>
+                {% endfor %}
+            </em></div>
+            
+            <p>{{ description }}</p>
+        </section>
+        
+        <nav>
+        {% for section in sections %}
+            <a href="#{{ section.id }}">{{ section.name }}</a>
+        {% endfor %}
+        </nav>
+        
+        {% for section in sections %}
+        <h2 id="{{ section.id }}">{{ section.name }}</h2>
+        
+        <section name="{{ section.id }}">
+            
+            {% for block in section.blocks %}
+            {% if block.name %}
+                <h3 id="{{ block.id }}">{{ block.name }}</h3>
+            {% endif %}
+            
+            {% if block.description %}
+                <p>{{ block.description }}</p>
+            {% endif %}
+            
+            <pre><code class="py">{{ block.code }}</code></pre>
+            {% endfor %}
+        </section>
+        {% endfor %}
+    </div>
+    </body>
+</html>

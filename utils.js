@@ -61,7 +61,7 @@ var utils = (function(){
         // convention : each section that has h3, must have a name=id where id is the id of the corresponding h2
         var A = $.makeArray( $('h2').map(function(){ return $(this).attr('id') }) )
         A.forEach(function(x,i){
-            makeLinksBetweenTitles('section[name=%%] h3'.replace('%%', x), '#' + A[i], (A[i+1] ? '#' + A[i+1] : null))
+            makeLinksBetweenTitles('section[name="%%"] h3'.replace('%%', x), '#' + A[i], (A[i+1] ? '#' + A[i+1] : null))
         })
     }
     
@@ -70,8 +70,8 @@ var utils = (function(){
             var hash = document.location.hash;
             if(hash.length > 1) {
                 var ahash = hash 
-                var target = $(hash);
-                target = target.length ? target : $('[name=' + hash.slice(1) +']');
+                var target = $(document.getElementById(hash.slice(1)));
+                target = target.length ? target : $('[name="' + hash.slice(1) +'"]');
                 if (target.length) {
                     if(target.offset().top > 2000)
                         location.hash = ahash;
@@ -97,8 +97,8 @@ var utils = (function(){
             } else if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
                 if(this.hash.length > 1) {
                     var ahash = this.hash 
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                    var target = $(document.getElementById(this.hash.slice(1)));
+                    target = target.length ? target : $('[name="' + this.hash.slice(1) +'"]');
                     if (target.length) {
                         $('html,body').animate({
                             scrollTop: target.offset().top

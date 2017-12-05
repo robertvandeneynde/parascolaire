@@ -1,4 +1,5 @@
 # ./generate_txt.py
+python3 ./generate_html_progra_equivalences_multilang.py
 ./generate_multilang.py --langs fr en
 ./generate_html.py
 # ./generate_ln.py
