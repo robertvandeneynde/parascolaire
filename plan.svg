@@ -10,13 +10,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   viewBox="0 0 638.49013 309.77691"
+   viewBox="0 0 638.49013 396.88364"
    id="svg9088"
    version="1.1"
    inkscape:version="0.92.1 r15371"
    sodipodi:docname="plan.svg"
    width="1292.5153"
-   height="660.85742">
+   height="846.68512">
   <metadata
      id="metadata9982">
     <rdf:RDF>
@@ -25,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -51,9 +51,9 @@
      inkscape:snap-smooth-nodes="true"
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
-     inkscape:zoom="12.350835"
-     inkscape:cx="905.0345"
-     inkscape:cy="284.86971"
+     inkscape:zoom="0.77192719"
+     inkscape:cx="527.58146"
+     inkscape:cy="494.97134"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -65,23 +65,23 @@
      fit-margin-bottom="10"
      inkscape:snap-global="true" />
   <g
-     transform="matrix(0.5,0,0,0.5,156.41939,-38.26624)"
+     transform="matrix(0.5,0,0,0.5,156.41939,-38.354898)"
      id="g9090">
     <path
-       style="fill:#faffe8;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98953662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.98953662, 3.95814651000000017;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1"
+       style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98953664;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.98953662, 3.95814651;stroke-dashoffset:0;stroke-opacity:1"
        d="M -202.65285,70.690062 V 175.61934 H 20.660314 V 70.690062 Z"
        id="path4913"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
     <path
-       style="fill:#faffe8;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98953662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.98953662, 3.95814651000000017;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1"
+       style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98953664;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.98953662, 3.95814651;stroke-dashoffset:0;stroke-opacity:1"
        d="M 294.5,70.404059 V 175.33333 H 575.11605 V 70.404059 Z"
        id="path4913-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
     <path
-       style="fill:#faffe8;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98953662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.98953662, 3.95814651000000017;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1"
-       d="m 585.36125,342.18184 v 95.04945 h 326.06316 v -95.04945 z"
+       style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98953664;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.98953662, 3.95814651;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 518.17853,342.18184 v 95.04945 h 326.06316 v -95.04945 z"
        id="path4913-4-2"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
@@ -238,7 +238,7 @@
       </g>
     </g>
     <g
-       transform="translate(699.55772,348.39999)"
+       transform="translate(632.375,348.39999)"
        id="g9194">
       <path
          transform="translate(0.5,0.5)"
@@ -258,7 +258,7 @@
       </text>
     </g>
     <g
-       transform="translate(610.46156,392.53333)"
+       transform="translate(543.27884,392.53333)"
        id="g9202">
       <g
          id="g9204">
@@ -281,7 +281,7 @@
       </g>
     </g>
     <g
-       transform="translate(758.96156,392.53333)"
+       transform="translate(691.77884,392.53333)"
        id="g9220">
       <g
          id="g9222">
@@ -534,7 +534,7 @@
       </g>
     </g>
     <g
-       transform="translate(4.8509612,553.48334)"
+       transform="translate(56.225965,553.48334)"
        id="g9446">
       <g
          id="g9448">
@@ -557,7 +557,7 @@
       </g>
     </g>
     <g
-       transform="translate(-151.14902,613.48334)"
+       transform="translate(-99.774018,613.48334)"
        id="g9464">
       <g
          id="g9466">
@@ -580,7 +580,7 @@
       </g>
     </g>
     <g
-       transform="translate(-52.649038,613.48334)"
+       transform="translate(-1.274036,613.48334)"
        id="g9482">
       <g
          id="g9484">
@@ -603,7 +603,7 @@
       </g>
     </g>
     <g
-       transform="translate(40.850962,613.48334)"
+       transform="translate(92.225966,613.48334)"
        id="g9500">
       <g
          id="g9502">
@@ -626,7 +626,7 @@
       </g>
     </g>
     <g
-       transform="translate(149.85098,613.48334)"
+       transform="translate(201.22598,613.48334)"
        id="g9518">
       <g
          id="g9520">
@@ -649,7 +649,7 @@
       </g>
     </g>
     <g
-       transform="translate(692.05772,453.65928)"
+       transform="translate(624.875,453.65928)"
        id="g9536">
       <g
          id="g9538">
@@ -673,7 +673,7 @@
       </g>
     </g>
     <g
-       transform="translate(691.05772,494.94776)"
+       transform="translate(623.875,494.94776)"
        id="g9558">
       <g
          id="g9560">
@@ -696,7 +696,7 @@
       </g>
     </g>
     <g
-       transform="translate(715.05772,538.9641)"
+       transform="translate(647.875,538.9641)"
        id="g9580">
       <g
          id="g9582">
@@ -719,7 +719,7 @@
       </g>
     </g>
     <g
-       transform="translate(721.05772,583.06026)"
+       transform="translate(653.875,583.06026)"
        id="g9598">
       <g
          id="g9600">
@@ -742,7 +742,7 @@
       </g>
     </g>
     <g
-       transform="translate(307.85098,553.53333)"
+       transform="translate(359.22598,553.53333)"
        id="g9616">
       <g
          id="g9618">
@@ -763,25 +763,6 @@
              xlink:href="projets.html"
              id="a9624">Projet / Tutoriel</a>
         </text>
-      </g>
-    </g>
-    <g
-       transform="translate(465.05772,553.48334)"
-       id="g9634">
-      <g
-         id="g9636">
-        <path
-           transform="translate(0.5,0.5)"
-           d="M 0,0 H 116 V 31.6 H 0 Z"
-           id="path9638"
-           inkscape:connector-curvature="0"
-           style="fill:#00a9c9;stroke:none" />
-        <text
-           transform="translate(8.5,8.5)"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-           y="11.7"
-           x="0"
-           id="text9640">Fonctionnalité</text>
       </g>
     </g>
     <g
@@ -1012,7 +993,7 @@
          sodipodi:nodetypes="ccccc" />
     </g>
     <g
-       transform="translate(578.05772,471.28334)"
+       transform="translate(510.875,471.28334)"
        id="g9754">
       <path
          transform="translate(4,4.5)"
@@ -1024,7 +1005,7 @@
          style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
       <path
          stroke-miterlimit="10"
-         d="m 0,94 h 50.5 c 3.333333,0 4.932693,-1.666667 4.932693,-5 V -0.92788479 c 0,-3.33333301 1.666666,-5.00000001 5,-5.00000001 H 106"
+         d="M -31.94229,94 H 50.5 c 3.333333,0 4.932693,-1.666667 4.932693,-5 V -0.92788479 c 0,-3.33333301 1.666666,-5.00000001 5,-5.00000001 H 106"
          id="path9758"
          inkscape:connector-curvature="0"
          style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1037,7 +1018,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(578.05772,536.28334)"
+       transform="translate(510.875,536.28334)"
        id="g9762">
       <path
          transform="translate(4,4.5)"
@@ -1049,7 +1030,7 @@
          style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
       <path
          stroke-miterlimit="10"
-         d="m 0,29 h 50.5 c 3.333333,0 4.932693,-1.666666 4.932693,-5 v -48.639424 c 0,-3.333334 1.666667,-5 5,-5 H 105"
+         d="M -31.94229,29 H 50.5 c 3.333333,0 4.932693,-1.666666 4.932693,-5 v -48.639424 c 0,-3.333334 1.666667,-5 5,-5 H 105"
          id="path9766"
          inkscape:connector-curvature="0"
          style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1063,7 +1044,7 @@
          sodipodi:nodetypes="ccccc" />
     </g>
     <g
-       transform="translate(578.05772,565.78334)"
+       transform="translate(510.875,565.78334)"
        id="g9770">
       <path
          transform="translate(4,4)"
@@ -1075,7 +1056,7 @@
          style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
       <path
          stroke-miterlimit="10"
-         d="m 0,0 h 49.5 c 3.333333,0 5.932693,-1.6666666 5.932693,-5 v -4.1290879 c 0,-3.3333331 1.666667,-4.7651441 5,-4.7651441 h 69.216347"
+         d="M -31.94229,0 H 49.5 c 3.333333,0 5.932693,-1.6666666 5.932693,-5 v -4.1290879 c 0,-3.3333331 1.666667,-4.7651441 5,-4.7651441 h 69.216347"
          id="path9774"
          inkscape:connector-curvature="0"
          style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1089,7 +1070,7 @@
          sodipodi:nodetypes="ccccc" />
     </g>
     <g
-       transform="translate(578.05772,565.78334)"
+       transform="translate(510.875,565.78334)"
        id="g9778">
       <path
          transform="translate(4,4)"
@@ -1101,7 +1082,7 @@
          style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
       <path
          stroke-miterlimit="10"
-         d="m 0,0 h 50.5 c 3.333333,0 5.011734,1.6666874 5,5 l -0.06731,19.120191 c -0.01173,3.333313 1.666665,5 5,5 h 75.43269"
+         d="M -31.94229,0 H 50.5 c 3.333333,0 5.011734,1.6666874 5,5 l -0.06731,19.120191 c -0.01173,3.333313 1.666665,5 5,5 h 75.43269"
          id="path9782"
          inkscape:connector-curvature="0"
          style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1115,7 +1096,7 @@
          sodipodi:nodetypes="ccccc" />
     </g>
     <g
-       transform="translate(-198.43972,565.78334)"
+       transform="translate(-147.06472,565.78334)"
        id="g9786">
       <path
          transform="translate(4,4)"
@@ -1140,7 +1121,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(-80.149034,619.37192)"
+       transform="translate(-28.77403,619.37192)"
        id="g9794">
       <path
          transform="translate(4,10.411424)"
@@ -1165,7 +1146,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(11.35096,619.37192)"
+       transform="translate(62.725964,619.37192)"
        id="g9802">
       <path
          transform="translate(4,10.411424)"
@@ -1190,7 +1171,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(123.85097,619.37192)"
+       transform="translate(175.22597,619.37192)"
        id="g9810">
       <path
          transform="translate(4,10.411424)"
@@ -1215,7 +1196,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(-198.43972,559.37192)"
+       transform="translate(-147.06472,559.37192)"
        id="g9818">
       <path
          transform="translate(4,10.411424)"
@@ -1240,7 +1221,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(135.85098,559.39691)"
+       transform="translate(187.22598,559.39691)"
        id="g9826">
       <path
          transform="translate(4,10.38643)"
@@ -1265,7 +1246,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(256.85098,565.33333)"
+       transform="translate(308.22598,565.33333)"
        id="g9834">
       <path
          transform="translate(4,4.5)"
@@ -1290,7 +1271,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(728.46156,398.4219)"
+       transform="translate(661.27884,398.4219)"
        id="g9890">
       <path
          transform="translate(4,10.411424)"
@@ -1315,7 +1296,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(577.5463,404.33333)"
+       transform="translate(510.36358,404.33333)"
        id="g9898">
       <path
          transform="translate(4.5114237,4.5)"
@@ -1328,7 +1309,7 @@
       <path
          transform="translate(4.5114237,4.5)"
          stroke-miterlimit="10"
-         d="m 0,160.95001 h 5.25 c 3.3333333,0 5,-1.66667 5,-5 V 5 c 0,-3.3333333 1.666667,-5 5,-5 h 9.153846"
+         d="M -31.942294,160.95001 H 5.25 c 3.3333333,0 5,-1.66667 5,-5 V 5 c 0,-3.3333333 1.666667,-5 5,-5 h 9.153846"
          id="path9902"
          inkscape:connector-curvature="0"
          style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1415,32 +1396,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(428.05772,559.39691)"
-       id="g9970">
-      <path
-         transform="translate(4,10.38643)"
-         stroke-miterlimit="10"
-         stroke="transparent"
-         d="M 0,0.04998779 H 16.5 V 0 H 29"
-         id="path9972"
-         inkscape:connector-curvature="0"
-         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
-      <path
-         transform="translate(4,10.38643)"
-         stroke-miterlimit="10"
-         d="M 0,0.04998779 H 16.5 V 0 H 29"
-         id="path9974"
-         inkscape:connector-curvature="0"
-         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
-      <path
-         transform="translate(28.5,6.3864299)"
-         d="M 0,0 8,4 0,8 2,4 Z"
-         id="path9976"
-         inkscape:connector-curvature="0"
-         style="fill:#808080;stroke:none" />
-    </g>
-    <g
-       transform="translate(578.05772,565.78334)"
+       transform="translate(510.875,565.78334)"
        id="g9778-1">
       <path
          style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1452,7 +1408,7 @@
          id="path9780-4" />
       <path
          stroke-miterlimit="10"
-         d="m 0,0 h 50.5 c 3.333333,0 5.003348,1.6666683 5,5 l -0.06731,67.024038 c -0.0033,3.333329 1.666665,5 5,5 h 35.43269"
+         d="M -31.94229,0 H 50.5 c 3.333333,0 5.003348,1.6666683 5,5 l -0.06731,67.024038 c -0.0033,3.333329 1.666665,5 5,5 h 35.43269"
          id="path9782-0"
          inkscape:connector-curvature="0"
          style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1466,7 +1422,7 @@
          sodipodi:nodetypes="ccccc" />
     </g>
     <g
-       transform="translate(578.05772,565.78334)"
+       transform="translate(510.875,565.78334)"
        id="g9778-5">
       <path
          style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1478,7 +1434,7 @@
          id="path9780-7" />
       <path
          stroke-miterlimit="10"
-         d="m 0,0 h 50.5 c 3.66471,0 5.002327,1.3007833 5,5 l -0.06731,107.02404 c -0.0021,3.33332 1.666665,5 5,5 h 75.43269"
+         d="M -31.94229,0 H 50.5 c 3.66471,0 5.002327,1.3007833 5,5 l -0.06731,107.02404 c -0.0021,3.33332 1.666665,5 5,5 h 75.43269"
          id="path9782-3"
          inkscape:connector-curvature="0"
          style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -1492,7 +1448,7 @@
          sodipodi:nodetypes="ccccc" />
     </g>
     <g
-       transform="translate(681.05772,630.9641)"
+       transform="translate(613.875,630.9641)"
        id="g9598-2">
       <g
          id="g9600-8">
@@ -1514,7 +1470,7 @@
       </g>
     </g>
     <g
-       transform="translate(721.05772,670.9641)"
+       transform="translate(653.875,670.9641)"
        id="g9598-2-4">
       <g
          id="g9600-8-5">
@@ -1537,7 +1493,7 @@
       </g>
     </g>
     <g
-       transform="translate(783.05772,630.9641)"
+       transform="translate(715.875,630.9641)"
        id="g9598-2-2">
       <g
          id="g9600-8-59">
@@ -1632,7 +1588,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(753.55772,636.85268)"
+       transform="translate(686.375,636.85268)"
        id="g9890-3">
       <path
          transform="translate(4,10.411424)"
@@ -1732,7 +1688,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(-54.427889,494.20448)"
+       transform="translate(-3.0528866,494.20448)"
        id="g9446-1">
       <g
          id="g9448-4">
@@ -1756,7 +1712,7 @@
       </g>
     </g>
     <g
-       transform="translate(-198.43972,565.78334)"
+       transform="translate(-147.06472,565.78334)"
        id="g9786-6">
       <path
          transform="translate(4,4)"
@@ -1781,7 +1737,7 @@
          style="fill:#808080;stroke:none;stroke-width:1" />
     </g>
     <g
-       transform="translate(256.85098,565.33333)"
+       transform="translate(308.22598,565.33333)"
        id="g9834-2">
       <path
          transform="translate(4,4.5)"
@@ -1807,7 +1763,7 @@
          style="fill:#808080;stroke:none" />
     </g>
     <g
-       transform="translate(-263.38602,544.57404)"
+       transform="translate(-212.01102,544.57404)"
        id="g9092-5">
       <g
          transform="translate(8.1555281e-8,1.7975198e-6)"
@@ -1826,5 +1782,345 @@
            id="text9098-0">Pratique</text>
       </g>
     </g>
+    <g
+       transform="translate(66.206764,757.72854)"
+       id="g9464-8">
+      <g
+         id="g9466-2">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 97.711539 V 31.6 H 0 Z"
+           id="path9468-3"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           transform="translate(8.5,8.5)"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="11.7"
+           x="0"
+           id="text9470-0">
+          <a
+             xlink:href="3D.fr.html"
+             id="a9472-7">Introduction</a>
+        </text>
+      </g>
+    </g>
+    <g
+       transform="translate(187.41831,757.72853)"
+       id="g9482-7">
+      <g
+         id="g9484-7">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 70.951923 V 31.6 H 0 Z"
+           id="path9486-6"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           transform="translate(8.5,8.5)"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="11.7"
+           x="0"
+           id="text9488-9">
+          <a
+             xlink:href="gl_shaders.py.html"
+             id="a9490-1">Shaders</a>
+        </text>
+      </g>
+    </g>
+    <g
+       transform="translate(303.12986,757.72854)"
+       id="g9500-1">
+      <g
+         id="g9502-9">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 80.072115 V 31.6 H 0 Z"
+           id="path9504-0"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           transform="translate(8.5,8.5)"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="11.7"
+           x="0"
+           id="text9506-8">
+          <a
+             xlink:href="gl_shaders_uniforms.py.html"
+             id="a9508-9">Uniforms</a>
+        </text>
+      </g>
+    </g>
+    <g
+       transform="translate(160.9183,763.61711)"
+       id="g9794-8">
+      <path
+         transform="translate(4,10.411424)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="M 0,0 H 19.5"
+         id="path9796-8"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(4,10.411424)"
+         stroke-miterlimit="10"
+         d="M 0,0 H 19.5"
+         id="path9798-0"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(19,6.4114237)"
+         d="M 0,0 8,4 0,8 2,4 Z"
+         id="path9800-3"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(254.87024,763.61711)"
+       id="g9802-7">
+      <path
+         transform="translate(4,10.411424)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="M 0,0 H 21.5"
+         id="path9804-0"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(4,10.411424)"
+         stroke-miterlimit="10"
+         d="M 0,0 40.343397,0"
+         id="path9806-6"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+         sodipodi:nodetypes="cc" />
+      <path
+         d="m 40.759616,6.4114237 8,4.0000003 -8,4 2,-4 z"
+         id="path9808-9"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(379.70198,763.61711)"
+       id="g9810-2">
+      <path
+         transform="translate(4,10.411424)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="M 0,0 H 18"
+         id="path9812-1"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(4,10.411424)"
+         stroke-miterlimit="10"
+         d="M 0,0 H 18"
+         id="path9814-7"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(17.5,6.4114237)"
+         d="M 0,0 8,4 0,8 2,4 Z"
+         id="path9816-7"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(38.408668,763.61711)"
+       id="g9794-8-1">
+      <path
+         transform="translate(4,10.411424)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="M 0,0 H 19.5"
+         id="path9796-8-3"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(4,10.411424)"
+         stroke-miterlimit="10"
+         d="M -14.254032,0 H 19.5"
+         id="path9798-0-4"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+         sodipodi:nodetypes="cc" />
+      <path
+         transform="translate(19,6.4114237)"
+         d="M 0,0 8,4 0,8 2,4 Z"
+         id="path9800-3-5"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(-46.030212,748.09812)"
+       id="g9092-5-2">
+      <g
+         transform="translate(8.1555281e-8,1.7975198e-6)"
+         id="g9094-6-8">
+        <circle
+           style="fill:#79c900;fill-opacity:1;stroke:none"
+           id="path9986-3-9-4-2"
+           transform="matrix(2.6801618,0,0,2.6801618,-1027.487,-144.81669)"
+           cx="398.2392"
+           cy="63.438702"
+           r="13.359375" />
+        <text
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none"
+           x="40"
+           y="30"
+           id="text9098-0-9">3D</text>
+      </g>
+    </g>
+    <g
+       transform="translate(404.70197,757.72853)"
+       id="g9500-1-9">
+      <g
+         id="g9502-9-9">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 74.14423 V 31.6 H 0 Z"
+           id="path9504-0-2"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           transform="translate(8.5,8.5)"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="11.7"
+           x="0"
+           id="text9506-8-3">
+          <a
+             xlink:href="gl_shaders_textures.py.html"
+             id="a9508-9-6">Textures</a>
+        </text>
+      </g>
+    </g>
+    <g
+       transform="translate(491.88104,824.57662)"
+       id="g9500-1-9-5">
+      <g
+         id="g9502-9-9-2">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 133.42308 V 31.6 H 0 Z"
+           id="path9504-0-2-8"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           transform="translate(8.5,8.5)"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="11.7"
+           x="0"
+           id="text9506-8-3-3">
+          <a
+             id="a9508-9-6-1"
+             xlink:href="https://learnopengl.com">learnopengl.com</a>
+        </text>
+      </g>
+    </g>
+    <g
+       transform="translate(116.54098,825.5821)"
+       id="g9786-5">
+      <path
+         transform="translate(4,4)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="m 0,0 h 16.645349 q 5,0 5,5 v 50 q 0,5 5,5 h 12.645349"
+         id="path9788-2"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         stroke-miterlimit="10"
+         d="m 0.94138239,-35.75356 v 46.048077 c 0,3.333333 1.66666701,5 5.00000001,5 H 371.75985"
+         id="path9790-3"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+         sodipodi:nodetypes="cssc" />
+      <path
+         d="m 367.84002,11.294516 8,4 -8,4 2,-4 z"
+         id="path9792-1"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(272.78847,822.20833)"
+       id="g9834-2-8">
+      <path
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="m 221.3558,70.377898 h 18.5 q 5,0 5,-5 V 15.427886 q 0,-5.000001 5,-5.000001 h 14.50001"
+         id="path9836-6-1"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         stroke-miterlimit="10"
+         d="m 206.5577,-48.179798 h 33.2981 c 3.33334,0 5,3.522436 5,6.85577 v 40.9442198"
+         id="path9838-0-4"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+         sodipodi:nodetypes="cssc" />
+      <path
+         d="m 248.8558,-6.4038458 -4,7.9999992 -4,-7.9999992 4,1.9999996 z"
+         id="path9840-6-1"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(240.13611,708.59469)"
+       id="g9598-2-7">
+      <g
+         id="g9600-8-4">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 76 V 31.6 H 0 Z"
+           id="path9602-9-8"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none" />
+        <text
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="20.773632"
+           x="23.40332"
+           id="text9604-9-5">
+          <a
+             id="-8"
+             xlink:href="/home/robert/math.html">Math</a>
+        </text>
+      </g>
+    </g>
+    <g
+       transform="translate(187.98914,690.83834)"
+       id="g9786-5-6">
+      <path
+         transform="translate(4,4)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="m 0,0 h 16.645349 q 5,0 5,5 v 50 q 0,5 5,5 h 12.645349"
+         id="path9788-2-8"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         stroke-miterlimit="10"
+         d="M 92.33819,49.799786 V 83.13363"
+         id="path9790-3-5"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <circle
+       style="opacity:1;fill:#00a9c9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98953664;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4946"
+       cx="280.37024"
+       cy="774.02856"
+       r="9.279192" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1"
+       y="777.69525"
+       x="276.08759"
+        id="text9488-9-8">+</text>
   </g>
 </svg>
