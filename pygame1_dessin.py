@@ -1,4 +1,46 @@
+#!/usr/bin/env python3
 #!coding: utf-8
+"""
+Ce code ci-dessous explique comment dessiner des objets dans pygame.
+
+la fonction pygame.display.set_mode crée une fenêtre et prends un paramètre :
+une liste de taille deux représentant la largeur et la hauteur de la fenêtre 
+elle renvoie une variable : ecran, celle ci représente la "Surface" de 700x500 pixels
+
+remarque que les deux lignes :
+taille = [700,500];
+ecran = pygame.display.set_mode(taille)
+
+peuvent s'écrire en une (question de style) :
+ecran = pygame.display.set_mode([700, 500])
+
+fill remplit l'écran avec la couleur [253,126,0],
+en informatique une couleur est une liste de taille 3
+Paint peut nous donner ces nombres ! (regarde l'image en attaché)
+tu vois sur l'image que 253, 126, 0 est un beau ORANGE :)
+
+pygame.draw.rect cette fonction prends 3 paramètres : 
+- la surface sur laquelle dessiner le rectangle, ici c'est l'écran
+- la couleur, ici on a donné [255,0,0] qui est du rouge flash
+- les coordonnées, une liste de taille 4
+- la position en x (x = 0 est tout à gauche de l'écran, x = 10 est 10 pixels plus à DROITE)
+- la position en y (y = 0 est tout en haut de l'écran, y = 20 est 20 pixels plus BAS)
+- la largeur du rectangle, en pixels
+- la hauteur du rectangle, en pixels
+la position donnée sera la position du coin en haut à gauche
+
+on peut également dessiner, des éllipses, des segments de droite, des polygones...
+https://www.pygame.org/docs/ref/draw.html
+
+Si on ne met pas "input()" à la fin du code,
+la fenêtre va se créer et puis disparaître à la fin du programme
+donc quasi instantanément
+il faut donc appeler une fonction qui bloque l'exécution, comme input
+
+pour quitter, ne cliquez pas sur la croix, ça ne marchera pas,
+cliquez sur le carré rouge dans pyscripter
+"""
+
 from __future__ import print_function, division
 
 # importer pygame, fatalement
@@ -35,44 +77,3 @@ eval(input())
 
 # pour ne pas avoir de problèmes avec pyscripter, on appelle "quit()" 
 pygame.quit()
-
-###########################
-# Explications détaillées #
-###########################
-
-# la fonction pygame.display.set_mode crée une fenêtre et prends un paramètre :
-# une liste de taille deux représentant la largeur et la hauteur de la fenêtre 
-# elle renvoie une variable : ecran, celle ci représente la "Surface" de 700x500 pixels
-
-# remarque que les deux lignes :
-# taille = [700,500];
-# ecran = pygame.display.set_mode(taille)
-
-# peuvent s'écrire en une (question de style) :
-# ecran = pygame.display.set_mode([700, 500])
-
-# fill remplit l'écran avec la couleur [253,126,0],
-# en informatique une couleur est une liste de taille 3
-# Paint peut nous donner ces nombres ! (regarde l'image en attaché)
-# tu vois sur l'image que 253, 126, 0 est un beau ORANGE :)
-
-# pygame.draw.rect cette fonction prends 3 paramètres : 
-# - la surface sur laquelle dessiner le rectangle, ici c'est l'écran
-# - la couleur, ici on a donné [255,0,0] qui est du rouge flash
-# - les coordonnées, une liste de taille 4
-#   - la position en x (x = 0 est tout à gauche de l'écran, x = 10 est 10 pixels plus à DROITE)
-#   - la position en y (y = 0 est tout en haut de l'écran, y = 20 est 20 pixels plus BAS)
-#   - la largeur du rectangle, en pixels
-#   - la hauteur du rectangle, en pixels
-# la position donnée sera la position du coin en haut à gauche
-
-# on peut également dessiner, des éllipses, des segments de droite, des polygones...
-# https://www.pygame.org/docs/ref/draw.html
-
-# Si on ne met pas "input()" à la fin du code,
-# la fenêtre va se créer et puis disparaître à la fin du programme
-# donc quasi instantanément
-# il faut donc appeler une fonction qui bloque l'exécution, comme input
-
-# pour quitter, ne cliquez pas sur la croix, ça ne marchera pas,
-# cliquez sur le carré rouge dans pyscripter

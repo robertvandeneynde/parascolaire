@@ -1,5 +1,5 @@
 filename = 'generate_html_progra_equivalences_multilang.py'
-template_file = 'progra_equivalences_py_html_formatted.html'
+template_file = 'pytext_template.html'
 
 outfile_format = 'progra_equivalences_{lang}.html'
 outfile_raw_format = 'progra_equivalences_{lang}.py'

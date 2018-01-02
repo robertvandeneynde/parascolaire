@@ -1,4 +1,20 @@
+#!/usr/bin/env python3
 #!coding: utf-8
+
+"""
+on crée des images, et on les blitte (blit = dessiner)
+plus d'infos sur : http://programarcadegames.com/index.php?chapter=bitmapped_graphics_and_sound&lang=fr
+
+attention aux images tournées, leur taille change 
+essayez de faire pygame.draw.rect(ecran, rouge, [0,0,image_perso_tournee.get_width(), image_perso_tournee.get_height()], 1)
+question : comment faire pour dessiner une image telle sorte que son centre soit en 200,300?
+
+Certaines images ne gèrent pas la transparence
+en faisant
+image_perso.set_colorkey(noir)
+on lui indique la couleur qui doit devenir transparente à l'affichage
+"""
+
 from __future__ import print_function, division
 
 import pygame
@@ -47,15 +63,3 @@ while fini == 0:
     clock.tick(60)
 
 pygame.quit()
-
-# on crée des images, et on les blitte
-# plus d'infos sur : http://programarcadegames.com/index.php?chapter=bitmapped_graphics_and_sound&lang=fr
-
-# attention aux images tournées, leur taille change 
-# essayez de faire pygame.draw.rect(ecran, rouge, [0,0,image_perso_tournee.get_width(), image_perso_tournee.get_height()], 1)
-# question : comment faire pour dessiner une image telle sorte que son centre soit en 200,300 ?
-
-# Certaines images ne gèrent pas la transparence
-# en faisant
-# image_perso.set_colorkey(noir)
-# on lui indique la couleur qui doit devenir transparente à l'affichage

@@ -1,4 +1,15 @@
+#!/usr/bin/env python3
 #!coding: utf-8
+
+"""
+Ce code montre comment limiter les FPS (Frame Per Second, Image Par Seconde en français)
+
+Vous verrez que le code va faire print "Tick" 60 fois par secondes
+Changez le 60 en 2 et vous verrez que c'est plus facile à voir ;)
+
+pour fermer le programme, il faut quitter brutalement pyscripter... ctrl-shift-escape
+"""
+
 from __future__ import print_function, division
 
 import pygame
@@ -19,8 +30,3 @@ while fini == 0:
     clock.tick(2)
 
 pygame.quit()
-
-# Vous verrez que le code va faire print "Tick" 60 fois par secondes
-# Changez le 60 en 2 et vous verrez que c'est plus facile à voir ;)
-
-# pour fermer le programme, il faut quitter brutalement pyscripter... ctrl-shift-escape

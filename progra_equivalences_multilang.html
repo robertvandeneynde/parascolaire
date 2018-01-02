@@ -289,14 +289,12 @@ def f(...):
         return True
     else:
         return False
-if {{est_pair|is_even}}(4):
-    print(&quot;launch the secret code !&quot;)
 # →
 def {{est_pair|is_even}}(x):
     return x % 2 == 0 # {{x est pair ssi le reste de la division par deux vaut 0|x is even iff the rest of division by 2 is 0}}
+# :
 if {{est_pair|is_even}}(4):
-    print(&quot;launch the secret code !&quot;)
-# 
+    ...
 </code></pre>
             
         </section>
@@ -487,9 +485,11 @@ def f(...):
     return False
 # →
 def f(...):
+    ...
     return any(condition for x in L)
 # ↔
 def f(...):
+    ...
     return any(condition
                for x in L)
 </code></pre>
@@ -550,8 +550,8 @@ def f(...):
     return True
 # →
 def tous_positif(L):
-    return any(x &gt;= 0 for x in L) # {{L est totalement positive si tous ses éléments x sont &gt;= 0|L is totally positive if all its elements x are &gt;= 0}}
-    # {{L est totalement positive ssi pour tout les éléments x ∈ L on a x &gt;= 0|L is totally positive if for all its elements x one have x &gt;= 0}}
+    return all(x &gt;= 0 for x in L) # {{L est totalement positive si tous ses éléments x sont &gt;= 0|L is totally positive if all its elements x are &gt;= 0}}
+    # {{L est totalement positive ssi pour tous les éléments x ∈ L on a x &gt;= 0|L is totally positive if for all its elements x one have x &gt;= 0}}
     # {{L est totalement positive ssi quelque soit l&#39;élément x ∈ L on a x &gt;= 0|L is totally positive if any element x ∈ L satisfies x &gt;= 0}}
 </code></pre>
             
@@ -630,10 +630,10 @@ L = [f(x) for x in I]
             
             <pre><code class="py">L = []
 for x in I:
-    if cond:
+    if condition:
         L.append(e)
 # →
-L = [e for x in I if cond]
+L = [e for x in I if condition]
 </code></pre>
             
         </section>

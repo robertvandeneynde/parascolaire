@@ -1,4 +1,20 @@
+#!/usr/bin/env python3
 #!coding: utf-8
+
+"""
+Pour avoir une police en gras :
+font = pygame.font.SysFont('Calibri', 25, True)
+
+En Gras ET italique :
+font = pygame.font.SysFont('Calibri', 25, True, True)
+
+En italique sans gras :
+font = pygame.font.SysFont('Calibri', 25, False, True)
+
+Pour charger depuis un fichier trouvé par exemple sur https://fontlibrary.org/
+font = pygame.font.Font('hello.otf', 25)
+"""
+
 from __future__ import print_function, division
 
 import pygame
@@ -51,16 +67,4 @@ while fini == 0:
     clock.tick(60)
 
 pygame.quit()
-
-# Pour avoir une police en gras :
-# font = pygame.font.SysFont('Calibri', 25, True)
-
-# En Gras ET italique :
-# font = pygame.font.SysFont('Calibri', 25, True, True)
-
-# En italique sans gras :
-# font = pygame.font.SysFont('Calibri', 25, False, True)
-
-# Pour charger depuis un fichier trouvé par exemple sur https://fontlibrary.org/
-# font = pygame.font.Font('hello.otf', 25)
 

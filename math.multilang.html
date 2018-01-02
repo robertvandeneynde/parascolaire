@@ -770,6 +770,9 @@
             </ul>
             
             <p> Une dernière petite notation souvent rencontrée, quand on a un vecteur $\vec{a}$, on note souvent $a$ (sans flèche) pour la norme <em>signée</em>. $a$ peut donc être négatif (dans ce cas le vecteur est renversé). </p>
+            
+            <p>Ou encore, on dira que $a$ est la projection de $\vec{a}$ sur la droite dirigée définie par le vecteur $\vec{a}$.</p>
+            
             <figure><img src="vecteurs-norme-signee.png" /></figure>
             
             <p>Voilà, j'espère que tu as mieux compris l'exercice 4 et que tu n'as pas peur d'utiliser les vecteurs en <a href="physique.html">physique</a> ou dans des opérations plus complexes dans la section suivante !</p>
@@ -985,6 +988,10 @@
                 ,\ \color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x})$
             </p>
             
+            <p>Un exemple: $(1,\ 2,\ 3) \times (-1,\ 1,\ 2)$ $= (1,\ -5,\ 3)$. Tu peux vérifier que $(1,\ -5,\ 3)$ est bien perpendiculaire à $(1,\ 2,\ 3)$ et $(-1,\ 1,\ 2)$ et donc normal au plan formé par $(1,\ 2,\ 3)$ et $(-1,\ 1,\ 2)$.</p>
+            
+            <figure>Image 3D à venir montrant la perpendicularité.</figure>
+            
             <p>Si vous connaissez les déterminants, voici un moyen facile de se rappeler de la formule :</p>
             
             <p>$\vec{a} \times \vec{b}$
@@ -1015,6 +1022,11 @@
             
             <p class="if-then">Si $\vec{c} = \vec{a} \times \vec{b}$ alors $c = a\ b\ \sin \theta$.</p>
             <p class="implies">Si $\vec{c} = \vec{a} \times \vec{b} \implies c = a\ b\ \sin \theta$.</p>
+            
+            <p>Dans notre exemple $(1,\ 2,\ 3) \times (-1,\ 1,\ 2)$ = $(1,\ -5,\ 3)$. Tu peux vérifier que la norme du vecteur résultant est bien de $a\ b\ \sin \theta$. L'angle est mesurable avec une équerre ou via le <a href="produit-scalaire">produit scalaire</a>.</p>
+            
+            <figure>Image 3D à venir avec une latte qui mesure les normes et une équerre qui mesure les angles.</figure>
+            
             <p>Un moyen mnémotechnique pour se rappeler du sens de $\vec{c}$ est la <em>règle de la main droite</em>. Vous pouvez essayer sur la figure suivante : sur votre main <em>droite</em>, $\vec{a}$ est votre pouce, $\vec{b}$ votre index, et $\vec{a} \times \vec{b}$ votre majeur.</p>
             
             <figure>
@@ -1160,7 +1172,7 @@
         
             <p>
                 En 2D, ce concept de <em>vecteur normal</em> peut être appliqué à la <strong>droite</strong>.
-                Et donc, en 2D, une droite de vecteur normal $\vec{n}$ aura l'équation :
+                Et donc, en 2D, une droite passant par le point $\vec{p}$, de vecteur normal $\vec{n}$ aura l'équation :
             </p>
             
             <p>
@@ -1269,13 +1281,16 @@
             
             <p><em>J'ai un point $(2,1)$, je le tourne de $45°$ et puis je le redimensionne d'un facteur $4$, je le déplace de $(-6,-4)$, puis je le tourne de $30°$, où est-il maintenant ?</em></p>
             
-            <figure><img src="transformation-multiples.png"
+            <figure style="display:inline-block;"><img src="transformation-multiples.png"
             style="background:white"/></figure>
             
             <p>Et finalement, </em>$(2,1)$ était en fait un des 4 sommets d'un rectangle $(\pm 2, \pm 1)$, où tomberont leurs 3 autres points après la transformation ?</em> Sur la figure, le rectangle <span style="color:red">rouge</span> est transformé en rectangle <span style="color:blue">bleu</span>. Vous pouvez voir les états successifs, le rectangle tourne, puis s'agrandit, puis se déplace, puis tourne encore.</p>
             
-            <figure><img src="transformation-multiples-rectangle.png"
-            style="background:white; width: 272.5px; height: 275px;"/></figure>
+            <figure><a href="transformation-multiples-rectangle.png"><img src="transformation-multiples-rectangle.png"
+            style="background:white; width: 350px; "/></a>
+            
+            <figcaption style="width: 350px">Séquences de transformations sur un rectangle &mdash; Cliquez pour agrandir</figcaption>
+            </figure>
             
         <h3 id="matrices-definition">Définition</h3>
             <p>
@@ -1538,7 +1553,11 @@
             
             <p>Trois représentations équivalentes de la transformation $P' = MP$.</p>
             
-            <p>En termes plus mathématiques, une matrice peut représenter toute transformation <em>linéaire</em>. Une transformation $T$ est <em>linéaire</em> si $\forall\ \vec{a}, \vec{b}, k:$</p>
+            <p>En termes plus mathématiques, une matrice peut représenter toute transformation <em>linéaire</em>. Pour savoir ce qu'est une transformation linéaire, clique sur le bouton suivant, sinon passe à la suite.</p>
+            
+            <span class="developpement" symbol="Une transformation T est linéaire si...">
+            
+            <p>Une transformation $T$ est <em>linéaire</em> si $\forall\ \vec{a}, \vec{b}, k:$</p>
             
             <ul>
                 <li>$T(\vec{a} + \vec{b}) = T(\vec{a}) + T(\vec{b})$</li>
@@ -1611,6 +1630,7 @@
                 $= k\ \vec{v} + (k,0)$
                 </span>
             </p>
+            </span>
             
             <p>
                 Une petite remarque sur la structure d'une matrice de transformation,

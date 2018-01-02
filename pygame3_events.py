@@ -1,4 +1,10 @@
+#!/usr/bin/env python3
 #!coding: utf-8
+
+"""
+Ce code montre comment on peut fermer le programme en cliquant sur la croix
+"""
+
 from __future__ import print_function, division
 
 import pygame
@@ -35,5 +41,3 @@ while fini == 0:
     clock.tick(60)
 
 pygame.quit()
-
-# maintenant, on peut fermer le programme en cliquant sur la croix

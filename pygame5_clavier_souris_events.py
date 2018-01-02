@@ -1,4 +1,29 @@
+#!/usr/bin/env python3
 #!coding: utf-8
+
+"""
+on va contrôler le carré (gauche, droite) avec le clavier ou la souris
+QUAND on appuie sur gauche : ma_position diminue
+QUAND on appuie sur droite : ma_position augmente
+QUAND on clique avec le bouton gauche : ma_position est changée au clic de la souris
+
+ces events se passe quand la touche passe de l'état "non enfoncé" à "enfoncé"
+les events nous donne donc des TRANSITIONS d'état
+ce genre d'action arrive par exemple quand on
+- tire un missile
+- saute
+- change de sélection dans un menu
+
+remarquez qu'on peut coder la transition inverse avec KEYUP et MOUSEBUTTONUP
+
+Pour savoir le numéro d'une touche, on peut utiliser notre print "La touche numero", event.key
+Cependant pygame contient des variables bien nommées contenant les numéros des touches
+pygame.K_LEFT = 276 par exemple 
+on peut donc faire if event.key == pygame.K_LEFT à la place de if event.key == 276
+tous les noms ici : https://www.pygame.org/docs/ref/key.html
+cependant, sous windows, les touches correspondent au clavier QWERTY
+"""
+
 from __future__ import print_function, division
 
 import pygame
@@ -43,24 +68,3 @@ while fini == 0:
     clock.tick(60)
 
 pygame.quit()
-
-# on va contrôler le carré (gauche, droite) avec le clavier ou la souris
-# QUAND on appuie sur gauche : ma_position diminue
-# QUAND on appuie sur droite : ma_position augmente
-# QUAND on clique avec le bouton gauche : ma_position est changée au clic de la souris
-
-# ces events se passe quand la touche passe de l'état "non enfoncé" à "enfoncé"
-# les events nous donne donc des TRANSITIONS d'état
-# ce genre d'action arrive par exemple quand on
-# - tire un missile
-# - saute
-# - change de sélection dans un menu
-
-# remarquez qu'on peut coder la transition inverse avec KEYUP et MOUSEBUTTONUP
-
-# Pour savoir le numéro d'une touche, on peut utiliser notre print "La touche numero", event.key
-# Cependant pygame contient des variables bien nommées contenant les numéros des touches
-# pygame.K_LEFT = 276 par exemple 
-# on peut donc faire if event.key == pygame.K_LEFT à la place de if event.key == 276
-# tous les noms ici : https://www.pygame.org/docs/ref/key.html
-# cependant, sous windows, les touches correspondent au clavier QWERTY

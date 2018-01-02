@@ -16,3 +16,16 @@ __pycache__
 *.fr.html
 *.state-*
 /presences
+
+# read only files not ignored above:
+3D.html
+progra_equivalences*.html
+progra_equivalences_en.py
+progra_equivalences_fr.py
+progra_equivalences.py
+
+generate_html_progra_equivalences.py
+generate_html_progra_equivalences_en.py
+generate_html_progra_equivalences_fr.py
+generate_html_progra_equivalences_multilang.py.multilang.html
+generate_html_progra_equivalences_multilang.py.test.html

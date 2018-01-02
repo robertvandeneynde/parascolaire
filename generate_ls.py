@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 from __future__ import print_function
 
 import os, re
@@ -8,21 +7,7 @@ import textwrap
 
 from generate_utils import OutFile
 
-GROUPINGS = ('theorie', 'exercice', 'pygame', 'progra', 'gl', 'lecture', 'pdf', 'projet', 'colorpicker', '')
-
-EXTS = {
-    '.pdf': 1,
-    '.odp': 2,
-    '.html': 3,
-    '.css': 4,
-    '.svg': 5,
-    '.png': 6,
-    '.jpg': 7,
-    '.py': 8,
-    '.php': 9,
-    '.java': 10,
-    '.js': 11,
-}
+from generate_info import GROUPINGS, EXTS, TRANSLATION_LIST
 
 def get_group_i(name):
     return next(i for i,n in enumerate(GROUPINGS) if name.startswith(n))
@@ -91,5 +76,10 @@ if __name__ == '__main__':
     with open('template.html') as f:
         template = f.read()
 
+    with open('plan.svg') as f:
+        plan_svg_content = f.read()
+        
     with OutFile('index.html') as f:
-        f.write(template.replace('%%', content('.', indent=3) + '</section>'))
+        f.write(template
+                .replace('{% include "plan.svg" %}', plan_svg_content)
+                .replace('{{ list }}', content('.', indent=3) + '</section>'))

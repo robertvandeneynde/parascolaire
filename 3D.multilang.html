@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="{{fr|en}}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <link href="python.png" rel="icon" type="image/png"/>
+        <title> 3D {{avec|with}} OpenGL {{et|and}} Python</title>
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <style>
+            body {
+                /* background: url('diamond.jpg'); */
+            }
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                utils.makeTitleLinks()
+            })
+        </script>
+    </head>
+<body class="projets">
+<div id="wrapper">
+
+    <h1><!--
+        --><a class="homeicon" href="index.html"></a><!--
+        --><span class="text">3D {{avec|with}} OpenGL</span><!--
+    --></h1>
+    
+    <section>
+        <div><em>{{<a href="projects.html" lang="en" hreflang="en">English here!</a>|<a href="projets.html" lang="fr" hreflang="fr">Français ici !</a>}}</em></div>
+        
+    <p>
+        Je vais traduire en français
+        <a href="https://learnopengl.com">ce tutoriel (learnopengl.com)</a>
+        ainsi que d'expliquer plus en détail les concepts de base.
+    </p>
+    
+    <p>Voici un tutoriel
+        <a href="https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">
+        en java</a>.
+    </p>
+    <p>
+        Nous allons continuer à utiliser pygame auquel nous allons rajouter
+        la bibliothèque OpenGL pour travailler en 3D.
+    </p>
+
+    <p>
+        Allez sur la page d'<a href="theorie0_installation.{{fr|en}}.html">installation</a> pour l'installer chez vous.
+    </p>
+
+    <p>
+        Avant d'entamer la 3D, je conseille d'être à l'aise avec
+        <a href="theorie3_fonctions_et_objets.py.html">les fonctions et les objets (Théorie 3)</a>
+    </p>
+
+    <p>
+    Niveau code, nous suivrons cet ordre-ci :
+
+    <ol>
+    <li><a href="gl_shaders.py.html">Shaders</a>. Je compte faire une vidéo qui explique les VAO et VBO et le pipeline graphique.</li>
+    <li><a href="gl_shaders_uniform.py.html">Uniforms</a>. Veuillez lire la page <a href="math.fr.html">math</a> pour être à l'aise avec le concept de vecteur et de matrices. Je ferai une vidéo qui explique les matrices de projection et de caméra (lookat).</li>
+    <li><a href="gl_shaders_textures.py.html">Textures</a></li>
+    <li>Shader programming: light, diffuse, normals, specular</li>
+    </ol>
+
+    </p>
+
+    <p>Documentation officelle via le
+    <a href="https://www.khronos.org/opengl/wiki/">wiki OpenGL</a>.
+    </p>
+    </section>
+
+</div>
+</body>
+</html>

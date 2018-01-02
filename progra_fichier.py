@@ -41,4 +41,4 @@ with open('hello.txt') as f:
     f.write("One\n")
     f.write("Two\n")
     f.write("Three\n")
-# le close est appelé automatiqmenr
+# le close est appelé automatiquement

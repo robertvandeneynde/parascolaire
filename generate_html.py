@@ -9,6 +9,8 @@ try:
 except ImportError:
     import cgi as html
     
+from generate_utils import OutFile
+    
 def django_format(template, **args):
     ''' Difference with django : arguments are SAFE '''
     return re.sub(r'\{\{\s*([A-Za-z_][A-Za-z0-9_]*)\s*\}\}', lambda m: '{}'.format(args.get(m.group(1), '')), template)
@@ -76,61 +78,84 @@ if __name__ == '__main__':
     REE = re.compile('.*\.(.*)$')
     RE = re.compile('({})(\d+)'.format('|'.join(map(re.escape, GROUPINGS))))
 
+
+    def first_key_only_dict(it):
+        D = {}
+        for a,b in it:
+            if a not in D:
+                D[a] = b
+        return D
+    
     import itertools
     it = itertools.count(1000)
     all_grouped = {
-        typename: {
-            (
+        typename: first_key_only_dict(
+            ((
                 int(RE.match(f).group(2) if RE.match(f) else next(it)),
                 (REE.match(f).group(1) if REE.match(f) else '')
-            ):f
-            for f in os.listdir('.')
+            ), f)
+            for f in sorted(os.listdir('.'))
             if RE0.match(f) and not os.path.islink(f)
             if f.startswith(typename)
-        }
+            if 'multilang' not in f
+        )
         for typename in GROUPINGS
     } # {theorie: {(1, py):theorie1_begin.py}}
+    
+    """
+    from pprint import pprint
+    pprint(all_grouped)
+    import sys
+    sys.exit()
+    """
         
     with open('template_codefile.html') as f:
         TEMPLATE = f.read()
     
     modifs = []
     for f in os.listdir('.'):
+        if f in 'multilang':
+            continue
+        
         m0 = RE0.match(f)
-        if m0:
-            pdf_name = "pdf_{}.pdf".format(f)
-            m = RE.match(f)
-            if m:
-                typename, num = (m.group(1), int(m.group(2)))
-                t = (REE.match(f).group(1) if REE.match(f) else '')
-            
-            with open(f) as fi:
-                res = django_format(
-                    TEMPLATE,
-                    code=replace_markdown(html.escape(fi.read(), quote=False)),
-                    codelang = m0.group(1),
+        if not m0:
+            continue
+        
+        pdf_name = "pdf_{}.pdf".format(f)
+        m = RE.match(f)
+        if m:
+            typename, num = (m.group(1), int(m.group(2)))
+            t = (REE.match(f).group(1) if REE.match(f) else '')
+        
+        with open(f) as fi:
+            res = django_format(
+                TEMPLATE,
+                code=replace_markdown(html.escape(fi.read(), quote=False)),
+                codelang = m0.group(1),
+                name=f,
+                transinfo='''
+                ''',
+                postnav='' if not os.path.isfile(pdf_name) else '''
+                    <a href="{}">#pdf</a>
+                '''.format(pdf_name),
+                nav='' if not m else '''
+                    <a class="keephash" href="{url_prev}"><img style="width:24px; height:24px; vertical-align: middle;" src="prev.png"/></a>
+                    <a class="keephash" href="{url_next}"><img style="width:24px; height:24px; vertical-align: middle;" src="next.png"/></a>
+                    <a class="keephash" href="{url_next}">#{name}</a>
+                '''.format(
                     name=f,
-                    postnav='' if not os.path.isfile(pdf_name) else '''
-                        <a href="{}">#pdf</a>
-                    '''.format(pdf_name),
-                    nav='' if not m else '''
-                        <a class="keephash" href="{url_prev}"><img style="width:24px; height:24px; vertical-align: middle;" src="prev.png"/></a>
-                        <a class="keephash" href="{url_next}"><img style="width:24px; height:24px; vertical-align: middle;" src="next.png"/></a>
-                        <a class="keephash" href="{url_next}">#{name}</a>
-                    '''.format(
-                        name=f,
-                        type=typename,
-                        url_prev = '{}.html'.format(all_grouped[typename].get((num-1,t), 'index')),
-                        url_next = '{}.html'.format(all_grouped[typename].get((num+1,t), 'index')),
-                    )
+                    type=typename,
+                    url_prev = '{}.html'.format(all_grouped[typename].get((num-1,t), 'index')),
+                    url_next = '{}.html'.format(all_grouped[typename].get((num+1,t), 'index')),
                 )
-                try:
-                    with open(f + '.html', 'r') as fl:
-                        before = fl.read()
-                except:
-                    before = ''
-                if res != before:
-                    modifs.append(f)
-                    with open(f + '.html', 'w') as fl:
-                        fl.write(res)
+            )
+            try:
+                with open(f + '.html', 'r') as fl:
+                    before = fl.read()
+            except:
+                before = ''
+            if res != before:
+                modifs.append(f)
+                with OutFile(f + '.html', 'w') as fl:
+                    fl.write(res)
     print('generate_html:', len(modifs), 'file' + 's' * (len(modifs) != 1) + ' modified' + ':' * bool(modifs), ' '.join(modifs))

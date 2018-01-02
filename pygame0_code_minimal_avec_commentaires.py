@@ -1,5 +1,4 @@
 #!coding: utf-8
-from __future__ import print_function, division
 """
 Ceci est le code pygame de base pour afficher une fenêtre.
 De courts commentaires sont écrits pour pouvoir vous lancer rapidement dans un projet.
@@ -9,6 +8,7 @@ Si vous voulez des explications progressives et plus détaillées lisez :
 Les parties du code utiles à modifier sont les 4 parties suivantes :
 INITIALISATION, ÉVÉNEMENTS, UPDATE, DESSIN
 """
+from __future__ import print_function, division
 
 # 0) importer pygame, et l'initialiser
 import pygame

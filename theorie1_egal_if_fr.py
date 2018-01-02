@@ -15,7 +15,7 @@ print(a)
 # on peut faire des maths
 b = a + 1
 c = a + b * 2   # priorité des opérations
-d = (a + b) * 2 # parenthèses si nécessaire !
+d = (a + b) * 2 # mettre des parenthèses si nécessaire !
 a = a + 1       # on calcule "a + 1", puis on met le résultat dans a, ce qui veut dire "a est augmenté de 1"
 print(a)
 print(b)
