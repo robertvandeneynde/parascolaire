@@ -57,7 +57,7 @@ if($vie > 100) {
 print "Votre vie est ".$vie;
 
 // on peut faire un else, le code ira dans le else si la condition est fausse
-if(vie == 100) {
+if($vie == 100) {
     print "You are full !";
 } else {
     print "You can drink potions.";
