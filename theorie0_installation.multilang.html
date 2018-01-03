@@ -145,17 +145,10 @@
         <p>
         {{Vous devrez installer :|You'll have to install}}
         </p>
+        
         <ul>
             <li>python</li>
             <li>pygame ({{pour les fenêtres|to create windows}})</li>
-        </ul>
-        <p>
-        {{Et pour les intéressés :
-        | And for the one who wants: }}
-        </p>
-        <ul>
-            <li>opengl ({{pour la 3D|for 3D}})</li>
-            <li>numpy ({{pour les matrices, utiles en 3D|for matrices, useful in 3D}})</li>
         </ul>
         
         <p>{{
@@ -176,11 +169,21 @@
         </ul>
         
         <p>
-        {{ Ensuite vous lancez le programme <strong>IDLE</strong>,
-        vous faites <strong>File → New</strong>, écrivez du code, enregistrez le fichier sur votre bureau,
+        {{ Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (3.5, 3.6...).
+        Ou bien si vous êtes sous mac, c'est le même niveau de difficulté que d'installer 3.6 que 3.4
+        | However, to have all the brand new python stuffs, it's better to have more recent versions (3.5, 3.6...).
+        Or if you are on mac, it's the same level of difficulty to install 3.6 or 3.4
+        }}
+        </p>
+        
+        <h3 id="choose-ide">Choisir un IDE</h3>
+        
+        <p>
+        {{ Vous pouvez coder dans le programme <strong>IDLE</strong> installé par défaut (appuyez sur le bouton windows en bas à gauche de l'écran ou sous mac la loupe <img src="mac-search.png" /> e haut à droite de l'écran et tappez <code>IDLE</code>).
+        Une fois IDLE ouvert, vous faites <strong>File → New</strong>, écrivez du code, enregistrez le fichier sur votre bureau,
         et appuyez sur F5 (ou <strong>Run</strong> dans les menus) pour le lancer.
-        | Then you run the program <strong>IDLE</strong>,
-        do <strong>File → New</strong>, write code, save the file on your desktop,
+        | You can code using the program <strong>IDLE</strong> installed by default (press on the windows button to the bottom left of your screen or the search icon <img src="mac-search.png" /> on mac and write <code>IDLE</code>).
+        Once IDLE is opened, do <strong>File → New</strong>, write code, save the file on your desktop,
         and press F5 (or <strong>Run</strong> in the menus) to run it. }}
         </p>
         
@@ -194,14 +197,6 @@
         {{Vous pouvez changer la langue en français|}}.
         </p>
 
-        <p>
-        {{ Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (3.5, 3.6...).
-        Ou bien si vous êtes sous mac, c'est le même niveau de difficulté que d'installer 3.6 que 3.4
-        | However, to have all the brand new python stuffs, it's better to have more recent versions (3.5, 3.6...).
-        Or if you are on mac, it's the same level of difficulty to install 3.6 or 3.4
-        }}
-        </p>
-        
         </section>
         
         <h2 id="pip-whl">{{Option 3 : Installer via pip et les whl|Option 3: Install via pip and whl}}</h2>
@@ -219,8 +214,8 @@
         | We're going to use <em>pip</em> which can install any python package! Here we'll install the <em>pygame</em> package to create windows.
         }}</p>
         
-        <p>{{Une ancienne version de python existe : python 2, pour savoir les différences avec python 3, lisez la remarque ci <a href="version-python">dessous</a>.
-        | A former python version exist: python 2, to know the differences between python 2 and python 3, read the note <a href="python-version">below</a>.
+        <p>{{Une ancienne version de python existe : python 2, pour savoir les différences avec python 3, lisez la remarque <a href="#version-python">ci-dessous</a>.
+        | A former python version exist: python 2, to know the differences between python 2 and python 3, read the note <a href="#python-version">below</a>.
         }}</p>
 
         <h3 id="windows">Windows</h3>
@@ -228,14 +223,27 @@
             
             <li>
                 Déterminez si votre version de <strong>python</strong> est 32 bits ou 64 bits, quand vous allez dans le menu windows et tappez <em>python</em> cela devrait être marqué.
-                Même si votre ordinateur est 64 bits, il se peut que vous ayez téléchargé python 32 bits (et ça marchera très bien).
-                Pour savoir si votre ordi est 32 ou 64 bits, allez dans <em>Panneau de configuration → Système</em>.
+                Même si votre ordinateur est 64 bits, il se peut et c'est très probable que vous ayez téléchargé python 32 bits (et ça marchera très bien).
+                Pour savoir si votre <strong>ordi</strong> est 32 ou 64 bits, allez dans <em>Panneau de configuration → Système</em>.
             </li>
             
             <li>
                 Téléchargez pygame <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame">ici</a>,
-                et téléchargez le fichier whl en fonction de votre version de python (par exemple <code>pygame‑1.9.3‑cp36‑cp36m‑win32.whl</code> si j'ai python 32 bits version 3.6)
+                et téléchargez le fichier whl en fonction de votre version de python (par exemple, j'ai pris <code>pygame‑1.9.3‑cp36‑cp36m‑win32.whl</code> car j'ai python 32 bits version 3.6).
             </li>
+            
+            <li>Ce fichier doit être dans votre dossier <strong>Téléchargements</strong>, il est probable qu'il y est déjà.</li>
+            
+            <li>Ouvrez <code>cmd</code> (cliquez sur le bouton windows en bas à gauche de l'écran → tappez <code>cmd</code>).</li>
+            
+            <li>Entrez la commande suivante :
+            
+                <pre><code class="dos">
+                py -3 -m pip install Downloads\pygame-1.9.3-cp36-cp36m-win32.whl
+                </code></pre>
+            </li>
+            
+            <!--
             
             <li>Placez le fichier téléchargé dans le dossier (existant) qui se trouve ici (remplacez 32 par 64 si votre version de python est 64 bits) :
             <pre><code class="dos"><em>&lt;Dossier Caché AppData></em>\Local\Programs\Python36-32\Scripts\</code></pre>
@@ -271,26 +279,26 @@
                 pip.exe install pygame-1.9.3-cp36-cp36m-win_amd64.whl
                 </code></pre>
             </li>
+            -->
             
           </ul>
+          
+          <p>Si jamais dans le futur vous voyez un tutoriel qui vous dit de tapper une commande du style <code>python TRUC</code>, chez vous ça sera <code>py -3 TRUC</code> ou <code>py -2 TRUC</code> si vous devez utiliser python version 2 ou <code>py -3.6 TRUC</code> si vous devez utiliser une version explicite de python, comme <code>3.6</code>.</p>
+          <p>Si on vous dit d'installer un paquet via <code>pip</code>, par exemple <code>pip install pillow</code> téléchargez le whl sur le <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">site non officiel</a>
+          (pour trouver vite un paquet, utilisez <kbd>Ctrl+F</kbd>) et exécutez la commande qu'on vient de faire avec le bon nom de fichier.</p>
+          
+          <p>Vous pouvez maintenant commencer à coder en choisissant un <a href="#choose-ide">IDE</a> !</p>
         
         <h3 id="mac">Mac</h3>
         
         <ul>
         
             <li>Téléchargez la dernière version de python (3.6) sur <a href="https://www.python.org/downloads/">python.org</a>.</li>
-            <li>Ouvrez un terminal (cliquez sur l'icône de recherche <img style="border:1px solid #999; vertical-align:middle;" src="mac-search.png" /> en haut à droite de l'écran et tappez <em>Terminal</em> ou bien suivez <a href="http://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac">ceci</a>).
-                <ul>
-                    <li>Pour tester que python version 3 s'est bien installé, tappez <code>python3</code> puis appuyez sur Enter.</li>
-                    <li>Vous devriez voir le texte <em>Python 3.6</em> et qui finit par <code>>>> </code> affiché à l'écran.</li>
-                    <li>Par contre, si vous voyez une phrase du style <em>commande introuvable: python3</em> ou <em>command not found: python3</em>, c'est qu'il ne s'est pas installé.</li>
-                    <li>Fermez le terminal</li>
-                </ul>
-            </li>
-        
+            
             <li>Installez XCode via l'AppStore... Ça risque de prendre un peu de temps...</li>
             
-            <li>Lancez un autre Terminal (de la même manière qu'avant) et entrez les commandes suivantes :
+            <li>Ouvrez un terminal (cliquez sur l'icône de recherche <img style="border:1px solid #999; vertical-align:middle;" src="mac-search.png" /> en haut à droite de l'écran et tappez <em>Terminal</em> ou bien suivez <a href="http://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac">ceci</a>)
+            et entrez les commandes suivantes :
             
             <ul>
                 <li>
@@ -324,11 +332,26 @@
         </ul>
         
         <p>{{Les instructions viennent de|The instructions come from}} <a href="http://stackoverflow.com/a/34081126/1980630">{{cette page|this page}}</a>.</p>
+        
+        <p>Vous pouvez maintenant commencer à coder en choisissant un <a href="#choose-ide">IDE</a> !</p>
             
         <h3 id="linux">Linux</h3>
         
         <p>{{Suivez|Follow}} <a href="http://askubuntu.com/questions/401342/how-to-download-pygame-in-python3-3">{{ceci|this}}</a>.</p>
-
+        
+        <!--
+        <h3 id="test-install-python">Vérifier l'installation de python</h3>
+        
+        <li>Ouvrez un terminal (cliquez sur l'icône de recherche <img style="border:1px solid #999; vertical-align:middle;" src="mac-search.png" /> en haut à droite de l'écran et tappez <em>Terminal</em> ou bien suivez <a href="http://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac">ceci</a>).
+            <ul>
+                <li>Pour tester que python version 3 s'est bien installé, tappez <code>python3</code> puis appuyez sur Enter.</li>
+                <li>Vous devriez voir le texte <em>Python 3.6</em> et qui finit par <code>>>> </code> affiché à l'écran.</li>
+                <li>Par contre, si vous voyez une phrase du style <em>commande introuvable: python3</em> ou <em>command not found: python3</em>, c'est qu'il ne s'est pas installé.</li>
+                <li>Fermez le terminal</li>
+            </ul>
+        </li>
+        -->
+        
         </section>
         
         <h2 id="{{version-python|python-version}}">{{Remarque sur les versions de python|Note on python versions}}</h2>
@@ -389,18 +412,21 @@
         {{À la fin du cours je ferai une introduction à la 3D pour les intéressés.
          |At the end of the class I'll do an introduction to 3D for those who want to.}}
         
-        {{Il faut installer|You'll have to install}} <a href="http://pyopengl.sourceforge.net/">pyOpenGL</a>
+        {{Il faut installer|You'll have to install}} <a href="http://pyopengl.sourceforge.net/">PyOpenGL</a>
         {{et|and}} <a href="http://www.scipy.org/scipylib/download.html">numpy</a>.
         {{Ils sont installés sur les ordis de l'école.|Those are installed on the computers at school.}}
         </p>
         
         <p>
-        {{Si vous êtes intéressés par l'installer chez vous sous Windows pous pouvez faire la même chose qu'avec pygame (la version avec AppData, pip et les whl).
-         |If you want to install it at home under Windows, you can do the same thing as pygame (the version with AppData, pip and the whl). }}
+        {{Si vous êtes intéressés par l'installer chez vous sous Windows pous devrez les installer via <a href="#pip-whl">pip et les whl</a>. Sauf que maintenant tu installes <code>numpy</code> puis <code>PyOpenGL</code> (et <code>PyOpenGL_accelerate</code> si vous voulez).
+         |If you want to install it at home under Windows, you must install them via <a href="#pip-whl">with pip and the whl</a>. Except that now you install <code>numpy</code> then <code>PyOpenGL</code> (and <code>PyOpenGL_accelerate</code> if you want to).}}
         </p>
         
         <p>
         {{Les whl pour windows sont sur|The whl for windows are on}} <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">{{ce site non officiel|this unoffical website}}</a>.
+        
+        {{Pour trouver vite un paquet, utilisez <kbd>Ctrl+F</kbd>.
+        |To quickly find a package, use <kbd>Ctrl+F</kbd>}}.
         </p>
         
         <p>{{Pour Mac ou Linux, un simple|For Mac and Linux, a simple}} <code>pip3 install PyOpenGL PyOpenGL_accelerate numpy</code> {{suffira|will suffice}}.</p>
