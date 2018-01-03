@@ -784,23 +784,23 @@
             <h4>Division par un nombre : $\vec{v} / k = (1/k) \cdot \vec{v}$</h4>
                 <figure><img src="vecteurs-division.png" /></figure>
             
-            <h4>Vecteur normalisé (de taille <strong>1</strong>) : $\vec{1_v} = \vec{v} / \|\vec{v}\|$</h4>
+            <h4>Vecteur normalisé (de taille <strong>1</strong>) : $\vec{1}_v = \vec{v} / \|\vec{v}\|$</h4>
             
             <p>
                 Si je multiple un vecteur par <strong>2</strong>, sa norme (taille) est également multipliée par <strong>2</strong>.
                 De même, si un vecteur de longueur <strong>5</strong> est divisé par <strong>5</strong>, il devient de longueur <strong>1</strong>.
-                Le vecteur normalisé $\vec{1_v}$ est donc le vecteur dans la même direction et sens que $\vec{v}$, mais de longueur $1$.
+                Le vecteur normalisé $\vec{1}_v$ est donc le vecteur dans la même direction et sens que $\vec{v}$, mais de longueur $1$.
                 Un exemple ici :
             </p>
             
-            <p class="if-then">Si $\vec{d} = (4,3)$ alors $\vec{1_d}$ $= \vec{d}/\|\vec{d}\|$ $= (4,\ 3)/5$ $= (0.80,\ 0.60)$</p>
-            <p class="implies">$\vec{d} = (4,3)$ $\implies \vec{1_d}$ $= \vec{d}/\|\vec{d}\|$ $= (4,\ 3)/5$ $= (0.80,\ 0.60)$</p>
+            <p class="if-then">Si $\vec{d} = (4,3)$ alors $\vec{1}_d$ $= \vec{d}/\|\vec{d}\|$ $= (4,\ 3)/5$ $= (0.80,\ 0.60)$</p>
+            <p class="implies">$\vec{d} = (4,3)$ $\implies \vec{1}_d$ $= \vec{d}/\|\vec{d}\|$ $= (4,\ 3)/5$ $= (0.80,\ 0.60)$</p>
             
             <figure><img src="vecteurs-normaliser.png" /></figure>
             
             <p>Un avantage pratique d'un vecteur normalisé, est que si je le multiple par <strong>5</strong>, il sera de taille <strong>5</strong> !</p>
             
-            <p>Dans la littérature anglaise on retrouve la notation $\hat{v}$ ou $\mathbf{\hat{v}}$ pour $\vec{1_{v}}$, l'accent circonflexe signifiant que la norme vaut 1.</p>
+            <p>Dans la littérature anglaise on retrouve la notation $\hat{v}$ ou $\mathbf{\hat{v}}$ pour $\vec{1}_v$, l'accent circonflexe signifiant que la norme vaut 1.</p>
             
         <h3 id="vecteurs-exemple">Exemple</h3>
         
@@ -835,11 +835,11 @@
                 <li>
                     Ou avec la <strong>direction et la norme</strong> :
                     <p><em>Vecteur unitaire depuis l'angle</em></p>
-                    <p> $\vec{1_d} = (\cos\theta,\ \sin\theta) $$= (\cos 116.5°,\ \sin 116.5°)$ $= (-0.44,\ 0.89)$  </p>
+                    <p> $\vec{1}_d = (\cos\theta,\ \sin\theta) $$= (\cos 116.5°,\ \sin 116.5°)$ $= (-0.44,\ 0.89)$  </p>
                     <p><em>Vecteur unitaire depuis un vecteur</em><p>
-                    <p> $\vec{1_d} $$= \vec{d} / \|\vec{d}\| = (-2,\ 4) / 4.47$ $= (-0.44,\ 0.89)$ </p>
+                    <p> $\vec{1}_d $$= \vec{d} / \|\vec{d}\| = (-2,\ 4) / 4.47$ $= (-0.44,\ 0.89)$ </p>
                     <p><em>Vecteur depuis un vecteur unitaire et une longueur</em></p>
-                    <p> $\vec{d} $$= \|\vec{d}\| \cdot \vec{1_d}$ $= 4.47 \cdot (-0.44,\ 0.89)$ $= (-2,\ 4)$ </p>
+                    <p> $\vec{d} $$= \|\vec{d}\| \cdot \vec{1}_d$ $= 4.47 \cdot (-0.44,\ 0.89)$ $= (-2,\ 4)$ </p>
                 </li>
                 
             </ul>
@@ -861,10 +861,10 @@
                 <li>$\|\vec{v}\| = \sqrt{v_x^2 + v_y^2}$</li>
                 <li>$- \vec{v} = (-1) \cdot \vec{v}$ $= (-v_x,\ -v_y)$</li>
                 <li>$\vec{v} - \vec{w} = \vec{v} + (- \vec{w})$ $= (v_x - w_x,\ v_y - w_y)$</li>
-                <li>$\vec{1_v} = \vec{v} / \|\vec{v}\|$</li>
-                <li>$\|\vec{1_v}\| = 1$</li>
-                <li>$\vec{1_v} = (\cos\theta,\ \sin\theta)$</li>
-                <li>$\|k \vec{1_v}\| = |k|$</li>
+                <li>$\vec{1}_v = \vec{v} / \|\vec{v}\|$</li>
+                <li>$\|\vec{1}_v\| = 1$</li>
+                <li>$\vec{1}_v = (\cos\theta,\ \sin\theta)$</li>
+                <li>$\|k \vec{1}_v\| = |k|$</li>
             </ul>
         
     </section>
@@ -915,7 +915,7 @@
             <p>
                 Si $\vec{d}$ est normé, le vecteur $\vec{r}(t)$ sera toujours à distance $|t|$ de $\vec{p}$.
                 On peut donc facile résoudre le problème suivant : <em>quels sont les deux points de la droite à distance $k$ de $\vec{p}$</em> ?
-                Il s'agit de $\vec{p} \pm k\ \vec{1_d}$
+                Il s'agit de $\vec{p} \pm k\ \vec{1}_d$
             </p>
             
             <p>
@@ -961,10 +961,10 @@
             <p><img src="vecteurs-produit-scalaire-projection.png" /></p>
             
             <p>Quand un des vecteurs est normé, la norme vaut $1$ et donc le produit scalaire vaut cette projection :</p>
-            <p>$\vec{a} \cdot \vec{1_b} = a_b$</p>
+            <p>$\vec{a} \cdot \vec{1}_b = a_b$</p>
             
             <p>Et quand les deux vecteurs sont normés, le produit scalaire vaut le cosinus :</p>
-            <p>$\vec{1_a} \cdot \vec{1_b} = \cos\theta$</p>
+            <p>$\vec{1}_a \cdot \vec{1}_b = \cos\theta$</p>
             
             <p>Le produit scalaire peut également être négatif, pour la définition géométrique, c'est parce que $\cos\theta < 0$ et pour la définition par la projection c'est parce que $a_b < 0$ :</p>
             
@@ -977,13 +977,13 @@
             
             <p>
                 $\vec{a} \cdot \vec{b} $
-                $= (\color{red}{a_x \vec{1_x}} + \color{green}{a_y \vec{1_y}}) \cdot (\color{red}{b_x \vec{1_x}} + \color{green}{b_y \vec{1_y}}) $
+                $= (\color{red}{a_x \vec{1}_x} + \color{green}{a_y \vec{1}_y}) \cdot (\color{red}{b_x \vec{1}_x} + \color{green}{b_y \vec{1}_y}) $
                 
                 <span class="developpement" symbol="=">
-                $= \color{red}{a_x b_x}                (\underbrace{\color{red}{\vec{1_x}} \cdot \color{red}{\vec{1_x}}}_{1}) $
-                $+ \color{red}{a_x} \color{green}{b_y} (\underbrace{\color{red}{\vec{1_x}} \cdot \color{green}{\vec{1_y}}}_{0}) $
-                $+ \color{green}{a_y} \color{red}{b_x} (\underbrace{\color{green}{\vec{1_y}} \cdot \color{red}{\vec{1_x}}}_{0}) $
-                $+ \color{green}{a_y b_y}              (\underbrace{\color{green}{\vec{1_y}} \cdot \color{green}{\vec{1_y}}}_{1})$
+                $= \color{red}{a_x b_x}                (\underbrace{\color{red}{\vec{1}_x} \cdot \color{red}{\vec{1}_x}}_{1}) $
+                $+ \color{red}{a_x} \color{green}{b_y} (\underbrace{\color{red}{\vec{1}_x} \cdot \color{green}{\vec{1}_y}}_{0}) $
+                $+ \color{green}{a_y} \color{red}{b_x} (\underbrace{\color{green}{\vec{1}_y} \cdot \color{red}{\vec{1}_x}}_{0}) $
+                $+ \color{green}{a_y b_y}              (\underbrace{\color{green}{\vec{1}_y} \cdot \color{green}{\vec{1}_y}}_{1})$
                 </span>
                 
                 $= \color{red}{a_x b_x} + \color{green}{a_y b_y}$
@@ -1028,12 +1028,12 @@
             <p>La norme s'étend naturellement avec <em>pythagore en 3D</em> : $\|\vec{v}\| = \sqrt{v_x^2 + v_y^2 + v_z^2}$</p>
             <figure> <img src="3d-pythagore.png"/> <img src="3d-pythagore-formules.png"/> </figure>
             
-            <p>Petite remarque sur la représentation des vecteurs 3D dans le plan, on peut faire un dessin en perspective comme sur la figure précédente. Mais on peut aussi considérer un plan, comment dessiner le vecteur $\vec{1_z} = (0,0,1)$ dans le plan <em>XY</em> ?</p>
+            <p>Petite remarque sur la représentation des vecteurs 3D dans le plan, on peut faire un dessin en perspective comme sur la figure précédente. Mais on peut aussi considérer un plan, comment dessiner le vecteur $\vec{1}_z = (0,0,1)$ dans le plan <em>XY</em> ?</p>
             <p>Si je prend mon dessin précédent et représente le plan <em>XY</em> en <em>Z = 0</em>, j'aurai :</p>
             
             <figure>Picture</figure>
             
-            <p>Le vecteur $\vec{1_z}$ <em>sort</em> de l'écran, il va <em>vers toi</em>. On le représentera avec le symbole $\odot$, s'il <em>rentrait dans l'écran</em>, on aurait utilisé le symbole $\otimes$.</p>
+            <p>Le vecteur $\vec{1}_z$ <em>sort</em> de l'écran, il va <em>vers toi</em>. On le représentera avec le symbole $\odot$, s'il <em>rentrait dans l'écran</em>, on aurait utilisé le symbole $\otimes$.</p>
         
         <h3 id="coordonnees-spheriques">Coordonnées sphériques</h3>
 
@@ -1072,18 +1072,18 @@
             <p>$\vec{a} \times \vec{b}$
             
                 $= \begin{vmatrix}
-                \vec{1_x}&\vec{1_y}&\vec{1_z}\\
+                \vec{1}_x&\vec{1}_y&\vec{1}_z\\
                 \color{red}{a_x}&\color{green}{a_y}&\color{blue}{a_z}\\
                 \color{red}{b_x}&\color{green}{b_y}&\color{blue}{b_z}
                 \end{vmatrix}$
                 <span class="developpement" symbol="=">
-                    $= \vec{1_x} \begin{vmatrix}\color{green}{a_y}&\color{blue}{a_z}\\\color{green}{b_y}&\color{blue}{b_z}\end{vmatrix}$
-                    $- \vec{1_y} \begin{vmatrix}\color{red}{a_x}&\color{blue}{a_z}\\\color{red}{b_x}&\color{blue}{b_z}\end{vmatrix}$
-                    $+ \vec{1_z} \begin{vmatrix}\color{red}{a_x}&\color{green}{a_y}\\\color{red}{b_x}&\color{green}{b_y}\end{vmatrix}$
+                    $= \vec{1}_x \begin{vmatrix}\color{green}{a_y}&\color{blue}{a_z}\\\color{green}{b_y}&\color{blue}{b_z}\end{vmatrix}$
+                    $- \vec{1}_y \begin{vmatrix}\color{red}{a_x}&\color{blue}{a_z}\\\color{red}{b_x}&\color{blue}{b_z}\end{vmatrix}$
+                    $+ \vec{1}_z \begin{vmatrix}\color{red}{a_x}&\color{green}{a_y}\\\color{red}{b_x}&\color{green}{b_y}\end{vmatrix}$
                     
-                    $= \vec{1_x} (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y})$
-                    $- \vec{1_y} (\color{red}{a_x} \color{blue}{b_z} - \color{blue}{a_z} \color{red}{b_x})$
-                    $+ \vec{1_z} (\color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x})$
+                    $= \vec{1}_x (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y})$
+                    $- \vec{1}_y (\color{red}{a_x} \color{blue}{b_z} - \color{blue}{a_z} \color{red}{b_x})$
+                    $+ \vec{1}_z (\color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x})$
                     
                     $= (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y}
                     ,\ -(\color{red}{a_x} \color{blue}{b_z - \color{blue}{a_z} \color{red}{b_x}})
@@ -1134,14 +1134,14 @@
             
             <p>
                 $\begin{cases}
-                \color{red}{\vec{1_x}} \times \color{green}{\vec{1_y}} = \color{blue}{\vec{1_z}} \\
-                \color{green}{\vec{1_y}} \times \color{blue}{\vec{1_z}} = \color{red}{\vec{1_x}} \\
-                \color{blue}{\vec{1_z}} \times \color{red}{\vec{1_x}} = \color{green}{\vec{1_y}} \\
+                \color{red}{\vec{1}_x} \times \color{green}{\vec{1}_y} = \color{blue}{\vec{1}_z} \\
+                \color{green}{\vec{1}_y} \times \color{blue}{\vec{1}_z} = \color{red}{\vec{1}_x} \\
+                \color{blue}{\vec{1}_z} \times \color{red}{\vec{1}_x} = \color{green}{\vec{1}_y} \\
                 \end{cases} \quad$
                 $\begin{cases}
-                \color{green}{\vec{1_y}} \times \color{red}{\vec{1_x}} = - \color{blue}{\vec{1_z}} \\
-                \color{blue}{\vec{1_z}} \times \color{green}{\vec{1_y}} = - \color{red}{\vec{1_x}} \\
-                \color{red}{\vec{1_x}} \times \color{blue}{\vec{1_z}} = - \color{green}{\vec{1_y}} \\
+                \color{green}{\vec{1}_y} \times \color{red}{\vec{1}_x} = - \color{blue}{\vec{1}_z} \\
+                \color{blue}{\vec{1}_z} \times \color{green}{\vec{1}_y} = - \color{red}{\vec{1}_x} \\
+                \color{red}{\vec{1}_x} \times \color{blue}{\vec{1}_z} = - \color{green}{\vec{1}_y} \\
                 \end{cases}$
             </p>
             
@@ -1156,41 +1156,41 @@
             
             <p>
                 $\vec{a} \times \vec{b}$
-                $= (\color{red}{a_x} \color{red}{\vec{1_x}} + \color{green}{a_y}\ \color{green}{\vec{1_y}} + \color{blue}{a_z}\ \color{blue}{\vec{1_z}}) $$\times (\color{red}{b_x} \color{red}{\vec{1_x}} + \color{green}{b_y}\ \color{green}{\vec{1_y}} + \color{blue}{b_z}\ \color{blue}{\vec{1_z}})$
+                $= (\color{red}{a_x} \color{red}{\vec{1}_x} + \color{green}{a_y}\ \color{green}{\vec{1}_y} + \color{blue}{a_z}\ \color{blue}{\vec{1}_z}) $$\times (\color{red}{b_x} \color{red}{\vec{1}_x} + \color{green}{b_y}\ \color{green}{\vec{1}_y} + \color{blue}{b_z}\ \color{blue}{\vec{1}_z})$
             </p>
             
             <span class="developpement" symbol="=">
                 <p>
-                    $= \color{red}{a_x} \color{red}{b_x} (\underbrace{\color{red}{\vec{1_x}} \times \color{red}{\vec{1_x}}}_{\vec{0}})$
-                    $+ \color{red}{a_x} \color{green}{b_y} (\underbrace{\color{red}{\vec{1_x}} \times \color{green}{\vec{1_y}}}_{\color{blue}{\vec{1_z}}})$
-                    $+ \color{red}{a_x} \color{blue}{b_z} (\underbrace{\color{red}{\vec{1_x}} \times \color{blue}{\vec{1_z}}}_{-\color{green}{\vec{1_y}}})$
+                    $= \color{red}{a_x} \color{red}{b_x} (\underbrace{\color{red}{\vec{1}_x} \times \color{red}{\vec{1}_x}}_{\vec{0}})$
+                    $+ \color{red}{a_x} \color{green}{b_y} (\underbrace{\color{red}{\vec{1}_x} \times \color{green}{\vec{1}_y}}_{\color{blue}{\vec{1}_z}})$
+                    $+ \color{red}{a_x} \color{blue}{b_z} (\underbrace{\color{red}{\vec{1}_x} \times \color{blue}{\vec{1}_z}}_{-\color{green}{\vec{1}_y}})$
                 </p>
                 <p>
-                    $+ \color{green}{a_y} \color{red}{b_x} (\underbrace{\color{green}{\vec{1_y}} \times \color{red}{\vec{1_x}}}_{-\color{blue}{\vec{1_z}}})$
-                    $+ \color{green}{a_y} \color{green}{b_y} (\underbrace{\color{green}{\vec{1_y}} \times \color{green}{\vec{1_y}}}_{\vec{0}})$
-                    $+ \color{green}{a_y} \color{blue}{b_z} (\underbrace{\color{green}{\vec{1_y}} \times \color{blue}{\vec{1_z}}}_{\color{red}{\vec{1_x}}})$
+                    $+ \color{green}{a_y} \color{red}{b_x} (\underbrace{\color{green}{\vec{1}_y} \times \color{red}{\vec{1}_x}}_{-\color{blue}{\vec{1}_z}})$
+                    $+ \color{green}{a_y} \color{green}{b_y} (\underbrace{\color{green}{\vec{1}_y} \times \color{green}{\vec{1}_y}}_{\vec{0}})$
+                    $+ \color{green}{a_y} \color{blue}{b_z} (\underbrace{\color{green}{\vec{1}_y} \times \color{blue}{\vec{1}_z}}_{\color{red}{\vec{1}_x}})$
                 </p>
                 <p>
-                    $+ \color{blue}{a_z} \color{red}{b_x} (\underbrace{\color{blue}{\vec{1_z}} \times \color{red}{\vec{1_x}}}_{\color{green}{\vec{1_y}}})$
-                    $+ \color{blue}{a_z} \color{green}{b_y} (\underbrace{\color{blue}{\vec{1_z}} \times \color{green}{\vec{1_y}}}_{-\color{red}{\vec{1_x}}})$
-                    $+ \color{blue}{a_z} \color{blue}{b_z} (\underbrace{\color{blue}{\vec{1_z}} \times \color{blue}{\vec{1_z}}}_{\vec{0}})$
+                    $+ \color{blue}{a_z} \color{red}{b_x} (\underbrace{\color{blue}{\vec{1}_z} \times \color{red}{\vec{1}_x}}_{\color{green}{\vec{1}_y}})$
+                    $+ \color{blue}{a_z} \color{green}{b_y} (\underbrace{\color{blue}{\vec{1}_z} \times \color{green}{\vec{1}_y}}_{-\color{red}{\vec{1}_x}})$
+                    $+ \color{blue}{a_z} \color{blue}{b_z} (\underbrace{\color{blue}{\vec{1}_z} \times \color{blue}{\vec{1}_z}}_{\vec{0}})$
                 </p>
                 <p>
-                    $= \color{red}{a_x} \color{green}{b_y} \color{blue}{\vec{1_z}}$
-                    $- \color{red}{a_x} \color{blue}{b_z} \color{green}{\vec{1_y}}$
+                    $= \color{red}{a_x} \color{green}{b_y} \color{blue}{\vec{1}_z}$
+                    $- \color{red}{a_x} \color{blue}{b_z} \color{green}{\vec{1}_y}$
                     
-                    $\quad- \color{green}{a_y} \color{red}{b_x} \color{blue}{\vec{1_z}}$
-                    $+ \color{green}{a_y} \color{blue}{b_z} \color{red}{\vec{1_x}}$
+                    $\quad- \color{green}{a_y} \color{red}{b_x} \color{blue}{\vec{1}_z}$
+                    $+ \color{green}{a_y} \color{blue}{b_z} \color{red}{\vec{1}_x}$
                     
-                    $\quad+ \color{blue}{a_z} \color{red}{b_x} \color{green}{\vec{1_y}}$
-                    $- \color{blue}{a_z} \color{green}{b_y} \color{red}{\vec{1_x}}$
+                    $\quad+ \color{blue}{a_z} \color{red}{b_x} \color{green}{\vec{1}_y}$
+                    $- \color{blue}{a_z} \color{green}{b_y} \color{red}{\vec{1}_x}$
                 </p>
             </span>
             
             <p>
-                $= (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y})\color{red}{\vec{1_x}}
-                $$+ (\ \color{blue}{a_z} \color{red}{b_x} - \color{red}{a_x} \color{blue}{b_z}) \color{green}{\vec{1_y}}
-                $$+ (\ \color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x}) \color{blue}{\vec{1_z}}$
+                $= (\color{green}{a_y} \color{blue}{b_z} - \color{blue}{a_z} \color{green}{b_y})\color{red}{\vec{1}_x}
+                $$+ (\ \color{blue}{a_z} \color{red}{b_x} - \color{red}{a_x} \color{blue}{b_z}) \color{green}{\vec{1}_y}
+                $$+ (\ \color{red}{a_x} \color{green}{b_y} - \color{green}{a_y} \color{red}{b_x}) \color{blue}{\vec{1}_z}$
             </p>
             
             <p>En python avec numpy, il existe la fonction <code>numpy.cross</code> :</p>
@@ -1210,7 +1210,7 @@
         <h3 id="equation-de-plan">Équation de plan</h3>
             <p>
                 Un plan est souvent représenté à l'aide d'un point $\vec{p}$ et une direction normale $\vec{n}$.
-                Parfois ce vecteur est normé ($\vec{1_n}$), parfois non.
+                Parfois ce vecteur est normé ($\vec{1}_n$), parfois non.
             </p>
             
             <p>
@@ -1220,7 +1220,7 @@
             </p>
             
             <p>
-                La distance d'un point $\vec{r}$ par rapport à un plan est alors facilement exprimable avec un produit scalaire $(\vec{r} - \vec{p}) \cdot \vec{1_n}$.
+                La distance d'un point $\vec{r}$ par rapport à un plan est alors facilement exprimable avec un produit scalaire $(\vec{r} - \vec{p}) \cdot \vec{1}_n$.
             </p>
             
             <p>
@@ -1232,10 +1232,10 @@
             </p>
             
             <p>
-                $(\vec{r} - \vec{p}) \cdot \vec{1_n} = 0$
+                $(\vec{r} - \vec{p}) \cdot \vec{1}_n = 0$
                 <span class="developpement" symbol="iff">
-                $\iff ((\vec{r} - \vec{p}) \cdot \vec{1_n})\ \|\vec{n}\| = 0 \|\vec{n}\|$
-                $\iff (\vec{r} - \vec{p}) \cdot (\vec{1_n}\ \|\vec{n}\|) = 0$
+                $\iff ((\vec{r} - \vec{p}) \cdot \vec{1}_n)\ \|\vec{n}\| = 0 \|\vec{n}\|$
+                $\iff (\vec{r} - \vec{p}) \cdot (\vec{1}_n\ \|\vec{n}\|) = 0$
                 </span>
                 $\iff (\vec{r} - \vec{p}) \cdot \vec{n} = 0$
                 $\iff \vec{r} \cdot \vec{n} - \vec{p} \cdot \vec{n} = 0$
@@ -1251,10 +1251,10 @@
             </p>
             
             <p>
-                $(\vec{r} - \vec{p}) \cdot \vec{1_n} = 0$
+                $(\vec{r} - \vec{p}) \cdot \vec{1}_n = 0$
                 <span class="developpement" symbol="iff">
-                $\iff ((\vec{r} - \vec{p}) \cdot \vec{1_n})\ \|\vec{n}\| = 0 \|\vec{n}\|$
-                $\iff (\vec{r} - \vec{p}) \cdot (\vec{1_n}\ \|\vec{n}\|) = 0$
+                $\iff ((\vec{r} - \vec{p}) \cdot \vec{1}_n)\ \|\vec{n}\| = 0 \|\vec{n}\|$
+                $\iff (\vec{r} - \vec{p}) \cdot (\vec{1}_n\ \|\vec{n}\|) = 0$
                 $\iff (\vec{r} - \vec{p}) \cdot \vec{n} = 0$
                 $\iff \vec{r} \cdot \vec{n} - \vec{p} \cdot \vec{n} = 0$
                 </span>
@@ -1263,7 +1263,7 @@
             </p>
             
             <p>
-                La distance point droite se calculera facilement avec le produit scalaire $(\vec{r} - \vec{p}) \cdot \vec{1_n}$
+                La distance point droite se calculera facilement avec le produit scalaire $(\vec{r} - \vec{p}) \cdot \vec{1}_n$
                 où $\vec{p}$ est un point de la droite et $\vec{r}$ est le point pour lequel on veut calculer la distance.
             </p>
             
@@ -1711,7 +1711,7 @@
             
             <p>
                 Une petite remarque sur la structure d'une matrice de transformation,
-                la première <strong>colonne</strong> représente en fait les coordonnées du vecteur $\vec{1_x}$ <strong>transformé</strong>.
+                la première <strong>colonne</strong> représente en fait les coordonnées du vecteur $\vec{1}_x$ <strong>transformé</strong>.
             </p>
             <p>$
                 \begin{pmatrix}
@@ -1728,7 +1728,7 @@
                 \end{pmatrix}
             $<p>
             
-            <p>De la même manière, la deuxième <strong>colonne</strong> représente les coordonnées du vecteur $\vec{1_y}$ <sstrong>transformé</strong>.</p>
+            <p>De la même manière, la deuxième <strong>colonne</strong> représente les coordonnées du vecteur $\vec{1}_y$ <sstrong>transformé</strong>.</p>
             <p>$
                 \begin{pmatrix}
                 a & b \\
@@ -1836,8 +1836,8 @@
             
             <p>Cela marche également pour $\theta < 0$, une rotation de $-50°$, c'est une rotation de $50°$ dans l'autre sens.</p>
             
-            <p>En utilisant la structure d'une matrice de transformation et en sachant que la rotation est linéaire, on aurait aussi pu se demander les coordonnées de la transformation de $\vec{1_x}$ et $\vec{1_y}$.</p>
-            <p>Dessine un dessin pour voir que en effet que $\vec{1_x}$ est envoyé sur les coordonnées $(\cos\theta,\ \sin\theta)$ et que $\vec{1_y}$ est envoyé sur $(-\sin\theta,\ \cos\theta)$</p>
+            <p>En utilisant la structure d'une matrice de transformation et en sachant que la rotation est linéaire, on aurait aussi pu se demander les coordonnées de la transformation de $\vec{1}_x$ et $\vec{1}_y$.</p>
+            <p>Dessine un dessin pour voir que en effet que $\vec{1}_x$ est envoyé sur les coordonnées $(\cos\theta,\ \sin\theta)$ et que $\vec{1}_y$ est envoyé sur $(-\sin\theta,\ \cos\theta)$</p>
         
         <h3 id="translation">Translation et coordonnées homogènes</h3>
         
@@ -2014,7 +2014,7 @@
             c = \cos\theta \\
             k = 1-c \\
             s = \sin\theta \\
-            (x,y,z) = \vec{1_{A}} = \vec{A} / \|A\|
+            (x,y,z) = \vec{1}_A = \vec{A} / \|A\|
             \end{cases}
             $</p>
             
