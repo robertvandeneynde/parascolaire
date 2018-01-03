@@ -1,3 +1,4 @@
+#!/bin/bash
 # ./generate_txt.py
 python3 generate_html_progra_equivalences_multilang.py
 python3 generate_multilang.py --langs fr en
