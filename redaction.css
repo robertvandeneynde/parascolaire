@@ -37,11 +37,11 @@ pre {
     overflow-x: auto;
 }
 
-img:not(.free) {
+img:not(.free):not([src^=flag]) {
     border: 2px solid black;
 }
 
-img:not(.free), pre {
+img:not(.free):not([src^=flag]), pre {
     max-width: 100%;
 }
 

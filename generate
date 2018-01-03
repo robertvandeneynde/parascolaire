@@ -1,9 +1,9 @@
 # ./generate_txt.py
-python3 ./generate_html_progra_equivalences_multilang.py
-./generate_multilang.py --langs fr en
-./generate_html.py
+python3 generate_html_progra_equivalences_multilang.py
+python3 generate_multilang.py --langs fr en
+python3 generate_html.py
 # ./generate_ln.py
-./generate_ls.py # keep last
+python3 generate_ls.py # keep last
 cd home/2017-2018
-./generate_index.py
+python3 generate_index.py
 cd ../..

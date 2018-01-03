@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 filename = 'generate_html_progra_equivalences_multilang.py'
 template_file = 'pytext_template.html'
 
