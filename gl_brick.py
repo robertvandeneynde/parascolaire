@@ -5,7 +5,7 @@ Ainsi un jeu purement 2D peut être affiché en 3D, comme ce casse brique.
 Pour comparer la version 2D et la version 3D, regardez le code gl_brick_2D.py
 
 On fait de la 3D grâce à OpenGL.
-ATTENTION: Ce code utilise de la Vielle 3D (années 2000)
+ATTENTION: Ce code utilise de la Vieille 3D (années 2000)
 On parle d'OpenGL "version 2" ou de "fixed pipeline" ou "mode immédiat" ou "opengl sans shaders"
 Il est vivement conseillé d'apprendre les shaders dès le début de votre apprentissage OpenGL
 pour pouvoir faire de puissants effets modernes.

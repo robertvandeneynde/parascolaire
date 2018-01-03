@@ -23,34 +23,30 @@ def auto_lang_dict(basename, ext, sep=None):
     if sep is None:
         sep = '_' if ext == 'py' else '.'
     return {
-        basename + '.' + ext: {
+        basename + sep + 'multilang' + '.' + ext: {
             lang: basename + sep + lang + '.' + ext
             for lang in ('fr', 'en')
         }
     }
 
-def auto_lang_dict_list(*it):
-    return list(starmap(auto_lang_dict, it))
+def auto_lang_dict_aggreg(*it):
+    return {k:v for d in starmap(auto_lang_dict, it) for k,v in d.items()}
 
-TRANSLATION_LIST = [
-    {'example_base_file.ext': {
+TRANSLATION_INFO = {
+    'example_base_file.ext': {
         'fr': 'example_french_version.ext',
         'en': 'example_english_version.ext',
-    }},
+    },
     
-    {'projet.html': {
+    'projets.multilang_as_projects.html': {
         'fr': 'projet.html',
         'en': 'projects.html',
-    }},
+    },
     
-    {'projet.html': {
-        'fr': 'projet.html',
-        'en': 'projects.html',
-    }},
+}
     
-] + auto_lang_dict_list(
+TRANSLATION_INFO.update(auto_lang_dict_aggreg(
     ('theorie1_egal_if', 'py'),
     ('progra_equivalences', 'py'),
     ('progra_equivalences', 'html', '_'),
-    
-)
+))

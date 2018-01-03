@@ -7,7 +7,8 @@ from math import sin,cos,degrees,radians,tan
 import numpy
 from numpy import array, matrix, linalg
 
-vertices = numpy.array(vertices, dtype=numpy.float32)
+def farray(*args):
+    return numpy.array(*args, dtype=numpy.float32)
 
 class Axis:
     pass

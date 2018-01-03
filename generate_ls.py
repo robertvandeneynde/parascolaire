@@ -7,19 +7,29 @@ import textwrap
 
 from generate_utils import OutFile
 
-from generate_info import GROUPINGS, EXTS, TRANSLATION_LIST
+from generate_info import GROUPINGS, EXTS, TRANSLATION_INFO
 
 def get_group_i(name):
     return next(i for i,n in enumerate(GROUPINGS) if name.startswith(n))
     # return next(i for i,n in enumerate(re.match('(theorie)|(exercice)|(math)|(pythontutor)|()', name).groups()) if n is not None)
-
+    
 def key(path):
     name = os.path.basename(path)
     ext = os.path.splitext(path)[1]
     return (not os.path.isdir(path), get_group_i(name), EXTS.get(ext, 1000), ext, name)
 
+_GENERATED_FILES = {
+    translated_filename
+    for f, langs in TRANSLATION_INFO.items()
+    for lang, translated_filename in langs.items()
+}
+
 def accepted(path):
     name = os.path.basename(path)
+    if name in TRANSLATION_INFO:
+        return False
+    if name in _GENERATED_FILES:
+        pass # if currentlang == document.lang: pass else: return False
     return not any(
         re.search(m, name)
         for m in (
