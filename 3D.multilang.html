@@ -51,23 +51,32 @@
     <p>
         La seule chose qui changera est la partie <strong>dessin</strong>, la logique restera la même.
         Pour comparer la version 2D et la version 3D, regardez le code
-        <a href="gl_brick_2d.py.html">gl_brick_2d</a>
+        <a href="gl_brick_2d.py.html">gl_brick_2d</a>.
     </p>
 
     <p>
         On fait de la 3D grâce à OpenGL.
         Attention, le code <a href="gl_brick.py.html">gl_brick</a> utilise de la <em>vieille</em> 3D (années 2000).
         
-        On parle d'OpenGL "version 2" ou de "fixed pipeline" ou "mode immédiat" ou "opengl sans shaders".
+        On parle d'OpenGL <em>version 2</em> ou de <em>fixed pipeline</em> ou <em>mode immédiat</em> ou <em>opengl sans shaders</em>.
         
-        Cependant, OpenGL 2 est très utile pour comprendre les bases de la 3D et les matrices.
-        Ou pour avoir vite fait un affichage.
+        Cependant, OpenGL 2 est très utile pour comprendre les bases de la 3D et les matrices
+        ou pour avoir vite fait un affichage mais nous ne la verrons pas dans ce cours.
     </p>
         
     <p>
-        Il est vivement conseillé d'apprendre les shaders dès le début de votre apprentissage OpenGL
+        Il est vivement conseillé d'apprendre les shaders (OpenGL 3 et 4) dès le début de votre apprentissage OpenGL
         pour pouvoir faire de puissants effets modernes.
         Un projet fini avec des shaders ressemble à <a href="gl_brick_shaders.py.html">gl_brick_shaders</a> mais nous verrons pas à pas les concepts dans quelques petits codes plus simples.
+    </p>
+    
+    <p>
+        Il existe aussi des moteurs de jeux (<em>game engines</em>) qui nous simplifie la vie, comme <strong>Unity</strong> ou <strong>Unreal Engine</strong>
+        mais nous ne les verrons pas dans ce cours.
+        Avec OpenGL nous sommes plus près de la machine, nous sommes plus <em>bas niveau</em>
+        et donc on comprends mieux comment les choses marchent.
+        Si vous voulez, OpenGL est ce en quoi sont <em>créés</em> les moteurs de jeux.
+        Cependant ne vous inquiétez pas, OpenGL est raisonnablement facile à apprendre.
     </p>
        
     <p>
@@ -76,20 +85,22 @@
         Cependant il s'addresse à des utilisateurs plus avancés et de plus il est en C++.
     </p>
     
-    <p>Pour les concepts de base, nous verrons quelques, pour les intéressés, voici un tutoriel
+    <p>Pour les concepts de base, je vous guiderez avec une liste de codes, pour les intéressés voici un tutoriel
         <a href="https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">
         en java</a>.
     </p>
     
     <p>L'avantage est que les fonctions ont le même nom en C++ ou Java ou Python,
         en effet la bibliothèque OpenGL est une bibliothèque C qui a beaucoup de <em>wrapper</em>
-        dans des langauges plus <em>simples</em> (plus <em>haut niveau</em>).
+        dans des languages plus <em>simples</em> (plus <em>haut niveau</em>) comme Python ou Java.
     </p>
     
     <p>
         Les fonctions et les concepts OpenGL sont documentés sur
         <a href="https://www.khronos.org/opengl/wiki/">le wiki OpenGL</a>.
     </p>
+    
+    <h3>Installation et prérequis</h3>
     
     <p>
         Nous allons continuer à utiliser <code>pygame</code> auquel nous allons rajouter
@@ -104,6 +115,8 @@
         Avant d'entamer la 3D, je conseille d'être à l'aise avec
         <a href="theorie3_fonctions_et_objets.py.html">les fonctions et les objets (Théorie 3)</a>
     </p>
+    
+    <h3>Tutoriel</h3>
 
     <p>
         Niveau code, nous suivrons cet ordre-ci :
