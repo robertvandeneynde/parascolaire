@@ -22,6 +22,8 @@ p = argparse.ArgumentParser(description='''
 
 p.add_argument('svg_file', nargs='+')
 
+p.add_argument('--remove-state-in-filename', action='store_true', help='Filenames will be x.{i}.svg and not x.state-{i}.svg')
+
 g = p.add_mutually_exclusive_group()
 g.add_argument('--numeric-layers', action='store_true', help='''
     Overrides the default behaviour and create one svg per layer, each svg is numeric 1 2 3 ...''')
@@ -112,8 +114,11 @@ for svg_file in args.svg_file:
 
     slides = set_union(info for layer, info in all_infos)
 
+    Format = ("{}.{}.svg" if args.remove_state_in_filename else 
+              "{}.state-{}.svg")
+    
     for slide in slides:
-        new = OutFile("{}.state-{}.svg".format(svg_filename, slide))
+        new = OutFile(Format.format(svg_filename, slide))
         with new as f:
             for layer, info in all_infos:
                 if slide not in info:

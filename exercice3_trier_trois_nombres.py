@@ -11,3 +11,4 @@ c = 1
 # autre exemple : a=1 b=1 c=0 : affiche 0 1 1
 # indice : on peut mettre des if dans des if !
 
+# solution graphique [ici](trier_trois_nombres.fr.svg) !

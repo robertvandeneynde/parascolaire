@@ -29,3 +29,15 @@ generate_html_progra_equivalences_en.py
 generate_html_progra_equivalences_fr.py
 generate_html_progra_equivalences_multilang.py.multilang.html
 generate_html_progra_equivalences_multilang.py.test.html
+
+trier_trois_nombres.en.svg
+trier_trois_nombres.fr.svg
+
+projects.html
+projets.html
+theorie0_installation.html
+theorie1_egal_if_en.py
+theorie1_egal_if_fr.py
+theorie1_egal_if.py
+turtle.html
+pythontutor.html

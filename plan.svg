@@ -51,13 +51,13 @@
      inkscape:snap-smooth-nodes="true"
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
-     inkscape:zoom="0.77192719"
-     inkscape:cx="527.58146"
-     inkscape:cy="494.97134"
+     inkscape:zoom="1.5438544"
+     inkscape:cx="330.82891"
+     inkscape:cy="569.97981"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g9090"
+     inkscape:current-layer="g9294-4-3"
      inkscape:snap-intersection-paths="false"
      fit-margin-top="10"
      fit-margin-left="10"
@@ -2121,6 +2121,179 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1"
        y="777.69525"
        x="276.08759"
-        id="text9488-9-8">+</text>
+       id="text9488-9-8">+</text>
+    <g
+       transform="translate(203.44264,241.51433)"
+       id="g9292-5">
+      <g
+         id="g9294-4">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 146.38095 V 31.6 H 0 Z"
+           id="path9296-4"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           transform="translate(8.5,8.5)"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="11.7"
+           x="0"
+           id="text9298-9">
+          <a
+             xlink:href="trier_trois_nombres.fr.svg"
+             id="a9300-9">Solution en dessin</a>
+        </text>
+      </g>
+    </g>
+    <g
+       transform="rotate(90,2.2697588,220.14167)"
+       id="g9946-9">
+      <path
+         transform="translate(4.7614237,10.411424)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="M 0,0 H 16"
+         id="path9948-7"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(4.7614237,10.411424)"
+         stroke-miterlimit="10"
+         d="M 0,0 H 16"
+         id="path9950-7"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(16.261424,6.4114237)"
+         d="M 0,0 8,4 0,8 2,4 Z"
+         id="path9952-6"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(-237.5,142.33332)"
+       id="g9962-8">
+      <path
+         transform="translate(4,4.5)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="m 0,63 h 16 q 5,0 5,-5 V 5 q 0,-5 5,-5 h 12"
+         id="path9964-9"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(4,4.5)"
+         stroke-miterlimit="10"
+         d="m 31.132981,63 24.386251,0 c 3.333333,0 5,-1.666667 5,-5 V 20.287509"
+         id="path9966-8"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+         sodipodi:nodetypes="cssc" />
+      <path
+         d="m 60.41436,28.3 4,-8 4,8 -4,-2 z"
+         id="path9968-8"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(-290.86702,193.53332)"
+       id="g9238-9">
+      <g
+         id="g9240-3">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M -3.9519232,0 H 88 V 31.6 H -3.9519232 Z"
+           id="path9242-2"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="20.200001"
+           x="4.5480766"
+           id="text9244-0">
+          <a
+             xlink:href="theorie0_installation.fr.html"
+             id="a9246-7">Installation</a>
+        </text>
+      </g>
+    </g>
+    <path
+       stroke-miterlimit="10"
+       d="m -202.36702,269.11216 h 24.38625 c 3.33333,0 5,-1.66666 5,-5 v -96.99133"
+       id="path9966-8-3"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       sodipodi:nodetypes="cssc" />
+    <g
+       transform="translate(-255.29971,252.81216)"
+       id="g9240-3-5">
+      <path
+         d="M -3.9519232,0 H 52.432691 V 31.6 H -3.9519232 Z"
+         id="path9242-2-6"
+         inkscape:connector-curvature="0"
+         style="fill:#00a9c9;stroke:none"
+         sodipodi:nodetypes="ccccc"
+         transform="translate(0.5,0.5)" />
+      <text
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+         y="20.200001"
+         x="4.5480766"
+         id="text9244-0-6">
+        <a
+           xlink:href="turtle.fr.html"
+           id="a9246-7-4">Turtle</a>
+      </text>
+    </g>
+    <g
+       transform="translate(-0.00290173,241.51431)"
+       id="g9292-5-0">
+      <g
+         id="g9294-4-3">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 162.18864 V 31.6 H 0 Z"
+           id="path9296-4-3"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           transform="translate(8.5,8.5)"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="11.7"
+           x="0"
+           id="text9298-9-1">
+          <a
+             xlink:href="pythontutor.html"
+             id="a9300-9-5">Solution pythontutor</a>
+        </text>
+      </g>
+    </g>
+    <g
+       transform="rotate(90,-99.453015,118.41889)"
+       id="g9946-9-7">
+      <path
+         transform="translate(4.7614237,10.411424)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="M 0,0 H 16"
+         id="path9948-7-4"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(4.7614237,10.411424)"
+         stroke-miterlimit="10"
+         d="M 0,0 H 16"
+         id="path9950-7-8"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(16.261424,6.4114237)"
+         d="M 0,0 8,4 0,8 2,4 Z"
+         id="path9952-6-6"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
   </g>
 </svg>
