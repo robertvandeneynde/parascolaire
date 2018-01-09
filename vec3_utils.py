@@ -109,7 +109,7 @@ def vec3(*args, **kwargs):
 def normalized(v):
     return v / linalg.norm(v)
 
-def PerpectiveMatrix(fovy, aspect, zNear, zFar):
+def PerspectiveMatrix(fovy, aspect, zNear, zFar):
     f = 1.0 / tan(radians(fovy) / 2.0)
     return farray([
             [f/aspect, 0, 0, 0],

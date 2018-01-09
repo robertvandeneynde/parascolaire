@@ -8,3 +8,5 @@ python3 generate_ls.py # keep last
 cd home/2017-2018
 python3 generate_index.py
 cd ../..
+
+# zip -q gl_3d_basics.zip gl_shaders.py gl_shaders_uniforms.py gl_shaders_textures.py progra_import.py progra_module_exemple.py vec3_utils.py player.png

@@ -6,12 +6,9 @@ from OpenGL.GL import shaders
 import ctypes
 import pygame
 
-USE_NUMPY = True
+import numpy
 
-if USE_NUMPY:
-    import numpy
-else:
-    import array
+from vec3_utils import * # téléchargez vec3_utils [ici](https://robertvandeneynde.be/parascolaire/vec3_utils.py.html)
 
 vertex_shader = """
 #version 330
@@ -36,17 +33,17 @@ void main()
 }
 """
 
-vertices = [ 0.6,  0.6, 0.0, 1.0,
-            -0.6,  0.6, 0.0, 1.0,
-             0.0, -0.6, 0.0, 1.0]
+vertices = farray([
+    0.6, 0.6, 0.0, 1.0,
+    -0.6, 0.6, 0.0, 1.0,
+    0.0, -0.6, 0.0, 1.0,
+])
 
-texcoords = [0,0, 0,1, 1,0.5]
-
-vertices = (numpy.array(vertices, dtype=numpy.float32) if USE_NUMPY else
-            array.array('f', vertices))
-
-texcoords = (numpy.array(texcoords, dtype=numpy.float32) if USE_NUMPY else
-            array.array('f', texcoords))
+texcoords = farray([
+    0, 0,
+    0, 1,
+    1, 0.5,
+])
 
 def create_object(shader):
     # Create a new VAO (Vertex Array Object) and bind it
@@ -62,23 +59,26 @@ def create_object(shader):
     if position != -1:
         glEnableVertexAttribArray(position)
         glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
-        glBufferData(GL_ARRAY_BUFFER, 48, vertices if USE_NUMPY else vertices.tostring(), GL_STATIC_DRAW)
+        glBufferData(GL_ARRAY_BUFFER, 48, vertices, GL_STATIC_DRAW)
     else:
         print('Inactive attribute "{}"'.format('position'))
     
+    # Texture coordinates
+    mytexcoord = glGetAttribLocation(shader, 'mytexcoord')
+    if mytexcoord != -1:
+        glEnableVertexAttribArray(mytexcoord)
+        glVertexAttribPointer(mytexcoord, 2, GL_FLOAT, False, 0, ctypes.c_void_p(0))
+        glBufferData(GL_ARRAY_BUFFER, 24, texcoords, GL_STATIC_DRAW)
+    else:
+        print('Inactive attribute "{}"'.format('mytexcoord'))
+    
+    # Texture
     texcoord_buffer = glGenBuffers(1)
     glBindBuffer(GL_ARRAY_BUFFER, texcoord_buffer)
     
-    mytexcoord = glGetAttribLocation(shader, 'mytexcoord')
-    glEnableVertexAttribArray(mytexcoord)
-    glVertexAttribPointer(mytexcoord, 2, GL_FLOAT, False, 0, ctypes.c_void_p(0))
-    glBufferData(GL_ARRAY_BUFFER, 24, texcoords if USE_NUMPY else texcoords.tostring(), GL_STATIC_DRAW)
-    
-    # texture
     image = pygame.image.load('player.png').convert_alpha()
     image_data = pygame.image.tostring(image, 'RGBA', 1)
     
-    global vaisseau_tex
     vaisseau_tex = glGenTextures(1)
     glBindTexture(GL_TEXTURE_2D, vaisseau_tex)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.get_width(), image.get_height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data)
@@ -93,9 +93,9 @@ def create_object(shader):
     # glDisableVertexAttribArray(position)
     glBindBuffer(GL_ARRAY_BUFFER, 0)
     
-    return vertex_array_object
+    return vertex_array_object, vaisseau_tex
     
-def display(shader, vertex_array_object):
+def display(shader, vertex_array_object, vaisseau_tex):
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glUseProgram(shader)
     
@@ -114,16 +114,12 @@ def main():
     screen = pygame.display.set_mode((512, 512), pygame.OPENGL|pygame.DOUBLEBUF)
     glClearColor(0.5, 0.5, 0.5, 1.0)
     glEnable(GL_DEPTH_TEST)
-    # glEnable(GL_ALPHA_TEST)
-    # glAlphaFunc(GL_GREATER, 0)
-    # glEnable(GL_TEXTURE_2D)
-    # glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 
     shader = shaders.compileProgram(
         shaders.compileShader(vertex_shader, GL_VERTEX_SHADER),
         shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER))
     
-    vertex_array_object = create_object(shader)
+    vertex_array_object, vaisseau_tex = create_object(shader)
     
     clock = pygame.time.Clock()
     
@@ -133,7 +129,7 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
         
-        display(shader, vertex_array_object)
+        display(shader, vertex_array_object, vaisseau_tex)
         pygame.display.flip()
         clock.tick(60)
 

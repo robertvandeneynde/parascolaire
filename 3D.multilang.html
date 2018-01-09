@@ -22,10 +22,14 @@
         
         <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="utils.js"></script>
         <script>
             $(function(){
                 hljs.initHighlightingOnLoad()
                 utils.makeTitleLinks()
+                utils.smoothLinks()
+                utils.dedentPreCode()
             })
         </script>
     </head>
@@ -40,7 +44,9 @@
     <section>
        <div><em><a href="3D.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
        
-       <p>
+       <h3>De la 2D à la 3D</h3>
+       
+    <p>
         Comme illustré dans
         <a href="gl_brick.py.html">gl_brick</a>
         et
@@ -87,7 +93,7 @@
     
     <p>Pour les concepts de base, je vous guiderez avec une liste de codes, pour les intéressés voici un tutoriel
         <a href="https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">
-        en java</a>.
+        en java par ThinMatrix</a>.
     </p>
     
     <p>L'avantage est que les fonctions ont le même nom en C++ ou Java ou Python,
@@ -100,6 +106,12 @@
         <a href="https://www.khronos.org/opengl/wiki/">le wiki OpenGL</a>.
     </p>
     
+    </section>
+    
+    <h2>Tutoriel</h2>
+    
+    <section>
+    
     <h3>Installation et prérequis</h3>
     
     <p>
@@ -108,28 +120,578 @@
     </p>
 
     <p>
-        Allez sur la page d'<a href="theorie0_installation.{{fr|en}}.html">installation</a> pour l'installer chez vous.
+        Allez sur la page <a href="theorie0_installation.{{fr|en}}.html">d'installation</a> pour l'installer chez vous.
     </p>
 
     <p>
         Avant d'entamer la 3D, je conseille d'être à l'aise avec
-        <a href="theorie3_fonctions_et_objets.py.html">les fonctions et les objets (Théorie 3)</a>
+        <a href="theorie3_fonctions_et_objets.py.html">les fonctions et les objets (Théorie 3).</a>
     </p>
-    
-    <h3>Tutoriel</h3>
 
     <p>
-        Niveau code, nous suivrons cet ordre-ci :
-
-        <ol>
-            <li><a href="gl_shaders.py.html">Shaders</a>. Je compte faire une vidéo qui explique les VAO et VBO et le pipeline graphique.</li>
-            <li><a href="gl_shaders_uniforms.py.html">Uniforms</a>. Veuillez lire la page <a href="math.fr.html">math</a> pour être à l'aise avec le concept de vecteur et de matrices. Je ferai une vidéo qui explique les matrices de projection et de caméra (lookat).</li>
-            <li><a href="gl_shaders_textures.py.html">Textures</a></li>
-            <li>Shader programming: light, diffuse, normals, specular</li>
-        </ol>
-        
+        Tous les codes font un <code>import vec3_utils</code> donc vous devez
+        <a href="vec3_utils.py.html">télécharger <code>vec3_utils</code></a>
+        et le mettre à côté de votre fichier <code>.py</code>.
+    </p>
+    
+    <p>
+        Vous pouvez également télécharger <a href="gl_3d_basics.zip">gl_3d_basics.zip</a> qui contient tous les fichiers nécessaires de ce chapitre.
+        Ce dossier est également présent sur les ordis de l'école dans le dossier réseau du parascolaire, je vous invite à le copier dans votre propre dossier.
     </p>
 
+    <h3>Shaders</h3>
+        
+        <p>
+        En partant du <a href="pygame0_code_minimal.py.html">code de base 2D</a>, voici les étapes à faire:
+        
+        <ol>
+            <li>
+                <p>
+                Importez PyOpenGL
+            
+                <pre><code class="py">
+                    from OpenGL.GL import *
+                    from OpenGL.GL import shaders
+                </code></pre>
+                
+                <p>
+                Si vous avez bien installé OpenGL, il ne devrait pas y avoir d'erreur.
+            
+            </li>
+            
+            <li>
+                <p>
+                Indiquez que l'écran sera maintenant géré par OpenGL :
+                
+                <pre><code class="py">
+                    pygame.display.set_mode((512, 512), <mark>pygame.OPENGL | pygame.DOUBLEBUF</mark>)
+                </code></pre>
+                
+                Remarquez qu'on n'a plus besoin de faire <code>ecran =</code> car on ne manipulera plus l'écran directement.
+                
+            </li>
+            
+            <li>
+                <p>
+                Les couleurs en OpenGL sont de 0 à 1
+                (voir explications <a href="turtle.fr.html#color">ici</a>),
+                une couleur qui était par exemple de <code>[255, 153, 0]</code> sera maintenant de <code>[255/255, 153/255, 0/255]</code> et donc <code>[1, 0.6, 0]</code>.
+            </li>
+            
+            <li>
+                <p>
+                L'équivalent OpenGL du <code>ecran.fill</code> est :
+                
+                <pre><code class="py">
+                glClearColor(0.9, 0.9, 0.5, 1.0) # du jaune, 1.0 est la transparence
+                glClear(GL_COLOR_BUFFER_BIT)
+                </code></pre>
+                
+                <p>
+                Remarquez que vu qu'OpenGL est une grande machine à état, si vous faites </code>glClearColor</code> au début, il s'en souviendra jusqu'à ce qu'elle change.
+                
+                <p>
+                Vu que nous faisons un rendu OpenGL, vous devez enlever les appels <code>pygame.draw</code>.
+                
+                <p>
+                <em>Si vous lancez votre code vous devriez avoir un écran jaune.</em>
+            </li>
+            
+            <li>
+                <p>
+                La partie dessin sera un ensemble de <em>shader program</em>,
+                chaque <em>shader program</em> contient au moins 2 <em>shaders</em>,
+                
+                le <em>vertex shader</em>,
+                et le <em>fragment shader</em>.
+                
+                <p>
+                Un shader c'est un petit fichier de code, codé en langage GLSL, il sera exécuté en parallèle sur la carte graphique !
+                
+                <p>
+                Chaque shader program peut dessiner (<em>render</em>) un ou plusieurs
+                <em>VAO</em>, chaque <em>VAO</em> trouve ses données dans un <em>VBO</em>.
+                
+                <p>
+                Un <em>VBO</em> est simplement une liste de nombre,
+                un VAO dit comment sont structurés ces nombres.
+                
+                <figure>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/WMiggUPst-Q?start=19&end=87" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                    <figcaption>[Durée 1:10] [Sous-titres bientôt] ThinMatrix explaining VAO and VBO.</figcaption>
+                </figure>
+                
+                <p>
+                <a href="https://www.youtube.com/watch?v=WMiggUPst-Q&index=2&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">[ThinMatrix | VAO/VBO]</a>
+                <a href="https://www.youtube.com/watch?v=AyNZG_mqGVE&index=4&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">[ThinMatrix | Shaders]</a>
+            </li>
+            
+            <li>
+                <p>
+                La partie dessin sera donc une série de <em>sélectionner un shader program, sélectionner le VAO, dessiner.</em>
+                
+                <pre><code class="py">
+                    glUseProgram(shader_program)
+
+                    glBindVertexArray(vertex_array_object)
+                    glDrawArrays(GL_TRIANGLES, 0, 3) # on a 3 points, on commence au point numéro 0, faire des TRIANGLES.
+                    glBindVertexArray(0)
+                    
+                    glUseProgram(0)
+                </code></pre>
+                
+                <p>
+                L'appel à <code>glDrawArrays</code> est expliqué comme ceci :
+                
+                <ol>
+                    <li>On a <strong>3</strong> points à dessiner.
+                    <li>On commence au point numéro <strong>0</strong>.
+                    <li>On fait un <strong>triangle</strong> tous les 3 points.
+                </ol>
+                
+                <p>Vous devriez avoir deux erreurs en insérant ce code, <code>shader_program</code> et <code>vertex_array_object</code> n'étant pas défini.
+                
+                <p>
+                Mais d'où viennent ces points ? Ils viennent du VBO et passent par le VAO !
+            </li>
+            
+            <li>
+                <p>Au début du code, on va créer un VBO qui contient les positions 2D de nos 3 points.
+                
+                <p>Ici, on est dans le repère de base de OpenGL, le <em>NDC</em> (Normalized Device Coordinates).
+                Le point en <strong>bas à gauche</strong> est <code>(-1, -1)</code>.
+                Le point en <strong>haut à droite</strong> est <code>(+1, +1)</code>.
+                Le centre de l'écran sera donc <code>(0, 0)</code>,
+                l'axe <strong>x</strong> part vers la <strong>droite</strong>,
+                l'axe <strong>y</strong> part vers le <strong>haut</strong>,
+                l'axe <strong>z</strong> rentre dans l'écran et part de l'autre côté de votre écran.
+                
+                <figure>
+                
+                <pre style="display:inline-block; vertical-align:middle"><code class="py">
+                vertices = farray([
+                    0.6, 0.6, 0.0, 1.0,
+                    -0.6, 0.6, 0.0, 1.0,
+                    0.0, -0.6, 0.0, 1.0,
+                ])
+                </code></pre>
+                
+                    <img src="ndc-opengl.png" style="display:inline-block; vertical-align:middle" />
+                    <img src="ndc-flat.png" style="display:inline-block; vertical-align:middle" />
+                </figure>
+                
+                <p>On a donc trois points dont les XY valent (0.6, 0.6), (−0.6, 0.6) et (0, −0.6). La coordonnée en Z sera de 0 (on la changera plus tard), et la dernière coordonnée (appelée <em>W</em>) sera toujours de 1.
+                Pour en savoir plus sur <em>W</em>, voir la page de <a href="math.{{fr|en}}.html#translation">math (translation)</a>.
+                
+                <p>La carte graphique veut un <code>farray</code>, il faut donc faire la conversion.
+                
+                <p>
+                Un <code>farray</code> est un cas particulier de <code>numpy.array</code>
+                donc vous pourriez faire des opérations comme <code>farray((1,2)) + farray((3,4))</code> ou <code>3 * farray((1,2))</code>.
+                
+                Le <em>f</em> veut dire que la liste contient des nombres à virgule flottante sur 32 bits
+                (voir définition de <code>farray</code> dans <a href="vec3_utils.py.html">vec3_utils</a>), c'est ce que la carte graphique veut.
+                
+                <a href="vec3_utils.py.html">vec3_utils</a> contient également des raccourcis pour dire <code>farray((x,y,z))</code>, on peut faire <code>vec3(x,y,z)</code>,
+                il y a aussi <code>vec2(x,y)</code> et des fonctions pratiques pour faire des conversions.
+                
+                <p>
+                    Vu que <code>farray</code> est dans <code>vec3_utils</code>, faites bien attention d'avoir écrit 
+                    
+                    <code>import vec3_utils</code>, d'avoir téléchargé
+                    <a href="vec3_utils.py.html">vec3_utils</a>
+                    et de l'avoir mis à côté de votre fichier <code>.py</code>.
+                    
+                    Pour pouvoir écrire <code>farray</code> et non <code>vec3_utils.farray</code>, lisez le fichier <a href="progra_import.py.html">progra_import</a>.
+            
+                <p>On a définit des points en RAM, il est temps de les mettre dans un VBO de la carte graphique !
+            </li>
+            
+            <li>
+                <p>Toujours au début du code, on va donc créer un VBO.</p>
+                
+                <pre><code class="py">
+                vertex_buffer = glGenBuffers(1)
+                </code></pre>
+                
+                <p>On veut un seul buffer, sinon on aurait pu faire <code>a,b,c = glGenBuffers(3)</code> par exemple.
+                
+                <p>On dit à OpenGL qu'on va le manipuler donc on le <em>bind</em>, à la fin on le détachera avec <em>unbind</em>, parfois j'aime dire qu'on le <em>sélectionne</em> et puis qu'on le <em>désélectionne</em>.</p>
+                
+                <pre><code class="py">
+                glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)
+                # manipulation
+                glBindBuffer(GL_ARRAY_BUFFER, 0)
+                </code></pre>
+                
+                <p>On envoie les nombres dans le VBO !
+                
+                <pre><code class="py">
+                glBufferData(GL_ARRAY_BUFFER, 48, vertices, GL_STATIC_DRAW) # 48 bytes
+                </code></pre>
+                
+                <p>D'où vient ce <strong>48</strong> ? C'est le nombre d'octets (bytes) qu'on envoie.
+                Vu qu'on est dans un <code>farray</code>, chaque nombre fait <strong>4</strong> octets,
+                ce qui nous fait donc <strong>48</strong> octets qu'on envoie.
+                
+                <p>Cependant on pourrait aussi faire ceci pour ne pas devoir calculer le nombre d'octets :
+                
+                <pre><code class="py">
+                glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(vertices), vertices, GL_STATIC_DRAW) # 48 bytes
+                </code></pre>
+                
+                <p>Finalement, le GL_STATIC_DRAW est un indice donné à la carte graphique disant que ces données ne changeront jamais, mais peu de <em>drivers</em> lit cet indice il paraît.
+                
+                <p>Les données, les 48 bytes, sont dans la carte graphique, on doit maintenant donner plus d'infos, ce ne sont pas des bytes, ce sont des coordonnées pardi ! Direction <em>VAO</em> !
+            </li>
+            
+            <li>
+                <p>On crée un VAO, et on spécifie le type de données :
+                
+                <pre><code class="py">
+                vertex_array_object = glGenVertexArrays(1)
+                glBindVertexArray(vertex_array_object)
+                # manipulation
+                glBindVertexArray(0)
+                </code></pre>
+                
+                Et puis on informe du type de donnée, attention le VBO doit être <em>binded</em>.
+                
+                <pre><code class="py">
+                glEnableVertexAttribArray(0) # on active l'attribut 0
+                glVertexAttribPointer(0, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # données par groupe de 4 Float dans l'attribut 0
+                </code></pre>
+                
+                <ol>
+                
+                <li>
+                Un VAO peut stocker plusieurs infos (des <em>attributs</em>),
+                ici on a juste une info à donner, donc on indique dans la première info, on indique donc 0, qu'on active via <em>enable</em>.
+                
+                <li>
+                On a des coordonnées xyzw, et chaque nombre est un GL_FLOAT vu qu'on avait un <code>farray</code>.
+                Ça fait donc 4 GL_FLOAT.
+                
+                <li>Le dernier 0 est le paramète de <em>décalage</em> (<em>stride</em>), on ne l'utilise pas.
+                
+                <li>Le c_void_p(0) est un paramète que nous n'utilisons pas non plus.
+                
+                </ol>
+                
+            </li>
+            
+            <li>
+                On a stocké une liste de xyzw dans la carte graphique, c'est parti pour les shaders !
+                
+                <p>
+                <a href="https://www.youtube.com/watch?v=AyNZG_mqGVE&index=4&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">[ThinMatrix | Shaders]</a>.
+                
+                <p>
+                Comme dit précédemment, on va créer un shader program et l'utiliser dans le dessin.
+                Au début du code on fait donc :
+                
+                <pre><code class="py">
+                vertex_shader = '''
+                // contenu du vertex shader
+                '''
+                
+                fragment_shader = '''
+                // contenu du fragment shader
+                '''
+                
+                shader = shaders.compileProgram(
+                    shaders.compileShader(vertex_shader, GL_VERTEX_SHADER),
+                    shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER))
+                </code></pre>
+                
+                <p>
+                En GLSL, les commentaires sont via <code>//</code> et non <code>#</code>.
+                
+                <p>
+                Maintenant que vous savez la différence entre <em>shader</em> et <em>shader program</em>, je risque de dire <em>shader</em> pour les deux.
+                
+                <p>
+                Et dans la partie dessin, on comprends maintenant que sont ces shader et vao !
+                
+                <pre><code class="py">
+                glUseProgram(shader_program)
+    
+                glBindVertexArray(vertex_array_object)
+                glDrawArrays(GL_TRIANGLES, 0, 3)
+                glBindVertexArray(0)
+                
+                glUseProgram(0)
+                </code></pre>
+                
+                <p>
+                Rappel pour <code>glDrawArrays</code> :
+                
+                <ol>
+                    <li>On a <strong>3</strong> points à dessiner.
+                    <li>On commence au point numéro <strong>0</strong>.
+                    <li>On fait un <strong>triangle</strong> tous les 3 points.
+                </ol>
+                
+                <p>On va (enfin !) passer au contenu des 2 shaders.
+            </li>
+            
+            <li>
+                <p>Le vertex shader est appelé une fois par <strong>point</strong> (<em>vertex</em> au singulier, <em>vertices</em> au pluriel).
+                
+                <p>
+                Le vertex shader...
+                
+                <ul>
+                    <li><code>[input]</code> Lit les <strong>attributs</strong> du point.
+                    <li><code>[output]</code> Calcule la <strong>position</strong> finale du point, <code>gl_Position</code>.
+                </ul>
+                
+                <p>
+                Ici, on n'a rien à faire, on lit l'attribut envoyé, et on l'écrit dans <code>gl_Position</code>.
+                
+                <pre><code class="glsl">
+                #version 330
+                // vertex shader
+                
+                in vec4 position; // on lit le xyzw
+                
+                void main()
+                {
+                    gl_Position = position; // et on l'écrit
+                }
+                </code></pre>
+                
+                <p>
+                Il peut également calculer d'autres infos qui seront passées au fragment shader, ces valeurs seront <em>interpolées</em>, on verra ça plus tard.
+            </li>
+            
+            <li>
+                <p>OpenGL a assemblé nos trois points, et crée un triangle, le frament shader sera appelé une fois par <strong>pixel</strong> de ce triangle.
+                
+                <p>
+                Le fragment shader...
+                
+                <ul>
+                    <li><code>[input]</code> Lit les <strong>infos</strong> calculées dans le vertex shader (les <code>out</code> du vertex shader).
+                    <li><code>[output]</code> Calcule la <strong>couleur</strong> finale du pixel dans sa variable <code>out</code>.
+                </ul>
+                
+                <p>
+                Ici, on va juste dire que le pixel est orange, à 100% de transparence.
+                
+                <pre><code class="glsl">
+                #version 330
+                // fragment shader
+
+                out vec4 pixel; // notre but est de donner la couleur du pixel
+
+                void main()
+                {
+                    pixel = vec4(1, 0.5, 0, 1); # orange, transparence 100%
+                }
+                </code></pre>
+                
+                <p>
+                N'essayez pas de <em>juste</em> changer la valeur de la transparence, il faut activer d'autres choses pour ça.
+                
+                <p>
+                Remarque que la seule info que le vertex shader nous envoie, c'est la position finale du point, on pourrait la lire avec <code>gl_FragCoord</code>
+                en écrivant par exemple <code>gl_FragCoord.x</code>, <code>gl_FragCoord.y</code>, <code>gl_FragCoord.z</code>,<code>gl_FragCoord.w</code>.
+                
+                <p>
+                Finalement, il faut que l'attribut dans le VAO correspond à l'attribut 0 dans le shader, soit on l'indique dans le vertex shader via <code>location</code> :
+                
+                <pre><code class="glsl">
+                // vertex shader
+                <mark>layout (location = 0)</mark> in vec4 position; // on lit le xyzw
+                </code></pre>
+                
+                <p>
+                Ou bien on peut utiliser <code>glGetAttribLocation</code> dans le code python pour savoir le numéro qui a été assigné automatiquement :
+                
+                <pre><code class="py">
+                <mark>position = glGetAttribLocation(shader, 'position')</mark>
+                glEnableVertexAttribArray(<mark>position</mark>) # on active l'attribut position
+                glVertexAttribPointer(<mark>position</mark>, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # données par groupe de 4 Float dans l'attribut position
+                </code></pre>
+                
+                <p>
+                Attention, parfois cet attribut est supprimé quand il n'est pas utilisé, et <code>glGetAttribLocation</code> renvoie <code>-1</code>
+                
+                <pre><code class="py">
+                position = glGetAttribLocation(shader, 'position')
+                if <mark>position != -1</mark>:
+                    glEnableVertexAttribArray(position) # on active l'attribut position
+                    glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # données par groupe de 4 Float dans l'attribut position
+                else:
+                    print('inactive attribute "{}"'.format('position'))
+                </code></pre>
+                
+            </li>
+            
+            <li>
+            
+                <p>
+                La suite d'opération vertex shader, fragment shader est appelé le pipeline graphique.
+                Il est fait en parallèle sur la carte graphique, si on a 30 points et 30 unités sur la carte graphique, alors ça prendra autant de temps d'avoir 1 point que 30.
+                Le vertex shader sera appelé en parallèle pour les 30 points en même temps.
+                
+                <p>
+                On peut rajouter plein d'étapes sur le pipeline, le vertex shader et fragment shader étant le minimum.
+                
+                <figure>
+                    <img src="https://learnopengl.com/img/getting-started/pipeline.png" />
+                    <figcaption>Le pipeline graphique, on y voit le vertex shader et le fragment shader.</figcaption>
+                </figure>
+                
+                <figure>
+                    <a href="opengl_reference_pipeline.png" />
+                    <img height=300 src="opengl_reference_pipeline.png" />
+                    </a>
+                    
+                    <figcaption>Le pipeline graphique complet en OpenGL 4, il y a plein d'autres étapes modifiables ! Cliquez pour voir en grand.</figcaption>
+                </figure>
+            
+            </li>
+            
+            <li>Un petit mot sur <strong>l'interpolation</strong>.
+            
+            <ol>
+            <li>Le vertex shader est appelé une fois par point.
+            <li>Le fragment shader est appelé une fois par pixel.
+            <li>Le vertex shader peut envoyé des infos au fragment shader en plus de la position.
+            <li>Le fragment shader peut recevoir des infos du vertex shader pour calculer une couleur.
+            </ol>
+            
+            Mais comment on passe d'une info <strong>par point</strong> à une info <strong>par pixel</strong> ?
+            
+            <p>
+            Si par exemple, le point 1 envoie l'info <strong>1</strong>, le point 2 envoie l'info <strong>2</strong> et le point 3 envoie l'info <strong>3</strong>,
+            quelle info va recevoir le pixel ?
+            
+            <figure>
+                Dessin à venir
+            </figure>
+            
+            <p>
+            Et bien, ça dépendra de sa <strong>distance 3D</strong> par rapport aux points,
+            au plus le pixel est proche du point, au plus il prendra sa valeur.
+            Ainsi un pixel proche du point 1 recevra l'info 1.
+            Un pixel à égale distance des points 1, 2 et 3 recevra valeur <em>⅓ 1 + ⅓ 2 + ⅓ 3 = 2</em>.
+            Le pixel au milieu des points 1 et 2 recevra la valeur <em>½ 1 + ½ 2 = 1.5</em>.
+            
+            <p>Le premier exercice fera ça pour les couleurs et on obtiendra ceci !
+            
+            <figure>
+                <div style="display:inline-block; vertical-align:top">
+                    <img height="300" style="transform:scale(1,-1);" src="https://learnopengl.com/img/getting-started/shaders3.png" />
+                    <figcaption>Triangle dont les couleurs ont été interpolées.</figcaption>
+                </div>
+                
+                <div style="display:inline-block">
+                    <img height="300" style="margin: 10px" src="TriangleBarycentricCoordinates.svg" />
+                    <figcaption>Points dans un triangle en coordonnées barycentriques.</figcaption>
+                
+                    <a href="https://commons.wikimedia.org/wiki/File:TriangleBarycentricCoordinates.svg#/media/File:TriangleBarycentricCoordinates.svg">Original file</a>
+                    By <a href="https://commons.wikimedia.org/wiki/User:Rubybrian" title="User:Rubybrian">Rubybrian</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=4842309">Link</a>.
+                </div>
+            </figure>
+            
+            <p>
+            Le calcul n'est pas difficile à faire et utilise les <a href="https://fr.wikipedia.org/wiki/Coordonnées_barycentriques">coordonnées barycentriques</a> du triangle.
+            
+        </ol>
+        
+        <h3>Exercices</h3>
+        
+        <p>
+            Le code de base pour ce niveau se trouve dans
+            <a href="gl_shaders.py.html">gl_shaders</a>,
+            une version structurée avec des fonctions est disponible dans 
+            <a href="gl_shaders_with_functions.py.html">gl_shaders_with_functions</a>.
+        
+        Ces exercices peuvent être fait dans n'importe quel ordre.
+        
+        <ol>
+            <li>Création d'une flèche et non un triangle, il faudra bien entendu rajouter des points dans la liste <code>vertices</code>, mais il faut également changer d'autres valeurs, lesquelles ?
+                <figure>
+                    <img src="arrow_triangle.svg" />
+                    <figcaption>Une flèche composée de 4 triangles.</figcaption>
+                </figure>
+            
+            <li>Interpolation de couleur.
+            
+            <li>Compréhension de la composante z, que se passe-t-il quand on la met à <code>-1</code>, <code>1</code>, <code>2</code> ou <code>3</code> ?
+            
+            <li>Ajout d'une uniform de translation pour dessiner plusieurs flèches.
+                <ol>
+                    <li>Dans le vertex_shader ajoutez <code style="white-space:nowrap">uniform vec3 translation</code>.
+                    <li>La position calculée par le vertex_shader sera maintenant <code style="white-space:nowrap">position + translation</code>.
+                    <li>Au début du code ou dans la partie Tick, envoyez la translation au shader via le code python :
+                    
+                    <pre><code class="py">
+                    loc_translation = glGetUniformLocation(shader_program, 'translation')
+                    glUniform3f(loc_translation, 0.5, 0.2, 0)
+                    </code></pre>
+                    
+                    Ou :
+                    
+                    <pre><code class="py">
+                    translation = farray((0.5, 0.2, 0))
+                    loc_translation = glGetUniformLocation(shader_program, 'translation')
+                    glUniform3fv(loc_translation, 1, translation)
+                    </code></pre>
+                    
+                    <li>Animation de la translation, vous pouvez faire en sorte que l'objet bouge via le clavier ou se déplace en fonction du temps.
+                    
+                </ol>
+            
+            <li>La composante z comme profondeur.
+                <ol>
+                    <li>Dessiner deux flèches de couleur différentes qui se croise avec deux z différents, laquelle des deux voyez vous ?
+                    <li>Inversez l'ordre de dessin des deux flèches, voyez vous une différence ?
+                    <li>Au début du code activez le Depth Test via <code>glEnable(GL_DEPTH_TEST)</code>,
+                        à chaque frame faites maintenant <code style="white-space:nowrap">glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)</code>
+                        à la place de <code style="white-space:nowrap">glClear(GL_COLOR_BUFFER_BIT)</code>
+                        et recommencez les deux expériences précédentes, que voyez-vous ?
+                </ol>
+            
+            <li>Ajout d'une uniform de scale pour dessiner plusieurs flèches de taille différentes (une deux fois plus grande et une trois fois plus petite).
+                On aura <code style="white-space:nowrap">uniform float scale</code>.
+                Et on enverra via <code style="white-space:nowrap">glUniform1f(loc, 0.5)</code>.
+                
+            <li>Ajout d'une uniform de rotation pour dessiner plusieurs flèches tournées.
+            <li>Ajout d'une matrice <em>modèle</em> pour généraliser les notions de transformation.
+        </ol>
+        
+    <h3>Uniforms</h3>
+        
+        <p>
+        Veuillez lire la page <a href="math.fr.html">math</a> pour être à l'aise avec le concept de vecteur et de matrices.
+        Je ferai une vidéo qui explique les matrices de projection et de caméra (lookat).</li>
+        
+        <p>
+        La correction se trouve dans <a href="gl_shaders_uniforms.py.html">gl_shaders_uniforms</a>.
+        
+    <h3>Textures</h3>
+    
+        <p>Correction dans <a href="gl_shaders_textures.py.html">gl_shaders_textures</a>.
+        
+        <p>
+            <a href="https://learnopengl.com/#!Getting-started/Textures">[learnopengl]</a>
+            <a href="https://www.youtube.com/watch?v=SPt-aogu72A&index=6&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">[ThinMatrix]</a>
+        
+    </section>
+    
+    
+    <h2>Shader Programming: Lighting</h2>
+    
+    <section>
+        <p>
+            Shader programming: light, diffuse, normals, specular...
+            Je vous conseille d'être à l'aise avec le <a href="math.fr.html#produit-scalaire">produit scalaire</a>.
+            <a href="https://learnopengl.com/#!Lighting/Basic-Lighting">[learnopengl]</a>
+            <a href="https://www.youtube.com/watch?v=bcxX0R8nnDs&index=11&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">[ThinMatrix]</a>.
     </section>
 
 </div>
