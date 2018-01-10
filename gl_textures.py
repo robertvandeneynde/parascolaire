@@ -50,15 +50,16 @@ def create_object(shader):
     vertex_array_object = glGenVertexArrays(1)
     glBindVertexArray(vertex_array_object)
     
-    # Generate buffers to hold our vertices
-    vertex_buffer = glGenBuffers(1)
-    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)
-    
     # Get the position of the 'position' in parameter of our shader and bind it.
     position = glGetAttribLocation(shader, 'position')
     if position != -1:
         glEnableVertexAttribArray(position)
+        
+        vertex_buffer = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)
+        
         glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
+        
         glBufferData(GL_ARRAY_BUFFER, 48, vertices, GL_STATIC_DRAW)
     else:
         print('Inactive attribute "{}"'.format('position'))
@@ -67,15 +68,17 @@ def create_object(shader):
     mytexcoord = glGetAttribLocation(shader, 'mytexcoord')
     if mytexcoord != -1:
         glEnableVertexAttribArray(mytexcoord)
+        
+        texcoord_buffer = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, texcoord_buffer)
+        
         glVertexAttribPointer(mytexcoord, 2, GL_FLOAT, False, 0, ctypes.c_void_p(0))
+        
         glBufferData(GL_ARRAY_BUFFER, 24, texcoords, GL_STATIC_DRAW)
     else:
         print('Inactive attribute "{}"'.format('mytexcoord'))
     
     # Texture
-    texcoord_buffer = glGenBuffers(1)
-    glBindBuffer(GL_ARRAY_BUFFER, texcoord_buffer)
-    
     image = pygame.image.load('player.png').convert_alpha()
     image_data = pygame.image.tostring(image, 'RGBA', 1)
     
@@ -90,7 +93,7 @@ def create_object(shader):
     glBindVertexArray(0)
     
     # Unbind other stuff
-    # glDisableVertexAttribArray(position)
+    glDisableVertexAttribArray(position)
     glBindBuffer(GL_ARRAY_BUFFER, 0)
     
     return vertex_array_object, vaisseau_tex

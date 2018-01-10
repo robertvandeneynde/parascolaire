@@ -387,7 +387,7 @@
                 glBindVertexArray(0)
                 </code></pre>
                 
-                Et puis on informe du type de donnée, attention le VBO doit être <em>binded</em>.
+                Et puis on informe du type de donnée, <strong>attention</strong> le VBO doit être <em>binded</em>.
                 
                 <pre><code class="py">
                 glEnableVertexAttribArray(0) # on active l'attribut 0
@@ -395,18 +395,17 @@
                 </code></pre>
                 
                 <ol>
-                
-                <li>
-                Un VAO peut stocker plusieurs infos (des <em>attributs</em>),
-                ici on a juste une info à donner, donc on indique dans la première info, on indique donc 0, qu'on active via <em>enable</em>.
-                
-                <li>
-                On a des coordonnées xyzw, et chaque nombre est un GL_FLOAT vu qu'on avait un <code>farray</code>.
-                Ça fait donc 4 GL_FLOAT.
-                
-                <li>Le dernier 0 est le paramète de <em>décalage</em> (<em>stride</em>), on ne l'utilise pas.
-                
-                <li>Le c_void_p(0) est un paramète que nous n'utilisons pas non plus.
+                    <li>
+                    Un VAO peut stocker plusieurs infos (des <em>attributs</em>),
+                    ici on a juste une info à donner, donc on indique dans la première info, on indique donc 0, qu'on active via <em>enable</em>.
+                    
+                    <li>
+                    On a des coordonnées xyzw, et chaque nombre est un GL_FLOAT vu qu'on avait un <code>farray</code>.
+                    Ça fait donc 4 GL_FLOAT.
+                    
+                    <li>Le dernier 0 est le paramète de <em>décalage</em> (<em>stride</em>), on ne l'utilise pas.
+                    
+                    <li>Le c_void_p(0) est un paramète que nous n'utilisons pas non plus.
                 
                 </ol>
                 
@@ -574,16 +573,20 @@
                 On peut rajouter plein d'étapes sur le pipeline, le vertex shader et fragment shader étant le minimum.
                 
                 <figure>
-                    <img src="https://learnopengl.com/img/getting-started/pipeline.png" />
-                    <figcaption>Le pipeline graphique, on y voit le vertex shader et le fragment shader.</figcaption>
-                </figure>
-                
-                <figure>
-                    <a href="opengl_reference_pipeline.png" />
-                    <img height=300 src="opengl_reference_pipeline.png" />
-                    </a>
+                    <div style="display:inline-block; vertical-align:top; max-width:500px">
+                        <a href="https://learnopengl.com/img/getting-started/pipeline.png" />
+                            <img src="https://learnopengl.com/img/getting-started/pipeline.png" width="500" />
+                        </a>
+                        <figcaption>Le pipeline graphique, on y voit le vertex shader et le fragment shader.</figcaption>
+                    </div>
                     
-                    <figcaption>Le pipeline graphique complet en OpenGL 4, il y a plein d'autres étapes modifiables ! Cliquez pour voir en grand.</figcaption>
+                    <div style="display:inline-block; vertical-align:top; max-width:500px">
+                        <a href="opengl_reference_pipeline.png" />
+                            <img src="opengl_reference_pipeline.png" width=500 />
+                        </a>
+                        <figcaption>Le pipeline graphique complet en OpenGL 4, il y a plein d'autres étapes modifiables ! Cliquez pour voir en grand.</figcaption>
+                    </div>
+                    
                 </figure>
                 
                 <p>
@@ -610,7 +613,7 @@
             Si par exemple, le point 1 envoie l'info <strong>1</strong>, le point 2 envoie l'info <strong>2</strong> et le point 3 envoie l'info <strong>3</strong>,
             quelle info va recevoir le pixel ?
             
-            <figure>
+            <figure style="max-width:560px">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/AyNZG_mqGVE&start=425&end=505" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 <figcaption>ThinMatrix invente des attributs fictifs <code>catFactor</code> et <code>dogDistance</code> qui servent à calculer la couleur de chaque pixel.</figcaption>
             </figure>
@@ -652,6 +655,13 @@
             une version structurée avec des fonctions est disponible dans 
             <a href="gl_shaders_with_functions.py.html">gl_shaders_with_functions</a>.
         
+        <figure>
+            <div style="display:inline-block; width:400px;">
+                <img width="400" src="wonderful_triangle.png" />
+                <figcaption>Un <em>incroyable</em> triangle qui a subit le pipeline OpenGL.</figcaption>
+            </div>
+        </figure>
+        
         Ces exercices peuvent être fait dans n'importe quel ordre.
         
         <ol>
@@ -661,11 +671,26 @@
                     <figcaption>Une flèche composée de 4 triangles.</figcaption>
                 </figure>
             
-            <li>Interpolation de couleur.
+            <li>Interpolation de couleur, vous devez rajoutez un autre attribut par vertex : <code>vec3 couleur</code>, il faudra donc refaire :
+                <ul>
+                    <li>N'oubliez pas de <code>glGenBuffers</code> pour avoir de la place sur la carte graphique,
+                    <li><code>glBufferData</code> pour y mettre des données,
+                    <li><code>glEnableVertexAttribArray</code> pour que les données soient envoyées,
+                    <li><code>glVertexAttribPointer</code> pour que le shader comprennent que nous envoyons 3 floats.
+                </ul>
+                
+                Ensuite il faut faire le code dans les shaders :
+                <ul>
+                    <li>Le vertex shader va simplement prendre la <code>in vec3 couleur</code> et l'envoyer sous le nom <code>out fcouleur</code>, j'ai choisi le nom <strong>f</strong>couleur pour <em>couleur envoyée dans le <strong>f</strong>ragment shader</em>.
+                    <li>Le fragment shader va simplement prendre le <code>in vec3 fcouleur</code> et l'envoyer dans le <code>out vec4 pixel</code>,
+                        vous pouvez utiliser <code>vec4(fcouleur, 1)</code> pour copier les 3 composantes r,g,b et mettre la 4ème composante (alpha) à 1.
+                </ul>
             
-            <li>Compréhension de la composante z, que se passe-t-il quand on la met à <code>-1</code>, <code>1</code>, <code>2</code> ou <code>−3</code> ?
+            <li>Compréhension de la composante z, que se passe-t-il quand on la met à <code>-1</code>, <code>1</code>, <code>2</code> ou <code>-3</code> ?
             
-            <li>Ajout d'une uniform de translation pour dessiner plusieurs flèches. Une uniform est simplement une valeur qui va être passée du python au shader, sans modification, une constante. Le nom uniform vient du fait que la valeur sera la même pour tous les points et tous les pixels.
+            <li>Ajout d'une uniform de translation pour dessiner plusieurs flèches.
+                Une uniform est simplement une valeur qui va être passée du python au shader, sans modification, une constante.
+                Le nom <em>uniform</em> vient du fait que la valeur sera la même pour tous les points et tous les pixels.
                 <ol>
                     <li>Dans le vertex_shader ajoutez <code style="white-space:nowrap">uniform vec3 translation</code>.
                     <li>La position calculée par le vertex_shader sera maintenant <code style="white-space:nowrap">position + translation</code>.
@@ -698,26 +723,54 @@
                         et recommencez les deux expériences précédentes, que voyez-vous ?
                 </ol>
             
-            <li>Ajout d'une uniform de scale pour dessiner plusieurs flèches de taille différentes (une deux fois plus grande et une trois fois plus petite).
+            <li>Ajout d'une uniform de <em>scale</em> pour dessiner plusieurs flèches de taille différentes (une deux fois plus grande et une trois fois plus petite).
                 On aura <code style="white-space:nowrap">uniform float scale</code>.
                 Et on enverra via <code style="white-space:nowrap">glUniform1f(loc, 0.5)</code>.
                 
-            <li>Ajout d'une uniform de rotation pour dessiner plusieurs flèches tournées.
-            <li>Ajout d'une matrice <em>modèle</em> pour généraliser les notions de transformation.
+            <li>Ajout d'une uniform de rotation pour dessiner plusieurs flèches tournées, la formule est plus difficile que pour la translation ou l'agrandissement n'est ce pas ?
+                Dans le chapitre suivant on utilisera des matrices pour facilement gérer cela.
+                
+            <li>Quelle formule dois-je adapter si je veux faire un truc <strong>et</strong> un agrandissement ?
+                On verra dans le chapitre suivant que les matrices généraliseront les séquences de transformation,
+                toutes les transformations seront dans une seule matrice appelée la matrice <em><strong>M</strong>odèle</em>.
         </ol>
         
-    <h3>Uniforms</h3>
+    <h3>Matrices de transformation.</h3>
+        
+        <p>Nous allons maintenant détailler le calcul de la position d'un point 3D vers un point 2D.
+        
+        <p>Voici une très belle image qui résume les opérations et le résultat du code que nous ferons.
+        
+        <figure>
+            <div style="display:inline-block; width:400px;">
+                <a href="http://antongerdelan.net/opengl/images/newtranspipe.png" />
+                    <img src="http://antongerdelan.net/opengl/images/newtranspipe.png" width="400" />
+                </a>
+                <figcaption>Comment convertir un point 2D en 3D &mdash; Cliquez pour agrandir.</figcaption>
+            </div>
+            <div style="display:inline-block; width:400px;">
+                <img src="colorful_bird.png" width=400 />
+                <figcaption>Mon <em>magnifique</em> oiseau 3D en perspective coloré avec un gradient (ou <em>3 triangles avec interpolation de couleur</em> qui ont subit des matrices de transformation).</figcaption>
+            </div>
+        </figure>
         
         <p>
         Veuillez lire la page <a href="math.fr.html">math</a> pour être à l'aise avec le concept de vecteur et de matrices.
-        Je ferai une vidéo qui explique les matrices de projection et de caméra (lookat).</li>
+        Je ferai une vidéo qui explique les matrices de projection et de caméra (LookAt).</li>
         
         <p>
-        La correction se trouve dans <a href="gl_shaders_uniforms.py.html">gl_shaders_uniforms</a>.
+        La correction se trouve dans <a href="gl_matrices_and_interpolation.py.html">gl_matrices_and_interpolation</a>.
         
     <h3>Textures</h3>
     
-        <p>Correction dans <a href="gl_shaders_textures.py.html">gl_shaders_textures</a>.
+        <p>Correction dans <a href="gl_textures.py.html">gl_textures</a>.
+        
+        <figure>
+            <div style="display:inline-block; width:400px;">
+                <img src="texture_on_triangle.png" width=400 />
+                <figcaption>Mon <em>magnifique</em> oiseau 3D en perspective coloré avec un gradient (ou <em>3 triangles avec interpolation de couleur</em> qui ont subit des matrices de transformation).</figcaption>
+            </div>
+        </figure>
         
         <p>
             <a href="https://learnopengl.com/#!Getting-started/Textures">[learnopengl]</a>

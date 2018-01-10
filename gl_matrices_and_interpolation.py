@@ -14,47 +14,66 @@ from vec3_utils import * # téléchargez vec3_utils [ici](https://robertvandeney
 
 vertex_shader = """
 #version 330
-in vec4 position;
+in vec3 position;
+in vec3 color;
+
 uniform mat4 pvmMatrix;
+
+out vec3 fcolor;
+
 void main()
 {
-    gl_Position = pvmMatrix * position;
+    gl_Position = pvmMatrix * vec4(position, 1);
+    fcolor = color;
 }
 """
 
 fragment_shader = """
 #version 330
+
+in vec3 fcolor;
 out vec4 pixel;
+
 void main()
 {
-    pixel = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    pixel = vec4(fcolor, 1);
 }
 """
 
 vertices = farray([
-     0, 0, 0, 1,
-     1, 0, 0, 1,
-     0, 1, 0, 1,
+     0, 0, 0.60,
+     1, 0, 0,
+     0, 1, 0,
      
-     2, 0, 0, 1,
-     0, 2, 0, 1,
-     3, 0, 0, 1,
+     1, 0, 0,
+     0, 1, 0,
+     1, 1, 1,
      
-     0, 3, 0, 1,
-     4, 0, 0, 1,
-     0, 4, 0, 1,
+     0, 0, 0.60,
+     -1, 0, 0,
+     0, 1, 0,
      
-     0, 0, 0, 1,
-     -1, 0, 0, 1,
-     0, -1, 0, 1,
+     -1, 0, 0,
+     0, 1, 0,
+     -1, 1, 1,
+])
+
+colors = farray([
+     1, 0, 0,
+     0, 1, 0,
+     0, 0, 1,
      
-     -2, 0, 0, 1,
-     0, -2, 0, 1,
-     -3, 0, 0, 1,
+     1, 0, 0,
+     0, 1, 0,
+     0, 0, 1,
      
-     0, -3, 0, 1,
-     -4, 0, 0, 1,
-     0, -4, 0, 1,
+     1, 0, 0,
+     0, 1, 0,
+     0, 0, 1,
+     
+     1, 0, 0,
+     0, 1, 0,
+     0, 0, 1,
 ])
 
 def create_object(shader):
@@ -62,23 +81,40 @@ def create_object(shader):
     vertex_array_object = glGenVertexArrays(1)
     glBindVertexArray( vertex_array_object )
     
-    # Generate buffers to hold our vertices
-    vertex_buffer = glGenBuffers(1)
-    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)
-    
     # Get the position of the 'position' in parameter of our shader and bind it.
     position = glGetAttribLocation(shader, 'position')
-    
     if position != -1: # maybe the attribute is useless and was discarded by the compiler
         glEnableVertexAttribArray(position)
     
+        # Generate buffers to hold our vertices
+        vertex_buffer = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)
+        
         # Describe the position data layout in the buffer
-        glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
+        glVertexAttribPointer(position, 3, GL_FLOAT, False, 0, ctypes.c_void_p(0))
     
         # Send the data over to the buffer
         glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(vertices), vertices, GL_STATIC_DRAW)
     else:
         print('Inactive attribute "{}"'.format('position'))
+    
+    # Get the position of the 'position' in parameter of our shader and bind it.
+    color = glGetAttribLocation(shader, 'color')
+    
+    if color != -1: # maybe the attribute is useless and was discarded by the compiler
+        glEnableVertexAttribArray(color)
+        
+        # Generate buffers to hold our colors
+        vertex_buffer_color = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_color)
+    
+        # Describe the color data layout in the buffer
+        glVertexAttribPointer(color, 3, GL_FLOAT, False, 0, ctypes.c_void_p(0))
+        
+        # Send the data over to the buffer
+        glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(colors), colors, GL_STATIC_DRAW)
+    else:
+        print('Inactive attribute "{}"'.format('color'))
     
     # Unbind the VAO first
     glBindVertexArray(0)

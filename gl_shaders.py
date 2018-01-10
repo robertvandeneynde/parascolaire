@@ -49,15 +49,15 @@ shader_program = shaders.compileProgram(
 vertex_array_object = glGenVertexArrays(1)
 glBindVertexArray(vertex_array_object)
 
-# Generate buffers to hold our vertices
-vertex_buffer = glGenBuffers(1)
-glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)
-
 # Get the position of the 'position' in parameter of our shader_program and bind it.
 position = glGetAttribLocation(shader_program, 'position')
 
 if position != -1: # maybe the attribute is useless and was discarded by the compiler
     glEnableVertexAttribArray(position)
+
+    # Generate buffers to hold our vertices
+    vertex_buffer = glGenBuffers(1)
+    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)
 
     # Describe the position data layout in the buffer
     glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
