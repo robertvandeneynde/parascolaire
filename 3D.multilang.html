@@ -18,6 +18,17 @@
                 overflow-x: auto;
                 border: 1px solid #ccc;
             }
+            .imgframe {
+                display:inline-block;
+            }
+            .normal-comment {
+                font-family: sans;
+            }
+            :not(pre) > code {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 2px;
+            }
         </style>
         
         <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
@@ -183,7 +194,7 @@
                 L'équivalent OpenGL du <code>ecran.fill</code> est :
                 
                 <pre><code class="py">
-                glClearColor(0.9, 0.9, 0.5, 1.0) # du jaune, 1.0 est la transparence
+                glClearColor(0.9, 0.9, 0.5, 1.0) # <span class="normal-comment">du jaune, 1.0 est la transparence</span>
                 glClear(GL_COLOR_BUFFER_BIT)
                 </code></pre>
                 
@@ -234,7 +245,7 @@
                     glUseProgram(shader_program)
 
                     glBindVertexArray(vertex_array_object)
-                    glDrawArrays(GL_TRIANGLES, 0, 3) # on a 3 points, on commence au point numéro 0, faire des TRIANGLES.
+                    glDrawArrays(GL_TRIANGLES, 0, 3) # <span class="normal-comment">on a 3 points, on commence au point numéro 0, faire des TRIANGLES.</span>
                     glBindVertexArray(0)
                     
                     glUseProgram(0)
@@ -390,8 +401,8 @@
                 Et puis on informe du type de donnée, <strong>attention</strong> le VBO doit être <em>binded</em>.
                 
                 <pre><code class="py">
-                glEnableVertexAttribArray(0) # on active l'attribut 0
-                glVertexAttribPointer(0, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # données par groupe de 4 Float dans l'attribut 0
+                glEnableVertexAttribArray(0) # <span class="normal-comment">on active l'attribut 0</span>
+                glVertexAttribPointer(0, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # <span class="normal-comment">données par groupe de 4 Float dans l'attribut 0</span>
                 </code></pre>
                 
                 <ol>
@@ -484,11 +495,11 @@
                 #version 330
                 // vertex shader
                 
-                in vec4 position; // on lit le xyzw
+                in vec4 position; // <span class="normal-comment">on lit le xyzw</span>
                 
                 void main()
                 {
-                    gl_Position = position; // et on l'écrit
+                    gl_Position = position; // <span class="normal-comment">et on l'écrit</span>
                 }
                 </code></pre>
                 
@@ -514,11 +525,11 @@
                 #version 330
                 // fragment shader
 
-                out vec4 pixel; // notre but est de donner la couleur du pixel
+                out vec4 pixel; // <span class="normal-comment">notre but est de donner la couleur du pixel</span>
 
                 void main()
                 {
-                    pixel = vec4(1, 0.5, 0, 1); # orange, transparence 100%
+                    pixel = vec4(1, 0.5, 0, 1); // <span class="normal-comment">orange, transparence 100%</span>
                 }
                 </code></pre>
                 
@@ -536,7 +547,7 @@
                 
                 <pre><code class="glsl">
                 // vertex shader
-                <mark>layout (location = 0)</mark> in vec4 position; // on lit le xyzw
+                <mark>layout (location = 0)</mark> in vec4 position; // <span class="normal-comment">on lit le xyzw</span>
                 </code></pre>
                 
                 <p>
@@ -544,8 +555,8 @@
                 
                 <pre><code class="py">
                 <mark>position = glGetAttribLocation(shader, 'position')</mark>
-                glEnableVertexAttribArray(<mark>position</mark>) # on active l'attribut position
-                glVertexAttribPointer(<mark>position</mark>, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # données par groupe de 4 Float dans l'attribut position
+                glEnableVertexAttribArray(<mark>position</mark>) # <span class="normal-comment">on active l'attribut position</span>
+                glVertexAttribPointer(<mark>position</mark>, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # <span class="normal-comment">données par groupe de 4 Float dans l'attribut position</span>
                 </code></pre>
                 
                 <p>
@@ -759,6 +770,35 @@
         Je ferai une vidéo qui explique les matrices de projection et de caméra (LookAt).</li>
         
         <p>
+        Avec les matrices comme succession de transformation, il est très facile par exemple d'animer les hélices d'un hélicoptère :
+        
+        <figure>
+            <div class="imgframe">
+                <pre><code class="py">
+                Base = TranslationMatrix(50,25,75)     # <span class="normal-comment">x,y,z of the helicopter</span>
+                Local1 = TranslationMatrix(2,0,4)      # <span class="normal-comment">one propeller, relative to center of helicopter</span>
+                Local2 = TranslationMatrix(8,-1,0)     # <span class="normal-comment">one propeller, relative to center of helicopter</span>
+                Rot1 = RotationMatrix(angle1, (0,0,1)) # <span class="normal-comment">angle of big propeller</span>
+                Rot2 = RotationMatrix(angle2, (0,0,1)) # <span class="normal-comment">angle of small propeller</span>
+                
+                loadUniformMatrix(Base)
+                DrawBase()
+                
+                loadUniformMatrix(Base @ Local1 @ Rot1)
+                DrawBigPropeller()
+                
+                loadUniformMatrix(Base @ Local2 @ Rot2)
+                DrawSmallPropeller()
+                </code></pre>
+            </div>
+            <div class="imgframe" style="max-width:600px">
+                <img src="https://robertvandeneynde.be/jeu3D/screen1.png" style="max-width:600px" />
+                <figcaption>L'hélicoptère dans mon <a href="https://robertvandeneynde.be/jeu3D/">jeu 3D</a>,
+                    le code utilise une hiérarchie de matrice pour animer les hélices en haut et à l'arrière de l'hélicoptère.</figcaption>
+            </div>
+        </figure>
+        
+        <p>
         La correction se trouve dans <a href="gl_matrices_and_interpolation.py.html">gl_matrices_and_interpolation</a>.
         
     <h3>Textures</h3>
@@ -766,7 +806,7 @@
         <p>Correction dans <a href="gl_textures.py.html">gl_textures</a>.
         
         <figure>
-            <div style="display:inline-block; width:400px;">
+            <div class="imgframe" style="display:inline-block; width:400px;">
                 <img src="texture_on_triangle.png" width=400 />
                 <figcaption>Mon <em>magnifique</em> oiseau 3D en perspective coloré avec un gradient (ou <em>3 triangles avec interpolation de couleur</em> qui ont subit des matrices de transformation).</figcaption>
             </div>
