@@ -3,6 +3,7 @@ from __future__ import division
 from math import sin, cos, degrees, radians, tan
 
 import numpy
+import numpy as np
 from numpy import array, matrix, linalg
 
 def farray(*args):
@@ -18,6 +19,10 @@ def tand(x):
     return tan(radians(x))
 
 def polar(*args):
+    """
+    polar(pi/6) -> (cosd(pi/6), sind(pi/6)) = vec2(0.86602539, 0.5)
+    polar(5, pi/6) -> (5 * cosd(pi/6), 5 * sind(pi/6)) = vec2(4.33012676, 2.5)
+    """
     if len(args) == 2:
         r,t = args
     elif len(args) == 1:
@@ -28,14 +33,31 @@ def polar(*args):
     return r * vec2(cos(t), sin(t))
 
 def polard(*args):
-    if len(args) == 2: r,t = args
-    elif len(args) == 1: r,t = 1,args[0]
-    else: raise TypeError('Accept 1 or 2 arguments')
+    """
+    polard(30) -> (cosd(30), sind(30)) = vec2(0.86602539, 0.5)
+    polard(5, 30) -> (5 * cosd(30), 5 * sind(30)) = vec2(4.33012676, 2.5)
+    """
+    if len(args) == 2:
+        r,t = args
+    elif len(args) == 1:
+        r,t = 1, args[0]
+    else:
+        raise TypeError('Accept 1 or 2 arguments')
     
     return r * polar(radians(t))
 
-def vec2(x,y):
-    return array((x,y), dtype=numpy.float32)
+def vec2(x,y=None):
+    """
+    vec2(1,2) -> farray((1.0, 2.0))
+    vec2(5) -> farray((5.0, 5.0))
+    vec2(y=6, x=1) -> farray((1.0, 6.0))
+    """
+    if y is None:
+        try:
+            x,y = x
+        except TypeError:
+            x,y = x,x
+    return farray((x,y))
 
 NAME_TO_INT = {
     'x': 0,
@@ -55,6 +77,12 @@ def readvec(V, names):
     readvec((1,2,3), 'rg') -> farray((1,2))
     readvec((1,2,3), 'zx') -> farray((3,1))
     readvec((1,2,3), 'zz') -> farray((3,3))
+    
+    If the funcoperators lib is installed, I'd suggest defining functions like xy
+    (1,2,3)|xy -> farray((1,2))
+    
+    Given:
+    xy = postfix(lambda vec: readvec(vec, 'xy'))
     """
     return farray([
         V[NAME_TO_INT[x]]
@@ -64,11 +92,13 @@ def vec3(*args, **kwargs):
     '''
     Returns numpy.array depending on arguments:
     vec3() -> (0,0,0)
+    vec3(5) -> (5,5,5)
     vec3(1,2,3) -> (1,2,3)
     vec3((1,2,3)) -> (1,2,3)
     vec3((1,2),3) -> (1,2,3)
     vec3(1,(2,3)) -> (1,2,3)
     vec3(x=1,y=2,z=3) -> (1,2,3)
+    vec3(r=1,g=2,b=3) -> (1,2,3)
     vec3(xy=(1,2),z=3) -> (1,2,3)
     vec3(x=1,yz=(2,3)) -> (1,2,3)
     vec3(y=2,xz=(1,3)) -> (1,2,3)
@@ -78,7 +108,7 @@ def vec3(*args, **kwargs):
         raise TypeError('vec3 accept either args or kwargs, not both')
     
     elif kwargs:
-        V = array((0,0,0), dtype=numpy.float32)
+        V = farray((0,0,0))
         
         for x,v in kwargs.items():
             if len(x) == 1:
@@ -98,13 +128,16 @@ def vec3(*args, **kwargs):
             except TypeError:
                 x,(y,z) = args
         elif len(args) == 1:
-            x,y,z = args
+            try:
+                x,y,z = args[0]
+            except TypeError:
+                x,y,z = args[0], args[0], args[0]
         elif len(args) == 0:
             x,y,z = 0,0,0
         else:
             raise TypeError('Accept 0, 1, 2 or 3 arguments')
     
-        return array((x,y,z), dtype=numpy.float32)
+        return farray((x,y,z))
 
 def normalized(v):
     return v / linalg.norm(v)
@@ -163,7 +196,7 @@ class Axis:
     Y = 1
     Z = 2
 
-def AxeRotationMatrix(angle, axe=Axis.Z):
+def AxisRotationMatrix(angle, axis=Axis.Z):
     if angle % 90 == 0:
         x = angle % 360
         c = 1 if x == 0 else -1 if x == 180 else 0
@@ -174,18 +207,72 @@ def AxeRotationMatrix(angle, axe=Axis.Z):
         s = sin(t)
     
     return farray([
-            [c, s, 0, 0],
-            [-s, c, 0, 0],
-            [0, 0, 1, 0],
-            [0, 0, 0, 1]
-        ] if axe == 2 else [
-            [c, 0, s, 0],
-            [0, 1, 0, 0],
-            [-s, 0, c, 0],
-            [0, 0, 0, 1]
-        ] if axe == 1 else [
-            [1, 0, 0, 0],
-            [0, c, -s, 0],
-            [0, s, c, 0],
-            [0, 0, 0, 1]
-        ])
+        [c, s, 0, 0],
+        [-s, c, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1]
+    ] if axis == 2 else [
+        [c, 0, s, 0],
+        [0, 1, 0, 0],
+        [-s, 0, c, 0],
+        [0, 0, 0, 1]
+    ] if axis == 1 else [
+        [1, 0, 0, 0],
+        [0, c, -s, 0],
+        [0, s, c, 0],
+        [0, 0, 0, 1]
+    ])
+
+
+def RotationMatrix(angle, axe):
+    """ Rotation matrix for angle in degree around any axe
+    RotationMatrix(30, (0,0,1))
+    """
+    x, y, z = normalized(axe)
+
+    if angle % 90 == 0:
+        a = angle % 360
+        c = 1 if a == 0 else -1 if a == 180 else 0
+        s = 1 if a == 90 else -1 if a == 270 else 0
+    else:
+        t = radians(angle)
+        c = cos(t)
+        s = sin(t)
+
+    k = 1 - c
+
+    # Rodriguez rotation formula
+    return farray([
+        [x * x * k + c, x * y * k - z * s, x * z * k + y * s, 0],
+        [y * x * k + z * s, y * y * k + c, y * z * k - x * s, 0],
+        [x * z * k - y * s, y * z * k + x * s, z * z * k + c, 0],
+        [0, 0, 0, 1]
+    ])
+
+
+def ScaleMatrix(kx, ky=None, kz=None):
+    """ ScaleMatrix
+    ScaleMatrix(2) = ScaleMatrix(2,2,2)
+    ScaleMatrix(1,2,3)
+    """
+    if ky is None:
+        ky = kx
+    if kz is None:
+        kz = kx
+    return farray([
+        [kx, 0, 0, 0],
+        [0, ky, 0, 0],
+        [0, 0, kz, 0],
+        [0, 0, 0, 1]
+    ])
+
+def IdentityMatrix():
+    """ IdentityMatrix
+    IdentityMatrix()
+    """
+    return farray([
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1]
+    ])

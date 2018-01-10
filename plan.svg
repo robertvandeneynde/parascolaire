@@ -41,7 +41,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1001"
+     inkscape:window-height="993"
      id="namedview9978"
      showgrid="false"
      inkscape:snap-page="false"
@@ -52,12 +52,12 @@
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
      inkscape:zoom="1.5438544"
-     inkscape:cx="330.82891"
-     inkscape:cy="569.97981"
+     inkscape:cx="354.31439"
+     inkscape:cy="755.83975"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g9294-4-3"
+     inkscape:current-layer="g9090"
      inkscape:snap-intersection-paths="false"
      fit-margin-top="10"
      fit-margin-left="10"
@@ -2292,6 +2292,84 @@
          transform="translate(16.261424,6.4114237)"
          d="M 0,0 8,4 0,8 2,4 Z"
          id="path9952-6-6"
+         inkscape:connector-curvature="0"
+         style="fill:#808080;stroke:none" />
+    </g>
+    <g
+       transform="translate(39.660314,81.213818)"
+       id="g9238-3">
+      <g
+         id="g9240-5">
+        <path
+           transform="translate(0.5,0.5)"
+           d="M 0,0 H 76.14423 V 31.6 H 0 Z"
+           id="path9242-1"
+           inkscape:connector-curvature="0"
+           style="fill:#00a9c9;stroke:none"
+           sodipodi:nodetypes="ccccc" />
+        <text
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           y="22.175962"
+           x="32.21154"
+           id="text9244-7">
+          <a
+             id="a9246-4"
+             xlink:href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">Vidéo</a>
+        </text>
+        <g
+           id="g5036"
+           transform="matrix(0.450824,0,0,0.450824,13.992628,-8.0740402)">
+          <rect
+             ry="4.9399042"
+             rx="4.9399042"
+             y="51.096973"
+             x="-14.374897"
+             height="17.43848"
+             width="33.597076"
+             id="rect4929"
+             style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:2.96394229;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <circle
+             r="7.0955129"
+             cy="44.001461"
+             cx="9.8152523"
+             id="path4931-3"
+             style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98798072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path5000"
+             d="m 36.053736,50.098514 10e-6,19.4354 -16.831567,-9.7177 z"
+             style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.98798078px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <circle
+             r="7.0955129"
+             cy="44.001457"
+             cx="-5.9924355"
+             id="path4931-3-3"
+             style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98798066;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="translate(15.89889,87.102394)"
+       id="g9706-4">
+      <path
+         transform="translate(4.7614237,10.411424)"
+         stroke-miterlimit="10"
+         stroke="transparent"
+         d="M 0,0 H 16"
+         id="path9708-6"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(4.7614237,10.411424)"
+         stroke-miterlimit="10"
+         d="M 0,0 H 16"
+         id="path9710-0"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+      <path
+         transform="translate(16.261424,6.4114237)"
+         d="M 0,0 8,4 0,8 2,4 Z"
+         id="path9712-7"
          inkscape:connector-curvature="0"
          style="fill:#808080;stroke:none" />
     </g>

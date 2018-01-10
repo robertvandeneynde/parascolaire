@@ -130,7 +130,7 @@
 
     <p>
         Tous les codes font un <code>import vec3_utils</code> donc vous devez
-        <a href="vec3_utils.py.html">télécharger <code>vec3_utils</code></a>
+        <a href="vec3_utils.py.html">télécharger vec3_utils</a>
         et le mettre à côté de votre fichier <code>.py</code>.
     </p>
     
@@ -282,6 +282,38 @@
                 
                 <p>On a donc trois points dont les XY valent (0.6, 0.6), (−0.6, 0.6) et (0, −0.6). La coordonnée en Z sera de 0 (on la changera plus tard), et la dernière coordonnée (appelée <em>W</em>) sera toujours de 1.
                 Pour en savoir plus sur <em>W</em>, voir la page de <a href="math.{{fr|en}}.html#translation">math (translation)</a>.
+                
+                <p>Bien quand dans le future nous utiliserons plutôt un repère <em>main droite</em> (<em>dextrogyre</em>),
+                le repère de base OpenGL est <em>main gauche</em> (<em>lévogyre</em>).
+                
+                <figure>
+                
+                    <div style="display:inline-block; vertical-align:top; max-width:430px">
+                        <a href="https://commons.wikimedia.org/wiki/File:3D_Cartesian_Coodinate_Handedness.jpg#/media/File:3D_Cartesian_Coodinate_Handedness.jpg">
+                            <img width="430" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/3D_Cartesian_Coodinate_Handedness.jpg" alt="3D Cartesian Coordinate Handedness.jpg" />
+                        </a>
+                    
+                        <figcaption>Un repère dextrogyre à droite et un repère lévogyre à gauche.</figcaption>
+                        By <a href="//commons.wikimedia.org/w/index.php?title=User:Primalshell&amp;action=edit&amp;redlink=1" class="new" title="User:Primalshell (page does not exist)">Primalshell</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=27531327">Link</a>
+                    </div>
+                    
+                    <div style="display:inline-block; vertical-align:top; max-width:260px">
+                        <img width="260" src="3d-pythagore.png" />
+                        
+                        <figcaption>Un repère dextrogyre <em>Z vers le haut</em>.</figcaption>
+                    </div>
+                    
+                    <div style="display:inline-block; vertical-align:top; max-width:300px">
+                        <img width="300" src="XYZ_axes_Y_up.png" />
+                        
+                        <figcaption>Un repère dextrogyre <em>Y vers le haut</em>.</figcaption>
+                    </div>
+                    
+                </figure>
+                
+                <p>
+                Quand nous serons vraiment en 3D, nous utiliserons la convention <strong>dextrogyre</strong> de <strong>Z vers le haut</strong>.
+                D'autres personnes (comme ThinMatrix) utilise la convention <strong>Y vers le haut</strong>.
                 
                 <p>La carte graphique veut un <code>farray</code>, il faut donc faire la conversion.
                 
@@ -494,9 +526,11 @@
                 <p>
                 N'essayez pas de <em>juste</em> changer la valeur de la transparence, il faut activer d'autres choses pour ça.
                 
+                <!--
                 <p>
-                Remarque que la seule info que le vertex shader nous envoie, c'est la position finale du point, on pourrait la lire avec <code>gl_FragCoord</code>
-                en écrivant par exemple <code>gl_FragCoord.x</code>, <code>gl_FragCoord.y</code>, <code>gl_FragCoord.z</code>,<code>gl_FragCoord.w</code>.
+                Remarque que la seule info que le vertex shader nous envoie, c'est la position finale du point, on pourrait la lire avec <code>gl_FragCoord</code>.
+                en écrivant par exemple <code>gl_FragCoord.x</code>, <code>gl_FragCoord.y</code>, <code>gl_FragCoord.z</code>,<code>gl_FragCoord.w</code> (attention, gl_FragCoord dépend de gl_Position mais n'y est <a href="https://stackoverflow.com/questions/18590074/glsl-passing-coordinates-to-fragment-shader#18590569">pas égal</a>).
+                -->
                 
                 <p>
                 Finalement, il faut que l'attribut dans le VAO correspond à l'attribut 0 dans le shader, soit on l'indique dans le vertex shader via <code>location</code> :
@@ -551,17 +585,24 @@
                     
                     <figcaption>Le pipeline graphique complet en OpenGL 4, il y a plein d'autres étapes modifiables ! Cliquez pour voir en grand.</figcaption>
                 </figure>
+                
+                <p>
+                La vidéo de ThinMatrix explique assez bien:
+                
+                <figure>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/AyNZG_mqGVE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </figure>
             
             </li>
             
             <li>Un petit mot sur <strong>l'interpolation</strong>.
             
-            <ol>
+            <ul>
             <li>Le vertex shader est appelé une fois par point.
             <li>Le fragment shader est appelé une fois par pixel.
             <li>Le vertex shader peut envoyé des infos au fragment shader en plus de la position.
             <li>Le fragment shader peut recevoir des infos du vertex shader pour calculer une couleur.
-            </ol>
+            </ul>
             
             Mais comment on passe d'une info <strong>par point</strong> à une info <strong>par pixel</strong> ?
             
@@ -570,7 +611,8 @@
             quelle info va recevoir le pixel ?
             
             <figure>
-                Dessin à venir
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/AyNZG_mqGVE&start=425&end=505" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <figcaption>ThinMatrix invente des attributs fictifs <code>catFactor</code> et <code>dogDistance</code> qui servent à calculer la couleur de chaque pixel.</figcaption>
             </figure>
             
             <p>
@@ -621,9 +663,9 @@
             
             <li>Interpolation de couleur.
             
-            <li>Compréhension de la composante z, que se passe-t-il quand on la met à <code>-1</code>, <code>1</code>, <code>2</code> ou <code>3</code> ?
+            <li>Compréhension de la composante z, que se passe-t-il quand on la met à <code>-1</code>, <code>1</code>, <code>2</code> ou <code>−3</code> ?
             
-            <li>Ajout d'une uniform de translation pour dessiner plusieurs flèches.
+            <li>Ajout d'une uniform de translation pour dessiner plusieurs flèches. Une uniform est simplement une valeur qui va être passée du python au shader, sans modification, une constante. Le nom uniform vient du fait que la valeur sera la même pour tous les points et tous les pixels.
                 <ol>
                     <li>Dans le vertex_shader ajoutez <code style="white-space:nowrap">uniform vec3 translation</code>.
                     <li>La position calculée par le vertex_shader sera maintenant <code style="white-space:nowrap">position + translation</code>.

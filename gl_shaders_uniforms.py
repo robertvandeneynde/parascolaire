@@ -133,15 +133,15 @@ def main():
     
     clock = pygame.time.Clock()
     
-    t = 0
+    tick = 0
     done = False
     while not done:     
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
         
-        t += 1
-        display(shader, vertex_array_object, t/60)
+        tick += 1
+        display(shader, vertex_array_object, tick/60)
         pygame.display.flip()
         clock.tick(60)
 

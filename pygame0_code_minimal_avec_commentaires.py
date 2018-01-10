@@ -41,7 +41,7 @@ while fini == 0:
         if event.type == pygame.QUIT: # si on a cliqué sur la croix...
             fini = 1 # la boucle principale va s'arrêter
     
-    # 6) UPDATE : Faire quelque chose à chaque tick (60 fois par seconde)
+    # 6) TICK : Faire quelque chose à chaque tick (60 fois par seconde)
     
     # à compléter !
     

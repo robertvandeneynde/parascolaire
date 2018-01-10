@@ -1,0 +1,1 @@
+zip -q gl_3d_basics.zip gl_shaders.py gl_shaders_uniforms.py gl_shaders_textures.py progra_import.py progra_module_exemple.py vec3_utils.py player.png

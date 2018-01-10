@@ -63,7 +63,7 @@ if position != -1: # maybe the attribute is useless and was discarded by the com
     glVertexAttribPointer(position, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0))
 
     # Send the data over to the buffer
-    glBufferData(GL_ARRAY_BUFFER, 48, vertices, GL_STATIC_DRAW)
+    glBufferData(GL_ARRAY_BUFFER, 48, vertices, GL_STATIC_DRAW) # 48 bytes = ArrayDatatype.arrayByteCount(vertices)
 else:
     print('Inactive attribute "{}"'.format('position'))
 
@@ -88,7 +88,7 @@ while not done:
     glUseProgram(shader_program)
     
     glBindVertexArray(vertex_array_object)
-    glDrawArrays(GL_TRIANGLES, 0, 3)
+    glDrawArrays(GL_TRIANGLES, 0, 3) # 3 points = len(vertices) // 4
     glBindVertexArray(0)
     
     glUseProgram(0)

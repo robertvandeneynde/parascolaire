@@ -26,9 +26,9 @@ while fini == 0:
     
     # TICK
     
-    ecran.fill(BLANC)
-    
+
     # DESSIN
+    ecran.fill(BLANC)
     
     pygame.draw.rect(ecran, ROUGE, [100,200, 20,40])
     pygame.draw.circle(ecran, BLEU, [100,200], 20)
