@@ -147,7 +147,15 @@ def display(shader, vertex_array_object, t):
     glUniformMatrix4fv(loc_matrix, 1, True, pvm)
     
     # draw
-    glPointSize(5)
+    glDrawArrays(GL_TRIANGLES, 0, 18)
+    
+    # draw other models !
+    m2 = TranslationMatrix(3, 2, 1)
+    glUniformMatrix4fv(loc_matrix, 1, True, pv @ m2)
+    glDrawArrays(GL_TRIANGLES, 0, 18)
+    
+    m3 = ScaleMatrix(1/2) @ TranslationMatrix(-2, 3, 0) @ RotationMatrix(150, (0,0,1))
+    glUniformMatrix4fv(loc_matrix, 1, True, pv @ m3)
     glDrawArrays(GL_TRIANGLES, 0, 18)
     
     # unbind
@@ -157,7 +165,9 @@ def display(shader, vertex_array_object, t):
 def main():
     pygame.init()
     screen = pygame.display.set_mode((512, 512), pygame.OPENGL | pygame.DOUBLEBUF)
-    glClearColor(0.5, 0.5, 0.5, 1.0)
+    pygame.display.set_caption('Colorful birds')
+    
+    glClearColor(0.001953125, 0.66796875, 1, 1)
     # glViewport(0, 0, 512, 512) # we don't have to do that because it's the size of the window
     glEnable(GL_DEPTH_TEST)
 

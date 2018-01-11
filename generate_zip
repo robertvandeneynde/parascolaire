@@ -5,3 +5,4 @@ zip -q gl_3d_basics.zip \
     vec3_utils.py player.png \
     gl_matrices_and_interpolation.py \
     gl_textures.py \
+    pygame0_code_minimal.py \

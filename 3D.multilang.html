@@ -3,8 +3,14 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-        <link href="python.png" rel="icon" type="image/png"/>
+        <link href="3D-icon-bird.png" rel="icon" type="image/png" />
         <title> 3D {{avec|with}} OpenGL {{et|and}} Python</title>
+        <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/3D-icon-bird.png" />
+        <meta property="og:description" content="{{Tutoriel 3D avec OpenGL moderne et Python|3D Tutorial with modern OpenGL and Python}}" />
+        <!-- <meta property="og:url" content="" /> -->
+        <meta property="og:title" content="3D {{avec|with}} OpenGL {{et|and}} Python" />
+        <meta property="og:type"   content="article" /> 
+        
         <link rel="stylesheet" type="text/css" href="base.css" />
         <style>
             body {
@@ -119,11 +125,11 @@
     
     </section>
     
-    <h2>Tutoriel</h2>
+    <h2 id="tutori{{e|a}}l">Tutoriel</h2>
     
-    <section>
+    <section name="tutori{{e|a}}l">
     
-    <h3>Installation et prérequis</h3>
+    <h3 id="installation-{{et-prerequis|and-prerequisites}}">Installation et prérequis</h3>
     
     <p>
         Nous allons continuer à utiliser <code>pygame</code> auquel nous allons rajouter
@@ -150,7 +156,7 @@
         Ce dossier est également présent sur les ordis de l'école dans le dossier réseau du parascolaire, je vous invite à le copier dans votre propre dossier.
     </p>
 
-    <h3>Shaders</h3>
+    <h3 id="shader-intro">Shaders</h3>
         
         <p>
         En partant du <a href="pygame0_code_minimal.py.html">code de base 2D</a>, voici les étapes à faire:
@@ -287,8 +293,8 @@
                 ])
                 </code></pre>
                 
-                    <img src="ndc-opengl.png" style="display:inline-block; vertical-align:middle" />
                     <img src="ndc-flat.png" style="display:inline-block; vertical-align:middle" />
+                    <img src="ndc-opengl.png" style="display:inline-block; vertical-align:middle" />
                 </figure>
                 
                 <p>On a donc trois points dont les XY valent (0.6, 0.6), (−0.6, 0.6) et (0, −0.6). La coordonnée en Z sera de 0 (on la changera plus tard), et la dernière coordonnée (appelée <em>W</em>) sera toujours de 1.
@@ -383,7 +389,7 @@
                 glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(vertices), vertices, GL_STATIC_DRAW) # 48 bytes
                 </code></pre>
                 
-                <p>Finalement, le GL_STATIC_DRAW est un indice donné à la carte graphique disant que ces données ne changeront jamais, mais peu de <em>drivers</em> lit cet indice il paraît.
+                <p>Finalement, le <code>GL_STATIC_DRAW</code> est un indice donné à la carte graphique disant que ces données ne changeront jamais, mais peu de <em>drivers</em> lit cet indice il paraît.
                 
                 <p>Les données, les 48 bytes, sont dans la carte graphique, on doit maintenant donner plus d'infos, ce ne sont pas des bytes, ce sont des coordonnées pardi ! Direction <em>VAO</em> !
             </li>
@@ -658,7 +664,7 @@
             
         </ol>
         
-        <h3>Exercices</h3>
+        <h3 id="shaders-exercices">Exercices</h3>
         
         <p>
             Le code de base pour ce niveau se trouve dans
@@ -669,7 +675,7 @@
         <figure>
             <div style="display:inline-block; width:400px;">
                 <img width="400" src="wonderful_triangle.png" />
-                <figcaption>Un <em>incroyable</em> triangle qui a subit le pipeline OpenGL.</figcaption>
+                <figcaption><a href="gl_shaders.py.html">gl_shaders</a>: Un <em>incroyable</em> triangle qui a subit le pipeline OpenGL.</figcaption>
             </div>
         </figure>
         
@@ -746,7 +752,7 @@
                 toutes les transformations seront dans une seule matrice appelée la matrice <em><strong>M</strong>odèle</em>.
         </ol>
         
-    <h3>Matrices de transformation.</h3>
+    <h3 id="transformation-matrices">Matrices de transformation.</h3>
         
         <p>Nous allons maintenant détailler le calcul de la position d'un point 3D vers un point 2D.
         
@@ -758,10 +764,11 @@
                     <img src="http://antongerdelan.net/opengl/images/newtranspipe.png" width="400" />
                 </a>
                 <figcaption>Comment convertir un point 2D en 3D &mdash; Cliquez pour agrandir.</figcaption>
+                &copy; antongerdelan, from article <a href="http://antongerdelan.net/opengl/raycasting.html">here</a>.
             </div>
             <div style="display:inline-block; width:400px;">
-                <img src="colorful_bird.png" width=400 />
-                <figcaption>Mon <em>magnifique</em> oiseau 3D en perspective coloré avec un gradient (ou <em>3 triangles avec interpolation de couleur</em> qui ont subit des matrices de transformation).</figcaption>
+                <img src="colorful_birds.png" width=400 /> <!-- tick = 480 in gl_matrices_and_interpolation -->
+                <figcaption>Mes <em>magnifiques</em> oiseaux 3D, en perspective, avec un gradient de couleur (ou <em>3×4 triangles avec interpolation de couleur</em> qui ont subit des matrices de transformation).</figcaption>
             </div>
         </figure>
         
@@ -801,14 +808,18 @@
         <p>
         La correction se trouve dans <a href="gl_matrices_and_interpolation.py.html">gl_matrices_and_interpolation</a>.
         
-    <h3>Textures</h3>
+        <p>
+        Le code ci-dessus qui fait appel n'est pas très <em>opengl moderne</em>, un autre exemple de séquence de matrices de transformation est dans ce magnifique tutoriel sur
+        <a href="https://www.youtube.com/watch?v=f3Cr8Yx3GGA&index=53&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">l'animation de squelette</a> de ThinMatrix.
+        
+    <h3 id="basic-texturing">Textures</h3>
     
         <p>Correction dans <a href="gl_textures.py.html">gl_textures</a>.
         
         <figure>
             <div class="imgframe" style="display:inline-block; width:400px;">
                 <img src="texture_on_triangle.png" width=400 />
-                <figcaption>Mon <em>magnifique</em> oiseau 3D en perspective coloré avec un gradient (ou <em>3 triangles avec interpolation de couleur</em> qui ont subit des matrices de transformation).</figcaption>
+                <figcaption>Mon <em>magnifique</em> <em>oiseau</em>, 3D, en perspective, coloré avec un gradient (ou <em>3 triangles avec interpolation de couleur</em> qui ont subit des matrices de transformation).</figcaption>
             </div>
         </figure>
         
@@ -819,9 +830,9 @@
     </section>
     
     
-    <h2>Shader Programming: Lighting</h2>
+    <h2 id="lighting">Shader Programming: Lighting</h2>
     
-    <section>
+    <section name="lighting">
         <p>
             Shader programming: light, diffuse, normals, specular...
             Je vous conseille d'être à l'aise avec le <a href="math.fr.html#produit-scalaire">produit scalaire</a>.

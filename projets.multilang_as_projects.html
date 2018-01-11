@@ -16,10 +16,14 @@
             img:not(.free), pre {
                 max-width: 100%;
             }
-            
             pre {
                 overflow-x: auto;
                 border: 1px solid #ccc;
+            }
+            :not(pre) > code {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 2px;
             }
         </style>
         
@@ -89,19 +93,30 @@
             <p>Le premier défi demandé au cours sera de copier le <a href="pygame0_code_minimal.py.html">code de base</a> et d'effectuer ces exercices&nbsp;:</p>
             
             <ol>
-                <li>Une balle se déplaçant vers la droite, il faut créer une <strong>variable</strong> <code>ma_position</code>. Au tout début du code, ma_position = 100 (par exemple). Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à ma_position. Finalement, le cercle ne devra plus être dessiné en <code>[30, 80]</code> mais en <code>[ma_position, 80]</code>.</li>
+                <li>Quelle est la <strong>taille de l'écran</strong>, en pixels ?
+                <li>Vous voyez 3 formes, un rectangle rouge, un grand cercle bleu et un petit cercle vert, ils ont une certaine position et une certaine taille, <strong>quelles lignes de code indiquent précisément ces informations</strong> ?
+                <li>Changez la <strong>couleur</strong>, la <strong>position</strong> et la <strong>taille</strong> des éléments, vous pouvez même en dessiner un <strong>quatrième</strong>.
+                    Je rappelle qu'une couleur est définie par 3 entiers entre 0 et 255, indiquant la composante de rouge, de vert, et de bleu, petit rappel <a href="/turtle.fr.html#color">ici</a>.
+                <li>On aimerait que la balle verte se déplace vers la droite, il faut créer une <strong>variable</strong> que vous appelez comme vous voulez, que ce soit <code>a</code>, <code>pos</code> ou <code>ma_position</code>.
+                  <ol>
+                    <li>Au tout début du code, ajoutez <code>ma_position = 100</code> par exemple.
+                    <li>Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à <code>ma_position</code>.
+                    <li>Finalement, le cercle ne devra plus être dessiné en <code>[150, 80]</code> mais en <code>[ma_position, 80]</code>.</li>
+                  </ol>
                 <li>Elle avance un peu lentement, comment faire pour qu'elle avance de 5 pixels par tick ?</li>
                 <li>Elle sort de l'écran... Vu que l'écran est de taille 700×500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.</li>
+                <li>Comment faire pour que la balle avance vers la <strong>gauche</strong> ?</li>
+                <li>Comment faire pour que la balle <strong>commence à droite</strong> de l'écran ?</li>
                 <li>Maintenant la balle reste dans l'écran mais ne rebondit pas, nous faisons ça en trois étapes :
                     <ol>
-                        <li>Il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. À la place de <code>-1</code> et <code>1</code>, on peut aussi dire 1 et 2, ou 0 et 1 !</li>
-                        <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em></li>
-                        <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.</li>
+                        <li>Il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. À la place de <code>-1</code> et <code>1</code>, on peut aussi dire 1 et 2, ou 0 et 1 !
+                        <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em>.
+                        <li>Vérifiez que la balle va vers la gauche quand vous imposez que <code>sens</code> vaut <code>-1</code> au début du code.
+                        <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.
                     </ol>
                 </li>
                 <li>On peut faire deux dessins différents en fonction du sens ! Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>. Les triangles peuvent être dessinés avec <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code> ou avec une <a href="pygame7_images.py">image</a>.
                 
-            
             <figure>
                 <img src="triangle.svg" />
                 <figcaption>Un triangle dessiné grâce à la commande <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code></figcaption>
@@ -118,10 +133,10 @@
                     Quelle sera la commande <code>draw.polygon</code> pour que <code>ma_position</code> représente le centre ?
                 </li>
                 <li>
-                    Le cercle bleu ne bouge pas, utilise <a href="pygame6_clavier_souris_state.py.html">le clavier</a> (version ponctuelle) pour faire pour le faire bouger !
+                    Le cercle bleu ne bouge pas, utilise <a href="pygame5_clavier_souris_events.py.html">le clavier</a> (version ponctuelle) pour faire pour le faire bouger !
                 </li>
                 <li>
-                    Cependant, ce déplacement est saccadé, il faut appuyer 5 fois sur <em>gauche</em> pour que le cercle avance plusieurs fois, utilise plutôt la <a href="pygame5_clavier_souris_events.py.html">version continue</a> des événements pour le faire bouger !
+                    Cependant, ce déplacement est saccadé, il faut appuyer 5 fois sur <em>gauche</em> pour que le cercle avance plusieurs fois, utilise plutôt la <a href="pygame6_clavier_souris_state.py.html">version continue</a> des événements pour le faire bouger !
                 </li>
             </ol>
             

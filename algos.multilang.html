@@ -21,7 +21,7 @@
                 overflow-x: auto;
                 border: 1px solid #ccc;
             }
-            section[name={{rebond|bounce}}] img {
+            section[name={{rebond|bounce}}] img:not([src^=flag]) { 
                 background-color: white;
                 border: 2px solid black;
                 padding: 5px;
@@ -30,7 +30,7 @@
                 cursor: pointer;
             }
             
-            section[name={{rebond|bounce}}] figure, section[name={{rebond|bounce}}] img {
+            section[name={{rebond|bounce}}] figure, section[name={{rebond|bounce}}] img:not([src^=flag]) {
                 width: 500px;
                 text-align: center;
             }
@@ -593,8 +593,8 @@
             </code></pre>
             
             <p>{{
-            La position à l'écran du perso vaudra donc <code>(perso.x - camera.x, perso.y - camera.y) = (perso.x - (perso.x - 350), perso.y - (perso.y - 250)) = (+350, +250)</code>
-            | The on screen position will then be <code>({{perso|charac}}.x - camera.x, {{perso|charac}}.y - camera.y) = ({{perso|charac}}.x - ({{perso|charac}}.x - 350), {{perso|charac}}.y - ({{perso|charac}}.y - 250)) = (+350, +250)</code>
+            La position à l'écran du perso vaudra donc <code>(perso.x - camera.x, perso.y - camera.y)</code> <code> = (perso.x - (perso.x - 350), perso.y - (perso.y - 250)) </code><code> = (+350, +250)</code>
+            | The on screen position will then be <code>(charac.x - camera.x, charac.y - camera.y) </code><code> = (charac.x - (charac.x - 350), charac.y - (charac.y - 250)) </code><code> = (+350, +250)</code>
             }}</p>
             
             <p>{{
