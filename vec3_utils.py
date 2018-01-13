@@ -89,7 +89,7 @@ def readvec(V, names):
         for i,x in enumerate(names)])
 
 def vec3(*args, **kwargs):
-    '''
+    """
     Returns numpy.array depending on arguments:
     vec3() -> (0,0,0)
     vec3(5) -> (5,5,5)
@@ -103,7 +103,7 @@ def vec3(*args, **kwargs):
     vec3(x=1,yz=(2,3)) -> (1,2,3)
     vec3(y=2,xz=(1,3)) -> (1,2,3)
     vec3(xyz=(1,2,3)) -> (1,2,3)
-    '''
+    """
     if args and kwargs:
         raise TypeError('vec3 accept either args or kwargs, not both')
     
@@ -225,7 +225,7 @@ def AxisRotationMatrix(angle, axis=Axis.Z):
 
 
 def RotationMatrix(angle, axe):
-    """ Rotation matrix for angle in degree around any axe
+    """Rotation matrix for angle in degree around any axe
     RotationMatrix(30, (0,0,1))
     """
     x, y, z = normalized(axe)
@@ -251,7 +251,7 @@ def RotationMatrix(angle, axe):
 
 
 def ScaleMatrix(kx, ky=None, kz=None):
-    """ ScaleMatrix
+    """ScaleMatrix
     ScaleMatrix(2) = ScaleMatrix(2,2,2)
     ScaleMatrix(1,2,3)
     """
@@ -267,7 +267,7 @@ def ScaleMatrix(kx, ky=None, kz=None):
     ])
 
 def IdentityMatrix():
-    """ IdentityMatrix
+    """IdentityMatrix
     IdentityMatrix()
     """
     return farray([

@@ -167,7 +167,7 @@ def main():
     screen = pygame.display.set_mode((512, 512), pygame.OPENGL | pygame.DOUBLEBUF)
     pygame.display.set_caption('Colorful birds')
     
-    glClearColor(0.001953125, 0.66796875, 1, 1)
+    glClearColor(135/255, 206/255, 235/255, 1)
     # glViewport(0, 0, 512, 512) # we don't have to do that because it's the size of the window
     glEnable(GL_DEPTH_TEST)
 

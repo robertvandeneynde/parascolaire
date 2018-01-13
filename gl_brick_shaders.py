@@ -67,14 +67,14 @@ def sind(x):
     return sin(radians(x))
 
 def vec2(x, y):
-    """ Create vector in 2 dimensions of correct type (numpy float32)
+    """Create vector in 2 dimensions of correct type (numpy float32)
     >>> vec2(4,5)
     array([4.0, 5.0], dtype=float32)
     """
     return farray((x, y))
 
 def vec3(*args):
-    """ Create vector in 3 dimensions of correct type (numpy float32)
+    """Create vector in 3 dimensions of correct type (numpy float32)
     >>> vec3(1,2,3)
     array([1.0, 2.0, 3.0], dtype=float32)
     >>> vec3((1,2),3)
@@ -91,7 +91,7 @@ def vec3(*args):
 
 
 def polar(*args):
-    """ Polar coordinate in radians
+    """Polar coordinate in radians
     >>> polar(pi/3)
     array([0.5, 0.8660254])
     >>> polar(10, pi/3)
@@ -108,7 +108,7 @@ def polar(*args):
 
 
 def polard(*args):
-    """ Polar coordinate in degrees
+    """Polar coordinate in degrees
     >>> polard(60)
     array([0.5, 0.8660254])
     >>> polar(10, 60)
@@ -128,7 +128,7 @@ def normalized(v):
 
 
 def PerspectiveMatrix(fovy, aspect, zNear, zFar):
-    """ PerspectiveMatrix
+    """PerspectiveMatrix
     PerspectiveMatrix(45, 16/9.0, 100, 2000)
     """
     f = 1.0 / tan(radians(fovy) / 2.0)
@@ -140,7 +140,7 @@ def PerspectiveMatrix(fovy, aspect, zNear, zFar):
     ])
 
 def LookAtMatrix(eye, target, up, *others):
-    """ LookAt: I am in "eye" I look at "target" and the up is "up"
+    """LookAt: I am in "eye" I look at "target" and the up is "up"
     LookAtMatrix(1,2,3, 4,5,6, 7,8,9)
     LookAtMatrix((1,2,3), (4,5,6), (7,8,9))
     """
@@ -165,7 +165,7 @@ def LookAtMatrix(eye, target, up, *others):
 
 
 def TranslationMatrix(*args):
-    """ TranslationMatrix
+    """TranslationMatrix
     TranslationMatrix(2,1,0)
     TranslationMatrix(2,1)
     TranslationMatrix((2,1,0))
@@ -193,7 +193,7 @@ class Axe:
     Z = 2
 
 def SimpleRotationMatrix(angle, axe=Axe.Z):
-    """ Rotation matrix for angle in degree around X Y or Z
+    """Rotation matrix for angle in degree around X Y or Z
     SimpleRotationMatrix(30, Axe.Z)
     """
     if angle % 90 == 0:
@@ -224,7 +224,7 @@ def SimpleRotationMatrix(angle, axe=Axe.Z):
 
 
 def RotationMatrix(angle, axe):
-    """ Rotation matrix for angle in degree around any axe
+    """Rotation matrix for angle in degree around any axe
     RotationMatrix(30, (0,0,1))
     """
     x, y, z = normalized(axe)
@@ -250,7 +250,7 @@ def RotationMatrix(angle, axe):
 
 
 def ScaleMatrix(kx, ky=None, kz=None):
-    """ ScaleMatrix
+    """ScaleMatrix
     ScaleMatrix(2) = ScaleMatrix(2,2,2)
     ScaleMatrix(1,2,3)
     """
@@ -266,7 +266,7 @@ def ScaleMatrix(kx, ky=None, kz=None):
     ])
 
 def IdentityMatrix():
-    """ IdentityMatrix
+    """IdentityMatrix
     IdentityMatrix()
     """
     return farray([

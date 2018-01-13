@@ -44,11 +44,11 @@ def accepted(path):
 
 lastgroup = len(GROUPINGS) - 1
 def content(path, indent=0):
-    '''
+    """
     hello/world.txt -> <a href="hello/world.txt">world.txt</a>
     hello (dir) -> hello <ul> <li>{}</li> ... <li>{}</li> </ul>
     hello.py -> html for: hello.py [txt] [py]
-    '''
+    """
     global lastgroup
     g = get_group_i(os.path.basename(path))
     changegroup = g != lastgroup

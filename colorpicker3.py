@@ -1,5 +1,5 @@
 #!coding: utf-8
-""" Fichier 3: Introduction d'un objet couleur. """
+"""Fichier 3: Introduction d'un objet couleur."""
 from __future__ import division, print_function
 
 import pygame

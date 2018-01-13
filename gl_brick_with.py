@@ -100,10 +100,10 @@ for i in range(12):
         briques.append(r)
 
 def draw_cube():
-    '''
+    """
     from (0,0,0) to (1,1,1)
     faces are ccw (counter clockwise : sens contraire des aiguilles d'une montre)
-    '''
+    """
     with BeginEnd(GL_TRIANGLES): # GL_QUADS is deprecated
     
         glNormal3f(0, 0, 1) # up

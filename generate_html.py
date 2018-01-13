@@ -12,18 +12,19 @@ except ImportError:
 from generate_utils import OutFile
     
 def django_format(template, **args):
-    ''' Difference with django : arguments are SAFE '''
+    """Difference with django : arguments are SAFE"""
     return re.sub(r'\{\{\s*([A-Za-z_][A-Za-z0-9_]*)\s*\}\}', lambda m: '{}'.format(args.get(m.group(1), '')), template)
 
 def format_list_ls_style(li, W=100, FW=None):
-    li = list(map("{}".format, li))
-    '''
+    """
     Demo:
     for i in range(0,70,5):
         print(i * '-')
         print(format_list_ls_style(['hello', 'world', 'how', 'is', 'life', 'yo', 'wadup', 'I have'], i))
-    '''
-    if FW is None: FW = W
+    """
+    li = list(map("{}".format, li))
+    if FW is None:
+        FW = W
     # assert FW <= W
     
     if sum(map(len,li)) + len(li) < FW:

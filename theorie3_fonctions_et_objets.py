@@ -133,7 +133,7 @@ c = calculer_maximum(une_belle_liste) + calculer_maximum(une_autre_liste)
 # quand une fonction a accès à un objet ellepeut modifier ses attributs
 
 def donner_potion(perso, montant):
-    """ Donne "montant" pv à un perso "perso" sans dépasser son maximum de vie """
+    """Donne "montant" pv à un perso "perso" sans dépasser son maximum de vie """
     perso.vie = perso.vie + montant
     if perso.vie > perso.max_vie:
         perso.vie = perso.max_vie
@@ -410,13 +410,13 @@ g = f()
 
 class Personnage:
     def boire_potion(self, montant):
-        """ Donne montant pv à un perso sans dépasser son maximum de vie """
+        """Donne montant pv à un perso sans dépasser son maximum de vie"""
         self.vie = self.vie + montant
         if self.vie > self.max_vie:
             self.vie = self.max_vie
             
     def crier(self):
-        """ Affiche un cri de guerre à l'écran """
+        """Affiche un cri de guerre à l'écran"""
         print("Bouh!")
 
 bob = Personnage()
@@ -471,7 +471,7 @@ class Personnage:
         self.max_vie = max_vie
         
     def crier(self):
-        """ Affiche un cri de guerre à l'écran """
+        """Affiche un cri de guerre à l'écran"""
         print("Bouh!")
         
     def boire_potion(self, x):

@@ -191,7 +191,7 @@
             <li>
                 <p>
                 Les couleurs en OpenGL sont de 0 à 1
-                (voir explications <a href="turtle.fr.html#color">ici</a>),
+                (voir explications <a href="turtle.fr.html#color-explanation">ici</a>),
                 une couleur qui était par exemple de <code>[255, 153, 0]</code> sera maintenant de <code>[255/255, 153/255, 0/255]</code> et donc <code>[1, 0.6, 0]</code>.
             </li>
             
@@ -300,7 +300,7 @@
                 <p>On a donc trois points dont les XY valent (0.6, 0.6), (−0.6, 0.6) et (0, −0.6). La coordonnée en Z sera de 0 (on la changera plus tard), et la dernière coordonnée (appelée <em>W</em>) sera toujours de 1.
                 Pour en savoir plus sur <em>W</em>, voir la page de <a href="math.{{fr|en}}.html#translation">math (translation)</a>.
                 
-                <p>Bien quand dans le future nous utiliserons plutôt un repère <em>main droite</em> (<em>dextrogyre</em>),
+                <p>Bien que dans le futur nous utiliserons plutôt un repère <em>main droite</em> (<em>dextrogyre</em>),
                 le repère de base OpenGL est <em>main gauche</em> (<em>lévogyre</em>).
                 
                 <figure>
@@ -330,7 +330,7 @@
                 
                 <p>
                 Quand nous serons vraiment en 3D, nous utiliserons la convention <strong>dextrogyre</strong> de <strong>Z vers le haut</strong>.
-                D'autres personnes (comme ThinMatrix) utilise la convention <strong>Y vers le haut</strong>.
+                D'autres personnes (comme ThinMatrix) utilisent la convention <strong>Y vers le haut</strong>.
                 
                 <p>La carte graphique veut un <code>farray</code>, il faut donc faire la conversion.
                 
@@ -380,16 +380,15 @@
                 </code></pre>
                 
                 <p>D'où vient ce <strong>48</strong> ? C'est le nombre d'octets (bytes) qu'on envoie.
-                Vu qu'on est dans un <code>farray</code>, chaque nombre fait <strong>4</strong> octets,
                 ce qui nous fait donc <strong>48</strong> octets qu'on envoie.
                 
                 <p>Cependant on pourrait aussi faire ceci pour ne pas devoir calculer le nombre d'octets :
                 
                 <pre><code class="py">
-                glBufferData(GL_ARRAY_BUFFER, ArrayDatatype.arrayByteCount(vertices), vertices, GL_STATIC_DRAW) # 48 bytes
+                glBufferData(GL_ARRAY_BUFFER, <mark>ArrayDatatype.arrayByteCount(vertices)</mark>, vertices, GL_STATIC_DRAW) # 48 bytes
                 </code></pre>
                 
-                <p>Finalement, le <code>GL_STATIC_DRAW</code> est un indice donné à la carte graphique disant que ces données ne changeront jamais, mais peu de <em>drivers</em> lit cet indice il paraît.
+                <p>Finalement, le <code>GL_STATIC_DRAW</code> est un indice donné à la carte graphique disant que ces données ne changeront jamais.
                 
                 <p>Les données, les 48 bytes, sont dans la carte graphique, on doit maintenant donner plus d'infos, ce ne sont pas des bytes, ce sont des coordonnées pardi ! Direction <em>VAO</em> !
             </li>
@@ -819,7 +818,7 @@
         <figure>
             <div class="imgframe" style="display:inline-block; width:400px;">
                 <img src="texture_on_triangle.png" width=400 />
-                <figcaption>Mon <em>magnifique</em> <em>oiseau</em>, 3D, en perspective, coloré avec un gradient (ou <em>3 triangles avec interpolation de couleur</em> qui ont subit des matrices de transformation).</figcaption>
+                <figcaption>Un triangle avec une texture appliquée.</figcaption>
             </div>
         </figure>
         
