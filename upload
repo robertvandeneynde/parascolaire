@@ -1,2 +1,3 @@
 cd /home/robert/parascolaire
-rsync -r --delete . robert@robertvandeneynde.be:siteperso/parascolaire --exclude=upload --exclude=.git --exclude=private --exclude=presences
+rsync -r --delete . robert@robertvandeneynde.be:siteperso/parascolaire --exclude=home --exclude=upload --exclude=.git --exclude=private --exclude=presences
+rsync -r home robert@robertvandeneynde.be:siteperso/parascolaire/

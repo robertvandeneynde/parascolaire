@@ -13,8 +13,7 @@ vertex_shader = """
 
 in vec4 position;
 
-void main()
-{
+void main() {
     gl_Position = position;
 }
 """
@@ -24,8 +23,7 @@ fragment_shader = """
 
 out vec4 pixel;
 
-void main()
-{
+void main() {
     pixel = vec4(1, 0.5, 0, 1);
 }
 """

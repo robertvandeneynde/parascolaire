@@ -96,7 +96,7 @@
                 <li>Quelle est la <strong>taille de l'écran</strong>, en pixels ?
                 <li>Vous voyez 3 formes, un rectangle rouge, un grand cercle bleu et un petit cercle vert, ils ont une certaine position et une certaine taille, <strong>quelles lignes de code indiquent précisément ces informations</strong> ?
                 <li>Changez la <strong>couleur</strong>, la <strong>position</strong> et la <strong>taille</strong> des éléments, vous pouvez même en dessiner un <strong>quatrième</strong>.
-                    Je rappelle qu'une couleur est définie par 3 entiers entre 0 et 255, indiquant la composante de rouge, de vert, et de bleu, petit rappel <a href="/turtle.fr.html#color">ici</a>.
+                    Je rappelle qu'une couleur est définie par 3 entiers entre 0 et 255, indiquant la composante de rouge, de vert, et de bleu, petit rappel <a href="turtle.fr.html#color">ici</a>.
                 <li>On aimerait que la balle verte se déplace vers la droite, il faut créer une <strong>variable</strong> que vous appelez comme vous voulez, que ce soit <code>a</code>, <code>pos</code> ou <code>ma_position</code>.
                   <ol>
                     <li>Au tout début du code, ajoutez <code>ma_position = 100</code> par exemple.
@@ -115,7 +115,12 @@
                         <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.
                     </ol>
                 </li>
-                <li>On peut faire deux dessins différents en fonction du sens ! Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>. Les triangles peuvent être dessinés avec <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code> ou avec une <a href="pygame7_images.py">image</a>.
+                <li>On peut faire deux dessins différents en fonction du sens !
+                    Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>.
+                    Les triangles peuvent être dessinés avec <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code>.
+                    
+                <li>À la place de formes géométriques, vous pouvez aussi mettre des <a href="pygame7_images.py.html">images</a>
+                    comme par exemple <a href="3D-icon-bird.png">celle-ci</a> ou <a href="player.png">celle-là</a>.
                 
             <figure>
                 <img src="triangle.svg" />
@@ -163,7 +168,7 @@
                 Afin de structurer son programme, on peut également faire des <a href="theorie3_fonctions_et_objets.py.html">objets et des fonctions</a>.
             </p>
             
-            <p>Plus de programmation&nbsp;? Lisez mes <a href="index.html#progra">fichiers de programmation</a>.</p>
+            <p>Plus de programmation ? Lisez mes <a href="index.html#progra">fichiers de programmation</a>.</p>
             
             <p>
                 Vous pouvez également lire ma page de <a href="math.html">math</a>, par exemple pour faire des polygones réguliers.
@@ -171,7 +176,7 @@
             
             <figure>
                 <img src="hexagon-math.svg" />
-                <figcaption>Pour dessiner un hexagone avec la fonction <code>draw.polygon</code>, on fait des <a href="math.html">maths</a>&nbsp;!</figcaption>
+                <figcaption>Pour dessiner un hexagone avec la fonction <code>draw.polygon</code>, on fait des <a href="math.html">maths</a> !</figcaption>
             </figure>
             
             <p>
@@ -179,7 +184,7 @@
             </p>
             
             <p>
-                Si vous êtes à l'aise et motivé, il est même possible d'apprendre plus, comme écrire dans <a href="progra_fichier.py.html">les fichiers</a> ou bases de données. Faire de la <a href="gl_brick.py.html">3D</a> ou du réseau&nbsp;!
+                Si vous êtes à l'aise et motivé, il est même possible d'apprendre plus, comme écrire dans <a href="progra_fichier.py.html">les fichiers</a> ou bases de données. Faire de la <a href="3D.{{fr|en}}.html">3D</a> ou du réseau&nbsp;!
             </p>
             
         </section>

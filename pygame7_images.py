@@ -2,15 +2,14 @@
 #!coding: utf-8
 
 """
-on crée des images, et on les blitte (blit = dessiner)
-plus d'infos sur : http://programarcadegames.com/index.php?chapter=bitmapped_graphics_and_sound&lang=fr
+On crée des images, et on les blitte (blit = dessiner).
+Plus d'infos [ici](http://programarcadegames.com/index.php?chapter=bitmapped_graphics_and_sound&lang=fr).
 
-attention aux images tournées, leur taille change 
-essayez de faire pygame.draw.rect(ecran, rouge, [0,0,image_perso_tournee.get_width(), image_perso_tournee.get_height()], 1)
-question : comment faire pour dessiner une image telle sorte que son centre soit en 200,300?
+Attention aux images tournées, leur taille change.
+Essayez de faire pygame.draw.rect(ecran, rouge, [0,0,image_perso_tournee.get_width(), image_perso_tournee.get_height()], 1)
+Question : comment faire pour dessiner une image telle sorte que son centre soit en 200,300 ?
 
-Certaines images ne gèrent pas la transparence
-en faisant
+Certaines images ne gèrent pas la transparence, cependant en écrivant
 image_perso.set_colorkey(noir)
 on lui indique la couleur qui doit devenir transparente à l'affichage
 """
@@ -31,7 +30,7 @@ rouge = [255,0,0]
 blanc = [255,255,255]
 
 # on charge l'image
-image_perso = pygame.image.load('player.png').convert_alpha()
+image_perso = pygame.image.load('player.png').convert_alpha() # Téléchargez l'image [ici](https://robertvandeneynde.be/parascolaire/player.png)
 # image_perso est une "surface de pixels"
 # convert_alpha va garder la transparence
 
