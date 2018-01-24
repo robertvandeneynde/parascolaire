@@ -4,7 +4,14 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
         <link href="python.png" rel="icon" type="image/png"/>
-        <title>{{ Tutoriel et idées de projet | Tutorial and ideas for a project }}</title>
+        <title>{{ Tutoriel et idées de projet | Tutorial and projet ideas }}</title>
+        
+        <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/projet-michal.png" />
+        <meta property="og:description" content="{{ Cours de programmation informatique pour des élèves de 14-15 ans | Programming class for students aged around 14-15 years old }}" />
+        <!-- <meta property="og:url" content="" /> -->
+        <meta property="og:title" content="{{ Parascolaire programmation de jeux vidéo - Tutoriel et idées de projets | Video games programming class - Tutorial and projets ideas }}" />
+        <meta property="og:type"   content="article" /> 
+        
         <link rel="stylesheet" type="text/css" href="base.css" />
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="animations.js"></script>
@@ -33,6 +40,7 @@
             $(function(){
                 hljs.initHighlightingOnLoad()
                 utils.makeTitleLinks()
+                utils.dedentPreCode()
             })
         </script>
     </head>
@@ -85,64 +93,126 @@
             <a href="#agario">Agario</a> 
             <a href="#bomberman">Bomberman</a> 
             <a href="#rpg">RPG</a> 
+            <a href="#demineur">Démineur</a> 
         </nav>
         
         <h2 id="{{tutoriel|tutorial}}">{{ Tutoriel | Tutorial }}</h2>
         <section name="{{tutoriel|tutorial}}">
         
-            <p>Le premier défi demandé au cours sera de copier le <a href="pygame0_code_minimal.py.html">code de base</a> et d'effectuer ces exercices&nbsp;:</p>
+            <p>Le premier défi demandé au cours sera de copier le <a href="pygame0_code_minimal.py.html">code de base</a> et d'effectuer ces exercices :
             
+            <p><em>La correction de ce tutoriel se trouve sur mon
+            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials">
+                github/parascolaire-tutorials</a>, branche
+            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/tree/2D_tutorial">
+                2D_tutorial</a>, via
+            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commits/2D_tutorial">
+                de nombreuses versions</a>.
+                
+            Une autre version de ce tutoriel se trouve sur 
+            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/tree/2D_tutorial_images">
+                2D_tutorial_images</a>, via
+            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commits/2D_tutorial_images">
+                de nombreuses versions</a>.</em>
+                
             <ol>
                 <li>Quelle est la <strong>taille de l'écran</strong>, en pixels ?
                 <li>Vous voyez 3 formes, un rectangle rouge, un grand cercle bleu et un petit cercle vert, ils ont une certaine position et une certaine taille, <strong>quelles lignes de code indiquent précisément ces informations</strong> ?
                 <li>Changez la <strong>couleur</strong>, la <strong>position</strong> et la <strong>taille</strong> des éléments, vous pouvez même en dessiner un <strong>quatrième</strong>.
                     Je rappelle qu'une couleur est définie par 3 entiers entre 0 et 255, indiquant la composante de rouge, de vert, et de bleu, petit rappel <a href="turtle.fr.html#color">ici</a>.
-                <li>On aimerait que la balle verte se déplace vers la droite, il faut créer une <strong>variable</strong> que vous appelez comme vous voulez, que ce soit <code>a</code>, <code>pos</code> ou <code>ma_position</code>.
+                
+                <li>On aimerait que la <strong>balle verte</strong> se déplace vers la droite, il faut créer une <strong>variable</strong> que vous appelez comme vous voulez, que ce soit <code class="py">a</code>, <code class="py">pos</code> ou <code class="py">ma_position</code>.
                   <ol>
-                    <li>Au tout début du code, ajoutez <code>ma_position = 100</code> par exemple.
-                    <li>Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à <code>ma_position</code>.
-                    <li>Finalement, le cercle ne devra plus être dessiné en <code>[150, 80]</code> mais en <code>[ma_position, 80]</code>.</li>
+                    <li>Au tout début du code, ajoutez <code class="py">ma_position = 100</code> par exemple.
+                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e90de31ca0a3f49a1839c0e344ac084965f76ee0">
+                            [Correction]</a>
+                    
+                    <li>Et à chaque tick (dans la boucle <em>while</em>), on ajoute +1 à <code class="py">ma_position</code>.
+                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/607b860f23be8145e6dcd88e04dac0f4a3df42e9">
+                            [Correction]</a>
+                    
+                    <li>Finalement, le cercle ne devra plus être dessiné en <code class="py">[150, 80]</code> mais en <code class="py">[ma_position, 80]</code>.
+                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/fb83a5de0c873ee69b6e93b3a5487a8263d9aa83">
+                            [Correction]</a>
                   </ol>
-                <li>Elle avance un peu lentement, comment faire pour qu'elle avance de 5 pixels par tick ?</li>
-                <li>Elle sort de l'écran... Vu que l'écran est de taille 700×500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.</li>
-                <li>Comment faire pour que la balle avance vers la <strong>gauche</strong> ?</li>
-                <li>Comment faire pour que la balle <strong>commence à droite</strong> de l'écran ?</li>
+                
+                <li>Elle avance un peu lentement, comment faire pour qu'elle avance de 5 pixels par tick ?
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/4779ee7d0a6b4d8ee649fbd681a36d9e8198c45b">
+                        [Correction]</a>
+                
+                <li>Elle sort de l'écran... Vu que l'écran est de taille 700×500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/0f300a3175af3afcc849e5c216b336baffba1991">
+                        [Correction]</a>
+                    
+                <li>Comment faire pour que la balle avance vers la <strong>gauche</strong> ?
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/256ba531ca6eb76e4929e8c3ff5310ecf7f252fb">
+                        [Correction]</a>
+                
+                <li>Comment faire pour que la balle <strong>commence à droite</strong> de l'écran ?
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e5d4410f35219a0a786f5f85588a172af5c97569">
+                        [Correction]</a>
+                
                 <li>Maintenant la balle reste dans l'écran mais ne rebondit pas, nous faisons ça en trois étapes :
                     <ol>
-                        <li>Il faut créer une <strong>variable</strong> <code>sens</code> qui mémorisera si la balle va à gauche ou à droite. Par exemple, si la balle va à droite <code>sens = 1</code>, et si elle va à gauche <code>sens = -1</code>. À la place de <code>-1</code> et <code>1</code>, on peut aussi dire 1 et 2, ou 0 et 1 !
-                        <li>Le déplacement sera donc une <strong>condition</strong> : <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em>.
-                        <li>Vérifiez que la balle va vers la gauche quand vous imposez que <code>sens</code> vaut <code>-1</code> au début du code.
-                        <li>Il faut pouvoir changer de sens, <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1.</em>.
+                        <li>Il faut créer une <strong>variable</strong> <code class="py">sens</code>
+                            qui mémorisera si la balle va à gauche ou à droite.
+                            Par exemple, si la balle va à droite <code class="py">sens = 1</code>,
+                            et si elle va à gauche <code class="py">sens = -1</code>.
+                            À la place de <code class="py">-1</code> et <code class="py">1</code>,
+                            on peut aussi dire 1 et 2, ou 0 et 1 !
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/3d25ee5927698fe1503aba8453b82825d069d595">
+                                [Correction]</a>
+                        
+                        <li>Le déplacement sera donc une <strong>condition</strong> :
+                            <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em>.
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/9f101a44135700685c7a75475f4c9be0b6032481">
+                                [Correction]</a>
+                        
+                        <li>Vérifiez que la balle va vers la gauche quand vous imposez que
+                            <code class="py">sens</code> vaut <code class="py">-1</code> au début du code.
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/b4048bea3f0847de99aa9bbf0834c3abe91b8004">
+                            [Correction]</a>
+                        
+                        <li>Il faut pouvoir changer de sens,
+                            <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1</em>.
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/966ca3cc9b44b753d5f2bb58bf36097f04a7e56a">
+                                [Correction 1]</a>
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/b5b80e15ffedf882b2ee78eea22d4b54c6bd235d">
+                                [Correction 2]</a>
                     </ol>
                 </li>
+                
                 <li>On peut faire deux dessins différents en fonction du sens !
                     Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>.
-                    Les triangles peuvent être dessinés avec <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code>.
+                    Les triangles peuvent être dessinés avec <code class="py">pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code>
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/9d428ce5eb8ff62206deedfd44a6a52195276ce1">
+                        [Correction 1]</a>
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/d4d500a3f67fc3dc5a28ec5733168ad18700ca50">
+                        [Correction 2]</a>
                     
+            <figure>
+                <img src="triangle.svg" />
+                <figcaption>Un triangle dessiné grâce à la commande <code class="py">pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code></figcaption>
+            </figure>
+            
+                <li>Que sera la commande <code class="py">draw.polygon</code> pour que le triangle bouge avec le cercle ?
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/6edca4a554c11419eb1f9ee88ac2c6c5c1b444f5">
+                    [Correction 1]</a>
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e86109ce7430f5270de14a81605ce24a95109d6a">
+                    [Correction 2]</a>
+                
+                <li>Quelle est la position du centre du triangle ?
+                    Quelle sera la commande <code class="py">draw.polygon</code> pour que <code class="py">ma_position</code> représente le centre ?
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/87099ea28f48b40e9a29648878078795c617c31d">
+                        [Correction]</a>
+                
                 <li>À la place de formes géométriques, vous pouvez aussi mettre des <a href="pygame7_images.py.html">images</a>
                     comme par exemple <a href="3D-icon-bird.png">celle-ci</a> ou <a href="player.png">celle-là</a>.
                 
-            <figure>
-                <img src="triangle.svg" />
-                <figcaption>Un triangle dessiné grâce à la commande <code>pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code></figcaption>
-            </figure>
-            
-                </li>
-                
-                <li>
-                    Que sera la commande <code>draw.polygon</code> pour que le triangle bouge avec le cercle ?
-                </li>
-                
-                <li>
-                    Quelle est la position du centre du triangle ?
-                    Quelle sera la commande <code>draw.polygon</code> pour que <code>ma_position</code> représente le centre ?
-                </li>
-                <li>
-                    Le cercle bleu ne bouge pas, utilise <a href="pygame5_clavier_souris_events.py.html">le clavier</a> (version ponctuelle) pour faire pour le faire bouger !
-                </li>
-                <li>
-                    Cependant, ce déplacement est saccadé, il faut appuyer 5 fois sur <em>gauche</em> pour que le cercle avance plusieurs fois, utilise plutôt la <a href="pygame6_clavier_souris_state.py.html">version continue</a> des événements pour le faire bouger !
-                </li>
+                <li>Le cercle bleu ne bouge pas, utilise <a href="pygame5_clavier_souris_events.py.html">le clavier</a> (version ponctuelle) pour faire pour le faire bouger !
+                    
+                <li>Cependant, ce déplacement est saccadé, il faut appuyer 5 fois sur <em>gauche</em> pour que le cercle avance plusieurs fois, utilise plutôt la <a href="pygame6_clavier_souris_state.py.html">version continue</a> des événements pour le faire bouger !
+                    
             </ol>
             
         </section>
@@ -176,7 +246,7 @@
             
             <figure>
                 <img src="hexagon-math.svg" />
-                <figcaption>Pour dessiner un hexagone avec la fonction <code>draw.polygon</code>, on fait des <a href="math.html">maths</a> !</figcaption>
+                <figcaption>Pour dessiner un hexagone avec la fonction <code class="py">draw.polygon</code>, on fait des <a href="math.html">maths</a> !</figcaption>
             </figure>
             
             <p>
@@ -201,6 +271,7 @@
             <a href="#agario">Agario</a> 
             <a href="#bomberman">Bomberman</a> 
             <a href="#rpg">RPG</a> 
+            <a href="#demineur">Démineur</a> 
         </nav>
         
         <h2 id="pong">Pong</h2>
@@ -408,6 +479,143 @@
         <section>
             <p>Un rpg, comme Zelda en 2D. Ici c'est trop vaste pour vous proposer un projet, libre cours à votre imagination.</p>
             <p>Pokemon est également un chouette exemple de RPG.</p>
+        </section>
+        
+        <h2 id="demineur">Démineur</h2>
+        
+        <section>
+            <ol>
+                <li>Dessiner un carré (disons de largeur 20 et positionné à 10 pixels de l'écran), faire un code qui print hello quand on clique dessus.
+                    <a href="algos.html#collisions">[collisions]</a>
+                    <a href="pygame5_clavier_souris_events.py.html">[souris - event]</a>
+                    
+                <li>Dessiner maintenant 4 carrés en une grille 2×2, (disons que chaque carré est séparé du suivant avec 5 pixels). Comment savoir sur quel carré on a cliqué ?
+                
+                <li>On va maintenant rajouter <strong>deux</strong> bombes dans notre grille (disons en haut à droite et en bas à gauche).
+                    Pour cela il faudra dire que chaque carré a une bombe ou non, comment encoder cette information ?
+                    Je vois deux solutions assez différentes :
+                
+                <ol>
+                    <li>
+                        Méthode <em>Case</em> (je recommande) :
+                        
+                        <ul>
+                        
+                            <li>Chaque carré aura besoin d'une variable <em>bombe</em> qui vaudra 1 s'il y a une bombe.
+                                On créera donc 4 variables <code class="py">bombe_haut_droite</code>, <code class="py">bombe_haut_gauche</code>, <code class="py">bombe_bas_droite</code>, <code class="py">bombe_bas_gauche</code>, 
+                        
+                            <li>Dessiner le terrain en dessinant une bombe sur les cases où il y en a une.
+                                Pour chaque case, vous faites un <code class="py">if</code> pour savoir si vous devez dessiner une bombe dans la case.
+                        
+                        </ul>
+                        
+                    <li>Méthode <em>Bombe</em> :
+                    
+                        <ul>
+                            <li>Faire un <a href="theorie3_fonctions_et_objets.py.html">objet</a> <code class="py">Bombe</code> qui contient le <code class="py">x</code> et le <code class="py">y</code>.
+                                On aura donc deux objets, <code class="py">bombe1</code> et <code class="py">bombe2</code>.
+                            <li>Dessiner le terrain en dessinant une bombe sur les cases où il y en a une.
+                                Vous pouvez d'abord dessinner la grille et puis les bombes.
+                        </ul>
+                            
+                </ol>
+                    
+                <li>Coder ce comportement: <em>si on clique sur une case qui n'est pas sur une bombe, augmenter son score de 1</em>.
+                    Il faudra créer une variable <code class="py">score</code> et <a href="algos.fr.html#afficherint">l'afficher</a> !
+                    Le jeu est actuellement facile car on voit les bombes.
+                    
+                <li>Coder ce comportement: <em>si on clique sur une case qui est une bombe, afficher un écran de game over</em>.
+                    Créer une variable <code>a_perdu</code> qui vaudra 1 si le joueur a perdu et 0 si le joueur est encore en jeu.
+                    En fonction de cette variable vous saurez si vous devez afficher l'écran de game over.
+                
+                <li>Finalement, si on arrive au score maximal (nombre de cases moins le nombre de bombes), afficher un écran de gagné !
+                    Vous pouvez remplacer votre variable <code>a_perdu</code> par une variable <code>etat_partie</code>
+                    qui vaut 0 si le joueur joue, 1 s'il a gagné et 2 s'il a perdu.
+                
+                <li>Quand le joueur perd, vous pouvez afficher les bombes sur l'écran de game over, alors qu'avant il ne les voit pas.
+                    Vous dessinerez les bombes uniquement si le joueur a perdu.
+                    
+                <li>(Méthode <em>Case</em>) Faire une <strong>liste</strong> de cases pour pouvoir gérer les 4 cases de la même manière.
+                                
+                        <ul>
+                            <li>On pourra choisir une liste de taille 4.
+                        
+                            <pre><code class="py">
+                                terrain = [0, 1, 1, 0] # deux bombes !
+                            </code></pre>
+                        
+                            <li>Ou une liste de taille 2 contenant elle-même deux listes (une liste de liste), je recommande cette méthode.
+                            
+                            <pre><code class="py">
+                                terrain = [[0, 1], [1, 0]] # deux bombes !
+                            </code></pre>
+                        </ul>
+                    
+                <li>(Méthode <em>Bombe</em>) Faire une <strong>liste</strong> de bombes pour pouvoir gérer facilement les 2 bombes du jeu.
+                
+                <li>Faire maintenant une grille de taille variable, 10×10 par exemple, créez une variable <code class="py">taille = 10</code> qui permettra de facilement changer la taille du jeu.
+                    Il faudra aussi une autre variable qui dit combien de bombes seront placées via <code class="py">total_bombes = 20</code> par exemple.
+                
+                <li>Faire en sorte que qu'il y a bien le nombre de bombes demandé, placez les au hasard avec <a href="progra_hasard.py.html">progra_hasard</a> !
+                
+                <li>On veut maintenant que notre jeu soit plus sympa, et on va coder les indicateurs de bombes !
+                    Faire un <a href="theorie3_fonctions_et_objets.py.html">objet</a> <code class="py">Case</code> qui contiendra une ou deux informations :
+                    <ol>
+                        <li><code class="py">nb_bombe</code>: Le nombre de bombe autour de la case (peut être zéro).
+                        <li>(Méthode <em>Case</em> uniquement)<code class="py">bombe</code>: Vaudra 1 si c'est une bombe, sinon zéro.
+                    </ol>
+                    
+                    On aurait pu encoder ces deux (cette seule) information(s) en un seul nombre mais en structurant comme ça on peut facilement rajouter des autres <em>attributs</em> à la case.
+                
+                <li>Le terrain sera donc une liste d'objet Case plutôt qu'une liste de nombres.
+                
+                <li>(Méthode <em>Bombe</em>), faire un terrain qui contient des cases !
+                
+                    <ul>
+                        <li>Soit une liste de case, donc par exemple pour 4 cases :
+                    
+                        <pre><code class="py">
+                            terrain = [0, 1, 1, 0] # deux bombes sur un terrain 2×2 !
+                        </code></pre>
+                        
+                        Attention, le terrain ne contiendra pas des nombres, mais des objets <em>Case</em> !
+                    
+                        <li>Ou une liste de taille 2 contenant elle-même deux listes (une liste de liste), je recommande cette méthode.
+                        
+                        <pre><code class="py">
+                            terrain = [[0, 1], [1, 0]] # deux bombes sur un terrain 2×2 !
+                        </code></pre>
+                        
+                        Attention, le terrain ne contiendra pas des nombres, mais des objets <em>Case</em> !
+                        
+                    </ul>
+                
+                <li>Mettez <code class="py">nb_bombe</code> au hasard pour l'instant pour toutes les cases, et afficher cette valeur dans la case avec du <a href="pygame8_texte.py.html">texte</a>.
+                    Vous pouvez également faire varier la couleur en fonction du nombre comme dans le vrai démineur.
+                
+                <li>Il faut maintenant remplir les informations <code class="py">nb_bombe</code> après avoir placé les bombes.
+                    Pour cela je propose un algo comme ceci:
+                    
+                    <pre><code class="py">
+                    pour chaque case:
+                        n = 0
+                        if bombe à droite de case:
+                            n = n + 1
+                        
+                        if bombe en haut de case:
+                            n = n + 1
+                        
+                        if bombe en bas de case:
+                            n = n + 1
+                        ...
+                        
+                        case.nb_bombe = n
+                    </code></pre>
+                
+                <li>La dernière chose à faire pour avoir un vrai démineur, est de faire que lorsqu'on clique sur une case n'ayant pas de bombe comme voisin, ça clique automatiquement sur ses voisins.
+                    La meilleure manière de faire ça est avec une fonction récursive, je te guiderai pour l'écriture de cette fonction.
+                
+               
         </section>
         
     </div>
