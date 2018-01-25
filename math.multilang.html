@@ -92,7 +92,7 @@
     </h1>
     
     <nav>
-        <a href="algos.{{en|fr}}.html"><img src="flag-{{en|fr}}.png" /></a>
+        <a href="math.{{en|fr}}.html"><img src="flag-{{en|fr}}.png" /></a>
     </nav>
     
     <nav>
@@ -1722,7 +1722,7 @@
             
             <p>En termes plus mathématiques, une matrice peut représenter toute transformation <em>linéaire</em>. Pour savoir ce qu'est une transformation linéaire, clique sur le bouton suivant, sinon passe à la suite.</p>
             
-            <span class="developpement" symbol="Une transformation T est linéaire si...">
+            <span id="linearity-demo" class="developpement" symbol="Une transformation T est linéaire si...">
             
             <p>Une transformation $T$ est <em>linéaire</em> si $\forall\ \vec{a}, \vec{b}, k:$</p>
             
@@ -1939,7 +1939,7 @@
             
             <p>$\cases{x' = x + 4\\y' = y + 2}$</p>
             
-            <p>Cependant, ce n'est pas une transformation représentable par une matrice. En terme technique on dit qu'elle n'est pas <em>linéaire</em>. Mais on remarque ceci :</p>
+            <p>Cependant, ce n'est pas une transformation représentable par une matrice. En terme technique on dit qu'elle n'est pas <em>linéaire</em> (voir <a href="#linearity-demo">plus haut</a> pour la définition). Mais on remarque ceci :</p>
             
             <p>$\cases{x' = \color{red}{1} \cdot x + \color{red}{0} \cdot y + \color{red}{4} \cdot 1\\y' = \color{blue}{1} \cdot x + \color{blue}{0} \cdot y + \color{blue}{2} \cdot 1}$</p>
             
@@ -2070,13 +2070,19 @@
                 <p>$M = T_{\vec{c}} \times R_{\theta} \times T_{-\vec{c}}$</p>
             </span>
         
-        <!-- <h3>Repères</h3>
+        <h3 id="{{repere|axes-system}}">Repères</h3>
+        
+            <p>[Section en création]</p>
+        
+        <!--
         <p>
             D'autres vecteurs peuvent être choisis pour faire une <em>base</em>, cela donne un changement de repère.
             Si je choisis par exemple $\vec{h}_1 = (1,1), \vec{h}_2 = (2,-1)$. Le vecteur $\vec{a} = (0,1)$ s'exprime $\vec{a} = 2 \cdot \vec{h}_1 + (-1) \cdot \vec{h}_2$ et donc aura les coordonnées $(2,-1)$ dans le repère $h = (\vec{h}_1, \vec{h}_2)$.
             En terme mathématiques, on dit que $2 \cdot \vec{h}_1 + (-1) \cdot \vec{h}_2$ est une <em>combinaison linéaire</em> des vecteurs $\vec{h}_1, \vec{h}_2$.
             Biensûr, je ne peux pas choisir deux vecteurs dans la même direction, ils ne permetteront pas de reconstruire n'importe quel vecteur. Si ma base avait été $\vec{e}_x = (1,0), \vec{e}_y = (-2,0)$, j'aurais du mal à faire le vecteur $(1,1)$.
         </p>
+        
+        <p>[Ici un paragraphe qui parle du fait que right-multiplier par une matrice = déplacer le repère]</p>
         -->
         
         <h3 id="3D">En 3D</h3>

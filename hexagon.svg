@@ -13,7 +13,7 @@
    height="120.94143"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.92.1 r15371"
    sodipodi:docname="hexagon.svg">
   <sodipodi:namedview
      id="base"
@@ -23,7 +23,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="199.73171"
+     inkscape:cx="137.05314"
      inkscape:cy="31.167735"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -35,9 +35,9 @@
      inkscape:snap-object-midpoints="true"
      inkscape:snap-intersection-paths="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1060"
-     inkscape:window-x="-2"
-     inkscape:window-y="-3"
+     inkscape:window-height="993"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:snap-page="true"
      fit-margin-top="0"
@@ -68,16 +68,15 @@
      inkscape:label="Layer 1">
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        x="349.47577"
        y="908.3302"
-       id="text4721-8-5"
-       sodipodi:linespacing="125%"><tspan
+       id="text4721-8-5"><tspan
          sodipodi:role="line"
          id="tspan4723-8-5"
          x="349.47577"
          y="908.3302"
-         style="font-size:24px">20</tspan></text>
+         style="font-size:24px;line-height:1.25;font-family:sans-serif">20</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 300,952.36218 43.30128,-25 0,-50 -43.30124,-25 -43.30128,25 -2e-5,50 z"
@@ -92,7 +91,7 @@
        style="fill:#000000;stroke:#ffffff;stroke-width:0.36871913;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <path
        sodipodi:type="arc"
-       style="fill:none;stroke:#000000;stroke-width:0.48910046;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.48910045, 0.48910045;stroke-dashoffset:0"
+       style="fill:none;stroke:#000000;stroke-width:0.48915361;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.93492167,2.93492167;stroke-dashoffset:0"
        id="path4815"
        sodipodi:cx="326.27927"
        sodipodi:cy="266.14459"
@@ -104,15 +103,14 @@
        sodipodi:end="4.712516" />
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        x="214.89751"
        y="882.46381"
-       id="text4721-8-5-1"
-       sodipodi:linespacing="125%"><tspan
+       id="text4721-8-5-1"><tspan
          sodipodi:role="line"
          id="tspan4723-8-5-3"
          x="214.89751"
          y="882.46381"
-         style="font-size:24px">60°</tspan></text>
+         style="font-size:24px;line-height:1.25;font-family:sans-serif">60°</tspan></text>
   </g>
 </svg>

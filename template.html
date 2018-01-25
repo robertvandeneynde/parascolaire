@@ -65,13 +65,13 @@
             $('.remove-empty-text').each(function() {
                 var toDelete = []
                 
-                for(var i = 0; i < this.childNodes.length; i++) {
+                for (var i = 0; i < this.childNodes.length; i++) {
                     var y = this.childNodes[i]
-                    if(y.nodeType == y.TEXT_NODE && y.nodeValue.trim() == "")
+                    if (y.nodeType == y.TEXT_NODE && y.nodeValue.trim() == "")
                         toDelete.push(y)
                 }
                 
-                for(var i = 0; i < toDelete.length; i++)
+                for (var i = 0; i < toDelete.length; i++)
                     toDelete[i].remove()
                     
             })
