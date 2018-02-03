@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="base.css" />
         <style>
             body {
-                /* background: url('diamond.jpg'); */
+                background: url('diamond.jpg');
             }
             img:not(.free), iframe:not(.free), pre {
                 max-width: 100%;
@@ -32,9 +32,6 @@
             .img-frame figcaption {
                 padding: 5px;
                 background: white;
-            }
-            .normal-comment {
-                font-family: sans;
             }
             :not(pre) > code {
                 border: 1px solid #ccc;
@@ -100,7 +97,7 @@
     --></h1>
     
     <section>
-       <div><em><a href="3D.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
+       <p class="lang-switch"><a href="3D.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
        
        <h3>De la 2D à la 3D</h3>
        
@@ -240,8 +237,8 @@
                 <p>
                 L'équivalent OpenGL du <code>ecran.fill</code> est :
                 
-                <pre><code class="py">
-                glClearColor(0.9, 0.9, 0.5, 1.0) # <span class="normal-comment">du jaune, 1.0 est la transparence</span>
+                <pre><code class="py normal-comments">
+                glClearColor(0.9, 0.9, 0.5, 1.0) # du jaune, 1.0 est la transparence
                 glClear(GL_COLOR_BUFFER_BIT)
                 </code></pre>
                 
@@ -544,11 +541,9 @@
                     <li><code>[output]</code> Calcule la <strong>position</strong> finale du point, <code>gl_Position</code>.
                 </ul>
                 
-                <p>
-                Ici, on n'a rien à faire, on lit l'attribut envoyé, et on l'écrit dans <code>gl_Position</code>.
+                <p>Ici, on n'a rien à faire, on lit l'attribut envoyé, et on l'écrit dans <code>gl_Position</code>.
                 
-                <p>
-                <em>Remplacez le commentaire <code>// contenu du vertex shader</code> par :</em>
+                <p class="desc">Remplacez le commentaire <code>// contenu du vertex shader</code> par :
                 
                 <pre><code class="glsl">
                 #version 330
@@ -561,14 +556,22 @@
                 }
                 </code></pre>
                 
-                <p>
-                Attention, n'enlevez pas le <code>#version 330</code>, on est en GLSL et donc ce n'est <strong>pas</strong> un commentaire !
+                <p>Attention, n'enlevez pas le <code>#version 330</code>, on est en GLSL et donc ce n'est <strong>pas</strong> un commentaire !
                 
-                <p>
-                Le vertex shader peut également calculer d'autres infos qui seront passées au fragment shader, ces valeurs seront <em>interpolées</em>, on verra ça plus tard.
+                <p>Ensuite nous avons la liste des <code>in</code> et <code>out</code> de notre shader, actuellement, il n'y a qu'un <code>in</code>.
                 
-                <p>
-                <em>Si vous lancez votre code vous devriez avoir une erreur car nous n'avons pas encore écrit de fragment shader.</em>
+                <p>Ensuite nous écrivons <code>void main() {</code>,
+                    cette syntaxe inspirée du langage C veut dire
+                    <em>le calcul commence ici et finit quand l'accolade est fermée</em>,
+                    le code en dehors du <code>main</code> n'est que descriptif.
+                
+                <p>Le seul calcul qu'on fait ici n'en n'est pas vraiment un, on lit l'entrée <code>position</code> et on l'écrit dans la sortie <code>gl_Position</code>.
+                
+                <p>Finalement nous fermons l'accolade ouverte précédemment en écrivant <code>}</code>
+                
+                <p>Le vertex shader peut également calculer d'autres infos qui seront passées au fragment shader, ces valeurs seront <em>interpolées</em>, on verra ça plus tard.
+                
+                <p class="desc">Si vous lancez votre code vous devriez avoir une erreur car nous n'avons pas encore écrit de fragment shader.
             </li>
             
             <li>
@@ -585,8 +588,7 @@
                 <p>
                 Ici, on va juste dire que le pixel est orange, à 100% de transparence.
                 
-                <p>
-                <em>Remplacez le commentaire <code>// contenu du fragment shader</code> par </em>
+                <p class="desc">Remplacez le commentaire <code>// contenu du fragment shader</code> par :
                 
                 <pre><code class="glsl">
                 #version 330
@@ -599,8 +601,7 @@
                 }
                 </code></pre>
                 
-                <p>
-                N'essayez pas de <em>juste</em> changer la valeur de la transparence, il faut activer d'autres choses pour ça (<code>glEnable(GL_BLEND)</code> est un bon début).
+                <p>N'essayez pas de <em>juste</em> changer la valeur de la transparence, il faut activer d'autres choses pour ça (<code>glEnable(GL_BLEND)</code> est un bon début).
                 
                 <!--
                 <p>
@@ -619,10 +620,10 @@
                 <p>
                 Ou bien on peut utiliser <code>glGetAttribLocation</code> dans le code python pour savoir le numéro qui a été assigné automatiquement :
                 
-                <pre><code class="py">
+                <pre><code class="py normal-comments">
                 <mark>position = glGetAttribLocation(shader_program, 'position')</mark>
-                glEnableVertexAttribArray(<mark>position</mark>) # <span class="normal-comment">on active l'attribut position</span>
-                glVertexAttribPointer(<mark>position</mark>, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # <span class="normal-comment">données par groupe de 4 Float dans l'attribut position</span>
+                glEnableVertexAttribArray(<mark>position</mark>) # on active l'attribut position
+                glVertexAttribPointer(<mark>position</mark>, 4, GL_FLOAT, False, 0, ctypes.c_void_p(0)) # données par groupe de 4 Float dans l'attribut position
                 </code></pre>
                 
                 <p>
@@ -658,7 +659,7 @@
 
             </li>
             
-            <li id="pipeline"><em>Annexe facultative A: le Pipeline</em>
+            <li id="pipeline"><em>Annexe facultative A: le Pipeline</em> <a href="#pipeline">&para;</a>;
                 
                 <p>
                 La suite d'opération vertex shader, fragment shader est appelé le pipeline graphique.
@@ -694,7 +695,7 @@
             
             </li>
             
-            <li id="interpolation"><em>Annexe facultative B: l'interpolation</em>
+            <li id="interpolation"><em>Annexe facultative B: l'interpolation</em> <a href="#interpolation">&para;</a>;
             
             <p>
             Un petit mot sur <strong>l'interpolation</strong>.
@@ -905,12 +906,12 @@
         Avec les matrices comme succession de transformation, il est très facile par exemple d'animer les hélices (<em>propeller</em>) d'un hélicoptère :
         
         <figure>
-            <pre class="img-frame"><code class="py">
-            Base = TranslationMatrix(50,25,75)     # <span class="normal-comment">x,y,z of the helicopter</span>
-            Local1 = TranslationMatrix(2,0,4)      # <span class="normal-comment">one propeller, relative to center of helicopter</span>
-            Local2 = TranslationMatrix(8,-1,0)     # <span class="normal-comment">one propeller, relative to center of helicopter</span>
-            Rot1 = RotationMatrix(angle1, (0,0,1)) # <span class="normal-comment">angle of big propeller</span>
-            Rot2 = RotationMatrix(angle2, (0,0,1)) # <span class="normal-comment">angle of small propeller</span>
+            <pre class="img-frame"><code class="py normal-comments">
+            Base = TranslationMatrix(50,25,75)     # x,y,z of the helicopter
+            Local1 = TranslationMatrix(2,0,4)      # one propeller, relative to center of helicopter
+            Local2 = TranslationMatrix(8,-1,0)     # one propeller, relative to center of helicopter
+            Rot1 = RotationMatrix(angle1, (0,0,1)) # angle of big propeller
+            Rot2 = RotationMatrix(angle2, (0,0,1)) # angle of small propeller
             
             loadUniformMatrix(Base)
             DrawBase()
@@ -922,7 +923,7 @@
             DrawSmallPropeller()
             </code></pre>
             <div class="img-frame" style="max-width:600px">
-                <img src="https://robertvandeneynde.be/jeu3D/screen1.png" style="width:600px" />
+                <a href="https://robertvandeneynde.be/jeu3D/screen1.png"><img src="https://robertvandeneynde.be/jeu3D/screen1.png" style="width:600px" /></a>
                 <figcaption>L'hélicoptère dans mon <a href="https://robertvandeneynde.be/jeu3D/">jeu 3D</a>,
                     le code utilise une hiérarchie de matrice pour animer les hélices en haut et à l'arrière de l'hélicoptère.</figcaption>
             </div>
@@ -938,6 +939,8 @@
     <h3 id="basic-texturing">Textures</h3>
     
         <p>Correction dans <a href="gl_textures.py.html">gl_textures</a>.
+            <a href="https://learnopengl.com/#!Getting-started/Textures">[learnopengl]</a>
+            <a href="https://www.youtube.com/watch?v=SPt-aogu72A&index=6&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">[ThinMatrix]</a>
         
         <figure>
             <div class="img-frame" style="max-width:400px;">
@@ -945,10 +948,6 @@
                 <figcaption>Un triangle avec une texture appliquée.</figcaption>
             </div>
         </figure>
-        
-        <p>
-            <a href="https://learnopengl.com/#!Getting-started/Textures">[learnopengl]</a>
-            <a href="https://www.youtube.com/watch?v=SPt-aogu72A&index=6&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">[ThinMatrix]</a>
         
     </section>
     

@@ -371,7 +371,14 @@ figure .element img {
     */
 }
 
-.para-discret {
+.para-discret, .lang-switch {
     margin: 0;
+    font-style: italic;
+}
+
+.normal-comment, .normal-comments .hljs-comment {
+    font-family: sans;
+}
+p.desc {
     font-style: italic;
 }

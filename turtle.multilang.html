@@ -112,7 +112,7 @@
         
         <section name="base">
         
-            <div><em><a href="turtle.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: {{ Avancer, tourner | Forward, turn }}</h3>
             
@@ -139,17 +139,26 @@
                 You should have seen a turtle move forward by a distance of 50, then turned left 90 degrees, moved forward again by a distance of 100 and finally turned right of 45 degrees.
             }}</p>
             
-            <p>{{
-                Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
-                |
-                I suggest to put the two windows next to each other, around ⅓ of the screen for this windows and therefore ⅔ for the code and the rendering of the turtle.
-            }}</p>
+            {{ <p>En français, on peut traduire <em>forward</em> par <em>avancer</em> et <em>left/right</em> par <em>gauche/droite</em>.</p>
+            | }}
             
-            {{
-            <p>En français, on peut traduire <em>forward</em> par <em>avancer</em> et <em>left/right</em> par <em>gauche/droite</em>.</p>
-            |
-            }}
-
+            <p>{{ Essaie maintenant le code qui ne contient <strong>que</strong> la première ligne (supprime les autres), que fait-il ?
+                | Try now the code containing the first line <strong>only</strong> (delete the other ones), what does this code do? }}
+                
+                {{ N'oublie pas de cliquer sur|Don't forget to click on}} <img id="the-run2" alt="Run" src="run.png" style="vertical-align: middle"/>.
+                
+                {{Essaie ensuite le code avec uniquement les deux premières lignes, même question.
+                 |Try now the code with the two first line only, same question.}}
+                
+                {{Ajoute ensuite la troisième, lance le code, comprends le comportement, ajoute la quatrième ligne, lance et comprends le comportement.
+                 |Add now the third, run the code, understand why the turtle moves like that, add the fourth line, run and understand the move of the turtle. }}
+            
+            <p>{{Avec tes expériences précédentes, explique, en français que fais la commande <code>forward</code> ? Et les commandes <code>left</code> et <code>right</code> ?
+                |With the experiments you just did, explain in plain english what the <code>forward</code> command do? What about the <code>left</code> and the <code>right</code> commands?
+            
+            <p>{{ Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
+                | I suggest to put the two windows next to each other, around ⅓ of the screen for this windows and therefore ⅔ for the code and the rendering of the turtle. }}
+            
             <h3 id="exerci{{c|s}}e-2">Exerci{{c|s}}e 2{{ |}}: {{Raccourcis|Shortcuts}}</h3>
             
             <p>{{
@@ -182,9 +191,9 @@
                 lt(180)
                 fd(100)
                 lt(90)
-                fd(100)
-                lt(90 + 90)
-                fd(100 * 2)
+                fd(50 + 50)
+                lt(90 * 2)
+                fd(20 + 40 * 2)
             </code></pre>
             
         </section>
@@ -193,7 +202,7 @@
         
         <section name="complex{{e|}}">
         
-            <div><em><a href="turtle.{{en|fr}}.html#complex{{e|}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#complex{{e|}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <h3 id="exerci{{c|s}}e-3">Exerci{{c|s}}e 3{{ |}}: {{ Le carré | The square }}</h3>
             
@@ -221,11 +230,14 @@
                 <figcaption>{{ La maison | The house }}</figcaption>
             </figure>
             
-            <p>{{
-                Sauve ce code dans un nouveau fichier pour pouvoir le réutiliser plus tard !
-                |
-                Save this code in a new file to reuse it afterwards!
-            }}</p>
+            <p>{{Tu peux également écrire <code>speed(10)</code> au début de ton code pour que la tortue aille plus vite.
+                |You can also write <code>speed(10)</code> at the beginning of your code so that the turtle will move faster. }}
+            
+            <p>{{ Petite question, quelles lignes de code doivent changer pour que la <strong>porte</strong> soit plus <strong>haute</strong> ?
+                | Small question, which lines of code you have to change so that the <strong>door</strong> is <strong>higher</strong>? }}
+            
+            <p>{{ Sauve ce code dans un nouveau fichier pour pouvoir le réutiliser plus tard !
+                | Save this code in a new file to reuse it afterwards! }}
             
             <figure>
                 <img src="fichiers.png" />
@@ -234,17 +246,15 @@
             
             <h3 id="{{raccourcis|shortcuts}}">{{Raccourcis claviers|Keyboard shortcuts}}</h3>
             
-            <p>{{
-                Quelques raccourcis clavier très utiles pour éditer du texte qui marchent <strong>même sur Facebook</strong> (vous n'êtes pas obligé de les lire mais ça permet de coder super vite croyez-moi !) :
-                | Some keyboard shortcuts very useful to edit text that work <strong>even on Facebook</strong> (you don't have to read them but it's useful to write code very fast!):
-            }}</p>
+            <p>{{ Quelques raccourcis clavier très utiles pour éditer du texte qui marchent <strong>même sur Facebook</strong> (vous n'êtes pas obligé de les lire mais ça permet de coder super vite croyez-moi !) :
+                | Some keyboard shortcuts very useful to edit text that work <strong>even on Facebook</strong> (you don't have to read them but it's useful to write code very fast!): }}
             
             <table class="shortcuts"><tbody>
                 <tr><th>Symbol{{e|}}</th>        <th>{{Utilité|Use}}</th></tr>
                 
                 <td>←↓↑→</td>                <td>{{Les touches directionnelles (Arrow keys) déplacent le curseur.|Arrows keys (<em>touches directionnelles</em>) move cursor.}}</td>
-                <tr><td><kbd>⇧Shift</kbd></td>     <td>{{Shift (Maj.) permet d'écrire un caractère de niveau 2.|Shift (<em>Maj.</em>) allows writing a Level 2 character.}}</td>
-                <tr><td><kbd>AltGr</kbd></td> <td>{{AltGr permet d'écrire un caractère de niveau 3 (<kbd>⌥</kbd> sur Mac).|AltGr (Right Alt) allows writing Level 3 characters (<kbd>⌥</kbd> on Mac).}}</td>
+                <tr><td><kbd>⇧Shift</kbd></td>     <td>{{Shift (Maj.) permet d'écrire un caractère de niveau 2, comme les majuscules, ou le point sur un clavier AZERTY français.|Shift (<em>Maj.</em>) allows writing a Level 2 character, like the.}}</td>
+                <tr><td><kbd>AltGr</kbd></td> <td>{{AltGr permet d'écrire un caractère de niveau 3 comme le <code>€</code> sur un AZERTY français (<kbd>⌥</kbd> sur Mac).|AltGr (Right Alt) allows writing Level 3 characters (<kbd>⌥</kbd> on Mac).}}</td>
                 <tr><td><kbd>⌫</kbd>          <td>{{Backspace (Retour Arrière) supprime le caractère à gauche.|Backspace (<em>Retour Arrière</em>) deletes the character to the left.}}</td>
                 <tr><td><kbd>Del</kbd></td>   <td>{{Delete (Suppr.) supprime le caractère à droite (parfois <kbd>⌃Control</kbd>+<kbd>D</kbd> parfois <kbd>Fn</kbd>+<kbd>⌫</kbd> sous Mac).|Delete (<em>Suppr</em>.) deletes the character to the right (sometimes <kbd>⌃Control</kbd>+<kbd>D</kbd> sometimes <kbd>Fn</kbd>+<kbd>⌫</kbd> on Mac).}}</td>
                 <tr><td><kbd>↵</kbd></td>     <td>{{Enter (Entrée) passe à la ligne.|Enter (<em>Entrée</em>) inserts goes to the next line.}}</td>
@@ -280,18 +290,18 @@
                     | <em><strong>Delete</strong> previous <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> on Mac), it's
                     very handy to delete multiple words, you just have to hold <kbd>Ctrl</kbd> then press <kbd>⌫ Backspace</kbd> multiple times.
                 }}</td></tr>
+                <tr class="interesting-row"><td><kbd>Ctrl</kbd>+<kbd>Del</kbd></td> <td colspan="1"> {{
+                    <em><strong>Supprimer</strong> le <strong>mot</strong> suivant</em> (n'existe pas sur Mac), même remarque que la ligne précédente.
+                    | <em><strong>Delete</strong> next <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> on Mac), same note as previous line.
+                }}</td></tr>
             </tbody></table>
             
             
-            <p>{{
-                Ça marche partout <strong>même sur Facebook</strong> ! Et remarquez qu'il y a une touche <kbd>Ctrl</kbd> et <kbd>Shift</kbd> juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec <strong>uniquement la main droite</strong> !
-                | It works everywhere <strong>even on Facebook</strong>! And let's notice that there is a <kbd>Ctrl</kbd> and <kbd>Shift</kbd> key next to the arrow keys so all of these shortcuts can be done <strong>with the right hand only</strong>!
-            }}</p>
+            <p>{{ Ça marche partout <strong>même sur Facebook</strong> ! Et remarquez qu'il y a une touche <kbd>Ctrl</kbd> et <kbd>Shift</kbd> juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec <strong>uniquement la main droite</strong> !
+                | It works everywhere <strong>even on Facebook</strong>! And let's notice that there is a <kbd>Ctrl</kbd> and <kbd>Shift</kbd> key next to the arrow keys so all of these shortcuts can be done <strong>with the right hand only</strong>! }}
             
-            <p>{{
-                En plus de ça, quelques raccourcis utiles quand vous éditez du code :
-                |Moreover, here are some useful shortcuts when you edit code:
-            }}</p>
+            <p>{{ En plus de ça, quelques raccourcis utiles quand vous éditez du code :
+                |Moreover, here are some useful shortcuts when you edit code: }}
             
             <table class="shortcuts"><tbody>
                 <tr><td><kbd>Ctrl</kbd>+<kbd>D</kbd> </td><td> {{
@@ -304,15 +314,11 @@
                 }}</td></tr>
             </tbody></table>
             
-            <p>{{
-                Ça marche aussi quand vous avez plusieurs lignes sélectionnées.
-                | It also works when you have multiple selected lines.
-            }}</p>
-            
-            <p>{{
-            Et finalement d'autres ne marchant pas sur mon site mais que je conseille :
-            | And finally others that do not work on my site but that I recommend:
-            }}</p>
+            <p>{{ Ça marche aussi quand vous avez plusieurs lignes sélectionnées.
+                | It also works when you have multiple selected lines. }}
+                
+            <p>{{ Et finalement d'autres ne marchant pas sur mon site mais que je conseille :
+                | And finally others that do not work on my site but that I recommend: }}
             
             <table class="shortcuts"><tbody>
                 <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>↑</kbd> </td><td> {{
@@ -331,7 +337,7 @@
         
         <section name="{{crayon-couleur|pen-color}}">
         
-            <div><em><a href="turtle.{{en|fr}}.html#{{crayon-couleur|pen-color}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{crayon-couleur|pen-color}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <h3 id="pen"><code>penup/pendown</code></h3>
             
@@ -398,7 +404,7 @@
             <p>{{
             Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code>#ff0060</code> qui peut s'insérer en écrivant
             | A lot of <a href="http://hexpicker.com">tools</a> give the color <em>hexadecimal code</em> (<em>hex code</em>), for example I have a nice <span style="color: #ff0060">pink</span> written <code>#ff0060</code> that can be inserted using
-            }} <code class="py">color("#ff9900")</code>.</p>
+            }} <code class="py">color("#ff9900")</code> ou <code class="py">color(0xff, 0x99, 0x00)</code>.</p>
             
             <pre><code class="py">
                 fd(30)
@@ -408,7 +414,7 @@
                 fd(30)
                 color(253, 126, 0)
                 fd(30)
-                color("#ff0060")
+                color("#ff0060") # color(0xff, 0x00, 0x60)
                 fd(30)
             </code></pre>
 
@@ -466,7 +472,7 @@
         
         <section name="f{{o|u}}nctions">
             
-            <div><em><a href="turtle.{{en|fr}}.html#f{{o|u}}nctions" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#f{{o|u}}nctions" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <p>{{
                 Afin de réutiliser du code, on peut le mettre dans une <em>fonction</em>. Par exemple, je vais faire une fonction <code>carre</code> qui permet de dessiner un carré.
@@ -589,7 +595,7 @@
         
         <section name="{{boucles|loops}}">
         
-            <div><em><a href="turtle.{{en|fr}}.html#{{boucles|loops}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{boucles|loops}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <p>{{
                 Dans le code du carré, on avait <strong>quatre fois</strong> le même code <strong>à la suite</strong> :
@@ -694,7 +700,7 @@
         
         <section name="{{oeuvre-d-art|masterpiece}}">
         
-            <div><em><a href="turtle.{{en|fr}}.html#{{oeuvre-d-art|masterpiece}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{oeuvre-d-art|masterpiece}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: {{ Votre œuvre d'art | Your masterpiece }}</h3>
             
@@ -730,7 +736,7 @@
             <h3 id="{{programmation-jeux-videos|videogames-programming}}">{{ Programmation de jeux vidéos | Videogames programming }}</h3>
             
             <p>{{
-                Dès la 3ème, le <a href="index.html">parascolaire de programmation de jeux vidéos</a> vous apprendra à faire de <a href="projets.html">petits jeux 2D</a> !
+                Dès la 3ème secondaire, le <a href="index.html">parascolaire de programmation de jeux vidéos</a> vous apprendra à faire de <a href="projets.html">petits jeux 2D</a> !
                 |
                 Check here my <a href="index.html">videogames programming course</a> to create some <a href="projets.html">small 2D games</a>!
                 Currently the names of the files are in french only (I'm currently translating the content) but almost all words are almost the same in english (<strong>théorie</strong> is theory, <strong>exercice</strong> is exercise, etc.)

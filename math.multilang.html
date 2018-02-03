@@ -1620,10 +1620,13 @@
     
     <section name="transformations">
         <h3 id="code-python">Code python</h3>
+            <p>En informatique 3D, on manipule surtout des matrices colonnes de taille 2, 3 ou 4 et des matrices carrées de même taille.</p>
+            <p>Un point est souvent représenté avec une matrice colonne, par exemple en 2D, le point $(1,\ 2)$ sera souvent représenté $\begin{pmatrix}1\\2\end{pmatrix}$.</p>
+        
             <p>En python, une manière simple de manipuler des matrices et des vecteurs est la bibliothèque <code>numpy</code>.</p>
             <p>Soit on utilise la classe générique <code>numpy.array</code> (méthode que je recommande) :</p>
             
-            <pre><code class="python">
+            <pre><code class="python normal-comments">
             from numpy import array
             P = array([1,2])         # Un vecteur 2D
             M = array([[5,6],[7,8]]) # Une matrice carrée 2x2
@@ -1648,7 +1651,7 @@
         
             <p>Soit la classe <code>numpy.matrix</code> :</p>
             
-            <pre><code class="python">
+            <pre><code class="python normal-comments">
             from numpy import matrix
             P = matrix([[1],[2]])     # Une matrice colonne de taille 2
             M = matrix([[5,6],[7,8]]) # Une matrice carrée 2x2
@@ -1696,15 +1699,15 @@
             from numpy.linalg import det, inv 
             M = matrix('1 2; 3 4')
             A = array([[1,2], [3,4]])
-            d = det(M) # -2.0 {{rapide car utilise une décomposition LU et LAPACK|fast because it uses LU decomposition and LAPACK}}
+            d = det(M) # -2.0 <span class="normal-comment">{{rapide car utilise une décomposition LU et LAPACK|fast because it uses LU decomposition and LAPACK}}</span>
             d = det(A) # -2.0
-            I = inv(M) # {{matrice inverse|inverse matrix}}: matrix('-2 1; 1.5 -0.5')
-            I = inv(A) # {{matrice inverse|inverse matrix}}: array([[-2, 1], [1.5, -0.5]])
-            I = M ** -1 # matrix {{comprend les exposants négatifs de matrice|does understand negative matrix exponent}}
+            I = inv(M) # <span class="normal-comment">{{matrice inverse|inverse matrix}}</span>: matrix('-2 1; 1.5 -0.5')
+            I = inv(A) # <span class="normal-comment">{{matrice inverse|inverse matrix}}</span>: array([[-2, 1], [1.5, -0.5]])
+            I = M ** -1 # matrix <span class="normal-comment">{{comprend les exposants négatifs de matrice|does understand negative matrix exponent}}</span>
             </code></pre>
         
         <h3 id="{{transformations-systeme|system-transformation}}">Système d'équation et matrice</h3>
-            <p>En informatique, on manipule surtout des matrices colonnes de taille 2, 3 ou 4 et des matrices carrées de même taille.</p>
+            <p>En informatique 3D, on manipule surtout des matrices colonnes de taille 2, 3 ou 4 et des matrices carrées de même taille.</p>
             
             <p>Un point est souvent représenté avec une matrice colonne, par exemple en 2D, le point $(1,\ 2)$ sera souvent représenté $\begin{pmatrix}1\\2\end{pmatrix}$.</p>
             
@@ -1722,7 +1725,7 @@
             
             <p>En termes plus mathématiques, une matrice peut représenter toute transformation <em>linéaire</em>. Pour savoir ce qu'est une transformation linéaire, clique sur le bouton suivant, sinon passe à la suite.</p>
             
-            <span id="linearity-demo" class="developpement" symbol="Une transformation T est linéaire si...">
+            <a href="#linearity-demo">&para;</a> <span id="linearity-demo" class="developpement" symbol="Une transformation T est linéaire si...">
             
             <p>Une transformation $T$ est <em>linéaire</em> si $\forall\ \vec{a}, \vec{b}, k:$</p>
             
@@ -1931,7 +1934,7 @@
         
         <h3 id="translation">Translation et coordonnées homogènes</h3>
         
-            <p>J'ai un point en $(1,2)$ et on le déplace d'un vecteur $\vec{t} = (4,2)$</p>
+            <p>J'ai un point en $(1,2)$ et je le déplace d'un vecteur $\vec{t} = (4,2)$</p>
             
             <figure><img src="transformation-translation.png"/></figure>
             
@@ -2005,7 +2008,7 @@
             <p>$\iff P' = R_{30°}\times (T_{(-6,-4)}\times (S_4\times P_1))$</p>
             </span>
             
-            <p>$\iff P' = R_{30°}\times (T_{(-6,-4)}\times (S_4\times (R_{45°}\times P)))$</p>
+            <p>$\iff$ $P' = R_{30°}\times (T_{(-6,-4)}\times (S_4\times (R_{45°}\times P)))$</p>
             
             <p>Et grâce à l'<strong>associativité</strong>, on peut mettre tout ça dans une seule matrice !</p>
             
@@ -2059,8 +2062,13 @@
             <p>En pratique, on aura plus que 4 points, et la carte graphique s'occupe de la multiplication de matrice en grande quantité, regardez comme les modèles suivants ont un nombre élevé de points !</p>
             
             <figure>
-                <img src="https://vignette4.wikia.nocookie.net/memoryalpha/images/8/87/Akira_class_CGI_wireframe_model_by_ILM.jpg/revision/latest?cb=20130221104236&path-prefix=en" height=300>
-                <img src="https://orig11.deviantart.net/8ef1/f/2011/143/0/e/3d_model___f16_wire_frame_by_doubleohzero-d3h1j6j.png" height=300 />
+                <img src="Akira_class_CGI_wireframe_model_by_ILM.jpg" width="573">
+                <img src="3d_model___f16_wire_frame_by_doubleohzero-d3h1j6j.png" width=400 />
+                
+                <figcaption>
+                    <a href="http://memory-alpha.wikia.com/wiki/Akira_class_model">#Source</a>
+                    <a href="https://orig11.deviantart.net/8ef1/f/2011/143/0/e/3d_model___f16_wire_frame_by_doubleohzero-d3h1j6j.png">#Source</a>
+                </figcaption>
             </figure>
             
             <p>Petit exercice de matrices, quelle est la matrice de rotation autour d'un point autre que $(0,0)$ ?</p>
@@ -2103,7 +2111,13 @@
                 $
             </p>
             
-            <p>On peut aussi définir la rotation autour d'un axe quelquonque $\vec{A} = (A_x, A_y, A_z)$. En utilisant les variables $c, k, s, x, y, z$ pour simplifier les notations, on a :</p>
+            <p>On peut aussi définir la rotation autour d'un axe quelquonque $\vec{A} = (A_x, A_y, A_z)$
+                (<code style="display:inline">RotationMatrix</code> dans <a href="vec3_utils.py.html">vec3_utils</a>).
+            </p>
+            
+            <div class="developpement" symbol="Voir la grosse matrice peu lisible">
+            
+            <p>En utilisant les variables $c, k, s, x, y, z$ pour simplifier les notations, on a :</p>
             
             <p>$
             \begin{cases}
@@ -2121,18 +2135,19 @@
             \\0&0&0&1
             \end{pmatrix}$</p>
             
-            <p>Ou sous une forme plus compacte, la matrice $(3 \times 3)$ est donnée via :</p>
+            </div>
+            
+            <p>Ou sous une forme plus compacte, la matrice $(3 \times 3)$ est donnée via la formule ci-dessous, les autres lignes étant mises à 0 et 1, attention cette formule marche si $\vec{A}$ est <strong>normé</strong> :</p>
             
             <p>$R_{\vec{A},\theta} = (\cos\theta)\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}
             $$+ (1-\cos\theta)\begin{pmatrix}x^2&x y&x z\\x y&y^2&y z\\x z&y z&z^2\end{pmatrix}
             $$+ \ (\sin\theta)\begin{pmatrix}0&-z&y\\z&0&-x\\-y&x&0\end{pmatrix}$</p>
             
-            <figure>
+            <figure style="max-width:300px">
                 <a href="https://commons.wikimedia.org/wiki/File:Rodrigues-formula.svg#/media/File:Rodrigues-formula.svg" style="background:white">
                 <img height=300 style="background:white" alt="Rodrigues-formula.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Rodrigues-formula.svg/1200px-Rodrigues-formula.svg.png">
                 </a>
-                <br />
-                Rotation d'un vecteur $\vec{v}$ autour d'un axe $\vec{k}$ d'un angle $\theta$ donnant le vecteur $\vec{v}_{\text{rot}}$
+                <figcaption> Rotation d'un vecteur $\vec{v}$ autour d'un axe $\vec{k}$ d'un angle $\theta$ donnant le vecteur $\vec{v}_{\text{rot}}$</figcaption>
             </figure>
             
             <p>C'est la <a href="https://fr.wikipedia.org/wiki/Rotation_vectorielle#Cas_général">formule de Rodriguez</a>, j'ai dû la redémontrer à un examen, très belle application des vecteurs.</p>

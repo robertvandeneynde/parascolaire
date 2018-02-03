@@ -128,32 +128,32 @@
                 <li>On aimerait que la <strong>balle verte</strong> se déplace vers la droite, il faut créer une <strong>variable</strong> que vous appelez comme vous voulez, que ce soit <code class="py">a</code>, <code class="py">pos</code> ou <code class="py">ma_position</code>.
                   <ol>
                     <li>Au tout début du code, ajoutez <code class="py">ma_position = 100</code> par exemple.
-                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e90de31ca0a3f49a1839c0e344ac084965f76ee0">
+                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e90de31ca0a3f49a1839c0e344ac084965f76ee0?diff=split">
                             #Correction</a>
                     
                     <li>Et à chaque tick (dans la boucle <em>while</em>), on ajoute <strong>+1</strong> à <code class="py">ma_position</code>.
-                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/607b860f23be8145e6dcd88e04dac0f4a3df42e9">
+                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/607b860f23be8145e6dcd88e04dac0f4a3df42e9?diff=split">
                             #Correction</a>
                     
                     <li>Finalement, le cercle ne devra plus être dessiné en <code class="py">[150, 80]</code> mais en <code class="py">[ma_position, 80]</code>.
-                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/fb83a5de0c873ee69b6e93b3a5487a8263d9aa83">
+                        <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/fb83a5de0c873ee69b6e93b3a5487a8263d9aa83?diff=split">
                             #Correction</a>
                   </ol>
                 
                 <li>Elle avance un peu lentement, comment faire pour qu'elle avance de 5 pixels par tick ?
-                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/4779ee7d0a6b4d8ee649fbd681a36d9e8198c45b">
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/4779ee7d0a6b4d8ee649fbd681a36d9e8198c45b?diff=split">
                         #Correction</a>
                 
                 <li>Elle sort de l'écran... Vu que l'écran est de taille 700×500, il faut rajouter une <strong>condition</strong> <em>Si la position est plus grande que 700: mettre la position à zéro</em>.
-                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/0f300a3175af3afcc849e5c216b336baffba1991">
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/0f300a3175af3afcc849e5c216b336baffba1991?diff=split">
                         #Correction</a>
                     
                 <li>Comment faire pour que la balle avance vers la <strong>gauche</strong> ?
-                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/256ba531ca6eb76e4929e8c3ff5310ecf7f252fb">
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/256ba531ca6eb76e4929e8c3ff5310ecf7f252fb?diff=split">
                         #Correction</a>
                 
                 <li>Comment faire pour que la balle <strong>commence à droite</strong> de l'écran ?
-                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e5d4410f35219a0a786f5f85588a172af5c97569">
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e5d4410f35219a0a786f5f85588a172af5c97569?diff=split">
                         #Correction</a>
                 
                 <li>Maintenant la balle reste dans l'écran mais ne rebondit pas, nous faisons ça en trois étapes :
@@ -164,24 +164,24 @@
                             et si elle va à gauche <code class="py">sens = -1</code>.
                             À la place de <code class="py">-1</code> et <code class="py">1</code>,
                             on peut aussi dire 1 et 2, ou 0 et 1 !
-                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/3d25ee5927698fe1503aba8453b82825d069d595">
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/3d25ee5927698fe1503aba8453b82825d069d595?diff=split">
                                 #Correction</a>
                         
                         <li>Le déplacement sera donc une <strong>condition</strong> :
                             <em>Si sens vaut 1: se déplacer à droite, sinon: se déplacer à gauche</em>.
-                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/9f101a44135700685c7a75475f4c9be0b6032481">
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/9f101a44135700685c7a75475f4c9be0b6032481?diff=split">
                                 #Correction</a>
                         
                         <li>Vérifiez que la balle va vers la gauche quand vous imposez que
                             <code class="py">sens</code> vaut <code class="py">-1</code> au début du code.
-                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/b4048bea3f0847de99aa9bbf0834c3abe91b8004">
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/b4048bea3f0847de99aa9bbf0834c3abe91b8004?diff=split">
                             #Correction</a>
                         
                         <li>Il faut pouvoir changer de sens,
                             <em>si la balle est trop à droite (position plus grande que 700): mettre sens à -1, sinon: si la balle est trop à gauche (position négative): mettre sens à 1</em>.
                             <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/966ca3cc9b44b753d5f2bb58bf36097f04a7e56a?diff=split">
                                 #Correction1</a>
-                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/b5b80e15ffedf882b2ee78eea22d4b54c6bd235d">
+                            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/b5b80e15ffedf882b2ee78eea22d4b54c6bd235d?diff=split">
                                 #Correction2</a>
                     </ol>
                 </li>
@@ -190,9 +190,9 @@
                     Via des formes géométriques ou des images (voir <a href="#2D_tutorial_images">plus bas</a>).
                     Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>.
                     Les triangles peuvent être dessinés avec <code class="py">pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code>
-                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/9d428ce5eb8ff62206deedfd44a6a52195276ce1">
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/9d428ce5eb8ff62206deedfd44a6a52195276ce1?diff=split">
                         #Correction1</a>
-                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/d4d500a3f67fc3dc5a28ec5733168ad18700ca50">
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/d4d500a3f67fc3dc5a28ec5733168ad18700ca50?diff=split">
                         #Correction2</a>
                     
             <figure>
@@ -201,14 +201,14 @@
             </figure>
             
                 <li>Que sera la commande <code class="py">draw.polygon</code> pour que le triangle bouge avec le cercle ?
-                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/6edca4a554c11419eb1f9ee88ac2c6c5c1b444f5">
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/6edca4a554c11419eb1f9ee88ac2c6c5c1b444f5?diff=split">
                     #Correction1</a>
-                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e86109ce7430f5270de14a81605ce24a95109d6a">
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e86109ce7430f5270de14a81605ce24a95109d6a?diff=split">
                     #Correction2</a>
                 
                 <li>Quelle est la position du centre du triangle ?
                     Quelle sera la commande <code class="py">draw.polygon</code> pour que <code class="py">ma_position</code> représente le centre ?
-                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/87099ea28f48b40e9a29648878078795c617c31d">
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/87099ea28f48b40e9a29648878078795c617c31d?diff=split">
                         #Correction</a>
                 
                 <li id="2D_tutorial_images">À la place de formes géométriques, vous pouvez aussi mettre des <a href="pygame7_images.py.html">images</a>
@@ -220,7 +220,7 @@
                     <a href="http://OpenGameArt.org">OpenGameArt.org</a>,
                     ou <a href="http://HasGraphics.com">HasGraphics.com</a> conseillés par <a href="programarcadegames.com">programarcadegames</a> 
                 
-                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/84cfeed841f5632cd98c7216305781b2939e32de">
+                    <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/84cfeed841f5632cd98c7216305781b2939e32de?diff=split">
                         #Correction</a>
                 
                 <li>Le cercle bleu ne bouge pas, utilise <a href="pygame5_clavier_souris_events.py.html">le clavier</a>
