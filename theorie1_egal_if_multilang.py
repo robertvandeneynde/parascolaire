@@ -163,7 +163,7 @@ n =  6 % 5 # 1
 
 ## {{plusieurs lignes|multiple lines}}
 
-# {{si on ouvre une parenthèse, on peut passer à la ligne autant que l'ont veut|if one opens a parenthesis, one can go to the next line until the parenthesis is closed}}
+# {{si on ouvre une parenthèse, on peut passer à la ligne autant que l'on veut|if one opens a parenthesis, one can go to the next line until the parenthesis is closed}}
 x = (5 + 2 * 3
        + 7 * 2
        + 1

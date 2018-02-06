@@ -199,10 +199,25 @@
         <p>
         En partant du <a href="pygame0_code_minimal.py.html">code de base 2D</a>, voici les étapes à faire:
         
+        <p class="para-discret"><em>La correction de ce tutoriel se trouve dans
+            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commits/3D_tutorial">
+                la liste des versions</a> de ma branche
+            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/tree/3D_tutorial">
+                2D_tutorial</a> dans mon dépôt
+            <a href="https://github.com/robertvandeneynde/parascolaire-tutorials">
+                parascolaire-tutorials</a> qui contient plusieurs tutoriels informatiques, ces tutoriels font parties de mon
+            <a href="https://github.com/robertvandeneynde/">
+                github</a>.
+            
+            Plus d'infos sur le système de correction <a href="https://www.facebook.com/robert.vanden.eynde/posts/10155911260243592">ici</a>.</em>
+            
         <ol>
             <li>
                 <p>
                 Importez PyOpenGL
+            
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/fc06f0207205ec58155c6cf6f28b6d619ecccf1b?diff=split">
+                    #Correction</a>
             
                 <pre><code class="py">
                     from OpenGL.GL import *
@@ -211,12 +226,15 @@
                 
                 <p>
                 Si vous avez bien installé OpenGL, il ne devrait pas y avoir d'erreur.
-            
+                
             </li>
             
             <li>
                 <p>
                 Indiquez que l'écran sera maintenant géré par OpenGL :
+                
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/e3c69d329252b97a3e1efa3f2ff388c05a2af244?diff=split">
+                    #Correction</a>
                 
                 <pre><code class="py">
                     pygame.display.set_mode((512, 512), <mark>pygame.OPENGL | pygame.DOUBLEBUF</mark>)
@@ -231,6 +249,9 @@
                 Les couleurs en OpenGL sont de 0 à 1
                 (voir explications <a href="turtle.fr.html#color-explanation">ici</a>),
                 une couleur qui était par exemple de <code>[255, 153, 0]</code> sera maintenant de <code>[255/255, 153/255, 0/255]</code> et donc <code>[1, 0.6, 0]</code>.
+                
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/57bc9f46eadda25eaacda996287e6c20286fb965?diff=split">
+                    #Correction</a>
             </li>
             
             <li>
@@ -247,6 +268,9 @@
                 
                 <p>
                 Vu que nous faisons un rendu OpenGL, vous devez enlever les appels <code>pygame.draw</code>.
+                
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/03b256aca4ff743fe03b523cd020f437118cd9b4?diff=split">
+                    #Correction</a>
                 
                 <p>
                 <em>Si vous lancez votre code vous devriez avoir un écran jaune.</em>
@@ -284,6 +308,9 @@
             <li>
                 <p>
                 La partie dessin sera donc une série de <em>sélectionner un shader program, sélectionner le VAO, dessiner.</em>
+                
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/c1b9c59d05c632e648bde292e18016cb7c9c09d0?diff=split">
+                    #Correction</a>
                 
                 <pre><code class="py">
                     glUseProgram(shader_program)
@@ -329,6 +356,9 @@
                 
                 <p>On a donc trois points dont les XY valent (0.6, 0.6), (−0.6, 0.6) et (0, −0.6). La coordonnée en Z sera de 0 (on la changera plus tard), et la dernière coordonnée (appelée <em>W</em>) sera <strong>toujours de 1</strong>.
                 Pour en savoir plus sur <em>W</em>, voir la page de <a href="math.{{fr|en}}.html#translation">math (translation)</a>.
+                
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/1f3fc2c88468bc20868479bd1bf792081c0be30b?diff=split">
+                    #Correction</a>
                 
                 <p>Bien que dans le futur nous utiliserons plutôt un repère <em>main droite</em> (<em>dextrogyre</em>),
                 le repère de base OpenGL est <em>main gauche</em> (<em>lévogyre</em>).
@@ -410,6 +440,9 @@
                 
                 <p>On envoie les nombres dans le VBO !
                 
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/3185f12f1f527baded572fd3c39c87e7f4c1d449?diff=split">
+                    #Correction</a>
+                
                 <p>
                 <em>Placez ce code dans la partie <code>manipulation vbo</code> :</em>
                 
@@ -421,6 +454,9 @@
                 ce qui fait donc <strong>4 × 12 = 48</strong> octets envoyés.
                 
                 <p>Cependant on pourrait aussi faire ceci pour ne pas devoir calculer le nombre d'octets :
+                
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/5606b4344758696bcabfdb34ce4447aca2ec47d1?diff=split">
+                    #Correction</a>
                 
                 <pre><code class="py">
                 glBufferData(GL_ARRAY_BUFFER, <mark>ArrayDatatype.arrayByteCount(vertices)</mark>, vertices, GL_STATIC_DRAW) # 48 bytes
@@ -434,6 +470,9 @@
             <li>
                 <p>On crée un VAO, et on spécifie le type de données :
                 
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/64fba2bacd08f151ce0d46432a0993cc3b6dfd48?diff=split">
+                    #Correction</a>
+                
                 <pre><code class="py">
                 vertex_array_object = glGenVertexArrays(1)
                 glBindVertexArray(vertex_array_object) # <span class="normal-comment">on sélectionne le vao "vertex_array_object"</span>
@@ -442,6 +481,9 @@
                 </code></pre>
                 
                 Et puis on informe du type de donnée, <strong>attention</strong> le VBO doit être <em>binded</em>.
+                
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/36dfdef9a995acf3066c7be4e27edec7eef420ed?diff=split">
+                    #Correction</a>
                 
                 <p><em>Placez ce code dans la partie <code>manipulation vao</code></em>.</em>
                 
@@ -479,6 +521,9 @@
                 <p>
                 <em>Au début du code on fait donc :</em>
                 
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/52567693193b2fe46de8265bafd6f8d2af180e6e?diff=split">
+                    #Correction</a>
+                
                 <pre><code class="py">
                 vertex_shader = '''
                 // contenu du vertex shader
@@ -507,6 +552,9 @@
                 
                 <p>
                 <em>La partie <em>dessin</em> de votre programme sera donc comme ceci :</em>
+                
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/fa8a836825927bf7fc2156ce0e39e64618248757?diff=split">
+                    #Correction</a>
                 
                 <pre><code class="py">
                 glUseProgram(shader_program)
@@ -543,6 +591,9 @@
                 
                 <p>Ici, on n'a rien à faire, on lit l'attribut envoyé, et on l'écrit dans <code>gl_Position</code>.
                 
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/6f69ac995281dcd5d695eb8a3757b04e72b44769?diff=split">
+                    #Correction</a>
+                    
                 <p class="desc">Remplacez le commentaire <code>// contenu du vertex shader</code> par :
                 
                 <pre><code class="glsl">
@@ -588,6 +639,9 @@
                 <p>
                 Ici, on va juste dire que le pixel est orange, à 100% de transparence.
                 
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/bdcb22e08a85b76b7cc116c005c6bf21b47b9387?diff=split">
+                    #Correction</a>
+                
                 <p class="desc">Remplacez le commentaire <code>// contenu du fragment shader</code> par :
                 
                 <pre><code class="glsl">
@@ -620,6 +674,9 @@
                 <p>
                 Ou bien on peut utiliser <code>glGetAttribLocation</code> dans le code python pour savoir le numéro qui a été assigné automatiquement :
                 
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/7df1ea2a99b82930cebbe8e89537708be1bcacc2?diff=split">
+                    #Correction</a>
+                
                 <pre><code class="py normal-comments">
                 <mark>position = glGetAttribLocation(shader_program, 'position')</mark>
                 glEnableVertexAttribArray(<mark>position</mark>) # on active l'attribut position
@@ -629,6 +686,9 @@
                 <p>
                 Attention, parfois cet attribut est supprimé quand il n'est pas utilisé, et <code>glGetAttribLocation</code> renvoie <code>-1</code>
                 
+                <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/91db26d8224d48a2f33e774e9ab15927aa2f6169?diff=split">
+                    #Correction</a>
+                
                 <pre><code class="py">
                 position = glGetAttribLocation(shader_program, 'position')
                 if <mark>position != -1</mark>:
@@ -637,7 +697,6 @@
                 else:
                     print('inactive attribute "{}"'.format('position'))
                 </code></pre>
-                
                 
                 <p>
                 Votre code devrait maintenant enfin afficher quelque chose, le triangle sur la figure ci-dessous,
