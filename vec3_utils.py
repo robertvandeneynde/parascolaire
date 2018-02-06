@@ -46,19 +46,6 @@ def polard(*args):
     
     return r * polar(radians(t))
 
-def vec2(x,y=None):
-    """
-    vec2(1,2) -> farray((1.0, 2.0))
-    vec2(5) -> farray((5.0, 5.0))
-    vec2(y=6, x=1) -> farray((1.0, 6.0))
-    """
-    if y is None:
-        try:
-            x,y = x
-        except TypeError:
-            x,y = x,x
-    return farray((x,y))
-
 NAME_TO_INT = {
     'x': 0,
     'y': 1,
@@ -88,6 +75,45 @@ def readvec(V, names):
         V[NAME_TO_INT[x]]
         for i,x in enumerate(names)])
 
+def vec_from_kwargs(size, **kwargs):
+    V = farray((0,) * size)
+    for x,v in kwargs.items():
+        if len(x) == 1:
+            V[NAME_TO_INT[x]] = v
+        else:
+            it = iter(v)
+            for c in x:
+                V[NAME_TO_INT[c]] = next(it)
+    return V
+
+def vec_from_args(size, *args):
+    if len(args) == 0:
+        return farray((0,) * size)
+    if len(args) == 1 and not hasattr(args[0], '__iter__'):
+        return farray((args[0],) * size)
+    L = []
+    for a in args:
+        if hasattr(a, '__iter__'):
+            L.extend(a)
+        else:
+            L.append(a)
+    if not len(L) == size:
+        raise TypeError('Accept {} arguments'.format(size))
+    return farray(L)
+
+def vec2(*args, **kwargs):
+    """
+    vec2(1,2) -> farray((1.0, 2.0))
+    vec2(5) -> farray((5.0vec_from_kwargs, 5.0))
+    vec2(y=6, x=1) -> farray((1.0, 6.0))
+    """
+    if args and kwargs:
+        raise TypeError('vec2 accept either args or kwargs, not both')
+    elif kwargs:
+        return vec_from_kwargs(2, **kwargs)
+    else:
+        return vec_from_args(2, *args)
+
 def vec3(*args, **kwargs):
     """
     Returns numpy.array depending on arguments:
@@ -106,38 +132,25 @@ def vec3(*args, **kwargs):
     """
     if args and kwargs:
         raise TypeError('vec3 accept either args or kwargs, not both')
-    
     elif kwargs:
-        V = farray((0,0,0))
-        
-        for x,v in kwargs.items():
-            if len(x) == 1:
-                V[NAME_TO_INT[x]] = v
-            else:
-                it = iter(v)
-                for c in x:
-                    V[NAME_TO_INT[c]] = next(it)
-                
-        return V
+        return vec_from_kwargs(3, **kwargs)
     else:
-        if len(args) == 3:
-            x,y,z = args
-        elif len(args) == 2:
-            try:
-                (x,y),z = args
-            except TypeError:
-                x,(y,z) = args
-        elif len(args) == 1:
-            try:
-                x,y,z = args[0]
-            except TypeError:
-                x,y,z = args[0], args[0], args[0]
-        elif len(args) == 0:
-            x,y,z = 0,0,0
-        else:
-            raise TypeError('Accept 0, 1, 2 or 3 arguments')
-    
-        return farray((x,y,z))
+        return vec_from_args(3, *args)
+
+def vec4(*args, **kwargs):
+    """
+    vec4(5) -> (5,5,5,5)
+    vec4(1,2,3,4) -> (1,2,3,4)
+    vec4(xy=(1,2), z=3, w=4) -> (1,2,3,4)
+    vec4((1,2,3), 4) -> (1,2,3,4)
+    ...
+    """
+    if args and kwargs:
+        raise TypeError('vec3 accept either args or kwargs, not both')
+    elif kwargs:
+        return vec_from_kwargs(4, **kwargs)
+    else:
+        return vec_from_args(4, *args)
 
 def normalized(v):
     return v / linalg.norm(v)

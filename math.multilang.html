@@ -487,15 +487,17 @@
         
         <p>{{Quand l'angle est entre 90 et 180 degrés (deuxième <em>quadrant</em>), le sinus est positif et le cosinus est négatif, donc la tangente est négative. Sur le dessin, on voit que l'intersection entre les deux droites se retrouve en dessous de l'axe des x.|When the angle is between 90 and 180 degrees (second <em>quadrant</em>), the sine is positive and the cosine is negative, therefore the tangent is negatif. On the drawing, one can see that the intersection between the two straight lines is beneath the x axis.}}</p>
         
-        <p>{{Quand l'angle est à 90°, le sinus vaut 1 et le cosinus est nul et donc la tangente n'existe pas, ou vaut $\frac{1}{0} = +\infty$, quand l'angle vaut −90°, le sinus vaut −1 et le cosinus est nul, donc la tangente vaut $\frac{-1}{0} = -\infty$, la cotangente a les mêmes considérations pour les angles de 0 et 180 degrés.|When the angle is 90°, the sine is 1 and the cosine is 0 and the tangent does not exist, or is equal to $\frac{1}{0} = +\infty$, when the angle is equal to −90°, the sine is equal to −1 and the cosine is 0, then the tangent is equal to $\frac{-1}{0} = -\infty$, the cotangent has the same considerations for angles 0 and 180 degrees.}}</p>
+        <p>{{ Quand l'angle est à 90°, le sinus vaut 1, le cosinus est nul, donc la tangente n'existe pas, ou vaut $\frac{1}{0} = +\infty$.
+            Quand l'angle vaut −90°, le sinus vaut −1, le cosinus est nul, donc la tangente vaut $\frac{-1}{0} = -\infty$,
+            la cotangente a les mêmes considérations pour les angles de 0 et 180 degrés.
+            | When the angle is 90°, the sine is 1, the cosine is 0 and the tangent does not exist, or is equal to $\frac{1}{0} = +\infty$.
+            When the angle is equal to −90°, the sine is equal to −1, the cosine is 0, then the tangent is equal to $\frac{-1}{0} = -\infty$,
+            the cotangent has the same considerations for angles 0 and 180 degrees.}}
         
         <h3 id="{{trigonometrie-triangle|trigonometry-triangle}}">{{Triangle rectangle|Right angled triangle}}</h3>
         
-        <p>{{
-            Depuis un cercle de rayon $r$ doté d'un angle $\theta$, on peut observer un <strong>triangle rectangle</strong>.
-        |
-            In a circle of radius $r$ with an angle $\theta$, one can observe a <strong>right-angled triangle</strong>
-        }}</p>
+        <p>{{ Depuis un cercle de rayon $r$ doté d'un angle $\theta$, on peut observer un <strong>triangle rectangle</strong>.
+            | In a circle of radius $r$ with an angle $\theta$, one can observe a <strong>right-angled triangle</strong>.}}
         
         <figure class="slideshow">
             <img class="slide next" src="trigono-circle-to-triangle.state-1.svg" />
@@ -658,6 +660,26 @@
             Let's recall that $\tau = 2\pi = 6.283185...$
             then $1\ \text{rad} \approx 57°$.
         }}</p>
+        
+        <pre><code class="python">
+        from math import tau
+        print(tau) # 6.2831... {{depuis|since}} Python 3.6
+        </code></pre>
+        
+        <p>Python nous permet de convertir du degré au radian :</p>
+        
+        <pre><code class="python">
+        from math import radians, degrees
+        print(radians(360)) # 6.2831...
+        print(degrees(1))   # 57.29
+        </code></pre>
+        
+        <p>Attention, les fonctions <code>cos</code> et <code>sin</code> attendent des radians !</p>
+        
+        <pre><code class="python">
+        from math import cos, sin 
+        print(cos(radians(34))) # 0.82
+        </code></pre>
         
         <h3 id="{{trigonometrie|trigonometry}}-clipedia">Clipedia</h3>
         
@@ -1084,9 +1106,9 @@
             <figure> <img src="3d-spherique.png"/> <img src="3d-spherique-formules.png"/> </figure>
             
             <p>
-                L'angle $\theta$ est appelée <em>angle azimutal</em> ou <em>longitude</em> et varie dans l'intervalle $[\small{0°},\small{360°}[$ ou $]-\small{180°}, +\small{180°}]$
+                L'angle $\theta$ est appelée <em>angle azimutal</em> ou <em>longitude</em> et varie dans l'intervalle $[\small{0°},\small{360°}[$ ou $]-\small{180°}, +\small{180°}]$.
                 <br/>
-                L'angle $\phi$ est appelée <em>angle zénithal</em> ou <em>colatitude</em> et varie dans l'intervalle $[\small{0°},\small{180°}[$
+                L'angle $\phi$ est appelée <em>angle zénithal</em> ou <em>colatitude</em> et varie dans l'intervalle $[\small{0°},\small{180°}[$.
             </p>
             
             <p>Attention : souvent en physique, $\theta$ est appelé $\phi$ et $\phi$ est appelé $\theta$ !</p>
