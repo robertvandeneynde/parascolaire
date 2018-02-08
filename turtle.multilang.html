@@ -16,6 +16,7 @@
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="animations.js"></script>
         <script src="utils.js"></script>
+        <script src="slides.js"></script>
         <style>
             body {
                 /* background: url('diamond.jpg'); */
@@ -29,7 +30,7 @@
                 overflow-x: auto;
                 border: 1px solid #ccc;
             }
-            figcaption {
+            figcaption:not(.mandatory) {
                 display: none;
             }
             p > code {
@@ -66,7 +67,10 @@
                 background-color: rgb(252, 252, 255);
             }
             tr.interesting-row {
-                background: rgb(255, 250, 240);
+                background: rgb(255, 251, 221); /* rgb(255, 250, 240); */
+            }
+            .slide.next {
+                cursor: pointer;
             }
         </style>
         
@@ -202,7 +206,7 @@
         
         <section name="complex{{e|}}">
         
-            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#complex{{e|}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#complex{{|e}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <h3 id="exerci{{c|s}}e-3">Exerci{{c|s}}e 3{{ |}}: {{ Le carré | The square }}</h3>
             
@@ -230,6 +234,22 @@
                 <figcaption>{{ La maison | The house }}</figcaption>
             </figure>
             
+            <p>{{ Si tu as du mal avec les angles, voici quelques schémas qui peuvent t'être utiles :
+                | If you struggle with angles, here are some drawing that can be handy: }}
+                
+                <em>({{cliquez sur l'image pour passer à l'image suivante|click on the image to see next image}})</em>
+                
+            
+            <figure class="slideshow" style="max-width: 325px;">
+                <div class="slides"><!--
+                    --><img class="slide next" src="triangle-geometry.state-Angle 1.svg"/><!--
+                    --><img class="slide next" src="triangle-geometry.state-Triangle.svg"/><!--
+                    --><img class="slide next" src="triangle-geometry.state-Angle 2.svg"/><!--
+                    --><img class="slide next" src="triangle-geometry.state-Angle 3.svg"/><!--
+                --></div>
+                <figcaption class="next mandatory">{{Quelques calculs d'angles et de longeur|Some angle and length computations}} &mdash; <em>{{cliquez sur l'image pour passer à l'image suivante|click on the image to see next image}}</em></figcaption>
+            </figure>
+            
             <p>{{Tu peux également écrire <code>speed(10)</code> au début de ton code pour que la tortue aille plus vite.
                 |You can also write <code>speed(10)</code> at the beginning of your code so that the turtle will move faster. }}
             
@@ -255,7 +275,7 @@
                 <td>←↓↑→</td>                <td>{{Les touches directionnelles (Arrow keys) déplacent le curseur.|Arrows keys (<em>touches directionnelles</em>) move cursor.}}</td>
                 <tr><td><kbd>⇧Shift</kbd></td>     <td>{{Shift (Maj.) permet d'écrire un caractère de niveau 2, comme les majuscules, ou le point sur un clavier AZERTY français.|Shift (<em>Maj.</em>) allows writing a Level 2 character, like the.}}</td>
                 <tr><td><kbd>AltGr</kbd></td> <td>{{AltGr permet d'écrire un caractère de niveau 3 comme le <code>€</code> sur un AZERTY français (<kbd>⌥</kbd> sur Mac).|AltGr (Right Alt) allows writing Level 3 characters (<kbd>⌥</kbd> on Mac).}}</td>
-                <tr><td><kbd>⌫</kbd>          <td>{{Backspace (Retour Arrière) supprime le caractère à gauche.|Backspace (<em>Retour Arrière</em>) deletes the character to the left.}}</td>
+                <tr><td><kbd>⌫ Backspace</kbd>          <td>{{Backspace (Retour Arrière) supprime le caractère à gauche.|Backspace (<em>Retour Arrière</em>) deletes the character to the left.}}</td>
                 <tr><td><kbd>Del</kbd></td>   <td>{{Delete (Suppr.) supprime le caractère à droite (parfois <kbd>⌃Control</kbd>+<kbd>D</kbd> parfois <kbd>Fn</kbd>+<kbd>⌫</kbd> sous Mac).|Delete (<em>Suppr</em>.) deletes the character to the right (sometimes <kbd>⌃Control</kbd>+<kbd>D</kbd> sometimes <kbd>Fn</kbd>+<kbd>⌫</kbd> on Mac).}}</td>
                 <tr><td><kbd>↵</kbd></td>     <td>{{Enter (Entrée) passe à la ligne.|Enter (<em>Entrée</em>) inserts goes to the next line.}}</td>
             
@@ -337,7 +357,7 @@
         
         <section name="{{crayon-couleur|pen-color}}">
         
-            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{crayon-couleur|pen-color}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{pen-color|crayon-couleur}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <h3 id="pen"><code>penup/pendown</code></h3>
             
@@ -347,13 +367,13 @@
             </figure>
             
             <p>{{
-                La nouvelle commande <code class="py">penup()</code>, raccourci <code>pu()</code>,
+                La nouvelle commande <code class="py">penup()</code>, raccourci <code>pu()</code> ou <code>up()</code>,
                 permet de lever le crayon, ainsi la tortue peut bouger sans dessiner.
-                Ensuite, <code>pendown()</code>, raccourci <code>pd()</code>, repose le crayon pour plus de dessins.
+                Ensuite, <code>pendown()</code>, raccourci <code>pd()</code> ou <code>down()</code>, repose le crayon pour plus de dessins.
                 |
-                The new command <code class="py">penup()</code>, shortcut <code>pu()</code>,
-                can lift the pen up, so that the turtlecan move without drawing.
-                We also have, <code>pendown()</code>, shortcut <code>pd()</code>, to put the pen back down for more drawing.
+                The new command <code class="py">penup()</code>, shortcut <code>pu()</code> or <code>up()</code>,
+                can lift the pen up, so that the turtle can move without drawing.
+                We also have, <code>pendown()</code>, shortcut <code>pd()</code> or <code>down()</code>, to put the pen back down for more drawing.
             }}</p>
             
             <p>{{ Que fait ce code ? | What is this code doing? }}</p>
@@ -372,13 +392,13 @@
                 La nouvelle commande <code class="py">color("red")</code> (attention aux guillemets dans <code>"red"</code> !)
                 permet de changer la couleur du trait en rouge.
                 D'autres couleurs existent par défaut comme <code>green</code>, <code>blue</code>, <code>yellow</code>
-                et <a href="http://wiki.tcl.tk/16166">bien d'autres</a>.
+                et <a href="http://www.geocities.ws/thezipguy/misc/colornames_1.png">bien d'autres</a>.
                 |
                 The new command <code class="py">color("red")</code> (beware of the quotes in <code>"red"</code>!)
                 changes the color of the pen to red.
                 Other colors exist like <code>green</code>, <code>blue</code>, <code>yellow</code>
-                and <a href="http://wiki.tcl.tk/16166">many others</a>.
-            }}</p>
+                and <a href="http://www.geocities.ws/thezipguy/misc/colornames_1.png">many others</a>.
+            }}</p> <!-- http://wiki.tcl.tk/16166 -->
             
             <p>{{
                 Pour pouvoir indiquer toutes les couleurs existantes, on regarde dans Paint :
@@ -404,7 +424,7 @@
             <p>{{
             Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code>#ff0060</code> qui peut s'insérer en écrivant
             | A lot of <a href="http://hexpicker.com">tools</a> give the color <em>hexadecimal code</em> (<em>hex code</em>), for example I have a nice <span style="color: #ff0060">pink</span> written <code>#ff0060</code> that can be inserted using
-            }} <code class="py">color("#ff9900")</code> ou <code class="py">color(0xff, 0x99, 0x00)</code>.</p>
+            }} <code class="py">color("#ff0060")</code> {{ou|or}} <code class="py">color(0xff, 0x00, 0x60)</code>.</p>
             
             <pre><code class="py">
                 fd(30)
@@ -421,7 +441,7 @@
             <p>{{
                 Remarque, si <code>color(253, 126, 0)</code> fait une erreur, écris <code>colormode(255)</code> au début de ton programme.
                 |
-                Let's notice that, if <code>color(253, 126, 0)</code> gives you an error, write <code>colormode(255)</code> in the beginning of your program.
+                Let's notice that, if <code>color(253, 126, 0)</code> gives you an error, write <code>colormode(255)</code> at the beginning of your program.
             }}</p>
             
             <p id="color-explanation">{{
@@ -429,7 +449,7 @@
             | Therefore, color is a mix of red, green, blue and these components are often displayed in various forms. Let's take my favorite <span style="color:#ff9900">orange</span>, it can be written...
             }}</p>
             <ul>
-                <li>{{En pourcentages :|As percentages:}} <em>100%, 60%, 0%</em>.</li>
+                <li>{{En pourcentages :|As percentages:}} <em>100%, 60%, 0%</em>, {{donc 100% rouge, 60% vert et 0% bleu|meaning 100% red, 60% green and 0% blue.}}</li>
                 <li>{{En ratios :|As ratios:}} <em>1.0, 0.6, 0</em>.</li>
                 <li>{{Avec des entiers entre 0 et 255 :|With integers ranging from 0 to 255:}} <em>255, 153, 0</em> {{vu que|because}} <em>153 = 60% 255</em>.</li>
                 <li>{{Avec des entiers écris en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a> :|With integers written in <a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>:}} <em>ff, 99, 0</em> {{vu que 255 vaut|because 255 is}} <code>ff</code> {{en|in}} {{<a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a>|<a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>}} {{, 153 vaut|, 153 is}} <code>99</code> {{et 0 vaut <code>0</code>|and 0 is <code>0</code>}}. {{On note souvent les trois entiers <em>ff, 99, 0</em> en attaché sur 6 caractères avec un <code>#</code> devant, comme ceci : <code>#ff9900</code>.|Often we write the 3 integers <em>ff, 99, 0</em> attached on 6 characters with a <code>#</code> in front, like this: <code>#ff9900</code>.}}</li>
@@ -472,7 +492,7 @@
         
         <section name="f{{o|u}}nctions">
             
-            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#f{{o|u}}nctions" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#f{{u|o}}nctions" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <p>{{
                 Afin de réutiliser du code, on peut le mettre dans une <em>fonction</em>. Par exemple, je vais faire une fonction <code>carre</code> qui permet de dessiner un carré.
@@ -548,7 +568,7 @@
             <p>{{
                 On peut faire des opérations mathématiques comme <code class="py">50 + taille * 2 - (taille - 1)</code>, attention à la priorité des opérations !
                 |
-                We can do some maths like <code class="py">50 * size * 2 - (size - 1)</code>, be careful to the priority of operations!
+                We can do some maths like <code class="py">50 + size * 2 - (size - 1)</code>, be careful of the priority of operations!
             }}</p>
             
             <p>
@@ -595,7 +615,7 @@
         
         <section name="{{boucles|loops}}">
         
-            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{boucles|loops}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{loops|boucles}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <p>{{
                 Dans le code du carré, on avait <strong>quatre fois</strong> le même code <strong>à la suite</strong> :
@@ -700,7 +720,7 @@
         
         <section name="{{oeuvre-d-art|masterpiece}}">
         
-            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{oeuvre-d-art|masterpiece}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{masterpiece|oeuvre-d-art}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: {{ Votre œuvre d'art | Your masterpiece }}</h3>
             
@@ -852,7 +872,7 @@
             <p>{{
                 Au revoir et pour toute question, je suis disponible par mail via <code id="the-email">robertvandeneynde[at]hotmail.com</code>
                 |
-                Bye bye and for every question, I'm available by mail via <code id="the-email">robertvandeneynde[at]hotmail.com</code>
+                Bye bye and for any question, I'm available by mail via <code id="the-email">robertvandeneynde[at]hotmail.com</code>
             }}</p>
             <script>
             ;(function(){

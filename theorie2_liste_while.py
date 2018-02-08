@@ -92,6 +92,13 @@ i = 0
 while i < 5:
     print(i)
     i = i + 1
+
+# vous pouvez lire ce code comme:
+# i = 0; print(i)
+# i = 1; print(i)
+# i = 2; print(i)
+# i = 3; print(i)
+# i = 4; print(i)
     
 # on peut aussi demander de ne pas commencer à 0
 
@@ -117,6 +124,14 @@ while i < len(ma_liste):
     nombre = ma_liste[i]
     print(nombre)
     i = i + 1
+
+# le for dans une liste peut se lire comme ceci:
+# imaginons que ma_liste = [1,2,7,2]
+# for nombre in ma_liste: print(nombre) équivaut à dire :
+# nombre = ma_liste[0]; print(nombre) # 1
+# nombre = ma_liste[1]; print(nombre) # 2
+# nombre = ma_liste[2]; print(nombre) # 7
+# nombre = ma_liste[3]; print(nombre) # 2
 
 # attention, il existe quelques subtiles différences,
 # en cas de doute, utiliser while
@@ -210,7 +225,7 @@ some_names = "Hello World;Bonjour le monde;Donkey Konga".split(';') # ['Hello Wo
 no_space = "  Yeyo Yayo  ".strip() # Sans les espaces du début et fin: "Yeyo Yayo"
 no_space = " \t Yeyo Yayo \n  ".strip() # marche avec n'importe quel whitespace comme TAB (\t) ou À_LA_LIGNE (\n)
 
-# vers/depuis code unicode (les codes unicode de 0 à 127 sont appelés "ascii") Voir [ici](https://robertvandeneynde.be/blog/2017/07/06/unicode.html)
+# vers/depuis code unicode (les codes unicode de 0 à 127 sont appelés "ascii") Voir [ici](https://robertvandeneynde.be/blog/unicode.html)
 print(ord('A'))  # 65
 print(ord('a'))  # 97
 print(ord('\n')) # 10 le caractère À_LA_LIGNE (LINE FEED: LF)
@@ -291,8 +306,9 @@ for i in range(50):
                     L.append(i+j+k)
 
 # en une ligne, mais on passe à la ligne, c'est plus joli
-L = [i+j+k for i in range(50)
-           for j in range(10)
-           if i != 0
-           if j % 3 == 2
-           for k in range(5)]
+L = [i+j+k
+     for i in range(50)
+     for j in range(10)
+     if i != 0
+     if j % 3 == 2
+     for k in range(5)]

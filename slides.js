@@ -34,9 +34,9 @@ $(function(){
                 setVisibility($(this), i == num)
             })
             
-            setVisibilityWidth(
-                self.find('.next:not(.slide,h2)'),
-                !!self.find('.slide')[num + 1])
+            //setVisibilityWidth(
+                //self.find('.next:not(.slide,h2)'),
+                //!!self.find('.slide')[num + 1])
             
             setVisibilityWidth(
                 self.find('.prev:not(.slide,h2)'), 
