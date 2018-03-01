@@ -318,6 +318,9 @@
             <li>{{Comment couper parfaitement une pizza en 6 ?|How to perfectly cut a pizza in 6?}}</li>
         </ol>
         
+        <p>{{Dans le langage courant, on dira plutot <em>trigono</em>
+            |In spoken language, we'll prefer to say the short version <em>trig</em>.}}</p>
+        
         <h3 id="trigonometrie-base">{{Le cosinus et le sinus|Cosine and sine}}</h3>
         
         <p>{{La base de la trigonométrie est la définition du <strong>sinus</strong> d'un angle et du <strong>cosinus</strong> d'un angle.|The basics of trigonometry is the definition of the <strong>sine</strong> of an angle and the <strong>cosine</strong> of an angle.}}</p>
@@ -325,8 +328,8 @@
         <p>{{Un point P à une distance 1 de l'origine faisant un angle $\theta$ avec l'axe x (vers l'axe y) a une coordonnée|A point P at distance 1 of the origin that has an angle $\theta$ with x axis (in the direction of y axis) has the coordinates}} $(x = \cos\theta,\ y = \sin\theta)${{ |}}:</p>
         
         <figure class="slideshow exercice">
-            <img class="slide next" src="trigono.state-1.svg" />
-            <img class="slide next" src="trigono.state-2.svg" />
+            <img class="slide next" src="trigono.state-sincos.svg" />
+            <img class="slide next" src="trigono.state-ticks.svg" />
             <figcaption>{{Le cercle trigonométrique|The trigonometry circle}}</figcaption>
         </figure>
         
@@ -350,6 +353,16 @@
         
         <p><em>{{Cliquez sur la figure précédente pour voir les valeurs numériques.|Click on the previous figure to see the numerical values.}}</em></p>
         
+        <p>Par la définition, vous pouvez déja répondre à ces questions, est-ce qu'il existe un angle...
+        <ul>
+            <li>...dont le cosinus est <strong>plus grand que 1</strong> ?
+            <li>...dont le cosinus vaut <strong>zéro</strong> ?
+            <li>...dont le <strong>sinus</strong> vaut 0.82 ? Quel est le rapport entre cet angle et 34 degrés ?
+            <li>...dont le cosinus est <strong>négatif</strong> ? Réponse <a href="#{{trigonometrie-negatif|trigonometry-negative}}">un peu plus bas</a> !
+        </ul>
+        
+        <h3 id="{{convention-axe-y|y-axis-convention}}">Conventions d'axe Y</h3>
+        
         <p>{{Attention, si l'axe y est vers le bas (comme souvent en informatique), l'angle tourne dans l'autre sens !|Beware, if the y axis is to the bottom (as it is often in computer sciene), the angle rotates in the other direction!}}</p>
         
         <ul>
@@ -364,6 +377,33 @@
         </figure>
         
         <p>{{À cause des deux conventions d'axe Y, je préfère ne pas parler de <em>sens trigonométrique</em>, ou alors dire que le <em>sens trigonométrique</em> est le <em>sens qui fait que cos(1°) et sin(1°) sont positifs</em>.|Because of the two different Y-axis convention, I prefer not to talk about <em>trigonometric</em> direction of rotation, or I like to say that the <em>trigonometric</em> direction of rotation is the <em>direction that is such as cos(1°) and sin(1°) are positives</em>.}}</p>
+        
+        <h3 id="{{calculette|calculator}}">{{Calculettes et ordinateurs|Calculators and computers}}</h3>
+        
+        <p>{{Avant, on n'avait pas de calculettes, alors on lisait des tables... Maintenant on en a et on a même des ordis ! Voici mon exemple, en Python :
+            |In the old times, we had no calculators, then we read tables... Now we do and we have have computers ! Here, my example in Python:}}
+        
+        <pre><code class="python">
+            from math import cos, sin, radians, degrees
+            print(cos(radians(36))) # 0.82
+            print(sin(radians(36))) # 0.55
+        </code></pre>
+        
+        <p>{{Nous verrons plus tard pourquoi on doit écrire <code>radians</code>, dis-toi pour l'instant que c'est juste une autre unité d'angle plus <em>mathématique</em> et que donc il faut convertir les degrés en radians.
+            |We'll see later why we must write <code>radians</code>, but for now just know that radiands are a more <em>mathematical</em> unit for angles so must natrally convert degrees to radians.}}
+            
+        <p>Le code précédent peut se simplifier en téléchargeant mon fichier <a href="vec3_utils.py.html">vec3_utils</a> :</p>
+        
+        <pre><code class="python">
+            from vec3_utils import cosd, sind
+            print(cosd(36)) # 0.82
+            print(sind(36)) # 0.55
+        </code></pre>
+        
+        <p>Vous pouvez également regarder le fichier <a href="vec3_utils.py.html">vec3_utils</a> pour voir la définition de la fonction <code>cosd</code> et <code>sind</code>, rien de bien sorcier.</p>
+            
+        <p>{{Sur une calculette, il y a <a href="https://www.youtube.com/watch?v=og6GrxZJmSI">un bouton</a> pour changer le mode d'exécution de <code>cos</code> et <code>sin</code>.
+            |On a calculator, there is <a href="https://www.youtube.com/watch?v=og6GrxZJmSI">a button</a> to switch the execution mode of <code>cos</code> and <code>sin</code>.}}</p>
         
         <h3 id="trigonometrie-distance-r">Distance r</h3>
         
@@ -408,6 +448,14 @@
             $(\sin\theta)^2 + (\cos\theta)^2 = 1^2$
             $\iff \sin^2\theta + \cos^2\theta = 1$
         </p>
+        
+        <figure class="slideshow exercice">
+            <img class="slide next" src="trigono.state-sincos.svg" />
+            <img class="slide next" src="trigono.state-ticks.svg" />
+            <figcaption>{{Le cercle trigonométrique|The trigonometry circle}}</figcaption>
+        </figure>
+        
+        <p>{{Et ça, quelque soit l'angle $\theta$, pas mal non ?|And that's true for every angle $\theta$, admirable isn't it ?}}</p>
         
         <h3 id="{{trigonometrie-angles-petits-et-grands|trigonometry-small-and-big-angles}}">{{Angles petits et grands|Small and big angles}}</h3>
         
@@ -468,22 +516,28 @@
             {{On définit :|By definition:}}
             $\tan\theta = \cfrac{\sin\theta}{\cos\theta}$
             
-            {{la <em>tangente</em> de l'angle $\theta$, notée $\tan\theta$ ou $\mathrm{tg}\ \theta$ en littérature française. La tangente est définie comme le rapport du sinus sur le cosinus|the <em>tangent</em> of angle $\theta$, also written $\tan\theta$. The tangent is defined by the ratio of sine over cosine}},
-            {{on utilise aussi parfois la cotangente|one can also use the cotangent}}, $\cot\theta = \cfrac{\cos\theta}{\sin\theta} = \cfrac{1}{\tan\theta}$.
+            {{la <em>tangente</em> de l'angle $\theta$, notée $\tan\theta$ ou $\mathrm{tg}\ \theta$ en littérature française.
+            La tangente est définie comme le rapport du sinus sur le cosinus.
+            | the <em>tangent</em> of angle $\theta$, also written $\tan\theta$.
+            The tangent is defined by the ratio of sine over cosine.}}
         </p>
         
         <p>{{
-            La tangente (et la cotangente) peuvent aussi être vues comme une coordonnée sur le cercle trigonométrique :
-        |
-            The tangent (and the cotangent) can also be seen as a coordinate on the trigonometric circle:
+            La tangente peut aussi être vue comme une coordonnée sur le cercle trigonométrique :
+            | The tangent can also be seen as a coordinate on the trigonometric circle:
         }}</p>
         
         <figure>
-            <img src="https://it.openprof.com/ge/images/80/tancotit_640.png" />
+            <img src="trigono.state-tan.svg" />
             <figcaption></figcaption>
         </figure>
         
-        <p>{{La tangente vaut donc la coordonnée y de l'intersection de la droite $x = 1$ et de la droite $OP$, la cotangente vaut la coordonnée x de l'intersection de la droite $y = 1$ et de la droite $OP$.|The tangent is equal to the y coordinate of the intersection of the straight line $x = 1$ and the straight line $OP$, the cotangent is equal to the x coordinate of the intersection of the straight line $y = 1$ and the straight line $OP$.}}</p>
+        <p>{{La tangente vaut donc la coordonnée y de l'intersection de la droite $x = 1$ et de la droite $OP$.
+            |The tangent is equal to the y coordinate of the intersection of the straight line $x = 1$ and the straight line $OP$.}}
+        
+        <p>
+        Il y a aussi <a href="https://it.openprof.com/ge/images/80/tancotit_640.png">la cotangente</a> définie comme $\cfrac{\cos\theta}{\sin\theta}$ $= \cfrac{1}{\tan\theta}$
+        ou comme l'intersection de la droite $y = 1$ et de la droite $OP$ mais elle est rarement utilisée.
         
         <p>{{Quand l'angle est entre 90 et 180 degrés (deuxième <em>quadrant</em>), le sinus est positif et le cosinus est négatif, donc la tangente est négative. Sur le dessin, on voit que l'intersection entre les deux droites se retrouve en dessous de l'axe des x.|When the angle is between 90 and 180 degrees (second <em>quadrant</em>), the sine is positive and the cosine is negative, therefore the tangent is negatif. On the drawing, one can see that the intersection between the two straight lines is beneath the x axis.}}</p>
         
@@ -696,6 +750,23 @@
             Click on <em>linked videos</em> at the bottom of the video to look at other videos of the same subject.
         }}</p>
         
+        <h3>Un petit mot sur le <strong>co</strong>sinus</h3>
+            [Section en construction]
+        
+        <h3>Trouver l'angle, les fonctions d'<em>Arc</em></h3>
+            [Section en construction]
+        
+        <!-- Pourquoi arc ? Car un angle, définit un arc, qui a une longeur (et dans le cas du radian, l'angle <strong>vaut</strong> cet longeur) et donc, connaissant la tangente on peut trouver la longeur de l'arc, et donc trouver angle. -->
+        <!-- La fonction atan2 présente sur toutes les calculettes sympa (comme python) -->
+        
+        <!--
+        <h3>Les coordonnées polaires</h3>
+            [Section en construction]
+            -> On en parle dans la section Vecteur !
+        -->
+            
+        <!-- Pourquoi polaire ? -->
+        
     </section>
     
     <h2 id="{{vecteurs|vectors}}">{{Vecteurs|Vectors}}</h2>
@@ -711,7 +782,6 @@
     
         <div><em> <a href="math.{{en|fr}}.html#{{vectors|vecteurs}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
 
-    
         <p>
             {{Dans l'exercice 4, nous utilisons le concept de|Exercise 4 uses a concept called}} <strong>{{vecteur|vector}}.</strong>
             {{En un mot, un vecteur c'est un|In one word, a vector is a}} <strong>{{déplacement|displacement}}</strong>.
@@ -798,7 +868,7 @@
             
             <p>$\|(6,3)\| = \sqrt{6^2 + 3^2}$ $= \sqrt{45}$ $\simeq 6.70 $</p> <!-- responsive : break "=" into multiple equations! -->
             
-            <p>La norme est calculée avec <a href="math.html">pythagore</a>. Voici une représentation graphique du calcul de la norme de $\vec{a} = (6, 3)$</p>
+            <p>La norme est calculée avec <a href="math.html">pythagore</a>. Voici une représentation gravarphique du calcul de la norme de $\vec{a} = (6, 3)$</p>
             
             <figure><img src="vecteurs-norme.png"/></figure>
             
@@ -1055,7 +1125,10 @@
             </p>
             
             <p>En python avec numpy, il existe la fonction <code>numpy.dot</code> :</p>
-            <pre><code class="py">numpy.dot([1,2],[3,4]) # 1*3+2*4</code></pre>
+            <pre><code class="py">
+                from numpy import dot 
+                dot([1,2],[3,4]) # 1*3+2*4
+            </code></pre>
             
             <p>
                 Cette opération a une interprétation physique très importante qui est la notion de <em>travail</em>.
@@ -1088,17 +1161,18 @@
         
         <h3 id="norme-3d">Norme 3D</h3>
 
-            <p>Pour la 3D, les opérations de bases restent les mêmes, ce qui fait que la majorité des équations vectorielles sont aussi valides en 3D.</p>
+            <p>Pour la 3D, les opérations de bases restent les mêmes, ce qui fait que la majorité des équations vectorielles sont aussi valides en 3D.
             
-            <p>La norme s'étend naturellement avec <em>pythagore en 3D</em> : $\|\vec{v}\| = \sqrt{v_x^2 + v_y^2 + v_z^2}$</p>
+            <p>La norme s'étend naturellement avec <em>pythagore en 3D</em> : $\|\vec{v}\| = \sqrt{v_x^2 + v_y^2 + v_z^2}$
             <figure> <img src="3d-pythagore.png"/> <img src="3d-pythagore-formules.png"/> </figure>
             
-            <p>Petite remarque sur la représentation des vecteurs 3D dans le plan, on peut faire un dessin en perspective comme sur la figure précédente. Mais on peut aussi considérer un plan, comment dessiner le vecteur $\vec{1}_z = (0,0,1)$ dans le plan <em>XY</em> ?</p>
-            <p>Si je prend mon dessin précédent et représente le plan <em>XY</em> en <em>Z = 0</em>, j'aurai :</p>
+            <p>Petite remarque sur la représentation des vecteurs 3D dans le plan, on peut faire un dessin en perspective comme sur la figure précédente. Mais on peut aussi considérer un plan, comment dessiner le vecteur $\vec{1}_z = (0,0,1)$ dans le plan <em>XY</em> ?
             
-            <figure>Picture</figure>
+            <figure>
+                <img height=400 src="3d-notation-in-plane.{{fr|en}}.svg" />
+            </figure>
             
-            <p>Le vecteur $\vec{1}_z$ <em>sort</em> de l'écran, il va <em>vers toi</em>. On le représentera avec le symbole $\odot$, s'il <em>rentrait dans l'écran</em>, on aurait utilisé le symbole $\otimes$.</p>
+            <p>Comme vous voyez sur le dessin, on représente un vecteur <em>sortant</em> de l'écran par un symbole $\odot$ alors qu'un vecteur <em>rentrant</em> dans l'écran utilise le symbole $\otimes$.
         
         <h3 id="coordonnees-spheriques">Coordonnées sphériques</h3>
 
@@ -1108,12 +1182,12 @@
             <p>
                 L'angle $\theta$ est appelée <em>angle azimutal</em> ou <em>longitude</em> et varie dans l'intervalle $[\small{0°},\small{360°}[$ ou $]-\small{180°}, +\small{180°}]$.
                 <br/>
-                L'angle $\phi$ est appelée <em>angle zénithal</em> ou <em>colatitude</em> et varie dans l'intervalle $[\small{0°},\small{180°}[$.
+                L'angle $\varphi$ est appelée <em>angle zénithal</em> ou <em>colatitude</em> et varie dans l'intervalle $[\small{0°},\small{180°}[$.
             </p>
             
-            <p>Attention : souvent en physique, $\theta$ est appelé $\phi$ et $\phi$ est appelé $\theta$ !</p>
+            <p>Attention : souvent en physique, $\theta$ est appelé $\varphi$ et $\varphi$ est appelé $\theta$ !</p>
             
-            <p>La relation inverse s'obtient via $\theta = \mathrm{atan2}(y, x)$ et $\phi = \mathrm{acos}(z/r)$.</p>
+            <p>La relation inverse s'obtient via $\theta = \mathrm{atan2}(y, x)$ et $\varphi = \mathrm{acos}(z/r)$.</p>
         
         <h3 id="produit-vectoriel">Produit vectoriel</h3>
             <p> Surtout utile en 3D, nous avons le <a href="https://fr.wikipedia.org/wiki/Produit_vectoriel">produit vectoriel</a> noté $\vec{a} \times \vec{b}$ ou $\vec{a} \wedge \vec{b}$. </p>
@@ -2081,7 +2155,7 @@
 
             <figure><img src="transformation-multiples-rectangle.png" /></figure>
             
-            <p>En pratique, on aura plus que 4 points, et la carte graphique s'occupe de la multiplication de matrice en grande quantité, regardez comme les modèles suivants ont un nombre élevé de points !</p>
+            <p>En pratique, on aura plus que 4 points, et la carte gravarphique s'occupe de la multiplication de matrice en grande quantité, regardez comme les modèles suivants ont un nombre élevé de points !</p>
             
             <figure>
                 <img src="Akira_class_CGI_wireframe_model_by_ILM.jpg" width="573">

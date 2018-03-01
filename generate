@@ -11,3 +11,4 @@ cd ../..
 
 # ./generate_zip
 # ./generate_state_svg.py triangle-geometry.svg --layer-name
+# ./generate_state_svg.py trigono.svg

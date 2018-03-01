@@ -129,22 +129,22 @@ def display(shader, vertex_array_object, t):
     glUseProgram(shader)
     
     # build projection matrix
-    p = PerspectiveMatrix(45, 1.0 * 512/512, 0.1, 100)
+    P = PerspectiveMatrix(45, 1.0 * 512/512, 0.1, 100)
     
     # build view matrix (lookAt)
-    v = LookAtMatrix(vec3(7 * polar(0.5 * t), 5), (0, 0, 0), (0, 0, 1))
-    pv = p @ v
+    V = LookAtMatrix(vec3(7 * polar(0.5 * t), 5), (0, 0, 0), (0, 0, 1))
+    PV = P @ V
     
     # build model matrix of triangles (bouncy animation)
-    m = TranslationMatrix(0, 0, abs(sin(3*t)))
-    pvm = pv @ m
+    M = TranslationMatrix(0, 0, abs(sin(3*t)))
+    PVM = PV @ M
     
     # use our only vao
     glBindVertexArray(vertex_array_object)
     
     # set matrix
     loc_matrix = glGetUniformLocation(shader, 'pvmMatrix')
-    glUniformMatrix4fv(loc_matrix, 1, True, pvm)
+    glUniformMatrix4fv(loc_matrix, 1, True, PVM)
     
     # draw
     glDrawArrays(GL_TRIANGLES, 0, 18)

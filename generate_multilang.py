@@ -10,10 +10,11 @@ p = argparse.ArgumentParser()
 p.add_argument('--files', nargs='*', help='to implement') # TODO to implement
 p.add_argument('-l', '--langs', nargs='+')
 p.add_argument('--config', nargs='?', default={})
+p.add_argument('--print-only', action="store_true", help="doesn't create file, only print file concerned")
 a = args = p.parse_args()
 
 LANGS = args.langs
-assert len(LANGS) == 2, "currently only 2 langs"
+assert args.print_only or len(LANGS) == 2, "currently only 2 langs"
 
 # TODO: provide metadata file (config file parameter per file/set of file)
 if args.config:
@@ -40,6 +41,9 @@ def is_user_writable(filepath):
 
 for f in filter(RE.match, os.listdir('.')):
     if f == 'generate_multilang.py':
+        continue
+    if args.print_only:
+        print(f)
         continue
     fileinfo = fileinfos.get(f, {})
         

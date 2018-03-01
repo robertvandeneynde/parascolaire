@@ -280,7 +280,7 @@ condition = (a < 5)
 if condition == True:
     print("Plus petit !")
 else:
-    print("Plus grand ou egal")
+    print("Plus grand ou égal")
     
 # le "if" attend un bool, on peut donc enlever "== True"
 
@@ -288,7 +288,7 @@ condition = a < 5 # parenthèse non nécessaires
 if condition: # == True enlevé
     print("Plus petit")
 else:
-    print("Plus grand ou egal")
+    print("Plus grand ou égal")
 
 # on peut donc faire des "opérations" sur les bool
 

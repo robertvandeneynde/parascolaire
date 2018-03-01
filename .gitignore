@@ -14,6 +14,8 @@ __pycache__
 *.class
 *.en.html
 *.fr.html
+*.en.svg
+*.fr.svg
 *.state-*
 /presences
 
@@ -43,3 +45,4 @@ turtle.html
 pythontutor.html
 
 gl_3d_basics.zip
+3d-notation-in-plane.svg
