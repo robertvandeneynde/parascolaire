@@ -10,8 +10,11 @@ p = argparse.ArgumentParser()
 p.add_argument('--files', nargs='*', help='to implement') # TODO to implement
 p.add_argument('-l', '--langs', nargs='+')
 p.add_argument('--config', nargs='?', default={})
-p.add_argument('--print-only', action="store_true", help="doesn't create file, only print file concerned")
+p.add_argument('--print-only', '--dry-run', action="store_true", help="doesn't create file, only print file concerned")
 a = args = p.parse_args()
+
+warning = lambda *args: print('[Warning]', *args)
+info = lambda *args: print('[Info]', *args)
 
 LANGS = args.langs
 assert args.print_only or len(LANGS) == 2, "currently only 2 langs"
@@ -31,13 +34,32 @@ RE = re.compile('''
     (?:(?:\\||_as_)([^.]*))? # name in other lang(s)
     ([.][^.]*)$
 ''', re.X)
-RE_TR = re.compile('{{(.*?)\|(.*?)}}', re.DOTALL)
+# RE_TR = re.compile('{{(.*?)(?:\|(.*?))*}}', re.DOTALL)
+
+RE_TR_TAG = re.compile('{{(.*?)}}', re.DOTALL)
+TR_TAG_SEP = '|'
+
+def TR_TAG_NO_MATCHING(s):
+    return s.count('{{') != s.count('}}') # TODO: real parenthese matching algorithm
+
+def spliti(s, sep, i, default=None):
+    try:
+        return s.split(sep)[i]
+    except IndexError:
+        return default
+    # this alg may be faster... but probably not
+    k = 0
+    pn = 0
+    for n in range(len(s)):
+        if s[n] == sep:
+            if k == i:
+                return s[pn:n]
+            else:             
+                k += 1
+                pn = n + 1
+    return s[pn:] if k == i else default
 
 modified = []
-
-def is_user_writable(filepath):
-  import os, stat
-  return bool(os.stat(filepath).st_mode & stat.S_IWUSR)
 
 for f in filter(RE.match, os.listdir('.')):
     if f == 'generate_multilang.py':
@@ -49,8 +71,13 @@ for f in filter(RE.match, os.listdir('.')):
         
     basename, multilang_symbol, othernames, ending = RE.match(f).groups()
     othernames = re.split('\\||_as_', othernames) if othernames else []
-    with open(f) as f:
-        s = f.read()
+    
+    with open(f) as fo:
+        s = fo.read()
+    
+    if TR_TAG_NO_MATCHING(s):
+        warning('In {}: Translation tag not matching: {}'.format(f, 'somewhere'))
+        continue
     
     for i, lang in enumerate(fileinfo.get('langs', LANGS)):
         has_other_name = i-1 in range(len(othernames))
@@ -61,17 +88,19 @@ for f in filter(RE.match, os.listdir('.')):
                     simple_name)
         
         if os.path.isfile(filename):
-            with open(filename, 'r') as f:
-                prev_str = f.read()
+            with open(filename, 'r') as fo:
+                prev_str = fo.read()
         else:
             prev_str = ''
         
-        next_str = RE_TR.sub(lambda m: m.group(i+1), s)
+        next_str = RE_TR_TAG.sub(lambda m: spliti(m.group(1), TR_TAG_SEP, i, 'NOT TRANSLATED'), s)
+        # ornone = lambda x, y: y if x is None else x
+        # next_str = RE_TR.sub(lambda m: ornone(m.group(i+1), m.group(1)), s)
         if prev_str != next_str:
             modified.append(filename)
                 
-            with OutFile(filename) as f:
-                f.write(next_str)
+            with OutFile(filename) as fo:
+                fo.write(next_str)
             
             if i == 0:
                 new = OutFile(basename + ending)

@@ -10,9 +10,10 @@ class OutFile:
     with OutFile("compiled.txt") as f: f.write('stuff')
     # compiled.txt is read only, you can repeat this process
     """
-    def __init__(self, filename, supargs=''):
+    def __init__(self, filename, supargs='', *, print_created=False):
         self.filename = filename
         self.supargs = supargs
+        self.print_created = print_created
     
     def unlock(self):
         if os.path.isfile(self.filename):
@@ -32,3 +33,5 @@ class OutFile:
     def __exit__(self, type, value, traceback):
         self.lock()
         self.f.__exit__(type, value, traceback)
+        if self.print_created:
+            print('Created ' + self.filename)

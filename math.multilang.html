@@ -735,21 +735,6 @@
         print(cos(radians(34))) # 0.82
         </code></pre>
         
-        <h3 id="{{trigonometrie|trigonometry}}-clipedia">Clipedia</h3>
-        
-        <p>
-            {{Plus d'infos sur|More infos on}} 
-            <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/la-fonction-sinus">{{la trigonométrie|trigonometry}}</a> {{et le|and the}} <a href="https://www.clipedia.be/mathematiques/geometrie/le-radian">radian</a> {{sur clipedia !|on clipedia! (french only at the moment)}} 
-        </p>
-        
-        <p>{{
-            N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
-            Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les autres vidéos du sujet.
-            |
-            Do not hesitate to put the video in <strong>fullscreen</strong>, to <strong>stop</strong> or <strong>go back</strong> if you want to, or even to look at the video in <strong>fast-forward</strong> by clicking on the <strong>speed</strong> button of the player.
-            Click on <em>linked videos</em> at the bottom of the video to look at other videos of the same subject.
-        }}</p>
-        
         <h3>Un petit mot sur le <strong>co</strong>sinus</h3>
             [Section en construction]
         
@@ -766,6 +751,21 @@
         -->
             
         <!-- Pourquoi polaire ? -->
+        
+        <h3 id="{{trigonometrie|trigonometry}}-clipedia">Clipedia</h3>
+        
+        <p>
+            {{Plus d'infos sur|More infos on}} 
+            <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/la-fonction-sinus">{{la trigonométrie|trigonometry}}</a> {{et le|and the}} <a href="https://www.clipedia.be/mathematiques/geometrie/le-radian">radian</a> {{sur clipedia !|on clipedia! (french only at the moment)}} 
+        </p>
+        
+        <p>{{
+            N'hésitez pas à mettre la vidéo en <strong>plein écran</strong>, à <strong>arrêter</strong> ou <strong>revenir en arrière</strong> si vous le voulez, ou même de regarder la vidéo en <strong>accéléré</strong> en cliquant sur le bouton <em>vitesse</em> du lecteur.
+            Cliquez sur <em>vidéos liées</em> en dessous de la vidéo pour voir les autres vidéos du sujet.
+            |
+            Do not hesitate to put the video in <strong>fullscreen</strong>, to <strong>stop</strong> or <strong>go back</strong> if you want to, or even to look at the video in <strong>fast-forward</strong> by clicking on the <strong>speed</strong> button of the player.
+            Click on <em>linked videos</em> at the bottom of the video to look at other videos of the same subject.
+        }}</p>
         
     </section>
     
@@ -1127,7 +1127,7 @@
             <p>En python avec numpy, il existe la fonction <code>numpy.dot</code> :</p>
             <pre><code class="py">
                 from numpy import dot 
-                dot([1,2],[3,4]) # 1*3+2*4
+                dot([1,2],[3,4]) # 1*3 + 2*4 = 9
             </code></pre>
             
             <p>
@@ -1333,7 +1333,10 @@
             </p>
             
             <p>En python avec numpy, il existe la fonction <code>numpy.cross</code> :</p>
-            <pre><code class="py">numpy.cross([1,0,0],[0,1,0]) # array([0,0,1]) </code></pre>
+            <pre><code class="py">
+                from numpy import cross
+                cross([1,0,0],[0,1,0]) # array([0,0,1])
+            </code></pre>
             
             <p>
                 Si tu veux d'autres infos, voici les vidéos traintant du produit vectoriel sur Clipedia :

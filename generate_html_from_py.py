@@ -1,16 +1,25 @@
 #!/usr/bin/env python3
 
-filename = 'generate_html_progra_equivalences_multilang.py'
-template_file = 'pytext_template.html'
+import argparse
 
-outfile_format = 'progra_equivalences_{lang}.html'
-outfile_raw_format = 'progra_equivalences_{lang}.py'
+p = argparse.ArgumentParser()
+p.add_argument('filename')
+p.add_argument('--template')
+p.add_argument('--out', help='may contain {lang} tag')
+p.add_argument('--out-raw', help='may contain {lang} tag')
+a = args = p.parse_args()
+
+assert args.template and args.out and args.out_raw
+
+basefilename = args.filename
+template_file = args.template
+
+outfile_format = args.out
+outfile_raw_format = args.out_raw
 
 from generate_utils import OutFile
 
 import re
-R = re.compile(r'generate_html_(.*)')
-basefilename = R.match(filename).group(1)
 
 with open(basefilename) as f:
     L = [l.strip('\n') for l in f]

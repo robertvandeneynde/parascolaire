@@ -1,6 +1,12 @@
 #!/bin/bash
 # ./generate_txt.py
-python3 generate_html_progra_equivalences_multilang.py
+
+python3 generate_html_from_py.py \
+    progra_equivalences_multilang.py \
+    --template=pytext_template.html \
+    --out=progra_equivalences_{lang}.html \
+    --out-raw=progra_equivalences_{lang}.py
+
 python3 generate_multilang.py --langs fr en
 python3 generate_html.py
 # ./generate_ln.py

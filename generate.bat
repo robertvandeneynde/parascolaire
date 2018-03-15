@@ -1,3 +1,4 @@
+echo "this .bat is out of date compared to the linux one, beware"
 REM ./generate_txt.py
 py -3 generate_html_progra_equivalences_multilang.py
 py -3 generate_multilang.py --langs fr en
