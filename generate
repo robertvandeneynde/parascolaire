@@ -7,6 +7,22 @@ python3 generate_html_from_py.py \
     --out=progra_equivalences_{lang}.html \
     --out-raw=progra_equivalences_{lang}.py
 
+for n in theorie1_egal_if; do
+python3 ./generate_html_from_py.py \
+    ${n}_multilang.py \
+    --template pytext_template.html \
+    --out ${n}_{lang}.html \
+    --out-raw ${n}_{lang}.py
+done
+
+for n in theorie1_egal_if theorie2_liste_while theorie3_fonctions_et_objets; do
+python3 ./generate_html_from_py.py \
+    ${n}.py \
+    --template pytext_template.html \
+    --out ${n}.html \
+    --out-raw ${n}.py
+done
+
 python3 generate_multilang.py --langs fr en
 python3 generate_html.py
 # ./generate_ln.py
@@ -18,3 +34,4 @@ cd ../..
 # ./generate_zip
 # ./generate_state_svg.py triangle-geometry.svg --layer-name
 # ./generate_state_svg.py trigono.svg
+

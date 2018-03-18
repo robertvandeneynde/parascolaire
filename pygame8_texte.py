@@ -57,6 +57,8 @@ while fini == 0:
     # True signifie "anti-aliasé" (c'est plus joli)
     image_nom_joueur = font.render("Robert", True, noir)
     image_score = font.render("Score: " + str(score), True, noir)
+    # Note: "Score: {}".format(score) est généralement plus clair et flexible que "Score: " + str(nombre)
+    # Le "{}" veut dire "je vais remplacer ça par une variable
 
     # on "blitte" l'image sur l'écran
     ecran.blit(image_nom_joueur, [20,20])

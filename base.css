@@ -382,3 +382,13 @@ figure .element img {
 p.desc {
     font-style: italic;
 }
+
+.nowrap {
+    word-wrap: nowrap;
+}
+
+p > code.hljs {
+    display: inline;
+    padding: 2px !important;
+    background: transparent !important;
+}

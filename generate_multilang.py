@@ -39,8 +39,27 @@ RE = re.compile('''
 RE_TR_TAG = re.compile('{{(.*?)}}', re.DOTALL)
 TR_TAG_SEP = '|'
 
-def TR_TAG_NO_MATCHING(s):
-    return s.count('{{') != s.count('}}') # TODO: real parenthese matching algorithm
+def tr_tag_test_matching(s):
+    # if s.count('{{') > s.count('}}'): raise
+    S = []
+    i = 0
+    line = 1
+    while i < len(s) - 2:
+        if s[i] == s[i+1] == '{':
+            i += 2
+            S.append(line)
+        if s[i] == s[i+1] == '}':
+            i += 2
+            try:
+                S.pop()
+            except:
+                pass # warning(f'early closed at line {line}')
+        else:
+            if s[i] == '\n':
+                line += 1
+            i += 1
+    if S:
+        raise ValueError(f'opening not closed: {S}')
 
 def spliti(s, sep, i, default=None):
     try:
@@ -75,8 +94,10 @@ for f in filter(RE.match, os.listdir('.')):
     with open(f) as fo:
         s = fo.read()
     
-    if TR_TAG_NO_MATCHING(s):
-        warning('In {}: Translation tag not matching: {}'.format(f, 'somewhere'))
+    try:
+        tr_tag_test_matching(s)
+    except ValueError as e:
+        warning('In {}: Translation tag not matching: {}'.format(f, str(e)))
         continue
     
     for i, lang in enumerate(fileinfo.get('langs', LANGS)):

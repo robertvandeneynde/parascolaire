@@ -27,7 +27,7 @@
      inkscape:window-maximized="1"
      inkscape:window-y="0"
      inkscape:window-x="0"
-     inkscape:window-height="1001"
+     inkscape:window-height="993"
      inkscape:window-width="1920"
      inkscape:snap-grids="false"
      inkscape:snap-page="true"
@@ -40,8 +40,8 @@
      showgrid="false"
      inkscape:current-layer="layer7"
      inkscape:document-units="px"
-     inkscape:cy="205.87712"
-     inkscape:cx="175.21621"
+     inkscape:cy="242.55769"
+     inkscape:cx="327.59772"
      inkscape:zoom="1.4142136"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -88,7 +88,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -96,7 +96,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Ticks {ticks}"
-     style="display:none"
+     style="display:inline"
      transform="translate(-58.1375,-10)">
     <path
        sodipodi:nodetypes="cc"
@@ -429,7 +429,7 @@
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="Tan {tan}"
-     style="display:none">
+     style="display:inline">
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
@@ -591,7 +591,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="More Points {ticks}"
-     style="display:none">
+     style="display:inline">
     <circle
        transform="translate(-228.67268,-47.886639)"
        id="path4880-6-2"
@@ -641,7 +641,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Valeurs {ticks}"
-     style="display:none">
+     style="display:inline">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:serif;-inkscape-font-specification:Serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none"

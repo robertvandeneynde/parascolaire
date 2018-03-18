@@ -1,9 +1,9 @@
 #!coding: utf-8
 from __future__ import print_function, division
 
-######################
-# Base CINQ : Objets #
-######################
+#####################
+# Base CINQ : Objets
+#####################
 
 # un objet permet de grouper plusieurs variables dans un... objet
 # par exemple on peut grouper la "vie" et le "mana" dans un objet "personnage"
@@ -57,9 +57,9 @@ les_personnages.append(p)
 # essayez de créer une liste de 100 personnages différents en moins de 10 lignes de code
 # remarquez qu'un personnage peut être différent d'un autre même s'il a les mêmes stats (vie, mana, ...)
 
-########################
-# Base SIX : Fonctions #
-########################
+#######################
+# Base SIX : Fonctions 
+#######################
 
 # Certaines structures de code reviennent souvent
 # Par exemple dans un exercice précédent, on a calculé le maximum d'une liste
@@ -226,10 +226,8 @@ def yo(x):
 # ici, si x est négatif, la fonction s'arrête et renvoie -1
 
 ##########################
-# Pour en en savoir plus #
+# Pour en en savoir plus (fonctions)
 ##########################
-
-### fonctions ###
 
 ## simplifications automatiques
 
@@ -397,7 +395,9 @@ g = f()
 
 # ou en groupant des variables dans des... OBJETS !
 
-### Objets ###
+###
+# Pour en savoir plus (objets)
+###
 
 ## Méthodes
 # On peut mettre des fonctions dans les classes...
@@ -461,7 +461,7 @@ class Personnage:
 bob = Personnage(60, 100, 10)
 alice = Personnage(40, 70, 50)
 
-### Héritage ###
+## Héritage
 
 # méditez là dessus (pythontutor)
 

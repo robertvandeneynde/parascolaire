@@ -35,7 +35,7 @@ def accepted(path):
         for m in (
             '^\\.', '^__pycache__$', '^private$', '^presences$',
             '\\.py\\.txt$', '\\.pyc$', '\\.py\\.html$',
-            '\\.en\\.html$', '\\.fr\\.html$', '\\.multilang\\.html$',
+            '\\.en\\.html$', '\\.fr\\.html$', '[._]multilang\\.html$',
             '\\.php\\.txt$', '\\.php\\.html$',
             '\\.java\\.txt$', '\\.class$', '\\.java\\.html$',
             '\\.js\\.txt$', '\\.js\\.html$', '^home$'

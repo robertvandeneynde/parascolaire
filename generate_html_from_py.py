@@ -115,6 +115,8 @@ settings.configure(TEMPLATES=[
     },
 ])
 
+without_extension = lambda x: '.'.join(x.split('.')[:-1]) if '.' in x else x
+
 import django
 django.setup()
 
@@ -124,7 +126,7 @@ with OutFile(outfile_format.format(lang='multilang'), 'w') as f:
   f.write(t2.render({
     'lang': '{{fr|en}}',
     'download_link': '{{' + '|'.join(outfile_raw_format.format(lang=l) for l in ('fr', 'en')) + '}}',
-    'name': "Équivalences",
+    'name': without_extension(args.filename),
     'description': description,
     'other_langs': [{
         'filename': outfile_format.format(lang='{{en|fr}}'),

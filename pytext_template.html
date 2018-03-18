@@ -50,7 +50,7 @@
     </head>
     <body class="codeformat">
     <div id="wrapper">
-        <h1 class=""><!-- nocontent
+        <h1 class="{% if not description %}nocontent{% endif %}"><!-- nocontent
             --><a class="homeicon" href="index.html"></a><!--
             --><span class="text">{{ name }}
             
@@ -61,18 +61,30 @@
             </span><!--
         --></h1>
         
+        {% if description %}
         <section>
-            <div><em>
+        <p class="lang-switch">
+            <p class="lang-switch">
                 {% for other_lang in other_langs %}
                 <a href="{{ other_lang.filename }}"
                    lang="{{ other_lang.lang }}"
-                   hreflang="{{ other_lang.lang }}">{{ other_lang.text }}</a>
+                   hreflang="{{ other_lang.lang }}"><!--
+                    --><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{other_lang.lang}}.png"/><!--
+                    -->{{ other_lang.text }}<!--
+                --></a>
                 {% endfor %}
-            </em></div>
+            </p>
             
             <p>{{ description }}</p>
         </section>
+        {% endif %}
         
+        <nav>
+        {% for other_lang in other_langs %}
+            <a href="{{ other_lang.filename }}" hreflang="{{ other_lang.lang }}"><img src="flag-{{other_lang.lang}}.png"/></a>
+        {% endfor %}
+        </nav>
+            
         <nav>
         {% for section in sections %}
             <a href="#{{ section.id }}">{{ section.name }}</a>
@@ -93,7 +105,9 @@
                 <p>{{ block.description }}</p>
             {% endif %}
             
-            <pre><code class="py">{{ block.code }}</code></pre>
+            {% if block.code %}
+                <pre><code class="py">{{ block.code }}</code></pre>
+            {% endif %}
             {% endfor %}
         </section>
         {% endfor %}

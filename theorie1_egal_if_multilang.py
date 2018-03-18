@@ -2,7 +2,7 @@
 from __future__ import print_function, division
 
 ##################
-# Base {{UNE|ONE}} : "=" #
+# Base {{UNE|ONE}} : "="
 ##################
 
 # "=" {{permet de changer la valeur d'une variable|allows you to change the value of a variable}}
@@ -26,7 +26,7 @@ print(d)
 print("{{fin|end}}")
 
 ####################
-# Base {{DEUX|TWO }} : "if" #
+# Base {{DEUX|TWO }} : "if" 
 ####################
 
 a = 7
@@ -116,7 +116,7 @@ if (a == 2 or b == 2) and c == 2:
     print("Yo")
     
 ##{{###################|############}}##
-# {{Pour en savoir plus|To know more}} #
+# {{Pour en savoir plus|To know more}} 
 ##{{###################|############}}##
 
 ## =
@@ -207,7 +207,7 @@ if not(a == 5):
 if a != 5:
     print("a n'est pas égal à 5")
     
-# en effect, au choix du programmeur, le not peut être simplifié :
+# en effet, au choix du programmeur, le not peut être simplifié :
 # not(a == b)  ↔ a != b
 # not(a < b)   ↔ a >= b (ATTENTION : plus grand ou ÉGAL)
 # not(X and Y) ↔ (not X) or (not Y) (ATTENTION : OR)
@@ -274,7 +274,7 @@ else:
     print("graaaand")
 
 ## bool: les conditions peuvent être mises dans des variables
-# un (booléen) vaut Vrai ou Faux (True / False)
+# un bool (booléen) vaut Vrai ou Faux (True / False)
 
 condition = (a < 5)
 if condition == True:

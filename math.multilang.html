@@ -40,6 +40,9 @@
     <script>
         $(function(){
             hljs.initHighlightingOnLoad()
+            $('p > code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
             utils.makeTitleLinks()
             utils.smoothLinks()
             utils.dedentPreCode()
@@ -318,7 +321,7 @@
             <li>{{Comment couper parfaitement une pizza en 6 ?|How to perfectly cut a pizza in 6?}}</li>
         </ol>
         
-        <p>{{Dans le langage courant, on dira plutot <em>trigono</em>
+        <p>{{Dans le langage courant, on dira plutot <em>trigono</em>.
             |In spoken language, we'll prefer to say the short version <em>trig</em>.}}</p>
         
         <h3 id="trigonometrie-base">{{Le cosinus et le sinus|Cosine and sine}}</h3>
@@ -330,36 +333,53 @@
         <figure class="slideshow exercice">
             <img class="slide next" src="trigono.state-sincos.svg" />
             <img class="slide next" src="trigono.state-ticks.svg" />
-            <figcaption>{{Le cercle trigonométrique|The trigonometry circle}}</figcaption>
+            <figcaption>{{Le cercle trigonométrique|The trigonometry circle}}
+                <em>&mdash; {{Cliquez sur l'image pour voir les valeurs numériques.|Click on the image to see the numerical values.}}</em>
+            </figcaption>
         </figure>
         
         <p>{{
-            Par définition, on a donc
+            Par définition, en termes très verbeux, on a donc
             <em>le cosinus d'un angle est la coordonée <strong>x</strong> du point à distance 1 positionné à cet angle par rapport à l'axe x</em> et
             <em>le sinus d'un angle est la coordonée <strong>y</strong> du point à distance 1 positionné à cet angle par rapport à l'axe x</em>.
         |
-            By definition,
+            By definition, using a lot of words, one have
             <em>the cosine of an angle is the coordinate <strong>x</strong> of the point at distance 1 placed at that angle with respect to x axis</em> and
             <em>the sine of an angle is the coordinate <strong>y</strong> of the point at distance 1 placed at that angle with respect to x axis</em>.
         }}</p>
         
         <p>{{
-            Sur mon dessin, l'angle est de <strong>36°</strong> et le point a environ les coordonnées $(0.82, 0.55)$ (j'ai mesuré !),
-            on a donc $\cos(36°) = 0.82$ et $\sin(36°) = 0.55$
+            Sur mon dessin, l'angle est de <strong>34°</strong> et le point a environ les coordonnées $(0.82, 0.55)$ (j'ai mesuré !),
+            on a donc $\cos(34°) = 0.82$ et $\sin(34°) = 0.55$
         |
-            On my drawing, the angle is equal to <strong>36°</strong> and the point has approximately the coordinates $(0.82, 0.55)$ (I measured!),
-            one has $\cos(36°) = 0.82$ and $\sin(36°) = 0.55$
+            On my drawing, the angle is equal to <strong>34°</strong> and the point has approximately the coordinates $(0.82, 0.55)$ (I measured!),
+            one has $\cos(34°) = 0.82$ and $\sin(34°) = 0.55$
         }}</p>
         
         <p><em>{{Cliquez sur la figure précédente pour voir les valeurs numériques.|Click on the previous figure to see the numerical values.}}</em></p>
         
-        <p>Par la définition, vous pouvez déja répondre à ces questions, est-ce qu'il existe un angle...
+        <p>Par la définition, vous pouvez déja répondre à ces questions :
+        
+        <ul>
+            <li>Quelles sont les <strong>longueurs</strong> et les angles d'un triangle
+                <strong>rectangle</strong>
+                dont un angle de <strong>34°</strong>
+                dont le plus grand côté (l'hypothénuse) est de longueur <strong>1</strong> ?
+            <li>Comment nommeriez vous les deux autres côtés ? On les appelle généralement côté <strong>adjacent</strong> à l'angle et <strong>opposé</strong> à l'angle, qui ici vaut 34°.
+            <li>Même question mais l'hypothénuse est de longueur <strong>5</strong>.
+            <li>Même question mais l'hypothénuse est de longueur <strong>r</strong>.
+            <li>Même question mais l'angle vaut $\theta$
+        </ul>
+
+        <p>Ou aux questions, est-ce qu'il existe un angle...
         <ul>
             <li>...dont le cosinus est <strong>plus grand que 1</strong> ?
             <li>...dont le cosinus vaut <strong>zéro</strong> ?
             <li>...dont le <strong>sinus</strong> vaut 0.82 ? Quel est le rapport entre cet angle et 34 degrés ?
             <li>...dont le cosinus est <strong>négatif</strong> ? Réponse <a href="#{{trigonometrie-negatif|trigonometry-negative}}">un peu plus bas</a> !
         </ul>
+        
+        <p>Une autre manière bien commode de voir le sinus (et le cosinus) est via le <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/la-fonction-sinus">sinus comme mouvement de rotation</a> sur Clipedia.
         
         <h3 id="{{convention-axe-y|y-axis-convention}}">Conventions d'axe Y</h3>
         
@@ -400,10 +420,24 @@
             print(sind(36)) # 0.55
         </code></pre>
         
-        <p>Vous pouvez également regarder le fichier <a href="vec3_utils.py.html">vec3_utils</a> pour voir la définition de la fonction <code>cosd</code> et <code>sind</code>, rien de bien sorcier.</p>
+        <p>Vous pouvez également regarder le fichier <a href="vec3_utils.py.html">vec3_utils</a> pour voir la définition de la fonction <code>cosd</code> et <code>sind</code>, rien de bien sorcier.
+        
+        <pre class="developpement" symbol=""><code class="python">
+            from math import radians, degrees, sin, cos
+            
+            def sind(x):
+                return sin(radians(x))
+            
+            def cosd(x):
+                return sin(radians(x))
+        </code></pre>
             
         <p>{{Sur une calculette, il y a <a href="https://www.youtube.com/watch?v=og6GrxZJmSI">un bouton</a> pour changer le mode d'exécution de <code>cos</code> et <code>sin</code>.
             |On a calculator, there is <a href="https://www.youtube.com/watch?v=og6GrxZJmSI">a button</a> to switch the execution mode of <code>cos</code> and <code>sin</code>.}}</p>
+            
+        <p>Utiliser Python comme calculette est <strong>aussi facile</strong> qu'utiliser une calculette,
+        sauf qu'on peut faire beaucoup plus, je suis en train d'écrire un petit tutoriel sur <em>Python comme calculette</em>
+        (il sera sur <a href="calculette.html">cette page</a>).
         
         <h3 id="trigonometrie-distance-r">Distance r</h3>
         
@@ -415,6 +449,8 @@
         <figure>
             <img src="trigono-bigger.svg" />
         </figure>
+        
+        <p>Quand vous avez un triangle rectangle, imaginez d'abord que qu'il est <em>unitaire</em> (l'hypothénuse de longueur 1), puis finalement multipliez tout par la vraie longueur de l'hypothénuse.
         
         <h3 id="{{trigonometrie-negatif|trigonometry-negative}}">{{Coordonnées négatives|Negative coordinates}}</h3>
         
@@ -486,8 +522,8 @@
         }}</p>
         
         <p>{{
-            Le point correspondant à l'angle <em>−45°</em> aura donc la même coordonnée que celui de l'angle <em>315°</em> et
-            le point correspondant à l'angle <em>45°</em> aura donc la même coordonnée que celui de l'angle <em>405°</em>.
+            Le point correspondant à l'angle <em>−45°</em> aura donc les même coordonnées que celui de l'angle <em>315°</em> et
+            le point correspondant à l'angle <em>45°</em> aura donc les même coordonnées que celui de l'angle <em>405°</em>.
         |
             The point corresponding to angle <em>−45°</em> will then have the same coordinates than the angle <em>315°</em> and
             the point corresponding to angle <em>45°</em> will then have the same coordinates than the angle <em>405°</em>.
@@ -509,6 +545,18 @@
             \end{cases}
             $
         </p>
+        
+        <p>Le cosinus est très sympa pour beaucoup de propriétés, comme par exemple
+        
+        <p>$\cos(-\theta) = \cos\theta$
+        
+        <p>Alors que le sinus introduit un signe − :
+        
+        <p>$\sin(-\theta) = -\sin\theta$
+        
+        <figure>[Dessin à venir avec 360-x, -x et 360+x]</figure>
+        
+        <p>On voit de manière évidente les propriétés énoncées.
         
         <h3 id="{{trigonometrie-tangente|trigonometry-tangent}}">{{Tangente|Tangent}}</h3>
         
@@ -534,6 +582,8 @@
         
         <p>{{La tangente vaut donc la coordonnée y de l'intersection de la droite $x = 1$ et de la droite $OP$.
             |The tangent is equal to the y coordinate of the intersection of the straight line $x = 1$ and the straight line $OP$.}}
+        
+        <p>Quand vous avez un triangle rectangle et vous vous intéressez aux deux petits côtés, imaginez d'abord que le côté adjacent à l'angle vaut 1, puis multipliez par la vraie longueur du côté.
         
         <p>
         Il y a aussi <a href="https://it.openprof.com/ge/images/80/tancotit_640.png">la cotangente</a> définie comme $\cfrac{\cos\theta}{\sin\theta}$ $= \cfrac{1}{\tan\theta}$
@@ -565,13 +615,13 @@
         </figure>
         
         <p>{{
-            Dans un triangle rectangle, le côté opposé à l'angle droit est appelée <em>l'hypothénuse</em> (longueur <em>h</em>). Quand on parle d'un des deux angles, on parlera du côté <em>adjacent</em> (longeur <em>a</em>) et côté <em>opposé</em> (longeur <em>o</em>).
+            Dans un triangle rectangle, le côté opposé à l'angle droit est appelée <em>l'hypothénuse</em> (longueur <em>h</em>). Quand on parle d'un des deux angles, on parlera du côté <em>adjacent</em> (longueur <em>a</em>) et côté <em>opposé</em> (longueur <em>o</em>).
             |
             In a right angled triangle, the opposite side of the right angle is called the <em>hypothenuse</em> (length <em>h</em>). When one talks about one of the two angle, one will talk about the <em>adjacent</em> side (length <em>a</em>) and the <em>opposite</em> side (length <em>o</em>).
         }}</p>
         
         <p>{{
-            On peut en conclure que, dans tout triangle rectangle, les sinus, cosinus et tangentes des angles représentent des <strong>rapport</strong>, une division de deux longueurs :
+            On peut en conclure que, dans tout triangle rectangle, les sinus, cosinus et tangentes des angles représentent des <strong>rapports</strong>, une division de deux longueurs :
             |
             One can conclude that, in every right-angled triangle, the sine, cosine and tangent of the angles represent <strong>ratios</strong>, a division of two length:
         }}</p>
@@ -600,7 +650,7 @@
             $\tan\theta$
             <span class="developpement" symbol="=">
             $= \cfrac{\sin\theta}{\cos\theta}$
-            $= \cfrac{\frac{o}{h}}{\frac{a}{h}}$
+            $= \cfrac{ \frac{o}{h} }{ \frac{a}{h} }$
             </span>
             $= \cfrac{o}{a}$
         </p>
@@ -736,12 +786,91 @@
         </code></pre>
         
         <h3>Un petit mot sur le <strong>co</strong>sinus</h3>
-            [Section en construction]
+        
+        <p>Le sinus a en fait été découvert en premier,
+        vous pouvez voir l'histoire sur wikipedia,
+        ensuite le <strong>co</strong>sinus était défini par le sinus de l'angle <strong>co</strong>mplémentaire du sinus.
+        
+        On a donc :
+        
+        <p>$\sin(90° - \theta) = \cos\theta$
+        
+        <p>Et vu que le complémentaire du complémentaire d'un angle c'est cet angle, on a aussi :
+        
+        <p>$\cos(90° - \theta) = \sin\theta$
+        
+            <p>Ou encore en radians (sacré <em>pidemi</em>) :
+        
+        <p>$\cases{
+            \sin(\tfrac{\pi}{2} - \theta) = \cos\theta\\
+            \cos(\tfrac{\pi}{2} - \theta) = \sin\theta
+        }$
+        
+        <p>Ou en tauiste (on parle bien d'un <strong>quart</strong> de tour non ? Sacré <em>tauquart</em>) :
+        
+        <p>$\cases{
+            \sin(\tfrac{\tau}{4} - \theta) = \cos\theta\\
+            \cos(\tfrac{\tau}{4} - \theta) = \sin\theta
+        }$
+        
+        <figure>[Dessin]</figure>
+        
+        <h3>Formule d'addition</h3>
+        
+        <p>On a vu beaucoup de cas spéciaux, mais une formule $\cos(a + b)$ existe aussi.
+        
+        <p>On se rappellera de la forme symmétrique de $\cos(a - b)$ :
+        
+        <ul><li>$\cos(a - b) = \cos a \cos b + \sin a \sin b$</ul>
+        
+        <p>Et il est ensuite facile de démontrer les 4 autres formules :
+        
+        <ul>
+        <li>$\cos(a + b) $
+            <span class="developpement" symbol="=">
+            $\cos(a - (-b))$
+            $\cos a \cos(-b) + \sin a \sin(-b)$
+            </span>
+            $= \cos a \cos b - \sin a \sin b$
+        
+        <li>$\sin(a + b)$
+            <span class="developpement" symbol="=">
+            $ =\cos(90° - (a + b))$
+            $ =\cos(90° - a - b)$
+            $ =\cos((90° - a) - b)$
+            $ =\cos(90° - a) \cos b + \sin(90° - a) \sin b$
+            </span>
+            $ =\sin a \cos b + \cos a \sin b$
+            
+        <li>$\sin(a - b) $
+            <span class="developpement" symbol="=">
+            </span>
+            $= \cos a \cos b + \sin a \sin b$
+        </ul>
+            
+        <p>La première formule est facile à mémoriser et se démontre le plus facilement avec le produit scalaire (<span class="developpement" symbol="">
+            <br/>$\vec{1}_a \cdot \vec{1}_b = \cos\theta$ où $\theta$ est l'angle entre les deux,
+            <br/>donc angle de l'un moins l'angle de l'autre, donc $\theta = \theta_a - \theta_b$,
+            <br/>donc $\vec{1}_a \cdot \vec{1}_b = \cos(a - b)$
+            <br/>or, on sait que $\vec{1}_r = (\cos \theta_r,\ \sin\theta_r)$
+            <br/>on a donc $(\cos \theta_a,\ \sin\theta_a) \cdot (\cos \theta_b,\ \sin\theta_b) = \cos(\theta_a - \theta_b)$
+            <br/>donc $\cos(\theta_a - \theta_b) = \cos\theta_a \cos\theta_b + \sin\theta_a \sin\theta_b$ CQFD
+            <br/></span>)
+            
+            ou par géométrie (voir loi d'addition des <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/formule-d-addition-du-sinus">sinus</a> et <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/formule-d-addition-du-cosinus">cosinus</a> sur clipedia).
+            
+        <p>Cette formule marche donc pour tous les cas particuliers intuitifs dont on avait parlé :
+        <ul>
+            <li>$\text{sincos}(360°+\theta)$ 
+            <li>$\text{sincos}(360°-\theta)$ 
+            <li>$\text{sincos}(-\theta)$     $=\text{sincos}(0 - \theta)$
+            <li>$\text{sincos}(90°-\theta)$  
+        </ul>
         
         <h3>Trouver l'angle, les fonctions d'<em>Arc</em></h3>
             [Section en construction]
         
-        <!-- Pourquoi arc ? Car un angle, définit un arc, qui a une longeur (et dans le cas du radian, l'angle <strong>vaut</strong> cet longeur) et donc, connaissant la tangente on peut trouver la longeur de l'arc, et donc trouver angle. -->
+        <!-- Pourquoi arc ? Car un angle, définit un arc, qui a une longueur (et dans le cas du radian, l'angle <strong>vaut</strong> cet longueur) et donc, connaissant la tangente on peut trouver la longueur de l'arc, et donc trouver angle. -->
         <!-- La fonction atan2 présente sur toutes les calculettes sympa (comme python) -->
         
         <!--
@@ -756,7 +885,9 @@
         
         <p>
             {{Plus d'infos sur|More infos on}} 
-            <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/la-fonction-sinus">{{la trigonométrie|trigonometry}}</a> {{et le|and the}} <a href="https://www.clipedia.be/mathematiques/geometrie/le-radian">radian</a> {{sur clipedia !|on clipedia! (french only at the moment)}} 
+            <a href="https://www.clipedia.be/mathematiques/fonctions-differentielles-et-integrales/la-fonction-sinus">{{la trigonométrie|trigonometry}}</a>
+            {{et le|and the}}
+            <a href="https://www.clipedia.be/mathematiques/geometrie/le-radian">radian</a> {{sur clipedia !|on clipedia! (french only at the moment)}} 
         </p>
         
         <p>{{
@@ -1704,9 +1835,9 @@
                 $= \begin{pmatrix}-48&23&-15&-13\\-28&60&-32&0\end{pmatrix}$
             </p>
             
-            <p>Cette opération sera bien sûr effectuée par des calculettes adaptée, <em>python</em> est bien sûr adapté mais si vous avez la flemme d'ouvrir un terminal python (honte à vous), on peut trouver des calculettes <a href="https://matrixcalc.org/fr/">en ligne</a>.</p>
+            <p>Cette opération sera bien sûr effectuée par des calculettes adaptée, <em>python</em> est bien sûr adapté mais si vous avez la flemme d'ouvrir un terminal python (honte à vous ou lisez mon tutoriel sur la <a href="calculette.html">calculette python</a>), on peut trouver des calculettes <a href="https://matrixcalc.org/fr/">en ligne</a>.
             
-            <p>Dans le cas où la condition de multiplication est respectée (colonne de l'une = lignes de l'autre), le produit matriciel a quelques propriétés :</p>
+            <p>Dans le cas où la condition de multiplication est respectée (colonne de l'une = lignes de l'autre), le produit matriciel a quelques propriétés :
             
             <ul>
                 <li>Le produit matriciel n'est <strong>pas commutatif</strong>. Donc $\exists A,B : AB \neq BA$.</li>

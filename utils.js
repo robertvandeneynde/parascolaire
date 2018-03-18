@@ -61,7 +61,7 @@ var utils = (function(){
         // convention : each section that has h3, must have a name=id where id is the id of the corresponding h2
         var A = $.makeArray( $('h2').map(function(){ return $(this).attr('id') }) )
         A.forEach(function(x,i){
-            makeLinksBetweenTitles('section[name="%%"] h3'.replace('%%', x), '#' + A[i], (A[i+1] ? '#' + A[i+1] : null))
+            makeLinksBetweenTitles('section[name="%%"] h3'.replace('%%', x.replace(/"/g, '\\"')), '#' + A[i], (A[i+1] ? '#' + A[i+1] : null))
         })
     }
     

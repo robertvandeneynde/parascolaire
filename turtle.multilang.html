@@ -79,6 +79,9 @@
         <script>
             $(function(){
                 hljs.initHighlightingOnLoad()
+                $('p > code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
                 utils.dedentPreCode()
                 utils.makeTitleLinks()
                 utils.smoothLinks()
@@ -103,13 +106,22 @@
         </nav>
         
         <nav>
-            <a href="#base">{{ Avancer et tourner | Forward and turn }}</a> 
-            <a href="#complex{{e|}}">{{ Des formes complexes | Complex shapes }}</a>
-            <a href="#{{raccourcis|shortcuts}}">{{ Raccourcis clavier | Keyboard shortcuts }}</a>
-            <a href="#{{crayon-couleur|pen-color}}">{{ Crayon et couleurs | Pen and colors }}</a>
-            <a href="#{{fonctions|functions}}">{{ Fonctions | Functions }}</a>
-            <a href="#{{boucles|loops}}">{{ Boucles | Loops }}</a>
-            <a href="#{{oeuvre-d-art|masterpiece}}">{{ Œuvre d'art | Masterpiece }}</a>
+            <a href="#base">↺ {{ Avancer et tourner | Forward and turn }}</a> 
+            <a href="#complex{{e|}}">⌂ {{ Des formes complexes | Complex shapes }}</a>
+            <a href="#{{crayon-couleur|pen-color}}"><span style="color:#cc6600">✎</span> {{ Crayon et couleurs | Pen and colors }}</a>
+        </nav>
+        
+        <nav>
+            <a href="#{{raccourcis|shortcuts}}">□ {{ Raccourcis clavier | Keyboard shortcuts }}</a>
+        </nav>
+        
+        <nav>
+            <a href="#{{fonctions|functions}}">→ {{ Fonctions | Functions }}</a>
+            <a href="#{{boucles|loops}}">↺ {{ Boucles | Loops }}</a>
+        </nav>
+        
+        <nav>
+            <a href="#{{oeuvre-d-art|masterpiece}}">☼ {{ Œuvre d'art | Masterpiece }}</a>
         </nav>
         
         <h2 id="base">{{ Avancer et tourner | Forward and turn }}</h2>
@@ -121,13 +133,13 @@
             <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: {{ Avancer, tourner | Forward, turn }}</h3>
             
             <p>{{
-                Dans une <strong>nouvelle fenêtre</strong>, va sur <a href="turtle_test.html" target="_blank" style="target-new: window;">cette page</a>
-                (une manière de faire ça est de faire un clic <strong>droit</strong> sur le lien, puis de choisir <em>ouvrir dans une nouvelle fenêtre</em> dans le menu),
-                puis écris le code suivant et clique sur
+                Dans une <strong>nouvelle fenêtre</strong>, va sur <a href="turtle_test.html" target="_blank" style="target-new: window;">cette page</a>.
+                Une manière de faire ça est de faire un clic <strong>droit</strong> sur le lien, puis de choisir <em>ouvrir dans une nouvelle fenêtre</em> dans le menu.
+                Ensuite écris le code suivant et clique sur
                 |
-                In a <strong>new window</strong>, go on <a href="turtle_test.html">this page</a>
-                (one way to do that is to <strong>right</strong> click on the link and select <em>open in a new window</em> from the menu),
-                then write the following code and click on
+                In a <strong>new window</strong>, go on <a href="turtle_test.html">this page</a>.
+                One way to do that is to <strong>right</strong> click on the link and select <em>open in a new window</em> from the menu.
+                Then write the following code and click on
             }}<img id="the-run" alt="Run" src="run.png" style="vertical-align: middle"/> !</p>
             
             <pre><code class="py">
@@ -143,7 +155,7 @@
                 You should have seen a turtle move forward by a distance of 50, then turned left 90 degrees, moved forward again by a distance of 100 and finally turned right of 45 degrees.
             }}</p>
             
-            {{ <p>En français, on peut traduire <em>forward</em> par <em>avancer</em> et <em>left/right</em> par <em>gauche/droite</em>.</p>
+            {{ <p>En français, on peut traduire <em>forward</em> par <em>avancer</em>, <em>left</em> par <em>gauche</em> et <em>right</em> par <em>droite</em>.
             | }}
             
             <p>{{ Essaie maintenant le code qui ne contient <strong>que</strong> la première ligne (supprime les autres), que fait-il ?
@@ -195,10 +207,13 @@
                 lt(180)
                 fd(100)
                 lt(90)
-                fd(50 + 50)
+                fd(50 + 50) # {{wow, c'est joli !|wow, that's pretty!}}
                 lt(90 * 2)
                 fd(40 + 80 * 2)
             </code></pre>
+            
+            <p>Nous voyons que la tortue est une super calculette ! Bien mieux que <a href="http://pi.ac3j.fr/wp-content/uploads/2014/01/TIcollege.jpg">cet objet des années 80</a>, crois-moi.
+            <p>Remarque qu'à la dernière ligne fait avancer la tortue de 200 pixels, car dans une calculette, le <kbd>×</kbd> se fait avant le <kbd>+</kbd>, et donc <code class="nowrap">40 + 80 * 2 = 40 + 160 = 200</code>, c'est la priorité des opérations.
             
         </section>
         
@@ -258,6 +273,9 @@
             
             <p>{{ Sauve ce code dans un nouveau fichier pour pouvoir le réutiliser plus tard !
                 | Save this code in a new file to reuse it afterwards! }}
+                
+                {{ Attention à bien finir le nom par <code>.py</code> comme sur l'image.
+                | Be careful to end the filename with <code>.py</code> like on the picture. }}
             
             <figure>
                 <img src="fichiers.png" />
@@ -266,14 +284,145 @@
             
             </section>
             
+        <h2 id="{{crayon-couleur|pen-color}}">{{ Crayon et couleurs | Pen and colors }}</h2>
+        
+        <section name="{{crayon-couleur|pen-color}}">
+        
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{pen-color|crayon-couleur}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            
+            <h3 id="pen"><code>penup/pendown</code></h3>
+            
+            <figure>
+                <img src="pendrawing.jpg" />
+                <figcaption>{{Un stylo dessinant une ligne|A pen drawing a line}}</figcaption>
+            </figure>
+            
+            <p>{{
+                La nouvelle commande <code class="py">penup()</code>, raccourci <code>pu()</code> ou <code>up()</code>,
+                permet de lever le crayon, ainsi la tortue peut bouger sans dessiner.
+                Ensuite, <code>pendown()</code>, raccourci <code>pd()</code> ou <code>down()</code>, repose le crayon pour plus de dessins.
+                |
+                The new command <code class="py">penup()</code>, shortcut <code>pu()</code> or <code>up()</code>,
+                can lift the pen up, so that the turtle can move without drawing.
+                We also have, <code>pendown()</code>, shortcut <code>pd()</code> or <code>down()</code>, to put the pen back down for more drawing.
+            }}</p>
+            
+            <p>{{ Que fait ce code ? | What is this code doing? }}</p>
+            
+            <pre><code class="py">
+                fd(25)
+                penup()
+                fd(50)
+                pendown()
+                fd(25)
+            </code></pre>
+            
+            <h3 id="color"><code>color</code></h3>
+            
+            <p>{{
+                La nouvelle commande <code class="py">color("red")</code> (attention aux guillemets dans <code class="hljs-string">"red"</code> !)
+                permet de changer la couleur du trait en rouge.
+                D'autres couleurs existent par défaut comme <code>green</code>, <code>blue</code>, <code>yellow</code>
+                et <a href="http://www.geocities.ws/thezipguy/misc/colornames_1.png">bien d'autres</a>.
+                |
+                The new command <code class="py">color("red")</code> (beware of the quotes in <code>"red"</code>!)
+                changes the color of the pen to red.
+                Other colors exist like <code>green</code>, <code>blue</code>, <code>yellow</code>
+                and <a href="http://www.geocities.ws/thezipguy/misc/colornames_1.png">many others</a>.
+            }}</p> <!-- http://wiki.tcl.tk/16166 -->
+            
+            <p>{{ Pour pouvoir indiquer toutes les couleurs existantes, on regarde dans Paint :
+                | To have all the existing colors, we go in Paint: }}
+                
+            <figure>
+                <img src="couleurs_paint.jpg" />
+                <figcaption>{{
+                    Les composantes Rouge, Vert, Bleu d'une couleur, de 0 à 255.
+                    | The Red, Green, Blue components of a color, from 0 to 255.
+                }}</figcaption>
+            </figure>
+            
+            <p>{{ Pour ce magnifique orange, j'écrirai la commande
+                | For this amazing orange, I will write the command }}
+                <code>color(253, 126, 0)</code>
+            
+            <p>{{
+            Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code class="hljs-string">#ff0060</code> qui peut s'insérer en écrivant
+            | A lot of <a href="http://hexpicker.com">tools</a> give the color <em>hexadecimal code</em> (<em>hex code</em>), for example I have a nice <span style="color: #ff0060">pink</span> written <code class="hljs-string">#ff0060</code> that can be inserted using
+            }} <code class="py">color("#ff0060")</code> {{ou|or}} <code class="py">color(0xff, 0x00, 0x60)</code>.
+            
+            <pre><code class="py">
+                fd(30)
+                color("yellow")
+                fd(30)
+                color("red")
+                fd(30)
+                color(253, 126, 0)
+                fd(30)
+                color("#ff0060") # color(0xff, 0x00, 0x60)
+                fd(30)
+            </code></pre>
+
+            <p>{{ Remarque, si <code>color(253, 126, 0)</code> fait une erreur, écris <code>colormode(255)</code> au début de ton programme.
+                | Let's notice that, if <code>color(253, 126, 0)</code> gives you an error, write <code>colormode(255)</code> at the beginning of your program. }}
+            
+            <p id="color-explanation">
+            {{ Ainsi, une couleur est un mélange de <span style="color:red">rouge</span>, <span style="color:green">vert</span> et <span style="color:blue">bleu</span> et ces composantes sont souvent affichées sous différentes formes. Prenons mon <span style="color:#ff9900">orange</span> favori, il peut être exprimé...
+            | Therefore, color is a mix of <span style="color:red">red</span>, <span style="color:green">green</span> et <span style="color:blue">bleu</span> and these components are often displayed in various forms. Let's take my favorite <span style="color:#ff9900">orange</span>, it can be written... }}
+            
+            <a href="#color-explanation">&para;</a>
+            
+            <ul>
+                <li>{{En pourcentages :|As percentages:}} <code class="nowrap">100%, 60%, 0%</code>, {{donc 100% rouge, 60% vert et 0% bleu|meaning 100% red, 60% green and 0% blue}}.
+                <li>{{En ratios :|As ratios:}} <code class="nowrap">1.0, 0.6, 0</code>, {{les ratios sont entre 0 et 1 et sont plus <em>mathématiques</em> que les pourcentages.| ratios are between 0 and 1 and are more <em>mathematical</em> than percentages}}.
+                <li>{{Avec des entiers entre 0 et 255 :|With integers ranging from 0 to 255:}} <code>255, 153, 0</code> {{vu que|because}} <em class="nowrap">153 = 60% 255</em> = <em class="nowrap">0.6 × 255</em> = <code class="nowrap">60 / 100 * 255</code>.
+                <li>{{Avec des entiers écris en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a> :|With integers written in <a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>:}} <code>ff, 99, 0</code> {{vu que 255 vaut|because 255 is}} <code>ff</code> {{en|in}} {{<a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a>|<a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>}} {{, 153 vaut|, 153 is}} <code>99</code> {{et 0 vaut <code>0</code>|and 0 is <code>0</code>}}. {{On note souvent les trois entiers <em>ff, 99, 0</em> en attaché sur 6 caractères avec un <code>#</code> devant, comme ceci : <code>#ff9900</code>.|Often we write the 3 integers <em>ff, 99, 0</em> attached on 6 characters with a <code>#</code> in front, like this: <code>#ff9900</code>.}}
+                <li>{{Et quand les deux chiffres hexadécimaux sont les mêmes pour les trois composantes on ne les répète souvent pas :|And when both hexadecimal digits for the three components are equal, one does not repeat it:}} <code>#f90</code>.
+            </ul>
+            
+            <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: {{ Deux carrés colorés | Two colored squares }}</h3>
+            
+            <p>{{ Essaie de dessiner ceci : | Try to draw this: }}</p>
+            
+            <figure>
+                <img src="two-colored-squares.svg" />
+                <figcaption>{{
+                    Deux carrés colorés
+                    |
+                    Two colored squares
+                }}</figcaption>
+            </figure>
+            
+            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: {{ La maison en couleurs | House in color }}</h3>
+            
+            <p>{{
+                Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert !
+                |
+                Or you can color your house, the door in red and the roof in green!
+            }}</p>
+            
+            <figure>
+                <img src="colored-house.svg" />
+                <figcaption>{{
+                    La maison en couleurs
+                    |
+                    House in color 
+                }}</figcaption>
+            </figure>
+            
+        </section>
+        
         <h2 id="{{raccourcis|shortcuts}}">{{Raccourcis claviers|Keyboard shortcuts}}</h3>
             
-            <section name="{{raccourcis|shortcuts}}">
+        <section name="{{raccourcis|shortcuts}}">
+            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{shortcuts|raccourcis}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
-            <p>{{ Quelques raccourcis clavier très utiles pour éditer du texte qui marchent <strong>même sur Facebook</strong>,
-                vous n'êtes pas obligé de les lire mais ça permet de coder super vite croyez-moi !
-                | Some keyboard shortcuts very useful to edit text that work <strong>even on Facebook</strong>,
-                you don't have to read them but it's useful to write code very fast! }}
+            <p><em>No one needs a mouse when editing text</em> &mdash; <em>La souris, c'est lent, le pad c'est encore pire.. &mdash; Robert Vanden Eynde</em>
+            
+            <p>{{ Voici selon moi, les raccourcis clavier les plus importants pour éditer du texte, ceux-ci marchent <strong>même sur Facebook</strong>,
+                vous n'êtes pas obligé de les lire mais ça permet de coder <strong>super vite</strong> croyez-moi !
+                | Here are a list of the most useful keyboard shortcuts to edit text, those work <strong>even on Facebook</strong>,
+                you don't have to read them but it's useful to write code <strong>very fast</strong> trust me! }}
             
             <figure>
                 <img height=400 src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
@@ -291,6 +440,43 @@
                 <tr><td><kbd>Del</kbd></td>   <td>{{Delete (Suppr.) supprime le caractère à droite (parfois <kbd>⌃Control</kbd>+<kbd>D</kbd> parfois <kbd>Fn</kbd>+<kbd>⌫</kbd> sous Mac).|Delete (<em>Suppr</em>.) deletes the character to the right (sometimes <kbd>⌃Control</kbd>+<kbd>D</kbd> sometimes <kbd>Fn</kbd>+<kbd>⌫</kbd> on Mac).}}</td>
                 <tr><td><kbd>↵</kbd></td>     <td>{{Enter (Entrée) passe à la ligne.|Enter (<em>Entrée</em>) inserts goes to the next line.}}</td>
             
+            </tbody></table>
+            
+            <p>D'autres classiques...
+            
+            <table class="shortcuts"><tbody>
+                <tr><td><kbd>Ctrl</kbd> + <kbd>Z</kbd> </td><td>
+                    <em>{{ Annuler | Undo }}</em>
+                    (<kbd>⌘</kbd> + <kbd>Z</kbd> {{sur|on}} Mac).
+                </td></tr>
+                <tr><td><kbd>Ctrl</kbd> + <kbd>C</kbd> </td><td>
+                    <em>{{ Copier | Copy }}</em>
+                    (<kbd>⌘</kbd> + <kbd>C</kbd> {{sur|on}} Mac).
+                </td></tr>
+                <tr><td><kbd>Ctrl</kbd> + <kbd>V</kbd> </td><td>
+                    <em>{{ Coller | Paste }}</em>
+                    (<kbd>⌘</kbd> + <kbd>V</kbd> {{sur|on}} Mac).
+                </td></tr>
+                <tr><td><kbd>Ctrl</kbd> + <kbd>X</kbd> </td><td>
+                    <em>{{ Couper | Cut }}</em>
+                    (<kbd>⌘</kbd> + <kbd>X</kbd> {{sur|on}} Mac).
+                </td></tr>
+                <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>Z</kbd> </td><td>
+                    <em>{{ Rétablir (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>)
+                        | Redo (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation) }}</em>
+                        
+                    (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>Z</kbd> {{sur|on}} Mac).
+                </td></tr>
+                <tr><td><kbd>Ctrl</kbd> + <kbd>Y</kbd> </td><td>
+                    {{ <em>Rétablir</em> (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>)... dans certaines applications non basées sur Linux (càd des <em style="font-style:italic">mauvaises</em> applications selon mon humble opinion d'ingénieur, sujet que je peux débattre).
+                        | <em>Redo</em> (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation)... in some applications that are not based on Linux (ie. <em style="font-style:italic">bad</em> applications in my humble engineer opinion, I can debate on that). }}
+                        
+                    (<kbd>⌘</kbd> + <kbd>Y</kbd> {{sur|on}} Mac).
+                </td></tr>
+                <tr><td><kbd>Ctrl</kbd> + <kbd>F</kbd> </td><td>
+                    <em>{{ Chercher ! | Search! }}</em> (Ctrl <strong>F</strong>ind)
+                    (<kbd>⌘</kbd> + <kbd>F</kbd> {{sur|on}} Mac).
+                </td></tr>
             </tbody></table>
             
             <p>{{Et maintenant, les peu connus !|And now, the ones people don't know!}}</p>
@@ -335,6 +521,8 @@
                 }}</td></tr>
             </tbody></table>
             
+            <p>Et également un raccourci souris : <strong>double clic sélectionne un mot</strong>.
+            
             <p>{{ Ça marche partout <strong>même sur Facebook</strong> ! Et remarquez qu'il y a une touche <kbd>Ctrl</kbd> et <kbd>Shift</kbd> juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec <strong>uniquement la main droite</strong> !
                 | It works everywhere <strong>even on Facebook</strong>! And let's notice that there is a <kbd>Ctrl</kbd> and <kbd>Shift</kbd> key next to the arrow keys so all of these shortcuts can be done <strong>with the right hand only</strong>! }}
             
@@ -355,8 +543,8 @@
             <p>{{ Ça marche aussi quand vous avez plusieurs lignes sélectionnées,
                 | It also works when you have multiple selected lines, }}
                 
-                {{ ce raccourci a l'air stupide mais tu ne te doutes pas de toute la puissance cachée qu'il détient...
-                | this shortcuts looks very silly but you have no idea how powerful it is... }}
+                {{ ce raccourci de <em>suppression de ligne</em> a l'air stupide mais tu ne te doutes pas de toute la puissance cachée qu'il détient...
+                | this <em>delete line</em> shortcuts looks very silly but you have no idea how powerful it is... }}
                 
             <p>{{ Et finalement d'autres ne marchant pas sur mon site mais que je conseille :
                 | And finally others that do not work on my site but that I recommend: }}
@@ -393,142 +581,18 @@
                     | <em>Close tab</em> (sometimes, it happens) }}
                     (<kbd>⌘</kbd> + <kbd>W</kbd> {{sur|on}} Mac).
                 </td></tr>
+                <tr><td> <kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>T</kbd> </td><td>
+                    {{ <em>Ré-ouvrir le dernier onglet fermé</em>
+                    | <em>Reopen last closed tab</em> }}
+                    (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>T</kbd> {{sur|on}} Mac).
+                </td></tr>
+                <tr><td><kbd>Ctrl</kbd> + <kbd>F</kbd> </td><td>
+                    <em>{{ Chercher ! | Search! }}</em> (Ctrl <strong>F</strong>ind)
+                    (<kbd>⌘</kbd> + <kbd>F</kbd> {{sur|on}} Mac).
+                </td></tr>
             </tbody></table>
             
-        </section>
-        
-        <h2 id="{{crayon-couleur|pen-color}}">{{ Crayon et couleurs | Pen and colors }}</h2>
-        
-        <section name="{{crayon-couleur|pen-color}}">
-        
-            <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{pen-color|crayon-couleur}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
-            
-            <h3 id="pen"><code>penup/pendown</code></h3>
-            
-            <figure>
-                <img src="pendrawing.jpg" />
-                <figcaption>{{Un stylo dessinant une ligne|A pen drawing a line}}</figcaption>
-            </figure>
-            
-            <p>{{
-                La nouvelle commande <code class="py">penup()</code>, raccourci <code>pu()</code> ou <code>up()</code>,
-                permet de lever le crayon, ainsi la tortue peut bouger sans dessiner.
-                Ensuite, <code>pendown()</code>, raccourci <code>pd()</code> ou <code>down()</code>, repose le crayon pour plus de dessins.
-                |
-                The new command <code class="py">penup()</code>, shortcut <code>pu()</code> or <code>up()</code>,
-                can lift the pen up, so that the turtle can move without drawing.
-                We also have, <code>pendown()</code>, shortcut <code>pd()</code> or <code>down()</code>, to put the pen back down for more drawing.
-            }}</p>
-            
-            <p>{{ Que fait ce code ? | What is this code doing? }}</p>
-            
-            <pre><code class="py">
-                fd(25)
-                penup()
-                fd(50)
-                pendown()
-                fd(25)
-            </code></pre>
-            
-            <h3 id="color"><code>color</code></h3>
-            
-            <p>{{
-                La nouvelle commande <code class="py">color("red")</code> (attention aux guillemets dans <code>"red"</code> !)
-                permet de changer la couleur du trait en rouge.
-                D'autres couleurs existent par défaut comme <code>green</code>, <code>blue</code>, <code>yellow</code>
-                et <a href="http://www.geocities.ws/thezipguy/misc/colornames_1.png">bien d'autres</a>.
-                |
-                The new command <code class="py">color("red")</code> (beware of the quotes in <code>"red"</code>!)
-                changes the color of the pen to red.
-                Other colors exist like <code>green</code>, <code>blue</code>, <code>yellow</code>
-                and <a href="http://www.geocities.ws/thezipguy/misc/colornames_1.png">many others</a>.
-            }}</p> <!-- http://wiki.tcl.tk/16166 -->
-            
-            <p>{{
-                Pour pouvoir indiquer toutes les couleurs existantes, on regarde dans Paint :
-                |
-                To have all the existing colors, we go in Paint:
-            }}</p>
-            
-            <figure>
-                <img src="couleurs_paint.jpg" />
-                <figcaption>{{
-                    Les composantes Rouge, Vert, Bleu d'une couleur, de 0 à 255.
-                    |
-                    The Red, Green, Blue components of a color, from 0 to 255.
-                }}</figcaption>
-            </figure>
-            
-            <p>{{
-                Pour ce magnifique orange, j'écrirai la commande <code>color(253, 126, 0)</code>.
-                |
-                For this amazing orange, I will write the command <code>color(253, 126, 0)</code>.
-            }}</p>
-            
-            <p>{{
-            Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code>#ff0060</code> qui peut s'insérer en écrivant
-            | A lot of <a href="http://hexpicker.com">tools</a> give the color <em>hexadecimal code</em> (<em>hex code</em>), for example I have a nice <span style="color: #ff0060">pink</span> written <code>#ff0060</code> that can be inserted using
-            }} <code class="py">color("#ff0060")</code> {{ou|or}} <code class="py">color(0xff, 0x00, 0x60)</code>.</p>
-            
-            <pre><code class="py">
-                fd(30)
-                color("yellow")
-                fd(30)
-                color("red")
-                fd(30)
-                color(253, 126, 0)
-                fd(30)
-                color("#ff0060") # color(0xff, 0x00, 0x60)
-                fd(30)
-            </code></pre>
-
-            <p>{{
-                Remarque, si <code>color(253, 126, 0)</code> fait une erreur, écris <code>colormode(255)</code> au début de ton programme.
-                |
-                Let's notice that, if <code>color(253, 126, 0)</code> gives you an error, write <code>colormode(255)</code> at the beginning of your program.
-            }}</p>
-            
-            <p id="color-explanation">{{
-            Ainsi, une couleur est un mélange de rouge, vert et bleu et ces composantes sont souvent affichées sous différentes formes. Prenons mon <span style="color:#ff9900">orange</span> favori, il peut être exprimé...
-            | Therefore, color is a mix of red, green, blue and these components are often displayed in various forms. Let's take my favorite <span style="color:#ff9900">orange</span>, it can be written...
-            }}</p>
-            <ul>
-                <li>{{En pourcentages :|As percentages:}} <em>100%, 60%, 0%</em>, {{donc 100% rouge, 60% vert et 0% bleu|meaning 100% red, 60% green and 0% blue.}}</li>
-                <li>{{En ratios :|As ratios:}} <em>1.0, 0.6, 0</em>.</li>
-                <li>{{Avec des entiers entre 0 et 255 :|With integers ranging from 0 to 255:}} <em>255, 153, 0</em> {{vu que|because}} <em>153 = 60% 255</em>.</li>
-                <li>{{Avec des entiers écris en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a> :|With integers written in <a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>:}} <em>ff, 99, 0</em> {{vu que 255 vaut|because 255 is}} <code>ff</code> {{en|in}} {{<a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a>|<a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>}} {{, 153 vaut|, 153 is}} <code>99</code> {{et 0 vaut <code>0</code>|and 0 is <code>0</code>}}. {{On note souvent les trois entiers <em>ff, 99, 0</em> en attaché sur 6 caractères avec un <code>#</code> devant, comme ceci : <code>#ff9900</code>.|Often we write the 3 integers <em>ff, 99, 0</em> attached on 6 characters with a <code>#</code> in front, like this: <code>#ff9900</code>.}}</li>
-                <li>{{Et quand les deux chiffres hexadécimaux sont les mêmes pour les trois composantes on ne les répète souvent pas :|And when both hexadecimal digits for the three components are equal, one does not repeat it:}} <code>#f90</code>.</li>
-            </ul>
-            
-            <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: {{ Deux carrés colorés | Two colored squares }}</h3>
-            
-            <p>{{ Essaie de dessiner ceci : | Try to draw this: }}</p>
-            
-            <figure>
-                <img src="two-colored-squares.svg" />
-                <figcaption>{{
-                    Deux carrés colorés
-                    |
-                    Two colored squares
-                }}</figcaption>
-            </figure>
-            
-            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: {{ La maison en couleurs | House in color }}</h3>
-            
-            <p>{{
-                Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert !
-                |
-                Or you can color your house, the door in red and the roof in green!
-            }}</p>
-            
-            <figure>
-                <img src="colored-house.svg" />
-                <figcaption>{{
-                    La maison en couleurs
-                    |
-                    House in color 
-                }}</figcaption>
-            </figure>
+            <p>Et je pourrais encore parler de <em>l'art de l'Alt-Tabbing moderne</em>, du <em>Control-Tabbing</em>, du setting firefox pour l'Alt-Tabbing et son AltPageUp en main libre, du bouton <kbd>Home</kbd>, de la stupidité de la touche <kbd>NumLock</kbd> et <kbd>CapsLock</kbd> sous Windows, ou du déplacement furtif de fenêtres via <kbd>Windows</kbd>+<kbd>←↓↑→</kbd>.
             
         </section>
         
@@ -616,8 +680,8 @@
             }}</p>
             
             <p>
-                {{ Un petit raccourci clavier pour <em>décaler des lignes</em> vers la droite : sélectionnez les lignes en questions et appuyez sur
-                | A small keyboard shortcut to <em>shift lines</em> to the right: select the lines you want to shift and hit }}
+                {{ Un petit <strong>raccourci clavier</strong> pour <em>décaler des lignes</em> vers la droite : sélectionnez les lignes en questions et appuyez sur
+                | A little <strong>keyboard shortcut</strong> to <em>shift lines</em> to the right: select the lines you want to shift and hit }}
                 <kbd>Tab ↹</kbd>.
                 {{ L'opération inverse est disponible via
                 | The reverse operation can be done via }}
