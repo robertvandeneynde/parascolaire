@@ -307,153 +307,122 @@
         
         <h2 id="bdd">Lire la base de données via un modèle Django</h2>
         
-        <section id="bdd">
+        <section name="bdd">
             <p>Le tutoriel est en construction à partir d'ici, le contenu est déjà écrit, mais je dois encore écrire le texte.
             
             <h3 id="exerci{{c|s}}e-4">Exerci{{c|s}}e 4{{ |}}: Une question</h3>
-            Database, One model Question(text:String, répondants:int)
+            <p>Database, One model Question(text:String, répondants:int)
             <!-- creating a model and having a db file -->
-            → create a db ! Makemigrations, migrate
-            → install sqlitebrowser using apt
-            → Sqlite, it's an Excel, create some questions with the dbbrowser, sqlite has a "rowid" == "id" == "pk" (primary key), guaranteed to be unique
-            → Activate the admin and a superuser
-            → Create some in the admin 
+            <p>→ create a db ! Makemigrations, migrate
+            <p>→ install sqlitebrowser using apt
+            <p>→ Sqlite, it's an Excel, create some questions with the dbbrowser, sqlite has a "rowid" == "id" == "pk" (primary key), guaranteed to be unique
+            <p>→ Activate the admin and a superuser
+            <p>→ Create some in the admin 
             
             <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: Une page de détail d'une question</h3>
-            Create a /detail page, only one question, GET parameter
+            <p>Create a /detail page, only one question, GET parameter
             <!-- create a detail page -->
-            → About 404, python exception 
+            <p>→ About 404, python exception 
 
             <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Lister toutes les questions</h3>
-            Create a /summary page, "for" in the template. Link to the detail
+            <p>Create a /summary page, "for" in the template. Link to the detail
             <!-- for in the templates -->
 
             <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Mais pas toute la liste</h3>
-            limit : only 3 last, only n last → GET parameter n
-            filter by a new attribute type, mode, sport, info, phys
-            makemigrations, and error when migrate ! (why ?)
-            filter by répondants > 50
-            On homepage, a link to n=1
+            <p>limit : only 3 last, only n last → GET parameter n
+            <p>filter by a new attribute type, mode, sport, info, phys
+            <p>makemigrations, and error when migrate ! (why ?)
+            fil<p>ter by répondants > 50
+            <p>On homepage, a link to n=1
             <!-- limit, filter -->
 
             <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Les dates</h3>
-            Date ? Creation date, end date, look in sqlite
-            Order by, end date GET "order=end"
-            Filter by, end date &lt; past ? Needs timezone.now()
+            <p>Date ? Creation date, end date, look in sqlite
+            <p>Order by, end date GET "order=end"
+            <p>Filter by, end date &lt; past ? Needs timezone.now()
             <!-- date -->
         </section>
         
         <h2 id="form">Les formulaires pour envoyer des données au serveur</h2>
         
-        <section id="form">
+        <section name="form">
             <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: POSTer un formulaire</h3>
-            <pre>
-            Form: create a question, you need two attributes, name, and type.
-            Test the type !
-            New view that does "create_question" vs "create_question_form", two urls
-            (5 minutes, form) 
-            </pre>
+            <p>Form: create a question, you need two attributes, name, and type.
+            <p>Test the type !
+            <p>New view that does "create_question" vs "create_question_form", two urls
+            <!-- (5 minutes, form) -->
             
             <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Redirections avec http 301</h3>
-            <pre>
-            Redirect
-            (2 minutes)
-            → ctrl shift I, 301
-            </pre>
+            <p>Redirect
+            <!-- (2 minutes) -->
+            <p>→ ctrl shift I, 301
 
-            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: Html bonus <code>&input></code></h3>
-            <pre>
-            Html, change the type using a &lt;select>
-            </pre>
+            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: Html bonus more input elements</h3>
+            <p>Html, change the type using a &lt;select>
+            <p>Html, have a <code>&lt;textarea></code> for a new attribute <code>description</code>
+            <p>Html, checkbox 
             
             <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 11{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
-            <pre>
-            How to merge the two views ? (Not mandatory)
-            (3 min, merge)
-            → Post vs get, POST is more logical than GET.
+            <p>How to merge the two views ? (Not mandatory)
+            <!-- (3 min, merge) -->
+            <p>→ Post vs get, POST is more logical than GET.
                 GET doesn't modify the database + POST hides the data in the URL,
                 but you can see it in ctrl shift I, or raw http.
-            → Merge the two views, if method == POST 
-            (2 min, using post)
-            </pre>
+            <p>→ Merge the two views, if method == POST 
+            <!-- (2 min, using post) -->
             
             <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: QCM</h3>
-            <pre>
-            How to have different possible answers stored in the db ?
-            What would you do on an Excel ?
-            → Columns answer1, answer2, answer3, count1, count2, count3
-            → It sounds stupid, we'll get to that later. 
-            (3 min) Create the 3 columns with the stupid 1 2 3 names.
-            </pre>
+            <p>How to have different possible answers stored in the db ?
+            <p>What would you do on an Excel ?
+            <p>→ Columns answer1, answer2, answer3, count1, count2, count3
+            <p>→ It sounds stupid, we'll get to that later. 
+            <!-- (3 min) Create the 3 columns with the stupid 1 2 3 names. -->
             
             <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: QCM le &lt;form></h3>
-            <pre>
-            Form with a single attribute : num answer
-            (5 minutes: implement the Answer stuff) 
-            </pre>
+            <p>Form with a single attribute : num answer
+            <!-- 5 minutes: implement the Answer stuff -->
             
             <h3 id="exerci{{c|s}}e-14">Exerci{{c|s}}e 14{{ |}}: Html bonus radio</h3>
-            <pre>
-            Change html, radio
-            </pre>
+            <p>Change html, radio
             
             <h3 id="exerci{{c|s}}e-15">Exerci{{c|s}}e 15{{ |}}: More queries, order by</h3>
-            <pre>
-            Order by répondants (order=repondants) don't forget to +1 !
-            (3 minutes: html radio, order by répondants)
-            </pre>
-            
-            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: Html bonus checkbox</h3>
-            <pre>
-            Do a checkbox
-            </pre>
+            <p>Order by répondants (order=repondants) don't forget to +1 !
+            <!-- 3 minutes: html radio, order by répondants -->
         </section>
         
         <h2 id="bddr">Les bases de données... <em>relationnelles</em></h2>
         
-        <section id="bddr">
-            <h3 id="exerci{{c|s}}e-17">Exerci{{c|s}}e 17{{ |}}: Foreign key, the holy grale</h3>
-            <pre>
-            Reponse object ! base de données relationnelles ! How would you fo that in excel ?
-            Reponse(name, text, votes) Open sqlite, create some
-            Change design: reponse_pk
-            (5 minutes: Reponse Object, Foreign key) 
-            </pre>
+        <section name="bddr">
+            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: Foreign key, the holy grale</h3>
+            <p>Reponse object ! base de données relationnelles ! How would you fo that in excel ?
+            <p>Reponse(name, text, votes) Open sqlite, create some
+            <p>Change design: reponse_pk
+            <!-- 5 minutes: Reponse Object, Foreign key -->
             
-            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
-            <pre>
-            Users, login, hashpassword → use code from others ! Here django.contrib.auth (look at source code, simple class)
-            Create users from the admin, or User class (from django.contrib.auth.models import User)
-            Cookie, django does use auth cookies. See source code
-            Cookies in the browser : look at ctrl shift I, private browsing
-            New user form, email, (send email saying hello !), password is hashed ! (See db, or shell), verify there is a "@" in the email.
-            (5 minutes: new user form) 
-            </pre>
+            <h3 id="exerci{{c|s}}e-17">Exerci{{c|s}}e 17{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
+            <p>Users, login, hashpassword → use code from others ! Here django.contrib.auth (look at source code, simple class)
+            <p>Create users from the admin, or User class (from django.contrib.auth.models import User)
+            <p>Cookie, django does use auth cookies. See source code
+            <p>Cookies in the browser : look at ctrl shift I, private browsing
+            <p>New user form, email, (send email saying hello !), password is hashed ! (See db, or shell), verify there is a "@" in the email.
+            <!-- 5 minutes: new user form -->
             
-            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Profile, Foreign key to other class</h3>
-            <pre>
-            Profile : foreign key to User, add stuffs like, phone number, color preferences, anything relevant to your app
-            Boolean, creator, can create questions.
-            (3 minutes: foreign key for Profile)
-            → There is also this programming concept called Héritage, that will just create a foreign key but new attributes are available without ".profile" 
-            </pre>
+            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Profile, Foreign key to other class</h3>
+            <p>Profile : foreign key to User, add stuffs like, phone number, color preferences, anything relevant to your app
+            <p>Boolean, creator, can create questions.
+            <!-- 3 minutes: foreign key for Profile -->
+            <p>→ There is also this programming concept called Héritage, that will just create a foreign key but new attributes are available without ".profile" 
             
-            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: N to N relations</h3>
-            <pre>
-            Modifiers, N to N relation ! Edit question name.
-            (3 minutes, N to N relation) 
-            </pre>
+            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: N to N relations</h3>
+            <p>Modifiers, N to N relation ! Edit question name.
+            <!-- 3 minutes, N to N relation -->
             
-            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: N to N relations through a model</h3>
-            <pre>
-            N to N relationship "through", "n edit/last edit", can be seen as a n-1 1-n, can add arbitrary stuffs "this user can modify the question from this date to this date"
-            (3 minutes, through) 
-            </pre>
+            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: N to N relations through a model</h3>
+            <p>N to N relationship "through", "n edit/last edit", can be seen as a n-1 1-n, can add arbitrary stuffs "this user can modify the question from this date to this date"
+            <!-- 3 minutes, through -->
 
-            <h3 id="exerci{{c|s}}e-22">Exerci{{c|s}}e 22{{ |}}: More django: clean <code>GET</code> urls</h3>
-            <pre>
-            Django: URL regex, use django 2 ! (Clean GET parameters) 
-            </pre>
+            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: More django: clean <code>GET</code> urls</h3>
+            <p>Django: URL regex, use django 2 ! (Clean GET parameters) 
         </section>
     </div>
     </body>
