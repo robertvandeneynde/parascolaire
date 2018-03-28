@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="{{fr|en}}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <link href="django.png" rel="icon" type="image/png" />
+        <title>{{ Programmez avec turtle ! | Programming with turtle! }}</title>
+        
+        <!-- <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/bike-and-tree-and-turtle.png" /> -->
+        <!-- <meta property="og:description" content="{{ Apprenez à programmer avec turtle, une tortue que vous devez commander pour effectuer de jolis dessins ! | Learn computer programming with a turtle you have to give orders to achieve some beautiful drawings! }}" /> -->
+        <!-- <meta property="og:url" content="" /> -->
+        <!-- <meta property="og:title" content="{{ Programmez avec turtle ! | Programming with turtle! }}" /> -->
+        <meta property="og:type"   content="article" /> 
+        
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="utils.js"></script>
+        <script src="slides.js"></script>
+        <style>
+            body {
+                background: url('diamond.jpg');
+                background-size: 400px;
+            }
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+            figcaption:not(.mandatory) {
+                display: none;
+            }
+            p > code {
+                display: inline;
+            }
+            :not(pre) > code {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 2px;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            table td, table th {
+                border: 1px solid #ddd;
+                padding: 5px;
+            }
+            kbd {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 2px;
+                font-family: serif;
+                border-radius: 5px;
+                background: white;
+            }
+            table.shortcuts > tbody > tr > td:first-child {
+                text-align: center;
+                min-width: 160px;
+            }
+            table.shortcuts em {
+                font-style: normal;
+            }
+            tr {
+                background-color: rgb(252, 252, 255);
+            }
+            tr.interesting-row {
+                background: rgb(255, 251, 221); /* rgb(255, 250, 240); */
+            }
+            .slide.next {
+                cursor: pointer;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+        $(function(){
+            $('.developpement').each(function(){
+                var self = $(this)
+                var state = true
+                self.hide().before(
+                    $('<button>').text(
+                        (self.attr('symbol') == 'iff' ? '⇔' : self.attr('symbol') != null ? self.attr('symbol') : '⇔')
+                        + ' ... '
+                        + (self.attr('symbolpost') == 'iff' ? '⇔' : self.attr('symbolpost') != null ? self.attr('symbolpost') : '')
+                    ).click(function(){
+                        $(this).hide()
+                        self.fadeIn(1500)
+                    })
+                )
+            })
+            /* $('pre.developpement').each(function(){
+                this.getAttribute('symol')
+                if(this.getAttribute('class') == 'py')
+                    this.innerHTML = '#' this.innerHTML + '\n'
+            }) */
+        });
+        </script>
+        <script>
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                $('p[class] > code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+                utils.dedentPreCode()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
+        </script>
+    </head>
+    <body class="algos">
+    <div id="wrapper">
+        <h1><!-- class="nocontent"
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">Faites un site web avec Django</span><!--
+        --></h1>
+        
+        <section>
+            <p>Dans ce tutoriel, nous ferons un site de sondage, une version simplifiée du <a href="https://docs.djangoproject.com/en/2.0/intro/tutorial01/">tutoriel django officiel</a>.</p>
+            <ul>
+                <li>Créer une question.</li>
+                <li>Voir les question et cliquer dessus.</li>
+                <li>Avoir les réponses possibles à une question en cas de choix multiple.</li>
+                <li>Répondre à une question.</li>
+                <li>Voir les résultats d'une question.</li>
+                <li>Bien séparer les questions par <em>catégories</em> (Sport, Sciences, Culture).</li>
+                <li>Ne voir que les résultats quand la date de fin est passée.</li>
+                <li>Limiter la création des questions aux administrateurs.</li>
+            </ul>
+        </section>
+        
+        <nav>
+            <a href="django.{{en|fr}}.html"><img src="flag-{{en|fr}}.png" /></a>
+        </nav>
+        
+        <nav>
+            <!-- <a href="#base">Base</a> -->
+        </nav>
+        
+        <h2 id="site-statique">Un site statique</h2>
+        
+        <section name="site-statique">
+        
+            <p class="lang-switch"><a href="django.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            
+            <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: Les urls et les vues</h3>
+            
+            <p>Que se passe-t-il quand je vais sur <code>http://127.0.0.1:8000/</code> ?
+            
+            <p class="developpement">Il est marqué It works.
+            
+            <p>Et quand je vais sur <code>hello/</code> ?
+            
+            <p class="developpement">Erreur 404, et on voit la liste des urls disponibles, il n'y a que <code>admin</code>
+            
+            <p>Faites une page <code>hello/</code> et une page <code>cv/</code>, celles-ci ne contiennent que les textes suivants:
+            <ul>
+                <li><em>Coucou les amis !</em> 
+                <li><em>Cv de René: Surfeur, programmeur mais humain avant tout</em>
+            </ul>
+            
+            <pre class="developpement" symbol="urls.py"><code class="py">
+            from django.conf.urls import url
+            from django.contrib import admin
+
+            from . import views
+
+            urlpatterns = [
+                url(r'^admin/', admin.site.urls),
+                url(r'^hello/$', views.dire_bonjour), # NEW
+                url(r'^cv/$', views.montrer_cv),      # NEW
+            ]
+            </code></pre>
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def dire_bonjour(request):
+                return HttpResponse("Coucou les amis !")
+
+            def montrer_cv(request):
+                return HttpResponse("Cv de René: Surfeur, programmeur mais humain avant tout")
+            </code></pre>
+            
+            <p>J'aurais également pu appeler mes fonctions <code class="py">def hello</code> et <code class="py">def cv</code>
+                comme les urls, mais j'ai préféré faire la différence.
+            
+            <p>Que se passe-t-il maintenant quand je vais sur <code>hello/</code> et <code>cv/</code> ?
+            
+            <p>Et quand je vais sur <code>superapp/</code> ?
+            
+            <p class="developpement">Une erreur 404
+            
+            <h3 id="exerci{{c|s}}e-2">Exerci{{c|s}}e 2{{ |}}: Du html !</h3>
+            
+            <p>Comment mettre par exemple <em>René</em> en <strong>gras</strong> ?
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def montrer_cv(request):
+                return HttpResponse("Cv de &lt;strong>René&lt;/strong>: Surfeur, programmeur mais humain avant tout")
+            </code></pre>
+            
+            <p>Et comment lister ses compétences dans une liste comme celle-ci :
+            
+            <ul>
+                <li>Surfeur
+                <li>Programmeur
+                <li>Humain avant tout
+            </ul>
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def montrer_cv(request):
+                return HttpResponse("Cv de &lt;strong>René&lt;/strong>: &lt;ul> &lt;li>Surfeur&lt;/li> &lt;li>Programmeur&lt;/li> &lt;li>Mais humain avant tout&lt;/li> &lt;/ul>")
+            </code></pre>
+            
+            <h3 id="exerci{{c|s}}e-3">Exerci{{c|s}}e 3{{ |}}: Un template pour René</h3>
+            
+            <p>Cela devient un peu confus de mettre des données dans le code python, et en plus les accents s'affichent mal !
+            Comment faire un document html séparé ?
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            from django.shortcuts import render
+            
+            def montrer_cv(request):
+                return request(request, 'le_cv.html')
+            </code></pre>
+            
+            <pre class="developpement" symbol="le_cv.html"><code class="html">
+            &lt;html>
+                &lt;head>
+                    &lt;meta charset="utf-8"/>
+                    &lt;title>René le magnifique&lt;/title>
+                &lt;/head>
+                &lt;body>
+                    &lt;p>Cv de &lt;strong>René&lt;/strong>&lt;/p>
+                    &lt;ul>
+                        &lt;li>Surfeur&lt;/li>
+                        &lt;li>Programmeur&lt;/li>
+                        &lt;li>Mais humain avant tout&lt;/li>
+                    &lt;/ul>
+                &lt;/body>
+            &lt;/html>
+            </code></pre>
+            
+            <p>Attention à ce que le fichier html soit dans le dossier <code>templates</code> et
+            que vous ayez rajouté le nom de l'app dans <code>INSTALLED_APP</code> du fichier <code>settings.py</code>
+            
+            <p>Où est passé le texte <em>René le magnifique</em> dans mon exemple ? Regardez bien partout !
+            
+            <p>Et comment faire une présentation avec des titres de niveau 1 et 2 ? Et des paragraphes ?
+            
+            <pre class="developpement" symbol="le_cv.html"><code class="html">
+            &lt;body>
+                &lt;h1>Cv de René&lt;/h1>
+                &lt;p>René est un expert depuis le début de sa vie&lt;/p>
+                &lt;p>Il a rencontré Chuck Norris et a compté jusqu'à l'infini avec lui, deux fois&lt;/p>
+                &lt;h2>Compétences incroyables&lt;/h2>
+                &lt;ul>
+                    &lt;li>Surfeur&lt;/li>
+                    &lt;li>Programmeur&lt;/li>
+                    &lt;li>Mais humain avant tout&lt;/li>
+                &lt;/ul>
+                &lt;h2>Parcours international&lt;/h2>
+                &lt;p>René connaît le Cyrrilique et aime beaucoup les lettres &lt;strong>и&lt;/strong> et &lt;strong>ю&lt;/strong>&lt;/p>
+                &lt;p>Il adore également parler des angles avec des θ et des φ&lt;/p>
+            &lt;/body>
+            </code></pre>
+            
+            <p>Finalement, on aimerait que tous les <strong>paragraphes</strong> soient en <span class="color:blue">bleus</span>, on a besoin de CSS !
+            
+            <pre class="developpement" symbol="le_cv.html"><code class="html">
+            &lt;html>
+                &lt;head>
+                    &lt;meta charset="utf-8"/>
+                    &lt;title>René le magnifique&lt;/title>
+                    &lt;style>
+                    p {
+                        color: blue;
+                    }
+                    &lt;/style>
+                &lt;/head>
+                &lt;body>
+                    ...
+                &lt;/body>
+            &lt;/html>
+            </code></pre>
+            
+            <p>Remarquez que vous pouvez nommer votre fichier html comme vous le voulez, même si c'est le même nom que les fonctions ou les urls.
+            
+            <p>Finalement, faites un petit lien vers notre autre page à l'url <code>hello</code> !
+            
+            <pre class="developpement" symbol="le_cv.html"><code class="html">
+            <!-- dans le_cv.html -->
+            &lt;p>Allez voir ma gentille page &lt;a href="/hello">ici&lt;/a> et j'espère que je vous ferez sourire !&lt;/p>
+            </code></pre>
+            
+            <p>Pour en savoir plus sur l'html et css, direction le très bon
+            <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/comment-fait-on-pour-creer-des-sites-web">
+                tutoriel html et css
+            </a>
+            sur openclassrooms.
+            
+        </section>
+        
+        <h2 id="bdd">Lire la base de données via un modèle Django</h2>
+        
+        <section id="bdd">
+            <p>Le tutoriel est en construction à partir d'ici, le contenu est déjà écrit, mais je dois encore écrire le texte.
+            
+            <h3 id="exerci{{c|s}}e-4">Exerci{{c|s}}e 4{{ |}}: Une question</h3>
+            Database, One model Question(text:String, répondants:int)
+            <!-- creating a model and having a db file -->
+            → create a db ! Makemigrations, migrate
+            → install sqlitebrowser using apt
+            → Sqlite, it's an Excel, create some questions with the dbbrowser, sqlite has a "rowid" == "id" == "pk" (primary key), guaranteed to be unique
+            → Activate the admin and a superuser
+            → Create some in the admin 
+            
+            <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: Une page de détail d'une question</h3>
+            Create a /detail page, only one question, GET parameter
+            <!-- create a detail page -->
+            → About 404, python exception 
+
+            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Lister toutes les questions</h3>
+            Create a /summary page, "for" in the template. Link to the detail
+            <!-- for in the templates -->
+
+            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Mais pas toute la liste</h3>
+            limit : only 3 last, only n last → GET parameter n
+            filter by a new attribute type, mode, sport, info, phys
+            makemigrations, and error when migrate ! (why ?)
+            filter by répondants > 50
+            On homepage, a link to n=1
+            <!-- limit, filter -->
+
+            <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Les dates</h3>
+            Date ? Creation date, end date, look in sqlite
+            Order by, end date GET "order=end"
+            Filter by, end date &lt; past ? Needs timezone.now()
+            <!-- date -->
+        </section>
+        
+        <h2 id="form">Les formulaires pour envoyer des données au serveur</h2>
+        
+        <section id="form">
+            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: POSTer un formulaire</h3>
+            <pre>
+            Form: create a question, you need two attributes, name, and type.
+            Test the type !
+            New view that does "create_question" vs "create_question_form", two urls
+            (5 minutes, form) 
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Redirections avec http 301</h3>
+            <pre>
+            Redirect
+            (2 minutes)
+            → ctrl shift I, 301
+            </pre>
+
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Html bonus <code>&input></code></h3>
+            <pre>
+            Html, change the type using a &lt;select>
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
+            <pre>
+            How to merge the two views ? (Not mandatory)
+            (3 min, merge)
+            → Post vs get, POST is more logical than GET.
+                GET doesn't modify the database + POST hides the data in the URL,
+                but you can see it in ctrl shift I, or raw http.
+            → Merge the two views, if method == POST 
+            (2 min, using post)
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: QCM</h3>
+            <pre>
+            How to have different possible answers stored in the db ?
+            What would you do on an Excel ?
+            → Columns answer1, answer2, answer3, count1, count2, count3
+            → It sounds stupid, we'll get to that later. 
+            (3 min) Create the 3 columns with the stupid 1 2 3 names.
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: QCM le &lt;form></h3>
+            <pre>
+            Form with a single attribute : num answer
+            (5 minutes: implement the Answer stuff) 
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Html bonus radio</h3>
+            <pre>
+            Change html, radio
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: More queries, order by</h3>
+            <pre>
+            Order by répondants (order=repondants) don't forget to +1 !
+            (3 minutes: html radio, order by répondants)
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Html bonus checkbox</h3>
+            <pre>
+            Do a checkbox
+            </pre>
+        </section>
+        
+        <h2 id="bddr">Les bases de données... <em>relationnelles</em></h2>
+        
+        <section id="bddr">
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Foreign key, the holy grale</h3>
+            <pre>
+            Reponse object ! base de données relationnelles ! How would you fo that in excel ?
+            Reponse(name, text, votes) Open sqlite, create some
+            Change design: reponse_pk
+            (5 minutes: Reponse Object, Foreign key) 
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
+            <pre>
+            Users, login, hashpassword → use code from others ! Here django.contrib.auth (look at source code, simple class)
+            Create users from the admin, or User class (from django.contrib.auth.models import User)
+            Cookie, django does use auth cookies. See source code
+            Cookies in the browser : look at ctrl shift I, private browsing
+            New user form, email, (send email saying hello !), password is hashed ! (See db, or shell), verify there is a "@" in the email.
+            (5 minutes: new user form) 
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Profile, Foreign key to other class</h3>
+            <pre>
+            Profile : foreign key to User, add stuffs like, phone number, color preferences, anything relevant to your app
+            Boolean, creator, can create questions.
+            (3 minutes: foreign key for Profile)
+            → There is also this programming concept called Héritage, that will just create a foreign key but new attributes are available without ".profile" 
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: N to N relations</h3>
+            <pre>
+            Modifiers, N to N relation ! Edit question name.
+            (3 minutes, N to N relation) 
+            </pre>
+            
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: N to N relations through a model</h3>
+            <pre>
+            N to N relationship "through", "n edit/last edit", can be seen as a n-1 1-n, can add arbitrary stuffs "this user can modify the question from this date to this date"
+            (3 minutes, through) 
+            </pre>
+
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: More django: clean <code>GET</code> urls</h3>
+            <pre>
+            Django: URL regex, use django 2 ! (Clean GET parameters) 
+            </pre>
+        </section>
+    </div>
+    </body>
+</html>

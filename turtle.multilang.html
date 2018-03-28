@@ -417,11 +417,12 @@
         <section name="{{raccourcis|shortcuts}}">
             <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{shortcuts|raccourcis}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
-            <p><em>No one needs a mouse when editing text</em> &mdash; <em>La souris, c'est lent, le pad c'est encore pire.. &mdash; Robert Vanden Eynde</em>
+            <p><em>No one needs a mouse when editing text</em> &mdash; Robert Vanden Eynde
+            <p><em>La souris, c'est lent, le pad c'est encore pire</em> &mdash; Robert Vanden Eynde
             
-            <p>{{ Voici selon moi, les raccourcis clavier les plus importants pour éditer du texte, ceux-ci marchent <strong>même sur Facebook</strong>,
+            <p>{{ Voici selon moi les raccourcis clavier les plus importants pour éditer du texte, ceux-ci marchent <strong>même sur Facebook</strong>,
                 vous n'êtes pas obligé de les lire mais ça permet de coder <strong>super vite</strong> croyez-moi !
-                | Here are a list of the most useful keyboard shortcuts to edit text, those work <strong>even on Facebook</strong>,
+                | Here is a list of the most useful keyboard shortcuts to edit text, those work <strong>even on Facebook</strong>,
                 you don't have to read them but it's useful to write code <strong>very fast</strong> trust me! }}
             
             <figure>
@@ -435,7 +436,7 @@
                 
                 <td>←↓↑→</td>                <td>{{Les touches directionnelles (Arrow keys) déplacent le curseur.|Arrows keys (<em>touches directionnelles</em>) move cursor.}}</td>
                 <tr><td><kbd>⇧Shift</kbd></td>     <td>{{Shift (Maj.) permet d'écrire un caractère de niveau 2, comme les majuscules, ou le point sur un clavier AZERTY français.|Shift (<em>Maj.</em>) allows writing a Level 2 character, like the.}}</td>
-                <tr><td><kbd>AltGr</kbd></td> <td>{{AltGr permet d'écrire un caractère de niveau 3 comme le <code>€</code> sur un AZERTY français (<kbd>⌥</kbd> sur Mac).|AltGr (Right Alt) allows writing Level 3 characters (<kbd>⌥</kbd> on Mac).}}</td>
+                <tr><td><kbd>AltGr</kbd></td> <td>{{AltGr permet d'écrire un caractère de niveau 3 comme le <code>€</code> sur un AZERTY français, on appuie dessus avec le pouce droit (<kbd>⌥</kbd> sur Mac).|AltGr (Right Alt) allows writing Level 3 characters (<kbd>⌥</kbd> on Mac).}}</td>
                 <tr><td><kbd>⌫ Backspace</kbd>          <td>{{Backspace (Retour Arrière) supprime le caractère à gauche.|Backspace (<em>Retour Arrière</em>) deletes the character to the left.}}</td>
                 <tr><td><kbd>Del</kbd></td>   <td>{{Delete (Suppr.) supprime le caractère à droite (parfois <kbd>⌃Control</kbd>+<kbd>D</kbd> parfois <kbd>Fn</kbd>+<kbd>⌫</kbd> sous Mac).|Delete (<em>Suppr</em>.) deletes the character to the right (sometimes <kbd>⌃Control</kbd>+<kbd>D</kbd> sometimes <kbd>Fn</kbd>+<kbd>⌫</kbd> on Mac).}}</td>
                 <tr><td><kbd>↵</kbd></td>     <td>{{Enter (Entrée) passe à la ligne.|Enter (<em>Entrée</em>) inserts goes to the next line.}}</td>
@@ -521,7 +522,7 @@
                 }}</td></tr>
             </tbody></table>
             
-            <p>Et également un raccourci souris : <strong>double clic sélectionne un mot</strong>.
+            <p>Et également un raccourci souris : <strong>double clic sélectionne un mot</strong> (ou triple clic sélectionne la ligne).
             
             <p>{{ Ça marche partout <strong>même sur Facebook</strong> ! Et remarquez qu'il y a une touche <kbd>Ctrl</kbd> et <kbd>Shift</kbd> juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec <strong>uniquement la main droite</strong> !
                 | It works everywhere <strong>even on Facebook</strong>! And let's notice that there is a <kbd>Ctrl</kbd> and <kbd>Shift</kbd> key next to the arrow keys so all of these shortcuts can be done <strong>with the right hand only</strong>! }}
@@ -531,7 +532,7 @@
             
             <table class="shortcuts"><tbody>
                 <tr><td><kbd>Ctrl</kbd>+<kbd>D</kbd> </td><td>
-                    <em>{{ Supprimer une ligne | Delete a line }}</em>
+                    <em>{{ Supprimer une ligne (Ctrl <strong>D</strong>elete) | Delete a line }}</em>
                     (<kbd>⌘</kbd>+<kbd>D</kbd> {{sur|on}} Mac).
                 </td></tr>
                 <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>D</kbd> </td><td>
@@ -551,7 +552,7 @@
             
             <table class="shortcuts"><tbody>
                 <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>↑</kbd> </td><td>
-                    {{ <em>Déplacer la ligne vers le haut</em> (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↑</kbd> sur Mac).
+                    {{ <em>Déplacer la ligne vers le haut</em>
                     | <em>Move line up</em> }}
                     (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↑</kbd> {{sur|on}} Mac).
                 </td></tr>
@@ -641,72 +642,59 @@
             }}</p>
             
             <pre><code class="py">
-            def {{carre|square}}({{taille|size}}):
-              fd({{taille|size}})
+            def {{carre|square}}({{t|s}}): # {{t est la taille|s is the size}}
+              fd({{t|s}})
               lt(90)
-              fd({{taille|size}})
+              fd({{t|s}})
               lt(90)
-              fd({{taille|size}})
+              fd({{t|s}})
               lt(90)
-              fd({{taille|size}})
+              fd({{t|s}})
               lt(90)
             </code></pre>
             
-            <p>{{
-                Que l'on utilisera comme ceci :
-                |
-                We will use it like this:
-            }}</p>
+            <p>{{ Que l'on utilisera comme ceci :
+                | We will use it like this: }}
             
             <pre><code class="py">
-            fd(100)
-            {{carre|square}}(80)
-            lt(45)
-            {{carre|square}}(40)
-            fd(50)
-            {{carre|square}}(60)
+                fd(100)
+                {{carre|square}}(80)
+                lt(45)
+                {{carre|square}}(40)
+                fd(50)
+                {{carre|square}}(60)
             </code></pre>
         
-            <p>{{
-                On peut mettre autant de paramètres que l'on veut, séparés par des virgules, comme <code class="py">def carre(taille, couleur)</code>.
-                |
-                We can add all the parameters we want, separated by commas, like <code class="py">def square(size, the_color)</code>.
-            }}</p>
+            <p>{{ Le paramètre <code>t</code> peut s'appeler comme on veut,
+                | You can name the <code>s</code> parameter as you want, }}
+                {{que ça soit|like}} <code>{{t|s}}</code>, <code>{{taille|size}}</code>, <code>x</code>, <code>a</code> {{ou|or}} <code>{{taille_cote|side_size}}</code>.
+                
+            <p>{{ On peut mettre autant de paramètres que l'on veut, séparés par des virgules, comme <code class="py">def carre(taille, couleur)</code>.
+                | We can add all the parameters we want, separated by commas, like <code class="py">def square(size, the_color)</code>. }}
             
-            <p>{{
-                On peut faire des opérations mathématiques comme <code class="py">50 + taille * 2 - (taille - 1)</code>, attention à la priorité des opérations !
-                |
-                We can do some maths like <code class="py">50 + size * 2 - (size - 1)</code>, be careful of the priority of operations!
-            }}</p>
+            <p>{{ On peut faire des opérations mathématiques comme <code class="py">50 + taille * 2 - (taille - 1)</code>, attention à la priorité des opérations !
+                | We can do some maths like <code class="py">50 + size * 2 - (size - 1)</code>, be careful of the priority of operations! }}
             
-            <p>
-                {{ Un petit <strong>raccourci clavier</strong> pour <em>décaler des lignes</em> vers la droite : sélectionnez les lignes en questions et appuyez sur
+            <p>{{ Un petit <strong>raccourci clavier</strong> pour <em>décaler des lignes</em> vers la droite : sélectionnez les lignes en questions et appuyez sur
                 | A little <strong>keyboard shortcut</strong> to <em>shift lines</em> to the right: select the lines you want to shift and hit }}
                 <kbd>Tab ↹</kbd>.
                 {{ L'opération inverse est disponible via
                 | The reverse operation can be done via }}
                 <kbd>⇧Shift</kbd>+<kbd>Tab ↹</kbd>.
-            </p>
             
             <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: {{ Modèles de maison | House patterns }}</h3>
             
-            <p>{{
-                Le code de la maison se trouve <a href="maison.py.html">ici</a>, met le dans une fonction à deux paramètres pour pouvoir effectuer une maison colorée en une ligne :
-                |
-                You can find the code of the house <a href="maison.py.html">here</a>, put in in a function 
-                with two parameters so that you can draw a house with one line:
-            }}</p>
+            <p>{{Le code de la maison se trouve <a href="maison.py.html">ici</a>, met le dans une fonction à deux paramètres pour pouvoir effectuer une maison colorée en une ligne :
+                | You can find the code of the house <a href="maison.py.html">here</a>, put in in a function 
+                with two parameters so that you can draw a house with one line: }}
             
             <pre><code class="py">
-            {{maison|house}}(40, "red")
-            {{maison|house}}(60, "blue")
+                {{maison|house}}(40, "red")
+                {{maison|house}}(60, "blue")
             </code></pre>
             
-            <p>{{
-                Les deux paramètres sont la <strong>hauteur</strong> et la <strong>couleur</strong> de la porte.
-            |
-                The parameters are the <strong>height</strong> and the <strong>color</strong> of the door.
-            }}</p>
+            <p>{{ Les deux paramètres sont la <strong>hauteur</strong> et la <strong>couleur</strong> de la porte.
+                | The parameters are the <strong>height</strong> and the <strong>color</strong> of the door. }}
             
             <figure>
                 <img src="two-different-houses.svg" />

@@ -1,29 +1,79 @@
-<pre>
-simple python interpreter
-idle or cmd > py (or py -3 or py -3.6)
->>>
-hello
-_ for last
-Up Down for history
-enter (peu importe où est le curseur)
 
-run py -3 -m pip install ipython
-type executer > appdata > Local > Programs > Python > Python36-32 > Scripts > ipython.exe
-double click to launch, can create shortcut and attach it to windows bar
-font 16
-copy with right click only, paste with ctrl+v
+    <!-- generated from markdown -->
+    <html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous" />
+    </head>
+    <body style="padding: 0 15px">
 
-_ for last
-_n for out number N (eg. _18)
-__ ___ for over last
-_8 _i8
-In, Out
-Up/Down for history prev/next
-Type "a =" UpDown for quick find in history (sinon %hist -g Hack)
-http://ipython.org/ipython-doc/stable/interactive/reference.html#input-caching-system
-http://ipython.org/ipython-doc/stable/interactive/reference.html#output-caching-system
+<h1>Python interpreter</h1>
 
-https://www.ics.uci.edu/~dock/manuals/IPython/node6.html
-http://www.techbeamers.com/best-python-interpreter-execute-python-online/
-</pre>
+<ul>
+<li>IDLE or cmd and type <code>py</code> (or <code>py -3</code> or <code>py -3.6</code>) or <em>anywhere</em>, you always have it.</li>
+<li>Begins with <code>&gt;&gt;&gt;</code></li>
+<li><code>_</code> for last</li>
+<li>Up Down for history (except in IDLE where you can move the cursor, <strong>then</strong> press <code>Enter</code> to copy current line, or use shortcut <code>Alt+P</code>)</li>
+<li>Enter to execute (the cursor can be anywhere)</li>
+<li>On limac, type <code>python3</code> (because <code>python</code> is generally <code>python2</code>, can create an alias like <code>py</code>)</li>
+<li>Home et End are useful</li>
+<li><code>help(...)</code> and <code>&lt;Tab&gt;</code> to autocomplete stuffs</li>
+</ul>
 
+<h1>ipython install</h1>
+
+<p>Ipython is a better interactive python,
+but can also be used for basic interactive python
+(meaning you can start with this one, it's just that it will not always be there 
+because you must install it or run it <a href="http://www.techbeamers.com/best-python-interpreter-execute-python-online/">online</a>).</p>
+
+<p>Embedded in scientific python environments, like Anaconda (and therefore the Spyder IDE).</p>
+
+<p>Loads a little bit slower than the classic interpreter, but you rarely need two tabs opened anyway.</p>
+
+<h2>windows</h2>
+
+<ul>
+<li>run <code>py -3 -m pip install ipython</code></li>
+<li>type execute > appdata > Local > Programs > Python > Python36-32 > Scripts > ipython.exe</li>
+<li>double click to launch, can create shortcut and attach it to windows bar</li>
+<li>font 16</li>
+<li>copy with right click only, paste with ctrl+v</li>
+</ul>
+
+<h2>limac (linux &amp; macOS)</h2>
+
+<ul>
+<li>run <code>python3 -m pip install ipython</code></li>
+<li>Open terminal, type ipython (or ipython3)</li>
+</ul>
+
+<h2>android</h2>
+
+<ul>
+<li>termux and then follow limac instructions</li>
+</ul>
+
+<h1>ipython functionalities</h1>
+
+<ul>
+<li><code>_</code> for last</li>
+<li><code>_n</code> for out number N (eg. <code>_18</code>)</li>
+<li><code>__</code> <code>___</code> for over last and over over last</li>
+<li><code>_8</code> <code>_i8</code></li>
+<li><code>In</code>, <code>Out</code> instead of <code>&gt;&gt;&gt;</code></li>
+<li>Up/Down for history prev/next</li>
+<li>Type <code>a =</code> UpDown for quick find in history (otherwise use the <code>%hist -g</code> hack)</li>
+</ul>
+
+<h1>See also</h1>
+
+<ul>
+<li>http://ipython.org/ipython-doc/stable/interactive/reference.html#input-caching-system</li>
+<li>http://ipython.org/ipython-doc/stable/interactive/reference.html#output-caching-system</li>
+<li>https://www.ics.uci.edu/~dock/manuals/IPython/node6.html</li>
+<li>http://www.techbeamers.com/best-python-interpreter-execute-python-online/</li>
+</ul>

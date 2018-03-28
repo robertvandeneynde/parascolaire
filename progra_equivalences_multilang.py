@@ -1,4 +1,6 @@
 """
+{{Équivalences|Equivalences}}
+
 {{Vous avez un code qui marche, et vous voulez le rendre plus joli, plus lisible.|You have a working code, and you want it to be more clean, more pretty, more readable.}}
 {{C'est ce qu'on appelle du refactoring.|This is what we call, refactoring.}}
 {{Voici une liste de transformations disponibles pour vous aider dans cette tâche.|Here is a list of transformation to help you in this task.}}
@@ -81,6 +83,20 @@ x = (a if condition else
      b if condition2 else
      c if condition3 else
      d)
+
+##
+# renaming
+##
+
+# {{Vous pouvez renommer une variable pour lui donner un nom plus explicite|You can rename a variable to give it a name more understandable}}
+e = v * t
+i = e / 2.56
+# →
+distance = velocity * time
+distance_inch = distance / 2.56
+# {{cependant, ne tombez pas dans le piège inverse !|however, don't fall in the reverse trap!}}
+# {{dans certains cas, des variables courtes sont plus compréhensibles|sometimes short names are more understandable}}
+# {{comme par exemple dans une expression mathématique complexe|for instance in a complex mathematical expression}}
 
 ## 
 # inline variable

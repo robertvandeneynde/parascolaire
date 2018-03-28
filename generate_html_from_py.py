@@ -39,9 +39,26 @@ if L[0].startswith('"""') or L[0].startswith("'''"):
         txt += L[i][:L[i].find(sep)]
     except IndexError:
         pass
-    description = txt
+    
+    def split_head_body(txt):
+        empty = re.compile('^\s*$')
+        d = txt.split('\n')
+        while d and empty.match(d[0]):
+            del d[0]
+        while d and empty.match(d[-1]):
+            del d[-1]
+        i = next(
+            (i for i,l in enumerate(d)
+             if empty.match(l)),
+            None)
+        if i is None:
+            return '', txt 
+        else:
+            a,b = '\n'.join(d[:i]), '\n'.join(d[i+1:])
+            return ('', a) if empty.match(b) else (a,b)
+    title, description = split_head_body(txt)
 else:
-    description = ''
+    title, description = '', ''
     i = 0
 
 sections_info = []
@@ -98,6 +115,7 @@ for i, (n1, name) in enumerate(sections_info):
             {
                 'name': block_name,
                 'id': name.replace('/', '-').replace(' ', '-') + '-' + str(i+1),
+                'title': '',
                 'description': '',
                 'code': '\n'.join(L[i] for i in block_range),
             }
@@ -127,6 +145,7 @@ with OutFile(outfile_format.format(lang='multilang'), 'w') as f:
     'lang': '{{fr|en}}',
     'download_link': '{{' + '|'.join(outfile_raw_format.format(lang=l) for l in ('fr', 'en')) + '}}',
     'name': without_extension(args.filename),
+    'title': title,
     'description': description,
     'other_langs': [{
         'filename': outfile_format.format(lang='{{en|fr}}'),

@@ -202,36 +202,21 @@
         
         <div><em> <a href="math.{{en|fr}}.html#{{pythagoras|pythagore}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
 
-        <p>
-            <em>
-            {{ Quelle est la longueur de la diagonale d'un carré de côté 1cm ?
-            | What is the length of the diagonal of a square of side 1cm?
-            }}
-            </em>
-        </p>
-    
-        <p>
-            <em>
-            {{ Si j'ai un triangle rectangle (un triangle où un de ses angles vaut 90 degrés) qui a un côté de longueur 5cm, et un autre de 2cm, quelle va être la longueur du dernier côté ?
-            | If I have a right triangle (a triangle where one of its angle is 90 degrees) that has a side of length 5cm, and another of length 2cm, what will be the length of the last side length?
-            }}
-            </em>
-        </p>
+        <ul style="font-style:italic">
+            <li>{{ Quelle est la longueur de la diagonale d'un carré de côté 1cm ?
+                | What is the length of the diagonal of a square of side 1cm? }}
+            
+            <li>{{ Si j'ai un triangle rectangle (un triangle où un de ses angles vaut 90 degrés) qui a un côté de longueur 5cm, et un autre de 2cm, quelle va être la longueur du dernier côté ?
+                | If I have a right triangle (a triangle where one of its angle is 90 degrees) that has a side of length 5cm, and another of length 2cm, what will be the length of the last side length? }}
+        </ul>
         
-        <p>
-            {{Dessine sur une feuille ces deux exemples et mesure les longueurs demandées, savais-tu qu'il existe une formule qui résoud ces problèmes ?
-            |Draw on a piece of paper those two examples and measure the length that are asked, did you know that there exist a formula that solve those problems?
-            }}
-        </p>
+        <p>{{Dessine sur une feuille ces deux exemples et mesure les longueurs demandées, savais-tu qu'il existe une formule qui résoud ces problèmes ?
+            | Draw on a piece of paper those two examples and measure the length that are asked, did you know that there exist a formula that solve those problems? }}
         
-        <p>
-            {{Ces deux questions peuvent être répondues via le <strong>théorème de Pythagore</strong>, par exemple $\sqrt{2} \approx 1.41 \text{cm}$ est la réponse à la première question.
-            | Those two questions can be answered using the <strong>Pythagorean theorem</strong>, for example $\sqrt{2} \approx 1.41 \text{cm}$ is the answer to the first question.
-            }}
-        </p>
+        <p>{{ Ces deux questions peuvent être répondues via le <strong>théorème de Pythagore</strong>, par exemple $\sqrt{2} \approx 1.41 \text{cm}$ est la réponse à la première question.
+            | Those two questions can be answered using the <strong>Pythagorean theorem</strong>, for example $\sqrt{2} \approx 1.41 \text{cm}$ is the answer to the first question. }}
             
         <p>
-            
             {{Rappelle-toi que la racine d'un nombre $x$ est le nombre qui multiplé par lui même donne $x$.
             Ainsi, $\sqrt{9} = 3$ car $3 \times 3 = 9$, ou en utilisant les exposants, $3^2 = 9$.
             |Remember that the square root of a number $x$ is the number that when multiplied by itself gives $x$.
@@ -243,7 +228,6 @@
             |The square root of 2 is a number with an infinite number of digits after the decimal point! It's called an <em>irrationnal number</em>.
             More infos on irrationnal numbers can be found online.
             }}
-        </p>
         
         <p>
             {{
@@ -251,11 +235,10 @@
             |
             $\sqrt{2} \approx 1.41$ is indeed the square root of 2 because $\sqrt{2} \times \sqrt{2} = 2$, indeed, $1.41 \times 1.41 = 1.9880 \approx 2$.
             }}
-        </p>
         
         <p>
-            {{Une calculette est capable de faire des racines, python peut le faire via <code>print(math.sqrt(2))</code> après avoir écrit <code>import math</code> au début du code.
-            | A calculator is capable to do square roots, python can do it via <code>print(math.sqrt(2))</code> when you wrote <code>import math</code> at the beginning of the file.
+            {{Une calculette est capable de faire des racines, python peut le faire via <code class="py">print(math.sqrt(2))</code> après avoir écrit <code>import math</code> au début du code.
+            | A calculator is capable to do square roots, python can do it via <code class="py">print(math.sqrt(2))</code> when you wrote <code>import math</code> at the beginning of the file.
             }}
             
             {{ <code>math</code> est un <em>module</em> python, plus d'info sur les modules
@@ -263,7 +246,6 @@
             | <code>math</code> is a python <em>module</em>, more info on modules 
             <a href="progra_import.py.html">here</a>.
             }}
-        </p>
 
         <p>
             {{Vous pouvez trouver des informations sur le théorème de Pythagore partout sur le web en tappant sur Google <em>Théorème de Pythagore</em>.
@@ -356,7 +338,8 @@
             one has $\cos(34°) = 0.82$ and $\sin(34°) = 0.55$
         }}</p>
         
-        <p><em>{{Cliquez sur la figure précédente pour voir les valeurs numériques.|Click on the previous figure to see the numerical values.}}</em></p>
+        <p style="font-style:italic">
+            {{Cliquez sur la figure précédente pour voir les valeurs numériques.|Click on the previous figure to see the numerical values.}}
         
         <p>Par la définition, vous pouvez déja répondre à ces questions :
         
@@ -955,51 +938,59 @@
                 Si on appelle votre vecteur de déplacement $\vec{d}$, on notera $\vec{d} = (1,\ 2)$.
                 Les nombres 1 et 2 sont appelés les <strong>composantes</strong> du vecteur $\vec{d}$.
             </p>
-            <p>
-                La flèche au dessus de la lettre <em>d</em> permet de rappeler que $\vec{d}$ est un vecteur.
+            
+            <p>Quand on parle de vecteur, les nombres sont souvent appelés <strong>scalaires</strong>,
+                on dira donc <em>les vecteurs et les scalaires</em> ou <em>les composantes d'un vecteur sont des scalaires</em>.
+            
+            <p>La flèche au dessus de la lettre <em>d</em> permet de rappeler que $\vec{d}$ est un vecteur.
                 D'autres notations existent : sans la pointe de la flèche $\bar{d}$, en majuscule $D$, ou sur ordinateur, en gras $\mathbf{D}$.
-            </p>
             
-            <p>Géométriquement, la flèche peut se déplacer, le déplacement de <strong>b1</strong> vers <strong>c3</strong> est le même que celui de <strong>g1</strong> à <strong>h3</strong>.</p>
+            <p>Géométriquement, la flèche peut se déplacer, le déplacement de <strong>b1</strong> vers <strong>c3</strong> est le même que celui de <strong>g1</strong> à <strong>h3</strong>.
             
-            <p>
-                Un déplacement peut avoir des composantes négatives,
+            <p>Un déplacement peut avoir des composantes négatives,
                 si je suis en <strong>b8</strong> et que je vais en <strong>c6</strong>, $\vec{d} = (1,-2)$.
                 Se déplacer de <strong>2</strong> cases vers le <strong>bas</strong>, c'est la même chose que de se déplacer de <strong>&minus;2</strong> cases vers le <strong>haut</strong>.
-            </p>
             
-            <p>Il existe 3 opérations de base sur les vecteurs 2D : l'addition, la multiplication par un nombre et la norme.</p>
+            <p>Il existe <strong>3</strong> opérations de base sur les vecteurs 2D : l'addition, la multiplication par un nombre et la norme.
             
-            <h4>Addition : $\vec{v} + \vec{w} = (v_x + w_x,\ v_y + w_y)$</h4>
+            <h3 id="vecteur-addition">Addition</h3>
+            
+            <p>$\vec{v} + \vec{w} = (v_x + w_x,\ v_y + w_y)$
                 
-            <p>Exemple: $(3,\ 5) + (-2,\ 1) = (1,\ 6)$.</p>
+            <p>Exemple: $(3,\ 5) + (-2,\ 1) = (1,\ 6)$.
             
-            <p><em>
+            <p style="font-style:italic">
                 Un déplacement de <strong>3</strong> cases vers la droite et <strong>5</strong> cases vers le haut
                 + Un déplacement de <strong>&minus;2</strong> cases vers la droite et <strong>1</strong> case vers le haut
                 = Un déplacement de <strong>1</strong> case vers la droite et <strong>6</strong> cases vers le haut.
-            </em></p>
 
-            <p>Voici une représentation géométrique de l'addition vectorielle.</p>
-            <figure><img src="vecteurs-somme-1.png" /> <img src="vecteurs-somme-2.png" /></figure>
+            <p>Voici une représentation géométrique de l'addition vectorielle.
             
-            <h4>Multiplication par un nombre : $k \cdot \vec{v}  = (k \cdot v_x,\ k \cdot v_y)$</h4>
+            <figure>
+                <img src="vecteurs-somme-1.png" />
+                <img src="vecteurs-somme-2.png" />
+            </figure>
             
-            <p>Exemple: $2 \cdot (-4,\ 3) = (-8,\ 6)$</p>
+            <h3 id="vecteur-multiplication-scalaire">Multiplication par un nombre (un <em>scalaire</em>)</h3>
             
-            <p><em>
+            <p>$k \cdot \vec{v}  = (k \cdot v_x,\ k \cdot v_y)$
+            
+            <p>Exemple: $2 \cdot (-4,\ 3) = (-8,\ 6)$
+            
+            <p style="font-style:italic">
                 <strong>2 fois</strong> Un déplacement de <strong>&minus;4</strong> cases vers la droite et <strong>3</strong> cases vers le haut
                 = Un déplacement de <strong>&minus;8</strong> cases vers la droite et <strong>6</strong> cases vers le haut.
-            </em></p>
             
-            <p>Voici une représentation géométrique de la multiplication par un nombre.</p>
-            <p><img src="vecteurs-produit-par-un-scalaire.png" /></p>
+            <p>Voici une représentation géométrique de la multiplication par un nombre.
+            <p><img src="vecteurs-produit-par-un-scalaire.png" />
             
-            <h4>Norme (ou <em>longueur</em>, <em>taille</em>) : $\|\vec{v}\| = \sqrt{v_x^2 + v_y^2}$</h4>
+            <h3 id="vecteur-norm{{e|}}">Norme (ou <em>longueur</em>, <em>taille</em>)</h3>
+            
+            <p>$\|\vec{v}\| = \sqrt{v_x^2 + v_y^2}$
             
             <p>$\|(6,3)\| = \sqrt{6^2 + 3^2}$ $= \sqrt{45}$ $\simeq 6.70 $</p> <!-- responsive : break "=" into multiple equations! -->
             
-            <p>La norme est calculée avec <a href="math.html">pythagore</a>. Voici une représentation gravarphique du calcul de la norme de $\vec{a} = (6, 3)$</p>
+            <p>La norme est calculée avec <a href="#{{pythagore|pythagoras}}">pythagore</a>. Voici une représentation graphique du calcul de la norme de $\vec{a} = (6, 3)$</p>
             
             <figure><img src="vecteurs-norme.png"/></figure>
             
@@ -1017,30 +1008,67 @@
                 $\mathbf{\hat{i}}$, $\mathbf{\hat{j}}$ ou sans le point $\hat{\imath}$, $\hat{\jmath}$, <a href="https://fr.wikipedia.org/wiki/Ils_sont_fous,_ces_Romains_!">ils sont fous ces humains</a>.
             </p>
             
-            <p> $\vec{a} = (6,\ 3) $ $= 6\, \vec{e}_x + 3\, \vec{e}_y $ $= 6\, \vec{e}_1 + 3\, \vec{e}_2$ </p>
-            
-            <p> $\mathbf{a} = (6,\ 3) $ $= 6 \mathbf{i} + 3 \mathbf{j} $ $= 6 \mathbf{\hat{i}} + 3 \mathbf{\hat{j}}$ $= 6 \hat{\imath} + 3 \hat{\jmath}$ </p>
+            <ul>
+                <li>$\vec{a} = (6,\ 3) $ $= 6\, \vec{e}_x + 3\, \vec{e}_y $ $= 6\, \vec{e}_1 + 3\, \vec{e}_2$
+                <li>$\mathbf{a} = (6,\ 3) $ $= 6 \mathbf{i} + 3 \mathbf{j} $ $= 6 \mathbf{\hat{i}} + 3 \mathbf{\hat{j}}$ $= 6 \hat{\imath} + 3 \hat{\jmath}$
+            </ul>
             
         <h3 id="vecteurs-deduit">Opérations déduites</h3>
-        
-            <p>Depuis ces formules de base, nous déduisons :</p>
-
+            <p>Depuis ces 3 opérations de base, nous déduisons le reste, remarquez que généralement on introduit les vecteurs avec le concept que j'appelle ici <em>soustraction</em>.
             
-            <h4>Vecteur opposé : $- \vec{v} = (-1) \cdot \vec{v} = (-v_x,\ -v_y)$</h4>
-                <p><img src="vecteurs-oppose.png" /></p>
-                <p>On dit que ce vecteur a la <em>même <strong>direction</strong></em>, mais un <em><strong>sens</strong> opposé</em>.</p>
-                <p>La somme de ces deux vecteurs donne bien le vecteur nul : $\vec{v} + (-\vec{v}) = \vec{0} = (0,0)$</p>
+        <h3 id="vecteur-oppose">Vecteur opposé</h3>
+            <p>$- \vec{v} = (-1) \cdot \vec{v} = (-v_x,\ -v_y)$
+            <p><img src="vecteurs-oppose.png" /></p>
+            <p>On dit que ce vecteur a la <em>même <strong>direction</strong></em>, mais un <em><strong>sens</strong> opposé</em>.</p>
+            <p>La somme de ces deux vecteurs donne bien le vecteur nul : $\vec{v} + (-\vec{v}) = \vec{0} = (0,0)$</p>
                 
-            <h4>Soustraction : $\vec{v} - \vec{w} = \vec{v} + (- \vec{w}) = (v_x - w_x,\ v_y - w_y)$</h4>
-                <figure><img src="vecteurs-soustraction-1.png" /> <img src="vecteurs-soustraction-2.png" /> <img src="vecteurs-soustraction-3.png" /></figure>
-                <p>Le meilleur moyen de voir la soustraction est de poser la question <em>quel est le déplacement $\vec{d}$ qui va du point $\vec{a}$ au point $\vec{b}$ ? $\vec{d} = \vec{b} - \vec{a}$</em></p>
-                <p>On notera $\vec{AB}$ le vecteur qui <em>va du point A au point B</em>. On a $\vec{AB} = \vec{b} - \vec{a}$ </p>
-                <p>Quand on a trois points $A$, $B$, $C$, on a naturellement : $\vec{AB} + \vec{BC} = \vec{AC}$ (relation de Chasles)</p>
-                <p>Et si on inverse les deux points, on obtient le vecteur opposé : $\vec{BA} = - \vec{AB}$</p>
-            <h4>Division par un nombre : $\vec{v} / k = (1/k) \cdot \vec{v}$</h4>
-                <figure><img src="vecteurs-division.png" /></figure>
+        <h3 id="vecteur-soustraction">Soustraction</h3>
+        
+            <p>$\vec{v} - \vec{w} = \vec{v} + (- \vec{w}) = (v_x - w_x,\ v_y - w_y)$</h3>
             
-            <h4>Vecteur normalisé (de taille <strong>1</strong>) : $\vec{1}_v = \vec{v} / \|\vec{v}\|$</h4>
+            <figure>
+                <img src="vecteurs-soustraction-1.png" />
+                <img src="vecteurs-soustraction-2.png" />
+                <img src="vecteurs-soustraction-3.png" />
+            </figure>
+            
+            <p>Le meilleur moyen de voir la soustraction est de poser la question
+                <em>
+                    quel est le déplacement $\vec{d}$ qui va du point $\vec{a}$ au point $\vec{b}$ ?
+                    $\vec{d} = \vec{b} - \vec{a}$.
+                </em>
+                Attention, j'ai bien dit $\vec{b} - \vec{a}$ et pas $\vec{a} - \vec{b}$,
+                pour savoir le déplacement, on fait la position <strong>finale</strong> moins la position <strong>initiale</strong>.
+            
+            <p>On notera $\vec{AB}$ le vecteur qui <em>va du point A au point B</em>, on a $\vec{AB} = \vec{b} - \vec{a}$.
+            
+            <figure>
+                [Figure en cours de création]
+            </figure>
+            
+            <p>Quand on a trois points $A$, $B$, $C$, on a naturellement : $\vec{AB} + \vec{BC} = \vec{AC}$,
+                c'est la relation de Chasles,
+                elle est évidente quand on voit ça comme une soustraction
+                    (<span class="developpement" symbol="">
+                        $\vec{AB} + \vec{BC}$
+                        <br/>$= (\vec{b} - \vec{a}) + (\vec{c} - \vec{b})$
+                        <br/>$= \vec{b} - \vec{a} + \vec{c} - \vec{b}$
+                        <br/>$= - \vec{a} + \vec{c}$
+                        <br/>$= \vec{c} - \vec{a}$
+                        <br/>$= \vec{AC}$
+                    </span>)
+                ou via un dessin.
+                
+            <p>Et si on inverse les deux points, on obtient le vecteur opposé : $\vec{BA} = - \vec{AB}$, encore une fois, évident (<span class="developpement">$\vec{AB} + \vec{BC} = \vec{AC}$</span>).
+                
+        <h3 id="{{vecteur|vector}}-{{division-scalaire|scalar-division}}">Division par un nombre (un <em>scalaire</em>)</h3>
+        
+            <p>$\vec{v} / k = (1/k) \cdot \vec{v}$
+            <figure><img src="vecteurs-division.png" /></figure>
+            
+        <h3 id="{{vecteur|vector}}-normalise{{|d}}">Vecteur normalisé: le vecteur de taille <strong>1</strong> (ou vecteur unitaire)</h3>
+        
+            <p>$\vec{1}_v = \vec{v} / \|\vec{v}\|$
             
             <p>
                 Si je multiple un vecteur par <strong>2</strong>, sa norme (taille) est également multipliée par <strong>2</strong>.
@@ -1090,12 +1118,15 @@
                 
                 <li>
                     Ou avec la <strong>direction et la norme</strong> :
-                    <p><em>Vecteur unitaire depuis l'angle</em></p>
-                    <p> $\vec{1}_d = (\cos\theta,\ \sin\theta) $$= (\cos 116.5°,\ \sin 116.5°)$ $= (-0.44,\ 0.89)$  </p>
-                    <p><em>Vecteur unitaire depuis un vecteur</em><p>
-                    <p> $\vec{1}_d $$= \vec{d} / \|\vec{d}\| = (-2,\ 4) / 4.47$ $= (-0.44,\ 0.89)$ </p>
-                    <p><em>Vecteur depuis un vecteur unitaire et une longueur</em></p>
-                    <p> $\vec{d} $$= \|\vec{d}\| \cdot \vec{1}_d$ $= 4.47 \cdot (-0.44,\ 0.89)$ $= (-2,\ 4)$ </p>
+                    
+                    <p style="font-style:italic">Vecteur unitaire depuis l'angle
+                    <p> $\vec{1}_d = (\cos\theta,\ \sin\theta) $$= (\cos 116.5°,\ \sin 116.5°)$ $= (-0.44,\ 0.89)$
+                    
+                    <p style="font-style:italic">Vecteur unitaire depuis un vecteur
+                    <p> $\vec{1}_d $$= \vec{d} / \|\vec{d}\| = (-2,\ 4) / 4.47$ $= (-0.44,\ 0.89)$
+                    
+                    <p style="font-style:italic">Vecteur depuis un vecteur unitaire et une longueur
+                    <p> $\vec{d} $$= \|\vec{d}\| \cdot \vec{1}_d$ $= 4.47 \cdot (-0.44,\ 0.89)$ $= (-2,\ 4)$
                 </li>
                 
             </ul>
@@ -1220,7 +1251,7 @@
                 Et finalement $-1$ veut dire <em>aligné mais dans un sens différent</em>.
             </p>
             
-            <p><em>Petite note de rigueur mathématique sur le paragraphe précédent, les valeurs de $1$ et $-1$ sont valables seulement si les vecteurs sont <strong>normés</strong>.</em></p>
+            <p style="font-style:italic">Petite note de rigueur mathématique sur le paragraphe précédent, les valeurs de $1$ et $-1$ sont valables seulement si les vecteurs sont <strong>normés</strong>.
             
             <p>On peut voir facilement le produit scalaire comme une projection, quand je projette $\vec{a}$ sur $\vec{b}$, j'obtiens une longueur $a_b$ et par la définition du cosinus, $a_b = \|\vec{a}\| \cos\theta$, le produit scalaire peut donc aussi s'écrire :</p>
             <p>$\vec{a} \cdot \vec{b} = a_b\ \|\vec{b}\| = b_a \|\vec{a}\|$</p>
@@ -1483,7 +1514,7 @@
         <h3 id="equation-de-plan">Équation de plan</h3>
             <p>
                 Un plan est souvent représenté à l'aide d'un point $\vec{p}$ et une direction normale $\vec{n}$.
-                Parfois ce vecteur est normé ($\vec{1}_n$), parfois non.
+                Parfois ce vecteur est normé (on le notera alors $\vec{1}_n$), parfois non.
             </p>
             
             <p>
@@ -1622,14 +1653,15 @@
             
             <p>Ce chapitre et le suivant pourront répondre à des questions comme celles-ci :</p>
             
-            <p><em>J'ai un point $(2,1)$, je le tourne de $45°$, où est-il maintenant ?</em></p>
+            <p style="font-style:italic">J'ai un point $(2,1)$, je le tourne de $45°$, où est-il maintenant ?
             
-            <figure><img src="transformation-rotation-45.png"
-            style="background:white"/></figure>
+            <figure>
+                <img src="transformation-rotation-45.png" style="background:white"/>
+            </figure>
             
-            <p>Nous verrons qu'il existe une <em>matrice</em> qui permet de nous donner la solution. On pourra demander à la matrice de nous calculer le nouveau point.</p>
+            <p>Nous verrons qu'il existe une <em>matrice</em> qui permet de nous donner la solution. On pourra <strong>demander à la matrice</strong> de nous calculer le nouveau point.</p>
             
-            <p><em>J'ai un point $(2,1)$, je le tourne de $45°$ et puis je le redimensionne d'un facteur $4$, je le déplace de $(-6,-4)$, puis je le tourne de $30°$, où est-il maintenant ?</em></p>
+            <p style="font-style:italic">J'ai un point $(2,1)$, je le tourne de $45°$ et puis je le redimensionne d'un facteur $4$, je le déplace de $(-6,-4)$, puis je le tourne de $30°$, où est-il maintenant ?
             
             <figure style="display:inline-block;"><img src="transformation-multiples.png"
             style="background:white"/></figure>
@@ -1717,9 +1749,8 @@
                 En d'autres mots :
             </p>
             
-            <p><em>
+            <p style="font-style:italic">
                 Pour deux matrices $A$ et $B$ : $A \times B$ existe <strong>si</strong> le nombre de <strong>colonnes</strong> de $A$ $=$ le nombre de <strong>lignes</strong> de $B$
-            </em></p>
             
             <p>
                 Quand cette condition est remplie, la matrice résultante aura autant de lignes que la première matrice et autant de colonnes que la deuxième.
@@ -1728,9 +1759,8 @@
                 avec une $(\color{green}{2} \times \color{blue}{4})$ donne une $(\color{red}{7} \times \color{blue}{4})$
             </p>
             
-            <p><em>
+            <p style="font-style:italic">
                 Une $(\color{red}{a} \times \color{green}{b})$ fois une $(\color{green}{b} \times \color{blue}{c})$ donnera une $(\color{red}{a} \times \color{blue}{c})$.
-            </em></p>
             
             <h4>Une ligne fois une colonne</h4>
             
@@ -2215,7 +2245,8 @@
             
             <p>Nous pouvons maintenant, résoudre l'exemple donné au début !</p>
             
-            <p><em>J'ai un point (2,1), je le tourne de 45° et puis je le redimensionne d'un facteur 4, je le déplace de (−6,−4), puis je le tourne de 30°, où est-il maintenant ?</em></p>
+            <p style="font-style:italic">
+                J'ai un point (2,1), je le tourne de 45° et puis je le redimensionne d'un facteur 4, je le déplace de (−6,−4), puis je le tourne de 30°, où est-il maintenant ?
             
             <figure><img src="transformation-multiples.png" style="background:white" /></figure>
             
@@ -2289,7 +2320,7 @@
 
             <figure><img src="transformation-multiples-rectangle.png" /></figure>
             
-            <p>En pratique, on aura plus que 4 points, et la carte gravarphique s'occupe de la multiplication de matrice en grande quantité, regardez comme les modèles suivants ont un nombre élevé de points !</p>
+            <p>En pratique, on aura plus que 4 points, et la carte graphique s'occupe de la multiplication de matrice en grande quantité, regardez comme les modèles suivants ont un nombre élevé de points !</p>
             
             <figure>
                 <img src="Akira_class_CGI_wireframe_model_by_ILM.jpg" width="573">

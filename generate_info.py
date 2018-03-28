@@ -33,10 +33,10 @@ def auto_lang_dict_aggreg(*it):
     return {k:v for d in starmap(auto_lang_dict, it) for k,v in d.items()}
 
 TRANSLATION_INFO = {
-    'example_base_file.ext': {
-        'fr': 'example_french_version.ext',
-        'en': 'example_english_version.ext',
-    },
+    # 'example_base_file.ext': {
+    #    'fr': 'example_french_version.ext',
+    #    'en': 'example_english_version.ext',
+    # },
     
     'projets.multilang_as_projects.html': {
         'fr': 'projet.html',

@@ -14,9 +14,9 @@ print(a)
 
 # {{on peut faire des maths|we can do maths}}
 b = a + 1
-c = a + b * 2   # {{priorité des opérations|priority of operations}}
+c = a + b * 2 # {{priorité des opérations|priority of operations}}
 d = (a + b) * 2 # {{mettre des parenthèses si nécessaire !|put parenthesis if needed!}}
-a = a + 1       # {{on calcule "a + 1", puis on met le résultat dans a, ce qui veut dire "a est augmenté de 1"|calculate "a + 1", then put the result in a, this means "a is incremented by 1"}}
+a = a + 1 # {{on calcule "a + 1", puis on met le résultat dans a, ce qui veut dire "a est augmenté de 1"|calculate "a + 1", then put the result in a, this means "a is incremented by 1"}}
 print(a)
 print(b)
 print(c)

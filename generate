@@ -1,6 +1,8 @@
 #!/bin/bash
 # ./generate_txt.py
 
+./generate_markdown calculette
+
 python3 generate_html_from_py.py \
     progra_equivalences_multilang.py \
     --template=pytext_template.html \

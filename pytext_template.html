@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
 <!--         <link href="turtle.png" rel="icon" type="image/png" /> -->
-        <title>{{ filename }}</title>
+        <title>{{ title|default:name }}</title>
         
 <!--         <meta property="og:image" content="https://..." /> -->
 <!--         <meta property="og:description" content="" /> -->
@@ -52,7 +52,7 @@
     <div id="wrapper">
         <h1 class="{% if not description %}nocontent{% endif %}"><!-- nocontent
             --><a class="homeicon" href="index.html"></a><!--
-            --><span class="text">{{ name }}
+            --><span class="text">{{ title|default:name }}
             
             {% if download_link %}
                 <a href="{{ download_link }}"><img height=32 src="python.png" /></a>
