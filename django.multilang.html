@@ -136,7 +136,10 @@
         </nav>
         
         <nav>
-            <!-- <a href="#base">Base</a> -->
+            <a href="#site-statique">Site statique</a>
+            <a href="#bdd">Lire une base de données</a>
+            <a href="#form">Formulaires</a>
+            <a href="#bddr">Bases de données... <em>relationnelles</em></a>
         </nav>
         
         <h2 id="site-statique">Un site statique</h2>
@@ -358,12 +361,12 @@
             → ctrl shift I, 301
             </pre>
 
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Html bonus <code>&input></code></h3>
+            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: Html bonus <code>&input></code></h3>
             <pre>
             Html, change the type using a &lt;select>
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
+            <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 11{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
             <pre>
             How to merge the two views ? (Not mandatory)
             (3 min, merge)
@@ -374,7 +377,7 @@
             (2 min, using post)
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: QCM</h3>
+            <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: QCM</h3>
             <pre>
             How to have different possible answers stored in the db ?
             What would you do on an Excel ?
@@ -383,24 +386,24 @@
             (3 min) Create the 3 columns with the stupid 1 2 3 names.
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: QCM le &lt;form></h3>
+            <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: QCM le &lt;form></h3>
             <pre>
             Form with a single attribute : num answer
             (5 minutes: implement the Answer stuff) 
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Html bonus radio</h3>
+            <h3 id="exerci{{c|s}}e-14">Exerci{{c|s}}e 14{{ |}}: Html bonus radio</h3>
             <pre>
             Change html, radio
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: More queries, order by</h3>
+            <h3 id="exerci{{c|s}}e-15">Exerci{{c|s}}e 15{{ |}}: More queries, order by</h3>
             <pre>
             Order by répondants (order=repondants) don't forget to +1 !
             (3 minutes: html radio, order by répondants)
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Html bonus checkbox</h3>
+            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: Html bonus checkbox</h3>
             <pre>
             Do a checkbox
             </pre>
@@ -409,7 +412,7 @@
         <h2 id="bddr">Les bases de données... <em>relationnelles</em></h2>
         
         <section id="bddr">
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Foreign key, the holy grale</h3>
+            <h3 id="exerci{{c|s}}e-17">Exerci{{c|s}}e 17{{ |}}: Foreign key, the holy grale</h3>
             <pre>
             Reponse object ! base de données relationnelles ! How would you fo that in excel ?
             Reponse(name, text, votes) Open sqlite, create some
@@ -417,7 +420,7 @@
             (5 minutes: Reponse Object, Foreign key) 
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
+            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
             <pre>
             Users, login, hashpassword → use code from others ! Here django.contrib.auth (look at source code, simple class)
             Create users from the admin, or User class (from django.contrib.auth.models import User)
@@ -427,7 +430,7 @@
             (5 minutes: new user form) 
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Profile, Foreign key to other class</h3>
+            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Profile, Foreign key to other class</h3>
             <pre>
             Profile : foreign key to User, add stuffs like, phone number, color preferences, anything relevant to your app
             Boolean, creator, can create questions.
@@ -435,19 +438,19 @@
             → There is also this programming concept called Héritage, that will just create a foreign key but new attributes are available without ".profile" 
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: N to N relations</h3>
+            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: N to N relations</h3>
             <pre>
             Modifiers, N to N relation ! Edit question name.
             (3 minutes, N to N relation) 
             </pre>
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: N to N relations through a model</h3>
+            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: N to N relations through a model</h3>
             <pre>
             N to N relationship "through", "n edit/last edit", can be seen as a n-1 1-n, can add arbitrary stuffs "this user can modify the question from this date to this date"
             (3 minutes, through) 
             </pre>
 
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: More django: clean <code>GET</code> urls</h3>
+            <h3 id="exerci{{c|s}}e-22">Exerci{{c|s}}e 22{{ |}}: More django: clean <code>GET</code> urls</h3>
             <pre>
             Django: URL regex, use django 2 ! (Clean GET parameters) 
             </pre>
