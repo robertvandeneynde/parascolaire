@@ -4,12 +4,12 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
         <link href="django.png" rel="icon" type="image/png" />
-        <title>{{ Programmez avec turtle ! | Programming with turtle! }}</title>
+        <title>Apprenez à programmer un site web avec Django !</title>
         
-        <!-- <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/bike-and-tree-and-turtle.png" /> -->
-        <!-- <meta property="og:description" content="{{ Apprenez à programmer avec turtle, une tortue que vous devez commander pour effectuer de jolis dessins ! | Learn computer programming with a turtle you have to give orders to achieve some beautiful drawings! }}" /> -->
+        <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/django.png" />
+        <meta property="og:description" content="Apprenez à programmer un site web avec Django" />
         <!-- <meta property="og:url" content="" /> -->
-        <!-- <meta property="og:title" content="{{ Programmez avec turtle ! | Programming with turtle! }}" /> -->
+        <meta property="og:title" content="Apprenez à programmer un site web avec Django" />
         <meta property="og:type"   content="article" /> 
         
         <link rel="stylesheet" type="text/css" href="base.css" />
@@ -71,18 +71,22 @@
             .slide.next {
                 cursor: pointer;
             }
+            p.comment {
+                font-style: italic;
+            }
         </style>
         
         <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script>
         $(function(){
+            var DEFAULT_SYMBOL = '{{Solution|Solution}}';
             $('.developpement').each(function(){
                 var self = $(this)
                 var state = true
                 self.hide().before(
                     $('<button>').text(
-                        (self.attr('symbol') == 'iff' ? '⇔' : self.attr('symbol') != null ? self.attr('symbol') : '⇔')
+                        (self.attr('symbol') == 'iff' ? '⇔' : self.attr('symbol') != null ? self.attr('symbol') : DEFAULT_SYMBOL)
                         + ' ... '
                         + (self.attr('symbolpost') == 'iff' ? '⇔' : self.attr('symbolpost') != null ? self.attr('symbolpost') : '')
                     ).click(function(){
@@ -91,20 +95,29 @@
                     })
                 )
             })
-            /* $('pre.developpement').each(function(){
-                this.getAttribute('symol')
-                if(this.getAttribute('class') == 'py')
-                    this.innerHTML = '#' this.innerHTML + '\n'
-            }) */
         });
         </script>
         <script>
             $(function(){
+                utils.dedentPreCode()
+                var COMMENT_ELEM = [
+                    ['py', ['# ', '']],
+                    ['html', ['&lt;!-- ', ' -->']],
+                ]
+                $('pre.developpement').each(function(){
+                    var code = $(this).find('code')
+                    for(var i = 0; i < COMMENT_ELEM.length; i++) {
+                        var k = COMMENT_ELEM[i][0]
+                        var l = COMMENT_ELEM[i][1]
+                        if(code.hasClass(k))
+                            $(code).html(l[0] + this.getAttribute('symbol') + l[1] + '\n\n' + $(code).html())
+                    }
+                })
+                
                 hljs.initHighlightingOnLoad()
                 $('p[class] > code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });
-                utils.dedentPreCode()
                 utils.makeTitleLinks()
                 utils.smoothLinks()
             })
@@ -114,7 +127,7 @@
     <div id="wrapper">
         <h1><!-- class="nocontent"
             --><a class="homeicon" href="index.html"></a><!--
-            --><span class="text">Faites un site web avec Django</span><!--
+            --><span class="text">Apprenez à programmer un site web avec Django</span><!--
         --></h1>
         
         <section>
@@ -139,7 +152,7 @@
             <a href="#site-statique">Site statique</a>
             <a href="#bdd">Lire une base de données</a>
             <a href="#form">Formulaires</a>
-            <a href="#bddr">Bases de données... <em>relationnelles</em></a>
+            <a href="#bddr">Bases de données <em>relationnelles</em></a>
         </nav>
         
         <h2 id="site-statique">Un site statique</h2>
@@ -147,6 +160,8 @@
         <section name="site-statique">
         
             <p class="lang-switch"><a href="django.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            
+            <!-- Concept d'enveloppe, headers, communication client serveur, poste = ip, address = addresse ip -->
             
             <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: Les urls et les vues</h3>
             
@@ -293,7 +308,6 @@
             <p>Finalement, faites un petit lien vers notre autre page à l'url <code>hello</code> !
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
-            <!-- dans le_cv.html -->
             &lt;p>Allez voir ma gentille page &lt;a href="/hello">ici&lt;/a> et j'espère que je vous ferez sourire !&lt;/p>
             </code></pre>
             
@@ -310,33 +324,408 @@
         <section name="bdd">
             <p>Le tutoriel est en construction à partir d'ici, le contenu est déjà écrit, mais je dois encore écrire le texte.
             
+            <p>Nous allons maintenant faire un site dynamique, 
+                le site statique est un serveur qui fait toujours la même chose :
+            <ul>
+                <li>Attendre une requête http.
+                <li>Lire l'url comme <code>/hello</code>.
+                <li>Voir s'il existe un fichier appelé <code>hello</code>.
+                <li>Si le fichier n'existe pas, renvoyer une 404 Not Found (status = 404).
+                <li>Sinon, renvoyer le contenu du fichier (status = 200).
+            </ul>
+            
+            <p>Un site dynamique...
+            <ul>
+                <li>attendra toujours des requêtes http (car c'est toujours un serveur http),
+                <li>lira toujours l'url (car c'est toujours un serveur http),
+                <li><strong>mais</strong> à la place de <em>prendre simplement un fichier et le donner</em>,
+                <li>il va appeler du <strong>code</strong> (ici du code écrit en <em>python</em>).
+                <li>Le code permet de faire strictement tout et n'importe quoi (comme faire un calcul).
+                <li>Et finalement, étant un serveur http, il renverra quand même une réponse texte (ou html) avec un status (200 ou 404 par exemple).
+            </ul>
+            
+            <p>On dira donc que la différence est que la réponse sera <strong>générée</strong>.
+            
+            <p>Généralement, on lira du contenu dans une <strong>base de donnée</strong> et on renverra du html qui <strong>dépend</strong> du contenu de celle-ci.
+            
             <h3 id="exerci{{c|s}}e-4">Exerci{{c|s}}e 4{{ |}}: Une question</h3>
-            <p>Database, One model Question(text:String, répondants:int)
-            <!-- creating a model and having a db file -->
-            <p>→ create a db ! Makemigrations, migrate
-            <p>→ install sqlitebrowser using apt
-            <p>→ Sqlite, it's an Excel, create some questions with the dbbrowser, sqlite has a "rowid" == "id" == "pk" (primary key), guaranteed to be unique
-            <p>→ Activate the admin and a superuser
-            <p>→ Create some in the admin 
+            <p>Pour notre site de sondage, créez une <code>class Question</code> qui a deux <em>attributs</em> :
+            <ul>
+                <li><code>nom</code>: le nom de la question, comme <em>Quel est votre fruit préféré ?</em>
+                <li><code>repondants</code>: le nombre de personnes ayant répondu à cette question (qui sera initialement de zéro mais augmentera).
+            </ul>
+            
+            <pre class="developpement" symbol="models.py"><code class="py normal-comments">
+            from django.db import models # on a besoin du concept django de <em>modèle</em>
+            
+            class Question(models.Model): # cette classe est un modèle django et non une simple classe Python
+                nom = models.CharField(max_length=50) # cet attribut est du texte (<em>Character Field</em>)
+                repondants = models.IntegerField() # cet attribut est un entier
+            </code></pre>
+            
+            <p>Ensuite, effectuez l'opération de <code>makemigrations</code> suivi de l'opération de <code>migrate</code> (via clic droit dans Eclipse ou le terminal comme un pro).
+            
+            <p>Vous pouvez lire la différence entre ces deux opérations ici :
+            <ul class="developpement" symbol="makemigrations vs migrate">
+                <li>
+                <li>
+            </ul>
+            
+            <p>Vous avez donc une <strong>base de données</strong> qui s'est créée !
+                C'est le petit fichier <code>db.sqlite</code> !
+                
+            <p>Comment ouvrir ce fichier ?
+                Clic droit dessus
+                > Open With
+                > Other Program
+                > tappez <em>sqlitebrowser</em>
+                > sélectionnez <em>DB Browser for sqlite</em>
+                > cochez la case <em>toujours utiliser ce programme</em>
+                > OK.
+            
+            <p>Vous verrez le contenu de la base de données ! Remarquez que la création de notre modèle <code>Question</code>
+                correspond bien à la table <code>askme_question</code>.
+                
+            <p>Allez dans la table en question, et <strong>créez y quelques questions</strong>
+                (en cliquant sur <em>Nouvel enregistrement</em>).
+            
+            <p>Vous voyez donc qu'une <strong>base de données</strong>, c'est <strong>comme un Excel</strong>,
+            plusieurs tableaux de valeurs.
+            
+            <p class="comment">Cependant, une base de donnée présente des avantages par rapport au Excel, comme pouvoir être lue facilement depuis un code,
+            ou vérifier certains tests, nous verrons ça plus tard.
+            
+            <p>Ce qui m'amène à faire un petit tableau de terminologie de bases de données :
+            
+            <table>
+            <tr> <th>SQL</th>     <th>Django</th>   <th>Excel</th>   </tr>
+            <tr> <td>Table</td>   <td>Modèle</td>   <td>Feuille</td> </tr>
+            <tr> <td>Colonne</td> <td>Attribut</td> <td>Colonne</td> </tr>
+            <tr> <td>Ligne</td>   <td>Objet</td>    <td>Ligne</td>   </tr>
+            </table>
+            
+            <p>Remarquez également que les <em>modèles django</em> sont des <em>classes Python</em>
+            donc j'utiliserai souvent le mot <em>classe</em> pour <em>modèle</em> (quand c'est sous entendu que c'est bien un modèle et pas une simple classe Python).
+            
+            <p>En voyant la liste des tables, vous avez vu que django utilie des tables pour son usage interne,
+                comme par exemple, une classe <code>User</code> qui gère les password et les login de manière sécurisées (on l'utilisera à la fin de ce tutoriel).
+                
+            <p class="comment">On préférera donc utiliser cette classe toute faite de django plutôt que de la recoder sois-même
+                (ça nous évitera de se faire hacker et d'apprendre beaucoup de bonnes pratiques de sécurité, comme le <em>hash</em> des passwords, les <em>rainbow table</em> et autres joyeusetés).
+            
+            <p>Finalement, remarquez que <strong>tout modèle django a un attribut id</strong>,
+                et que cet attribut s'appelle également <strong>pk</strong>
+                comme <strong>p</strong>rimary <strong>k</strong>ey,
+                c'est un nombre qui sera garantit être unique.
+            
+            <p class="comment">Cette garantie d'être unique est un des exemples
+                pour lequel une base de données, c'est plus qu'un Excel.
+            
+            <p>Dans les slides du cours, on activait l'admin de django pour rajouter facilement des objets,
+                ici on va directement modifier les données (sans passer par l'admin).
+            
+            <p><code>admin</code> est une application django créée qui ne fait que modifier la base de données, on peut donc s'en passer.
+            
+            <p class="comment">J'utiliserai le terme <em>db</em> (<em>database</em>) ou <em>bdd</em> (base de données)
+                car ce concept est récurrent et <em>base de données</em> c'est long à dire.
+            
+            <p>Après ce petit discours sur les bases de données, revenons un peu au code !
             
             <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: Une page de détail d'une question</h3>
-            <p>Create a /detail page, only one question, GET parameter
-            <!-- create a detail page -->
-            <p>→ About 404, python exception 
+            
+            <p>Comme annoncé au début du chapitre, dans un site dynamique,
+                on lira du contenu dans une base de donnée et on renverra du html qui dépend du contenu de celle-ci.
+                
+            <p>Essayons donc de lire une question et de l'afficher sur notre site :
+            
+            <ol>
+                <li>Pour lire dans une base de données, on utilisera <code>Question.objects.get()</code> pour avoir une question.
+                <li>Ensuite, on a reçu l'objet de la base de données, et on le garde près de nous dans une <strong>variable</strong>.
+                <li>Finalement on passe la variable au template, qui attend un <strong>paramètre</strong>.
+                <li>Le template pourra donc lire l'objet question qu'on lui donne, et écrire du contenu dynamique via <code>{{ q.nom }}</code>
+                par exemple pour le nom de la question.
+            </ol>
+            
+            <p>Nous allons donc créer une nouvelle page à l'url <code>/detail</code> !
+            
+            <pre class="developpement" symbol="urls.py"><code class="py">
+            urlpatterns = [
+                url(r'^admin/', admin.site.urls),
+                url(r'^hello/$', views.dire_bonjour), 
+                url(r'^cv/$', views.montrer_cv),      
+                url(r'^detail/$', views.donner_une_question), # NEW
+            ]
+            </code></pre>
+            
+            <p>Notre template aimerait recevoir un paramètre pour pouvoir écrire le nom de la question
+                et le nombre de répondants, écrire des templates étant long et fatigant, il choisit de nommer le paramètre <code>q</code>
+                (mais il aurait pu l'appeler autrement).
+        
+            <pre class="developpement" symbol="templates/detail.html"><code class="html">
+            &lt;body>
+                &lt;h1>Détails d'une question&lt;/h1>
+                &lt;h2>Titre : &lt;em>{{ q.nom }}&lt;/em>&lt;/h2>
+                &lt;p>Cette question a accumulé un total de {{ q.repondants }} répondants.&lt;/p>
+            &lt;/body>
+            </code></pre>
+            
+            <p>Les templates sont des artistes, ils ne se satisfieront pas d'avoir un affichage peu attractif,
+            ils mélangeront nos donnnées avec du joli html pour avoir un affichage agréable à regarder.
+            
+            <p class="comment">Le titre sera en bleu ciel, un point c'est tout &mdash; Un template un peu insistant lors d'un business meeting.
+            
+            <p>Ce template veut donc une question qu'il appelle <code>q</code>,
+            mais nous, le serveur, on va devoir aller demander à la base de donnée cette information,
+            nous utiliserons <code>Question.objects.get()</code> comme traduction en code de <em>hello base de donnée, donne-moi <strong>une</strong> question s'il-te-plaît</em>.
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donner_une_question(request):
+                a = Question.objects.get()
+                ...
+            </code></pre>
+            
+            <p>Nous gardons cette information <em>près de nous</em> dans une <strong>variable</strong>,
+            rappelez-vous qu'écrire <code>a = ...</code>
+            crée une variable python nommée <code>a</code>, ce choix de nom est bien entendu arbitraire.
+            
+            <p>Finalement, on doit donc...
+            
+            <ul>
+                <li>donner notre variable <code>a</code>,
+                <li>au template <code>detail.html</code>,
+                <li>qui l'appellera <code>q</code>.
+            </ul>
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donner_une_question(request):
+                a = Question.objects.get()
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <p>Allez maintenant dans le navigateur, et observez le résultat !
+            Il y a un souci, mais lequel ?
+            
+            <p class="developpement" symbol="Résultat">
+            On demande à la base de données <strong>une</strong> question mais celle-ci nous répond
+            qu'il existe plusieurs questions, et donc ne sait pas laquelle choisir !
+            On doit être plus précis dans notre requête.
+            </p>
+            
+            <p>Quand vous avez une erreur, <strong>ne vous précipitez pas dans le code</strong> pour la résoudre,
+            lisez la description de l'erreur et descendez pour voir quelle ligne l'a causée.
+            
+            <p>On voit donc que l'erreur est dûe à la ligne <code class="py">a = Question.objects.get()</code>,
+            en effet, on doit être plus précis dans notre <code>.get()</code>.
+            Demandons par exemple à avoir la question dont l'id vaut 1.
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donner_une_question(request):
+                a = Question.objects.get(id=1)
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <p>Et là, devant vos yeux ébahis, nous voyons la description de la question numéro 1 et son nombre de répondants.
+            Changez le 1 en 2, et vous aurez une autre question, nous avons un site web <strong>dynamique</strong> !
+            
+            <p>Remarquez que <em>Afficher la source</em> nous montre bien le html <strong>généré</strong>,
+                le browser a bien reçu le html <strong>généré</strong>, il n'est pas du tout au courant de notre
+                communication entre nous et la base de données et entre nous et le template.
+            
+            <p>On peut également demander la question dont le nombre de répondants vaut 42.
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donner_une_question(request):
+                a = Question.objects.get(repondants=42)
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <p class="comment">
+                Que se passe-t-il si aucune question avec 42 répondant n'existe ?
+                Et s'il y a en a plus d'une ?
+                
+            <p>Finalement, remarquez que vu que nous sommes en python, on peut faire ce que l'on veut, comme des <code>if</code>
+            ou des <code>while</code>.
+            
+            <p>Essayez d'écrire cette condition: <strong>si</strong> le nombre de répondants est nul, renvoyer la réponse <em>cette question n'est <strong>pas</strong> intéressante</em>,
+            <strong>sinon</strong>, renvoyez la question formattée par le template.
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donner_une_question(request):
+                a = Question.objects.get(id=1)
+                if a.repondants == 0:
+                    return HttpResponse("Cette question n'est <strong>pas</strong> intéressante")
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <pre class="developpement" symbol="views.py (autre solution)"><code class="py">
+            def donner_une_question(request):
+                a = Question.objects.get(id=1)
+                if a.repondants == 0:
+                    return HttpResponse("Cette question n'est <strong>pas</strong> intéressante")
+                else:
+                    return render(request, "details.html", {
+                        "q": a,
+                    })
+            </code></pre>
+            
+            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Lire la requête</h3>
+            <p>Devoir changer le code source n'est pas bien pratique,
+            ça serait bien si <strong>l'utilisateur</strong> pouvait tout simplement
+            nous demander le numéro de la question qu'il veut pour que nous ne devions pas changer notre code source à chaque fois.
+            
+            <p>C'est là que le paramètre <code>request</code> entre en jeu.
+            
+            <p>Revenons à la discussion http entre le client et nous, le serveur.
+            Le client nous envoie juste une url, <code>/detail</code>, ça serait s'il pouvait dire quelque chose 
+            de plus précis du genre, <em>le détail de la question numéro 1</em>, ce qui se traduira en url par :
+            
+            <p class="developpement"><code>/detail?numero=1</code>
+            
+            <p>Le client nous demande donc un certain <code>numero</code>, allons-y et essayons de lire ce numéro,
+            et de le mettre <em>près de nous</em> dans une <strong>variable</strong>, disons <strong>n</strong>
+            (comme ça on pourra jouer avec, faire des <code>if</code> ou des <code>while</code> ou des maths).
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donner_une_question(request):
+                n = request.GET['numero'] # NEW
+                a = Question.objects.get(id=1)
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <p class="comment">Pourquoi <code>GET</code> ? Car quand on va sur une page en écrivant directement l'url ou en cliquant sur un lien,
+            on fait une requête http de type <code>GET</code>, cela peut se voir dans les outils de développeurs de votre navigateur (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>)
+            à l'endroit où l'on voit les informations http, nous verrons plus tard qu'elle s'oppose à la méthode <code>POST</code>.
+            
+            <p>Essayez d'aller sur <code>/details?numero=1</code> ou <code>/details?numero=2</code> et que voyez-vous ?
+            Notre code donne toujours la question numéro 1 et non celle qu'on donne en paramètre... Modifions le code !
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donner_une_question(request):
+                n = request.GET['numero']
+                a = Question.objects.get(id=n) # NEW: id=n
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <p>Les deux urls <code>/details?numero=1</code> ou <code>/details?numero=2</code>
+            affichent maintenant deux résultats différents, on a donc vraiment un site <strong>dynamique</strong> !
+            
+            <p>maintenant, que donne l'url <code>/details?numero=68</code> ?
+            
+            <p class="developpement">Nous n'avons pas de question numéro 68, django nous informe cela avec une erreur (.get() ne trouve pas l'élément).
+            
+            <p>Peut-être que ce cas peut être géré différemment en <strong>capturant l'exception</strong> (voir théorie de python).
+            
+            <pre class="developpement" symbol="views.py (pas obligatoire)"><code class="py">
+            from django.http import HttpResponseNotFound
+            
+            def donner_une_question(request):
+                n = request.GET['numero']
+                try:
+                    a = Question.objects.get(id=n) # NEW: id=n
+                except:
+                    return HttpResponseNotFound("Pas de question ici !")
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <p class="developpement">Notez que dans un code structuré on préférera être plus précis sur le type de l'exception, vous n'êtes pas obligé d'avoir un code aussi structuré lors du stage.
+            
+            <pre class="developpement" symbol="views.py (pas obligatoire)"><code class="py">
+            from django.http import HttpResponseNotFound
+            
+            def donner_une_question(request):
+                n = request.GET['numero']
+                try:
+                    a = Question.objects.get(id=n) # NEW: id=n
+                except Question.DoesNotExist:
+                    return HttpResponseNotFound("Pas de question ici !")
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <p>Cependant maintenant, notre ancienne url <code>/detail</code> (tout court) ne marche plus.
+            Peut-être que certains utilisateurs étaient très content que nous renvoyions la première question dans ce cas.
+            
+            <p>Comment détecter la différence entre <code>/detail</code> et <code>/detail?reponse=2</code> ?
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donner_une_question(request):
+                if 'numero' in request.GET:
+                    n = request.GET['numero']
+                else:
+                    n = 1 # question par défaut
+                a = Question.objects.get(id=n)
+                return render(request, "details.html", {
+                    "q": a,
+                })
+            </code></pre>
+            
+            <p>Finalement, l'utilisateur veut peut-être être plus précis, et demander deux choses en même temps via une requête comme
+            
+            <pre><code>/detail?reponses=20&amp;categorie=SPORT</code></pre>
+            
+            <p>Cela veut dire que nous aurons <strong>deux</strong> paramètres disponibles,
+            respectivement <code>request.GET['reponses']</code>
+            et <code>request.GET['categorie']</code>.
+            
+            <p>Dans de pareilles requêtes (donne moi les question de sport dont le nombre de répondants vaut 20, nous devrons donc gérer plus d'une question,
+            <strong>une seule variable</strong> ne sera plus utile
+            et nous aurons besoin de <strong>listes</strong> !
 
-            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Lister toutes les questions</h3>
-            <p>Create a /summary page, "for" in the template. Link to the detail
-            <!-- for in the templates -->
-
-            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Mais pas toute la liste</h3>
+            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Gérer des listes</h3>
+            
+            <p>Nous aurons besoin de deux nouvelles compétences :
+            
+            <ol>
+                <li>Comment demander des listes à la base de données (<code>all</code>, <code>filter</code>, <code>limit</code>, <code>order_by</code>).
+                <li>Comment un template peut-il afficher une liste ?
+            </ol>
+            
+            <p>Commençons par un exemple simple, dans une nouvelle url <code>/nonrepondues</code>, demandons à Django, toutes les questions sans répondants (<code>filter</code>),
+            et affichons la première (souvenez-vous de comment lire le premier élément d'une liste ?).
+            
+            <pre class="developpement" symbol="views.py"><code class="py normal-comments">
+            def pas_de_repondants(request):
+                a = Question.objects.get(id=n) # a est une liste
+                b = a[0] # b est une question
+                return render(request, "details.html", {
+                    "q": b, # on donne b au template details.html qui accepte une seule question "q"
+                })
+            </code></pre>
+            <pre class="developpement" symbol="urls.py"><code class="py">
+            urlpatterns = [
+                ...,
+                url(r'^nonrepondues/$', views.pas_de_repondants),
+            ]
+            </code></pre>
+            
             <p>limit : only 3 last, only n last → GET parameter n
-            <p>filter by a new attribute type, mode, sport, info, phys
+            <p>filter by a new attribute catégorie (validate!), mode, sport, info, phys
+            <p>the minimum répondants
+            <p>order by, also ORDER BY DESC
             <p>makemigrations, and error when migrate ! (why ?)
-            fil<p>ter by répondants > 50
+            <p>filter by répondants > 50
             <p>On homepage, a link to n=1
-            <!-- limit, filter -->
-
-            <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Les dates</h3>
+            <!-- limit, filter, order by, all() is just a special case -->
+            
+            <p>Create a <code>/summary</code> page, <code>for</code> in the template. Link to the detail.
+            <!-- for in the templates -->
+            
+            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: Les dates</h3>
             <p>Date ? Creation date, end date, look in sqlite
             <p>Order by, end date GET "order=end"
             <p>Filter by, end date &lt; past ? Needs timezone.now()
@@ -346,23 +735,23 @@
         <h2 id="form">Les formulaires pour envoyer des données au serveur</h2>
         
         <section name="form">
-            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: POSTer un formulaire</h3>
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: POSTer un formulaire</h3>
             <p>Form: create a question, you need two attributes, name, and type.
             <p>Test the type !
             <p>New view that does "create_question" vs "create_question_form", two urls
             <!-- (5 minutes, form) -->
             
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Redirections avec http 301</h3>
+            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: Redirections avec http 301</h3>
             <p>Redirect
             <!-- (2 minutes) -->
             <p>→ ctrl shift I, 301
 
-            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: Html bonus more input elements</h3>
+            <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 11{{ |}}: Html bonus more input elements</h3>
             <p>Html, change the type using a &lt;select>
             <p>Html, have a <code>&lt;textarea></code> for a new attribute <code>description</code>
             <p>Html, checkbox 
             
-            <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 11{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
+            <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
             <p>How to merge the two views ? (Not mandatory)
             <!-- (3 min, merge) -->
             <p>→ Post vs get, POST is more logical than GET.
@@ -371,21 +760,21 @@
             <p>→ Merge the two views, if method == POST 
             <!-- (2 min, using post) -->
             
-            <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: QCM</h3>
+            <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: QCM</h3>
             <p>How to have different possible answers stored in the db ?
             <p>What would you do on an Excel ?
             <p>→ Columns answer1, answer2, answer3, count1, count2, count3
             <p>→ It sounds stupid, we'll get to that later. 
             <!-- (3 min) Create the 3 columns with the stupid 1 2 3 names. -->
             
-            <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: QCM le &lt;form></h3>
+            <h3 id="exerci{{c|s}}e-14">Exerci{{c|s}}e 14{{ |}}: QCM le &lt;form></h3>
             <p>Form with a single attribute : num answer
             <!-- 5 minutes: implement the Answer stuff -->
             
-            <h3 id="exerci{{c|s}}e-14">Exerci{{c|s}}e 14{{ |}}: Html bonus radio</h3>
+            <h3 id="exerci{{c|s}}e-15">Exerci{{c|s}}e 15{{ |}}: Html bonus radio</h3>
             <p>Change html, radio
             
-            <h3 id="exerci{{c|s}}e-15">Exerci{{c|s}}e 15{{ |}}: More queries, order by</h3>
+            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: More queries, order by</h3>
             <p>Order by répondants (order=repondants) don't forget to +1 !
             <!-- 3 minutes: html radio, order by répondants -->
         </section>
@@ -393,13 +782,13 @@
         <h2 id="bddr">Les bases de données... <em>relationnelles</em></h2>
         
         <section name="bddr">
-            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: Foreign key, the holy grale</h3>
+            <h3 id="exerci{{c|s}}e-17">Exerci{{c|s}}e 17{{ |}}: Foreign key, the holy grale</h3>
             <p>Reponse object ! base de données relationnelles ! How would you fo that in excel ?
             <p>Reponse(name, text, votes) Open sqlite, create some
             <p>Change design: reponse_pk
             <!-- 5 minutes: Reponse Object, Foreign key -->
             
-            <h3 id="exerci{{c|s}}e-17">Exerci{{c|s}}e 17{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
+            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
             <p>Users, login, hashpassword → use code from others ! Here django.contrib.auth (look at source code, simple class)
             <p>Create users from the admin, or User class (from django.contrib.auth.models import User)
             <p>Cookie, django does use auth cookies. See source code
@@ -407,21 +796,21 @@
             <p>New user form, email, (send email saying hello !), password is hashed ! (See db, or shell), verify there is a "@" in the email.
             <!-- 5 minutes: new user form -->
             
-            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Profile, Foreign key to other class</h3>
+            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Profile, Foreign key to other class</h3>
             <p>Profile : foreign key to User, add stuffs like, phone number, color preferences, anything relevant to your app
             <p>Boolean, creator, can create questions.
             <!-- 3 minutes: foreign key for Profile -->
             <p>→ There is also this programming concept called Héritage, that will just create a foreign key but new attributes are available without ".profile" 
             
-            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: N to N relations</h3>
+            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: N to N relations</h3>
             <p>Modifiers, N to N relation ! Edit question name.
             <!-- 3 minutes, N to N relation -->
             
-            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: N to N relations through a model</h3>
+            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: N to N relations through a model</h3>
             <p>N to N relationship "through", "n edit/last edit", can be seen as a n-1 1-n, can add arbitrary stuffs "this user can modify the question from this date to this date"
             <!-- 3 minutes, through -->
 
-            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: More django: clean <code>GET</code> urls</h3>
+            <h3 id="exerci{{c|s}}e-22">Exerci{{c|s}}e 22{{ |}}: More django: clean <code>GET</code> urls</h3>
             <p>Django: URL regex, use django 2 ! (Clean GET parameters) 
         </section>
     </div>
