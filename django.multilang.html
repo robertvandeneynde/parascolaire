@@ -140,7 +140,7 @@
             <p>Dans ce tutoriel, nous ferons un site de sondage, une version simplifiée du <a href="https://docs.djangoproject.com/en/2.0/intro/tutorial01/">tutoriel django officiel</a>.</p>
             <ul>
                 <li>Créer une question.</li>
-                <li>Voir les question et cliquer dessus.</li>
+                <li>Voir la liste des questions et cliquer dessus pour la voir en détail.</li>
                 <li>Avoir les réponses possibles à une question en cas de choix multiple.</li>
                 <li>Répondre à une question.</li>
                 <li>Voir les résultats d'une question.</li>
@@ -169,7 +169,7 @@
             
             <p>Bienvenue dans le tutoriel django, voici une liste d'exercice à faire pour bien comprendre les concepts de base de django !
             
-            <p class="developpement">Les paragraphes en italique indiquent une information complémentaires non nécessaire pour la compréhesion du cours. Mais ça peut toujours aider.
+            <p class="comment">Les paragraphes en italique indiquent une information complémentaire non nécessaire pour la compréhesion du cours et la réussite du stage, bien entendu, ça peut toujours aider.
             
             <p>Lors de mes présentations, j'ai parlé du protocole http, et de la communication entre client et serveur qui ressemblait à un envoi de lettres postales.
             Maintenant, place au code django !
@@ -177,7 +177,7 @@
             <p class="comment">Créez un projet django vide, si vous avez du mal, demandez à vos voisins, j'ai les mot de passes des machines virtuelles de décembre si
             vous les avez oubliés.
             
-            <p class="comment">Essayez de faire les exercices, et puis si vous n'arrivez pas regardez la solution en cliquant sur les boutons !
+            <p class="comment">Essayez de faire les exercices. Ensuite, si vous n'arrivez pas, regardez la solution en cliquant sur les boutons !
             Si nous n'arrivez pas à faire un exercice, pas de panique, la correction est là pour vous aider et probablement que vous comprendrez mieux lors d'un exercice ultérieur.
             
             <!-- Concept d'enveloppe, headers, communication client serveur, poste = ip, address = addresse ip -->
@@ -255,7 +255,7 @@
             
             <h3 id="exerci{{c|s}}e-3">Exerci{{c|s}}e 3{{ |}}: Un template pour René</h3>
             
-            <p>Cela devient un peu confus de mettre des données dans le code python, et en plus les accents s'affichent mal !
+            <p>Cela devient un peu confus de mettre des données dans le code python, et en plus les accents peuvent parfois s'afficher mal !
             Comment faire un document html séparé ?
             
             <pre class="developpement" symbol="views.py"><code class="py">
@@ -330,7 +330,7 @@
             <p>Finalement, faites un petit lien vers notre autre page à l'url <code class="url">/hello</code> !
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
-            &lt;p>Allez voir ma gentille page &lt;a href="/hello">ici&lt;/a> et j'espère que je vous ferez sourire !&lt;/p>
+            &lt;p>Allez voir ma gentille page &lt;a href="/hello">ici&lt;/a> et j'espère que je vous ferai sourire !&lt;/p>
             </code></pre>
             
             <p>Pour en savoir plus sur l'html et css, direction le très bon
@@ -344,8 +344,6 @@
         <h2 id="bdd">Lire la base de données via un modèle Django</h2>
         
         <section name="bdd">
-            <p>Le tutoriel est en construction à partir d'ici, le contenu est déjà écrit, mais je dois encore écrire le texte.
-            
             <p>Nous allons maintenant faire un site dynamique, 
                 le site statique est un serveur qui fait toujours la même chose :
             <ul>
@@ -707,18 +705,18 @@
             respectivement <code>request.GET['reponses']</code>
             et <code>request.GET['categorie']</code>.
             
-            <p>Créez un nouvel attribut dans les questions, <code>categorie</code>, cet attribut devrait valoir exactement 
-            un choix parmis <code>SPORT</code>, <code>CULTURE</code>, ou <code>SCIENCES</code>.
+            <p>Créez un <strong>nouvel attribut</strong> dans les questions, <code>categorie</code>, cet attribut devrait valoir exactement 
+            un choix parmi <code>SPORT</code>, <code>CULTURE</code>, ou <code>SCIENCES</code>.
             
             <p><code>migrate</code> se plaint, pourquoi ? Indice : Que se passe-t-il dans Excel quand on rajoute une nouvelle colonne ?
             Les anciennes questions vont avoir quoi commme valeur pour cette colonne ?
             Cela casse notre contrainte de <code>categorie in ("SPORT", "CULTURE", "SCIENCES")</code> !
 
-            <p>Dans de pareilles requêtes (donne moi les question de sport dont le nombre de répondants vaut 20, nous devrons donc gérer plus d'une question,
+            <p>Dans de pareilles requêtes (donne moi les question de sport dont le nombre de répondants vaut 20), nous devrons donc gérer plus d'une question,
             <strong>une seule variable</strong> ne sera plus utile
             et nous aurons besoin de <strong>listes</strong> !
 
-            <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: Gérer des listes</h3>
+            <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Gérer des listes</h3>
             
             <p>Nous aurons besoin de deux nouvelles compétences :
             
@@ -871,9 +869,9 @@
             <p>(Désolé pour mes blagues, il est tard et je ris facilement).
             
             <p>Nous manipulons des listes mais nous ne ne les voyons pas,
-            ça serait bien si notre template était capable de nous afficher des listes et plus juste une seule question !
+            ça serait bien si notre <strong>template</strong> était capable de nous afficher des listes et plus juste une seule question !
             
-            <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Boucles dans le template</h3>
+            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: Boucles dans le template</h3>
             
             <p>Créons maintenant une url <code class="url">/summary</code>,
                 qui contiendra toutes les pages, et ce, trié par répondants !
@@ -928,13 +926,13 @@
             Comment sera notre nouveau template qui accepte une liste <code>L</code> ?
             
             <pre class="developpement" symbol="liste_de_question.html"><code class="html">
-            <body>
-                <h1>Questions disponibles</h1>
+            &lt;body>
+                &lt;h1>Questions disponibles&lt;/h1>
                 {% for q in L %}
-                    <h2>Question: {{ q.nom }}</h2>
-                    <p>Répondants: {{ q.repondants }}</p>
+                    &lt;h2>Question: {{ q.nom }}&lt;/h2>
+                    &lt;p>Répondants: {{ q.repondants }}&lt;/p>
                 {% endfor %}
-            </body>
+            &lt;/body>
             </code></pre>
             
             <p>Testez maintenant cette nouvelle url !
@@ -942,23 +940,26 @@
             <p>Peut-être les balises html <code>&lt;ul></code> et <code>&lt;li></code> seront plus adaptés à notre affichage en liste ?
             
             <pre class="developpement" symbol="liste_de_question.html"><code class="html">
-            <body>
-                <h1>Questions disponibles</h1>
+            &lt;body>
+                &lt;h1>Questions disponibles&lt;/h1>
                 {% for q in L %}
-                    <h2>Question: {{ q.nom }}</h2>
-                    <p>Répondants: {{ q.repondants }}</p>
+                    &lt;h2>Question: {{ q.nom }}&lt;/h2>
+                    &lt;p>Répondants: {{ q.repondants }}&lt;/p>
                 {% endfor %}
-            </body>
+            &lt;/body>
             </code></pre>
             
             <p>Exercice, en python pur, comment afficher toutes les questions, mais si le nombre de répondants est nul, alors on affichera plutot <em>question pas intéressante</em> à la place du nom.
             
-            <pre class="developpement" symbol="views.py (avec for)"><code class="py">
+            <pre class="developpement" symbol="views.py"><code class="py">
             def donne_les_questions(request):
                 toutes_les_questions = Question.objects.all().order_by('-repondants')
                 
                 for q in toutes_les_questions:
-                    print(q.nom, q.repondants)
+                    if q.repondants == 0:
+                        print("Pas intéressante")
+                    else:
+                        print(q.nom, q.repondants)
                 
                 return render(request, "liste_de_question.html", {
                     "L": toutes_les_questions,
@@ -966,6 +967,8 @@
             </code></pre>
             
             <p>Remarquez que le tag <code>{% if condition %}{% endif %}</code> existe, il est moins puissant que celui de python, mais peut parfois bien aider comme des cas comme ici.
+            
+            <p class="developpement" symbol="correction à venir !">
             
             <p>Comment afficher la liste des questions, mais en mettant en rouge les questions dont le nombre de répondants est plus petit que <strong>10</strong> ?
             
@@ -979,7 +982,12 @@
             
             <p class="developpement" symbol="correction à venir !">
             
-            <p>Raccourci:  peut également faire des slicing sur une liste, comme <code>L[:3]</code> pour les trois premiers d'une liste.
+            <p>Raccourci: peut également faire des slicing sur une liste, comme <code>L[:3]</code> pour les trois premiers d'une liste.
+            
+            <p class="developpement" symbol="correction à venir !">
+            
+            <p>Faire une nouvelle url, disons <code class="url">/shortlist</code> qui va afficher la liste des questions 
+            avec juste le nom, mais ce nom est un <strong>lien</strong> qui va vers la vue détaillée.
             
             <p class="developpement" symbol="correction à venir !">
             
@@ -998,106 +1006,161 @@
             
             <!-- for in the templates -->
             
-            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: Les dates</h3>
-            <p>Un nouveau type d'attribut est le type <code>DatetimeField</code>, il permet de stocker une <em>date et heure</em>,
+            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: Les dates</h3>
+            <p>Un nouveau type d'attribut est le type <code>DateTimeField</code>, il permet de stocker une <em>date et heure</em>,
             très pratique lors de la création d'un site web !
             
             <p>Créez un attribut <code>date_de_fin</code> qui indiquera la date de fin du sondage.
+            
+            <p class="developpement" symbol="correction à venir !">
             
             <p class="comment">Comment cet attribut est-il représenté dans la base de donnée ?
             
             <p>Afficher une page qui affiche les questions qui vont bientôt se fermer !
             C'est à dire que vous aurez besoin de savoir le temps actuel (google <code>timezone.now()</code>).
+            Indice : Deux dates python peuvent être comparées via <code>&lt;</code>.
             
-            Et de faire un filtre utilisant ceci (google !).
+            <p class="developpement" symbol="correction à venir !">
             
-            <!--
-            <p>Date ? Creation date, end date, look in sqlite
-            <p>Order by, end date GET "order=end"
-            <p>Filter by, end date &lt; past ? Needs timezone.now()
-            -->
-            <!-- date -->
+            <p>Comment avoir les questions finies la semaine passée ? (filter, google !).
+            
+            <p>Comment afficher une date dans un template au format belge 31/12/2018 ? (google !)
         </section>
         
         <h2 id="form">Les formulaires pour envoyer des données au serveur</h2>
         
         <section name="form">
-            <h3 id="exerci{{c|s}}e-9">Exerci{{c|s}}e 9{{ |}}: POSTer un formulaire</h3>
+            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: POSTer un formulaire</h3>
+            
+            <p>Cette section est en cours d'écriture, donc si vous êtes arrivés jusque ici en guidances, venez me voir et je vous raconterai l'essentiel !
+            
+            <ul>
+                <li>Créer une page statique <code class="url">/create_question_form</code> qui contient formulaire ! Il y aura deux attributs, la question, et la catégorie.
+                <li>Le formulaire contient des <code>&lt;input type="text"></code>, vous devez également indiquer vers quelle url on ira quand on clique sur le bouton <em>Envoyer</em>,
+                    créez donc une <strong>autre</strong> url qui va être capable de créer une question ! Disons <code class="url">/create_question</code>.
+                <li>On fera donc bien la différence entre la page statique qui donne le formulaire et indique où aller après, et la deuxième url qui fait effectivement l'action (modifier la base de données !).
+                <li>Pour créer un objet dans la base de données, rien de plus simple, créez un objet Python, mettez ses attributs
+                    (le nombre de répondants commence à 0), puis appelez <code>.save()</code> qui va sauvegarder l'objet dans la base de donnée.
+                <li>Quand la donnée a été sauvegardée, on doit bien entendu renvoyer une réponse, par exemple <em>formulaire bien envoyé</em>, comment faire un 301 Redirect ?
+                    Regardez dans Ctrl+Shift+I et voyez le nombre de requêtes.
+                <li>Attention, la catégorie doit bien être une des 3 valeurs autorisées, le serveur doit vérifier cela !
+                    Si l'utilisateur a écrit n'importe quoi, on fera une erreur 400 (qui par convention veut dire, <em>erreur du client</em>) accompagnée d'un petit message sympatique.
+                <li>Chaque input aura un nom, c'est ce nom qui sera accessible dans django dans le paramètre de la requête.
+                    Essayez d'appeler simplement vos deux <code>input</code> <code>name="premier"</code> et <code>name="deuxieme"</code>,
+                    que devez vous changer dans le code python quand vous renommez ces deux <code>input</code> ?
+            </ul>
+            
+            <!-- Every input element, that have a name, are sent -->
+            <!--
             <p>Form: create a question, you need two attributes, name, and type.
             <p>Test the type !
             <p>New view that does "create_question" vs "create_question_form", two urls
+            -->
             <!-- (5 minutes, form) -->
             
-            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: Redirections avec http 301</h3>
-            <p>Redirect
-            <!-- (2 minutes) -->
+            <!--
+            <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 10{{ |}}: Redirections avec http 301</h3>
+            <p>Quand le formulaire Redirect
+            (2 minutes)
             <p>→ ctrl shift I, 301
+            -->
 
-            <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 11{{ |}}: Html bonus more input elements</h3>
+            <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: Html bonus more input elements</h3>
             <p>Html, change the type using a &lt;select>
             <p>Html, have a <code>&lt;textarea></code> for a new attribute <code>description</code>
-            <p>Html, checkbox 
+            <p>Html, checkbox, if checked will be <code>in request.GET</code>, else, won't be.
             
-            <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
-            <p>How to merge the two views ? (Not mandatory)
+            <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
+            <p>How to merge the two views ? (Not mandatory to do so, one can choose to always have two different urls).
             <!-- (3 min, merge) -->
-            <p>→ Post vs get, POST is more logical than GET.
-                GET doesn't modify the database + POST hides the data in the URL,
-                but you can see it in ctrl shift I, or raw http.
-            <p>→ Merge the two views, if method == POST 
+            <ul>
+                <li>→ method=POST vs GET, POST is more logical than GET for most forms.
+                <li>GET doesn't modify the database, POST does (that's just a convention).
+                <li>POST hides the data from the URL, url are often shared and sometimes written
+                    (parameters may contain sensitive data, and accidentally be sent to a friend)
+                    but you can see it in Ctrl+Shift+I (still sent in the enveloppe)
+                    or <code>print(request.POST)</code>.
+                    Google <em>difference between POST and GET in website architecture</em>
+                <li>POST enables file upload (google <em>how to upload files</em>).
+                    → html <code>enctype="multipart/form-data"</code>
+                    → django <code>request.FILES</code>
+            </ul>
+            <p>→ If you want to merge the two views, use <code>if request.method == 'POST':</code>, the user explicitly says <em>I want to modify the db</em>.
+                <em>I want to post something</em>. And not only <em>I want to GET something</em>.
             <!-- (2 min, using post) -->
             
-            <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: QCM</h3>
+            <h3 id="exerci{{c|s}}e-14">Exerci{{c|s}}e 14{{ |}}: QCM</h3>
             <p>How to have different possible answers stored in the db ?
             <p>What would you do on an Excel ?
             <p>→ Columns answer1, answer2, answer3, count1, count2, count3
-            <p>→ It sounds stupid, we'll get to that later. 
+            <p>→ It sounds stupid, we'll get to that later (chapter relational databases).
             <!-- (3 min) Create the 3 columns with the stupid 1 2 3 names. -->
             
-            <h3 id="exerci{{c|s}}e-14">Exerci{{c|s}}e 14{{ |}}: QCM le &lt;form></h3>
-            <p>Form with a single attribute : num answer
+            <h3 id="exerci{{c|s}}e-15">Exerci{{c|s}}e 15{{ |}}: QCM le &lt;form></h3>
+            <p>Form with a single attribute : num answer (people just write 1, 2 or 3 to choose).
+            <p>→ A form that will modify the database, the 4 bases of the database: CRUD (Create, Read, Update and Delete).
+                Update means modify.
             <!-- 5 minutes: implement the Answer stuff -->
             
-            <h3 id="exerci{{c|s}}e-15">Exerci{{c|s}}e 15{{ |}}: Html bonus radio</h3>
-            <p>Change html, radio
+            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: Html bonus radio</h3>
+            <p>Change html, type=radio
             
-            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: More queries, order by</h3>
-            <p>Order by répondants (order=repondants) don't forget to +1 !
+            <p>Order by répondants don't forget to +1 !
+            <p>New page <code class="url">show_answers?numero=4</code>: Show answsers for one question, sot by votes ?
+            <p>Only show answers if the date is over, otherwise redirect to the <em>answer form</em>.
+            <p>People can answer only if the date is not over.
             <!-- 3 minutes: html radio, order by répondants -->
         </section>
         
         <h2 id="bddr">Les bases de données... <em>relationnelles</em></h2>
         
         <section name="bddr">
-            <h3 id="exerci{{c|s}}e-17">Exerci{{c|s}}e 17{{ |}}: Foreign key, the holy grale</h3>
-            <p>Reponse object ! base de données relationnelles ! How would you fo that in excel ?
+            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Foreign key, the holy grale</h3>
+            <p>Reponse object ! Base de données relationnelles ! How would you do that in excel ?
             <p>Reponse(name, text, votes) Open sqlite, create some
-            <p>Change design: reponse_pk
+            <!-- <p>Change design: reponse_pk -->
+            <p>How to have the list of all reponse, that belongs to a question 4 ? (filter !)
+            <p>We have a <span style="color:red">1</span> to <span style="color:blue">N</span> relation because,
+                1 Reponse is linked to <span style="color:red">1</span> Question,
+                but 1 Question is linked to <span style="color:blue">N</span> Reponse. 
             <!-- 5 minutes: Reponse Object, Foreign key -->
             
-            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
-            <p>Users, login, hashpassword → use code from others ! Here django.contrib.auth (look at source code, simple class)
-            <p>Create users from the admin, or User class (from django.contrib.auth.models import User)
-            <p>Cookie, django does use auth cookies. See source code
+            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
+            <p>Users, login, cookies, hashpassword → use code from others ! Here <code>django.contrib.auth</code> (look at <a href="https://github.com/django/django/blob/master/django/contrib/auth/models.py#L288">source code</a>, almost a super simple class)
+            <p>Create users from the admin, or <code>class User</code> (<code class="py">from django.contrib.auth.models import User</code>)
+            <p>Cookie, django does use auth cookies. See source code.
             <p>Cookies in the browser : look at ctrl shift I, private browsing
-            <p>New user form, email, (send email saying hello !), password is hashed ! (See db, or shell), verify there is a "@" in the email.
+            <p>New user form, uername, email, (send email saying hello !), password is hashed !
+            (See db, or shell), verify there is a <code>@</code> in the email.
             <!-- 5 minutes: new user form -->
             
-            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Profile, Foreign key to other class</h3>
-            <p>Profile : foreign key to User, add stuffs like, phone number, color preferences, anything relevant to your app
-            <p>Boolean, creator, can create questions.
+            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: Profile, Foreign key to other class</h3>
+            <p>Profile : Foreign key to User, add stuffs like, phone number, color preferences, anything relevant to your app.
+            <p>Boolean, creator, can create questions, or builtin is_staff, can connect to the admin.
             <!-- 3 minutes: foreign key for Profile -->
-            <p>→ There is also this programming concept called Héritage, that will just create a foreign key but new attributes are available without ".profile" 
+            <p>→ There is also this programming concept called Inheritance (Héritage),
+                that will just create a foreign key but new attributes are available without <code>.profile</code>. 
             
-            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: N to N relations</h3>
-            <p>Modifiers, N to N relation ! Edit question name.
+            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: N to N relations</h3>
+            <p>The relation <em>User has answered Question</em>, or <em>Answered</em> is a N to N relation !
+                1 User has answered N Question.
+                And 1 Question can be modified by N Users.
+                Or 1 Question has a list of modifiers.
+                And 1 User has a list of Questions she can modify.
+            <p>How would you do that in Excel ?
             <!-- 3 minutes, N to N relation -->
             
-            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: N to N relations through a model</h3>
-            <p>N to N relationship "through", "n edit/last edit", can be seen as a n-1 1-n, can add arbitrary stuffs "this user can modify the question from this date to this date"
+            <h3 id="exerci{{c|s}}e-22">Exerci{{c|s}}e 22{{ |}}: N to N relations through a model</h3>
+            <p>N to N relationship are not <em>fundamental</em> because they are just two N-1 1-N relations.
+                Indeed, when we say <em>we have a N to N relationship Answered between Users and Questions</em> or
+                <em>A user has a list of (answered) Questions and a Question has a list of (answered) Users</em>...
+                Is a shortcut for saying <em>A user has a list of Answer, an Answer has one Question</em> and 
+                <em>A Question has a list of Answers, an Answer has one User</em>.
+            <p>N to N relationship <strong>through</strong> model (here Answer).
+            <p>Can add arbitrary stuffs like <em>this user has answered this question... on this date</em>.
             <!-- 3 minutes, through -->
 
-            <h3 id="exerci{{c|s}}e-22">Exerci{{c|s}}e 22{{ |}}: More django: clean <code>GET</code> urls</h3>
+            <h3 id="exerci{{c|s}}e-23">Exerci{{c|s}}e 23{{ |}}: More django: clean <code>GET</code> urls</h3>
             <p>Django: URL regex, use django 2 ! (Clean GET parameters) 
         </section>
     </div>
