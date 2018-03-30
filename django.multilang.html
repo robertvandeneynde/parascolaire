@@ -73,6 +73,7 @@
             }
             p.comment {
                 font-style: italic;
+                margin-left: 20px;
             }
         </style>
         
@@ -120,6 +121,11 @@
                 });
                 utils.makeTitleLinks()
                 utils.smoothLinks()
+                
+                $('code.url').each(function(){
+                    if($(this).text().indexOf('127.0.0.1') == -1)
+                        $(this).wrap('<a href="http://127.0.0.1:8000{}">'.replace('{}', $(this).text()))
+                })
             })
         </script>
     </head>
@@ -161,19 +167,35 @@
         
             <p class="lang-switch"><a href="django.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
+            <p>Bienvenue dans le tutoriel django, voici une liste d'exercice à faire pour bien comprendre les concepts de base de django !
+            
+            <p class="developpement">Les paragraphes en italique indiquent une information complémentaires non nécessaire pour la compréhesion du cours. Mais ça peut toujours aider.
+            
+            <p>Lors de mes présentations, j'ai parlé du protocole http, et de la communication entre client et serveur qui ressemblait à un envoi de lettres postales.
+            Maintenant, place au code django !
+            
+            <p class="comment">Créez un projet django vide, si vous avez du mal, demandez à vos voisins, j'ai les mot de passes des machines virtuelles de décembre si
+            vous les avez oubliés.
+            
+            <p class="comment">Essayez de faire les exercices, et puis si vous n'arrivez pas regardez la solution en cliquant sur les boutons !
+            Si nous n'arrivez pas à faire un exercice, pas de panique, la correction est là pour vous aider et probablement que vous comprendrez mieux lors d'un exercice ultérieur.
+            
             <!-- Concept d'enveloppe, headers, communication client serveur, poste = ip, address = addresse ip -->
             
             <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: Les urls et les vues</h3>
             
-            <p>Que se passe-t-il quand je vais sur <code>http://127.0.0.1:8000/</code> ?
+            <p>Lancez le serveur (en faisant <em>Run as > Django application</em> ou via le terminal comme un pro),
+                que se passe-t-il quand je vais sur <a href="http://127.0.0.1:8000"><code>http://127.0.0.1:8000/</code></a> ?
             
             <p class="developpement">Il est marqué It works.
             
-            <p>Et quand je vais sur <code>hello/</code> ?
+            <p>Et quand je vais sur <code class="url">/hello</code> ?
             
             <p class="developpement">Erreur 404, et on voit la liste des urls disponibles, il n'y a que <code>admin</code>
             
-            <p>Faites une page <code>hello/</code> et une page <code>cv/</code>, celles-ci ne contiennent que les textes suivants:
+            <p>Faites une page <code class="url">/hello</code> et une page <code class="url">/cv</code>,
+                celles-ci ne contiennent que les textes suivants:
+                
             <ul>
                 <li><em>Coucou les amis !</em> 
                 <li><em>Cv de René: Surfeur, programmeur mais humain avant tout</em>
@@ -203,9 +225,9 @@
             <p>J'aurais également pu appeler mes fonctions <code class="py">def hello</code> et <code class="py">def cv</code>
                 comme les urls, mais j'ai préféré faire la différence.
             
-            <p>Que se passe-t-il maintenant quand je vais sur <code>hello/</code> et <code>cv/</code> ?
+            <p>Que se passe-t-il maintenant quand je vais sur <code class="url">/hello</code> et <code class="url">/cv</code> ?
             
-            <p>Et quand je vais sur <code>superapp/</code> ?
+            <p>Et quand je vais sur <code class="url">/superapp</code> ?
             
             <p class="developpement">Une erreur 404
             
@@ -305,7 +327,7 @@
             
             <p>Remarquez que vous pouvez nommer votre fichier html comme vous le voulez, même si c'est le même nom que les fonctions ou les urls.
             
-            <p>Finalement, faites un petit lien vers notre autre page à l'url <code>hello</code> !
+            <p>Finalement, faites un petit lien vers notre autre page à l'url <code class="url">/hello</code> !
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
             &lt;p>Allez voir ma gentille page &lt;a href="/hello">ici&lt;/a> et j'espère que je vous ferez sourire !&lt;/p>
@@ -328,7 +350,7 @@
                 le site statique est un serveur qui fait toujours la même chose :
             <ul>
                 <li>Attendre une requête http.
-                <li>Lire l'url comme <code>/hello</code>.
+                <li>Lire l'url comme <code class="url">/hello</code>.
                 <li>Voir s'il existe un fichier appelé <code>hello</code>.
                 <li>Si le fichier n'existe pas, renvoyer une 404 Not Found (status = 404).
                 <li>Sinon, renvoyer le contenu du fichier (status = 200).
@@ -363,12 +385,10 @@
                 repondants = models.IntegerField() # cet attribut est un entier
             </code></pre>
             
-            <p>Ensuite, effectuez l'opération de <code>makemigrations</code> suivi de l'opération de <code>migrate</code> (via clic droit dans Eclipse ou le terminal comme un pro).
-            
-            <p>Vous pouvez lire la différence entre ces deux opérations ici :
+            <p>Ensuite, effectuez l'opération de <code>makemigrations</code> suivi de l'opération de <code>migrate</code> (via clic droit dans Eclipse ou le terminal comme un pro), vous pouvez lire ci-dessous la différence entre ces deux commandes mais ce n'est pas important de savoir cela à votre échelle.
             <ul class="developpement" symbol="makemigrations vs migrate">
-                <li>
-                <li>
+                <li><code>makemigrations</code> va regarder les changements faits dans models.py et va créer un fichier python dans le dossier migrations, qui <em>décrit</em> les différences, en l'occurence ici, on crée une nouvelle table qui contient deux attributs.
+                <li><code>migrate</code> modifie effectivement la base de données, en l'occurence ici va créer une nouvelle table, on verra plus tard ce qu'il peut arriver à ce moment-ci.
             </ul>
             
             <p>Vous avez donc une <strong>base de données</strong> qui s'est créée !
@@ -434,7 +454,7 @@
             <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: Une page de détail d'une question</h3>
             
             <p>Comme annoncé au début du chapitre, dans un site dynamique,
-                on lira du contenu dans une base de donnée et on renverra du html qui dépend du contenu de celle-ci.
+                on lira du contenu dans une <strong>base de donnée</strong> et on renverra du html qui <strong>dépend</strong> du contenu de celle-ci.
                 
             <p>Essayons donc de lire une question et de l'afficher sur notre site :
             
@@ -446,7 +466,7 @@
                 par exemple pour le nom de la question.
             </ol>
             
-            <p>Nous allons donc créer une nouvelle page à l'url <code>/detail</code> !
+            <p>Nous allons donc créer une nouvelle page à l'url <code class="url">/detail</code> !
             
             <pre class="developpement" symbol="urls.py"><code class="py">
             urlpatterns = [
@@ -584,10 +604,10 @@
             <p>C'est là que le paramètre <code>request</code> entre en jeu.
             
             <p>Revenons à la discussion http entre le client et nous, le serveur.
-            Le client nous envoie juste une url, <code>/detail</code>, ça serait s'il pouvait dire quelque chose 
+            Le client nous envoie juste une url, <code class="url">/detail</code>, ça serait s'il pouvait dire quelque chose 
             de plus précis du genre, <em>le détail de la question numéro 1</em>, ce qui se traduira en url par :
             
-            <p class="developpement"><code>/detail?numero=1</code>
+            <p class="developpement"><code class="url">/detail?numero=1</code>
             
             <p>Le client nous demande donc un certain <code>numero</code>, allons-y et essayons de lire ce numéro,
             et de le mettre <em>près de nous</em> dans une <strong>variable</strong>, disons <strong>n</strong>
@@ -606,7 +626,7 @@
             on fait une requête http de type <code>GET</code>, cela peut se voir dans les outils de développeurs de votre navigateur (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>)
             à l'endroit où l'on voit les informations http, nous verrons plus tard qu'elle s'oppose à la méthode <code>POST</code>.
             
-            <p>Essayez d'aller sur <code>/details?numero=1</code> ou <code>/details?numero=2</code> et que voyez-vous ?
+            <p>Essayez d'aller sur <code class="url">/details?numero=1</code> ou <code class="url">/details?numero=2</code> et que voyez-vous ?
             Notre code donne toujours la question numéro 1 et non celle qu'on donne en paramètre... Modifions le code !
             
             <pre class="developpement" symbol="views.py"><code class="py">
@@ -618,16 +638,21 @@
                 })
             </code></pre>
             
-            <p>Les deux urls <code>/details?numero=1</code> ou <code>/details?numero=2</code>
+            <p>Les deux urls <code class="url">/details?numero=1</code> ou <code class="url">/details?numero=2</code>
             affichent maintenant deux résultats différents, on a donc vraiment un site <strong>dynamique</strong> !
             
-            <p>maintenant, que donne l'url <code>/details?numero=68</code> ?
+            <p>Exercice : Sur la page d'accueil
+                (disons l'url <code class="url">/accueil</code> ou même l'url vide, <code class="url">/</code>),
+                créez un lien html qui dira <em>viens voir ma <a>super question</a></em> et quand on cliquera sur le lien,
+                on arrivera sur la page que l'on vient de créer, qui affiche la question numéro, disons, 4.
             
-            <p class="developpement">Nous n'avons pas de question numéro 68, django nous informe cela avec une erreur (.get() ne trouve pas l'élément).
+            <p>Maintenant, que donne l'url <code class="url">/details?numero=68</code> ?
+            
+            <p class="developpement">Nous n'avons pas de question numéro 68, django nous informe cela avec une erreur (.get() ne trouve pas l'élément).</p>
             
             <p>Peut-être que ce cas peut être géré différemment en <strong>capturant l'exception</strong> (voir théorie de python).
             
-            <pre class="developpement" symbol="views.py (pas obligatoire)"><code class="py">
+            <pre class="developpement" symbol="views.py"><code class="py">
             from django.http import HttpResponseNotFound
             
             def donner_une_question(request):
@@ -641,7 +666,7 @@
                 })
             </code></pre>
             
-            <p class="developpement">Notez que dans un code structuré on préférera être plus précis sur le type de l'exception, vous n'êtes pas obligé d'avoir un code aussi structuré lors du stage.
+            <p class="comment">Notez que dans un code structuré on préférera être plus précis sur le type de l'exception, vous n'êtes pas obligé d'avoir un code aussi structuré lors du stage.
             
             <pre class="developpement" symbol="views.py (pas obligatoire)"><code class="py">
             from django.http import HttpResponseNotFound
@@ -657,10 +682,10 @@
                 })
             </code></pre>
             
-            <p>Cependant maintenant, notre ancienne url <code>/detail</code> (tout court) ne marche plus.
+            <p>Cependant maintenant, notre ancienne url <code class="url">/detail</code> (tout court) ne marche plus.
             Peut-être que certains utilisateurs étaient très content que nous renvoyions la première question dans ce cas.
             
-            <p>Comment détecter la différence entre <code>/detail</code> et <code>/detail?reponse=2</code> ?
+            <p>Comment détecter la différence entre <code class="url">/detail</code> et <code class="url">/detail?reponse=2</code> ?
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def donner_une_question(request):
@@ -676,12 +701,19 @@
             
             <p>Finalement, l'utilisateur veut peut-être être plus précis, et demander deux choses en même temps via une requête comme
             
-            <pre><code>/detail?reponses=20&amp;categorie=SPORT</code></pre>
+            <pre><code class="url">/detail?reponses=20&amp;categorie=SPORT</code></pre>
             
             <p>Cela veut dire que nous aurons <strong>deux</strong> paramètres disponibles,
             respectivement <code>request.GET['reponses']</code>
             et <code>request.GET['categorie']</code>.
             
+            <p>Créez un nouvel attribut dans les questions, <code>categorie</code>, cet attribut devrait valoir exactement 
+            un choix parmis <code>SPORT</code>, <code>CULTURE</code>, ou <code>SCIENCES</code>.
+            
+            <p><code>migrate</code> se plaint, pourquoi ? Indice : Que se passe-t-il dans Excel quand on rajoute une nouvelle colonne ?
+            Les anciennes questions vont avoir quoi commme valeur pour cette colonne ?
+            Cela casse notre contrainte de <code>categorie in ("SPORT", "CULTURE", "SCIENCES")</code> !
+
             <p>Dans de pareilles requêtes (donne moi les question de sport dont le nombre de répondants vaut 20, nous devrons donc gérer plus d'une question,
             <strong>une seule variable</strong> ne sera plus utile
             et nous aurons besoin de <strong>listes</strong> !
@@ -695,12 +727,12 @@
                 <li>Comment un template peut-il afficher une liste ?
             </ol>
             
-            <p>Commençons par un exemple simple, dans une nouvelle url <code>/nonrepondues</code>, demandons à Django, toutes les questions sans répondants (<code>filter</code>),
+            <p>Commençons par un exemple simple, dans une nouvelle url <code class="url">/nonrepondues</code>, demandons à Django, toutes les questions sans répondants (<code>filter</code>),
             et affichons la première (souvenez-vous de comment lire le premier élément d'une liste ?).
             
             <pre class="developpement" symbol="views.py"><code class="py normal-comments">
             def pas_de_repondants(request):
-                a = Question.objects.get(id=n) # a est une liste
+                a = Question.objects.<strong>filter</strong>(repondants=0) # a est une liste, je pourrais renommer la variable a
                 b = a[0] # b est une question
                 return render(request, "details.html", {
                     "q": b, # on donne b au template details.html qui accepte une seule question "q"
@@ -713,22 +745,277 @@
             ]
             </code></pre>
             
-            <p>limit : only 3 last, only n last → GET parameter n
-            <p>filter by a new attribute catégorie (validate!), mode, sport, info, phys
-            <p>the minimum répondants
-            <p>order by, also ORDER BY DESC
+            <p>Django permet aussi de faire des requêtes contenant des comparaisons, <em>donne moi la liste des questions avec <strong>moins de 10</strong> répondants</em>
+            ou en abbrégé <em>où repondants &lt; 10</em> se traduira en django <code>.filter(repondants__lt=10)</code> (<strong>l</strong>ess <strong>t</strong>han).
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def pas_de_repondants(request):
+                a = Question.objects.<strong>filter</strong>(repondants__lt=10)
+                b = a[0]
+                return render(request, "details.html", {
+                    "q": b,
+                })
+            </code></pre>
+            
+            <p>Cela va donc afficher une des questions ayant moins de 10 répondants, mais on ne sait pas préduire laquelle.
+            
+            <p>Souvenez-vous bien de ceci :
+            
+            <ul>
+                <li>dans une <strong>base de donnnées</strong>,
+                <li>les <strong>lignes</strong>
+                <li>n'ont <strong>pas d'ordre</strong>.
+            </ul>
+            
+            <p>Et donc quand vous faites des requêtes ambigües comme <em>premier éléments de la liste des questions où repondants &lt; 10</em>
+            vous devez <strong>toujours</strong> ajouter un <strong>ordre</strong>.
+            Cela se fait via <strong>order_by</strong>.
+            
+            <p>Comment par exemple prendre la question ayant l'<code>id</code> le plus petit ?
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def pas_de_repondants(request):
+                a = Question.objects.filter(repondants__lt=10).order_by('id')
+                b = a[0]
+                return render(request, "details.html", {
+                    "q": b,
+                })
+            </code></pre>
+            
+            <p>La liste sera donc triée par ordre <strong>croissant</strong> d'<code>id</code>.
+            Prendre le premier élément de cette liste sera donc l'élément avec l'<code>id</code> le plus petit.
+            
+            <p>Les bases de données peuvent également ordonner dans l'ordre décroissant,
+                ce qui se fait en django via le symbole <strong>&minus;</strong> avant le nom de l'attribut.
+                
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def pas_de_repondants(request):
+                a = Question.objects.filter(repondants__lt=10).order_by('<strong>-</strong>id')
+                b = a[0]
+                return render(request, "details.html", {
+                    "q": b,
+                })
+            </code></pre>
+            
+            <p>La question affichée sera donc celle avec le nombre de répondants plus petit que 10, dont l'indice est le plus grand.
+            
+            <p>Remarquez que si l'on ne met pas de condition, on obtiendra simplement <strong>tous</strong> les éléments de la base de donnnée.
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def pas_de_repondants(request):
+                a = Question.objects.filter().order_by('-id')
+                b = a[0]
+                return render(request, "details.html", {
+                    "q": b,
+                })
+            </code></pre>
+            
+            <p>On affiche donc la question avec l'id le plus grand dans <strong>toute</strong> la base de donnée,
+                ce qui est donc probablement la dernière créée.
+            
+            <p>Quand filter n'a pas d'argument comme ici, il y a en fait un raccourci plus parlant, <code>all()</code>.
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def pas_de_repondants(request):
+                a = Question.objects.all().order_by('-id')
+                b = a[0]
+                return render(request, "details.html", {
+                    "q": b,
+                })
+            </code></pre>
+            
+            <p>Petit exercice, comment afficher la question avec le <strong>moins</strong> de répondants ?
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def pas_de_repondants(request):
+                a = Question.objects.all().order_by('repondants')
+                b = a[0]
+                return render(request, "details.html", {
+                    "q": b,
+                })
+            </code></pre>
+            
+            <p>Comment créer un nouveau template qui contient <strong>deux</strong> variables ?
+            Disons <code>p</code> et <code>q</code>, où <code>p</code> représente la question avec le plus de répondant, et <code>q</code> celle avec le moins ?
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            # correction à venir !
+            </code></pre>
+            <pre class="developpement" symbol="deux_questions.html"><code class="py">
+            &lt; correction à venir !
+            </code></pre>
+            
+            <p>Le template aimerait également une troisième variable, qu'il appelle <strong>somme</strong>,
+            elle contient la somme des répondants des deux questions
+            (indice, python a l'opérateur <code>+</code> entre deux variables).
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            # correction à venir !
+            </code></pre>
+            <pre class="developpement" symbol="somme_deux_questions.html"><code class="py">
+            &lt;!-- correction à venir ! -->
+            </code></pre>
+            
+            <p>Nous pouvons bien-sûr faire la moyenne ou autre opération mathématique.
+            
+            <p>Sur la page d'accueil, mettez un lien <em>voir notre plus grosse question !</em> qui redirigera vers une page ayant le plus de répondants !
+            
+            <p class="developpement" symbol="correction à venir !">
+            
+            <p class="comment">Et là, notre ami le template a décidé de nommer sa variable <strong>somme</strong>, tant de 
+                rationalité dans le cerveau de notre artiste que j'en étais étonné, je ne vois qu'une seule raison 
+                logique à ce changement de comportement : je suis sûr qu'il sort depuis peu
+                avec une ingénieure ! &mdash;
+                Discussion à la machine à café après la business meeting</p>
+            
+            <p>(Désolé pour mes blagues, il est tard et je ris facilement).
+            
+            <p>Nous manipulons des listes mais nous ne ne les voyons pas,
+            ça serait bien si notre template était capable de nous afficher des listes et plus juste une seule question !
+            
+            <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Boucles dans le template</h3>
+            
+            <p>Créons maintenant une url <code class="url">/summary</code>,
+                qui contiendra toutes les pages, et ce, trié par répondants !
+                
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donne_les_questions(request):
+                toutes_les_questions = Question.objects.all().order_by('-repondants')
+                return render(request, "liste_de_question.html", {
+                    "L": toutes_les_questions,
+                })
+            </code></pre>
+            
+            <p>Nous faisons donc une requête à la base de donnée (une <em>query</em>) pour avoir notre liste,
+            et nous la passons à un nouveau template qui sera capable de l'afficher.
+            
+            <p>En python sans dango, comment faisiez vous pour afficher tous les éléments d'une liste ?
+            En utilisant <code>print()</code> essayez d'afficher les noms de toutes les questions à l'écran, le chapitre des <strong>boucles</strong> sera utile.
+            
+            <pre class="developpement" symbol="views.py (avec while)"><code class="py">
+            def donne_les_questions(request):
+                toutes_les_questions = Question.objects.all().order_by('-repondants')
+                
+                i = 0
+                while i &lt; len(toutes_les_questions):
+                    q = toutes_les_questions[i]
+                    print(q.nom, q.repondants)
+                    i += 1
+                
+                return render(request, "liste_de_question.html", {
+                    "L": toutes_les_questions,
+                })
+            </code></pre>
+            
+            <p>Cependant, cette itération peut être simplifiée drastiquement avec <code>for</code> :
+            
+            <pre class="developpement" symbol="views.py (avec for)"><code class="py">
+            def donne_les_questions(request):
+                toutes_les_questions = Question.objects.all().order_by('-repondants')
+                
+                for q in toutes_les_questions:
+                    print(q.nom, q.repondants)
+                
+                return render(request, "liste_de_question.html", {
+                    "L": toutes_les_questions,
+                })
+            </code></pre>
+            
+            <p class="comment">De plus, utiliser <strong>for</strong> dans ce cas-ci est accompagné d'un boost de performances.
+            
+            <p>Et bien, sachez que le <strong>langage de template django</strong> contient également un <strong>tag</strong> 
+            <code>{% for variable in list %} ... {% endfor %}</code>.
+            Comment sera notre nouveau template qui accepte une liste <code>L</code> ?
+            
+            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
+            <body>
+                <h1>Questions disponibles</h1>
+                {% for q in L %}
+                    <h2>Question: {{ q.nom }}</h2>
+                    <p>Répondants: {{ q.repondants }}</p>
+                {% endfor %}
+            </body>
+            </code></pre>
+            
+            <p>Testez maintenant cette nouvelle url !
+            
+            <p>Peut-être les balises html <code>&lt;ul></code> et <code>&lt;li></code> seront plus adaptés à notre affichage en liste ?
+            
+            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
+            <body>
+                <h1>Questions disponibles</h1>
+                {% for q in L %}
+                    <h2>Question: {{ q.nom }}</h2>
+                    <p>Répondants: {{ q.repondants }}</p>
+                {% endfor %}
+            </body>
+            </code></pre>
+            
+            <p>Exercice, en python pur, comment afficher toutes les questions, mais si le nombre de répondants est nul, alors on affichera plutot <em>question pas intéressante</em> à la place du nom.
+            
+            <pre class="developpement" symbol="views.py (avec for)"><code class="py">
+            def donne_les_questions(request):
+                toutes_les_questions = Question.objects.all().order_by('-repondants')
+                
+                for q in toutes_les_questions:
+                    print(q.nom, q.repondants)
+                
+                return render(request, "liste_de_question.html", {
+                    "L": toutes_les_questions,
+                })
+            </code></pre>
+            
+            <p>Remarquez que le tag <code>{% if condition %}{% endif %}</code> existe, il est moins puissant que celui de python, mais peut parfois bien aider comme des cas comme ici.
+            
+            <p>Comment afficher la liste des questions, mais en mettant en rouge les questions dont le nombre de répondants est plus petit que <strong>10</strong> ?
+            
+            <p class="developpement" symbol="correction à venir !">
+            
+            <p>Comment faire pour que ce paramètre est choisissable dans l'url via <code>request.GET</code> ?
+            
+            <p class="developpement" symbol="correction à venir !">
+            
+            <p>Comment faire pour afficher les 3 questions avec le plus de répondants ?
+            
+            <p class="developpement" symbol="correction à venir !">
+            
+            <p>Raccourci:  peut également faire des slicing sur une liste, comme <code>L[:3]</code> pour les trois premiers d'une liste.
+            
+            <p class="developpement" symbol="correction à venir !">
+            
+            <p>Affichez la catégorie de la question, mais pas en majuscule (google: mettre en minuscule dans un django template),
+            et accompagnez également une petite description du style <em>Cette question est culturelle, elle parle de bla bla bla</em>.
+            
+            <p class="developpement" symbol="correction à venir !">
+            
+            <!-- <p>limit : only 3 last, only n last → GET parameter n
+            <p>filter by a new attribute fcatégorie (validate!), mode, sport, info, phys
             <p>makemigrations, and error when migrate ! (why ?)
             <p>filter by répondants > 50
-            <p>On homepage, a link to n=1
+            <p>On homepage, a link to n=1 -->
             <!-- limit, filter, order by, all() is just a special case -->
+            <!-- .count() et .exists() optimisations -->
             
-            <p>Create a <code>/summary</code> page, <code>for</code> in the template. Link to the detail.
             <!-- for in the templates -->
             
             <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: Les dates</h3>
+            <p>Un nouveau type d'attribut est le type <code>DatetimeField</code>, il permet de stocker une <em>date et heure</em>,
+            très pratique lors de la création d'un site web !
+            
+            <p>Créez un attribut <code>date_de_fin</code> qui indiquera la date de fin du sondage.
+            
+            <p class="comment">Comment cet attribut est-il représenté dans la base de donnée ?
+            
+            <p>Afficher une page qui affiche les questions qui vont bientôt se fermer !
+            C'est à dire que vous aurez besoin de savoir le temps actuel (google <code>timezone.now()</code>).
+            
+            Et de faire un filtre utilisant ceci (google !).
+            
+            <!--
             <p>Date ? Creation date, end date, look in sqlite
             <p>Order by, end date GET "order=end"
             <p>Filter by, end date &lt; past ? Needs timezone.now()
+            -->
             <!-- date -->
         </section>
         
