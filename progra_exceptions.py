@@ -33,11 +33,11 @@ except KeyError:   # si le code du try lance une KeyError
 else: # si aucune erreur n'a été lancée
     print("Yep") 
 
-# on peut également atrapper Toutes les exceptions
+# on peut également atrapper Toutes les exceptions (mais c'est une mauvaise pratique)
 try:
     d = D['a']
     i = L.index(3)
-except:
+except: # mauvaise pratique
     i = -1
 
 ## raise ses propres exceptions

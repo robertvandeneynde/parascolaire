@@ -1,9 +1,9 @@
 #!coding: utf-8
 from __future__ import print_function, division
 
-##################
+###
 # Base {{UNE|ONE}} : "="
-##################
+### {{egal|equal}}
 
 # "=" {{permet de changer la valeur d'une variable|allows you to change the value of a variable}}
 # print() {{permet de voir à l'écran la valeur d'une variable|allows you to see on screen the value of a variable}}
@@ -25,9 +25,9 @@ print(d)
 # {{pour afficher du texte, il faut le mettre entre guillemets|to print text, one must put in between quotes}}
 print("{{fin|end}}")
 
-####################
+###
 # Base {{DEUX|TWO }} : "if" 
-####################
+### if
 
 a = 7
 
@@ -45,7 +45,7 @@ if {{vie|life}} > 100:
     {{vie|life}} = 100
 
 # {{pour afficher plusieurs choses on écrit une virgule|to display more than one thing, one must write a comma}}
-print("{{Votre vie est|your life is}}", {{vie|life}}) # {{en python 2, les parenthèses n'étaient pas obligatoires|in python 2, the parenthesis were not mandatory}}
+print("{{Votre vie est de|your life is}}", {{vie|life}}) # {{en python 2, les parenthèses n'étaient pas obligatoires|in python 2, the parenthesis were not mandatory}}
 
 # {{on peut faire un else, le code ira dans le else si la condition est fausse|one can do a "else", the code will go in the else if the condition is false}}
 if {{vie|life}} == 100:
@@ -100,7 +100,7 @@ else:
     print("Da")
 
 # {{affiche Yo si a est égal à 1 ou b est égal à 2|displays Yo if a is equal to 1 or b is equal to 2}}
-# {{ou moins une des deux conditions doit être vraie|at least one condtion must be true}}
+# {{au moins une des deux conditions doit être vraie|at least one condtion must be true}}
 
 # {{attention, si tu mélanges des and et des or,|beware, if you mix and and or,}}
 # {{utilise des parenthèses pour bien préciser l'ordre des opérations|use parenthesis to be clear on the order you want to use}}
@@ -169,7 +169,8 @@ x = (5 + 2 * 3
        + 1
        - 2)
 
-# {{écrire en binaire/hexadécimal|write in binary/hexadecimal}}
+## {{écrire en binaire/hexadécimal|write in binary/hexadecimal}}
+
 print(0b100)    # 4
 print(0xa2)     # 162
 print(hex(162)) # 0xA2
@@ -183,7 +184,7 @@ if 2 <= a <= 5: # 2 <= a and a <= 5
 if a == b == 0: # a == b and b == 0
     print("{{a et b valent 0|a and b are equal to 0}}")
 
-## not "inverser" une condition
+## not: "inverser" une condition
 
 if a == 5: # si a == 5...
     pass # ne rien faire

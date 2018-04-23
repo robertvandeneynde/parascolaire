@@ -3,7 +3,7 @@ from __future__ import print_function, division
 
 #####################
 # Base CINQ : Objets
-#####################
+### objets ##########
 
 # un objet permet de grouper plusieurs variables dans un... objet
 # par exemple on peut grouper la "vie" et le "mana" dans un objet "personnage"
@@ -59,7 +59,7 @@ les_personnages.append(p)
 
 #######################
 # Base SIX : Fonctions 
-#######################
+### fonctions #########
 
 # Certaines structures de code reviennent souvent
 # Par exemple dans un exercice précédent, on a calculé le maximum d'une liste

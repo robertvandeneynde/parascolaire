@@ -121,7 +121,7 @@
          x="35.5"
          id="text9110">
         <a
-           xlink:href="theorie1_egal_if.py.html"
+           xlink:href="theorie1_egal_if_fr.html"
            id="a9112">Théorie 1</a>
       </text>
     </g>
@@ -143,7 +143,7 @@
            x="0"
            id="text9120">
           <a
-             xlink:href="theorie1_egal_if.py.html"
+             xlink:href="theorie1_egal_if_fr.html"
              id="a9122">Base 1 : =</a>
         </text>
       </g>
@@ -166,7 +166,7 @@
            x="0"
            id="text9138">
           <a
-             xlink:href="theorie1_egal_if.py.html"
+             xlink:href="theorie1_egal_if_fr.html"
              id="a9140">Base 2 : if</a>
         </text>
       </g>
@@ -187,8 +187,9 @@
          x="35.5"
          id="text9154">
         <a
-           xlink:href="theorie2_liste_while.py.html"
+           xlink:href="theorie2_liste_while.html"
            id="a9156">Théorie 2</a>
+           <!-- xlink:href="theorie2_liste_while_fr.html" -->
       </text>
     </g>
     <g
@@ -209,8 +210,9 @@
            x="0"
            id="text9164">
           <a
-             xlink:href="theorie2_liste_while.py.html"
+             xlink:href="theorie2_liste_while.html"
              id="a9166">Base 3 : while</a>
+             <!-- xlink:href="theorie2_liste_while_fr.html" -->
         </text>
       </g>
     </g>
@@ -232,8 +234,9 @@
            x="0"
            id="text9182">
           <a
-             xlink:href="theorie2_liste_while.py.html"
+             xlink:href="theorie2_liste_while.html"
              id="a9184">Base 4 : list</a>
+             <!-- xlink:href="theorie2_liste_while_fr.html" -->
         </text>
       </g>
     </g>
@@ -253,7 +256,7 @@
          x="35.5"
          id="text9198">
         <a
-           xlink:href="theorie3_fonctions_et_objets.py.html"
+           xlink:href="theorie3_fonctions_et_objets_fr.html"
            id="a9200">Théorie 3</a>
       </text>
     </g>
@@ -275,7 +278,7 @@
            x="0"
            id="text9208">
           <a
-             xlink:href="theorie3_fonctions_et_objets.py.html"
+             xlink:href="theorie3_fonctions_et_objets_fr.html"
              id="a9210">Base 5 : Objets</a>
         </text>
       </g>
@@ -298,7 +301,7 @@
            x="0"
            id="text9226">
           <a
-             xlink:href="theorie3_fonctions_et_objets.py.html"
+             xlink:href="theorie3_fonctions_et_objets_fr.html"
              id="a9228">Base 6 : Fonctions</a>
         </text>
       </g>

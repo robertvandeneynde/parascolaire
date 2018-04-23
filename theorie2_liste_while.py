@@ -3,7 +3,7 @@ from __future__ import print_function, division
 
 ######################
 # Base TROIS : while #
-######################
+### while ############
 
 # les while sont comme des if, sauf qu'après avoir exécuté leur code, ils recommencent
 
@@ -37,7 +37,7 @@ while i < 10:
 
 #########################
 # Base QUATRE : listes  #
-#########################
+### listes ##############
 
 # on peut créer des listes, avec des crochets
 ma_liste = [1,2,7,2] # 4 éléments !
@@ -80,7 +80,6 @@ while i < len(ma_liste):
 # Pour en savoir plus... #
 ##########################
 
-### while ###
 # certaines structures "while" sont très utilisées, et peuvent être remplacées par des "for"
 
 ## compter ! avec range
@@ -136,9 +135,8 @@ while i < len(ma_liste):
 # attention, il existe quelques subtiles différences,
 # en cas de doute, utiliser while
 
-### list ###
+## indices négatifs (python)
 
-# Indices négatifs
 ma_liste = [5,2,1,3]
 print(ma_liste[-1]) # 3
 

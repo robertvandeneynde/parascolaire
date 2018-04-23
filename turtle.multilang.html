@@ -87,9 +87,27 @@
                 utils.smoothLinks()
             })
         </script>
+        <script>
+        $(function(){
+            $('.tutorial-only').click(function(){
+                if($('#code-iframe').is(':visible')) {
+                    $('#code-iframe').hide()
+                    $('#wrapper').attr('style', '/*' + $('#wrapper').attr('style') + '*/')
+                } else {
+                    $('#code-iframe').show()
+                    $('#wrapper').attr('style', $('#wrapper').attr('style').replace('/*', '').replace('*/', ''))
+                }
+            })
+        })
+        </script>
     </head>
     <body class="algos">
-    <div id="wrapper">
+    
+    <iframe id="code-iframe" src="https://trinket.io/embed/python/3f649d1f6e"
+        frameborder="0" marginwidth="0" marginheight="0" allowfullscreen
+        style="width:60%; height: 100%; position:fixed; top: 0; right:0"></iframe>
+    
+    <div id="wrapper" style="width:40%; position:absolute; top:0; left:0"> <!-- float:left -->
         <h1 class="nocontent"><!--
             --><a class="homeicon" href="index.html"></a><!--
             --><span class="text">Turtle</span><!--
@@ -130,16 +148,12 @@
         
             <p class="lang-switch"><a href="turtle.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
+            <button class="tutorial-only">{{Tutoriel uniquement|Tutorial only}}</button>
+            
             <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: {{ Avancer, tourner | Forward, turn }}</h3>
             
-            <p>{{
-                Dans une <strong>nouvelle fenêtre</strong>, va sur <a href="turtle_test.html" target="_blank" style="target-new: window;">cette page</a>.
-                Une manière de faire ça est de faire un clic <strong>droit</strong> sur le lien, puis de choisir <em>ouvrir dans une nouvelle fenêtre</em> dans le menu.
-                Ensuite écris le code suivant et clique sur
-                |
-                In a <strong>new window</strong>, go on <a href="turtle_test.html">this page</a>.
-                One way to do that is to <strong>right</strong> click on the link and select <em>open in a new window</em> from the menu.
-                Then write the following code and click on
+            <p>{{ Écris le code suivant dans la zone de droite et clique sur
+                | Write the following code in the zone to the right of the screen then click on 
             }}<img id="the-run" alt="Run" src="run.png" style="vertical-align: middle"/> !</p>
             
             <pre><code class="py">
@@ -172,8 +186,18 @@
             <p>{{Avec tes expériences précédentes, explique, en français que fais la commande <code>forward</code> ? Et les commandes <code>left</code> et <code>right</code> ?
                 |With the experiments you just did, explain in plain english what the <code>forward</code> command do? What about the <code>left</code> and the <code>right</code> commands? }}
             
-            <p>{{ Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
-                | I suggest to put the two windows next to each other, around ⅓ of the screen for this windows and therefore ⅔ for the code and the rendering of the turtle. }}
+            <p><em>{{
+                Si vous voulez avoir deux fenêtres différentes pour coder et suivre le tutoriel, cliquez sur <button class="tutorial-only">Tutoriel uniquement</button>
+                et ensuite, dans une <strong>nouvelle fenêtre</strong>, allez sur <a href="turtle_test.html" target="_blank" style="target-new: window;">cette page</a>.
+                Une manière de faire ça est de faire un clic <strong>droit</strong> sur le lien, puis de choisir <em>ouvrir dans une nouvelle fenêtre</em> dans le menu.
+                |
+                If you want to have two different windows to code and follow the tutorial, click on <button class="tutorial-only">Tutorial only</button>,
+                then <strong>in a new windows</strong> go on <a href="turtle_test.html">this page</a>.
+                One way to do that is to <strong>right</strong> click on the link and select <em>open in a new window</em> from the menu.
+            }}</em>
+            
+            <p><em>{{ Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
+                | I suggest to put the two windows next to each other, around ⅓ of the screen for this windows and therefore ⅔ for the code and the rendering of the turtle. }}</em>
             
             <h3 id="exerci{{c|s}}e-2">Exerci{{c|s}}e 2{{ |}}: {{Raccourcis turtle|Turtle shortcuts}}</h3>
             
@@ -426,7 +450,7 @@
                 you don't have to read them but it's useful to write code <strong>very fast</strong> trust me! }}
             
             <figure>
-                <img height=400 src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
+                <img width=535 src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
             </figure>
             
             <p>Les classiques...
@@ -977,7 +1001,7 @@
             })();
             
             document.getElementById('the-run').addEventListener('click', function(){
-                alert("{{Non pas ce bouton-ci, celui sur l'autre page que tu viens d'ouvrir !|No, not this button, the one on the page you just opened!}}");
+                alert("{{Non pas ce bouton-ci, celui en haut à droite de l'écran !|No, not this button, the one to the upper-right of the screen!}}");
             })
             </script>
         </section>

@@ -44,7 +44,7 @@
                 } else {
                     scrollToHash(function(){ animateSvg() })
                 }
-            }).trigger('hashchange')
+            }) // .trigger('hashchange')
             
             $('a[href^=#]').click(function(ev) {
                 ev.preventDefault()
@@ -267,7 +267,7 @@
         
         <div id="svg-embed-wrap">
             <div id="svg-close" style="display: none; position:absolute; left: 5px; top: 5px; background: #900; border-radius: 5px; padding:5px; color: white; border: 1px solid #600; cursor:pointer;">× Fermer</div>
-        <div id="svg-embed" style="display: none; text-align:center; margin-top: 5px;">
+        <div id="svg-embed" style="text-align:center; margin-top: 5px;"> <!-- display: none; -->
 
         {% include "plan.svg" %}
 

@@ -35,6 +35,9 @@
             p > code {
                 display: inline;
             }
+            code a {
+                text-decoration: underline;
+            }
         </style>
         
         <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
@@ -106,7 +109,7 @@
             {% endif %}
             
             {% if block.code %}
-                <pre><code class="py">{{ block.code }}</code></pre>
+                <pre><code class="py">{{ block.code | safe }}</code></pre>
             {% endif %}
             {% endfor %}
         </section>

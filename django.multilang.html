@@ -201,20 +201,31 @@
                 <li><em>Cv de René: Surfeur, programmeur mais humain avant tout</em>
             </ul>
             
-            <pre class="developpement" symbol="urls.py"><code class="py">
-            from django.conf.urls import url
-            from django.contrib import admin
+            <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
+            from django.conf.urls import path
 
             from . import views
 
             urlpatterns = [
-                url(r'^admin/', admin.site.urls),
+                path('hello/', views.dire_bonjour), # NEW
+                path('cv/', views.montrer_cv),      # NEW
+            ]
+            </code></pre>
+            
+            <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
+            from django.conf.urls import url
+
+            from . import views
+
+            urlpatterns = [
                 url(r'^hello/$', views.dire_bonjour), # NEW
                 url(r'^cv/$', views.montrer_cv),      # NEW
             ]
             </code></pre>
             
             <pre class="developpement" symbol="views.py"><code class="py">
+            from django.http import HttpResponse
+            
             def dire_bonjour(request):
                 return HttpResponse("Coucou les amis !")
 
@@ -262,7 +273,7 @@
             from django.shortcuts import render
             
             def montrer_cv(request):
-                return request(request, 'le_cv.html')
+                return render(request, 'le_cv.html')
             </code></pre>
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
@@ -338,6 +349,10 @@
                 tutoriel html et css
             </a>
             sur openclassrooms.
+
+            <h3>Raccourcis clavier</h3>
+
+            <p>À partir du moment où vous écrivez beaucoup de texte, lisez au moins mon petit tableau des <a href="turtle.{{fr|en}}.html#{{raccourcis|shortcuts}}">raccourcis basiques</a> !
             
         </section>
         
@@ -460,15 +475,22 @@
                 <li>Pour lire dans une base de données, on utilisera <code>Question.objects.get()</code> pour avoir une question.
                 <li>Ensuite, on a reçu l'objet de la base de données, et on le garde près de nous dans une <strong>variable</strong>.
                 <li>Finalement on passe la variable au template, qui attend un <strong>paramètre</strong>.
-                <li>Le template pourra donc lire l'objet question qu'on lui donne, et écrire du contenu dynamique via <code>{{ q.nom }}</code>
+                <li>Le template pourra donc lire l'objet question qu'on lui donne, et écrire du contenu dynamique via <code>&#x7b;&#x7b; q.nom }}</code>
                 par exemple pour le nom de la question.
             </ol>
             
             <p>Nous allons donc créer une nouvelle page à l'url <code class="url">/detail</code> !
             
-            <pre class="developpement" symbol="urls.py"><code class="py">
+            <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
             urlpatterns = [
-                url(r'^admin/', admin.site.urls),
+                path('hello/', views.dire_bonjour), 
+                path('cv/', views.montrer_cv),      
+                path('detail/', views.donner_une_question), # NEW
+            ]
+            </code></pre>
+            
+            <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
+            urlpatterns = [
                 url(r'^hello/$', views.dire_bonjour), 
                 url(r'^cv/$', views.montrer_cv),      
                 url(r'^detail/$', views.donner_une_question), # NEW
@@ -482,8 +504,8 @@
             <pre class="developpement" symbol="templates/detail.html"><code class="html">
             &lt;body>
                 &lt;h1>Détails d'une question&lt;/h1>
-                &lt;h2>Titre : &lt;em>{{ q.nom }}&lt;/em>&lt;/h2>
-                &lt;p>Cette question a accumulé un total de {{ q.repondants }} répondants.&lt;/p>
+                &lt;h2>Titre : &lt;em>&#x7b;&#x7b; q.nom }}&lt;/em>&lt;/h2>
+                &lt;p>Cette question a accumulé un total de &#x7b;&#x7b; q.repondants }} répondants.&lt;/p>
             &lt;/body>
             </code></pre>
             
@@ -577,7 +599,7 @@
             def donner_une_question(request):
                 a = Question.objects.get(id=1)
                 if a.repondants == 0:
-                    return HttpResponse("Cette question n'est <strong>pas</strong> intéressante")
+                    return HttpResponse("Cette question n'est &lt;strong>pas&lt;/strong> intéressante")
                 return render(request, "details.html", {
                     "q": a,
                 })
@@ -587,7 +609,7 @@
             def donner_une_question(request):
                 a = Question.objects.get(id=1)
                 if a.repondants == 0:
-                    return HttpResponse("Cette question n'est <strong>pas</strong> intéressante")
+                    return HttpResponse("Cette question n'est &lt;strong>pas&lt;/strong> intéressante")
                 else:
                     return render(request, "details.html", {
                         "q": a,
@@ -648,7 +670,7 @@
             
             <p class="developpement">Nous n'avons pas de question numéro 68, django nous informe cela avec une erreur (.get() ne trouve pas l'élément).</p>
             
-            <p>Peut-être que ce cas peut être géré différemment en <strong>capturant l'exception</strong> (voir théorie de python).
+            <p>Peut-être que ce cas peut être géré différemment en <strong>capturant l'exception</strong> (voir <a href="progra_exceptions.py.html">théorie de python</a>).
             
             <pre class="developpement" symbol="views.py"><code class="py">
             from django.http import HttpResponseNotFound
@@ -736,7 +758,15 @@
                     "q": b, # on donne b au template details.html qui accepte une seule question "q"
                 })
             </code></pre>
-            <pre class="developpement" symbol="urls.py"><code class="py">
+            
+            <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
+            urlpatterns = [
+                ...,
+                path('nonrepondues/', views.pas_de_repondants),
+            ]
+            </code></pre>
+            
+            <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
             urlpatterns = [
                 ...,
                 url(r'^nonrepondues/$', views.pas_de_repondants),
@@ -840,7 +870,7 @@
             # correction à venir !
             </code></pre>
             <pre class="developpement" symbol="deux_questions.html"><code class="py">
-            &lt; correction à venir !
+            &lt;!-- correction à venir ! -->
             </code></pre>
             
             <p>Le template aimerait également une troisième variable, qu'il appelle <strong>somme</strong>,
@@ -929,8 +959,8 @@
             &lt;body>
                 &lt;h1>Questions disponibles&lt;/h1>
                 {% for q in L %}
-                    &lt;h2>Question: {{ q.nom }}&lt;/h2>
-                    &lt;p>Répondants: {{ q.repondants }}&lt;/p>
+                    &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
+                    &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
                 {% endfor %}
             &lt;/body>
             </code></pre>
@@ -943,8 +973,8 @@
             &lt;body>
                 &lt;h1>Questions disponibles&lt;/h1>
                 {% for q in L %}
-                    &lt;h2>Question: {{ q.nom }}&lt;/h2>
-                    &lt;p>Répondants: {{ q.repondants }}&lt;/p>
+                    &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
+                    &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
                 {% endfor %}
             &lt;/body>
             </code></pre>
@@ -1025,6 +1055,11 @@
             <p>Comment avoir les questions finies la semaine passée ? (filter, google !).
             
             <p>Comment afficher une date dans un template au format belge 31/12/2018 ? (google !)
+
+            <!-- <p>Python de base from datetime import datetime, timedelta, date, time, datetime.strftime, datetime.strptime -->
+            <!-- <p>Petite note sur les timezone et DST (fuseaux horaires et heures d'été) UTC vs Greenwhich -->
+            <!-- <p>Django et les timezone: timezone.now(), use of pytz, date in filter -->
+            <!-- https://docs.djangoproject.com/en/1.11/ref/templates/builtins/#date -->
         </section>
         
         <h2 id="form">Les formulaires pour envoyer des données au serveur</h2>
