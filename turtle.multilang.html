@@ -89,23 +89,57 @@
         </script>
         <script>
         $(function(){
-            $('.tutorial-only').click(function(){
-                if($('#code-iframe').is(':visible')) {
-                    $('#code-iframe').hide()
-                    $('#wrapper').attr('style', '/*' + $('#wrapper').attr('style') + '*/')
-                } else {
+            var FRAME_BY_DEFAULT = false;
+            
+            var iframe = null;
+            function insertFrame() {
+                iframe = $('<iframe id="code-iframe" src="https://trinket.io/embed/python/3f649d1f6e"'
+                        + ' frameborder="0" marginwidth="0" marginheight="0" allowfullscreen'
+                        + ' style="width:60%; height: 100%; position:fixed; top: 0; right:0"></iframe>')
+                $('body').prepend(iframe);
+            }
+            
+            function setFrameVisibility(visible) {
+                // works even if there is no #code-iframe
+                if(visible) {
                     $('#code-iframe').show()
-                    $('#wrapper').attr('style', $('#wrapper').attr('style').replace('/*', '').replace('*/', ''))
+                    $('#wrapper').attr('style', $('#wrapper').attr('style').replace('/*', '').replace('*' + '/', ''))
+                    $('.tutorial-only').text('{{Tutoriel uniquement|Tutorial only}}')
+                    $('[ng-hide="frame_mode"], [ng-show="!frame_mode"]').hide();
+                    $('[ng-hide="!frame_mode"], [ng-show="frame_mode"]').show();
+                } else {
+                    $('#code-iframe').hide()
+                    $('#wrapper').attr('style', '/*' + $('#wrapper').attr('style') + '*' + '/')
+                    $('.tutorial-only').text('{{Commencer à coder !|Start to code!}}')
+                    $('[ng-hide="frame_mode"], [ng-show="!frame_mode"]').show();
+                    $('[ng-hide="!frame_mode"], [ng-show="frame_mode"]').hide();
+                }
+            }
+            
+            $('.tutorial-only').click(function(){
+                if(! iframe) {
+                    insertFrame();
+                    setFrameVisibility(true);
+                } else {
+                    setFrameVisibility(!($('#code-iframe').is(':visible')));
                 }
             })
+            
+            if(FRAME_BY_DEFAULT)
+                $('.tutorial-only').click();
+            else
+                setFrameVisibility(false);
+            
         })
         </script>
     </head>
     <body class="algos">
     
+    <!--
     <iframe id="code-iframe" src="https://trinket.io/embed/python/3f649d1f6e"
         frameborder="0" marginwidth="0" marginheight="0" allowfullscreen
         style="width:60%; height: 100%; position:fixed; top: 0; right:0"></iframe>
+    -->
     
     <div id="wrapper" style="width:40%; position:absolute; top:0; left:0"> <!-- float:left -->
         <h1 class="nocontent"><!--
@@ -152,8 +186,20 @@
             
             <h3 id="exerci{{c|s}}e-1">Exerci{{c|s}}e 1{{ |}}: {{ Avancer, tourner | Forward, turn }}</h3>
             
-            <p>{{ Écris le code suivant dans la zone de droite et clique sur
-                | Write the following code in the zone to the right of the screen then click on 
+            <p>
+            
+            <span ng-hide="frame_mode">
+            {{Clique sur|Click on}}
+            <button class="tutorial-only">{{Tutoriel uniquement|Tutorial only}}</button>,
+            {{puis écris|then write}}
+            </span>
+            
+            <span ng-show="frame_mode">
+            {{ Écris | Write }}
+            </span>
+            
+            {{le code suivant dans la zone de droite et clique sur
+                | the following code in the zone to the right of the screen then click on 
             }}<img id="the-run" alt="Run" src="run.png" style="vertical-align: middle"/> !</p>
             
             <pre><code class="py">
@@ -187,13 +233,15 @@
                 |With the experiments you just did, explain in plain english what the <code>forward</code> command do? What about the <code>left</code> and the <code>right</code> commands? }}
             
             <p><em>{{
-                Si vous voulez avoir deux fenêtres différentes pour coder et suivre le tutoriel, cliquez sur <button class="tutorial-only">Tutoriel uniquement</button>
-                et ensuite, dans une <strong>nouvelle fenêtre</strong>, allez sur <a href="turtle_test.html" target="_blank" style="target-new: window;">cette page</a>.
-                Une manière de faire ça est de faire un clic <strong>droit</strong> sur le lien, puis de choisir <em>ouvrir dans une nouvelle fenêtre</em> dans le menu.
+                Si vous voulez avoir deux fenêtres différentes pour coder et suivre le tutoriel,
+                <span ng-show="frame_mode">cliquez sur <button class="tutorial-only">Tutoriel uniquement</button>, et ensuite</span>
+                dans une <strong>nouvelle fenêtre</strong>, allez sur <a href="turtle_test.html" target="_blank" style="target-new: window;">cette page</a>.
+                Une manière de faire ça est de faire un clic <strong>droit</strong> sur le lien, puis de choisir <strong>ouvrir dans une nouvelle fenêtre</strong> dans le menu.
                 |
-                If you want to have two different windows to code and follow the tutorial, click on <button class="tutorial-only">Tutorial only</button>,
-                then <strong>in a new windows</strong> go on <a href="turtle_test.html">this page</a>.
-                One way to do that is to <strong>right</strong> click on the link and select <em>open in a new window</em> from the menu.
+                If you want to have two different windows to code and follow the tutorial,
+                <span ng-show="frame_mode">click on <button class="tutorial-only">Tutorial only</button>, then</span>
+                <strong>in a new windows</strong> go on <a href="turtle_test.html">this page</a>.
+                One way to do that is to <strong>right</strong> click on the link and select <strong>open in a new window</strong> from the menu.
             }}</em>
             
             <p><em>{{ Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
@@ -444,7 +492,6 @@
             
         <section name="{{raccourcis|shortcuts}}">
             <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{shortcuts|raccourcis}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
-            <button class="tutorial-only">{{Tutoriel uniquement|Tutorial only}}</button>
 
             <p><em>No one needs a mouse when editing text</em> &mdash; Robert Vanden Eynde
             <p><em>La souris, c'est lent, le pad c'est encore pire</em> &mdash; Robert Vanden Eynde
@@ -455,7 +502,7 @@
                 you don't have to read them but it's useful to write code <strong>very fast</strong> trust me! }}
             
             <figure>
-                <img width=535 src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
+                <img style="max-width:535px" src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
             </figure>
             
             <p>Les classiques...
@@ -549,9 +596,17 @@
                     <em><strong>Supprimer</strong> le <strong>mot</strong> suivant</em> (n'existe pas sur Mac), même remarque que la ligne précédente.
                     | <em><strong>Delete</strong> next <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> on Mac), same note as previous line.
                 }}</td></tr>
+                <tr><td>Double clic <td colspan="1"> {{
+                    <em><strong>Sélectionne le mot</strong> sous la souris.</em>
+                    |
+                    <em><strong>Select the word</strong> under the mouse.</em>
+                }}</td></tr>
+                <tr><td>Triple clic <td colspan="1"> {{
+                    <em><strong>Sélectionne la ligne</strong> sous la souris.</em>
+                    |
+                    <em><strong>Select the line</strong> under the mouse.</em>
+                }}</td></tr>
             </tbody></table>
-            
-            <p>Et également un raccourci souris : <strong>double clic sélectionne un mot</strong> (ou triple clic sélectionne la ligne).
             
             <p>{{ Ça marche partout <strong>même sur Facebook</strong> ! Et remarquez qu'il y a une touche <kbd>Ctrl</kbd> et <kbd>Shift</kbd> juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec <strong>uniquement la main droite</strong> !
                 | It works everywhere <strong>even on Facebook</strong>! And let's notice that there is a <kbd>Ctrl</kbd> and <kbd>Shift</kbd> key next to the arrow keys so all of these shortcuts can be done <strong>with the right hand only</strong>! }}
@@ -1009,7 +1064,10 @@
             })();
             
             document.getElementById('the-run').addEventListener('click', function(){
-                alert("{{Non pas ce bouton-ci, celui en haut à droite de l'écran !|No, not this button, the one to the upper-right of the screen!}}");
+                if($('#code-iframe').is(':visible'))
+                    alert("{{Non pas ce bouton-ci, celui en haut à droite de l'écran !|No, not this button, the one to the upper-right of the screen!}}");
+                else
+                    alert("{{Non pas ce bouton-ci, celui dans la page que tu viens d'ouvrir !|No, not this button, the one in the window you just opened!}}");
             })
             </script>
         </section>

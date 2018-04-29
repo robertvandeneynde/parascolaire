@@ -32,13 +32,13 @@
             figcaption:not(.mandatory) {
                 display: none;
             }
-            p > code {
-                display: inline;
+            p code.hljs {
+                display: inline !important;
             }
             :not(pre) > code {
                 border: 1px solid #ccc;
                 display: inline-block;
-                padding: 2px;
+                padding: 2px !important;
             }
             table {
                 border-collapse: collapse;
@@ -74,6 +74,9 @@
             p.comment {
                 font-style: italic;
                 margin-left: 20px;
+            }
+            code.url {
+                color: #001eff !important;
             }
         </style>
         
@@ -128,10 +131,16 @@
                     })
                 })
                 
+                $('[contains-code]').each(function(){
+                    var cls = $(this).attr('contains-code')
+                    $(this).find('code:not([class])').addClass(cls)
+                })
+                
                 hljs.initHighlightingOnLoad()
-                // $('p > code[class]').each(function(i, block) {
-                //     hljs.highlightBlock(block);
-                // });
+                $('p > code[class]').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                    // console.log($(block).text())
+                });
                 utils.makeTitleLinks()
                 utils.smoothLinks()
                 
@@ -195,7 +204,10 @@
             --><span class="text">Apprenez à programmer un site web avec Django</span><!--
         --></h1>
         <section>
-            <p>Dans ce tutoriel, nous ferons un site de sondage, appelé <code>askme</code>, c'est une version simplifiée du <a href="https://docs.djangoproject.com/en/2.0/intro/tutorial01/">tutoriel django officiel</a>.</p>
+        
+            <p>Bienvenue dans le tutoriel django, voici une liste d'exercice à faire pour bien comprendre les concepts de base de django !
+            
+            <p>Dans ce tutoriel, nous ferons un site de sondage, appelé <code>askme</code>, c'est une version simplifiée du <a href="https://docs.djangoproject.com/en/2.0/intro/tutorial01/">tutoriel django officiel</a>, nous serons capables de :</p>
             <ul>
                 <li>Créer une question.</li>
                 <li>Voir la liste des questions et cliquer dessus pour la voir en détail.</li>
@@ -206,17 +218,21 @@
                 <li>Ne voir que les résultats quand la date de fin est passée.</li>
                 <li>Limiter la création des questions aux administrateurs.</li>
             </ul>
+            
+            <p class="comment">Les paragraphes en italique indiquent une information complémentaire non nécessaire pour la compréhesion du cours et la réussite du stage, bien entendu, ça peut toujours aider.
+            <p class="comment">En sciences éco, le projet s'appelle <code>solvaycoin</code> et non <code>askme</code>, on y verra quelques opérations de base du même style.
+            
             <p>Une petite connaissance préalable de python est conseillée, vous pouvez avoir un petit rappel de théorie sur mon site
                 <a href="https://robertvandeneynde.be/parascolaire">de programmation pour débutants</a> :
             
             <ol>
-                <li>Cliquez sur le petit fichier
+                <li>Cliquez sur le petit fichier qui tient sur deux pages
                     <a href="https://robertvandeneynde.be/parascolaire/theorie1_egal_if_fr.html">
                         theorie1
                     </a>
-                    qui tient sur deux pages, ou sa <a href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">vidéo en bêta</a> !
+                    ou bien regardez ou sa <a href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">vidéo en bêta</a> !
                     
-                    Essayez de faire les exercices 0, 1, 2, 3, voire 4.
+                    Ensuite, essayez de faire les exercices 0, 1, 2, 3, voire 4.
                     
                 <li>Ensuite lisez le fichier
                     <a href="https://robertvandeneynde.be/parascolaire/theorie2_liste_while.html">
@@ -253,10 +269,6 @@
         
             <p class="lang-switch"><a href="django.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
-            <p>Bienvenue dans le tutoriel django, voici une liste d'exercice à faire pour bien comprendre les concepts de base de django !
-            
-            <p class="comment">Les paragraphes en italique indiquent une information complémentaire non nécessaire pour la compréhesion du cours et la réussite du stage, bien entendu, ça peut toujours aider.
-            
             <p>Lors de mes présentations, j'ai parlé du protocole http, et de la communication entre client et serveur qui ressemblait à un envoi de lettres postales.
             Maintenant, place au code django !
             
@@ -280,7 +292,7 @@
             
             <p class="comment">
                 Pour faire cela au stage de Solvay, allez dans Eclipse et faites <em>Run as > Django application</em>
-                ou via le terminal comme un pro <code class="bash">python3 manage.py runserserver</code>.
+                ou via le terminal comme un pro <code class="bash">python3 manage.py runserver</code>.
                 
             <p>Que se passe-t-il quand je vais sur <code class="url">127.0.0.1:8000/</code> ?
                 
@@ -295,7 +307,7 @@
             
             <p>Et quand je vais sur <code class="url">/hello</code> ?
             
-            <p class="developpement">Erreur 404, et on voit la liste des urls disponibles, il n'y a que <code>admin</code>
+            <p class="developpement">Erreur 404, et on voit la liste des urls disponibles, il n'y a que <code>admin/</code>
             
             <p>Faites une page <code class="url">/hello</code> et une page <code class="url">/cv</code>,
                 celles-ci ne contiennent que les textes suivants :
@@ -305,14 +317,33 @@
                 <li><em>Cv de René: Surfeur, programmeur mais humain avant tout</em>
             </ul>
             
+            <p>Pour cela, vous devrez modifier (ou créer) le fichier <code>urls.py</code> qui se trouve dans le dossier de votre app (dossier <code>askme/</code>).
+            
+            <div class="developpement" symbol="Créer un fichier sur pythonanywhere">
+            <hr/>
+                <p>Pour créer un fichier dans pythonanywhere, naviguer dans le bon dossier, puis à droite où il est marqué <em>Enter A new Filename</em>, écrivez <code>urls.py</code> (attention, <strong>avec l'extension</strong>)
+                et appuyez sur <kbd>Enter</kbd>.
+                
+                <figure>
+                    <img src="screenshot_pythonanywhere_newfile.png" />
+                </figure>
+                
+                <p>Ensuite, vous n'avez qu'à cliquer sur le fichier et un éditeur de texte apparaîtra, n'oubliez pas de <strong>Sauver</strong> le fichier après modification en cliquant sur <em>Save</em>
+                en haut à droite de l'écran.
+                
+                <p>Sur pythonanywhere, quand vous modfier un fichier de code, vous devez souvent <em>Reload</em> le serveur, allez dans l'onglet <em>Web</em> et cliquez sur le gros bouton <em>Reload</em>.
+            <hr/>
+            </div>
+            <p></p>
+            
             <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
             from django.conf.urls import path
 
             from . import views
 
             urlpatterns = [
-                path('hello/', views.dire_bonjour), # NEW
-                path('cv/', views.montrer_cv),      # NEW
+                path('hello/', views.dire_bonjour),
+                path('cv/', views.montrer_cv),
             ]
             </code></pre>
             
@@ -322,8 +353,8 @@
             from . import views
 
             urlpatterns = [
-                url(r'^hello/$', views.dire_bonjour), # NEW
-                url(r'^cv/$', views.montrer_cv),      # NEW
+                url(r'^hello/$', views.dire_bonjour),
+                url(r'^cv/$', views.montrer_cv),
             ]
             </code></pre>
             
@@ -354,8 +385,8 @@
             <mark>from .views import base</mark>
 
             urlpatterns = [
-                path('hello/', views<mark>.base</mark>.dire_bonjour), # NEW
-                path('cv/', views<mark>.base</mark>.montrer_cv),      # NEW
+                path('hello/', views<mark>.base</mark>.dire_bonjour),
+                path('cv/', views<mark>.base</mark>.montrer_cv),
             ]
             </code></pre>
             
@@ -513,10 +544,18 @@
             
             <p>Avoir un joli site c'est bien, mais avoir un site <strong>fonctionnel</strong> c'est peut-être bien aussi !
                 Rendez-vous dans la suite du tutoriel.
+                
+            <p class="comment">En sciences éco, le professeur a déjà créé plein de templates, vous ne devrez donc pas trop coder en html, regardez le contenu du dossier template pour 
+                avoir une idée des fichiers que vous pouvez utiliser, comme par exemple <code>base.html</code>.
 
             <h3 id="{{raccourcis|shortcuts}}">Raccourcis clavier</h3>
 
-            <p>À partir du moment où vous écrivez beaucoup de texte, lisez au moins mon petit tableau des <a href="turtle.{{fr|en}}.html#{{raccourcis|shortcuts}}">raccourcis basiques</a> !
+            <p>À partir du moment où vous écrivez beaucoup de texte, lisez au moins mon petit tableau des <a href="turtle.{{fr|en}}.html#{{raccourcis|shortcuts}}">raccourcis basiques</a> qui marchent <strong>même sur facebook</strong> et
+            <strong>même sous Mac</strong> !
+            
+            <figure>
+                <img style="max-width:535px" src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
+            </figure>
             
         </section>
         
@@ -549,12 +588,40 @@
             <p>Généralement, on lira du contenu dans une <strong>base de donnée</strong> et on renverra du html qui <strong>dépend</strong> du contenu de celle-ci.
             
             <h3 id="exerci{{c|s}}e-4">Exerci{{c|s}}e 4{{ |}}: Une question</h3>
-            <p>Pour notre site de sondage, créez une <code>class Question</code> qui a deux <em>attributs</em> :
+            
+            <p>Pour notre site de sondage, créez une <code class="py">class Question</code> qui a deux <em>attributs</em> :
+            
             <ul>
                 <li><code>nom</code>: le nom de la question, comme <em>Quel est votre fruit préféré ?</em>
-                <li><code>repondants</code>: le nombre de personnes ayant répondu à cette question (qui sera initialement de zéro mais augmentera).
+                <li><code>repondants</code>: le nombre de personnes ayant répondu à cette question, qui sera initialement de zéro mais augmentera.
             </ul>
             
+            <div class="developpement" symbol="Pour le projet de sciences éco">
+            <hr/>
+            
+            <p>Pour le projet de sciences éco, vous pouvez vous entraîner en créant une classe <code>Question</code> comme décris dans le tutoriel,
+                ou bien vous pouvez créer une classe <code>Listing</code> (ou <code>Offre</code>) qui contient les attributs demandés en cours, c'est à dire
+                <code>montant_fixe</code> (un nombre),
+                <code>montant_variable</code> (un nombre),
+                <code>devise_fixe</code> (une Devise, comme <code>EUR</code>)
+                et <code>devise_variable</code> (une autre Devise, comme <code>BTC</code>).
+                
+                En effet, une <code>Offre</code> se décrit en français comme <em>je propose un échange <strong>5</strong> <strong>BTC</strong> contre <strong>10</strong> <strong>EUR</strong></em>.
+                Dans cet exemple on a <code class="py">montant_fixe = 5; montant_variable = 10; devise_fixe = "BTC"; devise_variable = "EUR"</code>.
+            
+            <p>
+                Une Offre est également liée à un objet <strong>User</strong> (utilisateur) mais pour l'instant nous ne le mettrons pas,
+                nous ferons ça dans la partie <a href="#bddr">Bases de données <em>relationnelles</em></a>.
+                
+            <p>
+                Avec les <a href="#bddr">bases de données relationnelles</a>, les devises seront également des objets <strong>Devise</strong> mais pour l'instant nous pouvons simplement dire que les devises
+                sont des chaînes de caractètres comme <code class="py">"EUR"</code> (<em>string</em> ou <code>str</code> en python, <code>CharField</code> en django).
+            
+            <hr/>
+            </div>
+            
+            <p></p>
+                
             <pre class="developpement" symbol="models.py"><code class="py normal-comments">
             from django.db import models # on a besoin du concept django de <em>modèle</em>
             
@@ -570,14 +637,121 @@
                 en écrivant <code class="bash">python3 manage.py makemigrations</code>
                 ou <code class="bash">python3 manage.py migrate</code>.
             
-            <p class="comment">Pour sciences éco, vous devrez passer par la console, <a href="#virtualenv">activer le virtualenv</a> si ça n'est pas déjà fait,
-                puis lancer <code class="bash">python manage.py makemigrations</code>
-                ou <code class="bash">python manage.py migrate</code>.
+            <p class="comment">Pour sciences éco, vous devrez passer par la console, <a href="#virtualenv">activez le virtualenv</a> si ça n'est pas déjà fait,
+                puis lancez cette commande :
                 
-            <div class="developpement" symbol="virtualenv">
+            <div style="padding-left: 20px">
+            <pre><code class="bash">python manage.py makemigrations</code></pre>
+            
+            <p>De la même manière, pour faire l'opération de <em>migrate</em> on écrira bien sûr <code class="bash">python manage.py migrate</code>.
+            
+            <p>Si vous avez l'erreur <code>manage.py not found</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> :
+            
+            <div class="developpement" contains-code="bash" symbol="changer de dossier en bash">
+            <hr>
+                <p class="comment">Sur pythonanywhere, on va utiliser des <strong>consoles linux</strong> (aussi appelés <strong>terminal</strong>, <strong>shell</strong> ou <strong>sh</strong> ou <strong>bash</strong> ou <strong>invite de commande</strong>,
+                car ça permet non seulement d'avoir l'air d'un pro mais surtout car ça permet de nous simplifier la vie une fois qu'on y est habitué.
+                Le compte gratuit que vous avez permet d'ouvrir uniquement 2 consoles, dans l'onglet <em>Console</em> du site, vous voyez la liste des consoles ouvertes,
+                vous pouvez cliquer dessus pour y accéder, cliquez sur la petite croix pour fermer (<em>kill</em>) la console que vous voulez.
+                
+                <p>Quand vous lancez une console, vous êtes dans votre dossier <strong>home</strong>, c'est le dossier principal de tout utilisateur linux,
+                quand vous allez dans l'onglet Files, c'est le dossier que vous voyez,
+                en console linux, on l'appelle tout simple <em>home</em>, <code>$HOME</code> ou encore <strong>~</strong>.
+                
+                <p>Chaque utilisateur linux a son petit dossier home, qui se trouve dans /home/username, sur pythonanywhere votre nom d'utilisateur est infosgr42 donc votre home se
+                trouve dans /home/
+                
+                <p>Pour savoir où vous êtes, tappez <code>pwd</code> (<strong>P</strong>rint <strong>W</strong>orking <strong>D</strong>irectory)
+                
+                <pre><code>
+                14:00 ~ $ pwd
+                /home/infosgr42/
+                </code></pre>
+                
+                <p>Remarquez que la console vous dit l'heure.
+                
+                <p>Pour voir les fichiers qu'il y a dans votre dossier en cours, tappez <code>ls</code> (<strong>l</strong>i<strong>s</strong>ter les fichiers, ou <strong>l</strong>ets <strong>s</strong>ee) :
+                
+                <pre><code>
+                14:01 ~ $ ls
+                README.txt  project  wsgi.py  
+                </code></pre>
+                
+                <p>Nous avons donc un fichier <code>README.txt</code>, un dossier <code>project</code>, et un fichier <code>wsgi.py</code>, ce qui correspond bien à 
+                la réalité :
+                
+                <figure>
+                    <img src="screenshot_pythonanywhere_all_files.png" />
+                </figure>
+                
+                <p class="comment">Remarquez qu'en linux, un fichier qui commence par un <strong>point</strong> est considéré comme <strong>caché</strong>,
+                    c'est pourquoi <code>ls</code> ne les montre pas,
+                    mais vous pouvez quand même les voir en effectuant <code>ls -a</code>.
+                    Pour avoir un affichage plus joli en couleurs, tappez <code>ls --color</code>, vous y verrez les <strong>dossiers</strong> en bleus.
+                    Il y a moyen que tous vos <code>ls</code> soient en couleurs en écrivant <code>alias ls='ls --color'</code>.
+                
+                <p>Pour changer de dossier, en allant par exemple dans le dossier <code>project/</code> tappez <code>cd project</code> (<code>cd</code> comme <strong>c</strong>hanger <strong>d</strong>ossier).
+                
+                <pre><code>
+                14:00 ~ $ cd project
+                14:02 ~/project $ 
+                </code></pre>
+                
+                <p>Remarquez que la console vous rappelle que vous êtes dans le dossier <code>~/project</code>, ce qui veut dire le dossier <code>project</code> dans votre <code>home</code>.
+                
+                <p>Pour aller dans votre home, tappez juste <code>cd</code> :
+                
+                <pre><code>
+                14:00 ~ $ cd project
+                14:02 ~/project $ cd project
+                </code></pre>
+                
+                <p>Pour les intéressés, je conseille le <a href="https://openclassrooms.com/courses/reprenez-le-controle-a-l-aide-de-linux/la-console-ca-se-mange">tutoriel linux</a> sur openclassrooms.
+            <hr>
+            </div>
+            
+            <p></p>
+            
+            <div id="virtualenv"></div>
+            <div class="developpement" contains-code="bash" symbol="virtualenv">
                 <hr/>
                 <p>Beaucoup d'installations python comme celle utilisée en sciences éco
                 utilise le concept de <code>virtualenv</code> qui permet de gérer des versions de python.
+                
+                <p class="comment">Sur pythonanywhere, on va utiliser des <strong>consoles linux</strong> (aussi appelés <strong>terminal</strong>, <strong>shell</strong> ou <strong>sh</strong> ou <strong>bash</strong> ou <strong>invite de commande</strong>,
+                car ça permet non seulement d'avoir l'air d'un pro mais surtout car ça permet de nous simplifier la vie une fois qu'on y est habitué.
+                Le compte gratuit que vous avez permet d'ouvrir uniquement 2 consoles, dans l'onglet <em>Console</em> du site, vous voyez la liste des consoles ouvertes,
+                vous pouvez cliquer dessus pour y accéder, cliquez sur la petite croix pour fermer (<em>kill</em>) la console que vous voulez.
+                
+                <p class="comment">Pour lancer une console, allez dans l'onglet Web, descendez un peu, et cliquez sur <em>lancer une console dans ce virtualenv</em>,
+                    ou bien réutilisez une console déjà lancée via la liste dans l'onglet <em>Console</em>.
+                
+                <p>Dans votre console, pour savoir si vous êtes dans le virtualenv, lancez la commande suivante :
+                
+                <pre><code>which python</code></pre>
+                
+                <p>Si vous voyez <code>/usr/bin/python</code> c'est que vous n'êtes <strong>pas</strong> dans le virtualenv.
+                    Si vous voyez quelque chose qui contient <code>.virtualenv</code> vous êtes dedans.
+                    
+                <p>Pour activer la première un virtualenv en sciences éco sur pythonanywhere, lancez cette commande la première fois :
+                
+                <pre><code>
+                    mkvirtualenv django2 --python=/usr/bin/python3.6
+                </code></pre>
+                
+                <p>Cela va créer votre virtualenv.
+                
+                <p>Par la suite, si vous voyez que vous n'êtes pas dans le virtualenv (car <code>which python</code> vaut <code>/usr/bin/python</code>),
+                    vous pouvez juste l'activer en écrivant :</p>
+                <pre><code class="bash">
+                    workon django2
+                </code></pre>
+                
+                <p>Une fois dans le virtualenv, la commande <code>python</code> pourra être utilisée correctement
+                    (et d'autres commandes utiles comme <code>pip</code> ou <code>django-admin</code> que nous n'utiliserons pas en sciences éco).
+                    
+                
+                <h4>Indice de virtualenv</h4>
                 
                 <p>Dans votre console, si le texte affiché est comme une de ces trois lignes-ci :
                 
@@ -595,18 +769,11 @@
                     (django2) user@host ~/dossier $
                 </code></pre>
                 
-                <p>Si la ligne commence par un nom entre parenthèses, c'est que vous êtes dans le virtualenv.
-                Dans les exemples ici j'étais dans le virtualenv appelé <code>django2</code>.
+                <p>Si la ligne commence par un nom entre parenthèses, c'est que vous êtes <strong>probablement</strong> dans le bon virtualenv, seul <code class=bash>which python</code> pourra vous le dire pour sûr.
                 
-                <p>Pour activer un virtualenv en sciences éco sur pythonanywhere, lancez cette commande :
-                
-                <pre><code class="bash">
-                    workon django2
-                </code></pre>
-                
-                <p>Une fois dans le virtualenv, la commande <code>python</code> pourra être utilisée correctement
-                    (et d'autres commandes utiles comme <code>pip</code> ou <code>django-admin</code> que nous n'utiliserons pas en sciences éco).
+                <p>Dans les exemples ici j'étais dans le virtualenv appelé <code>django2</code>.
                 <hr/>
+            </div>
             </div>
             
             <p></p>
@@ -618,10 +785,84 @@
             </ul>
             </div>
             
-            <p>Vous avez donc une <strong>base de données</strong> qui s'est créée !
-                C'est le petit fichier <code class="txt">db.sqlite3</code> ! (Pour Solvay)
+            <p>Les opérations de migrations peuvent vous afficher des erreurs bien pratiques, lisez bien le <strong>fichier</strong> et le <strong>numéro de ligne</strong>, par exemple,
+                essayez de faire une faute de frappe et d'écrire <code>CarField</code> à la place de <code>CharField</code> et l'opération vous dira
+                <em>il y a une erreur dans le fichier <code>models.py</code> à la ligne <code>23</code></em> par exemple.
                 
-            <p class="comment">Comment ouvrir ce fichier ?
+            <p>L'opération <code>makemigrations</code> sans erreurs ressemble à ceci :
+            
+            <pre class="developpement" symbol="python manage.py makemigrations"><code class="text">
+            $ python manage.py makemigrations
+            Migrations for 'askme':
+            polls/migrations/0001_initial.py:
+                - Create model Question
+            </code></pre>
+            
+            <p>L'opération <code>migrate</code> sans erreurs contient une liste de plein de <em>OK</em> comme ceci :
+            
+            <pre class="developpement" symbol="python manage.py migrate" ><code class="text">
+            $ python manage.py migrate
+            Operations to perform:
+                Apply all migrations: admin, auth, contenttypes, sessions, askme
+            Running migrations:
+                Applying contenttypes.0001_initial... OK
+                Applying auth.0001_initial... OK
+                Applying admin.0001_initial... OK
+                Applying admin.0002_logentry_remove_auto_add... OK
+                Applying contenttypes.0002_remove_content_type_name... OK
+                Applying auth.0002_alter_permission_name_max_length... OK
+                Applying auth.0003_alter_user_email_max_length... OK
+                Applying auth.0004_alter_user_username_opts... OK
+                Applying auth.0005_alter_user_last_login_null... OK
+                Applying auth.0006_require_contenttypes_0002... OK
+                Applying auth.0007_alter_validators_add_error_messages... OK
+                Applying auth.0008_alter_user_username_max_length... OK
+                Applying auth.0009_alter_user_last_name_max_length... OK
+                Applying sessions.0001_initial... OK
+                Applying askme.0001_initial... OK
+            </code></pre>
+            
+            <p>Si vous avez une opération <em>permission denied</em>, vérifiez ces deux choses :
+        
+            <div class="developpement" symbol="permission denied avec mysql">
+            
+            <ol>
+            <li>
+            <p>Dans le fichier <code>settings.py</code> (<code>~/project/mysite/settings.py</code>), vérifiez près de la ligne <code class="py">DATABASES =</code> : </li>
+            
+            <pre><code class="py">
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.mysql',
+                    'NAME': 'infosgr42$default',
+                    'USER': 'infosgr42',
+                    'PASSWORD': 'supersecret',
+                    'HOST': 'infosgr42.mysql.pythonanywhere-services.com',
+                }
+            }
+            </code></pre>
+            
+            <p>Vous remplacerez bien-sûr <code>42</code> par votre numéro de groupe.
+            
+            <li>
+                Dans l'onglet <em>Databases</em> de pythonanywhere, mettez le même mot de passe (comme <code>supersecret</code>),
+                n'hésitez pas à le mettre deux fois pour être sûr qu'il est bien mis.</li>
+            </ol>
+            
+            </div>
+            
+            <p>Vous avez donc une <strong>base de données</strong> qui s'est créée !
+            
+            <p class="comment">
+                Pour Solvay, c'est le petit fichier fichier <code class="bash">db.sqlite3</code>.
+            
+                Vous y verrez le contenu de la base de données ! Remarquez que la création de notre modèle <code>Question</code>
+                correspond bien à la table <code>askme_question</code>.
+                
+                Allez dans la table en question, et <strong>créez y quelques questions</strong>
+                    (en cliquant sur <em>Nouvel enregistrement</em>).
+                    
+            <p class="comment">Comment ouvrir ce fichier sqlite ?
                 Clic droit dessus
                 > Open With
                 > Other Program
@@ -629,16 +870,34 @@
                 > sélectionnez <em>DB Browser for sqlite</em>
                 > cochez la case <em>toujours utiliser ce programme</em>
                 > OK.
+                
+            <p>Il est également plus agréable <a href="#django.contrib.admin">d'activer l'admin</a> pour modifer cette base de données, mais ce n'est pas du tout obligatoire.
             
             <p class="comment">En sciences éco, les professeurs ont choisi d'utiliser directement mysql,
                 qui est un moteur plus élaboré de bases de données,
                 et donc il n'est donc pas aussi facile de voir le contenu de la base de donnée,
-                mais en <a href="https://docs.djangoproject.com/fr/2.0/intro/tutorial02/#introducing-the-django-admin">activant l'admin</a>
+                mais en <a href="#django.contrib.admin">activant l'admin</a>
                 vous pourrez voir vos modèles, il y a également moyen de configurer votre projet pour utiliser sqlite
                 et le fichier <code class="bash">db.sqlite3</code>
                 sera alors téléchargeable puis lisible avec le programme <a href="http://sqlitebrowser.org/">sqlitebrowser</a>.
+            
+            <div id="django.contrib.admin"></div>
+            <div class="developpement" symbol="Activer l'admin de django">
+                <hr/>
                 
-            <div class="developpement" symbol="Comment configurer le projet pour utiliser sqlite (facultatif)">
+                <p>Cette section est en cours d'écriture, mais vous pouvez tout simplement suivre le <a href="https://docs.djangoproject.com/fr/2.0/intro/tutorial02/#introducing-the-django-admin">tutoriel officiel</a>,
+                attention, si vous êtes en sciences éco, nous utilisons pythonanywhere et donc vous ne devez pas faire la partie <em>lancer le serveur de développement</em>
+                car ça correspond juste à cliquer sur <em>Reload</em> dans l'onglet <em>Web</em>.
+                
+                <p>Donc, vous devez créer un <code>superuser</code>, modifier le fichier <code>admin.py</code> et vérifier
+                    dans <code>settings.py</code>
+                    que vous avez bien 'askme.apps.AskmeConfig'
+                    dans <code>INSTALLED_APP</code>
+                    et que <code class="py">class AskmeConfig</code> est bien dans le fichier <code>apps.py</code>.
+                <hr/>
+            </div>  
+            
+            <div class="developpement" symbol="(Facultatif) Comment configurer le projet pour utiliser sqlite">
                 <hr/>
                 <p>Dans le fichier settings, recherchez la ligne <code>DATABASES = {...}</code>, mettez toutes ces lignes en commentaire 
                 en y insérant un hashtag <code>#</code> au début des lignes, puis remplacez ça par :
@@ -654,37 +913,98 @@
                 
                 <p>Vous devrez relancer <code>makemigrations</code> et <code>migrate</code> après.
                 <hr/>
-            </div>  
-            
-            <p>Vous verrez le contenu de la base de données ! Remarquez que la création de notre modèle <code>Question</code>
-                correspond bien à la table <code>askme_question</code>.
-                
-            <p>Allez dans la table en question, et <strong>créez y quelques questions</strong>
-                (en cliquant sur <em>Nouvel enregistrement</em>).
+            </div>
             
             <p>Vous voyez donc qu'une <strong>base de données</strong>, c'est <strong>comme un Excel</strong>,
-            plusieurs tableaux de valeurs.
+            plusieurs tableaux de valeurs, que ce soit via l'admin ou sqlite, <strong>créez quelques questions</strong> et vous aurez quelque chose comme ceci :
             
-            <p class="comment">Cependant, une base de donnée présente des avantages par rapport au Excel, comme pouvoir être lue facilement depuis un code,
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="100">Table Question</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <th>nom</th>
+                    <th>repondants</th>
+                </tr>
+                
+                <tr>
+                    <td>Quel est votre fruit préféré ?</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>Aimez vous le basket ?</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Quelle est l'impédance d'un condensateur ?</td>
+                    <td>100</td>
+                </tr>
+            </table>
+            
+            <p>Cependant, vous pouvez également voir que <strong>Django crée un id</strong> pour toutes les tables que l'on crée, la vraie table sera donc plutôt comme ceci :
+            
+            <div class="developpement" symbol="id et primary key">
+            <hr/>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="100">Table Question</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <th>id</th>
+                    <th>nom</th>
+                    <th>repondants</th>
+                </tr>
+                
+                <tr>
+                    <td>1</td>
+                    <td>Quel est votre fruit préféré ?</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Aimez vous le basket ?</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Quelle est l'impédance d'un condensateur ?</td>
+                    <td>20</td>
+                </tr>
+            </table>
+            
+            <p>Un <code>id</code> (identifiant) est un attribut <strong>unique</strong> qui permet d'identifier un objet, un attribut unique ça s'appelle une <strong>key</strong> (clé)
+            et l'<code>id</code> est tellement important qu'on dira même que c'est une <strong>primary key</strong> (clé primaire).
+            
+            Remarquez qu'il est très possible que les id ne se suivent pas, par exemple parce que les questions 3 à 6 ont été supprimées de la base de donnée.
+            <hr/>
+            </div>
+            
+            <p class="comment">Cependant, une base de donnée présente des avantages par rapport à un Excel, comme pouvoir être lue facilement depuis un code,
             ou vérifier certains tests, nous verrons ça plus tard.
             
             <p>Ce qui m'amène à faire un petit tableau de terminologie de bases de données :
             
             <table>
-            <tr> <th>SQL</th>     <th>Django</th>   <th>Excel</th>   </tr>
-            <tr> <td>Table</td>   <td>Modèle</td>   <td>Feuille</td> </tr>
-            <tr> <td>Colonne</td> <td>Attribut</td> <td>Colonne</td> </tr>
-            <tr> <td>Ligne</td>   <td>Objet</td>    <td>Ligne</td>   </tr>
+            <tr> <th>SQL</th>     <th>Django</th>   <th>Excel</th>   <th><a href="https://en.wikipedia.org/wiki/Relation_(database)">Db</a></th> </tr>
+            <tr> <td>Table</td>   <td>Modèle</td>   <td>Feuille</td> <td>Relation</td> </tr>
+            <tr> <td>Colonne</td> <td>Attribut</td> <td>Colonne</td> <td>Attribut</td> </tr>
+            <tr> <td>Ligne</td>   <td>Objet</td>    <td>Ligne</td>   <td>Tuple</td> </tr>
             </table>
             
             <p>Remarquez également que les <em>modèles django</em> sont des <em>classes Python</em>
-            donc j'utiliserai souvent le mot <em>classe</em> pour <em>modèle</em> (quand c'est sous entendu que c'est bien un modèle et pas une simple classe Python).
+            donc j'utiliserai souvent le mot <em>classe</em> pour <em>modèle</em> quand c'est sous entendu que c'est bien un modèle et pas une simple classe Python.
             
-            <p>En voyant la liste des tables, vous avez vu que django utilie des tables pour son usage interne,
-                comme par exemple, une classe <code>User</code> qui gère les password et les login de manière sécurisées (on l'utilisera à la fin de ce tutoriel).
+            <p>En voyant la liste des tables, vous avez vu que django utilise des tables pour son usage interne,
+                comme par exemple, une classe <code>User</code> qui gère les password et les login de manière sécurisées, on l'utilisera à la fin de ce tutoriel.
                 
-            <p class="comment">On préférera donc utiliser cette classe toute faite de django plutôt que de la recoder sois-même
-                (ça nous évitera de se faire hacker et d'apprendre beaucoup de bonnes pratiques de sécurité, comme le <em>hash</em> des passwords, les <em>rainbow table</em> et autres joyeusetés).
+            <p class="comment">On préférera donc <a href="#django.contrib.auth.models.User">utiliser cette classe</a> <code>User</code> toute faite de django plutôt que de la recoder sois-même,
+                ça nous évitera de se faire hacker et d'apprendre beaucoup de bonnes pratiques de sécurité, comme le <em>hash</em> des passwords, les <em>rainbow table</em> et autres joyeusetés.
             
             <p>Finalement, remarquez que <strong>tout modèle django a un attribut id</strong>,
                 et que cet attribut s'appelle également <strong>pk</strong>
@@ -969,15 +1289,15 @@
             <pre><code class="url">/detail?reponses=20&amp;categorie=SPORT</code></pre>
             
             <p>Cela veut dire que nous aurons <strong>deux</strong> paramètres disponibles,
-            respectivement <code>request.GET['reponses']</code>
-            et <code>request.GET['categorie']</code>.
+            respectivement <code class="py">request.GET['reponses']</code>
+            et <code class="py">request.GET['categorie']</code>.
             
             <p>Créez un <strong>nouvel attribut</strong> dans les questions, <code>categorie</code>, cet attribut devrait valoir exactement 
             un choix parmi <code>SPORT</code>, <code>CULTURE</code>, ou <code>SCIENCES</code>.
             
             <p><code>migrate</code> se plaint, pourquoi ? Indice : Que se passe-t-il dans Excel quand on rajoute une nouvelle colonne ?
             Les anciennes questions vont avoir quoi commme valeur pour cette colonne ?
-            Cela casse notre contrainte de <code>categorie in ("SPORT", "CULTURE", "SCIENCES")</code> !
+            Cela casse notre contrainte de <code class="py">categorie in ("SPORT", "CULTURE", "SCIENCES")</code> !
 
             <p>Dans de pareilles requêtes (donne moi les question de sport dont le nombre de répondants vaut 20), nous devrons donc gérer plus d'une question,
             <strong>une seule variable</strong> ne sera plus utile
@@ -1019,7 +1339,7 @@
             </code></pre>
             
             <p>Django permet aussi de faire des requêtes contenant des comparaisons, <em>donne moi la liste des questions avec <strong>moins de 10</strong> répondants</em>
-            ou en abbrégé <em>où repondants &lt; 10</em> se traduira en django <code>.filter(repondants__lt=10)</code> (<strong>l</strong>ess <strong>t</strong>han).
+            ou en abbrégé <em>où repondants &lt; 10</em> se traduira en django <code class="py">.filter(repondants__lt=10)</code> (<strong>l</strong>ess <strong>t</strong>han).
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
@@ -1112,10 +1432,22 @@
             Disons <code>p</code> et <code>q</code>, où <code>p</code> représente la question avec le plus de répondant, et <code>q</code> celle avec le moins ?
             
             <pre class="developpement" symbol="views.py"><code class="py">
-            # correction à venir !
+            def questions_extremes(request):
+                q1 = Question.objects.all().order_by('repondants')[0]
+                q2 = Question.objects.all().order_by('-repondants')[0]
+                return render(request, "deux_questions.html", {
+                    "p": q1,
+                    "q": q2,
+                })
             </code></pre>
-            <pre class="developpement" symbol="deux_questions.html"><code class="py">
-            &lt;!-- correction à venir ! -->
+            <pre class="developpement" symbol="deux_questions.html"><code class="html">
+            &lt;h1>Première question&lt;/h1>
+            &lt;h2>Titre : &lt;em>&#x7b;&#x7b; p.nom }}&lt;/em>&lt;/h2>
+            &lt;p>Cette question a accumulé un total de &#x7b;&#x7b; p.repondants }} répondants.&lt;/p>
+            
+            &lt;h1>Dernière question&lt;/h1>
+            &lt;h2>Titre : &lt;em>&#x7b;&#x7b; q.nom }}&lt;/em>&lt;/h2>
+            &lt;p>Cette question a accumulé un total de &#x7b;&#x7b; q.repondants }} répondants.&lt;/p>
             </code></pre>
             
             <p>Le template aimerait également une troisième variable, qu'il appelle <strong>somme</strong>,
@@ -1123,17 +1455,56 @@
             (indice : python a l'opérateur <code>+</code> pour additionner deux variables).
             
             <pre class="developpement" symbol="views.py"><code class="py">
-            # correction à venir !
+            def questions_extremes(request):
+                q1 = Question.objects.all().order_by('repondants')[0]
+                q2 = Question.objects.all().order_by('-repondants')[0]
+                x = q1.repondants
+                y = q2.repondants
+                s = x + y
+                return render(request, "deux_questions.html", {
+                    "p": q1,
+                    "q": q2,
+                    "somme": s
+                })
             </code></pre>
-            <pre class="developpement" symbol="somme_deux_questions.html"><code class="html">
-            &lt;!-- correction à venir ! -->
+            <pre class="developpement" symbol="views.py (plus synthétique)"><code class="py">
+            def questions_extremes(request):
+                q1 = Question.objects.all().order_by('-repondants')[0]
+                q2 = Question.objects.all().order_by('repondants')[0]
+                return render(request, "deux_questions.html", {
+                    "p": q1,
+                    "q": q2,
+                    "somme": q1.repondants + q2.repondants
+                })
+            </code></pre>
+            <pre class="developpement" symbol="deux_questions.html"><code class="html">
+            &lt;p>
+                Les questions
+                &lt;em>&#x7b;&#x7b; qn.nom }}&lt;/em> et &lt;em>&#x7b;&#x7b; q.nom }}&lt;/em>
+                totalisent ensemble &lt;strong>&#x7b;&#x7b; somme }}&lt;/strong> votes !
+            &lt;/p>
             </code></pre>
             
-            <p>Nous pouvons bien-sûr faire la moyenne ou autre opération mathématique.
+            <p>Nous pouvons bien-sûr faire la <strong>moyenne</strong> ou une autre opération mathématique.
             
             <p>Sur la page d'accueil, mettez un lien <em>voir notre plus grosse question !</em> qui redirigera vers une page ayant le plus de répondants !
             
-            <p class="developpement" symbol="Solution">à venir !
+            <pre class="developpement" symbol="accueil.html"><code>
+                &lt;p>Venez voir notre &lt;a href="/plus_grosse_question">plus grosse questions&lt;/a> !&lt;/p>
+            </code></pre>
+            <pre class="developpement" symbol="urls.py"><code class="py">
+            urlpatterns = [
+                ...,
+                path('plus_grosse_question/', views.plus_grosse_question),
+            ]
+            </code></pre>
+            <pre class="developpement" symbol="views.py"><code>
+            def plus_grosse_question(request):
+                q = Question.objects.all().order_by('-repondants')[0]
+                return render(request, 'detail.html', {
+                    "q": q,
+                })
+            </code></pre>
             
             <p class="comment">Et là, notre ami le template a décidé de nommer sa variable <strong>somme</strong>, tant de 
                 rationalité dans le cerveau de notre artiste que j'en étais étonné, je ne vois qu'une seule raison 
@@ -1217,13 +1588,15 @@
             <pre class="developpement" symbol="liste_de_question.html"><code class="html">
             &lt;body>
                 &lt;h1>Questions disponibles&lt;/h1>
+                &lt;ul>
                 {% for q in L %}
-                    &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
-                    &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
+                    &lt;li>&#x7b;&#x7b; q.nom }} : &#x7b;&#x7b; q.repondants }}&lt;/li>
                 {% endfor %}
+                &lt;/ul>
             &lt;/body>
             </code></pre>
             
+            <h4>Exercices</h4>
             <p>Exercice, en python pur, comment afficher toutes les questions, mais si le nombre de répondants est nul, alors on affichera plutot <em>question pas intéressante</em> à la place du nom.
             
             <pre class="developpement" symbol="views.py"><code class="py">
@@ -1243,7 +1616,43 @@
             
             <p>Remarquez que le tag <code>{% if condition %}{% endif %}</code> existe, il est moins puissant que celui de python, mais peut parfois bien aider comme des cas comme ici.
             
-            <p class="developpement" symbol="correction à venir !">correction à venir !
+            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
+            &lt;body>
+                &lt;h1>Questions disponibles&lt;/h1>
+                {% for q in L %}
+                    {% if q.repondants == 0 %}
+                        &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
+                        &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
+                    {% else %}
+                        &lt;h2>Questions pas intéressante...&lt;/h2>
+                    {% endif %}
+                {% endfor %}
+            &lt;/body>
+            </code></pre>
+            
+            <p>Et on pourrait même ne pas les afficher :
+            
+            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
+            &lt;body>
+                &lt;h1>Questions disponibles&lt;/h1>
+                {% for q in L %}
+                    {% if q.repondants == 0 %}
+                    &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
+                    &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
+                    {% endif %}
+                {% endfor %}
+            &lt;/body>
+            </code></pre>
+            
+            <p>Ou tout simplement les exclure de la liste (django un peu plus <em>avancé</em>) :
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donne_les_questions(request):
+                toutes_les_questions = Question.objects.all().order_by('-repondants')<mark>.exclude(repondants=0)</mark>
+                return render(request, "liste_de_question.html", {
+                    "L": toutes_les_questions,
+                })
+            </code></pre>
             
             <p>Comment afficher la liste des questions, mais en mettant en rouge les questions dont le nombre de répondants est plus petit que <strong>10</strong> ?
             
@@ -1267,7 +1676,7 @@
             <p class="developpement" symbol="correction à venir !">correction à venir !
             
             <p>Affichez la catégorie de la question, mais pas en majuscule (google: mettre en minuscule dans un django template),
-            et accompagnez également une petite description du style <em>Cette question est culturelle, elle parle de bla bla bla</em>.
+            et accompagnez également une petite description de la catégorie du style <em>Cette question est culturelle, elle parle de bla bla bla</em>.
             
             <p class="developpement" symbol="correction à venir !">correction à venir !
             
@@ -1293,12 +1702,12 @@
             <p class="developpement" symbol="Solution">par une chaîne de caractère de la forme <code>2000-12-31T08:30:10</code>
             
             <p>Afficher une page qui affiche les questions qui vont bientôt se fermer !
-            C'est à dire que vous aurez besoin de savoir le temps actuel (google <code>timezone.now()</code>).
+            C'est à dire que vous aurez besoin de connaître le temps actuel (google <code>timezone.now()</code>).
             Indice : Deux dates python peuvent être comparées via <code>&lt;</code>.
             
             <p class="developpement" symbol="correction à venir !">correction à venir !
             
-            <p>Comment avoir les questions finies la semaine passée ? (filter, google !).
+            <p>Comment avoir les questions qui se sont finies il y a moins de 1 semaine ? (google <code>.filter(...)</code>).
             
             <p>Comment afficher une date dans un template au format belge 31/12/2018 ? (google !)
 
@@ -1338,7 +1747,7 @@
                         return render(request, 'question_form.html')
                     </code></pre>
                 <pre class="developpement" symbol="accueil.html"><code class="html">
-                    &lt;p>Venez &lt;a href="/formulaire_creation_question">ici&lt;/a> pour créer une question !
+                    &lt;p>Venez &lt;a href="/formulaire_creation_question">ici&lt;/a> pour créer une question !</p>
                 </code></pre>
                 <pre class="developpement" symbol="question_form.html"><code class="html">
                     &lt;form> &lt;!-- à remplir au prochain point -->
@@ -1603,17 +2012,46 @@
             <p>→ ctrl shift I, 301
             -->
 
-            <h3 id="exerci{{c|s}}e-14">(Facultatif) Exerci{{c|s}}e 14{{ |}}: Html bonus more input elements</h3>
-            <p>À partir d'ici, cette section est en cours d'écriture, donc si vous êtes arrivés jusque ici en guidances, venez me voir (Robert Vanden Eynde sur facebook) et je vous raconterai l'essentiel !
+            <h3 id="exerci{{c|s}}e-14">(Facultatif) Exerci{{c|s}}e 14{{ |}}: Encore plus d'<code>input</code> html</h3>
             
-            <p>Html, change the type using a &lt;select>
-            <p>Html, have a <code>&lt;textarea></code> for a new attribute <code>description</code>
-            <p>Html, checkbox, if checked will be <code>in request.GET</code>, else, won't be.
+            <p>Il serait plus facile pour l'utilisateur d'utiliser un menu déroulant (html <code>&lt;select></code>) comme ceci :
+            <p>
+                Catégorie : <select name="la_categorie">
+                    <option value="SPORT">Sport</option>
+                    <option value="CULTURE">Culture</option>
+                    <option value="SCIENCES">Sciences</option>
+                </select>
+            <p class="developpement" symbol="Solution">À venir !
+            
+            <p>Attention, la validation doit toujours se faire, ici on améliore juste l'expérience utilisateur, mais le serveur peut toujours 
+                recevoir des données incorrectes comme <code>la_categorie=blabla</code>.
+                
+            <p>Rajoutons un attribut au modèle Question : la description.
+                On utilisera l'élément html <code>&lt;textarea></code> pour remplir cela.
+                Pendant la migration, toutes les Question déjà créées auront une description vide.
+                
+            <p>Un autre élément html sympatique, c'est la checkbox, rajouter un <code class="html">&lt;input type="checkbox"></code>.
+                Pour notre application, on peut simplement demander d'accepter les conditions générales, renvoyant une erreur 400 si la case n'est pas cochée.
+            
+            <p>Une fois le formulaire remplit, observez l'url générée, quelle est la différence entre un formulaire où la checkbox est cochée ou non ?
+                
+            <p class="developpement" symbol="Solution">
+                Si la case est cochée, le code <code>'name' in request.GET</code> sera <code>True</code>, sinon il sera false.
+                
+                On aura l'url <code class="url">?la_categorie=SPORT&amp;name=on</code> contre 
+                <code class="url">?la_categorie=SPORT</code> sans l'attribut.
+                
+                Remarquez que ce <code>on</code> peut être changé en indiquant <code>&lt;input value="coucou"></code>
+            
+            <p>Les checkbox peuvent également donner une liste de choix, mettez plusieurs checkbox avec le même <code>name</code>.
+            Elles peuvent alors avoir un attribut value qui va être envoyé ou non.
+            On pourra y accéder en faisant <code class="py">request.GET.getlist('name')</code>
             
             <h3 id="exerci{{c|s}}e-15">(Facultatif) Exerci{{c|s}}e 15{{ |}}: method <code>POST</code> vs <code>GET</code></h3>
             <p class="comment">Ça serait quand même plus simple si ces deux guichets étaient au même endroit.
             
-            <p>À partir d'ici, cette section est en cours d'écriture, donc si vous êtes arrivés jusque ici en guidances, venez me voir (Robert Vanden Eynde sur facebook) et je vous raconterai l'essentiel !
+            <div class="developpement" symbol="Brouillon">
+            <p>Cette section est en cours d'écriture, donc si vous êtes arrivés jusque ici en guidances, venez me voir (Robert Vanden Eynde sur facebook) et je vous raconterai l'essentiel !
             
             <p>How to merge the two views ? (Not mandatory to do so, one can choose to always have two different urls).
             <!-- (3 min, merge) -->
@@ -1637,62 +2075,482 @@
             <p>→ If you want to merge the two views, use <code>if request.method == 'POST':</code>, the user explicitly says <em>I want to modify the db</em>.
                 <em>I want to post something</em>. And not only <em>I want to GET something</em>.
             <!-- (2 min, using post) -->
+            </div>
             
-            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: QCM</h3>
-            <p>How to have different possible answers stored in the db ?
-            <p>What would you do on an Excel ?
-            <p>→ Columns answer1, answer2, answer3, count1, count2, count3
-            <p>→ It sounds stupid, we'll get to that later (chapter relational databases).
+            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: QCM dans la base de données</h3>
+            <p>On aimerait maintenant que nos questions soient des Questions à Choix Multiples (QCM).
+                C'est à dire que l'on indique des choix possibles pour chaque Question.
+                Comme par exemple :
+            
+            <p><em>Quel est le pays le plus grand en superficie ?</em>
+            <ul>
+                <li>Belgique
+                <li>France
+                <li>Brésil
+            </ul>
+            
+            <p>Comment indiquer ces différents choix dans la base de données ?
+                Comment feriez vous en Excel ?
+            
+            <p>En excel vous feriez peut-être trois colonnes <code>choix1</code>, <code>choix2</code>, <code>choix3</code>,
+            ainsi que trois colonnes contenant le nombre de votes
+                Ça peut paraître stupide mais on verra plus tard avec les bases de données relationnelles comment avoir une meilleure solution.
+            
+            <table class="developpement" symbol="Aperçu de la table excel">
+                <tr><td>À venir</td></tr>
+            </table>
+            
+            <p>Crééez ces six colonnes dans notre modèle Django.
+            
+            <pre class="developpement" symbol="models.py"><code>
+                class Question:
+                    ...
+                    choix1 = CharField(max_length=50)
+                    choix2 = CharField(max_length=50)
+                    choix3 = CharField(max_length=50)
+                    votes1 = IntegerField(default=0)
+                    votes2 = IntegerField(default=0)
+                    votes3 = IntegerField(default=0)
+            </code></pre>
+            
+            <p>Remarquez que j'ai utilisé le paramètre <code>default=0</code> pour dire que lorsque l'on crée une question, si l'on ne spécifie rien, la valeur vaudra zéro.
+            
+            <p>Après avoir fait la migration en mettant une valeur vide pour les choix, parcourez la base de données pour ajouter des choix possibles à toutes vos questions créées.
+                
+            <p>Dans notre formulaire de création de question, on devra maintenant ajouter ces trois champs.
+            
+            <pre class="developpement" symbol=".html"><code>
+                À venir
+            </code></pre>
+            <pre class="developpement" symbol="views.py"><code>
+                À venir
+            </code></pre>
+            
+            <!-- <p>How to have different possible answers stored in the db ? -->
+            <!-- <p>What would you do on an Excel ? -->
+            <!-- <p>→ Columns answer1, answer2, answer3, count1, count2, count3 -->
+            <!-- <p>→ It sounds stupid, we'll get to that later (chapter relational databases). -->
             <!-- (3 min) Create the 3 columns with the stupid 1 2 3 names. -->
             
             <h3 id="exerci{{c|s}}e-17">Exerci{{c|s}}e 17{{ |}}: QCM le &lt;form></h3>
+            <p>On est prêt maintenant à faire un <strong>formulaire de réponse</strong>.
+            <p>Créez une nouvelle url et afficher les trois choix possibles, pour que l'utilisateur puisse répondre,
+                dans un premier temps vous pouvez juste faire un <code class="html">&lt;input type="text"></code> qui
+                va contenir 1 2 3 en fonction du choix voulu (ou un <code class="html">&lt;input type="number"></code> va déjà forcer l'utilisateur à écrire un nombre).
+            
+            <pre class="developpement" symbol="urls.py"><code>
+                À venir
+            </code></pre>
+            <pre class="developpement" symbol="formulaire_reponse.html"><code>
+                À venir
+            </code></pre>
+            
+            <p>Puis créez une url qui va traiter les données, elle va rajouter le vote et augmenter le nombre de répondants de 1.
+            
+            <pre class="developpement" symbol="urls.py"><code>
+                À venir
+            </code></pre>
+            <pre class="developpement" symbol="views.py"><code>
+                À venir
+            </code></pre>
+            
+            <p>Remarquez maintenant que nous avons presque fait le tour des 4 opérations possibles sur une base de donnée :
+                CRUD (Create, Read, Update, Delete).
+                
+                On peut <strong>créer</strong> des questions, les <strong>lire</strong> pour les afficher sur une page de détail ou sur
+                une page de liste, les <strong>modifier</strong> pour compter les votes et il nous manque une manière de les <strong>supprimer</strong>
+                de la base de données.
+                
+                Cependant il devient de plus en plus rare qu'on supprime des données car ça permet de faire des statistiques.
+                On préférera rajoter un attribut disant que la donnée n'existe plus et puis on ne l'affichera simplement pas dans la liste.
+            
+            <p>Finalement, peut-être que l'utilisateur trouvera plus utile d'avoir un <code class="html">&lt;input type="radio"></code> comme ceci :
+            
+            <ul>
+                <form>
+                <li><input type="radio" name="choix" />Choix 1
+                <li><input type="radio" name="choix" />Choix 2
+                <li><input type="radio" name="choix" />Choix 3
+                </form>
+            </ul>
+            
+            <pre class="developpement" symbol="urls.py"><code>
+                À venir
+            </code></pre>
+            <pre class="developpement" symbol="formulaire_reponse.html"><code>
+                À venir
+            </code></pre>
+            
+            <!--
             <p>Form with a single attribute : num answer (people just write 1, 2 or 3 to choose).
             <p>→ A form that will modify the database, the 4 bases of the database: CRUD (Create, Read, Update and Delete).
                 Update means modify.
+            -->
             <!-- 5 minutes: implement the Answer stuff -->
             
+            <!--
             <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Html bonus radio</h3>
             <p>Change html, type=radio
+            -->
             
-            <p>Order by répondants don't forget to +1 !
-            <p>New page <code class="url">show_answers?numero=4</code>: Show answsers for one question, sot by votes ?
-            <p>Only show answers if the date is over, otherwise redirect to the <em>answer form</em>.
-            <p>People can answer only if the date is not over.
-            <!-- 3 minutes: html radio, order by répondants -->
+            <h4>Exercices</h4>
+            <p>Maintenant que l'on peut répondre aux questions, vous pouvez faire des vues plus intéressantes,
+                comme par exemple afficher les questions en triant par nombre de répondants ou autre critères.
+            
+            <p class="developpement" symbol="Solution">À venir
+            
+            <!-- <p>Order by répondants don't forget to +1 ! -->
+            <p>Vous pouvez également faire une nouvelle page <code class="url">show_answers?numero=4</code>
+                qui montrera les résulats du sondage.
+                
+            <p class="developpement" symbol="Solution">À venir
+            
+            <p>Pourquoi pas les trier par votes ? Nous verrons qu'avec les bases de données relationnelles, ce sera plus facile.
+            
+            <p>Actuellement, on montre les résulats du sondage à tout le monde,
+                nous avions rajouter un attribut <code>date_de_fin</code>,
+                prenez en compte cet attribut dans toutes les vues :
+            <ul>
+                <li>À la création, demander combien de jours le sondage est ouvert.
+                <li>Lorsqu'on répond, vérifier que l'on est bien dans les temps.
+                <li>Lorsqu'on affiche une question, montrer les résulats du sondage uniquement si la date de fin est passée.
+                <li>On pourrait faire des redirections, si l'on est dans les temps, rediriger vers le formulaire pour répondre.
+            </ul>
+            <p class="developpement" symbol="Solution">À venir
         </section>
         
         <h2 id="bddr">Les bases de données... <em>relationnelles</em></h2>
         
         <section name="bddr">
-            <p>Cette section est en cours d'écriture, donc si vous êtes arrivés jusque ici en guidances, venez me voir (Robert Vanden Eynde sur facebook) et je vous raconterai l'essentiel !
+            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Foreign key, the holy grale</h3>
+            <!-- <p class="comment">Cette section est un draft, elle sera modifiée pour être plus compréhensible par les débutants plus tard mais peut déjà être utilisé. -->
             
-            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Foreign key, the holy grale</h3>
-            <p>Reponse object ! Base de données relationnelles ! How would you do that in excel ?
-            <p>Reponse(name, text, votes) Open sqlite, create some
+            <p>Niveau code, on va maintenant créer <strong>plusieurs tables</strong>
+                qui vont être liées avec des <code>ForeignKey</code> !
+                Par exemple, dans un QCM, chaque Reponse a une liste de choix, et chaque choix aura un nombre de votes comptabilités (au début de 0).
+            
+            <pre class="developpement" symbol="models.py"><code>
+            class Question(models.Model):
+                ...
+                
+            class Choice(models.Model):
+                question = models.ForeignKey(Question)
+                texte = models.CharField(max_length=50)
+                votes = models.IntegerField(default=0)
+            </code></pre>
+            
+            <p>Si la classe <code>Choice</code> est définie avant la classe Question, on devra mettre Question entre guillemets dans la définition :
+            
+            <pre class="developpement" symbol="models.py"><code>
+            class Question(models.Model):
+                ...
+                
+            class Choice(models.Model):
+                question = models.ForeignKey(<mark>"Question"</mark>)
+                texte = models.CharField(max_length=50)
+                votes = models.IntegerField(default=0)
+            </code></pre>
+            
+            <p>Remarquez que j'aurais pu donner un autre nom, comme <code>parent = ForeignKey(Question)</code>
+            on parlerait alors du <em>parent</em> d'un choix (ce qui pour cet exemple, est un peu bizarre)
+            mais j'insiste sur le fait que l'attribut ne doit en aucun cas avoir le même nom que la classe qu'il référencie,
+            c'est juste que pour beaucoup de relations, ce choix est naturel.
+            
+            <p>Grâce aux relations, on aura une base de donnée comme ceci en Excel :
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="100">Table Question</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <th>id</th>
+                    <th>nom</th>
+                    <th>repondants</th>
+                </tr>
+                
+                <tr>
+                    <td>1</td>
+                    <td>Quel est votre fruit préféré ?</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Aimez vous le basket ?</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Quelle est l'impédance d'un condensateur ?</td>
+                    <td>100</td>
+                </tr>
+            </table>
+            
+            <p></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="100">Table Choice</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <th>question</th>
+                    <th>texte</th>
+                    <th>votes</th>
+                </tr>
+                
+                <tr>
+                    <td>1</td>
+                    <td>Les pommes</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Les bananes</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Les oranges</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Oui</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Non</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>1/jωC</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>jωL</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>jωC</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>1/jωL</td>
+                    <td>25</td>
+                </tr>
+            </table>
+            
+            <p>Et rappelez vous que <strong>Django crée toujours un id</strong> donc la vraie table <code>Choice</code> ressemblera plutôt à ceci :
+            
+            <table class="developpement" symbol="Table Choice (avec id)">
+                <thead>
+                    <tr>
+                        <th colspan="100">Table Choice</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <th>question</th>
+                    <th>texte</th>
+                    <th>votes</th>
+                </tr>
+                
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>Les pommes</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>Les bananes</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>Les oranges</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>Oui</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>2</td>
+                    <td>Non</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>7</td>
+                    <td>1/jωC</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>7</td>
+                    <td>jωL</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>7</td>
+                    <td>jωC</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>1/jωL</td>
+                    <td>25</td>
+                </tr>
+            </table>
+            
+            <p>Encore une fois, les id ne sont pas nécessairement consécutifs (par exemple, si l'on a supprimé les questions de 3 à 6).
+            <p></p>
+            
+            <p>Lancez mainteant les <a href="#makemigrations_vs_migrate">opérations de migrations</a> et que voyez vous ?
+            
+            <p class="developpement"><code>makemigrations</code> se plaint car il manque un paramètre <code>on_delete</code>.
+            
+            <p>En effet, il manque un attribut <code>on_delete</code>, l'explication est très simple. <strong>Que se passe-t-il si je supprime une Question</strong> ?
+            
+            <ul>
+                <li><code>CASCADE</code> : Tous les choix de la question seront supprimés !</li>
+                <li><code>PROTECT</code> : On ne peut pas faire ça si la question a des choix ! Il faut <strong>d'abord</strong> supprimer les choix un à un et <strong>puis</strong> la question pourra être supprimé.</li>
+                <li><code>SET_NULL</code> : Les choix de la question supprimée auront mainteant une valeur spéciale <em>ce choix n'a pas de question</em>,
+                on dira en SQL que <code class="sql">question_id = NULL</code> ou en python que <code class="py">question = None</code>.
+            </ul>
+            
+            <p>En fonction de la situation, on choisira plutôt l'une ou l'autre, ici pour les questions ça me semble logique que l'on veut <code>CASCADE</code> :
+            
+            <pre class="developpement" symbol="models.py"><code>
+            class Choice(models.Model):
+                question = models.ForeignKey(Question, <mark>on_delete=models.CASCADE</mark>)
+                texte = models.CharField(max_length=50)
+                votes = models.IntegerField(default=0)
+            </code></pre>
+            
+            <h4>Utilisation de la relation en python</h4>
+            
+            <p>Ensuite on peut créer cette relation en faisant :
+            
+            <pre class="developpement" symbol="views.py"><code>
+            q = Question()
+            q.nom = "Quel est votre fruit préféré ?"
+            q.save()
+            
+            c = Choice()
+            c.question = q
+            c.texte = "Les bananes"
+            c.save()
+            
+            c = Choice()
+            c.question = q
+            c.texte = "Les pommes"
+            c.save()
+            
+            c = Choice()
+            c.question = q
+            c.texte = "Les oranges"
+            c.save()
+            </code></pre>
+            
+            <p>Et puis l'utiliser en faisant :
+            
+            <pre class="developpement" symbol="views.py"><code>
+            c = Choice.objects.get(id=5)
+            q = c<mark>.question</mark>
+            print(q.nom, q.repondants)
+            print(c.question.nom, c.question.repondants)
+            </code></pre>
+            
+            <p>Comment feriez vous pour obtenir <em>la liste des choix d'une question ?</em>
+            
+            <pre class="developpement" symbol="views.py"><code>
+            q = Question.objects.get(id=5)
+            L = Choice.objects.filter(question=q)
+            </code></pre>
+            
+            <p>Django a également le concept de <em>relation inverse</em> liée au <a href="#related_name"><code>related_name</code></a>,
+            par défaut quand l'on lie deux classes, une relation inverse est crée avec le nom de l'autre classe :
+            
+            <pre><code class="py">
+            q = Question.objects.get(id=5)
+            L = q.choix_set.all()
+            </code></pre>
+            
+            <p>Ce nom <code>choix_set</code> veut dire <em>l'ensemble des Choix liés à cette Question</em>.
+            On peut changer le suppprimer indiquant <code class="py">related_name='+'</code> dans la définition de la ForeignKey
+            ou lui donner un autre nom en écrivant par exemple <code class="py">related_name='mes_choix'</code> qui nous permettera d'écrire :
+            <code>q.mes_choix</code>.
+            
+            <p>Nous verrons que ce <code>related_name</code> devient <a href="#related_name">logiquement obligatoire</a> quand on a plusieurs relations sur les mêmes tables.
+            
+            <p>Vous pouvez maintenant modifier toutes les vues pour s'adapter à cette nouvelle structure !
+                Cela permet d'avoir facilement un nombre différent de choix possibles pour chaque question,
+                d'afficher facilement les choix avec une boucle et de
+                trier facilement les choix par votes.
+                
+            <!-- <p>Reponse object ! Base de données relationnelles ! How would you do that in excel ? -->
+            <!-- <p>Reponse(name, text, votes) Open sqlite, create some -->
             <!-- <p>Change design: reponse_pk -->
-            <p>How to have the list of all reponse, that belongs to a question 4 ? (filter !)
-            <p>We have a <span style="color:red">1</span> to <span style="color:blue">N</span> relation because,
+            <!-- <p>How to have the list of all reponse, that belongs to a question 4 ? (filter !) -->
+            
+            <!-- <p>We have a <span style="color:red">1</span> to <span style="color:blue">N</span> relation because,
                 1 Reponse is linked to <span style="color:red">1</span> Question,
-                but 1 Question is linked to <span style="color:blue">N</span> Reponse. 
+                but 1 Question is linked to <span style="color:blue">N</span> Reponse. -->
             <!-- 5 minutes: Reponse Object, Foreign key -->
             
-            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: Reuse code from others <code>django.auth.User</code></h3>
+            <div id="django.contrib.auth.models.User"></div>
+            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Login, cookies, sessions et réutilisation de code</h3>
+            
+            <p>Comme dit au cours, vous ne devez pas coder vous même une classe <code>User</code> car il est plus malin d'utiliser du code déjà fait.
+            
+            <p>Si nous voulons dire qu'une question a un créateur (un <code>User</code>), on réutilisera la classe User venant de <code>django.contrib.auth.models</code> :
+            
+            <pre><code>
+            from django.db import models
+            <mark>from django.contrib.auth.models import User</mark>
+            
+            class Question(models.Model):
+                nom = models.CharField(max_length=50)
+                repondants = models.IntegerField()
+                <mark>createur = models.ForeignKey(User, on_delete=models.CASCADE)</mark>
+            </code></pre>
+            
+            <p>À partir d'ici, cette section est en cours d'écriture, donc si vous êtes arrivés jusque ici en guidances, venez me voir (Robert Vanden Eynde sur facebook) et je vous raconterai l'essentiel !
+            <p>Pour le login, il faut réutiliser du code fait par d'autres : <code>django.auth.User</code></h3>
             <p>Users, login, cookies, hashpassword → use code from others ! Here <code>django.contrib.auth</code> (look at <a href="https://github.com/django/django/blob/master/django/contrib/auth/models.py#L288">source code</a>, almost a super simple class)
             <p>Create users from the admin, or <code>class User</code> (<code class="py">from django.contrib.auth.models import User</code>)
             <p>Cookie, django does use auth cookies. See source code.
             <p>Cookies in the browser : look at ctrl shift I, private browsing
-            <p>New user form, uername, email, (send email saying hello !), password is hashed !
+            <p>New user form, username, email, (send email saying hello !), password is hashed !
             (See db, or shell), verify there is a <code>@</code> in the email.
             <!-- 5 minutes: new user form -->
             
-            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: Profile, Foreign key to other class</h3>
+            <h3 id="exerci{{c|s}}e-20">Exerci{{c|s}}e 20{{ |}}: Profile, Foreign key to other class</h3>
             <p>Profile : Foreign key to User, add stuffs like, phone number, color preferences, anything relevant to your app.
             <p>Boolean, creator, can create questions, or builtin is_staff, can connect to the admin.
             <!-- 3 minutes: foreign key for Profile -->
             <p>→ There is also this programming concept called Inheritance (Héritage),
                 that will just create a foreign key but new attributes are available without <code>.profile</code>. 
             
-            <h3 id="exerci{{c|s}}e-22">Exerci{{c|s}}e 22{{ |}}: N to N relations</h3>
+            <h3 id="exerci{{c|s}}e-21">Exerci{{c|s}}e 21{{ |}}: N to N relations</h3>
             <p>The relation <em>User has answered Question</em>, or <em>Answered</em> is a N to N relation !
                 1 User has answered N Question.
                 And 1 Question can be modified by N Users.
@@ -1701,7 +2559,7 @@
             <p>How would you do that in Excel ?
             <!-- 3 minutes, N to N relation -->
             
-            <h3 id="exerci{{c|s}}e-23">Exerci{{c|s}}e 23{{ |}}: N to N relations through a model</h3>
+            <h3 id="exerci{{c|s}}e-22">Exerci{{c|s}}e 22{{ |}}: N to N relations through a model</h3>
             <p>N to N relationship are not <em>fundamental</em> because they are just two N-1 1-N relations.
                 Indeed, when we say <em>we have a N to N relationship Answered between Users and Questions</em> or
                 <em>A user has a list of (answered) Questions and a Question has a list of (answered) Users</em>...
@@ -1711,7 +2569,8 @@
             <p>Can add arbitrary stuffs like <em>this user has answered this question... on this date</em>.
             <!-- 3 minutes, through -->
             
-            <h3 id="exerci{{c|s}}e-24">Exerci{{c|s}}e 24{{ |}}: related_name, multiple FK and self FK</h3>
+            <div id="related_name"></div>
+            <h3 id="exerci{{c|s}}e-23">Exerci{{c|s}}e 23{{ |}}: related_name, multiple FK and self FK</h3>
             
             <p>Given models like this :
             
@@ -1753,7 +2612,7 @@
                     likes = IntegerField()
             </code></pre>
             
-            <p>u.student_set would raise an exception.
+            <p><code>s.student_set</code> would raise an exception.
             
             <p>If one want to change the name of this <em>reverse relationship</em>, one can write <code>related_name='name'</code> in the model.
             
@@ -1774,8 +2633,7 @@
             
             <pre><code>
                 class Student(Model):
-                    university = ForeignKey(University)
-                    age = IntegerField()
+                    pass
                 
                 class Message:
                     sender = ForeignKey(Student)
@@ -1789,8 +2647,7 @@
             
             <pre><code>
                 class Student(Model):
-                    university = ForeignKey(University)
-                    age = IntegerField()
+                    pass
                 
                 class Message:
                     sender = ForeignKey(Student, related_name='messages_sent')
@@ -1799,7 +2656,7 @@
             
             <p>One could then write :
             
-            <pre><code>
+            <pre><code class="py">
                 s = Student.objects.get(id=5)
                 
                 A = Message.objects.filter(sender=s)
@@ -1809,10 +2666,10 @@
                 B = s.messages_received.all() # shortcut
             </code></pre>
             
-            <h3 id="exerci{{c|s}}e-25">Exerci{{c|s}}e 25{{ |}}: More django: clean <code>GET</code> urls</h3>
+            <h3 id="exerci{{c|s}}e-24">Exerci{{c|s}}e 24{{ |}}: More django: clean <code>GET</code> urls</h3>
             <p>Django: URL regex, use django 2 ! (Clean GET parameters) 
             
-            <h3 id="exerci{{c|s}}e-26">Exerci{{c|s}}e 26{{ |}}: Cookies et sessions</h3>
+            <h3 id="exerci{{c|s}}e-25">Exerci{{c|s}}e 25{{ |}}: Cookies et sessions</h3>
         </section>
     </div>
     </body>

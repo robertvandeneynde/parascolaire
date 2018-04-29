@@ -8,6 +8,7 @@ LANGS='fr en'
 
 python3 generate_multilang.py --langs $LANGS
 
+if [ 1 = 2 ]; then
 # multilang py files
 for n in progra_equivalences theorie1_egal_if; do
     for l in $LANGS; do
@@ -32,6 +33,7 @@ for n in theorie2_liste_while theorie3_fonctions_et_objets; do
         --template pytext_template.html \
         --out ${n}.html
 done
+fi
 
 python3 generate_html.py
 # ./generate_ln.py
