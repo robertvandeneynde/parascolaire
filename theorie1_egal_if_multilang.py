@@ -78,7 +78,7 @@ print(a)
 # {{Fais maintenant l'exercice 0 ([trier_deux_nombres.py]())|do now the exercice number 0 ([trier_deux_nombres.py]())}}
 # {{regarde la correction sur|look at the correction on}} [pythontutor](pythontutor.html)
 
-# J'ai également fait une [vidéo](https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4) sur la théorie 1.
+# J'ai également fait une [vidéo](https://youtu.be/zJ-w2izNvg4)
 
 # {{Ensuite tu peux faire les exercices 1 à 4 sans lire la suite|After you can do exercices 1 to 4 without the need to read the following}}
 # {{Cependant la suite PEUT être utile pour les exercices suivants|However the following CAN be useful for the next exercices}}

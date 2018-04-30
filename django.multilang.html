@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-        <link href="django.png" rel="icon" type="image/png" />
+        <link href="django-with-bird.png" rel="icon" type="image/png" />
         <title>Apprenez à programmer un site web avec Django !</title>
         
-        <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/django.png" />
+        <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/django-with-bird.png" />
         <meta property="og:description" content="Apprenez à programmer un site web avec Django" />
         <!-- <meta property="og:url" content="" /> -->
         <meta property="og:title" content="Apprenez à programmer un site web avec Django" />
-        <meta property="og:type"   content="article" /> 
+        <meta property="og:type" content="article" /> 
         
         <link rel="stylesheet" type="text/css" href="base.css" />
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
@@ -84,6 +84,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
         <script>
         $(function(){
+            $('figure.half-size img').each(function(){
+                $(this).css('max-width', $(this).width() / 2)
+                $(this).wrap( $('<a>').attr('href', $(this).attr('src') ) )
+            })
+        
             var DEFAULT_SYMBOL = '{{Solution|Solution}}';
             $('.developpement').each(function(){
                 var self = $(this)
@@ -145,23 +150,35 @@
                 utils.smoothLinks()
                 
                 function replaceUrls(hostname) {
-                    $('code.url').each(function(){
+                    $('code.url, .contains-group').each(function(){
+                        var is_group = $(this).is('.contains-group')
+                        var is_code_url = $(this).is('code.url')
+                        
                         if(! $(this).data('base-url')) {
                             var path = $(this).text()
                             $(this).data('base-url', path)
-                            $(this).wrap('<a>')
+                            if(! is_group)
+                                $(this).wrap('<a>')
                         } else {
                             var path = $(this).data('base-url')
                         }
                         
-                        if(path.indexOf('127.0.0.1:8000') != -1) {
-                            var url = path.replace('127.0.0.1:8000', hostname)
-                            $(this).text(url);
-                        } else {
-                            var url = hostname + path
+                        if(is_group) {
+                            if(hostname.indexOf('127.0.0.1') != -1)
+                                var username = 'infosgr42'
+                            else
+                                var username = hostname.split('.')[0] || 'infosgr42'
+                            $(this).text(path.replace(/infosgr42/g, username).replace(/username/g, username))
+                        } else { // code.url
+                            if(path.indexOf('127.0.0.1:8000') != -1) {
+                                var url = path.replace('127.0.0.1:8000', hostname)
+                                $(this).text(url);
+                            } else {
+                                var url = hostname + path
+                            }
+                            $(this).parent().attr('href', 'http://' + url)
                         }
                         
-                        $(this).parent().attr('href', 'http://' + url)
                     })
                 }
                 
@@ -220,7 +237,8 @@
             </ul>
             
             <p class="comment">Les paragraphes en italique indiquent une information complémentaire non nécessaire pour la compréhesion du cours et la réussite du stage, bien entendu, ça peut toujours aider.
-            <p class="comment">En sciences éco, le projet s'appelle <code>solvaycoin</code> et non <code>askme</code>, on y verra quelques opérations de base du même style.
+            <p class="comment">Pour faire un site économique du style, <em>market place</em>,
+                on choisira un nom comme <code>funnycoin</code> et non <code>askme</code>, on y verra quelques opérations de base du même style dans ce but.
             
             <p>Une petite connaissance préalable de python est conseillée, vous pouvez avoir un petit rappel de théorie sur mon site
                 <a href="https://robertvandeneynde.be/parascolaire">de programmation pour débutants</a> :
@@ -230,7 +248,7 @@
                     <a href="https://robertvandeneynde.be/parascolaire/theorie1_egal_if_fr.html">
                         theorie1
                     </a>
-                    ou bien regardez ou sa <a href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">vidéo en bêta</a> !
+                    ou bien regardez ou sa <a href="https://youtu.be/zJ-w2izNvg4">vidéo en bêta</a> !
                     
                     Ensuite, essayez de faire les exercices 0, 1, 2, 3, voire 4.
                     
@@ -272,8 +290,9 @@
             <p>Lors de mes présentations, j'ai parlé du protocole http, et de la communication entre client et serveur qui ressemblait à un envoi de lettres postales.
             Maintenant, place au code django !
             
-            <p class="comment">Créez un projet django vide, si vous avez du mal, demandez à vos voisins,
-                si vous êtes à Solvay, j'ai les mot de passes des machines virtuelles de décembre si vous les avez oubliés.
+            <p class="comment">Créez un projet django vide, si vous avez du mal, demandez à vos voisins !
+                j'ai quelques machines virtuelles sous la main si vous voulez facilement vous lancer,
+                ou bien vous pouvez simplement créer un compte sur <a href="pythonanywhere.com">pythonanywhere.com</a>
             
             <p class="comment">Essayez de faire les exercices. Ensuite, si vous n'arrivez pas, regardez la solution en cliquant sur les boutons !
             Si nous n'arrivez pas à faire un exercice, pas de panique, la correction est là pour vous aider et probablement que vous comprendrez mieux lors d'un exercice ultérieur.
@@ -288,17 +307,18 @@
             <p>Lancez le serveur.
             
             <p class="comment">
-                Pour faire cela, si vous êtes en sciences éco c'est déjà configuré et vous devez juste cliquer sur <em>Reload</em> dans l'onglet <em>Web</em> de pythonanywhere.
+                Pour faire cela sur pythonanywhere, c'est déjà configuré et vous devez juste cliquer sur <em>Reload</em> dans l'onglet <em>Web</em> de pythonanywhere.
             
+            <!--
             <p class="comment">
-                Pour faire cela au stage de Solvay, allez dans Eclipse et faites <em>Run as > Django application</em>
-                ou via le terminal comme un pro <code class="bash">python3 manage.py runserver</code>.
+                Si vous utilisez une machine virtuelle et Eclipse, allez dans Eclipse et faites <em>Run as > Django application</em>
+                ou via le terminal comme un pro <code class="bash">python3 manage.py runserver</code>. -->
                 
             <p>Que se passe-t-il quand je vais sur <code class="url">127.0.0.1:8000/</code> ?
                 
-            <p class="comment" style="line-height:2em;">Si vous êtes en sciences éco, vous devrez plutôt aller sur <code>infosgr42.pythonanywhere.com/</code>
-                où <code>42</code> est le numéro de votre groupe,
-                entrez votre numéro de groupe ici : <input type="int" placeholder="42" style="width:60px; text-align:center;" id="group_selector"/>
+            <p class="comment" style="line-height:2em;">Si vous êtes sur pythonanywhere, vous devrez plutôt aller sur <code class="bash contains-group">infosgr42.pythonanywhere.com/</code>
+                en remplaçant bien <code class="bash contains-group">infosgr42</code> par votre propre nom d'utilisateur, du coup,
+                entrez votre nom d'utilisateur : <input type="int" placeholder="42" style="width:60px; text-align:center;" id="group_selector"/>
                 puis cliquez sur <button id="group_selector_ok">Ok</button> pour mettre à jour la page.
                 
                 <span id="group_selector_saved" style="border: 1px solid #0c0; background: #090; color: white; padding: 5px;">Page mise à jour pour le groupe {n} !</span>
@@ -324,7 +344,7 @@
                 <p>Pour créer un fichier dans pythonanywhere, naviguer dans le bon dossier, puis à droite où il est marqué <em>Enter A new Filename</em>, écrivez <code>urls.py</code> (attention, <strong>avec l'extension</strong>)
                 et appuyez sur <kbd>Enter</kbd>.
                 
-                <figure>
+                <figure class="half-size">
                     <img src="screenshot_pythonanywhere_newfile.png" />
                 </figure>
                 
@@ -347,6 +367,7 @@
             ]
             </code></pre>
             
+            <!--
             <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
             from django.conf.urls import url
 
@@ -357,6 +378,7 @@
                 url(r'^cv/$', views.montrer_cv),
             ]
             </code></pre>
+            -->
             
             <pre class="developpement" symbol="views.py"><code class="py">
             from django.http import HttpResponse
@@ -368,11 +390,11 @@
                 return HttpResponse("Cv de René: Surfeur, programmeur mais humain avant tout")
             </code></pre>
             
-            <p class="comment">Si vous êtes en sciences éco, vous utilisez django 2.0, au stage de Solvay, c'était django 1.11.
+            <p class="comment">Attention à la version de django, ce tutorel est sous django 2.0, mais certains tutoriels sont encore en 1.11.
             
-            <p class="comment">Pour le projet de sciences éco, vous n'avez pas un
+            <p class="comment">Si on a vraiment beaucoup d'urls, vous pouvez choisir de ne pas faire un
                 <strong>fichier</strong> <code class="bash">views.py</code>
-                mais vous avez un <strong>dossier</strong> <code class="bash">views/</code>,
+                mais d'avoir un <strong>dossier</strong> <code class="bash">views/</code>,
                 n'hésitez pas à créer un <strong>fichier</strong> <code class="bash">views.py</code> à côté du dossier pour suivre ce tutoriel.
                 
                 Ou bien vous pouvez créer un (ou plusieurs) fichier(s) <code class="bash">.py</code> dans le dossier <code class="bash">views/</code>,
@@ -545,7 +567,7 @@
             <p>Avoir un joli site c'est bien, mais avoir un site <strong>fonctionnel</strong> c'est peut-être bien aussi !
                 Rendez-vous dans la suite du tutoriel.
                 
-            <p class="comment">En sciences éco, le professeur a déjà créé plein de templates, vous ne devrez donc pas trop coder en html, regardez le contenu du dossier template pour 
+            <p class="comment">Probablement, que votre professeur a déjà créé plein de templates, vous ne devrez donc pas trop coder en html, regardez le contenu du dossier template pour 
                 avoir une idée des fichiers que vous pouvez utiliser, comme par exemple <code>base.html</code>.
 
             <h3 id="{{raccourcis|shortcuts}}">Raccourcis clavier</h3>
@@ -554,7 +576,7 @@
             <strong>même sous Mac</strong> !
             
             <figure>
-                <img style="max-width:535px" src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
+                <img style="max-width: 600px" src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
             </figure>
             
         </section>
@@ -596,10 +618,10 @@
                 <li><code>repondants</code>: le nombre de personnes ayant répondu à cette question, qui sera initialement de zéro mais augmentera.
             </ul>
             
-            <div class="developpement" symbol="Pour le projet de sciences éco">
+            <div class="developpement" symbol="Pour le projet marketplace">
             <hr/>
             
-            <p>Pour le projet de sciences éco, vous pouvez vous entraîner en créant une classe <code>Question</code> comme décris dans le tutoriel,
+            <p>Pour le projet économique type <em>marketplace</em>, vous pouvez vous entraîner en créant une classe <code>Question</code> comme décris dans le tutoriel,
                 ou bien vous pouvez créer une classe <code>Listing</code> (ou <code>Offre</code>) qui contient les attributs demandés en cours, c'est à dire
                 <code>montant_fixe</code> (un nombre),
                 <code>montant_variable</code> (un nombre),
@@ -615,7 +637,7 @@
                 
             <p>
                 Avec les <a href="#bddr">bases de données relationnelles</a>, les devises seront également des objets <strong>Devise</strong> mais pour l'instant nous pouvons simplement dire que les devises
-                sont des chaînes de caractètres comme <code class="py">"EUR"</code> (<em>string</em> ou <code>str</code> en python, <code>CharField</code> en django).
+                sont des chaînes de caractères comme <code class="py">"EUR"</code> (<em>string</em> ou <code>str</code> en python, <code>CharField</code> en django).
             
             <hr/>
             </div>
@@ -633,11 +655,13 @@
             <p>Ensuite, effectuez l'opération de <code>makemigrations</code> suivi de l'opération de <code>migrate</code>,
                 vous pouvez lire la différence entre ces deux commandes <a href="#makemigrations_vs_migrate">ci-dessous</a> mais ce n'est pas important de savoir cela à votre échelle.
             
-            <p class="comment">Pour le stage de Solvay, faites clic droit dans Eclipse puis choissiez migrate ou makemigrations ou passez par le terminal
+            <!--
+            <p class="comment">Si vous utilisez une machine virtuelle avec Eclipse, faites clic droit dans Eclipse puis choissiez migrate ou makemigrations ou passez par le terminal
                 en écrivant <code class="bash">python3 manage.py makemigrations</code>
                 ou <code class="bash">python3 manage.py migrate</code>.
+            -->
             
-            <p class="comment">Pour sciences éco, vous devrez passer par la console, <a href="#virtualenv">activez le virtualenv</a> si ça n'est pas déjà fait,
+            <p class="comment">Sur pythonanywhere, vous devrez passer par la console, <a href="#virtualenv">activez le virtualenv</a> si ça n'est pas déjà fait,
                 puis lancez cette commande :
                 
             <div style="padding-left: 20px">
@@ -645,7 +669,8 @@
             
             <p>De la même manière, pour faire l'opération de <em>migrate</em> on écrira bien sûr <code class="bash">python manage.py migrate</code>.
             
-            <p>Si vous avez l'erreur <code>manage.py not found</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> :
+            <p>Si vous avez l'erreur <code>manage.py not found</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> et probablement qu'un petit <code>cd project</code>
+            résoudra le problème :
             
             <div class="developpement" contains-code="bash" symbol="changer de dossier en bash">
             <hr>
@@ -658,12 +683,12 @@
                 quand vous allez dans l'onglet Files, c'est le dossier que vous voyez,
                 en console linux, on l'appelle tout simple <em>home</em>, <code>$HOME</code> ou encore <strong>~</strong>.
                 
-                <p>Chaque utilisateur linux a son petit dossier home, qui se trouve dans /home/username, sur pythonanywhere votre nom d'utilisateur est infosgr42 donc votre home se
+                <p>Chaque utilisateur linux a son petit dossier home, qui se trouve dans <code class="contains-group bash">/home/username</code>, sur pythonanywhere votre nom d'utilisateur est <code class="contains-group bash">infosgr42</code> donc votre home se
                 trouve dans /home/
                 
                 <p>Pour savoir où vous êtes, tappez <code>pwd</code> (<strong>P</strong>rint <strong>W</strong>orking <strong>D</strong>irectory)
                 
-                <pre><code>
+                <pre><code class="bash contains-group">
                 14:00 ~ $ pwd
                 /home/infosgr42/
                 </code></pre>
@@ -680,7 +705,7 @@
                 <p>Nous avons donc un fichier <code>README.txt</code>, un dossier <code>project</code>, et un fichier <code>wsgi.py</code>, ce qui correspond bien à 
                 la réalité :
                 
-                <figure>
+                <figure class="half-size">
                     <img src="screenshot_pythonanywhere_all_files.png" />
                 </figure>
                 
@@ -715,8 +740,7 @@
             <div id="virtualenv"></div>
             <div class="developpement" contains-code="bash" symbol="virtualenv">
                 <hr/>
-                <p>Beaucoup d'installations python comme celle utilisée en sciences éco
-                utilise le concept de <code>virtualenv</code> qui permet de gérer des versions de python.
+                <p>Beaucoup d'installations python utilisent le concept de <code>virtualenv</code> qui permet de gérer des versions de python.
                 
                 <p class="comment">Sur pythonanywhere, on va utiliser des <strong>consoles linux</strong> (aussi appelés <strong>terminal</strong>, <strong>shell</strong> ou <strong>sh</strong> ou <strong>bash</strong> ou <strong>invite de commande</strong>,
                 car ça permet non seulement d'avoir l'air d'un pro mais surtout car ça permet de nous simplifier la vie une fois qu'on y est habitué.
@@ -733,7 +757,7 @@
                 <p>Si vous voyez <code>/usr/bin/python</code> c'est que vous n'êtes <strong>pas</strong> dans le virtualenv.
                     Si vous voyez quelque chose qui contient <code>.virtualenv</code> vous êtes dedans.
                     
-                <p>Pour activer la première un virtualenv en sciences éco sur pythonanywhere, lancez cette commande la première fois :
+                <p>Pour activer la première fois un virtualenv sur pythonanywhere, lancez cette commande la première fois :
                 
                 <pre><code>
                     mkvirtualenv django2 --python=/usr/bin/python3.6
@@ -748,7 +772,7 @@
                 </code></pre>
                 
                 <p>Une fois dans le virtualenv, la commande <code>python</code> pourra être utilisée correctement
-                    (et d'autres commandes utiles comme <code>pip</code> ou <code>django-admin</code> que nous n'utiliserons pas en sciences éco).
+                    (et d'autres commandes utiles comme <code>pip</code> ou <code>django-admin</code> que nous n'utiliserons pas pour notre tutoriel).
                     
                 
                 <h4>Indice de virtualenv</h4>
@@ -798,6 +822,64 @@
                 - Create model Question
             </code></pre>
             
+            <p>Si on vous pose des questions et que vous n'arrivez pas à répondre, vous pouvez
+                <strong>supprimer les migrations</strong>, puis <strong>supprimer la base de donnée</strong> et en créer
+                une nouvelle, <strong style="color:red">attention, toutes les tables seront supprimées</strong> (mais pas vos fichiers <code>.py</code>).
+                
+            <div class="developpement" symbol="supprimer la base de donnée">
+            <hr>
+            <ol>
+                <li>
+                
+                <p>Si l'on vous pose des questions lors de makemigrations et que vous n'arrivez vraiment pas à répondre,
+                vous pouvez <strong>supprimer les migrations</strong> et allant dans le dossier <code>~/project/funnycoin/migrations/</code> et en supprimant tous les fichiers <code>.py</code> :
+                
+                <figure class="half-size">
+                    <img src="screenshot_pythonanywhere_files_migrations.png" />
+                </figure>
+                
+                <p>Dans le screenshot, on cliquera sur la petite corbeille à côté du fichier <code>0001_initial.py</code>.
+                
+                <li>
+                
+                <p>Ensuite, on va <strong>supprimer la base de donnée</strong> et en créer une nouvelle du même nom,
+                    <strong style="color:red">attention, toutes les tables seront supprimées</strong>
+                    (mais pas vos fichiers <code>.py</code>).
+                
+                <figure class="half-size">
+                    <img src="screenshot_pythonanywhere_database_list.png" />
+                </figure>
+                
+                <li>Dans l'onglet database, à côté de la base de donnée <code class="contains-group bash">infosgr42$default</code>,
+                    cliquez dessus pour y ouvrire une console mysql (si votre limite de console est atteinte,
+                    allez dans l'onglet <em>Console</em> et fermez en une), et entrez la <strong>commande de la mort</strong> :
+                    
+                <pre><code class="contains-group sql">
+                drop database infosgr42$default;
+                </code></pre>
+                
+                <p>Avec le point-virgule bien entendu.
+                
+                Je dis commande de la mort car dans la vraie vie c'est une très mauvaise idée de supprimer toutes les donnée
+                de notre site web.
+                
+                Ensuite vous pouvez tapper <code>exit;</code> pour fermer la console (ou aller dans l'onglet <em>Console</em> et fermer la console mysql).
+                    
+                <li>Recréez la base de données, allez dans l'onglet <em>Databases</em> et là où est marqué
+                <em>enter new database name</em>, vous indiquez <code>default</code> et puis cliquez sur <em>Create</em>.
+                
+                Cela va recréer une base de donnée <code class="contains-group bash">infosgr42$default</code>,
+                vérifiez bien que c'est celle-là <a href="#access_denied_mysql_pythonanywhere">que vous avez indiqué</a> dans <code>settings.py</code>
+                
+                <li>Toutes vos tables sont supprimées, donc vous pouvez faire <code>makemigrations</code> et <code>migrate</code>
+                    transquillement.
+                    
+                    Vu que toutes vos tables sont supprimées, vous devez recréer un superuser pour accéder à l'admin.
+            </ol>
+            <hr>
+            </div>
+            
+            
             <p>L'opération <code>migrate</code> sans erreurs contient une liste de plein de <em>OK</em> comme ceci :
             
             <pre class="developpement" symbol="python manage.py migrate" ><code class="text">
@@ -822,9 +904,10 @@
                 Applying askme.0001_initial... OK
             </code></pre>
             
-            <p>Si vous avez une opération <em>permission denied</em>, vérifiez ces deux choses :
+            <p>Si vous avez une opération <em>Access denied</em>, vérifiez ces deux choses :
         
-            <div class="developpement" symbol="permission denied avec mysql">
+            <div id="access_denied_mysql_pythonanywhere"></div>
+            <div class="developpement" symbol="Access denied avec mysql">
             
             <ol>
             <li>
@@ -834,15 +917,15 @@
             DATABASES = {
                 'default': {
                     'ENGINE': 'django.db.backends.mysql',
-                    'NAME': 'infosgr42$default',
-                    'USER': 'infosgr42',
+                    'NAME': '<span class="contains-group hljs-string">infosgr42$default</span>',
+                    'USER': '<span class="contains-group hljs-string">infosgr42</span>',
                     'PASSWORD': 'supersecret',
-                    'HOST': 'infosgr42.mysql.pythonanywhere-services.com',
+                    'HOST': '<span class="contains-group hljs-string">infosgr42.mysql.pythonanywhere-services.com</span>',
                 }
             }
             </code></pre>
             
-            <p>Vous remplacerez bien-sûr <code>42</code> par votre numéro de groupe.
+            <p>Vous remplacerez bien sûr votre numéro de groupe dans <code>infosgr42</code>.
             
             <li>
                 Dans l'onglet <em>Databases</em> de pythonanywhere, mettez le même mot de passe (comme <code>supersecret</code>),
@@ -853,8 +936,9 @@
             
             <p>Vous avez donc une <strong>base de données</strong> qui s'est créée !
             
+            <!--
             <p class="comment">
-                Pour Solvay, c'est le petit fichier fichier <code class="bash">db.sqlite3</code>.
+                Si vous avez laissez la configuration par défaut, c'est le petit fichier fichier <code class="bash">db.sqlite3</code>.
             
                 Vous y verrez le contenu de la base de données ! Remarquez que la création de notre modèle <code>Question</code>
                 correspond bien à la table <code>askme_question</code>.
@@ -872,8 +956,9 @@
                 > OK.
                 
             <p>Il est également plus agréable <a href="#django.contrib.admin">d'activer l'admin</a> pour modifer cette base de données, mais ce n'est pas du tout obligatoire.
+            -->
             
-            <p class="comment">En sciences éco, les professeurs ont choisi d'utiliser directement mysql,
+            <p class="comment">Sur pythonanywhere, on peut choisir d'utiliser mysql,
                 qui est un moteur plus élaboré de bases de données,
                 et donc il n'est donc pas aussi facile de voir le contenu de la base de donnée,
                 mais en <a href="#django.contrib.admin">activant l'admin</a>
@@ -886,7 +971,7 @@
                 <hr/>
                 
                 <p>Cette section est en cours d'écriture, mais vous pouvez tout simplement suivre le <a href="https://docs.djangoproject.com/fr/2.0/intro/tutorial02/#introducing-the-django-admin">tutoriel officiel</a>,
-                attention, si vous êtes en sciences éco, nous utilisons pythonanywhere et donc vous ne devez pas faire la partie <em>lancer le serveur de développement</em>
+                attention, si vous utilisez pythonanywhere, vous ne devez pas faire la partie <em>lancer le serveur de développement</em>
                 car ça correspond juste à cliquer sur <em>Reload</em> dans l'onglet <em>Web</em>.
                 
                 <p>Donc, vous devez créer un <code>superuser</code>, modifier le fichier <code>admin.py</code> et vérifier
@@ -964,17 +1049,17 @@
                 <tr>
                     <td>1</td>
                     <td>Quel est votre fruit préféré ?</td>
-                    <td>10</td>
+                    <td>32</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Aimez vous le basket ?</td>
-                    <td>5</td>
+                    <td>25</td>
                 </tr>
                 <tr>
                     <td>7</td>
                     <td>Quelle est l'impédance d'un condensateur ?</td>
-                    <td>20</td>
+                    <td>100</td>
                 </tr>
             </table>
             
@@ -1049,6 +1134,7 @@
             ]
             </code></pre>
             
+            <!--
             <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
             urlpatterns = [
                 url(r'^hello/$', views.dire_bonjour), 
@@ -1056,6 +1142,7 @@
                 url(r'^detail/$', views.donner_une_question), # NEW
             ]
             </code></pre>
+            -->
             
             <p>Notre template aimerait recevoir un paramètre pour pouvoir écrire le nom de la question
                 et le nombre de répondants, écrire des templates étant long et fatigant, il choisit de nommer le paramètre <code>q</code>
@@ -1317,10 +1404,10 @@
             
             <pre class="developpement" symbol="views.py"><code class="py normal-comments">
             def pas_de_repondants(request):
-                a = Question.objects.<strong>filter</strong>(repondants=0) # a est une liste, je pourrais renommer la variable a
+                a = Question.objects.<strong>filter</strong>(repondants=0) # a est une liste, la liste des questions avec 0 répondant, remarquez que je pourrais renommer la variable a
                 b = a[0] # b est une question
                 return render(request, "details.html", {
-                    "q": b, # on donne b au template details.html qui accepte une seule question "q"
+                    "q": b, # on donne b au template "details.html" qui accepte une seule question "q"
                 })
             </code></pre>
             
@@ -1331,12 +1418,17 @@
             ]
             </code></pre>
             
+            <!--
             <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
             urlpatterns = [
                 ...,
                 url(r'^nonrepondues/$', views.pas_de_repondants),
             ]
             </code></pre>
+            -->
+            
+            <p class="comment">Remarquez que django propose aussi <code>a.first()</code> à la place de <code>a[0]</code> ce qui sera peut-être plus clair ici.
+                Cependant, <code>a[0]</code> lance une exception si <code>a</code> est vide, alors que <code>.first()</code> renvoie <code>None</code>.
             
             <p>Django permet aussi de faire des requêtes contenant des comparaisons, <em>donne moi la liste des questions avec <strong>moins de 10</strong> répondants</em>
             ou en abbrégé <em>où repondants &lt; 10</em> se traduira en django <code class="py">.filter(repondants__lt=10)</code> (<strong>l</strong>ess <strong>t</strong>han).
@@ -1406,7 +1498,7 @@
             <p>On affiche donc la question avec l'id le plus grand dans <strong>toute</strong> la base de donnée,
                 ce qui est donc probablement la dernière créée.
             
-            <p>Quand filter n'a pas d'argument comme ici, il y a en fait un raccourci plus parlant, <code>all()</code>.
+            <p>Quand <code>filter</code> n'a pas d'argument comme ici, il y a en fait un raccourci plus parlant, <code>all()</code>.
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
@@ -2227,7 +2319,7 @@
             
             <p>Niveau code, on va maintenant créer <strong>plusieurs tables</strong>
                 qui vont être liées avec des <code>ForeignKey</code> !
-                Par exemple, dans un QCM, chaque Reponse a une liste de choix, et chaque choix aura un nombre de votes comptabilités (au début de 0).
+                Par exemple, dans un QCM, chaque Reponse a une liste de choix, et chaque choix aura un nombre de votes comptabilisés (qui au début vaudra 0).
             
             <pre class="developpement" symbol="models.py"><code>
             class Question(models.Model):
@@ -2239,7 +2331,7 @@
                 votes = models.IntegerField(default=0)
             </code></pre>
             
-            <p>Si la classe <code>Choice</code> est définie avant la classe Question, on devra mettre Question entre guillemets dans la définition :
+            <p>Si <code class="py">class Choice</code> est définie avant <code class="py">class Question</code>, on devra mettre <code>Question</code> entre guillemets dans la définition :
             
             <pre class="developpement" symbol="models.py"><code>
             class Question(models.Model):
@@ -2251,8 +2343,8 @@
                 votes = models.IntegerField(default=0)
             </code></pre>
             
-            <p>Remarquez que j'aurais pu donner un autre nom, comme <code>parent = ForeignKey(Question)</code>
-            on parlerait alors du <em>parent</em> d'un choix (ce qui pour cet exemple, est un peu bizarre)
+            <p>Remarquez que j'aurais pu donner un autre nom, comme <code>origine = ForeignKey(Question)</code>
+            on parlerait alors de l'<em>origine</em> d'un choix (qui serait une <code>Question</code>)
             mais j'insiste sur le fait que l'attribut ne doit en aucun cas avoir le même nom que la classe qu'il référencie,
             c'est juste que pour beaucoup de relations, ce choix est naturel.
             
@@ -2359,6 +2451,7 @@
                 </thead>
                 
                 <tr>
+                    <th>id</th>
                     <th>question</th>
                     <th>texte</th>
                     <th>votes</th>
@@ -2420,7 +2513,7 @@
                 </tr>
             </table>
             
-            <p>Encore une fois, les id ne sont pas nécessairement consécutifs (par exemple, si l'on a supprimé les questions de 3 à 6).
+            <p>Encore une fois, les id ne sont pas nécessairement consécutifs, par exemple, si l'on a supprimé les questions de 3 à 6.
             <p></p>
             
             <p>Lancez mainteant les <a href="#makemigrations_vs_migrate">opérations de migrations</a> et que voyez vous ?
@@ -2486,12 +2579,12 @@
             L = Choice.objects.filter(question=q)
             </code></pre>
             
-            <p>Django a également le concept de <em>relation inverse</em> liée au <a href="#related_name"><code>related_name</code></a>,
+            <p>Afin de simplifier ce code, django a également le concept de <em>relation inverse</em> liée au <a href="#related_name"><code>related_name</code></a>,
             par défaut quand l'on lie deux classes, une relation inverse est crée avec le nom de l'autre classe :
             
             <pre><code class="py">
             q = Question.objects.get(id=5)
-            L = q.choix_set.all()
+            L = q.choice_set.all()
             </code></pre>
             
             <p>Ce nom <code>choix_set</code> veut dire <em>l'ensemble des Choix liés à cette Question</em>.
@@ -2519,7 +2612,7 @@
             <div id="django.contrib.auth.models.User"></div>
             <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Login, cookies, sessions et réutilisation de code</h3>
             
-            <p>Comme dit au cours, vous ne devez pas coder vous même une classe <code>User</code> car il est plus malin d'utiliser du code déjà fait.
+            <p>Comme dit au cours, vous ne devez pas coder vous même une <code class="py">class User</code> car il est plus malin d'utiliser du code déjà fait.
             
             <p>Si nous voulons dire qu'une question a un créateur (un <code>User</code>), on réutilisera la classe User venant de <code>django.contrib.auth.models</code> :
             
@@ -2597,7 +2690,7 @@
             <pre><code>
                 s = Student.objects.get(id=5)
                 s.message_set.all() # all
-                s.message_set.filter(likes_gte=10) # at least 10 likes
+                s.message_set.filter(likes__gte=10) # at least 10 likes
             </code></pre>
             
             <p>That would be translated to <em>Give me the set of all the messages of that student</em>.
