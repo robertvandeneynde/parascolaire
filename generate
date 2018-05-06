@@ -8,7 +8,7 @@ LANGS='fr en'
 
 python3 generate_multilang.py --langs $LANGS
 
-if [ 1 = 2 ]; then
+if [ 1 = 1 ]; then
 # multilang py files
 for n in progra_equivalences theorie1_egal_if; do
     for l in $LANGS; do

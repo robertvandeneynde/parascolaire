@@ -44,9 +44,9 @@ ma_liste = [1,2,7,2] # 4 éléments !
 # 4 opérations de base sont possibles sur les listes
 
 # 1) Lire
-premier = ma_liste[0] # l'élément numéro 0 est le premier
-dernier = ma_liste[3] # vu que notre liste est de taille 4, 3 est le dernier
-taille = len(ma_liste) # len permet de connaître la taille
+p = ma_liste[0] # l'élément numéro 0 est le premier
+d = ma_liste[3] # vu que notre liste est de taille 4, 3 est le dernier
+t = len(ma_liste) # len permet de connaître la taille
 print(ma_liste[5]) # ERREUR, il n'y a pas d'élément "5", le dernier était "3"
 
 # le "numéro" est appelé "l'indice", l'indice du "1" dans notre liste est donc 0
