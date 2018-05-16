@@ -237,8 +237,8 @@
             }}
         
         <p>
-            {{Une calculette est capable de faire des racines, python peut le faire via <code class="py">print(math.sqrt(2))</code> après avoir écrit <code>import math</code> au début du code.
-            | A calculator is capable to do square roots, python can do it via <code class="py">print(math.sqrt(2))</code> when you wrote <code>import math</code> at the beginning of the file.
+            {{Une calculette est capable de faire des racines, python peut le faire via <code class="py">math.sqrt(2)</code> après avoir écrit <code>import math</code> au début du code.
+            | A calculator is capable to do square roots, python can do it via <code class="py">math.sqrt(2)</code> when you wrote <code>import math</code> at the beginning of the file.
             }}
             
             {{ <code>math</code> est un <em>module</em> python, plus d'info sur les modules
@@ -303,7 +303,7 @@
             <li>{{Comment couper parfaitement une pizza en 6 ?|How to perfectly cut a pizza in 6?}}</li>
         </ol>
         
-        <p>{{Dans le langage courant, on dira plutot <em>trigono</em>.
+        <p>{{Dans le langage courant, on dira plutôt <em>trigono</em>.
             |In spoken language, we'll prefer to say the short version <em>trig</em>.}}</p>
         
         <h3 id="trigonometrie-base">{{Le cosinus et le sinus|Cosine and sine}}</h3>
@@ -387,9 +387,11 @@
             |In the old times, we had no calculators, then we read tables... Now we do and we have have computers ! Here, my example in Python:}}
         
         <pre><code class="python">
-            from math import cos, sin, radians, degrees
-            print(cos(radians(36))) # 0.82
-            print(sin(radians(36))) # 0.55
+            >>> from math import cos, sin, radians, degrees
+            >>> cos(radians(34))
+            0.82
+            >>> sin(radians(34))
+            0.55
         </code></pre>
         
         <p>{{Nous verrons plus tard pourquoi on doit écrire <code>radians</code>, dis-toi pour l'instant que c'est juste une autre unité d'angle plus <em>mathématique</em> et que donc il faut convertir les degrés en radians.
@@ -398,9 +400,11 @@
         <p>Le code précédent peut se simplifier en téléchargeant mon fichier <a href="vec3_utils.py.html">vec3_utils</a> :</p>
         
         <pre><code class="python">
-            from vec3_utils import cosd, sind
-            print(cosd(36)) # 0.82
-            print(sind(36)) # 0.55
+            >>> from vec3_utils import cosd, sind
+            >>> cosd(34)
+            0.82
+            >>> sind(34)
+            0.55
         </code></pre>
         
         <p>Vous pouvez également regarder le fichier <a href="vec3_utils.py.html">vec3_utils</a> pour voir la définition de la fonction <code>cosd</code> et <code>sind</code>, rien de bien sorcier.
@@ -412,7 +416,7 @@
                 return sin(radians(x))
             
             def cosd(x):
-                return sin(radians(x))
+                return cos(radians(x))
         </code></pre>
             
         <p>{{Sur une calculette, il y a <a href="https://www.youtube.com/watch?v=og6GrxZJmSI">un bouton</a> pour changer le mode d'exécution de <code>cos</code> et <code>sin</code>.
@@ -565,6 +569,9 @@
         
         <p>{{La tangente vaut donc la coordonnée y de l'intersection de la droite $x = 1$ et de la droite $OP$.
             |The tangent is equal to the y coordinate of the intersection of the straight line $x = 1$ and the straight line $OP$.}}
+
+            {{Il est facile de démontrer géométriquement que la tangente est le rapport du sinus sur le cosinus, nous voyons deux triangles semblables.
+            |It's easy to prove that the tangent is the ratio of the sinus and cosinus, one can see to similar triangles.}}
         
         <p>Quand vous avez un triangle rectangle et vous vous intéressez aux deux petits côtés, imaginez d'abord que le côté adjacent à l'angle vaut 1, puis multipliez par la vraie longueur du côté.
         
@@ -698,8 +705,10 @@
     
         <p>{{
             <a href="http://tauday.com/tau-manifesto">Certains mathématiciens</a> n'aiment pas $\pi$, et préfèrent utiliser $\tau = 2\pi$.
+            On a donc $\tau = 2\pi = 6.283185...$
         |
             <a href="http://tauday.com/tau-manifesto">Some mathematicians</a> do not like $\pi$, and prefer to use $\tau = 2\pi$.
+            We then have $\tau = 2\pi = 6.283185...$
         }}</p>
         
         <p>{{
@@ -750,22 +759,26 @@
         
         <pre><code class="python">
         from math import tau
-        print(tau) # 6.2831... {{depuis|since}} Python 3.6
+        >>> tau # {{depuis|since}} Python 3.6
+        6.2831
         </code></pre>
         
         <p>Python nous permet de convertir du degré au radian :</p>
         
         <pre><code class="python">
         from math import radians, degrees
-        print(radians(360)) # 6.2831...
-        print(degrees(1))   # 57.29
+        >>> radians(360)
+        6.2831
+        >>> degrees(1)
+        57.29
         </code></pre>
         
         <p>Attention, les fonctions <code>cos</code> et <code>sin</code> attendent des radians !</p>
         
         <pre><code class="python">
-        from math import cos, sin 
-        print(cos(radians(34))) # 0.82
+        >>> from math import cos, sin 
+        >>> cos(radians(34))
+        0.82
         </code></pre>
         
         <h3>Un petit mot sur le <strong>co</strong>sinus</h3>
@@ -798,7 +811,7 @@
         
         <figure>[Dessin]</figure>
         
-        <h3>Formule d'addition</h3>
+        <h3 id="trigono-formule-addition">Formule d'addition</h3>
         
         <p>On a vu beaucoup de cas spéciaux, mais une formule $\cos(a + b)$ existe aussi.
         
@@ -811,7 +824,7 @@
         <ul>
         <li>$\cos(a + b) $
             <span class="developpement" symbol="=">
-            $\cos(a - (-b))$
+            $= \cos(a - (-b))$
             $\cos a \cos(-b) + \sin a \sin(-b)$
             </span>
             $= \cos a \cos b - \sin a \sin b$

@@ -35,11 +35,11 @@ Loads a little bit slower than the classic interpreter, but you rarely need two 
 
 # ipython functionalities
 
+- `In `, `Out` instead of `>>>`
 - `_` for last
 - `_n` for out number N (eg. `_18`)
 - `__` `___` for over last and over over last
 - `_8` `_i8`
-- `In `, `Out` instead of `>>>`
 - Up/Down for history prev/next
 - Type `a =` UpDown for quick find in history (otherwise use the `%hist -g` hack)
 

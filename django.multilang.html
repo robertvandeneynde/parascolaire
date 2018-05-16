@@ -85,7 +85,18 @@
         <script>
         $(function(){
             $('figure.half-size img').each(function(){
-                $(this).css('max-width', $(this).width() / 2)
+                var self = this;
+                function applyWidth() {
+                    console.log(self.id, self.width)
+                    if(self.width) {
+                        $(self).css('max-width', $(self).width() / 2)
+                    } else {
+                        setTimeout(applyWidth, 1000);
+                    }
+                }
+                
+                applyWidth();
+                
                 $(this).wrap( $('<a>').attr('href', $(this).attr('src') ) )
             })
         
@@ -186,13 +197,12 @@
                 
                 $('#group_selector_ok').click(function() {
                     var s = $('#group_selector').val()
-                    var m = /^infosgr(\d+)$/.exec(s.toLowerCase().trim()) || /^(\d+)$/.exec(s.toLowerCase().trim())
-                    if(!m)
-                        alert('Veuillez indiquer un numéro')
-                    var n = parseInt(m[1])
-                    replaceUrls('infosgr' + n + '.pythonanywhere.com')
+                    // var m = /^infosgr(\d+)$/.exec(s.toLowerCase().trim()) || /^(\d+)$/.exec(s.toLowerCase().trim())
+                    var m = /^(\d+)$/.exec(s.toLowerCase().trim())
+                    var username = m ? 'infosgr' + parseInt(m[1]) : s.trim()
+                    replaceUrls(username + '.pythonanywhere.com')
                     
-                    $('#group_selector_saved').text( $('#group_selector_saved').text().replace('{n}', n) ).show()
+                    $('#group_selector_saved').text( $('#group_selector_saved').text().replace('{username}', username) ).show()
                     
                     setTimeout(function(){
                         $('#group_selector_saved').fadeOut();
@@ -397,23 +407,23 @@
                 
             <p class="comment" style="line-height:2em;">Si vous êtes sur pythonanywhere, vous devrez plutôt aller sur <code class="bash contains-group">infosgr42.pythonanywhere.com/</code>
                 en remplaçant bien <code class="bash contains-group">infosgr42</code> par votre propre nom d'utilisateur, du coup,
-                entrez votre nom d'utilisateur : <input type="int" placeholder="42" style="width:60px; text-align:center;" id="group_selector"/>
+                entrez votre nom d'utilisateur : <input type="int" placeholder="infosgr42" style="width:120px; text-align:center;" id="group_selector"/>
                 puis cliquez sur <button id="group_selector_ok">Ok</button> pour mettre à jour la page.
                 
-                <span id="group_selector_saved" style="border: 1px solid #0c0; background: #090; color: white; padding: 5px;">Page mise à jour pour le groupe {n} !</span>
+                <span id="group_selector_saved" style="border: 1px solid #0c0; background: #090; color: white; padding: 5px;">Page mise à jour pour {username} !</span>
             
             <p class="developpement">
-                Il est marqué It works.
+                Il est marqué <em>It works</em> et la petite fusée de Django est affichée.
             
-            <p>Et quand je vais sur <code class="url">/hello</code> ?
+            <p>Et quand je vais sur <code class="url">127.0.0.1:8000/hello</code> ?
             
             <p class="developpement">
                 Erreur 404, et on voit la liste des urls disponibles, il n'y a que <code>admin/</code>
             
             <h4>Première url</h4>
-            <p>Faites une page <code class="url">/hello</code>, qui va afficher <em>Coucou les amis !</em>
+            <p>Faites une page à l'url <code class="url">/hello</code>, qui va afficher <em>Coucou les amis !</em>
             
-            <p>Pour cela, vous devrez modifier (ou créer) le fichier <code>urls.py</code> qui se trouve dans le dossier de votre app (dossier <code>askme/</code>).
+            <p>Pour cela, vous devrez modifier (ou créer) le fichier <code>urls.py</code> qui se trouve dans le dossier <strong>de votre app</strong> (dossier <code>askme/</code>).
             <p>Vous devrez également ensuite modifier (ou créer) le fichier <code>views.py</code> qui se trouve dans le même dossier.
                 Remarquez que certains projets utilisent un <strong>dossier</strong> <code>views/</code>, dans ce cas, suivez <a href="#dossier-views">ces instructions</a>.
             
@@ -456,7 +466,7 @@
             </code></pre>
             -->
             
-            <p>On dit donc que quand on va sur l'<strong>url</strong>, <code>hello/</code>,
+            <p>On dit donc que quand on va sur l'<strong>url</strong> <code>hello/</code>,
                 on va dans <code>views.dire_bonjour</code>, il faut donc aller dans <code>views.py</code> et y définir <code>dire_bonjour</code> :
             
             <pre class="developpement" symbol="views.py"><code class="py">
@@ -535,8 +545,10 @@
             
             <p>Quand on va sur l'<strong>url</strong> <code>/cv</code>, on va dans la <strong>fonction</strong> <code>montrer_cv</code> qui se trouve dans <code>views</code>.
             
+            <p>Le fichier contient donc maintenant deux fonctions, <code>dire_bonjour</code> et <code>montrer_cv</code>, on peut en créer autant que l'on veut.
+            
             <p>Remarquez que j'aurais également pu appeler mes fonctions <code class="py">hello</code> et <code class="py">cv</code>
-                en écrivant <code class="py">def hello(request)</code> et <code class="py">def cv(request)</code> dans <code class="bash">views.py</code>
+                en écrivant <code style="white-space:nowrap" class="py">def hello(request)</code> et <code style="white-space:nowrap" class="py">def cv(request)</code> dans <code class="bash">views.py</code>
                 pour que chaque fonction aie le même nom que son url, mais j'ai préféré faire la différence.
             
             <h3 id="exerci{{c|s}}e-2">Exerci{{c|s}}e 2{{ |}}: Du html !</h3>
@@ -554,8 +566,9 @@
             </code></pre>
             
             <p class="comment">Remarquez maintenant qu'il y a une différence entre ce qu'on a envoyé (le code html) et ce qui est affiché à l'utilisateur par le navigateur (la page).
-                Faites un clic droit sur la page et cliquez sur <strong>Afficher la Source</strong> (sous Google Chrome ou Firefox, c'est également <kbd>Ctrl</kbd>+<kbd>U</kbd> ou <kbd>Cmd</kbd>+<kbd>U</kbd> sous Mac).
-                Vous verrez le html qu'on a envoyé.
+                Faites un clic droit sur la page et cliquez sur <strong>Afficher la Source</strong>, vous verrez le html qu'on a envoyé.
+                
+                Sous Google Chrome ou Firefox, il y a le raccourci <kbd>Ctrl</kbd>+<kbd>U</kbd> ou <kbd>⌘ Cmd</kbd>+<kbd>U</kbd> sous Mac, si vous êtes sous <em>Safari</em> et que vous ne voulez pas télécharger Google Chrome, <a href="https://coolestguidesontheplanet.com/safari-web-developer-tools-show-dock-browser-window/">allez dans les options avancées</a> et activez <em>montrer l'url en entier</em> (tout en haut) et <em>montrer les outils de développement</em> (tout en bas) ce qui fera que vous pourrez y accéder avec un clic droit.
             
             <p>Et comment lister ses compétences dans une liste comme celle-ci :
             
@@ -569,8 +582,6 @@
             def montrer_cv(request):
                 return HttpResponse("Cv de &lt;strong>René&lt;/strong>: &lt;ul> &lt;li>Surfeur&lt;/li> &lt;li>Programmeur&lt;/li> &lt;li>Mais humain avant tout&lt;/li> &lt;/ul>")
             </code></pre>
-            
-            <p>Le fichier contient donc maintenant deux fonctions, <code>dire_bonjour</code> et <code>montrer_cv</code>, on peut en créer autant que l'on veut.
             
             <h3 id="exerci{{c|s}}e-3">Exerci{{c|s}}e 3{{ |}}: Un template pour René</h3>
             
@@ -609,7 +620,7 @@
             <h3 id="html-est-joli">Possibilités d'html</h3>
             
             <p>Afin que notre page soit plus jolie, on peut apprendre d'autres balises html, si vous 
-                voulez garder un site peu joli mais passer directement au côté fontionnel passez cette section,
+                voulez garder un site peu joli mais passer directement au côté fontionnel <a href="template-et-variables">passez cette section</a>,
                 sinon voici un aperçu de ce qu'un 
                 <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/comment-fait-on-pour-creer-des-sites-web">
                     bon tutoriel html</a> vous dira :
@@ -649,7 +660,12 @@
                 &lt;body>
                     &lt;h1>Cv de René&lt;/h1>
                     &lt;p>René est un expert depuis le début de sa vie&lt;/p>
-                    &lt;p>Il a rencontré Chuck Norris et a compté jusqu'à l'infini avec lui, deux fois&lt;/p>
+                    
+                    &lt;p>
+                        Il a rencontré Chuck Norris
+                        et a compté jusqu'à l'infini avec lui,
+                        deux fois
+                    &lt;/p> &lt;!-- on peut passer à la ligne et mettre des commentaires -->
                     
                     &lt;h2>Compétences incroyables&lt;/h2>
                     &lt;ul>
@@ -697,6 +713,8 @@
             
                 En une ou deux heures vous aurez déjà de quoi faire un <strong>joli</strong> site web !
                 En effet, avec beaucoup de css, René pourrait arriver à un cv comme <a href="https://robertvandeneynde.be/cv">celui-ci</a>.
+
+            <p>D'autres tutoriels existent bien entendu, comme <a href="https://developer.mozilla.org/fr/Apprendre/Commencer_avec_le_web/Les_bases_HTML">celui de Mozilla</a> (disponible en plein de langues).
             
             <p>Remarquez que si sur pythonanywhere
                 vous utilisez les images,
@@ -707,6 +725,85 @@
                 
             <p class="comment">Probablement, que votre professeur a déjà créé plein de templates, vous ne devrez donc pas trop coder en html, regardez le contenu du dossier template pour 
                 avoir une idée des fichiers que vous pouvez utiliser, comme par exemple <code>base.html</code>.
+            
+            <h3 id="template-et-variables">Un template peut avoir des variables</h3>
+            
+            <p>Cependant, un template est plus qu'un simple fichier, il peut demander des <strong>variables</strong> !
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            from django.shortcuts import render
+            
+            def montrer_cv(request):
+                return render(request, 'le_cv.html', {
+                    <mark>"a": 52,</mark>
+                })
+            </code></pre>
+            
+            <p>Par exemple, prenons notre petit template et donnons lui une variable <code>a</code> :
+            
+            <p>Et du coup, le template va utiliser cette variable avec des accolades <code>&#123;&#123; a }}</code> :
+            
+            <pre class="developpement" symbol="le_cv.html"><code class="html">
+            &lt;p>Cv de &lt;strong>René&lt;/strong>&lt;/p>
+            &lt;p>J'ai mangé &#123;&#123; a }} pommes dans ma vie&lt;/p>
+            &lt;ul>
+                &lt;li>Surfeur&lt;/li>
+                &lt;li>Programmeur&lt;/li>
+                &lt;li>Mais humain avant tout&lt;/li>
+            &lt;/ul>
+            </code></pre>
+            
+            <p>La page affichée indiquera <em>J'ai mangé 52 pommes dans ma vie</em>,
+                n'hésitez pas <strong>voir le code source</strong> de la page avec <kbd>Ctrl</kbd>+<kbd>U</kbd>
+                pour voir que le browser n'est pas au courant qu'on utilise des templates.
+            
+            <p>Évidemment, on peut créer une <strong>variable python</strong>
+            et puis l'envoyer au template :
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def montrer_cv(request):
+                x = 5
+                return render(request, 'le_cv.html', {
+                    "a": x,
+                })
+            </code></pre>
+            
+            <p>Et faire des calculs dessus :
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def montrer_cv(request):
+                x = 5
+                y = x * 2 + 1
+                return render(request, 'le_cv.html', {
+                    "a": y,
+                })
+            </code></pre>
+            
+            <p>Le template peut même accepter du texte :
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def montrer_cv(request):
+                return render(request, 'le_cv.html', {
+                    "a": "vraiment beaucoup de",
+                })
+            </code></pre>
+            
+            <p>Ou plusieurs variables :
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def montrer_cv(request):
+                m = 8
+                y = 1
+                return render(request, 'le_cv.html', {
+                    "a": "vraiment beaucoup de",
+                    "b": m,
+                    "wow": y + 2,
+                })
+            </code></pre>
+            
+            
+            <p>Le template peut accepter plein d'autre type de variables, mais nous verrons son
+                utilité principale dans le chapitre suivant !
             
             <h3 id="{{raccourcis|shortcuts}}">Raccourcis clavier</h3>
 
@@ -1015,7 +1112,7 @@
             
             <li>
             
-            <p>Si ce n'est pas votre première migration, et qu'on vous pose des questions et que vous n'arrivez pas à répondre, vous pouvez
+            <p>Si ce n'est pas votre première migration, que la console vous pose des questions et que vous n'arrivez pas à y répondre, vous pouvez
                 <strong>supprimer les migrations</strong> existantes, puis <strong>supprimer la base de donnée</strong> et en créer
                 une nouvelle, <strong style="color:red">attention, toutes les tables seront supprimées</strong> (mais pas vos fichiers <code>.py</code>).
                 
@@ -1057,7 +1154,7 @@
                 de notre site web.
                 
                 Ensuite vous pouvez tapper <code>exit;</code> pour fermer la console (ou aller dans l'onglet <em>Console</em> et fermer la console mysql).
-                    
+                
                 <li>Recréez la base de données, allez dans l'onglet <em>Databases</em> et là où est marqué
                 <em>enter new database name</em>, vous indiquez <code>default</code> et puis cliquez sur <em>Create</em>.
                 
@@ -1364,11 +1461,9 @@
                 (mais il aurait pu l'appeler autrement).
         
             <pre class="developpement" symbol="templates/detail.html"><code class="html">
-            &lt;body>
-                &lt;h1>Détails d'une question&lt;/h1>
-                &lt;h2>Titre : &lt;em>&#x7b;&#x7b; q.nom }}&lt;/em>&lt;/h2>
-                &lt;p>Cette question a accumulé un total de &#x7b;&#x7b; q.repondants }} répondants.&lt;/p>
-            &lt;/body>
+            &lt;h1>Détails d'une question&lt;/h1>
+            &lt;h2>Titre : &lt;em>&#x7b;&#x7b; q.nom }}&lt;/em>&lt;/h2>
+            &lt;p>Cette question a accumulé un total de &#x7b;&#x7b; q.repondants }} répondants.&lt;/p>
             </code></pre>
             
             <p>Les templates sont des artistes, ils ne se satisfieront pas d'avoir un affichage peu attractif,
@@ -1447,7 +1542,7 @@
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def donner_une_question(request):
-                x = Question.objects.get(id=1)
+                x = Question.objects.get(<mark>id=1</mark>)
                 return render(request, "detail.html", {
                     "q": x,
                 })
@@ -1512,7 +1607,7 @@
             Le client nous envoie juste une url, <code class="url">/detail</code>, ça serait s'il pouvait dire quelque chose 
             de plus précis du genre, <em>le détail de la question numéro 1</em>, ce qui se traduira en url par :
             
-            <p class="developpement"><code class="url">/detail?numero=1</code>
+            <pre><code class="url">/detail?numero=1</code></pre>
             
             <p>Le client nous demande donc un certain <code>numero</code>, allons-y et essayons de lire ce numéro,
             et de le mettre <em>près de nous</em> dans une <strong>variable</strong>, disons <strong>n</strong>
@@ -1609,7 +1704,7 @@
                 })
             </code></pre>
             
-            <p>Finalement, l'utilisateur veut peut-être être plus précis, et demander deux choses en même temps via une requête comme
+            <p>Finalement, l'utilisateur veut peut-être être plus précis, et demander deux choses en même temps via une requête comme :
             
             <pre><code class="url">/detail?reponses=20&amp;categorie=SPORT</code></pre>
             
@@ -1627,7 +1722,34 @@
             <p>Dans de pareilles requêtes (donne moi les question de sport dont le nombre de répondants vaut 20), nous devrons donc gérer plus d'une question,
             <strong>une seule variable</strong> ne sera plus utile
             et nous aurons besoin de <strong>listes</strong> !
+            
+            <h4 id="django-clean-urls">More django: clean <code>GET</code> urls</h4>
+            <p>Des urls comme <code class="url">/detail?numero=12345</code> ce n'est parfois pas très élégant, avec Django, il est facile de faire <code class="url">/detail/12345</code>, 
+            plus d'info sur la <a href="https://docs.djangoproject.com/fr/2.0/topics/http/urls/">documentation officielle</a>.
+            
+            <p>Nous comparons l'url <code class="url">/detail?numero=12345</code> :
+            
+            <pre class="developpement" symbol="urls.py"><code>
+            path('detail', views.donner_une_question),
+            </code></pre>
+            
+            <pre class="developpement" symbol="views.py"><code>
+            def donner_une_question(request):
+                numero = request.GET['numero']
+                ...
+            </code></pre>
+            
+            <p>À l'url <code class="url">/detail/12345</code> :
 
+            <pre class="developpement" symbol="urls.py"><code>
+            path('detail/&lt;numero>', views.donner_une_question),
+            </code></pre>
+            
+            <pre class="developpement" symbol="views.py"><code>
+            def donner_une_question(request, numero):
+                ...
+            </code></pre>
+            
             <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Gérer des listes</h3>
             
             <p>Nous aurons besoin de deux nouvelles compétences :
@@ -1637,12 +1759,23 @@
                 <li>Comment un template peut-il afficher une liste ?
             </ol>
             
-            <p>Commençons par un exemple simple, dans une nouvelle url <code class="url">/nonrepondues</code>, demandons à Django, toutes les questions sans répondants (<code>filter</code>),
-            et affichons la première (souvenez-vous de comment lire le premier élément d'une liste ?).
+            <p>Ce premier point sera abordé dans cet exercice et le deuxième dans <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
             
+            <p>Dans une nouvelle url <code class="url">/nonrepondues</code>, demandons à Django :
+            
+            <ol>
+                <li>Toutes les questions sans répondants, c'est à dire
+                toutes les questions dont le nombre de répondants est égal à zéro,
+                on utilisera donc <code>filter</code>,
+                on reçoit donc une <strong>liste</strong>.
+                
+                <li>Affichons la première question de cette liste en utilisant l'exercice précédent
+                (souvenez-vous de comment lire le <a href="https://robertvandeneynde.be/parascolaire/theorie2_liste_while.html">premier élément d'une liste</a> ?).
+            </ol>
+                
             <pre class="developpement" symbol="views.py"><code class="py normal-comments">
             def pas_de_repondants(request):
-                x = Question.objects.<strong>filter</strong>(repondants=0) # a est une liste, la liste des questions avec 0 répondant, remarquez que je pourrais renommer la variable a
+                x = Question.objects.<mark>filter</mark>(repondants=0) # a est une liste, la liste des questions avec 0 répondant, remarquez que je pourrais renommer la variable a
                 b = x[0] # b est une question
                 return render(request, "detail.html", {
                     "q": b, # on donne b au template "detail.html" qui accepte une seule question "q"
@@ -1655,6 +1788,9 @@
                 path('nonrepondues/', views.pas_de_repondants),
             ]
             </code></pre>
+            
+            <p class="comment">Cela va nous afficher une seule question, pour 
+                afficher toute la liste, direction <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
             
             <!--
             <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
@@ -1669,11 +1805,11 @@
                 Cependant, <code>a[0]</code> lance une exception si <code>a</code> est vide, alors que <code>.first()</code> renvoie <code>None</code>.
             
             <p>Django permet aussi de faire des requêtes contenant des comparaisons, <em>donne moi la liste des questions avec <strong>moins de 10</strong> répondants</em>
-            ou en abbrégé <em>où repondants &lt; 10</em> se traduira en django <code class="py">.filter(repondants__lt=10)</code> (<strong>l</strong>ess <strong>t</strong>han).
+            ou en abbrégé <code>où repondants &lt; 10</code> se traduira en django <code class="py">.filter(repondants__lt=10)</code> (<strong>l</strong>ess <strong>t</strong>han).
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
-                x = Question.objects.<strong>filter</strong>(repondants__lt=10)
+                x = Question.objects.filter(repondants<mark>__lt</mark>=10)
                 b = x[0]
                 return render(request, "detail.html", {
                     "q": b,
@@ -1681,6 +1817,9 @@
             </code></pre>
             
             <p>Cela va donc afficher une des questions ayant moins de 10 répondants, mais on ne sait pas préduire laquelle.
+            
+            <p class="comment">Cela va nous afficher une seule question, pour 
+                afficher toute la liste, direction <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
             
             <p>Souvenez-vous bien de ceci :
             
@@ -1704,6 +1843,9 @@
                     "q": b,
                 })
             </code></pre>
+            
+            <p class="comment">Cela va nous afficher une seule question, pour 
+                afficher toute la liste, direction <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
             
             <p>La liste sera donc triée par ordre <strong>croissant</strong> d'<code>id</code>.
             Prendre le premier élément de cette liste sera donc l'élément avec l'<code>id</code> le plus petit.
@@ -1732,6 +1874,9 @@
                     "q": b,
                 })
             </code></pre>
+            
+            <p class="comment">Cela va nous afficher une seule question, pour 
+                afficher toute la liste, direction <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
             
             <p>On affiche donc la question avec l'id le plus grand dans <strong>toute</strong> la base de donnée,
                 ce qui est donc probablement la dernière créée.
@@ -1844,10 +1989,10 @@
             
             <p>(Désolé pour mes blagues, il est tard et je ris facilement).
             
+            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: Boucles dans le template</h3>
+            
             <p>Nous manipulons des listes mais nous ne ne les voyons pas,
             ça serait bien si notre <strong>template</strong> était capable de nous afficher des listes et plus juste une seule question !
-            
-            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: Boucles dans le template</h3>
             
             <p>Créons maintenant une url <code class="url">/summary</code>,
                 qui contiendra toutes les pages, et ce, trié par répondants !
@@ -1902,13 +2047,11 @@
             Comment sera notre nouveau template qui accepte une liste <code>L</code> ?
             
             <pre class="developpement" symbol="liste_de_question.html"><code class="html">
-            &lt;body>
-                &lt;h1>Questions disponibles&lt;/h1>
-                {% for q in L %}
-                    &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
-                    &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
-                {% endfor %}
-            &lt;/body>
+            &lt;h1>Questions disponibles&lt;/h1>
+            {% for q in L %}
+                &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
+                &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
+            {% endfor %}
             </code></pre>
             
             <p>Testez maintenant cette nouvelle url !
@@ -1916,14 +2059,12 @@
             <p>Peut-être les balises html <code>&lt;ul></code> et <code>&lt;li></code> seront plus adaptés à notre affichage en liste ?
             
             <pre class="developpement" symbol="liste_de_question.html"><code class="html">
-            &lt;body>
-                &lt;h1>Questions disponibles&lt;/h1>
-                &lt;ul>
-                {% for q in L %}
-                    &lt;li>&#x7b;&#x7b; q.nom }} : &#x7b;&#x7b; q.repondants }}&lt;/li>
-                {% endfor %}
-                &lt;/ul>
-            &lt;/body>
+            &lt;h1>Questions disponibles&lt;/h1>
+            &lt;ul>
+            {% for q in L %}
+                &lt;li>&#x7b;&#x7b; q.nom }} : &#x7b;&#x7b; q.repondants }}&lt;/li>
+            {% endfor %}
+            &lt;/ul>
             </code></pre>
             
             <h3 id="exercices-sur-les-boucles">Exercices</h3>
@@ -1947,31 +2088,27 @@
             <p>Remarquez que le tag <code>{% if condition %}{% endif %}</code> existe, il est moins puissant que celui de python, mais peut parfois bien aider comme des cas comme ici.
             
             <pre class="developpement" symbol="liste_de_question.html"><code class="html">
-            &lt;body>
-                &lt;h1>Questions disponibles&lt;/h1>
-                {% for q in L %}
-                    {% if q.repondants == 0 %}
-                        &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
-                        &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
-                    {% else %}
-                        &lt;h2>Questions pas intéressante...&lt;/h2>
-                    {% endif %}
-                {% endfor %}
-            &lt;/body>
+            &lt;h1>Questions disponibles&lt;/h1>
+            {% for q in L %}
+                {% if q.repondants == 0 %}
+                    &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
+                    &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
+                {% else %}
+                    &lt;h2>Questions pas intéressante...&lt;/h2>
+                {% endif %}
+            {% endfor %}
             </code></pre>
             
             <p>Et on pourrait même ne pas les afficher :
             
             <pre class="developpement" symbol="liste_de_question.html"><code class="html">
-            &lt;body>
-                &lt;h1>Questions disponibles&lt;/h1>
-                {% for q in L %}
-                    {% if q.repondants == 0 %}
-                    &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
-                    &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
-                    {% endif %}
-                {% endfor %}
-            &lt;/body>
+            &lt;h1>Questions disponibles&lt;/h1>
+            {% for q in L %}
+                {% if q.repondants == 0 %}
+                &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
+                &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
+                {% endif %}
+            {% endfor %}
             </code></pre>
             
             <p>Ou tout simplement les exclure de la liste (django un peu plus <em>avancé</em>) :
@@ -2077,7 +2214,7 @@
                         return render(request, 'question_form.html')
                     </code></pre>
                 <pre class="developpement" symbol="accueil.html"><code class="html">
-                    &lt;p>Venez &lt;a href="/formulaire_creation_question">ici&lt;/a> pour créer une question !</p>
+                    &lt;p>Venez &lt;a href="/formulaire_creation_question">ici&lt;/a> pour créer une question !&lt;/p>
                 </code></pre>
                 <pre class="developpement" symbol="question_form.html"><code class="html">
                     &lt;form> &lt;!-- à remplir au prochain point -->
@@ -2128,7 +2265,7 @@
                     &lt;form method="GET" action="<mark>/creer_une_question</mark>"> 
                         &lt;p>Titre de la question : &lt;input type="text" name="le_nom" />&lt;/p>
                         &lt;p>Sa catégorie : &lt;input type="text" name="la_categorie" />&lt;/p>
-                        &lt;p><mark>&lt;input type="submit" /></mark>
+                        &lt;p><mark>&lt;input type="submit" /></mark>&lt;/p>
                     &lt;/form>
                 </code></pre>
                 <pre class="developpement" symbol="urls.py"><code class="py">
@@ -2156,12 +2293,11 @@
                     def creer_une_question(request):
                         a = request.GET['le_nom']
                         b = request.GET['la_categorie']
-                        
                         <mark>q = Question() </mark> # 1) on crée un objet
-                        <mark>q.nom = a      </mark> # 2) on lui met ses attributs
+                        <mark>q.nom = a</mark>       # 2) on lui met ses attributs
                         <mark>q.categorie = b</mark>
                         <mark>q.repondants = 0</mark>
-                        <mark>q.save()       </mark> # 3) on le sauve dans la base de donnée
+                        <mark>q.save()</mark>        # 3) on le sauve dans la base de donnée
                         return HttpResponse('Création réussie !')
                 </code></pre>
                 
@@ -2179,13 +2315,47 @@
                 </code></pre>
                 
                 <p>Et Django contient même <code class="developpement" symbol="un autre raccourci">Question.objects.create(nom=a, categorie=b, repondants=0)</code> qui fait les trois opérations en un coup
-                    mais rappelez vous surtout de la première manière qui sépare bien les 3 étapes.
+                    afin que l'on ne doivent même pas appeler <code>.save()</code> mais rappelez vous surtout de la première manière qui sépare bien les 3 étapes.
                     
                 <p>Essayez de remplir le formulaire, et vérifiez que l'objet a bien été créé dans la base de donnée !
             
                 <p>Chaque input aura un nom (<code>name</code> dans le html), c'est ce nom qui sera accessible dans django dans le paramètre de la requête.
                     Essayez d'appeler simplement vos deux <code>input</code> <code>name="premier"</code> et <code>name="deuxieme"</code>,
                     que devez vous changer dans le code python quand vous renommez ces deux <code>input</code> ?
+                    
+                <div class="developpement" symbol="default dans models.py">
+                <hr/>
+                <p>
+                    Ici on a explicitement dû mettre <code>repondants = 0</code> 
+                    lors de la création de la question,
+                    il est également possible de modifier <code>models.py</code>
+                    pour dire que l'attribut repondants a une valeur par défaut de 0
+                    
+                <pre><code class="py">
+                # models.py
+                
+                class Question(models.Model):
+                    nom = models.CharField(max_length=50)
+                    categorie = models.CharField(max_length=10)
+                    repondants = models.IntegerField(<mark>default=0</mark>)
+                </code></pre>
+                
+                <p>Du coup, on ne doit pas l'indiquer dans la vue :
+                
+                <pre><code class="py">
+                # views.py
+                
+                def creer_une_question(request):
+                    a = request.GET['le_nom']
+                    b = request.GET['la_categorie']
+                    
+                    q = Question(nom=a, categorie=b) # repondants prendra la valeur par défaut
+                    q.save()
+                    
+                    return HttpResponse('Création réussie !')
+                </code></pre>
+                <hr/>
+                </div>
             
             <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: Redirection avec http 301</h3>
                 <p>Quand la donnée a été sauvegardée, on doit bien entendu renvoyer une réponse, par exemple <em>Création réussie</em>,
@@ -2193,24 +2363,31 @@
                 Http 301 Redirect :
                 
                 <pre class="developpement" symbol="views.py"><code class="py">
-                    def creer_une_question(request):
-                        a = request.GET['le_nom']
-                        b = request.GET['la_categorie']
-                        q = Question(nom=a, categorie=b)
-                        q.save()
-                        <mark>return HttpResponseRedirect('/accueil')</mark>
+                <mark>from django.http import HttpResponseRedirect</mark>
+                
+                def creer_une_question(request):
+                    a = request.GET['le_nom']
+                    b = request.GET['la_categorie']
+                    q = Question(nom=a, categorie=b)
+                    q.save()
+                    <mark>return HttpResponseRedirect('/accueil')</mark>
                 </code></pre>
                 
                 <p class="comment">Dans les outils de développement, Ctrl+Shift+I, onglet réseau on voit que l'on a d'abord été sur la première url qui nous donne le formulaire,
                     puis sur <code class="url">/creer_une_question</code>
-                    qui nous renvoie (status = 301) (Redirect) pour dire <em>tout s'est bien passé, mais maintenant va sur une autre url !</em>
-                    et puis nous arrivons sur <code class="url">/accueil</code> qui nous renvoie status = 200 avec la page d'accueil.
+                    qui nous renvoie status = 301 (Redirect) pour dire <em>tout s'est bien passé, mais maintenant va sur une autre url !</em>
+                    et puis nous arrivons sur <code class="url">/accueil</code> qui nous renvoie status = 200 (OK) avec la page d'accueil.
                 
             <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: Validation</h3>
                 <p>Attention, la catégorie doit bien être une des 3 valeurs autorisées, <code>SPORT</code>, <code>SCIENCES</code>, <code>CULTURE</code>, le serveur doit vérifier cela !
                 
                 <p>Cette étape est une sorte de sécurité des données et est appelée <strong>Validation</strong>,
                     de la sorte, on n'acceptera pas n'importe quoi dans la base de donnée !
+                    
+                <p class="comment">
+                    Je peux citer plein d'autres exemples classiques de validation
+                    comme vérifier que si l'on attend un nombre on a bien reçu un nombre ou
+                    que si un utilisateur fait une transaction impliquant de l'argent, il a bien assez d'argent sur son compte.
                     
                 <p>Si l'utilisateur a écrit n'importe quoi, on fera une erreur 400 Bad Request
                 accompagnée d'un petit message sympatique.
@@ -2407,6 +2584,22 @@
             <!-- (2 min, using post) -->
             </div>
             
+            <h3 id="django.forms">Django forms, le tout en un !</h3>
+            
+            <p>Django met à disposition une classe <code>Form</code>, que l'on importe via <code class="py">from django import forms</code>,
+            cela permet de faire <em>automatiquement</em> les trois étapes qu'on a fait avant, à condition de savoir les utiliser :
+            
+            <ol>
+                <li>Création d'un formulaire en html (<code>&lt;form></code>, <code>&lt;input/></code> et companie).
+                <li>Lecture de la requête POST et le lien avec le modèle (<code>request.POST</code>, <code>q = Question()</code> et les <code>q.nom = ...</code>).
+                <li>Validation (vérifier que les données soient bien des <code>int</code>, que <code>type</code> soit bien <code>CULTURE</code>, <code>SPORT</code> ou <code>SCIENCES</code>, ou encore des validations plus compliquées).
+            </ol>
+            
+            <p>Ce tutoriel n'en parle pas car pour les débutants c'est autant d'efforts d'utiliser les <code>django.forms</code> que de coder un formulaire html.
+            Plus d'infos sur internet comme par exemple 
+                <a href="https://docs.djangoproject.com/{{fr|en}}/2.0/topics/forms/">ici</a> ({{disponible en français et anglais|available in French or English}}) ou
+                <a href="https://tutorial.djangogirls.org{{fr|en}}/django_forms/">là</a>.
+            
             <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: QCM dans la base de données</h3>
             <p>On aimerait maintenant que nos questions soient des Questions à Choix Multiples (QCM).
                 C'est à dire que l'on indique des choix possibles pour chaque Question.
@@ -2427,7 +2620,123 @@
                 Ça peut paraître stupide mais on verra plus tard avec les bases de données relationnelles comment avoir une meilleure solution.
             
             <table class="developpement" symbol="Aperçu de la table excel">
-                <tr><td>À venir</td></tr>
+                <thead>
+                    <tr>
+                        <th colspan="100">Table Question</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <th>nom</th>
+                    <th>repondants</th>
+                    
+                    <th>choix1</th>
+                    <th>choix2</th>
+                    <th>choix3</th>
+                    
+                    <th>votes1</th>
+                    <th>votes2</th>
+                    <th>votes3</th>
+                </tr>
+                
+                <tr>
+                    <td>Quel est votre fruit préféré ?</td>
+                    <td>32</td>
+                    
+                    <td>Les pommes</td>
+                    <td>Les bananes</td>
+                    <td>Les oranges</td>
+                    
+                    <td>15</td>
+                    <td>12</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td>Aimez vous le basket ?</td>
+                    <td>25</td>
+                    
+                    <td>Oui</td>
+                    <td>Non</td>
+                    <td>Peut-être</td>
+                    
+                    <td>20</td>
+                    <td>5</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>L'impédance d'un condensateur ?</td>
+                    <td>75</td>
+                    
+                    <td>1/jωC</td>
+                    <td>jωL</td>
+                    <td>jωC</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td>25</td>
+                </tr>
+            </table>
+            
+            <table class="developpement" symbol="Avec un autre ordre des colonnes">
+                <thead>
+                    <tr>
+                        <th colspan="100">Table Question</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <th>nom</th>
+                    <th>repondants</th>
+                    <th>choix1</th>
+                    <th>votes1</th>
+                    
+                    <th>choix2</th>
+                    <th>votes2</th>
+                    
+                    <th>choix3</th>
+                    <th>votes3</th>
+                </tr>
+                
+                <tr>
+                    <td>Quel est votre fruit préféré ?</td>
+                    <td>32</td>
+                    
+                    <td>Les pommes</td>
+                    <td>15</td>
+                    
+                    <td>Les bananes</td>
+                    <td>12</td>
+                    
+                    <td>Les oranges</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td>Aimez vous le basket ?</td>
+                    <td>25</td>
+                    
+                    <td>Oui</td>
+                    <td>20</td>
+                    
+                    <td>Non</td>
+                    <td>5</td>
+                    
+                    <td>Peut-être</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>L'impédance d'un condensateur ?</td>
+                    <td>75</td>
+                    
+                    <td>1/jωC</td>
+                    <td>25</td>
+                    
+                    <td>jωL</td>
+                    <td>25</td>
+                    
+                    <td>jωC</td>
+                    <td>25</td>
+                </tr>
             </table>
             
             <p>Crééez ces six colonnes dans notre modèle Django.
@@ -2463,7 +2772,10 @@
             <!-- (3 min) Create the 3 columns with the stupid 1 2 3 names. -->
             
             <h3 id="exerci{{c|s}}e-17">Exerci{{c|s}}e 17{{ |}}: QCM le &lt;form></h3>
-            <p>On est prêt maintenant à faire un <strong>formulaire de réponse</strong>.
+            
+            <p>On est prêt maintenant à faire un <strong>formulaire de réponse</strong>,
+            c'est à dire une page où les utilisateurs pourront répondre à nos questions !
+            
             <p>Créez une nouvelle url et afficher les trois choix possibles, pour que l'utilisateur puisse répondre,
                 dans un premier temps vous pouvez juste faire un <code class="html">&lt;input type="text"></code> qui
                 va contenir 1, 2 ou 3 en fonction du choix voulu (ou un <code class="html">&lt;input type="number"></code> va déjà forcer l'utilisateur à écrire un nombre).
@@ -2485,13 +2797,16 @@
             </code></pre>
             
             <p>Remarquez maintenant que nous avons presque fait le tour des 4 opérations possibles sur une base de donnée :
-                CRUD (Create, Read, Update, Delete).
+                <strong>CRUD</strong> (<strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete).
+            
+            <ul>
+                <li>On peut <strong>créer</strong> des questions,
+                <li>les <strong>lire</strong> pour les afficher sur une page de détail ou sur une page de liste,
+                <li>les <strong>modifier</strong> pour compter les votes,
+                <li>et il nous manque une manière de les <strong>supprimer</strong> de la base de données.
+            </ul>
                 
-                On peut <strong>créer</strong> des questions, les <strong>lire</strong> pour les afficher sur une page de détail ou sur
-                une page de liste, les <strong>modifier</strong> pour compter les votes et il nous manque une manière de les <strong>supprimer</strong>
-                de la base de données.
-                
-                Cependant il devient de plus en plus rare qu'on supprime des données car ça permet de faire des statistiques.
+            <p class="comment">Cependant il devient de plus en plus rare qu'on supprime des données car ça permet de faire des statistiques.
                 On préférera rajoter un attribut disant que la donnée n'existe plus et puis on ne l'affichera simplement pas dans la liste.
             
             <p>Finalement, peut-être que l'utilisateur trouvera plus utile d'avoir un <code class="html">&lt;input type="radio"></code> comme ceci :
@@ -2868,10 +3183,12 @@
                 <mark>createur = models.ForeignKey(User, on_delete=models.CASCADE)</mark>
             </code></pre>
             
-            <p>La <code>class User</code> contient un attribut obligatoire <code>username</code> utilisé pour la connection des attributs classiques comme first_name
+            <p>La <code class="py">class User</code> contient un attribut obligatoire <code>username</code> utilisé pour la connection ainsi que des attributs classiques comme <code>first_name</code>,
+            <code>last_name</code>, <code>email</code> ou encore <code>date_joined</code>.
             
-            <p>Pour faire un login, on lira <a href="https://docs.djangoproject.com/fr/2.0/topics/auth/">la documentation officielle</a>.
-            
+            <p>Pour faire un login, on lira <a href="https://docs.djangoproject.com/fr/2.0/topics/auth/">la documentation officielle</a>,
+            spécialement la partie qui parle de <a href="https://docs.djangoproject.com/fr/2.0/topics/auth/default/#auth-web-requests">login et logout</a>.
+
             <p>À partir d'ici, cette section est en cours d'écriture, donc si vous êtes arrivés jusque ici en guidances, venez me voir (Robert Vanden Eynde sur facebook) et je vous raconterai l'essentiel !
             
             <div class="developpement" symbol="Cette section est un Brouillon">
@@ -2992,7 +3309,7 @@
             <ol>
                 {{
                 <li><strong>Un</strong> <code>Message</code> a un <code>etudiant</code> qui est un <code>Etudiant</code>.
-                <li><strong>Un</strong> <code>Etudiant</code> a une <code>liste_message</code> qui contient des <code>Message</code>.
+                <li><strong>Un</strong> <code>Etudiant</code> a une <code>liste_message</code> qui sont des <code>Message</code>.
                 |
                 <li><strong>One</strong> <code>Message</code> has a <code>student</code> who is a <code>Student</code>.
                 <li><strong>One</strong> <code>Student</code> has a <code>message_list</code> containing <code>Message</code>.
@@ -3029,16 +3346,28 @@
                     {{receveur|receiver}} = ForeignKey({{Etudiant|Student}}, related_name='{{liste_message_en_receiver|message_list_as_receiver}}')
             </code></pre>
             
+            <p>On lira donc :
+            
+            <ol>
+                {{
+                <li><strong>Un</strong> <code>Message</code> a un <code>envoyer</code> qui est un <code>Etudiant</code>.
+                <li><strong>Un</strong> <code>Etudiant</code> a une <code>liste_message_en_envoyeur</code> sont des <code>Message</code>.
+                |
+                <li><strong>One</strong> <code>Message</code> has a <code>sender</code> who is a <code>Student</code>.
+                <li><strong>One</strong> <code>Student</code> has a <code>message_list_as_sender</code> containing <code>Message</code>.
+                }}
+            </ol>
+            
             <p>{{On pourrait alors écrire :|One could then write :}}
             
             <pre><code class="py">
                 s = {{Etudiant|Student}}.objects.get(id=5)
                 
                 A = Message.objects.filter({{envoyeur|sender}}=s)
-                A = s.{{liste_message_en_envoyeur|message_list_as_sender}}.all() # shortcut
+                A = s.{{liste_message_en_envoyeur|message_list_as_sender}}.all() # {{raccourci|shortcut}}
                 
                 B = Message.objects.filter({{receveur|receiver}}=s)
-                B = s.{{liste_message_en_receiver|message_list_as_receiver}}.all() # shortcut
+                B = s.{{liste_message_en_receiver|message_list_as_receiver}}.all() # {{raccourci|shortcut}}
             </code></pre>
             
             <p class="comments">
@@ -3047,26 +3376,36 @@
                 | Let's notice that in our context, <code class="py">'messages_sent'</code> could be 
                 a better name than <code class="py">'message_list_as_sender'</code>. }}
             
-            <p>Finally, what if we want a <code>ForeignKey</code> from the class to <strong>the same class</strong> ?
-            For example, each {{Etudiant|Student}} may or may not have a tutor, one must Use the quoted version of the ForeignKey :
+            <p>{{ Finalement, imaginons que l'on veut une <code>ForeignKey</code>
+                  de la classe vers <strong>la même classe</strong> ?
+                | Finally, what if we want a <code>ForeignKey</code>
+                  from the class to <strong>the same class</strong> ? }}
+                
+                {{ Par exemple, chaque Etudiant peut ou non avoir un tuteur,
+                on doit alors utiliser la définition des ForeignKey avec les guillemets :
+                | For example, each {{Etudiant|Student}} may or may not have a tutor,
+                one must use the quoted version of the ForeignKey : }}
             
             <pre><code>
                 class {{Etudiant|Student}}(Model):
                     {{tuteur|tutor}} = ForeignKey('{{Etudiant|Student}}', null=True)
             </code></pre>
             
-            <p>In that case, there is also a shortcut, <code class="py">'self'</code> :
+            <p>{{ Pour des raisons évidents, l'attribut doit être <em>nullable</em> (<code>null=True</code>),
+                  ce qui veut dire ici qu'il est possible qu'un étudiant n'aie pas de tuteur (en python, <code>tuteur is None</code>)
+                | For obvious reasons, the attribute must be nullable (<code>null=True</code>),
+                  which means here that it's possible for a student to not have any tutor (in python, <code>tutor is None</code>). }}
+            
+            <p>
+            {{ Dans ce cas, il y a aussi un raccourci, <code class="py">'self'</code> :
+            | In that case, there is also a shortcut, <code class="py">'self'</code> : }}
             
             <pre><code>
                 class {{Etudiant|Student}}(Model):
                     {{tuteur|tutor}} = ForeignKey('self', null=True)
             </code></pre>
             
-            <h3 id="exerci{{c|s}}e-24">Exerci{{c|s}}e 24{{ |}}: More django: clean <code>GET</code> urls</h3>
-            <p>Des urls comme <code>/detail?n=12345</code> c'est parfois pas très élégant, avec Django, il est facile de faire <code>/detail/12345</code>, 
-            plus d'info sur la <a href="https://docs.djangoproject.com/fr/2.0/topics/http/urls/">documentation officielle</a>.
-            
-            <h3 id="exerci{{c|s}}e-25">Exerci{{c|s}}e 25{{ |}}: Cookies et sessions</h3>
+            <h3 id="exerci{{c|s}}e-24">Exerci{{c|s}}e 24{{ |}}: Cookies et sessions</h3>
             
             <p>Le login de django utilise des <em>cookies</em> et des <em>sessions</em>, cette section expliquera en détail ce que sont ces deux concepts.
             

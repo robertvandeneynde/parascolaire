@@ -66,7 +66,8 @@ del ma_liste[1] # l'élément numéro "1" est supprimé, la liste vaut donc [9,7
 
 i = 0
 while i < len(ma_liste):
-    print(ma_liste[i])
+    x = ma_liste[i]
+    print(x)
     i = i + 1
 
 # Tu as toutes les bases pour faire tous les exercices

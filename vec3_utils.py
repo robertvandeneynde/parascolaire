@@ -5,9 +5,7 @@ from math import sin, cos, degrees, radians, tan
 import numpy
 import numpy as np
 from numpy import array, matrix, linalg
-
-def farray(*args):
-    return numpy.array(*args, dtype=numpy.float32)
+from numpy import float32 as farray
 
 def sind(x):
     return sin(radians(x))
