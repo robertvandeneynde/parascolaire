@@ -6,33 +6,43 @@
 DEFAULT_LANG=fr
 LANGS='fr en'
 
+if [ "$1" = fast ] || [ -z "$1" ]; then
+    FAST=true
+elif [ "$1" = total ] || [ "$1" = slow ] || [ "$1" = all ]; then
+    FAST=false
+else
+    FAST=false
+fi
+
 python3 generate_multilang.py --langs $LANGS
 
-if [ 1 = 0 ]; then
-# multilang py files
-for n in progra_equivalences theorie1_egal_if; do
-    for l in $LANGS; do
-        python3 ./generate_html_from_py.py \
-            ${n}_${l}.py \
-            --template pytext_template.html \
-            --out ${n}_${l}.html \
-            --langs $LANGS \
-            --lang-url=${n}_{lang}.html \
-            --lang $l
+if [ "$FAST" = false ]; then
+    # multilang py files
+    for n in progra_equivalences theorie1_egal_if; do
+        for l in $LANGS; do
+            python3 ./generate_html_from_py.py \
+                ${n}_${l}.py \
+                --template pytext_template.html \
+                --out ${n}_${l}.html \
+                --langs $LANGS \
+                --lang-url=${n}_{lang}.html \
+                --lang $l
+        done
+        for ext in html py; do
+            rm -f ${n}.${ext}
+            cp ${n}_${DEFAULT_LANG}.${ext} ${n}.${ext}
+        done
     done
-    for ext in html py; do
-        rm -f ${n}.${ext}
-        cp ${n}_${DEFAULT_LANG}.${ext} ${n}.${ext}
-    done
-done
 
-# non multilang py files
-for n in theorie2_liste_while theorie3_fonctions_et_objets; do
-    python3 ./generate_html_from_py.py \
-        ${n}.py \
-        --template pytext_template.html \
-        --out ${n}.html
-done
+    # non multilang py files
+    for n in theorie2_liste_while theorie3_fonctions_et_objets; do
+        python3 ./generate_html_from_py.py \
+            ${n}.py \
+            --template pytext_template.html \
+            --out ${n}.html
+    done
+else
+    echo "FAST generation: skipping generate_html_from_py"
 fi
 
 python3 generate_html.py

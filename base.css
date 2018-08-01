@@ -13,7 +13,7 @@ section {
     border-radius: 25px;
     
     padding: 20px;
-    background: #F7F7FF;
+    background: white; /* #F7F7FF */
     border-radius: 0px 0px 25px 25px;
 }
 
@@ -122,6 +122,14 @@ h2 {
 h1 {
     color: #555;
     white-space: nowrap;
+}
+
+h3 {
+    color: #339;
+}
+
+h4 {
+    color: #66f;
 }
 
 .index h1 {

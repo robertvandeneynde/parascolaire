@@ -56,7 +56,7 @@
                 border-radius: 5px;
                 background: white;
             }
-            table.shortcuts > tbody > tr > td:first-child {
+            table.shortcuts td:first-child {
                 text-align: center;
                 min-width: 160px;
             }
@@ -285,7 +285,7 @@
             </code></pre>
             
             <p>Nous voyons que la tortue est une super calculette ! Bien mieux que <a href="http://pi.ac3j.fr/wp-content/uploads/2014/01/TIcollege.jpg">cet objet des années 80</a>, crois-moi.
-            <p>Remarque qu'à la dernière ligne fait avancer la tortue de 200 pixels, car dans une calculette, le <kbd>×</kbd> se fait avant le <kbd>+</kbd>, et donc <code class="nowrap">40 + 80 * 2 = 40 + 160 = 200</code>, c'est la priorité des opérations.
+            <p>Remarque que la dernière ligne fait avancer la tortue de 200 pixels, car dans une calculette, le <kbd>×</kbd> se fait avant le <kbd>+</kbd>, et donc <code class="nowrap">40 + 80 * 2 = 40 + 160 = 200</code>, c'est la priorité des opérations.
             
         </section>
         
@@ -503,128 +503,165 @@
             
             <figure>
                 <a href="basics-of-editing-text-on-keyboard.{{fr|en}}.svg">
-                <img style="max-width:100%; width:535px" src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
+                    <img style="max-width:100%; width:535px" src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
                 </a>
             </figure>
             
             <p>Les classiques...
             
-            <table class="shortcuts"><tbody>
-                <tr><th>Symbol{{e|}}</th>        <th>{{Utilité|Use}}</th></tr>
+            <table class="shortcuts">
+                <tr><th>Symbol{{e|}}
+                    <th>{{Utilité|Use}}
                 
-                <td>←↓↑→</td>                <td>{{Les touches directionnelles (Arrow keys) déplacent le curseur.|Arrows keys (<em>touches directionnelles</em>) move cursor.}}</td>
-                <tr><td><kbd>⇧Shift</kbd></td>     <td>{{Shift (Maj.) permet d'écrire un caractère de niveau 2, comme les majuscules, ou le point sur un clavier AZERTY français.|Shift (<em>Maj.</em>) allows writing a Level 2 character, like the.}}</td>
-                <tr><td><kbd>AltGr</kbd></td> <td>{{AltGr permet d'écrire un caractère de niveau 3 comme le <code>€</code> sur un AZERTY français, on appuie dessus avec le pouce droit (<kbd>⌥</kbd> sur Mac).|AltGr (Right Alt) allows writing Level 3 characters (<kbd>⌥</kbd> on Mac).}}</td>
-                <tr><td><kbd>⌫ Backspace</kbd>          <td>{{Backspace (Retour Arrière) supprime le caractère à gauche.|Backspace (<em>Retour Arrière</em>) deletes the character to the left.}}</td>
-                <tr><td><kbd>Del</kbd></td>   <td>{{Delete (Suppr.) supprime le caractère à droite (parfois <kbd>⌃Control</kbd>+<kbd>D</kbd> parfois <kbd>Fn</kbd>+<kbd>⌫</kbd> sous Mac).|Delete (<em>Suppr</em>.) deletes the character to the right (sometimes <kbd>⌃Control</kbd>+<kbd>D</kbd> sometimes <kbd>Fn</kbd>+<kbd>⌫</kbd> on Mac).}}</td>
-                <tr><td><kbd>↵</kbd></td>     <td>{{Enter (Entrée) passe à la ligne.|Enter (<em>Entrée</em>) inserts goes to the next line.}}</td>
+                <tr><td>←↓↑→
+                    <td>{{Les touches directionnelles (Arrow keys) déplacent le curseur.|Arrows keys (<em>touches directionnelles</em>) move cursor.}}
+                
+                <tr><td><kbd>⇧Shift</kbd>
+                    <td>{{Shift (Maj.) permet d'écrire un caractère de niveau 2, comme les majuscules, ou le point sur un clavier AZERTY français.|Shift (<em>Maj.</em>) allows writing a Level 2 character, like the.}}
+                
+                <tr><td><kbd>AltGr</kbd>
+                    <td>{{AltGr permet d'écrire un caractère de niveau 3 comme le <code>€</code> sur un AZERTY français, on appuie dessus avec le pouce droit (<kbd>⌥</kbd> sur Mac).|AltGr (Right Alt) allows writing Level 3 characters (<kbd>⌥</kbd> on Mac).}}
+                
+                <tr><td><kbd>⌫ Backspace</kbd>
+                    <td>{{Backspace (Retour Arrière) supprime le caractère à gauche.|Backspace (<em>Retour Arrière</em>) deletes the character to the left.}}
+                
+                <tr><td><kbd>Del</kbd>
+                    <td>{{Delete (Suppr.) supprime le caractère à droite (parfois <kbd>⌃Control</kbd>+<kbd>D</kbd> parfois <kbd>Fn</kbd>+<kbd>⌫</kbd> sous Mac).|Delete (<em>Suppr</em>.) deletes the character to the right (sometimes <kbd>⌃Control</kbd>+<kbd>D</kbd> sometimes <kbd>Fn</kbd>+<kbd>⌫</kbd> on Mac).}}
+                
+                <tr><td><kbd>↵</kbd>
+                    <td>{{Enter (Entrée) passe à la ligne.|Enter (<em>Entrée</em>) inserts goes to the next line.}}
             
-            </tbody></table>
+            </table>
             
             <p>D'autres classiques...
             
-            <table class="shortcuts"><tbody>
-                <tr><td><kbd>Ctrl</kbd> + <kbd>Z</kbd> </td><td>
-                    <em>{{ Annuler | Undo }}</em>
-                    (<kbd>⌘</kbd> + <kbd>Z</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd> + <kbd>C</kbd> </td><td>
-                    <em>{{ Copier | Copy }}</em>
-                    (<kbd>⌘</kbd> + <kbd>C</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd> + <kbd>V</kbd> </td><td>
-                    <em>{{ Coller | Paste }}</em>
-                    (<kbd>⌘</kbd> + <kbd>V</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd> + <kbd>X</kbd> </td><td>
-                    <em>{{ Couper | Cut }}</em>
-                    (<kbd>⌘</kbd> + <kbd>X</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>Z</kbd> </td><td>
-                    <em>{{ Rétablir (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>)
-                        | Redo (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation) }}</em>
-                        
-                    (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>Z</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd> + <kbd>Y</kbd> </td><td>
-                    {{ <em>Rétablir</em> (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>)... dans certaines applications non basées sur Linux (càd des <em style="font-style:italic">mauvaises</em> applications selon mon humble opinion d'ingénieur, sujet que je peux débattre).
-                        | <em>Redo</em> (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation)... in some applications that are not based on Linux (ie. <em style="font-style:italic">bad</em> applications in my humble engineer opinion, I can debate on that). }}
-                        
-                    (<kbd>⌘</kbd> + <kbd>Y</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd> + <kbd>F</kbd> </td><td>
-                    <em>{{ Chercher ! | Search! }}</em> (Ctrl <strong>F</strong>ind)
-                    (<kbd>⌘</kbd> + <kbd>F</kbd> {{sur|on}} Mac).
-                </td></tr>
+            <table class="shortcuts">
                 <tr>
-                    <td>
-                        <kbd>⇱ Home</kbd>
-                    </td>
-                    <td>
-                        Aller au début de la ligne, peut être également combinée avec <kbd>Shift</kbd> pour sélectionner du texte.
-                    </td>
-                </tr>
+                    <td><kbd>Ctrl</kbd> + <kbd>Z</kbd>
+                    <td><em>{{ Annuler | Undo }}</em>
+                        (<kbd>⌘</kbd> + <kbd>Z</kbd> {{sur|on}} Mac).
+                
                 <tr>
-                    <td>
-                        <kbd>⇲ End</kbd>
+                    <td><kbd>Ctrl</kbd> + <kbd>C</kbd>
+                    <td><em>{{ Copier | Copy }}</em>
+                        (<kbd>⌘</kbd> + <kbd>C</kbd> {{sur|on}} Mac).
+                
+                <tr>
+                    <td><kbd>Ctrl</kbd> + <kbd>V</kbd>
+                    <td><em>{{ Coller | Paste }}</em>
+                        (<kbd>⌘</kbd> + <kbd>V</kbd> {{sur|on}} Mac).
+                
+                <tr>
+                    <td><kbd>Ctrl</kbd> + <kbd>X</kbd>
+                    </td><td>
+                        <em>{{ Couper | Cut }}</em>
+                        (<kbd>⌘</kbd> + <kbd>X</kbd> {{sur|on}} Mac).
                     </td>
-                    <td>
-                        Aller à la fin de la ligne, peut être également combinée avec <kbd>Shift</kbd> pour sélectionner du texte.
-                    </td>
-                </tr>
-            </tbody></table>
+                
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>Z</kbd>
+                    <td><em>{{ Rétablir (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>)
+                            | Redo (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation) }}</em>
+                            
+                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>Z</kbd> {{sur|on}} Mac).
+                
+                <tr>
+                    <td><kbd>Ctrl</kbd> + <kbd>Y</kbd>
+                    <td>{{ <em>Rétablir</em> (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>)... dans certaines applications non basées sur Linux (càd des <em style="font-style:italic">mauvaises</em> applications selon mon humble opinion d'ingénieur, sujet que je peux débattre).
+                            | <em>Redo</em> (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation)... in some applications that are not based on Linux (ie. <em style="font-style:italic">bad</em> applications in my humble engineer opinion, I can debate on that). }}
+                            
+                        (<kbd>⌘</kbd> + <kbd>Y</kbd> {{sur|on}} Mac).
+ 
+                <tr>
+                    <td><kbd>Ctrl</kbd> + <kbd>F</kbd> 
+                    <td><em>{{ Chercher ! | Search! }}</em> (Ctrl <strong>F</strong>ind)
+                        (<kbd>⌘</kbd> + <kbd>F</kbd> {{sur|on}} Mac).
+                
+                <tr>
+                    <td><kbd>⇱ Home</kbd>
+                    <td>Aller au début de la ligne, peut être également combinée avec <kbd>Shift</kbd> pour sélectionner du texte.
+                
+                <tr>
+                    <td><kbd>⇲ End</kbd>
+                    <td>Aller à la fin de la ligne, peut être également combinée avec <kbd>Shift</kbd> pour sélectionner du texte.
+            </table>
             
             <p>{{Et maintenant, les peu connus !|And now, the ones people don't know!}}</p>
             
-            <table class="shortcuts"><tbody>
+            <table class="shortcuts">
             
                 <!-- class="interesting-row" -->
-                <tr><td><kbd>Ctrl</kbd>+<kbd>→</kbd></td> <td colspan="1">{{
-                    <em><strong>Mot</strong> suivant</em> (<kbd>⌥</kbd>+<kbd>→</kbd> sur Mac).
-                    | <em>Next <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>→</kbd> on Mac).
-                }}</td></tr>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>←</kbd> </td> <td colspan="1">{{
-                    <em><strong>Mot</strong> précédent</em> (<kbd>⌥</kbd>+<kbd>←</kbd> sur Mac).
-                    | <em>Previous <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>←</kbd> on Mac).
-                }}</td></tr>
-                <tr><td><kbd>⇧Shift</kbd>+<kbd>→</kbd></td> <td colspan="1">{{
-                    <em><strong>Sélectionner</strong> un caractère vers la droite</em>.
-                    | <em><strong>Select</strong> a character to the right</em>.
-                }}</td></tr>
-                <tr><td><kbd>⇧Shift</kbd>+<kbd>←</kbd> </td> <td colspan="1">{{
-                    <em><strong>Sélectionner</strong> un caractère vers la gauche</em>.
-                    | <em><strong>Select</strong> a character to the left</em>.
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>→</kbd>
+                    <td colspan="1">{{
+                        <em><strong>Mot</strong> suivant</em> (<kbd>⌥</kbd>+<kbd>→</kbd> sur Mac).
+                        | <em>Next <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>→</kbd> on Mac).
+                    }}
                     
-                }}</td></tr>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>→</kbd> </td><td colspan="1">{{
-                    <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la droite</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>→</kbd> sur Mac).
-                    | <em><strong>Select</strong> a <strong>word</strong> to the right</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>→</kbd> on Mac).
-                }}</td></tr>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>←</kbd> </td><td colspan="1">{{
-                    <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la gauche</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>←</kbd> sur Mac).
-                    | <em><strong>Select</strong> a <strong>word</strong> to the left</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>←</kbd> on Mac).
-                }}</td></tr>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>⌫</kbd></td> <td colspan="1"> {{
-                    <em><strong>Supprimer</strong> le <strong>mot</strong> précédent</em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> sur Mac), c'est 
-                    très pratique pour supprimer plusieurs mots d'affilées, il suffit de maintenir <kbd>Ctrl</kbd> enfoncé et d'appuyer sur <kbd>⌫ Backspace</kbd> plusieurs fois.
-                    | <em><strong>Delete</strong> previous <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> on Mac), it's
-                    very handy to delete multiple words, you just have to hold <kbd>Ctrl</kbd> then press <kbd>⌫ Backspace</kbd> multiple times.
-                }}</td></tr>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>Del</kbd></td> <td colspan="1"> {{
-                    <em><strong>Supprimer</strong> le <strong>mot</strong> suivant</em> (n'existe pas sur Mac), même remarque que la ligne précédente.
-                    | <em><strong>Delete</strong> next <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> on Mac), same note as previous line.
-                }}</td></tr>
-                <tr><td>Double clic <td colspan="1"> {{
-                    <em><strong>Sélectionne le mot</strong> sous la souris.</em>
-                    |
-                    <em><strong>Select the word</strong> under the mouse.</em>
-                }}</td></tr>
-                <tr><td>Triple clic <td colspan="1"> {{
-                    <em><strong>Sélectionne la ligne</strong> sous la souris.</em>
-                    |
-                    <em><strong>Select the line</strong> under the mouse.</em>
-                }}</td></tr>
-            </tbody></table>
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>←</kbd>
+                    <td colspan="1">{{
+                        <em><strong>Mot</strong> précédent</em> (<kbd>⌥</kbd>+<kbd>←</kbd> sur Mac).
+                        | <em>Previous <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>←</kbd> on Mac).
+                    }}
+                    
+                <tr>
+                    <td><kbd>⇧Shift</kbd>+<kbd>→</kbd>
+                    <td colspan="1">{{
+                        <em><strong>Sélectionner</strong> un caractère vers la droite</em>.
+                        | <em><strong>Select</strong> a character to the right</em>.
+                    }}
+                    
+                <tr>
+                    <td><kbd>⇧Shift</kbd>+<kbd>←</kbd>
+                    <td colspan="1">{{
+                        <em><strong>Sélectionner</strong> un caractère vers la gauche</em>.
+                        | <em><strong>Select</strong> a character to the left</em>.
+                        
+                    }}
+                    
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>→</kbd> </td><td colspan="1">{{
+                        <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la droite</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>→</kbd> sur Mac).
+                        | <em><strong>Select</strong> a <strong>word</strong> to the right</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>→</kbd> on Mac).
+                    }}
+                    
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>←</kbd> </td><td colspan="1">{{
+                        <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la gauche</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>←</kbd> sur Mac).
+                        | <em><strong>Select</strong> a <strong>word</strong> to the left</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>←</kbd> on Mac).
+                    }}
+                    
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>⌫</kbd>
+                    <td colspan="1"> {{
+                        <em><strong>Supprimer</strong> le <strong>mot</strong> précédent</em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> sur Mac), c'est 
+                        très pratique pour supprimer plusieurs mots d'affilées, il suffit de maintenir <kbd>Ctrl</kbd> enfoncé et d'appuyer sur <kbd>⌫ Backspace</kbd> plusieurs fois.
+                        | <em><strong>Delete</strong> previous <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> on Mac), it's
+                        very handy to delete multiple words, you just have to hold <kbd>Ctrl</kbd> then press <kbd>⌫ Backspace</kbd> multiple times.
+                    }}
+                    
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>Del</kbd>
+                    <td colspan="1"> {{
+                        <em><strong>Supprimer</strong> le <strong>mot</strong> suivant</em> (n'existe pas sur Mac), même remarque que la ligne précédente.
+                        | <em><strong>Delete</strong> next <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> on Mac), same note as previous line.
+                    }}
+                    
+                <tr>
+                    <td>Double clic <td colspan="1"> {{
+                        <em><strong>Sélectionne le mot</strong> sous la souris.</em>
+                        |
+                        <em><strong>Select the word</strong> under the mouse.</em>
+                    }}
+                    
+                <tr>
+                    <td>Triple clic <td colspan="1"> {{
+                        <em><strong>Sélectionne la ligne</strong> sous la souris.</em>
+                        |
+                        <em><strong>Select the line</strong> under the mouse.</em>
+                    }}
+            </table>
             
             <p>{{ Ça marche partout <strong>même sur Facebook</strong> ! Et remarquez qu'il y a une touche <kbd>Ctrl</kbd> et <kbd>Shift</kbd> juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec <strong>uniquement la main droite</strong> !
                 | It works everywhere <strong>even on Facebook</strong>! And let's notice that there is a <kbd>Ctrl</kbd> and <kbd>Shift</kbd> key next to the arrow keys so all of these shortcuts can be done <strong>with the right hand only</strong>! }}
@@ -632,22 +669,25 @@
             <p>{{ En plus de ça, quelques raccourcis utiles quand vous éditez du code :
                 |Moreover, here are some useful shortcuts when you edit code: }}
             
-            <table class="shortcuts"><tbody>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>D</kbd> </td><td>
-                    <em>{{ Supprimer une ligne (Ctrl <strong>D</strong>elete) | Delete a line }}</em>
-                    (<kbd>⌘</kbd>+<kbd>D</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>D</kbd> </td><td>
-                    <em>{{ Dupliquer une ligne | Duplicate a line }}</em>
-                    (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>D</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Tab ↹</kbd> </td><td>
-                    <em>{{ Indenter les lignes sélectionnées. | Indent the selected lines. }}</em>
-                </td></tr>
-                <tr><td><kbd>⇧Shift</kbd>+<kbd>Tab ↹</kbd> </td><td>
-                    <em>{{ Désindenter les lignes sélectionnées. | Dedent the selected lines. }}</em>
-                </td></tr>
-            </tbody></table>
+            <table class="shortcuts">
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>D</kbd> </td>
+                    <td><em>{{ Supprimer une ligne (Ctrl <strong>D</strong>elete) | Delete a line }}</em>
+                        (<kbd>⌘</kbd>+<kbd>D</kbd> {{sur|on}} Mac).
+
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>D</kbd>
+                    <td>
+                                    <em>{{ Dupliquer une ligne | Duplicate a line }}</em>
+                                    (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>D</kbd> {{sur|on}} Mac).
+                <tr>
+                    <td><kbd>Tab ↹</kbd>
+                    <td><em>{{ Indenter les lignes sélectionnées. | Indent the selected lines. }}</em>
+
+                <tr>
+                    <td><kbd>⇧Shift</kbd>+<kbd>Tab ↹</kbd>
+                    <td><em>{{ Désindenter les lignes sélectionnées. | Dedent the selected lines. }}</em>
+            </table>
             
             <p>{{ Ça marche aussi quand vous avez plusieurs lignes sélectionnées,
                 | It also works when you have multiple selected lines, }}
@@ -658,54 +698,81 @@
             <p>{{ Et finalement d'autres ne marchant pas sur mon site mais que je conseille :
                 | And finally others that do not work on my site but that I recommend: }}
             
-            <table class="shortcuts"><tbody>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>↑</kbd> </td><td>
-                    {{ <em>Déplacer la ligne vers le haut</em>
-                    | <em>Move line up</em> }}
-                    (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↑</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>↓</kbd> </td><td>
-                    {{ <em>Déplacer la ligne vers le bas</em> 
-                    | <em>Move line down</em> }}
-                    (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↓</kbd> {{sur|on}} Mac).
-                </td></tr>
-            </tbody></table>
+            <table class="shortcuts">
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>↑</kbd> 
+                    <td>{{ <em>Déplacer la ligne vers le haut</em>
+                        | <em>Move line up</em> }}
+                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↑</kbd> {{sur|on}} Mac).
+
+                <tr>
+                    <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>↓</kbd>
+                    <td>{{ <em>Déplacer la ligne vers le bas</em> 
+                        | <em>Move line down</em> }}
+                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↓</kbd> {{sur|on}} Mac).
+                        
+            </table>
             
-            <p>{{ Et <em>vraiment</em> finalement, tant que j'y suis, voici mes raccourcis du navigateur internet (j'&#9829; les onglets) :
+            <p>{{ Et <em>vraiment</em> finalement, tant que j'y suis, voici mes raccourcis du <strong>navigateur internet</strong> (j'&#9829; les onglets) :
                 | And <em>really</em> finally, while you're still here, here are my browser shortcuts (I &#9829; tabs): }}
             
-            <table class="shortcuts"><tbody>
-                <tr><td> <kbd>Ctrl</kbd> + <kbd>T</kbd> </td><td>
-                    {{ <em>Nouvel onglet</em> (puis je tappe ma recherche)
-                    | <em>New tab</em> (then I write my search) }}
-                    (<kbd>⌘</kbd> + <kbd>T</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td> <kbd>Ctrl</kbd> + <kbd>L</kbd> </td><td>
-                    {{ <em>Mettre le focus sur la barre d'addresse</em> (Ctrl <strong>L</strong>ocation)
-                    | <em>Focus location bar</em> }}
-                    (<kbd>⌘</kbd> + <kbd>L</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td> <kbd>Ctrl</kbd> + <kbd>W</kbd> </td><td>
-                    {{ <em>Fermer l'onglet</em> (parfois ça m'arrive)
-                    | <em>Close tab</em> (sometimes, it happens) }}
-                    (<kbd>⌘</kbd> + <kbd>W</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td> <kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>T</kbd> </td><td>
-                    {{ <em>Ré-ouvrir le dernier onglet fermé</em>
-                    | <em>Reopen last closed tab</em> }}
-                    (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>T</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td><kbd>Ctrl</kbd> + <kbd>F</kbd> </td><td>
-                    <em>{{ Chercher ! | Search! }}</em> (Ctrl <strong>F</strong>ind)
-                    (<kbd>⌘</kbd> + <kbd>F</kbd> {{sur|on}} Mac).
-                </td></tr>
-                <tr><td>Clic milieu</td><td>
-                    Sur un lien, l'ouvrir dans un nouvel onglet.
-                </td></tr>
-                <tr><td>Clic milieu</td><td>
-                    Sur un onglet, fermer l'onglet.
-                </td></tr>
-            </tbody></table>
+            <table class="shortcuts">
+                <tr>
+                    <td>
+                        <kbd>Ctrl</kbd> + <kbd>T</kbd>
+                    </td>
+                    <td>
+                        {{ <em>Nouvel onglet</em> (puis je tappe ma recherche)
+                        | <em>New tab</em> (then I write my search) }}
+                        (<kbd>⌘</kbd> + <kbd>T</kbd> {{sur|on}} Mac).
+                    </td>
+
+                <tr>
+                    <td>
+                        <kbd>Ctrl</kbd> + <kbd>L</kbd>
+                    </td>
+                    <td>
+                        {{ <em>Mettre le focus sur la barre d'addresse</em> (Ctrl <strong>L</strong>ocation)
+                        | <em>Focus location bar</em> }}
+                        (<kbd>⌘</kbd> + <kbd>L</kbd> {{sur|on}} Mac).
+                    </td>
+
+                <tr>
+                    <td> <kbd>Ctrl</kbd> + <kbd>W</kbd> </td>
+                    <td>
+                        {{ <em>Fermer l'onglet</em> (parfois ça m'arrive)
+                        | <em>Close tab</em> (sometimes, it happens) }}
+                        (<kbd>⌘</kbd> + <kbd>W</kbd> {{sur|on}} Mac).
+                    </td>
+
+                <tr>
+                    <td> <kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>T</kbd> </td>
+                    <td>
+                        {{ <em>Ré-ouvrir le dernier onglet fermé</em>
+                        | <em>Reopen last closed tab</em> }}
+                        (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>T</kbd> {{sur|on}} Mac).
+                    </td>
+
+                <tr>
+                    <td>
+                        <kbd>Ctrl</kbd> + <kbd>F</kbd>
+                    </td>
+                    <td>
+                        <em>{{ Chercher ! | Search! }}</em> (Ctrl <strong>F</strong>ind)
+                        (<kbd>⌘</kbd> + <kbd>F</kbd> {{sur|on}} Mac).
+                    </td>
+
+                <tr>
+                    <td>Clic milieu
+                    <td rowspan="2">Sur un lien, l'ouvrir dans un nouvel onglet.
+                    
+                <tr>
+                    <td><kbd>Ctrl</kbd>+Clic
+                <tr>
+                    <td>Clic milieu</td>
+                    <td>Sur un onglet, fermer l'onglet.
+                </tr>
+            </table>
             
             <p>Et je pourrais encore parler de <em>l'art de l'Alt-Tabbing moderne</em>, du <em>Control-Tabbing</em>, du setting firefox pour l'Alt-Tabbing et son AltPageUp en main libre, du bouton <kbd>Home</kbd>, de la stupidité de la touche <kbd>NumLock</kbd> et <kbd>CapsLock</kbd> sous Windows, ou du déplacement furtif de fenêtres via <kbd>Windows</kbd>+<kbd>←↓↑→</kbd>.
             

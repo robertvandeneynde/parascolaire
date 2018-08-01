@@ -184,8 +184,8 @@
     </p>
 
     <p>
-        Tous les codes font un <code>import vec3_utils</code> donc vous devez
-        <a href="vec3_utils.py.html">télécharger vec3_utils</a>
+        Tous les codes font un <code>import vecutils</code> donc vous devez
+        <a href="vecutils.py.html">télécharger vecutils</a>
         et le mettre à côté de votre fichier <code>.py</code>.
     </p>
     
@@ -401,22 +401,22 @@
                 -->
                 
                 Le <em>f</em> veut dire que la liste contient des nombres à virgule flottante sur 32 bits
-                (voir définition de <code>farray</code> dans <a href="vec3_utils.py.html">vec3_utils</a>), c'est ce que la carte graphique veut.
+                (voir définition de <code>farray</code> dans <a href="vecutils.py.html">vecutils</a>), c'est ce que la carte graphique veut.
                 
                 <!--
-                <a href="vec3_utils.py.html">vec3_utils</a> contient également des raccourcis pour dire <code>farray((x,y,z))</code>, on peut faire <code>vec3(x,y,z)</code>,
+                <a href="vecutils.py.html">vecutils</a> contient également des raccourcis pour dire <code>farray((x,y,z))</code>, on peut faire <code>vec3(x,y,z)</code>,
                 il y a aussi <code>vec2(x,y)</code> et des fonctions pratiques pour faire des conversions.
                 -->
                 
                 <p>
-                    Vu que <code>farray</code> est dans <code>vec3_utils</code>, faites bien attention d'avoir écrit 
+                    Vu que <code>farray</code> est dans <code>vecutils</code>, faites bien attention d'avoir écrit 
                     
-                    <code>import vec3_utils</code>, d'avoir téléchargé
-                    <a href="vec3_utils.py.html">vec3_utils</a>
+                    <code>import vecutils</code>, d'avoir téléchargé
+                    <a href="vecutils.py.html">vecutils</a>
                     et de l'avoir mis à côté de votre fichier <code>.py</code>.
                     
-                    Pour pouvoir écrire <code>farray</code> et non <code>vec3_utils.farray</code>, lisez le fichier <a href="progra_import.py.html">progra_import</a>,
-                    vous comprendrez donc pourquoi il faut écrire <code>from vec3_utils import farray</code> ou <code>from vec3_utils import *</code>.
+                    Pour pouvoir écrire <code>farray</code> et non <code>vecutils.farray</code>, lisez le fichier <a href="progra_import.py.html">progra_import</a>,
+                    vous comprendrez donc pourquoi il faut écrire <code>from vecutils import farray</code> ou <code>from vecutils import *</code>.
             
                 <p>On a défini des points en RAM, il est temps de les mettre dans un VBO de la carte graphique !
             </li>

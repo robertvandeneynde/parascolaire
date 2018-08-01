@@ -397,17 +397,17 @@
         <p>{{Nous verrons plus tard pourquoi on doit écrire <code>radians</code>, dis-toi pour l'instant que c'est juste une autre unité d'angle plus <em>mathématique</em> et que donc il faut convertir les degrés en radians.
             |We'll see later why we must write <code>radians</code>, but for now just know that radiands are a more <em>mathematical</em> unit for angles so must natrally convert degrees to radians.}}
             
-        <p>Le code précédent peut se simplifier en téléchargeant mon fichier <a href="vec3_utils.py.html">vec3_utils</a> :</p>
+        <p>Le code précédent peut se simplifier en téléchargeant mon fichier <a href="vecutils.py.html">vecutils</a> :</p>
         
         <pre><code class="python">
-            >>> from vec3_utils import cosd, sind
+            >>> from vecutils import cosd, sind
             >>> cosd(34)
             0.82
             >>> sind(34)
             0.55
         </code></pre>
         
-        <p>Vous pouvez également regarder le fichier <a href="vec3_utils.py.html">vec3_utils</a> pour voir la définition de la fonction <code>cosd</code> et <code>sind</code>, rien de bien sorcier.
+        <p>Vous pouvez également regarder le fichier <a href="vecutils.py.html">vecutils</a> pour voir la définition de la fonction <code>cosd</code> et <code>sind</code>, rien de bien sorcier.
         
         <pre class="developpement" symbol=""><code class="python">
             from math import radians, degrees, sin, cos
@@ -2386,7 +2386,7 @@
             </p>
             
             <p>On peut aussi définir la rotation autour d'un axe quelquonque $\vec{A} = (A_x, A_y, A_z)$
-                (<code style="display:inline">RotationMatrix</code> dans <a href="vec3_utils.py.html">vec3_utils</a>).
+                (<code style="display:inline">RotationMatrix</code> dans <a href="vecutils.py.html">vecutils</a>).
             </p>
             
             <div class="developpement" symbol="Voir la grosse matrice peu lisible">

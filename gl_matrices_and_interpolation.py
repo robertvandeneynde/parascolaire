@@ -10,7 +10,7 @@ from math import sin, cos, degrees, radians, tan
 import numpy
 from numpy import array, linalg
 
-from vec3_utils import * # téléchargez vec3_utils [ici](https://robertvandeneynde.be/parascolaire/vec3_utils.py.html)
+from vecutils import * # téléchargez vecutils [ici](https://robertvandeneynde.be/parascolaire/vecutils.py.html)
 
 vertex_shader = """
 #version 330

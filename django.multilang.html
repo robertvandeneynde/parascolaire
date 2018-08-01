@@ -71,12 +71,30 @@
             .slide.next {
                 cursor: pointer;
             }
-            p.comment {
+            
+            p.comment, ul.comment, ol.comment {
                 font-style: italic;
+            }
+            p.comment {
                 margin-left: 20px;
             }
+            
             code.url {
                 color: #001eff !important;
+            }
+            figcaption.mandatory {
+                font-style: italic;
+                padding-left: 20px;
+            }
+            
+            .little-box {
+                border: 1px solid black;
+                border-left: 0;
+                border-right: 0;
+                padding: 5px 0;
+            }
+            button {
+                cursor: pointer;
             }
         </style>
         
@@ -87,9 +105,9 @@
             $('figure.half-size img').each(function(){
                 var self = this;
                 function applyWidth() {
-                    console.log(self.id, self.width)
-                    if(self.width) {
-                        $(self).css('max-width', $(self).width() / 2)
+                    // console.log('applyWidth', self.id, self.src, self.width, $(self).width())
+                    if(self.width) { // attention, self.width != $(self).width()
+                        $(self).css('max-width', self.width / 2)
                     } else {
                         setTimeout(applyWidth, 1000);
                     }
@@ -98,22 +116,64 @@
                 applyWidth();
                 
                 $(this).wrap( $('<a>').attr('href', $(this).attr('src') ) )
+                $(this).parent().append(
+                    $("<figcaption class='mandatory'>Cliquez pour agrandir</figcaption>"))
             })
+            
+            $('pre.developpement').addClass('closable') // must be before next block
         
             var DEFAULT_SYMBOL = '{{Solution|Solution}}';
             $('.developpement').each(function(){
                 var self = $(this)
-                var state = true
-                self.hide().before(
-                    $('<button>').text(
-                        (self.attr('symbol') == 'iff' ? '⇔' : self.attr('symbol') != null ? self.attr('symbol') : DEFAULT_SYMBOL)
-                        + ' ... '
-                        + (self.attr('symbolpost') == 'iff' ? '⇔' : self.attr('symbolpost') != null ? self.attr('symbolpost') : '')
-                    ).click(function(){
-                        $(this).hide()
-                        self.fadeIn(1500)
-                    })
-                )
+                
+                var substitute = $('<button>').text(
+                    (self.attr('symbol') == 'iff' ? '⇔' : self.attr('symbol') != null ? self.attr('symbol') : DEFAULT_SYMBOL)
+                    + ' ... '
+                    + (self.attr('symbolpost') == 'iff' ? '⇔' : self.attr('symbolpost') != null ? self.attr('symbolpost') : '')
+                );
+                
+                this.substitute = substitute;
+                
+                self.hide().before(substitute)
+                substitute.click(function(){
+                    substitute.hide()
+                    self.fadeIn(800)
+                })
+                
+                if(self.hasClass('closable')) {
+                    self.css('position', 'relative')
+                    self.append($('<button>&#x274c;</button>').css({ // &#x2715; &times; https://stackoverflow.com/questions/7493954/what-is-the-unicode-character-for-the-close-symbol-used-by-twitter-bootstrap#17622391
+                        position: 'absolute',
+                        top: '0px',
+                        right: '0px',
+                        transform: self.is('pre') ? '' : 'translate(0, -50%)',
+                        cursor: 'pointer',
+                    }).click(function(){
+                        // self.fadeOut(300, function(){ substitute.show() })
+                        self.hide()
+                        substitute.show()
+                    }))
+                }
+            })
+            
+            $(".open-all-developpement").click(function(){
+                var p = $(this).parent()
+                if(p.prop('tagName').toLowerCase() != 'section')
+                    p = $(document.body)
+                
+                p.find('.developpement').each(function(){
+                    if(! this.substitute)
+                        return console.log('error, .developpement has no substitute')
+                    
+                    if($(this.substitute).is(':visible')) {
+                        $(this.substitute).click()
+                    }
+                })
+                
+                if(p.attr('name'))
+                    location.hash = '#' + p.attr('name')
+                
+                $(this).hide()
             })
         });
         </script>
@@ -200,12 +260,18 @@
                     // var m = /^infosgr(\d+)$/.exec(s.toLowerCase().trim()) || /^(\d+)$/.exec(s.toLowerCase().trim())
                     var m = /^(\d+)$/.exec(s.toLowerCase().trim())
                     var username = m ? 'infosgr' + parseInt(m[1]) : s.trim()
+                    
                     replaceUrls(username + '.pythonanywhere.com')
                     
-                    $('#group_selector_saved').text( $('#group_selector_saved').text().replace('{username}', username) ).show()
+                    var saved = $('#group_selector_saved');
+                    
+                    if(! saved.data('orignal-template'))
+                        saved.data('orignal-template', saved.text() )
+                    
+                    saved.text( saved.data('orignal-template').replace('{username}', username) ).show()
                     
                     setTimeout(function(){
-                        $('#group_selector_saved').fadeOut();
+                        saved.fadeOut();
                     }, 3000);
                 })
                 
@@ -289,15 +355,16 @@
         <h2 id="site-statique">Un site statique</h2>
         
         <section name="site-statique">
-        
             <p class="lang-switch"><a href="django.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            
+            <button class="open-all-developpement">Cliquez ici pour faire apparaître toutes les corrections et annexes !</button>
             
             <p>Lors de mes présentations, j'ai parlé du protocole http, et de la communication entre client et serveur qui ressemblait à un envoi de lettres postales.
             Maintenant, place au code django !
             
             <p class="comment">Créez un projet django vide, si vous avez du mal, demandez à vos voisins !
                 j'ai quelques machines virtuelles sous la main si vous voulez facilement vous lancer,
-                ou bien vous pouvez simplement créer un compte sur <a href="pythonanywhere.com">pythonanywhere.com</a> que vous soyez sous Windows ou Mac.
+                ou bien vous pouvez simplement créer un compte sur <a href="https://pythonanywhere.com">pythonanywhere.com</a> que vous soyez sous Windows ou Mac.
                 
             <!--
             <div class="developpement" symbol="startproject on pythonanywhere">
@@ -406,30 +473,26 @@
             <p>Que se passe-t-il quand je vais sur <code class="url">127.0.0.1:8000/</code> ?
                 
             <p class="comment" style="line-height:2em;">Si vous êtes sur pythonanywhere, vous devrez plutôt aller sur <code class="bash contains-group">infosgr42.pythonanywhere.com/</code>
-                en remplaçant bien <code class="bash contains-group">infosgr42</code> par votre propre nom d'utilisateur, du coup,
+                en remplaçant bien <code class="bash contains-group">infosgr42</code> par votre propre nom d'utilisateur, du coup
                 entrez votre nom d'utilisateur : <input type="int" placeholder="infosgr42" style="width:120px; text-align:center;" id="group_selector"/>
                 puis cliquez sur <button id="group_selector_ok">Ok</button> pour mettre à jour la page.
                 
-                <span id="group_selector_saved" style="border: 1px solid #0c0; background: #090; color: white; padding: 5px;">Page mise à jour pour {username} !</span>
+                <span id="group_selector_saved" style="border: 1px solid #0c0; background: #090; color: white; padding: 5px; text-wrap:nowrap;">Page mise à jour pour {username} !</span>
             
-            <p class="developpement">
+            <p class="developpement little-box closable">
                 Il est marqué <em>It works</em> et la petite fusée de Django est affichée.
             
             <p>Et quand je vais sur <code class="url">127.0.0.1:8000/hello</code> ?
             
-            <p class="developpement">
+            <p class="developpement little-box closable">
                 Erreur 404, et on voit la liste des urls disponibles, il n'y a que <code>admin/</code>
             
             <h4>Première url</h4>
             <p>Faites une page à l'url <code class="url">/hello</code>, qui va afficher <em>Coucou les amis !</em>
             
             <p>Pour cela, vous devrez modifier (ou créer) le fichier <code>urls.py</code> qui se trouve dans le dossier <strong>de votre app</strong> (dossier <code>askme/</code>).
-            <p>Vous devrez également ensuite modifier (ou créer) le fichier <code>views.py</code> qui se trouve dans le même dossier.
-                Remarquez que certains projets utilisent un <strong>dossier</strong> <code>views/</code>, dans ce cas, suivez <a href="#dossier-views">ces instructions</a>.
-            
-            <div class="developpement" symbol="Créer un fichier sur pythonanywhere">
-            <hr/>
-                <p>Pour créer un fichier dans pythonanywhere, naviguer dans le bon dossier, puis à droite où il est marqué <em>Enter A new Filename</em>, écrivez <code>urls.py</code> (attention, <strong>avec l'extension</strong>)
+            <div class="developpement little-box closable" symbol="Créer un fichier sur pythonanywhere">
+                <p>Pour créer un fichier dans pythonanywhere, naviguer dans le bon dossier, puis à droite où il est marqué <em>Enter new filename</em>, écrivez <code>urls.py</code> (attention, <strong>avec l'extension</strong> <code>.py</code>)
                 et appuyez sur <kbd>Enter</kbd>.
                 
                 <figure class="half-size">
@@ -440,7 +503,6 @@
                 en haut à droite de l'écran.
                 
                 <p>Sur pythonanywhere, quand vous modfier un fichier de code, vous devez souvent <em>Reload</em> le serveur, allez dans l'onglet <em>Web</em> et cliquez sur le gros bouton <em>Reload</em>.
-            <hr/>
             </div>
             <p></p>
             
@@ -466,8 +528,12 @@
             </code></pre>
             -->
             
-            <p>On dit donc que quand on va sur l'<strong>url</strong> <code>hello/</code>,
-                on va dans <code>views.dire_bonjour</code>, il faut donc aller dans <code>views.py</code> et y définir <code>dire_bonjour</code> :
+            <p>On dit donc que quand on va sur l'<strong>url</strong> <code>hello/</code>, <!-- because it doesn't begin with a slash, one could not write code class="url" -->
+                on va dans <code>views.dire_bonjour</code>, il faut donc aller dans <code>views.py</code> et y définir <code>dire_bonjour</code>.
+            
+            <p>Vous devrez donc également modifier (ou créer) le fichier <code>views.py</code> qui se trouve dans le même dossier.
+                Remarquez que certains projets utilisent un <strong>dossier</strong> <code>views/</code>, dans ce cas, suivez <a href="#dossier-views">ces instructions</a>,
+                on y verra :
             
             <pre class="developpement" symbol="views.py"><code class="py">
             from django.http import HttpResponse
@@ -476,7 +542,8 @@
                 return HttpResponse("Coucou les amis !")
             </code></pre>
             
-            <p class="comment">Attention à la version de django, ce tutoriel est sous django 2.0, mais certains tutoriels sont encore en 1.11.
+            <p class="comment">Attention à la version de django, ce tutoriel est sous django 2.0, mais certains tutoriels sont encore en 1.11 où déjà la première ligne de <code>urls.py</code>
+                est différente.
             
             <div id="dossier-views"></div>
             <p class="comment">Si on a vraiment beaucoup d'urls, vous pouvez choisir de ne pas faire un
@@ -505,12 +572,12 @@
             
             <p>Que se passe-t-il maintenant quand je vais sur <code class="url">/hello</code> ?
             
-            <p class="developpement">
+            <p class="developpement little-box closable">
                 On voit <em>Coucou les amis !</em>
             
             <p>Et quand je vais sur <code class="url">/superapp</code> ?
             
-            <p class="developpement">
+            <p class="developpement little-box closable">
                 Une erreur 404
             
             <h4>Une autre url</h4>
@@ -544,6 +611,7 @@
             </code></pre>
             
             <p>Quand on va sur l'<strong>url</strong> <code>/cv</code>, on va dans la <strong>fonction</strong> <code>montrer_cv</code> qui se trouve dans <code>views</code>.
+                Petit rappel, <code class="py">def</code> définit une fonction comme dit dans <a href="https://robertvandeneynde.be/parascolaire/theorie3_fonctions_et_objets.html">theorie3</a>.
             
             <p>Le fichier contient donc maintenant deux fonctions, <code>dire_bonjour</code> et <code>montrer_cv</code>, on peut en créer autant que l'on veut.
             
@@ -566,9 +634,14 @@
             </code></pre>
             
             <p class="comment">Remarquez maintenant qu'il y a une différence entre ce qu'on a envoyé (le code html) et ce qui est affiché à l'utilisateur par le navigateur (la page).
-                Faites un clic droit sur la page et cliquez sur <strong>Afficher la Source</strong>, vous verrez le html qu'on a envoyé.
-                
-                Sous Google Chrome ou Firefox, il y a le raccourci <kbd>Ctrl</kbd>+<kbd>U</kbd> ou <kbd>⌘ Cmd</kbd>+<kbd>U</kbd> sous Mac, si vous êtes sous <em>Safari</em> et que vous ne voulez pas télécharger Google Chrome, <a href="https://coolestguidesontheplanet.com/safari-web-developer-tools-show-dock-browser-window/">allez dans les options avancées</a> et activez <em>montrer l'url en entier</em> (tout en haut) et <em>montrer les outils de développement</em> (tout en bas) ce qui fera que vous pourrez y accéder avec un clic droit.
+                Faites un clic droit sur la page et cliquez sur <strong>Afficher la source</strong>, vous verrez le html qu'on a envoyé.
+            
+            <p class="comment">
+                Pour afficher la source, sous Google Chrome ou Firefox, il existe le raccourci <kbd>Ctrl</kbd>+<kbd>U</kbd> ou <kbd>⌘ Cmd</kbd>+<kbd>U</kbd> sous Mac,
+                si vous êtes sous <em>Safari</em> et que vous ne voulez pas télécharger Google Chrome,
+                <a href="https://coolestguidesontheplanet.com/safari-web-developer-tools-show-dock-browser-window/">allez dans les options avancées</a>
+                et activez <em>montrer l'url en entier</em> (tout en haut) et <em>montrer les outils de développement</em>
+                (tout en bas) ce qui fera que vous pourrez y accéder avec un clic droit.
             
             <p>Et comment lister ses compétences dans une liste comme celle-ci :
             
@@ -606,34 +679,47 @@
             </code></pre>
             
             <p>Attention à ce que le fichier html soit dans le dossier <code>templates/</code> et veillez à ce que
-            <code>INSTALLED_APP</code> dans <code>settings.py</code> contiennent bien <code class="py">"askme.apps.AskmeConfig"</code> (ce qui devrait être déjà fait).
+            <code>INSTALLED_APP</code> dans <code>settings.py</code> contient bien <code class="py">'askme.apps.AskmeConfig'</code> :
+            
+            <pre class="developpement closable" symbol="settings.py"><code>
+            ...
+            
+            INSTALLED_APP = [
+                <mark>'askme.apps.AskmeConfig'</mark>,
+                ...
+            ]
+            
+            ...
+            </code></pre>
             
             <p>Remarquez, qu'en html, on peut passer à la ligne autant que l'on veut et rajouter des espaces pour rendre le document plus clair.
-            Si l'on veut passer à la ligne dans le document, on crée simplement un nouveau paragraphe avec <code>&lt;p>&lt;/p></code>.
+            Si l'on veut passer à la ligne dans le document, on crée simplement un nouveau paragraphe avec <code class="html">&lt;p></code> fermé par <code class="html">&lt;/p></code>.
             
             <p>L'outil qui a fait du web une révolution, c'est le <strong>lien</strong>, faites un petit lien vers notre autre page à l'url <code class="url">/hello</code> !
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
-            &lt;p>Allez voir ma gentille page &lt;a href="/hello">ici&lt;/a> et j'espère que je vous ferai sourire !&lt;/p>
+            Allez voir &lt;a href="/hello">ici&lt;/a> ma super page 
+            et j'espère que je vous ferai sourire !
             </code></pre>
             
-            <h3 id="html-est-joli">Possibilités d'html</h3>
+            <h4 id="html-est-joli">Possibilités d'html</h4>
             
             <p>Afin que notre page soit plus jolie, on peut apprendre d'autres balises html, si vous 
-                voulez garder un site peu joli mais passer directement au côté fontionnel <a href="template-et-variables">passez cette section</a>,
+                voulez garder un site peu joli mais passer directement au côté fontionnel <a href="#template-et-variables">passez cette section</a>,
                 sinon voici un aperçu de ce qu'un 
                 <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/comment-fait-on-pour-creer-des-sites-web">
                     bon tutoriel html</a> vous dira :
             
-            <p>Il est plus structuré de mettre le tout dans une balise <code class="html">&lt;html>&lt;/html></code>
-                    qui contient une balise <code class="html">&lt;head>&lt;/head></code> et <code class="html">&lt;body>&lt;/body></code>,
-                    de mettre des paragraphes <code class="html">&lt;p>&lt;/p></code>
+            <p>Il est plus structuré de mettre le tout dans une balise <code class="html">&lt;html></code>
+                    qui contient une balise <code class="html">&lt;head></code> et <code class="html">&lt;body></code>,
+                    de mettre des paragraphes <code class="html">&lt;p></code>
                     de telle sorte que le document soit maintenant :
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
+            &lt;!DOCTYPE html>
             &lt;html>
                 &lt;head>
-                    &lt;meta charset="utf-8"/> &lt;!-- pour éviter les erreurs d'accent -->
+                    &lt;meta charset="utf-8"/> &lt;!-- pour pouvoir entrer des accents et autres caractères sans erreurs -->
                     &lt;title>René le magnifique&lt;/title>
                 &lt;/head>
                 &lt;body>
@@ -644,28 +730,31 @@
                         &lt;li>Programmeur&lt;/li>
                         &lt;li>Mais humain avant tout&lt;/li>
                     &lt;/ul>
+                    &lt;p>&amp;copy; René&lt;/p> &lt;!-- n'importe quel caractère <a href="https://robertvandeneynde.be/blog/unicode/">unicode</a> ! -->
                 &lt;/body>
             &lt;/html>
             </code></pre>
             
-            <p>Où est passé le texte <em>René le magnifique</em> dans mon exemple ? Regardez bien partout !
+            <p>Où est passé le texte <em>René le magnifique</em> dans mon exemple ? Regardez bien partout !
             
             <p>Et comment faire une présentation avec des titres de niveau 1 et 2 ? Et des paragraphes ?
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
             &lt;html>
                 &lt;head>
-                    ...
+                    &lt;meta charset="utf-8"/> &lt;!-- pour éviter les erreurs d'accent -->
+                    &lt;title>René le magnifique&lt;/title>
                 &lt;/head>
                 &lt;body>
                     &lt;h1>Cv de René&lt;/h1>
-                    &lt;p>René est un expert depuis le début de sa vie&lt;/p>
+                    &lt;p>René est un expert depuis le début de sa vie.&lt;/p>
                     
+                    &lt;!-- on peut passer à la ligne et mettre des commentaires -->
                     &lt;p>
                         Il a rencontré Chuck Norris
                         et a compté jusqu'à l'infini avec lui,
-                        deux fois
-                    &lt;/p> &lt;!-- on peut passer à la ligne et mettre des commentaires -->
+                        deux fois.
+                    &lt;/p>
                     
                     &lt;h2>Compétences incroyables&lt;/h2>
                     &lt;ul>
@@ -675,16 +764,85 @@
                     &lt;/ul>
                     
                     &lt;h2>Parcours international&lt;/h2>
-                    &lt;p>René connaît le Cyrrilique et aime beaucoup les lettres &lt;strong>и&lt;/strong> et &lt;strong>ю&lt;/strong>&lt;/p>
-                    &lt;p>Il adore également parler des angles avec des θ et des φ&lt;/p>
+                    &lt;p> René connaît le Cyrillique et aime beaucoup les 
+                        lettres &lt;strong>и&lt;/strong> et &lt;strong>&amp;#x044E;&lt;/strong> &lt;/p> &lt;!-- U+044E ю CYRILLIC SMALL LETTER YU -->
+                    &lt;p>Il adore également parler des angles avec des &amp;theta; et des φ&lt; en faisant 2&amp;times;90° = 180°/p>
+                    &lt;!-- n'importe quel caractère <a href="https://robertvandeneynde.be/blog/unicode/">unicode</a> ! -->
+                    
+                    &lt;p>&amp;copy; René&lt;/p>
                 &lt;/body>
             &lt;/html>
             </code></pre>
             
-            <p class="comment">Toute cette structure peut être retrouvée en ouvrant les <em>outils de développement</em>, faites un clic droit puis <em>Inspecter</em> ou sous Google Chrome et Firefox Ctrl+Shift+I.
+            <p class="comment">Toute cette structure peut être retrouvée en ouvrant les <em>outils de développement</em>,
+                faites un clic droit puis <em>Inspecter</em> ou sous Google Chrome et Firefox <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>.
                 Vous pouvez ensuite balader votre souris pour voir les correspondances entre le html et les blocs.
             
-            <p>Finalement, on aimerait que tous les <strong>paragraphes</strong> soient en <span class="color:blue">bleus</span>, on a besoin de CSS !
+            <div class="developpement little-box closable" contains-code="html" symbol="Omission de fermeture de balise...">
+                <p>Certaines balises html comme <code>&lt;li></code> ou <code>&lt;p></code>
+                    <a href="{{https://developer.mozilla.org/fr/docs/Web/HTML/Element/li|https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li}}">ont le droit</a>
+                    d'omettre leur tab de fin dans certaines situations très courantes.
+                
+                    On lira dans
+                    <a href="{{https://developer.mozilla.org/fr/docs/Web/HTML/Element/li|https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li}}">la référence</a>
+                    de <code>&lt;li></code> :
+                
+                <p><em>
+                    {{ La balise de fin peut être absente si l'élément est immédiatement suivi par un autre élément <code>&lt;li></code> ou s'il n'y a plus d'autre contenu dans son élément parent.
+                    | The end tag can be omitted if the list item is immediately followed by another <code>&lt;li></code> element, or if there is no more content in its parent element. }}
+                </em>
+                
+                <p>En d'autres mots,
+                    si vous avez un <code>&lt;/li></code> directement suivi d'un <code>&lt;li></code> ou de la fermeture de liste comme <code>&lt;/ul></code>,
+                    vous pouvez omettre le <code>&lt;/li></code>.
+                
+                <p>Ce qui fait que cette liste est du html tout à fait valide :
+                
+                <pre class="" symbol="le_cv.html"><code class="html">
+                &lt;ul>
+                    &lt;li>Surfeur
+                    &lt;li>Programmeur
+                    &lt;li>Mais humain avant tout
+                &lt;/ul>
+                </code></pre>
+                
+                <p>Ce qui ressemble vachement au résultat !
+                
+                <ul>
+                    <li>Surfeur
+                    <li>Programmeur
+                    <li>Mais humain avant tout
+                </ul>
+                    
+                <p>Pour <code>&lt;p></code>,
+                    c'est <a href="{{https://developer.mozilla.org/fr/docs/Web/HTML/Element/p|https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p}}">en gros la même chose</a>,
+                    si vous avez un <code>&lt;/p></code> directement suivi d'un <code>&lt;p></code>,
+                    vous pouvez omettre le <code>&lt;/p></code>, rendant ce code valide :
+                    
+                <pre class="" symbol="le_cv.html"><code class="html">
+                &lt;h1>Cv de René&lt;/h1>
+                
+                &lt;p>René est un expert depuis le début de sa vie.
+                
+                &lt;p>Il a rencontré Chuck Norris
+                   et a compté jusqu'à l'infini avec lui,
+                   deux fois.
+                
+                &lt;p>Il a beaucoup de hobbies.
+                </code></pre>
+                    
+                
+                <p>Cependant, on recommande aux débutants de toujours fermer ses balises car ils trouvent ça généralement plus clair.
+                
+                <p>Quant aux balises ne devant pas être fermées comme &lt;meta charset="utf-8"> ou &lt;img src="hello.png">,
+                    on aime marquer un slash comme ceci <code>&lt;meta charset="utf-8"<mark> /</mark>></code>
+                    ou <code>&lt;img src="hello.png"<mark> /</mark>></code>
+                    pour rappeler aux lecteurs qu'il n'y aura pas de balise de fermeture,
+                    ainsi si vous voyez une balise qui finit par <code>/></code>, vous savez qu'il n'y aura pas de balise fermante plus loin.
+            </div>
+            
+            
+            <p>Finalement, on aimerait que tous les <strong>paragraphes</strong> soient en <span style="color:blue">bleus</span>, on a besoin de CSS !
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
             &lt;html>
@@ -714,38 +872,57 @@
                 En une ou deux heures vous aurez déjà de quoi faire un <strong>joli</strong> site web !
                 En effet, avec beaucoup de css, René pourrait arriver à un cv comme <a href="https://robertvandeneynde.be/cv">celui-ci</a>.
 
-            <p>D'autres tutoriels existent bien entendu, comme <a href="https://developer.mozilla.org/fr/Apprendre/Commencer_avec_le_web/Les_bases_HTML">celui de Mozilla</a> (disponible en plein de langues).
+            <p>D'autres tutoriels existent bien entendu, comme <a href="https://developer.mozilla.org/fr/Apprendre/Commencer_avec_le_web/Les_bases_HTML">celui de Mozilla</a>
+            disponible en plein de langues.
             
             <p>Remarquez que si sur pythonanywhere
                 vous utilisez les images,
                 il faudra les uploader et ensuite les configurer vos urls statiques, google est votre ami.
             
+            <p class="comment">Petite remarque si vous googlez du html ou css,
+                n'allez <strong style="color:red">pas</strong>
+                sur le site <strong style="color:red">w3schools.com</strong>,
+                la qualité y est <a href="#w3fools">médiocre</a>, il n'apparaît en premier dans la liste de Google que
+                parce qu'il est très vieux et trop concis.
+            
+            <p class="comment">Préférez un autre résultat dans la liste, même si c'est le deuxième,
+                ce sera probablement 
+                <a href="https://developer.mozilla.org">le MDN</a>
+                ou bien entendu
+                <a href="https://stackoverflow.com">stackoverflow</a>.
+                
+                Je dis également en passant que <a href="https://duckduckgo.com">DuckDuckGo</a> 
+                est en général meilleur que Google pour rapidement trouver une 
+                réponse sur stackoverflow, et en plus il respecte votre vie privée.
+                
+            <p id="w3fools" class="developpement comment" symbol="Pourquoi w3schools est médiocre">
+                Trop concis fait qu'en général oui, on a l'information qu'on cherche
+                mais rien d'autre n'est expliqué, ce qui fait qu'on n'apprend quasi rien et vous reviendrez vite sur google avec une autre question.
+                
+                Mais surtout, le <strong>gros</strong>
+                problème avec w3schools est que l'on pourrait croire que c'est un site officiel
+                lié à <a href="https://w3.org">w3.org</a>
+                qui est l'organisme qui régit les standards du web (plus officiel que ça, tu meurs)
+                alors que non.
+                
+                En 2011, <a href="http://www.w3fools.com/">un site</a> a été écrit analysant la médiocrité de w3schools,
+                qui du coup, s'est légèrement amélioré mais reste bien médiocre.
+            
             <p>Avoir un joli site c'est bien, mais avoir un site <strong>fonctionnel</strong> c'est peut-être bien aussi !
                 Rendez-vous dans la suite du tutoriel.
                 
-            <p class="comment">Probablement, que votre professeur a déjà créé plein de templates, vous ne devrez donc pas trop coder en html, regardez le contenu du dossier template pour 
-                avoir une idée des fichiers que vous pouvez utiliser, comme par exemple <code>base.html</code>.
+            <p class="comment">
+                Un avantage des templates est de séparer le fond, la forme, et les données.
+                Un desinger pourra par exemple écrire un template html avec du joli css, et vous n'aurez qu'à l'inclure dans votre projet
+                sans même devoir regarder le code source.
             
-            <h3 id="template-et-variables">Un template peut avoir des variables</h3>
+            <h3 id="template-et-variables">Un template django peut avoir des variables</h3>
             
             <p>Cependant, un template est plus qu'un simple fichier, il peut demander des <strong>variables</strong> !
             
-            <pre class="developpement" symbol="views.py"><code class="py">
-            from django.shortcuts import render
-            
-            def montrer_cv(request):
-                return render(request, 'le_cv.html', {
-                    <mark>"a": 52,</mark>
-                })
-            </code></pre>
-            
-            <p>Par exemple, prenons notre petit template et donnons lui une variable <code>a</code> :
-            
-            <p>Et du coup, le template va utiliser cette variable avec des accolades <code>&#123;&#123; a }}</code> :
-            
-            <pre class="developpement" symbol="le_cv.html"><code class="html">
+            <pre class="developpement" symbol="le_cv.html"><code>
             &lt;p>Cv de &lt;strong>René&lt;/strong>&lt;/p>
-            &lt;p>J'ai mangé &#123;&#123; a }} pommes dans ma vie&lt;/p>
+            &lt;p>J'ai mangé <mark>&#123;&#123; x }}</mark> pommes dans ma vie&lt;/p>
             &lt;ul>
                 &lt;li>Surfeur&lt;/li>
                 &lt;li>Programmeur&lt;/li>
@@ -753,29 +930,46 @@
             &lt;/ul>
             </code></pre>
             
+            <p>Quand on écrit le template, il nous manque une information, le créateur du template a simplement dit <em>J'ai mangé <strong>X</strong> pommes</em> où <strong>X</strong> est une variable.
+                Pour indiquer qu'on a une variable dans le template et pas du simple texte, on l'entoure de double accolades,
+                donc ici <code>&#123;&#123; x }}</code>.
+            
+            <p>Ensuite, il faudra bien entendu donner sa variable <code>x</code> au template :
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            from django.shortcuts import render
+            
+            def montrer_cv(request):
+                return render(request, 'le_cv.html', {
+                    <mark>"x": 52,</mark>
+                })
+            </code></pre>
+            
             <p>La page affichée indiquera <em>J'ai mangé 52 pommes dans ma vie</em>,
                 n'hésitez pas <strong>voir le code source</strong> de la page avec <kbd>Ctrl</kbd>+<kbd>U</kbd>
                 pour voir que le browser n'est pas au courant qu'on utilise des templates.
+            
+            <p class="comment">Attentions aux majuscules, comme en python <code>'x' ≠ 'X'</code> !
             
             <p>Évidemment, on peut créer une <strong>variable python</strong>
             et puis l'envoyer au template :
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def montrer_cv(request):
-                x = 5
+                <mark>a = 52</mark>
                 return render(request, 'le_cv.html', {
-                    "a": x,
+                    "x": <mark>a</mark>,
                 })
             </code></pre>
             
-            <p>Et faire des calculs dessus :
+            <p>Python étant python, on peut bien sûr faire des calculs dessus :
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def montrer_cv(request):
-                x = 5
-                y = x * 2 + 1
+                a = 52
+                b = 1 + a * 2
                 return render(request, 'le_cv.html', {
-                    "a": y,
+                    "x": b,
                 })
             </code></pre>
             
@@ -784,7 +978,7 @@
             <pre class="developpement" symbol="views.py"><code class="py">
             def montrer_cv(request):
                 return render(request, 'le_cv.html', {
-                    "a": "vraiment beaucoup de",
+                    "x": "vraiment beaucoup de",
                 })
             </code></pre>
             
@@ -792,18 +986,30 @@
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def montrer_cv(request):
-                m = 8
-                y = 1
+                a = 8
+                b = 2
                 return render(request, 'le_cv.html', {
-                    "a": "vraiment beaucoup de",
-                    "b": m,
-                    "wow": y + 2,
+                    "x": "vraiment beaucoup de",
+                    "y": b,
+                    "wow": a ** 2,
                 })
             </code></pre>
             
+            <pre class="developpement" symbol="le_cv.html"><code class="html">
+            &lt;p>Cv de &lt;strong>René&lt;/strong>&lt;/p>
+            &lt;p>J'ai mangé <mark>&#123;&#123; x }}</mark> pommes dans ma vie&lt;/p>
+            &lt;ul>
+                &lt;li>Surfeur, gagnant de <mark>&#123;&#123; y }}</mark> compétitions&lt;/li>
+                &lt;li>Programmeur, avec un grand total de <mark>&#123;&#123; wow }}</mark> likes sur stackoverflow&lt;/li>
+                &lt;li>Mais humain avant tout&lt;/li>
+            &lt;/ul>
+            </code></pre>
             
             <p>Le template peut accepter plein d'autre type de variables, mais nous verrons son
                 utilité principale dans le chapitre suivant !
+            
+            <p class="comment">Pour en savoir plus sur les templates, je conseille surtout l'<strong>héritage</strong> avec <code>{% extends %}</code>
+                qui est une très bonne façon d'organiser ses templates. Plus d'informations sur la <a>documentation officielle</a>.
             
             <h3 id="{{raccourcis|shortcuts}}">Raccourcis clavier</h3>
 
@@ -821,6 +1027,8 @@
         <h2 id="bdd">Lire la base de données via un modèle Django</h2>
         
         <section name="bdd">
+            <button class="open-all-developpement">Cliquez ici pour faire apparaître toutes les corrections et annexes !</button>
+            
             <p>Nous allons maintenant faire un site web dynamique, 
                 le site web statique est un serveur qui fait toujours la même chose :
                 
@@ -855,8 +1063,7 @@
                 <li><code>repondants</code>: le nombre de personnes ayant répondu à cette question, qui sera initialement de zéro mais augmentera.
             </ul>
             
-            <div class="developpement" symbol="pour le projet marketplace">
-            <hr/>
+            <div class="developpement little-box closable" symbol="pour le projet marketplace">
             
             <p>Pour le projet économique type <em>marketplace</em>, vous pouvez vous entraîner en créant une classe <code>Question</code> comme décris dans le tutoriel,
                 ou bien vous pouvez créer une classe <code>Listing</code> (ou <code>Offre</code>) qui contient les attributs demandés en cours, c'est à dire
@@ -876,7 +1083,6 @@
                 Avec les <a href="#bddr">bases de données relationnelles</a>, les devises seront également des objets <strong>Devise</strong> mais pour l'instant nous pouvons simplement dire que les devises
                 sont des chaînes de caractères comme <code class="py">"EUR"</code> (<em>string</em> ou <code>str</code> en python, <code>CharField</code> en django).
             
-            <hr/>
             </div>
             
             <p>On devra donc modifier le fichier <code>models.py</code> :</p>
@@ -926,8 +1132,7 @@
             <p>Si vous avez l'erreur <code>can't open file 'manage.py': No such file or directory</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> et probablement qu'un petit <code>cd project</code>
             résoudra le problème :
             
-            <div class="developpement" contains-code="bash" symbol="cd : changer de dossier en bash">
-            <hr>
+            <div class="developpement little-box closable" contains-code="bash" symbol="cd : changer de dossier en bash">
                 <p class="comment">
                     Sur pythonanywhere, on va utiliser des <strong>consoles linux</strong> (aussi appelés <strong>terminal</strong>, <strong>shell</strong> ou <strong>sh</strong> ou <strong>bash</strong> ou <strong>invite de commande</strong>),
                     car ça permet non seulement d'avoir l'air d'un pro mais surtout car ça permet de nous simplifier la vie une fois qu'on y est habitué.
@@ -996,7 +1201,6 @@
                 </code></pre>
                 
                 <p>Pour les intéressés, je conseille le <a href="https://openclassrooms.com/courses/reprenez-le-controle-a-l-aide-de-linux/la-console-ca-se-mange">tutoriel linux</a> sur openclassrooms.
-            <hr>
             </div>
             
             </li>
@@ -1005,8 +1209,7 @@
             <p>Si vous avez une erreur liée à la version de python ou version de django, comme par exemple à la ligne <code class="py">from exc</code>, il y a un souci de virtualenv :
             
             <div id="virtualenv"></div>
-            <div class="developpement" contains-code="bash" symbol="virtualenv">
-                <hr/>
+            <div class="developpement little-box closable" contains-code="bash" symbol="virtualenv">
                 <p>Beaucoup d'installations python utilisent le concept de <code>virtualenv</code> qui permet de gérer des versions de python, sur python anywhere par défaut,
                 on a python <strong>2.7</strong> ou python <strong>3.6</strong> muni de django <strong>1.11</strong>, or on veut <strong>django 2.0</strong>,
                 on va donc créer un <em>virtualenv</em> avec python 3.6 et django 2.0, nous allons l'appeler <code>django2</code>.
@@ -1066,7 +1269,6 @@
                 <p>Si la ligne commence par un nom entre parenthèses, c'est que vous êtes <strong>probablement</strong> dans le bon virtualenv, seul <code class=bash>which python</code> pourra vous le dire pour sûr.
                 
                 <p>Dans les exemples ici j'étais dans le virtualenv appelé <code>django2</code>.
-                <hr/>
             </div>
             
             </li>
@@ -1116,8 +1318,7 @@
                 <strong>supprimer les migrations</strong> existantes, puis <strong>supprimer la base de donnée</strong> et en créer
                 une nouvelle, <strong style="color:red">attention, toutes les tables seront supprimées</strong> (mais pas vos fichiers <code>.py</code>).
                 
-            <div class="developpement" symbol="supprimer la base de donnée">
-            <hr>
+            <div class="developpement little-box closable" symbol="supprimer la base de donnée">
             <ol>
                 <li>
                 
@@ -1166,7 +1367,6 @@
                     
                     Vu que toutes vos tables sont supprimées, vous devez recréer un superuser pour accéder à l'admin.
             </ol>
-            <hr>
             </div>
             
             </li>
@@ -1243,8 +1443,7 @@
             -->
             
             <div id="django.contrib.admin"></div>
-            <div class="developpement" symbol="Activer l'admin de django">
-                <hr/>
+            <div class="developpement little-box closable" symbol="Activer l'admin de django">
                 
                 <p>Afin d'activer l'admin de django,
                     créez un superuser avec la commande <code>python manage.py createsuperuser</code>
@@ -1283,13 +1482,10 @@
                 attention, sur pythonanywhere, vous ne devez pas faire la partie <em>lancer le serveur de développement</em>
                 car ça correspond juste à cliquer sur <em>Reload</em> dans l'onglet <em>Web</em>.
                 -->
-                
-                <hr/>
             </div>  
             
             <!--
-            <div class="developpement" symbol="(Facultatif) Comment configurer le projet pour utiliser sqlite">
-                <hr/>
+            <div class="developpement little-box closable" symbol="(Facultatif) Comment configurer le projet pour utiliser sqlite">
                 <p>Dans le fichier settings, recherchez la ligne <code>DATABASES = {...}</code>, mettez toutes ces lignes en commentaire 
                 en y insérant un hashtag <code>#</code> au début des lignes, puis remplacez ça par :
                 
@@ -1303,7 +1499,6 @@
                 </pre></code>
                 
                 <p>Vous devrez relancer <code>makemigrations</code> et <code>migrate</code> après.
-                <hr/>
             </div>
             -->
             
@@ -1333,15 +1528,14 @@
                     <td>25</td>
                 </tr>
                 <tr>
-                    <td>Quelle est l'impédance d'un condensateur ?</td>
+                    <td>L'impédance d'un condensateur ?</td>
                     <td>100</td>
                 </tr>
             </table>
             
             <p>Cependant, vous pouvez également voir que <strong>Django crée un id</strong> pour toutes les tables que l'on crée, la vraie table sera donc plutôt comme ceci :
             
-            <div class="developpement" symbol="id et primary key">
-            <hr/>
+            <div class="developpement little-box closable" symbol="id et primary key">
             <table>
                 <thead>
                     <tr>
@@ -1367,7 +1561,7 @@
                 </tr>
                 <tr>
                     <td>7</td>
-                    <td>Quelle est l'impédance d'un condensateur ?</td>
+                    <td>L'impédance d'un condensateur ?</td>
                     <td>100</td>
                 </tr>
             </table>
@@ -1376,7 +1570,6 @@
             et l'<code>id</code> est tellement important qu'on dira même que c'est une <strong>primary key</strong> (clé primaire).
             
             Remarquez qu'il est très possible que les id ne se suivent pas, par exemple parce que les questions 3 à 6 ont été supprimées de la base de donnée.
-            <hr/>
             </div>
             
             <p class="comment">Cependant, une base de donnée présente des avantages par rapport à un Excel, comme pouvoir être lue facilement depuis un code,
@@ -1410,7 +1603,7 @@
                 pour lequel une base de données, c'est plus qu'un Excel.
             
             <p>Nous avions activer l'admin pour rajouter facilement des objets,
-                il y a également moyen de directement modifier le fichier <code>db.sqlite3</code> (si vous êtes)
+                il est également possible de directement modifier le fichier <code>db.sqlite3</code> (si vous êtes)
                 ou de faire du <code>sql</code> directement dans mysql (si vous êtes sous mysql),
                 donc il n'est pas <em>obligatoire</em> de passer par l'admin, c'est juste très pratique.
             
@@ -1432,7 +1625,7 @@
                 <li>Pour lire dans une base de données, on utilisera <code>Question.objects.get()</code> pour avoir une question, <code>Question</code> devra être importé, vu qu'il est dans le fichier <code>models.py</code> et pas <code>views.py</code>
                 <li>Ensuite, on a reçu l'objet de la base de données, et on le garde près de nous dans une <strong>variable</strong>.
                 <li>Finalement on passe la variable au template, qui attend un <strong>paramètre</strong>.
-                <li>Le template pourra donc lire l'objet question qu'on lui donne, et écrire du contenu dynamique via <code>&#x7b;&#x7b; q.nom }}</code>
+                <li>Le template pourra donc lire l'objet question qu'on lui donne, et écrire du contenu dynamique via <code>&#123;&#123; q.nom }}</code>
                 par exemple pour le nom de la question.
             </ol>
             
@@ -1442,7 +1635,7 @@
             urlpatterns = [
                 path('hello/', views.dire_bonjour), 
                 path('cv/', views.montrer_cv),      
-                path('detail/', views.donner_une_question), # NEW
+                <mark>path('detail/', views.donner_une_question),</mark> 
             ]
             </code></pre>
             
@@ -1451,7 +1644,7 @@
             urlpatterns = [
                 url(r'^hello/$', views.dire_bonjour), 
                 url(r'^cv/$', views.montrer_cv),      
-                url(r'^detail/$', views.donner_une_question), # NEW
+                <mark>url(r'^detail/$', views.donner_une_question),</mark>
             ]
             </code></pre>
             -->
@@ -1462,8 +1655,8 @@
         
             <pre class="developpement" symbol="templates/detail.html"><code class="html">
             &lt;h1>Détails d'une question&lt;/h1>
-            &lt;h2>Titre : &lt;em>&#x7b;&#x7b; q.nom }}&lt;/em>&lt;/h2>
-            &lt;p>Cette question a accumulé un total de &#x7b;&#x7b; q.repondants }} répondants.&lt;/p>
+            &lt;h2>Titre : &lt;em>&#123;&#123; q.nom }}&lt;/em>&lt;/h2>
+            &lt;p>Cette question a accumulé un total de &#123;&#123; q.repondants }} répondants.&lt;/p>
             </code></pre>
             
             <p>Les templates sont des artistes, ils ne se satisfieront pas d'avoir un affichage peu attractif,
@@ -1477,13 +1670,16 @@
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def donner_une_question(request):
-                x = Question.objects.get()
+                x = Question.objects.get() # x est un objet de type Question (x est une Question)
                 ...
             </code></pre>
             
             <p>Nous gardons cette information <em>près de nous</em> dans une <strong>variable</strong>,
             rappelez-vous qu'écrire <code>x = ...</code>
             crée une variable python nommée <code>x</code>, ce choix de nom est bien entendu arbitraire.
+            
+            <p>Cette variable est un objet de type <code>Question</code>,
+                on peut donc écrire <code>x.nom</code> et <code>x.repondants</code> pour lire ses attributs.
             
             <p>Finalement, on doit donc...
             
@@ -1495,7 +1691,7 @@
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def donner_une_question(request):
-                x = Question.objects.get()
+                x = Question.objects.get() # x est un objet de type Question (x est une Question)
                 return render(request, "detail.html", {
                     "q": x,
                 })
@@ -1504,8 +1700,7 @@
             <p>Allez maintenant dans le navigateur, et observez le résultat !
             Il y a un souci (voire deux en fait), mais lequel ?
             
-            <div class="developpement" symbol="name 'Question' is not defined: import">
-            <hr/>
+            <div class="developpement little-box closable" symbol="name 'Question' is not defined: import">
                 Dans le code, on a écrit <code>Question</code>, mais on est dans le fichier <code>views.py</code> et <code class="py">class Question</code>
                 est définie dans le fichier <code>models.py</code>, on doit donc l'<strong>importer</strong> :
                 
@@ -1524,7 +1719,6 @@
                 <pre><code class="py">
                 <mark>from ..models import Question</mark> # .. veut dire dossier parent
                 </code></pre>
-            <hr/>
             </div>
             
             <p class="developpement" symbol="MultipleValueReturn">
@@ -1611,16 +1805,19 @@
             
             <p>Le client nous demande donc un certain <code>numero</code>, allons-y et essayons de lire ce numéro,
             et de le mettre <em>près de nous</em> dans une <strong>variable</strong>, disons <strong>n</strong>
-            (comme ça on pourra jouer avec, faire des <code>if</code> ou des <code>while</code> ou des maths).
+            (comme ça on pourra jouer avec, faire des <code class="py">if</code>, des <code class="py">while</code> ou des maths).
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def donner_une_question(request):
-                n = request.GET['numero'] # NEW
+                <mark>n = request.GET['numero']</mark>
                 x = Question.objects.get(id=1)
                 return render(request, "detail.html", {
                     "q": x,
                 })
             </code></pre>
+            
+            <p class="comment">Les paramètres <code>GET</code> sont souvent utiliser pour les recherches,
+                essayez d'aller sur <a href="https://google.be/search?q=django">google.be/search?q=django</a> et vous voyez que google utilise <code class="py">request.GET['q']</code> !
             
             <p class="comment">Pourquoi <code>GET</code> ? Car quand on va sur une page en écrivant directement l'url ou en cliquant sur un lien,
             on fait une requête http de type <code>GET</code>, cela peut se voir dans les outils de développeurs de votre navigateur (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>)
@@ -1632,7 +1829,7 @@
             <pre class="developpement" symbol="views.py"><code class="py">
             def donner_une_question(request):
                 n = request.GET['numero']
-                x = Question.objects.get(id=n) # NEW: id=n
+                x = Question.objects.get(<mark>id=n</mark>)
                 return render(request, "detail.html", {
                     "q": x,
                 })
@@ -1646,6 +1843,10 @@
                 créez un lien html qui dira <em>viens voir ma <a>super question</a></em> et quand on cliquera sur le lien,
                 on arrivera sur la page que l'on vient de créer, qui affiche la question numéro, disons, 4.
             
+            <p class="developpement" symbol="Pas de correction">Pas de correction.
+            
+            <h4 id="does-not-exist">L'exception <code>DoesNotExist</code> quand il n'y a pas d'objet correspondant</h4>
+            
             <p>Maintenant, que donne l'url <code class="url">/detail?numero=68</code> ?
             
             <p class="developpement">Nous n'avons pas de question numéro 68, django nous informe cela avec une erreur (<code>.get()</code> ne trouve pas l'élément).</p>
@@ -1657,24 +1858,24 @@
             
             def donner_une_question(request):
                 n = request.GET['numero']
-                try:
-                    x = Question.objects.get(id=n) # NEW: id=n
-                except:
-                    return HttpResponseNotFound("Pas de question ici !")
+                <mark>try:</mark>
+                    x = Question.objects.get(id=n)
+                <mark>except:</mark>
+                    <mark>return HttpResponseNotFound("Pas de question ici !")</mark>
                 return render(request, "detail.html", {
                     "q": x,
                 })
             </code></pre>
             
-            <p class="comment">Notez que dans un code structuré on préférera être plus précis sur le type de l'exception, vous n'êtes pas obligé d'avoir un code aussi structuré lors du stage.
+            <p class="comment">Notez que dans un code structuré on préférera être plus précis sur le type de l'exception, pour éviter ce que l'on peut appeler des <a href="http://www.dodgycoder.net/2011/11/yoda-conditions-pokemon-exception.html">exceptions pokémon</a> :
             
-            <pre class="developpement" symbol="views.py (pas obligatoire)"><code class="py">
+            <pre class="developpement" symbol="views.py (facultatif mais fort conseillé)"><code class="py">
             from django.http import HttpResponseNotFound
             
             def donner_une_question(request):
                 n = request.GET['numero']
                 try:
-                    x = Question.objects.get(id=n) # NEW: id=n
+                    x = Question.objects.get(id=n)
                 except <mark>Question.DoesNotExist</mark>:
                     return HttpResponseNotFound("Pas de question ici !")
                 return render(request, "detail.html", {
@@ -1689,6 +1890,8 @@
             
             <p>Cependant maintenant, notre ancienne url <code class="url">/detail</code> (tout court) ne marche plus.
             Peut-être que certains utilisateurs étaient très content que nous renvoyions la première question dans ce cas.
+            
+            <h4>Détecter la présence d'un paramètre</h4>
             
             <p>Comment détecter la différence entre <code class="url">/detail</code> et <code class="url">/detail?reponse=2</code> ?
             
@@ -1715,17 +1918,36 @@
             <p>Créez un <strong>nouvel attribut</strong> dans les questions, <code>categorie</code>, cet attribut devrait valoir exactement 
             un choix parmi <code>SPORT</code>, <code>CULTURE</code>, ou <code>SCIENCES</code>.
             
-            <p><code>migrate</code> se plaint, pourquoi ? Indice : Que se passe-t-il dans Excel quand on rajoute une nouvelle colonne ?
-            Les anciennes questions vont avoir quoi commme valeur pour cette colonne ?
-            Cela casse notre contrainte de <code class="py">categorie in ("SPORT", "CULTURE", "SCIENCES")</code> !
+            <p>En modifiant <code>models.py</code>, vous voyez que <code>migrate</code> se plaint, pourquoi ?
+            
+            <div class="developpement little-box closable" symbol="migrate et l'ajout d'un nouvel attribut">
+                <p>Indice : Que se passe-t-il dans Excel quand on rajoute une nouvelle colonne ?
+                    Les anciennes questions vont avoir quoi commme valeur pour cette colonne ?
+                    Cela casse notre contrainte de <code class="py">categorie in ("SPORT", "CULTURE", "SCIENCES")</code> !
+                
+                <p>Afin d'avoir une migration, logique on a deux solutions, soit de dire que lors de la migration on donne une valeur par défaut
+                    comme <code class="py">"SPORT"</code>
+                    ou bien on va dans <code>models.py</code> et l'on rajoute <code class="py">default="SPORT"</code> pour 
+                    l'attribut <code>categorie</code>.
+                
+                <p>Cela dit que lorsqu'on crée une <code>Question</code> à l'avenir, si l'on ne spécifie rien,
+                    la catégorie sera <code>"SPORT"</code>.
+                    
+                <pre><code class="py">
+                # models.py avec default
+                
+                categorie = models.CharField(max_length=10, default="SPORT")
+                </code></pre>
+            
+            </div>
 
             <p>Dans de pareilles requêtes (donne moi les question de sport dont le nombre de répondants vaut 20), nous devrons donc gérer plus d'une question,
             <strong>une seule variable</strong> ne sera plus utile
-            et nous aurons besoin de <strong>listes</strong> !
+            et nous aurons besoin de <strong>listes</strong> ! Direction <a href="#exerci{{c|s}}e-7">la section suivante</a> !
             
-            <h4 id="django-clean-urls">More django: clean <code>GET</code> urls</h4>
+            <h4 id="django-clean-urls">{{Plus de django : Urls épurées et url nommées|More django: clean urls and named urls}}</h4>
             <p>Des urls comme <code class="url">/detail?numero=12345</code> ce n'est parfois pas très élégant, avec Django, il est facile de faire <code class="url">/detail/12345</code>, 
-            plus d'info sur la <a href="https://docs.djangoproject.com/fr/2.0/topics/http/urls/">documentation officielle</a>.
+            la <a href="https://docs.djangoproject.com/fr/2.0/topics/http/urls/">documentation officielle</a> est très bien mais voici un aperçu des fonctionnalités les plus utiles.
             
             <p>Nous comparons l'url <code class="url">/detail?numero=12345</code> :
             
@@ -1750,38 +1972,200 @@
                 ...
             </code></pre>
             
-            <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Gérer des listes</h3>
+            <p>Une autre abstraction proposée par django est de <strong>nommer ses urls</strong> :
+            
+            <pre class="developpement" symbol="urls.py"><code>
+            path('homepage/', views.dire_bonjour, <mark>name='page-home-basic'</mark>),
+            </code></pre>
+            
+            <p>Le nom (ici <code>page-home-basic</code>) est arbitraire mais peut être le même que la vraie url (ici <code>homepage/</code>).
+            
+            <p>Cela permet de séparer les vraies urls, disponibles aux utilisateurs du site, de notre gestion interne, dispnible uniquement aux programmeurs du site.</p>
+            
+            <p>Dans un template, on utilise alors le tag <code class="django">&#123;% url %}</code>, acceptant un nom d'url :
+            
+            <pre class="developpement" symbol="template.html"><code class="django">
+            &lt;p>Allez voir &lt;a href=<mark>"&#123;% url 'page-home-basic' %}"</mark>>ma belle page&lt;/a>, une merveille !&lt;/p>
+            </code></pre>
+            
+            <p>Qui sera traduit en une vraie url :
+            
+            <pre class="developpement" symbol="template.html"><code>
+            &lt;p>Allez voir &lt;a href=<mark>"/homepage/"</mark>>ma belle page&lt;/a>, une merveille !&lt;/p>
+            </code></pre>
+            
+            <p>Si l'url contient des paramètres comme ici :
+            
+            <pre class="developpement" symbol="urls.py"><code>
+            path('detail/&lt;numero>', views.donner_une_question, name='detail-question'),
+            </code></pre>
+            
+            <p>On pourra les donner depuis une vue dans le template de deux manières :
+            
+            <pre class="developpement" symbol="views.py"><code>
+            def f(request):
+                return render(request, 'template.html', {
+                    'x': 5,
+                })
+            </code></pre>
+            
+            <pre class="developpement" symbol="template.html"><code class="django">
+            &lt;a href=<mark>"&#123;% url 'detail-question' x %}"</mark>>lien&lt;/a> &lt;!-- paramètre positionel, non conseillé --&gt;
+            &lt;a href=<mark>"&#123;% url 'detail-question' numero=x %}"</mark>>lien&lt;/a> &lt;!-- paramètre nommé, conseillés --&gt;
+            </code></pre>
+            
+            <!--
+            <p>Pour mettre des paramètres <code>GET</code>, utilisez <code>| urlencode</code> :
+            
+            <pre class="developpement" symbol="template.html"><code>
+            &lt;a href="&#123;/detail">lien&lt/a> &lt;!-- paramètres positionels, non conseillé --&gt;
+            </code></pre>
+            -->
+            
+            <p>Dans une vue, certaines fonctions de raccourci comme <code>redirect</code> accepte aussi bien un nom d'url plutôt qu'une vraie url :
+            
+            <pre class="developpement" symbol="views.py"><code>
+            from django.shortcuts import redirect
+            
+            def f(request):
+                return redirect('page-home-basic')
+            </code></pre>
+            
+            <p>En python, pour faire la conversion depuis un nom vers une vraie url, il existe la fonction <code>reverse</code>.
+            
+            <pre class="developpement" symbol="views.py"><code>
+            from django.urls import reverse
+            
+            def f(request):
+                a = reverse('page-home-basic')
+                # a == '/homepage/'
+                ...
+            </code></pre>
+            
+            <p>Plus d'information sur la <a href="https://docs.djangoproject.com/en/2.0/ref/urlresolvers/">documentation officielle</a>.
+            
+            <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Listes et boucles dans le template</h3>
+            
+            <p>Créons maintenant une url <code class="url">/summary</code>,
+                qui contiendra toutes les questions affichées dans une belle liste !
+                
+            <pre class="developpement" symbol="urls.py"><code>
+            urlpatterns = [
+                ...,
+                path('summary/', views.donne_les_questions),
+            ]
+            </code></pre>
             
             <p>Nous aurons besoin de deux nouvelles compétences :
             
             <ol>
-                <li>Comment demander des listes à la base de données (<code>all</code>, <code>filter</code>, <code>limit</code>, <code>order_by</code>).
+                <li>Comment demander des listes à la base de données ?
+                    On verra <code>.all()</code> 
+                    et dans le chapitre suivant <code>.filter()</code>, <code>.order_by()</code>
+                    et l'opération de <em>limit</em> via <code>[i:j]</code> ou <code>slice</code>.
+                    
                 <li>Comment un template peut-il afficher une liste ?
             </ol>
             
-            <p>Ce premier point sera abordé dans cet exercice et le deuxième dans <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
+            <p>Pour demander à la base de donnée la liste de tous les objets d'un certain modèle,
+                on utilise <a href="https://docs.djangoproject.com/fr/2.0/topics/db/queries/#retrieving-all-objects"><code class="py">.objects.all()</code></a>,
+                qui nous donne la liste de <code>tous</code> les objets du modèle demandé.
             
-            <p>Dans une nouvelle url <code class="url">/nonrepondues</code>, demandons à Django :
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def donne_les_questions(request):
+                A = Question.objects.all() # A est une liste d'objets de type Question
+                return render(request, "liste_de_question.html", {
+                    "L": A,
+                })
+            </code></pre>
             
-            <ol>
-                <li>Toutes les questions sans répondants, c'est à dire
+            <p>Nous faisons donc une requête à la base de donnée (une <em>query</em>) pour avoir notre liste,
+            et nous la passons à un nouveau template qui sera capable de l'afficher.
+            
+            <p>Maintenant, le template reçoit une liste, et il aimerait bien afficher un par un les éléments de cette liste,
+                en <strong>langage de template django</strong>, il existe un <strong>tag</strong> 
+                <code>for</code> qui s'utilise comme dans 
+                <code class="django">&#123;% for variable in list %} ... &#123;% <strong>endfor</strong> %}</code>.
+                
+            <p>Comment sera notre nouveau template qui accepte une liste <code>L</code> ?
+            
+            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
+            &lt;h1>Questions disponibles&lt;/h1>
+            {% for q in L %}
+                &lt;h2>Question: &#123;&#123; q.nom }}&lt;/h2>
+                &lt;p>Répondants: &#123;&#123; q.repondants }}&lt;/p>
+            {% endfor %}
+            </code></pre>
+            
+            <p>Testez maintenant cette nouvelle url !
+            On y voit toutes les questions affichées dans un certain ordre.
+            
+            <p>Peut-être les balises html <code class="html">&lt;ul></code> et <code class="html">&lt;li></code> seront plus adaptés à notre affichage en liste ?
+            
+            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
+            &lt;h1>Questions disponibles&lt;/h1>
+            &lt;ul>
+            {% for q in L %}
+                &lt;li>&#123;&#123; q.nom }} totalisant &#123;&#123; q.repondants }}&lt;/li>
+            {% endfor %}
+            &lt;/ul>
+            </code></pre>
+            
+            <p>Ce <code>for</code> en langage de template django est bien entendu lié au <code class="py">for</code>
+            en python, voici ci-dessous un petit rappel sur les boucles.
+            
+            <div class="developpement little-box closable" symbol="Petit rappel de theorie2 sur les boucles while et for">
+            <p>En <a href="theorie1_egal_if_fr.html">python</a> sans django, comment faisiez vous pour afficher tous les éléments d'une liste ?
+            En utilisant <code>print()</code> essayez d'afficher les noms de toutes les questions à l'écran, le chapitre des <strong>boucles</strong> sera utile.
+            
+            <pre class="developpement" symbol="views.py (avec while)"><code class="py">
+            def donne_les_questions(request):
+                A = Question.objects.all().order_by('-repondants')
+                
+                i = 0
+                while i &lt; len(A):
+                    q = A[i]
+                    print(q.nom, q.repondants)
+                    i += 1
+                
+                return render(request, "liste_de_question.html", {
+                    "L": A,
+                })
+            </code></pre>
+            
+            <p>Cependant, cette itération peut être simplifiée drastiquement avec <code>for</code> :
+            
+            <pre class="developpement" symbol="views.py (avec for)"><code class="py">
+            def donne_les_questions(request):
+                A = Question.objects.all().order_by('-repondants')
+                
+                for q in A:
+                    print(q.nom, q.repondants)
+                
+                return render(request, "liste_de_question.html", {
+                    "L": A,
+                })
+            </code></pre>
+            
+            <p class="comment">De plus, utiliser <strong>for</strong> dans ce cas-ci est accompagné d'un boost de performances.
+            </div>
+            
+            <p>On affiche maintenant une liste, mais on aimerait peut-être changé l'ordre d'affichage, trier les questions par répondants,
+                ou prendre uniquement les grosses questions,
+                ou juste celle qui sont ouvertes,
+                ou juste les 5 dernières crées,
+                ou plein d'autres opérations.
+            
+            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: Manipuler des listes</h3>
+            
+            <h4>Opération de <a href="https://docs.djangoproject.com/{{fr|en}}/2.0/topics/db/queries/#retrieving-specific-objects-with-filters">filter</a></h4>
+            
+            <p>Dans une nouvelle url <code class="url">/nonrepondues</code>, demandons à Django
+                toutes les questions <strong>sans répondants</strong>, c'est à dire
                 toutes les questions dont le nombre de répondants est égal à zéro,
                 on utilisera donc <code>filter</code>,
                 on reçoit donc une <strong>liste</strong>.
                 
-                <li>Affichons la première question de cette liste en utilisant l'exercice précédent
-                (souvenez-vous de comment lire le <a href="https://robertvandeneynde.be/parascolaire/theorie2_liste_while.html">premier élément d'une liste</a> ?).
-            </ol>
-                
-            <pre class="developpement" symbol="views.py"><code class="py normal-comments">
-            def pas_de_repondants(request):
-                x = Question.objects.<mark>filter</mark>(repondants=0) # a est une liste, la liste des questions avec 0 répondant, remarquez que je pourrais renommer la variable a
-                b = x[0] # b est une question
-                return render(request, "detail.html", {
-                    "q": b, # on donne b au template "detail.html" qui accepte une seule question "q"
-                })
-            </code></pre>
-            
             <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
             urlpatterns = [
                 ...,
@@ -1789,8 +2173,15 @@
             ]
             </code></pre>
             
-            <p class="comment">Cela va nous afficher une seule question, pour 
-                afficher toute la liste, direction <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
+            <pre class="developpement" symbol="views.py"><code class="py normal-comments">
+            def pas_de_repondants(request):
+                A = Question.objects.<mark>filter(repondants=0)</mark> # A est une liste, la liste des questions avec 0 répondant
+                return render(request, "liste_de_question.html", {
+                    "L": A, # on donne A au template "liste_de_question.html" qui accepte une liste de question "L"
+                })
+            </code></pre>
+            
+            <p>Remarquez que je pourrais renommer la variable <code>A</code>.
             
             <!--
             <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
@@ -1801,108 +2192,132 @@
             </code></pre>
             -->
             
-            <p class="comment">Remarquez que django propose aussi <code>a.first()</code> à la place de <code>a[0]</code> ce qui sera peut-être plus clair ici.
-                Cependant, <code>a[0]</code> lance une exception si <code>a</code> est vide, alors que <code>.first()</code> renvoie <code>None</code>.
-            
             <p>Django permet aussi de faire des requêtes contenant des comparaisons, <em>donne moi la liste des questions avec <strong>moins de 10</strong> répondants</em>
             ou en abbrégé <code>où repondants &lt; 10</code> se traduira en django <code class="py">.filter(repondants__lt=10)</code> (<strong>l</strong>ess <strong>t</strong>han).
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
-                x = Question.objects.filter(repondants<mark>__lt</mark>=10)
-                b = x[0]
-                return render(request, "detail.html", {
-                    "q": b,
+                A = Question.objects.filter(repondants<mark>__lt</mark>=10)
+                return render(request, "liste_de_question.html", {
+                    "L": A,
                 })
             </code></pre>
             
-            <p>Cela va donc afficher une des questions ayant moins de 10 répondants, mais on ne sait pas préduire laquelle.
-            
-            <p class="comment">Cela va nous afficher une seule question, pour 
-                afficher toute la liste, direction <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
+            <p>Cela va donc afficher les questions ayant moins de 10 répondants, mais on ne sait pas prédire dans quel ordre.
             
             <p>Souvenez-vous bien de ceci :
             
             <ul>
                 <li>dans une <strong>base de donnnées</strong>,
-                <li>les <strong>lignes</strong>
+                <li>les <strong>lignes</strong>,
                 <li>n'ont <strong>pas d'ordre</strong>.
             </ul>
             
-            <p>Et donc quand vous faites des requêtes ambigües comme <em>premier éléments de la liste des questions où repondants &lt; 10</em>
+            <p>Et donc quand vous faites des requêtes ambigües comme <em>la liste des questions où repondants &lt; 10</em>
             vous devez <strong>toujours</strong> ajouter un <strong>ordre</strong>.
             Cela se fait via <strong>order_by</strong>.
             
-            <p>Comment par exemple prendre la question ayant l'<code>id</code> le plus petit ?
+            <h4>Opération <em>order_by</em></h4>
+            
+            <p>Comment par exemple les trier par <code>id</code> ?
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
-                x = Question.objects.filter(repondants__lt=10).order_by('id')
-                b = a[0]
-                return render(request, "detail.html", {
-                    "q": b,
+                A = Question.objects.filter(repondants__lt=10).order_by(<mark>'id'</mark>) # guillemets !
+                return render(request, "liste_de_question.html", {
+                    "L": A,
                 })
             </code></pre>
             
-            <p class="comment">Cela va nous afficher une seule question, pour 
-                afficher toute la liste, direction <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
-            
-            <p>La liste sera donc triée par ordre <strong>croissant</strong> d'<code>id</code>.
-            Prendre le premier élément de cette liste sera donc l'élément avec l'<code>id</code> le plus petit.
+            <p>La liste sera donc triée par <code>id</code>,
+                et si l'on ne spécifie rien, ça sera l'ordre <strong>croissant</strong>.
+                Prendre le premier élément de cette liste sera donc l'élément avec l'<code>id</code> le plus petit.
+                Cela nous donne probablement les questions par ordre de création car les nouvelles questions ont un <code>id</code> plus grand.
             
             <p>Les bases de données peuvent également ordonner dans l'ordre décroissant,
                 ce qui se fait en django via le symbole <strong>&minus;</strong> avant le nom de l'attribut.
                 
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
-                x = Question.objects.filter(repondants__lt=10).order_by('<strong>-</strong>id')
-                b = x[0]
-                return render(request, "detail.html", {
-                    "q": b,
+                A = Question.objects.filter(repondants__lt=10).order_by('<mark>-</mark>id')
+                return render(request, "liste_de_question.html", {
+                    "L": A,
                 })
             </code></pre>
             
-            <p>La question affichée sera donc celle avec le nombre de répondants plus petit que 10, dont l'indice est le plus grand.
-            
+            <p>La liste sera donc triée par ordre <strong>décroissant</strong> d'<code>id</code>.
+                Prendre le premier élément de cette liste sera donc l'élément avec l'<code>id</code> le plus grand.
+                
             <p>Remarquez que si l'on ne met pas de condition, on obtiendra simplement <strong>tous</strong> les éléments de la base de donnnée.
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
-                x = Question.objects.filter().order_by('-id')
-                b = x[0]
-                return render(request, "detail.html", {
-                    "q": b,
+                A = Question.objects.filter<mark>()</mark>.order_by('-id')
+                return render(request, "liste_de_question.html", {
+                    "L": A,
                 })
             </code></pre>
             
-            <p class="comment">Cela va nous afficher une seule question, pour 
-                afficher toute la liste, direction <a href="#exerci{{c|s}}e-8">l'exercice suivant</a>.
-            
-            <p>On affiche donc la question avec l'id le plus grand dans <strong>toute</strong> la base de donnée,
-                ce qui est donc probablement la dernière créée.
-            
-            <p>Quand <code>filter</code> n'a pas d'argument comme ici, il y a en fait un raccourci plus parlant, <code>all()</code>.
+            <p>Et quand <code>filter</code> n'a pas d'argument comme ici, il existe en fait un raccourci plus parlant, <code>all()</code>
+                (<code>all</code> n'est en fait qu'un raccourci pour un <code>filter</code> vide !).
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
-                x = Question.objects.all().order_by('-id')
-                b = x[0]
-                return render(request, "detail.html", {
-                    "q": b,
+                A = Question.objects<mark>.all</mark>().order_by('-id')
+                return render(request, "liste_de_question.html", {
+                    "L": A,
                 })
             </code></pre>
             
-            <p>Petit exercice, comment afficher la question avec le <strong>moins</strong> de répondants ?
+            <p>Si ça nous chante, on pourrait trier les questions par répondants, ou par nom ce qui utilisera l'ordre alphabétique car <code>nom</code> est un <code>CharField</code>.
+            
+            <h4>Opération de <a href="https://docs.djangoproject.com/{{fr|en}}/2.0/topics/db/queries/#limiting-querysets">limit</a></h4>
+            
+            <p>On peut demander uniquement une <strong>partie</strong> de la liste,
+                par exemple le premier élément,
+                <a href="https://robertvandeneynde.be/parascolaire/theorie2_liste_while.html">vous savez</a>
+                qu'en python, le premier élément d'une liste est <strong>à l'indice zéro</strong>.
+                
+            <p>Nous allons utiliser ceci pour par exemple afficher la question avec le <strong>moins</strong> de répondants.
+                Nous réutiliserons notre tempalte de l'exercice 5 qui accepte <strong>une seule</strong> question.
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):
-                x = Question.objects.all().order_by('repondants')
-                b = x[0]
-                return render(request, "detail.html", {
+                A = Question.objects.all().order_by('repondants') # A est une liste d'objets de type Question (une liste de Question)
+                b = A<mark>[0]</mark> # b est un objet de type Question (la première Question de la liste) (b est une Question)
+                return render(request, "<mark>detail.html</mark>", {
                     "q": b,
                 })
             </code></pre>
             
+            <p class="comment">Remarquez que django propose aussi <code>A.first()</code> à la place de <code>A[0]</code> ce qui sera peut-être plus clair ici.
+                Cependant, <code>A[0]</code> lance une exception si <code>A</code> est vide, alors que <code>.first()</code> renvoie <code>None</code>.
+            
+            <p>On peut également utiliser la syntaxe <code>A[i:j]</code> pour demander une sous-liste de la liste initiale,
+            voici par exemple comment afficher les <strong>cinq</strong> questions avec le plus de répondants, on
+            utilisera donc le template qui accepte une <strong>liste</strong> :
+            
+            
+            <pre class="developpement" symbol="views.py"><code class="py">
+            def pas_de_repondants(request):
+                A = Question.objects<mark>.all</mark>().order_by('-id')
+                return render(request, "<mark>liste_de_question.html</mark>", {
+                    "L": <mark>A[0:5]</mark>,
+                })
+            </code></pre>
+            
+            <p>Dans la liste, on demande les questions d'indice <strong>0</strong> jusque <strong>5</strong> <em>non compris</em>, donc les <strong>5</strong> premières.
+                Remarquez que quand on commence au début, on peut omettre le zéro et écrire <code>A[:5]</code> se qui se lit <em>les 5 premiers éléments de A</em>.
+            
+            <p class="comment">
+                Il existe aussi une syntaxe plus verbeuse :
+                
+            <ul class="comment">
+                <li><code class="py">A[0:5]</code> peut s'écrire <code class="py">A[slice(0,5)]</code>.
+                <li><code class="py">A[:5]</code> peut s'écrire <code class="py">A[slice(5)]</code>
+                ou <code class="py">A[slice(None, 5)]</code>.
+            </ul>
+                
             <p>Comment créer un nouveau template qui contient <strong>deux</strong> variables ?
             Disons <code>p</code> et <code>q</code>, où <code>p</code> représente la question avec le plus de répondant, et <code>q</code> celle avec le moins ?
             
@@ -1917,12 +2332,12 @@
             </code></pre>
             <pre class="developpement" symbol="deux_questions.html"><code class="html">
             &lt;h1>Première question&lt;/h1>
-            &lt;h2>Titre : &lt;em>&#x7b;&#x7b; p.nom }}&lt;/em>&lt;/h2>
-            &lt;p>Cette question a accumulé un total de &#x7b;&#x7b; p.repondants }} répondants.&lt;/p>
+            &lt;h2>Titre : &lt;em>&#123;&#123; p.nom }}&lt;/em>&lt;/h2>
+            &lt;p>Cette question a accumulé un total de &#123;&#123; p.repondants }} répondants.&lt;/p>
             
             &lt;h1>Dernière question&lt;/h1>
-            &lt;h2>Titre : &lt;em>&#x7b;&#x7b; q.nom }}&lt;/em>&lt;/h2>
-            &lt;p>Cette question a accumulé un total de &#x7b;&#x7b; q.repondants }} répondants.&lt;/p>
+            &lt;h2>Titre : &lt;em>&#123;&#123; q.nom }}&lt;/em>&lt;/h2>
+            &lt;p>Cette question a accumulé un total de &#123;&#123; q.repondants }} répondants.&lt;/p>
             </code></pre>
             
             <p>Le template aimerait également une troisième variable, qu'il appelle <strong>somme</strong>,
@@ -1955,8 +2370,8 @@
             <pre class="developpement" symbol="deux_questions.html"><code class="html">
             &lt;p>
                 Les questions
-                &lt;em>&#x7b;&#x7b; qn.nom }}&lt;/em> et &lt;em>&#x7b;&#x7b; q.nom }}&lt;/em>
-                totalisent ensemble &lt;strong>&#x7b;&#x7b; somme }}&lt;/strong> votes !
+                &lt;em>&#123;&#123; p.nom }}&lt;/em> et &lt;em>&#123;&#123; q.nom }}&lt;/em>
+                totalisent ensemble &lt;strong>&#123;&#123; somme }}&lt;/strong> votes !
             &lt;/p>
             </code></pre>
             
@@ -1989,83 +2404,9 @@
             
             <p>(Désolé pour mes blagues, il est tard et je ris facilement).
             
-            <h3 id="exerci{{c|s}}e-8">Exerci{{c|s}}e 8{{ |}}: Boucles dans le template</h3>
+            <h4>Pour en savoir plus</h4>
             
-            <p>Nous manipulons des listes mais nous ne ne les voyons pas,
-            ça serait bien si notre <strong>template</strong> était capable de nous afficher des listes et plus juste une seule question !
-            
-            <p>Créons maintenant une url <code class="url">/summary</code>,
-                qui contiendra toutes les pages, et ce, trié par répondants !
-                
-            <pre class="developpement" symbol="views.py"><code class="py">
-            def donne_les_questions(request):
-                toutes_les_questions = Question.objects.all().order_by('-repondants')
-                return render(request, "liste_de_question.html", {
-                    "L": toutes_les_questions,
-                })
-            </code></pre>
-            
-            <p>Nous faisons donc une requête à la base de donnée (une <em>query</em>) pour avoir notre liste,
-            et nous la passons à un nouveau template qui sera capable de l'afficher.
-            
-            <p>En python sans dango, comment faisiez vous pour afficher tous les éléments d'une liste ?
-            En utilisant <code>print()</code> essayez d'afficher les noms de toutes les questions à l'écran, le chapitre des <strong>boucles</strong> sera utile.
-            
-            <pre class="developpement" symbol="views.py (avec while)"><code class="py">
-            def donne_les_questions(request):
-                toutes_les_questions = Question.objects.all().order_by('-repondants')
-                
-                i = 0
-                while i &lt; len(toutes_les_questions):
-                    q = toutes_les_questions[i]
-                    print(q.nom, q.repondants)
-                    i += 1
-                
-                return render(request, "liste_de_question.html", {
-                    "L": toutes_les_questions,
-                })
-            </code></pre>
-            
-            <p>Cependant, cette itération peut être simplifiée drastiquement avec <code>for</code> :
-            
-            <pre class="developpement" symbol="views.py (avec for)"><code class="py">
-            def donne_les_questions(request):
-                toutes_les_questions = Question.objects.all().order_by('-repondants')
-                
-                for q in toutes_les_questions:
-                    print(q.nom, q.repondants)
-                
-                return render(request, "liste_de_question.html", {
-                    "L": toutes_les_questions,
-                })
-            </code></pre>
-            
-            <p class="comment">De plus, utiliser <strong>for</strong> dans ce cas-ci est accompagné d'un boost de performances.
-            
-            <p>Et bien, sachez que le <strong>langage de template django</strong> contient également un <strong>tag</strong> 
-            <code>{% for variable in list %} ... {% endfor %}</code>.
-            Comment sera notre nouveau template qui accepte une liste <code>L</code> ?
-            
-            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
-            &lt;h1>Questions disponibles&lt;/h1>
-            {% for q in L %}
-                &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
-                &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
-            {% endfor %}
-            </code></pre>
-            
-            <p>Testez maintenant cette nouvelle url !
-            
-            <p>Peut-être les balises html <code>&lt;ul></code> et <code>&lt;li></code> seront plus adaptés à notre affichage en liste ?
-            
-            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
-            &lt;h1>Questions disponibles&lt;/h1>
-            &lt;ul>
-            {% for q in L %}
-                &lt;li>&#x7b;&#x7b; q.nom }} : &#x7b;&#x7b; q.repondants }}&lt;/li>
-            {% endfor %}
-            &lt;/ul>
-            </code></pre>
+            <p>Plus d'information dans la <a href="https://docs.djangoproject.com/{{fr|en}}/2.0/topics/db/queries/">documentation officielle</a>.
             
             <h3 id="exercices-sur-les-boucles">Exercices</h3>
             <p>Exercice, en python pur, comment afficher toutes les questions, mais si le nombre de répondants est nul, alors on affichera plutot <em>question pas intéressante</em> à la place du nom.
@@ -2087,12 +2428,12 @@
             
             <p>Remarquez que le tag <code>{% if condition %}{% endif %}</code> existe, il est moins puissant que celui de python, mais peut parfois bien aider comme des cas comme ici.
             
-            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
+            <pre class="developpement" symbol="liste_de_question.html"><code class="django">
             &lt;h1>Questions disponibles&lt;/h1>
             {% for q in L %}
                 {% if q.repondants == 0 %}
-                    &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
-                    &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
+                    &lt;h2>Question: &#123;&#123; q.nom }}&lt;/h2>
+                    &lt;p>Répondants: &#123;&#123; q.repondants }}&lt;/p>
                 {% else %}
                     &lt;h2>Questions pas intéressante...&lt;/h2>
                 {% endif %}
@@ -2101,12 +2442,12 @@
             
             <p>Et on pourrait même ne pas les afficher :
             
-            <pre class="developpement" symbol="liste_de_question.html"><code class="html">
+            <pre class="developpement" symbol="liste_de_question.html"><code class="django">
             &lt;h1>Questions disponibles&lt;/h1>
             {% for q in L %}
                 {% if q.repondants == 0 %}
-                &lt;h2>Question: &#x7b;&#x7b; q.nom }}&lt;/h2>
-                &lt;p>Répondants: &#x7b;&#x7b; q.repondants }}&lt;/p>
+                &lt;h2>Question: &#123;&#123; q.nom }}&lt;/h2>
+                &lt;p>Répondants: &#123;&#123; q.repondants }}&lt;/p>
                 {% endif %}
             {% endfor %}
             </code></pre>
@@ -2138,9 +2479,34 @@
             <p class="developpement" symbol="correction à venir !">correction à venir !
             
             <p>Faire une nouvelle url, disons <code class="url">/shortlist</code> qui va afficher la liste des questions 
-            avec juste le nom, mais ce nom est un <strong>lien</strong> qui va vers la vue détaillée.
+            avec juste le nom, mais ce nom est un <strong>lien</strong> qui va vers la vue détaillée, <code class="url">/detail?numero=5</code> par exemple.
             
-            <p class="developpement" symbol="correction à venir !">correction à venir !
+            <pre class="developpement" symbol="petite_liste.html"><code>
+                &lt;ul>
+                &#123;% for q in L %}
+                    &lt;li>
+                        &#123;&#123; q.nom }}
+                        (plus d'infos &lt;a href="/details?numero=&#123;&#123; q.id }}">ici&lt;/a>).
+                    &lt;/li>
+                &#123;% endfor %}
+                &lt;/ul>
+            </code></pre>
+            
+            <p class="comment">Remarquez
+                qu'ici le paramètre que l'on remplace est juste un nombre entier,
+                il n'y a donc pas de soucis,
+                mais en toute généralité, on devra utiliser <code>urlencode</code> pour faire ce genre d'opérations :
+                
+            <pre class="developpement" symbol="petite_liste.html avec urlencode"><code>
+                &lt;ul>
+                &#123;% for q in L %}
+                    &lt;li>
+                        &#123;&#123; q.nom }}
+                        (plus d'infos &lt;a href="/details?numero=&#123;&#123; q.id <mark>| urlencode</mark> }}">ici&lt;/a>).
+                    &lt;/li>
+                &#123;% endfor %}
+                &lt;/ul>
+            </code></pre>
             
             <p>Affichez la catégorie de la question, mais pas en majuscule (google: mettre en minuscule dans un django template),
             et accompagnez également une petite description de la catégorie du style <em>Cette question est culturelle, elle parle de bla bla bla</em>.
@@ -2166,7 +2532,7 @@
             <p class="developpement" symbol="correction à venir !">correction à venir !
             
             <p class="comment">Pure curiosité, comment cet attribut est-il représenté dans la base de donnée ?
-            <p class="developpement" symbol="Solution">par une chaîne de caractère de la forme <code>2000-12-31T08:30:10</code>
+            <p class="developpement" symbol="Solution">Par une chaîne de caractère de la forme <code>2000-12-31T08:30:10</code>
             
             <p>Afficher une page qui affiche les questions qui vont bientôt se fermer !
             C'est à dire que vous aurez besoin de connaître le temps actuel (google <code>timezone.now()</code>).
@@ -2188,7 +2554,9 @@
         <h2 id="form">Les formulaires pour envoyer des données au serveur</h2>
         
         <section name="form">
-            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: POSTer un formulaire</h3>
+            <button class="open-all-developpement">Cliquez ici pour faire apparaître toutes les corrections et annexes !</button>
+            
+            <h3 id="exerci{{c|s}}e-10">Exerci{{c|s}}e 10{{ |}}: Poster un formulaire</h3>
             
             <h4>Le formulaire à remplir</h4>
                 <p class="comment">Imaginez... la vraie vie :
@@ -2223,7 +2591,7 @@
                 </code></pre>
                 
             <h4>Le contenu du formulaire : <code>&lt;input/></code></h4>
-                <p>Le formulaire contient des <code>&lt;input type="text"></code>
+                <p>Le formulaire contient des <code class="html">&lt;input type="text" /></code>
                     ce sont les champs qui vont êtres affichés :</p>
                     
                 <!--
@@ -2283,10 +2651,13 @@
                 </code></pre>
                 
                 <p>On fera donc bien la différence entre la page statique qui donne le formulaire et indique où aller après,
-                    et la deuxième url qui fait effectivement l'action (modifier la base de données !).
+                    et la deuxième url qui fait effectivement l'action, qui ici est de modifier la base de données.
+                
+                <p class="comment">Si on omet l'attribut <code>action</code>, html 5 nous dit que c'est l'url en cours qui est utilisée, celle qui nous a donné le formulaire,
+                    peu pratique si l'on a plusieurs formulaires sur la même page.
             
             <h3 id="exerci{{c|s}}e-11">Exerci{{c|s}}e 11{{ |}}: Modifier la base de donnée</h3>
-                <p>Pour créer un objet dans la base de données, rien de plus simple, créez un objet Python comme <code>q = Question()</code>, mettez ses attributs
+                <p>Pour créer un objet dans la base de données, rien de plus simple, <strong>créez un objet Python</strong> comme <code>q = Question()</code>, mettez ses attributs
                     (le nombre de répondants commence à 0), puis appelez <code>q.save()</code> qui va sauvegarder l'objet dans la base de donnée.
                 
                 <pre class="developpement" symbol="views.py"><code class="py">
@@ -2314,19 +2685,18 @@
                         return HttpResponse('Création réussie !')
                 </code></pre>
                 
-                <p>Et Django contient même <code class="developpement" symbol="un autre raccourci">Question.objects.create(nom=a, categorie=b, repondants=0)</code> qui fait les trois opérations en un coup
+                <p>Et Django contient même <span class="developpement" symbol="un autre raccourci"><code>Question.objects.create(nom=a, categorie=b, repondants=0)</code></span> qui fait les trois opérations en un coup
                     afin que l'on ne doivent même pas appeler <code>.save()</code> mais rappelez vous surtout de la première manière qui sépare bien les 3 étapes.
                     
                 <p>Essayez de remplir le formulaire, et vérifiez que l'objet a bien été créé dans la base de donnée !
             
                 <p>Chaque input aura un nom (<code>name</code> dans le html), c'est ce nom qui sera accessible dans django dans le paramètre de la requête.
-                    Essayez d'appeler simplement vos deux <code>input</code> <code>name="premier"</code> et <code>name="deuxieme"</code>,
+                    Essayez d'appeler simplement vos deux <code>input</code> <code class="html">name="premier"</code> et <code class="html">name="deuxieme"</code>,
                     que devez vous changer dans le code python quand vous renommez ces deux <code>input</code> ?
                     
-                <div class="developpement" symbol="default dans models.py">
-                <hr/>
+                <div class="developpement little-box closable" symbol="default dans models.py">
                 <p>
-                    Ici on a explicitement dû mettre <code>repondants = 0</code> 
+                    Ici on a explicitement dû mettre <code class="py">repondants = 0</code> 
                     lors de la création de la question,
                     il est également possible de modifier <code>models.py</code>
                     pour dire que l'attribut repondants a une valeur par défaut de 0
@@ -2354,7 +2724,6 @@
                     
                     return HttpResponse('Création réussie !')
                 </code></pre>
-                <hr/>
                 </div>
             
             <h3 id="exerci{{c|s}}e-12">Exerci{{c|s}}e 12{{ |}}: Redirection avec http 301</h3>
@@ -2414,8 +2783,7 @@
                 
                 <p>Nous verrons plus tard comment aider notre utilisateur en améliorant son <strong>interface</strong> pour qu'il ne puisse plus faire d'erreur par distraction.
                 
-                <div class="developpement" symbol="simplification de code !">
-                    <hr/>
+                <div class="developpement little-box closable" symbol="simplification de code !">
                     <p>En s'amusant un peu avec les <a href="progra_equivalences.html">équivalences</a>, on peut réécrire le code précédent différemment, si on préfère :
                     
                     <pre class="developpement" symbol="views.py"><code class="py">
@@ -2467,7 +2835,6 @@
                         <code class="py">a == 1 or a == 2</code>
                         est équivalent à
                         <code class="py">a in (1, 2)</code>
-                    <hr/>
                 </div>
             
             <h4>Exercices de validation</h4>
@@ -2590,17 +2957,25 @@
             cela permet de faire <em>automatiquement</em> les trois étapes qu'on a fait avant, à condition de savoir les utiliser :
             
             <ol>
-                <li>Création d'un formulaire en html (<code>&lt;form></code>, <code>&lt;input/></code> et companie).
+                <li>Création d'un formulaire en html, <code class="html">&lt;form></code>, <code class="html">&lt;input/></code> et companie).
                 <li>Lecture de la requête POST et le lien avec le modèle (<code>request.POST</code>, <code>q = Question()</code> et les <code>q.nom = ...</code>).
-                <li>Validation (vérifier que les données soient bien des <code>int</code>, que <code>type</code> soit bien <code>CULTURE</code>, <code>SPORT</code> ou <code>SCIENCES</code>, ou encore des validations plus compliquées).
+                <li>Validation simple (vérifier que les données soient bien des <code>int</code>, que <code>type</code> soit bien <code>CULTURE</code>, <code>SPORT</code> ou <code>SCIENCES</code>, ou encore des validations plus compliquées).
             </ol>
             
             <p>Ce tutoriel n'en parle pas car pour les débutants c'est autant d'efforts d'utiliser les <code>django.forms</code> que de coder un formulaire html.
             Plus d'infos sur internet comme par exemple 
                 <a href="https://docs.djangoproject.com/{{fr|en}}/2.0/topics/forms/">ici</a> ({{disponible en français et anglais|available in French or English}}) ou
-                <a href="https://tutorial.djangogirls.org{{fr|en}}/django_forms/">là</a>.
+                <a href="https://tutorial.djangogirls.org/{{fr|en}}/django_forms/">là</a>.
             
-            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: QCM dans la base de données</h3>
+            <p><code>django.forms</code> nous permet de ne pas réinventer la roue et de réutiliser des éléments classiques de gestion de
+                formulaire, mais cependant dans des cas plus complexes, on devra quand même coder.
+                Par exemple, une validation du style <em>vérifier qu'un rendez-vous n'entre pas en collision avec d'autres rendez-vous</em>
+                est une tâche de validation assez facile à coder mais difficile à exprimer en terme de <code>django.forms</code>.
+            
+            <p>Comme degré d'abstraction suivant, on a <code>ModelForm</code>, qui permet de générer automatiquement un formulaire depuis un modèle,
+                plus d'informations sur la <a href="https://docs.djangoproject.com/{{fr|en}}/2.0/topics/forms/modelforms/">documentation officielle</a>.
+            
+            <h3 id="exerci{{c|s}}e-16">Exerci{{c|s}}e 16{{ |}}: Questions à choix multiples dans la base de données</h3>
             <p>On aimerait maintenant que nos questions soient des Questions à Choix Multiples (QCM).
                 C'est à dire que l'on indique des choix possibles pour chaque Question.
                 Comme par exemple :
@@ -2752,7 +3127,7 @@
                     votes3 = IntegerField(default=0)
             </code></pre>
             
-            <p>Remarquez que j'ai utilisé le paramètre <code>default=0</code> pour dire que lorsque l'on crée une question, si l'on ne spécifie rien, la valeur vaudra zéro.
+            <p>Remarquez que j'ai utilisé le paramètre <code class="py">default=0</code> pour dire que lorsque l'on crée une question, si l'on ne spécifie rien, la valeur vaudra zéro.
             
             <p>Après avoir fait la migration en mettant une valeur vide pour les choix, parcourez la base de données pour ajouter des choix possibles à toutes vos questions créées.
                 
@@ -2867,12 +3242,14 @@
         <h2 id="bddr">Les bases de données... <em>relationnelles</em></h2>
         
         <section name="bddr">
-            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Foreign key, the holy grale</h3>
+            <button class="open-all-developpement">Cliquez ici pour faire apparaître toutes les corrections et annexes !</button>
+            
+            <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Foreign key, <em>{{fait le café|the holy grale}}</em></h3>
             <!-- <p class="comment">Cette section est un draft, elle sera modifiée pour être plus compréhensible par les débutants plus tard mais peut déjà être utilisé. -->
             
             <p>Niveau code, on va maintenant créer <strong>plusieurs tables</strong>
                 qui vont être liées avec des <code>ForeignKey</code> !
-                Par exemple, dans un QCM, chaque Reponse a une liste de choix, et chaque choix aura un nombre de votes comptabilisés (qui au début vaudra 0).
+                Par exemple, dans un QCM, chaque <code>Question</code> a une liste de choix, et chaque choix aura un nombre de votes comptabilisés, qui au début vaudra 0.
             
             <pre class="developpement" symbol="models.py"><code>
             class Question(models.Model):
@@ -2888,18 +3265,18 @@
             <p>Si <code class="py">class Choix</code> est définie avant <code class="py">class Question</code>, on devra mettre <code>Question</code> entre guillemets dans la définition :
             
             <pre class="developpement" symbol="models.py"><code>
-            class Question(models.Model):
-                ...
-                
             class Choix(models.Model):
                 question = models.ForeignKey(<mark>"Question"</mark>)
                 texte = models.CharField(max_length=50)
                 votes = models.IntegerField(default=0)
+            
+            class Question(models.Model):
+                ...
             </code></pre>
             
             <p>Remarquez que j'aurais pu donner un autre nom, comme <code>origine = ForeignKey(Question)</code>
-            on parlerait alors de l'<em>origine</em> d'un choix (qui serait une <code>Question</code>)
-            mais j'insiste sur le fait que l'attribut ne doit en aucun cas avoir le même nom que la classe qu'il référencie,
+            on parlerait alors de l'<em>origine</em> d'un choix (qui serait une <code>Question</code>),
+            j'insiste sur le fait que l'attribut ne doit en aucun cas avoir le même nom que la classe qu'il référencie,
             c'est juste que pour beaucoup de relations, ce choix est naturel.
             
             <p>Grâce aux relations, on aura une base de donnée comme ceci en Excel :
@@ -2929,7 +3306,7 @@
                 </tr>
                 <tr>
                     <td>7</td>
-                    <td>Quelle est l'impédance d'un condensateur ?</td>
+                    <td>L'impédance d'un condensateur ?</td>
                     <td>100</td>
                 </tr>
             </table>
@@ -3097,9 +3474,9 @@
             
             <h4>Utilisation de la relation en python</h4>
             
-            <p>Ensuite on peut créer cette relation en faisant :
+            <p>Ensuite on peut créer cette relation de manière naturelle :
             
-            <pre class="developpement" symbol="views.py"><code>
+            <pre class="developpement" symbol=".py (créer des objets avec ForeignKey)"><code>
             q = Question()
             q.nom = "Quel est votre fruit préféré ?"
             q.save()
@@ -3122,7 +3499,7 @@
             
             <p>Et puis l'utiliser en faisant :
             
-            <pre class="developpement" symbol="views.py"><code>
+            <pre class="developpement" symbol=".py (lire des objets avec ForeignKey)"><code>
             c = Choix.objects.get(id=5)
             q = c<mark>.question</mark>
             print(q.nom, q.repondants)
@@ -3131,7 +3508,7 @@
             
             <p>Comment feriez vous pour obtenir <em>la liste des choix d'une question ?</em>
             
-            <pre class="developpement" symbol="views.py"><code>
+            <pre class="developpement" symbol=".py"><code>
             q = Question.objects.get(id=5)
             L = Choix.objects.filter(question=q)
             </code></pre>
@@ -3139,7 +3516,7 @@
             <p>Afin de simplifier ce code, django a également le concept de <em>relation inverse</em> liée au <a href="#related_name"><code>related_name</code></a>,
             par défaut quand l'on lie deux classes, une relation inverse est crée avec le nom de l'autre classe :
             
-            <pre><code class="py">
+            <pre class="developpement" symbol=".py (relation inverse choix_set)"><code class="py">
             q = Question.objects.get(id=5)
             L = q.choix_set.all()
             </code></pre>
@@ -3167,13 +3544,13 @@
             <!-- 5 minutes: Reponse Object, Foreign key -->
             
             <div id="django.contrib.auth.models.User"></div>
-            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Login, cookies, sessions et réutilisation de code</h3>
+            <h3 id="exerci{{c|s}}e-19">Exerci{{c|s}}e 19{{ |}}: Login, User, cookies, sessions et réutilisation de code</h3>
             
             <p>Tout site a besoin de gérer des utilisateurs, heureusement vous ne devez pas coder vous même une <code class="py">class User</code> car il est plus malin (et plus <em>secure</em>) d'utiliser du code déjà fait.
             
             <p>Si nous voulons dire qu'une question a un créateur (un <code>User</code>), on réutilisera la <code class="py">class User</code> venant de <code>django.contrib.auth.models</code> :
             
-            <pre><code>
+            <pre><code class="py">
             from django.db import models
             <mark>from django.contrib.auth.models import User</mark>
             
@@ -3239,7 +3616,7 @@
             
             <p>{{Imaginons qu'on a des modèles comme ceux-ci :|Given models like this :}}
             
-            <pre><code>
+            <pre><code class="py">
                 class {{Etudiant|Student}}(Model):
                     ...
                     
@@ -3254,7 +3631,7 @@
                 {{ Ou juste ceux qui ont au moins 10 likes ?
                 | Or only the ones that had at least 10 likes ?}} 
             
-            <pre><code>
+            <pre><code class="py">
                 s = {{Etudiant|Student}}.objects.get(id=5)
                 Message.objects.filter({{etudiant|student}}=5) # {{tous|all}}
                 Message.objects.filter({{etudiant|student}}=5).filter(likes__gte=10) # {{au moins|at least}} 10 likes
@@ -3263,7 +3640,7 @@
             <p>{{Django nous permet également d'utiliser la relation inverse, en utilisant <code>s.message_set</code> :
                 |Django also allow us to use reverse relationship, using <code>s.message_set</code> : }}
             
-            <pre><code>
+            <pre><code class="py">
                 s = {{Etudiant|Student}}.objects.get(id=5)
                 s.message_set.all() # {{tous|all}}
                 s.message_set.filter(likes__gte=10) # {{au moins|at least}} 10 likes
@@ -3272,39 +3649,32 @@
             <p>{{Ce que nous pourrions traduire par <em>Donne moi l'ensemble des messages de cet étudiant</em>.
                 | That would be translated to <em>Give me the set of all the messages of that student</em>. }}
             
-            <p>{{Django a choisit le nom <code>message_set</code> par défaut en se basant sur le nom de la <code class="py">class Message</code>
-                (<em>set</em> se traduit par <em>ensemble</em> en français, <code>message_set</code> se traduit donc par <code>l'ensemble des messages</code>).
+            <p>{{Django a choisit le nom <code>message_set</code> par défaut en se basant sur le nom de la <code class="py">class Message</code>,
+                <em>set</em> se traduit par <em>ensemble</em> en français, <code>message_set</code> se traduit donc par <em>l'ensemble des messages</em>.
                 | Django chose the name <code>message_set</code> as a default name based on the name of the <code class="py">class Message</code>. }}
             
-            <p>{{Si l'on ne veut pas que cette <em>relation inverse</em> soit créée, on pourrait écrire <code class="py">related_name='+'</code> dans le modèle.
+            <p>{{Si l'on ne veut pas que cette <em>relation inverse</em> soit créée, on peut écrire <code class="py">related_name='+'</code> dans le modèle.
                 | If one doesn't want this <em>reverse relationship</em> to be created, one can write <code class="py">related_name='+'</code> in the model. }}
             
-            <pre><code>
+            <pre><code class="py">
                 class Message(Model):
                     {{etudiant|student}} = ForeignKey({{Etudiant|Student}}, <mark>related_name='+'</mark>)
                     likes = IntegerField()
             </code></pre>
             
-            <p><code>s.message_set</code> {{lancerait une exception|would raise an exception}}.
+            <p>{{Dans ce cas|In that case}} <code>s.message_set</code> {{lancerait une exception|would raise an exception}}.
             
-            <p>{{Si l'on veut changer le nom de cette <em>relation inverse</em>, on peut écrire <code>related_name='...'</code> dans le modèle.
-                | If one want to change the name of this <em>reverse relationship</em>, one can write <code>related_name='...'</code> in the model. }}
+            <p>{{Si l'on veut changer le nom de cette <em>relation inverse</em>, on peut écrire <code class="py">related_name='...'</code> dans le modèle.
+                | If one want to change the name of this <em>reverse relationship</em>, one can write <code class="py">related_name='...'</code> in the model. }}
             
-            <pre><code>
+            <pre><code class="py">
                 class Message(Model):
                     {{etudiant|student}} = ForeignKey({{Etudiant|Student}}, <mark>related_name='{{liste_message|message_list}}'</mark>)
                     likes = IntegerField()
             </code></pre>
             
-            <p>{{Qui peut ensuite être utilisé :|Then it can be used :}}
-            
-            <pre><code>
-                s = {{Etudiant|Student}}.objects.get(id=5)
-                s<mark>.{{liste_message|message_list}}</mark>.filter(likes__gte=10)
-            </code></pre>
-            
-            <p>{{ Dans la définition de la classe, on lira :
-                | In the class definition, we'll read : }}
+            <p>{{ On lira :
+                | We'll read : }}
                 
             <ol>
                 {{
@@ -3316,10 +3686,17 @@
                 }}
             </ol>
             
+            <p>{{Cette relation peut ensuite être utilisée :|This relation can then be used :}}
+            
+            <pre><code class="py">
+                s = {{Etudiant|Student}}.objects.get(id=5)
+                s<mark>.{{liste_message|message_list}}</mark>.filter(likes__gte=10)
+            </code></pre>
+            
             <p>{{ Si l'on veut utiliser plusieurs fois une relation entre les mêmes modèles, comme ici :
                 | If one uses multiple times a relation between the same models, like here : }}
             
-            <pre><code>
+            <pre><code class="py">
                 class {{Etudiant|Student}}(Model):
                     ...
                 
@@ -3332,12 +3709,14 @@
                 | Django will complain, because what would it mean <em>Give the set of all messages of that student</em>. }}
                 
                 {{Qu'est ce que <code>message_set</code> voudrait dire sur un étudiant ?
-                | What would <code>message_set</code> mean on a student ?}}
+                Tous les messages qu'il a envoyé, qu'il a reçu, ou les deux ?
+                | What would <code>message_set</code> mean on a student ?
+                All the messages he sent, he received, or both? }}
             
             <p>{{ Dans ce cas on devra alors mettre les deux relations à <code>related_name='+'</code> ou bien les nommer comme par exemple :
                 | In that case one would have to set both the relations <code>related_name='+'</code> or some names like : }}
             
-            <pre><code>
+            <pre><code class="py">
                 class {{Etudiant|Student}}(Model):
                     ...
                 
@@ -3350,7 +3729,7 @@
             
             <ol>
                 {{
-                <li><strong>Un</strong> <code>Message</code> a un <code>envoyer</code> qui est un <code>Etudiant</code>.
+                <li><strong>Un</strong> <code>Message</code> a un <code>envoyeur</code> qui est un <code>Etudiant</code>.
                 <li><strong>Un</strong> <code>Etudiant</code> a une <code>liste_message_en_envoyeur</code> sont des <code>Message</code>.
                 |
                 <li><strong>One</strong> <code>Message</code> has a <code>sender</code> who is a <code>Student</code>.
@@ -3370,6 +3749,8 @@
                 B = s.{{liste_message_en_receiver|message_list_as_receiver}}.all() # {{raccourci|shortcut}}
             </code></pre>
             
+            {{ <p class="comments">En anglais j'aurais choisi <code>message_list_as_sender</code> et <code>message_list_as_receiver</code>. | }}
+            
             <p class="comments">
                 {{ Remarquons que dans notre contexte, <code class="py">'messages_envoyés'</code> serait peut être un meilleur
                 nom que <code class="py">'liste_message_en_envoyeur'</code>.
@@ -3381,26 +3762,26 @@
                 | Finally, what if we want a <code>ForeignKey</code>
                   from the class to <strong>the same class</strong> ? }}
                 
-                {{ Par exemple, chaque Etudiant peut ou non avoir un tuteur,
-                on doit alors utiliser la définition des ForeignKey avec les guillemets :
-                | For example, each {{Etudiant|Student}} may or may not have a tutor,
-                one must use the quoted version of the ForeignKey : }}
+                {{ Par exemple, chaque <code>Etudiant</code> peut avoir (ou non) un <code>tuteur</code>, qui est également un <code>Etudiant</code>.
+                On doit alors utiliser la définition des <code>ForeignKey</code> avec les guillemets :
+                | For example, each Student may (or may not) have a <code>tutor</code>, who is also a <code>Student</code>.
+                One must use the quoted version of the <code>ForeignKey</code> : }}
             
-            <pre><code>
+            <pre><code class="py">
                 class {{Etudiant|Student}}(Model):
                     {{tuteur|tutor}} = ForeignKey('{{Etudiant|Student}}', null=True)
             </code></pre>
             
-            <p>{{ Pour des raisons évidents, l'attribut doit être <em>nullable</em> (<code>null=True</code>),
-                  ce qui veut dire ici qu'il est possible qu'un étudiant n'aie pas de tuteur (en python, <code>tuteur is None</code>)
-                | For obvious reasons, the attribute must be nullable (<code>null=True</code>),
-                  which means here that it's possible for a student to not have any tutor (in python, <code>tutor is None</code>). }}
+            <p>{{ Pour des raisons évidentes, l'attribut doit être <em>nullable</em> (<code class="py">null=True</code>),
+                  ce qui veut dire ici qu'il est possible qu'un étudiant n'aie pas de tuteur (on dira alors en python que <code class="py">tuteur is None</code>, et en sql on dira que <code class="sql">tuteur is NULL</code>).
+                | For obvious reasons, the attribute must be nullable (<code class="py">null=True</code>),
+                  which means here that it's possible for a student to not have any tutor (we'll then say in python that <code class="py">tutor is None</code>), and in sql we'll say that <code class="sql">tuteur is NULL</code>). }}
             
             <p>
-            {{ Dans ce cas, il y a aussi un raccourci, <code class="py">'self'</code> :
+            {{ Dans ce cas, il existe aussi un raccourci, <code class="py">'self'</code> :
             | In that case, there is also a shortcut, <code class="py">'self'</code> : }}
             
-            <pre><code>
+            <pre><code class="py">
                 class {{Etudiant|Student}}(Model):
                     {{tuteur|tutor}} = ForeignKey('self', null=True)
             </code></pre>

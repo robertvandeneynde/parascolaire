@@ -1,8 +1,14 @@
+if [ -e gl_3d_basics.zip ]; then
+    chmod +w gl_3d_basics.zip
+fi
+
 zip -q gl_3d_basics.zip \
     gl_shaders.py \
     progra_import.py \
     progra_module_exemple.py \
-    vec3_utils.py player.png \
+    vecutils.py player.png \
     gl_matrices_and_interpolation.py \
     gl_textures.py \
     pygame0_code_minimal.py \
+
+chmod -w gl_3d_basics.zip

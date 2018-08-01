@@ -40,14 +40,14 @@ else:
 
 ## ex{{e|a}}mple 2
 if a == 5:
-    pass # {{ne rien faire|do nothing}}
+    pass  # {{ne rien faire|do nothing}}
 else:
     print("hello")
 # →
 if a != 5:
     print("hello")
 else:
-    pass # {{ne rien faire|do nothing}}
+    pass  # {{ne rien faire|do nothing}}
 # →
 if a != 5:
     print("hello")
@@ -92,8 +92,8 @@ x = (a if condition else
 e = v * t
 i = e / 2.56
 # →
-distance = velocity * time
-distance_inch = distance / 2.56
+distance = {{vitesse|velocity}} * {{temps|time}}
+distance_{{pouces|inch}} = distance / 2.56
 # {{cependant, ne tombez pas dans le piège inverse !|however, don't fall in the reverse trap!}}
 # {{dans certains cas, des variables courtes sont plus compréhensibles|sometimes short names are more understandable}}
 # {{comme par exemple dans une expression mathématique complexe|for instance in a complex mathematical expression}}
@@ -105,6 +105,11 @@ x = ...
 operation(x)
 # → ({{à condition que x n'est utilisé qu'une fois|only possible if x is used only once}})
 operation(...)
+## ex{{e|a}}mple
+{{le_coefficent|the_coefficent}} = x + 2 * y  # {{on calcule le coefficent avec la formule linéaire|let's compute the coefficent using the linear formula}}
+print({{le_coefficent|the_coefficent}})       # {{on l'affiche|let's print it}}
+# ↔
+print(x + 2 * y)  # {{on affiche le résultat de la formule linéaire|let's print the result of the linear formula}}
 
 ##
 # boolean return
@@ -122,13 +127,13 @@ def f(...):
 
 ## ex{{e|a}}mple
 def {{est_pair|is_even}}(x):
-    if x % 2 == 0: # {{si le reste de la division par deux vaut 0|if the rest of division by 2 is 0}}
+    if x % 2 == 0:  # {{si le reste de la division par deux vaut 0|if the rest of division by 2 is 0}}
         return True
     else:
         return False
 # →
 def {{est_pair|is_even}}(x):
-    return x % 2 == 0 # {{x est pair ssi le reste de la division par deux vaut 0|x is even iff the rest of division by 2 is 0}}
+    return x % 2 == 0  # {{x est pair ssi le reste de la division par deux vaut 0|x is even iff the rest of division by 2 is 0}}
 # :
 if {{est_pair|is_even}}(4):
     ...
@@ -136,17 +141,17 @@ if {{est_pair|is_even}}(4):
 ##
 # == True 
 ##
-# {{avec|with}}
+# {{avec|given}}
 def {{est_pair|is_even}}(x):
-    if x % 2 == 0: # {{si le reste de la division par deux vaut 0|if the rest of division by 2 is 0}}
+    if x % 2 == 0:  # {{si le reste de la division par deux vaut 0|if the rest of division by 2 is 0}}
         return True
     else:
         return False
 # :
-if {{est_pair|is_even}}(4) == True: # {{si la fonction est_pair renvoie True|si the is_even function returns True}}
+if {{est_pair|is_even}}(4) == True:  # {{si la fonction est_pair renvoie True|si the is_even function returns True}}
     ...
 # →
-if {{est_pair|is_even}}(4): # {{si 4 est pair|if 4 is even}}
+if {{est_pair|is_even}}(4):  # {{si 4 est pair|if 4 is even}}
     ...
 
 ##
@@ -155,7 +160,7 @@ if {{est_pair|is_even}}(4): # {{si 4 est pair|if 4 is even}}
 if condition:
     a
 elif condition2:
-    a # {{même a|same a}}
+    a  # {{même a|same a}}
 # →
 if condition or condition2:
     a
@@ -166,7 +171,7 @@ if condition or condition2:
 if condition:
     a
 elif condition2:
-    a # {{même a|same a}}
+    a  # {{même a|same a}}
 else:
     b
 # →
@@ -214,7 +219,7 @@ if condition:
     else:
         b
 else:
-    b # {{même b|same b}}
+    b  # {{même b|same b}}
 # →
 if condition and condition2:
     a
@@ -229,7 +234,6 @@ def f(...):
     if condition:
         return x
     ...
-    return y
 # ↔
 def f(...):
     ...
@@ -237,7 +241,6 @@ def f(...):
         return x
     else:
         ...
-        return y
 
 ##
 # for if return True
@@ -259,14 +262,14 @@ def f(...):
                for x in L)
 
 ## ex{{e|a}}mple
-def {{contient_un_negatif|contains_negative}}(L):
+def {{contient_un_negatif|contains_a_negative}}(L):
     for x in L:
         if x < 0:
             return True
     return False
 # →
-def {{contient_un_negatif|contains_negative}}(L):
-    return any(x < 0 for x in L) # {{L contient un négatif si il y a un élément x < 0|L contains a negative if there is a x < 0}}
+def {{contient_un_negatif|contains_a_negative}}(L):
+    return any(x < 0 for x in L)  # {{L contient un négatif si il y a un élément x < 0|L contains a negative if there is a x < 0}}
     # {{L contient un négatif ssi il existe un x in L tel que x < 0|L contains a negative if there exists any x such that x < 0}}
 
 ##
@@ -287,14 +290,14 @@ def f(...):
                for x in L)
 
 ## ex{{e|a}}mple
-def {{tous_positif|totally_positive}}(L):
+def {{totalement_positive|totally_positive}}(L):
     for x in L:
         if x < 0:
             return False
     return True
 # →
-def tous_positif(L):
-    return all(x >= 0 for x in L) # {{L est totalement positive si tous ses éléments x sont >= 0|L is totally positive if all its elements x are >= 0}}
+def {{totalement_positive|totally_positive}}(L):
+    return all(x >= 0 for x in L)  # {{L est totalement positive si tous ses éléments x sont >= 0|L is totally positive if all its elements x are >= 0}}
     # {{L est totalement positive ssi pour tous les éléments x ∈ L on a x >= 0|L is totally positive if for all its elements x one have x >= 0}}
     # {{L est totalement positive ssi quelque soit l'élément x ∈ L on a x >= 0|L is totally positive if any element x ∈ L satisfies x >= 0}}
 
@@ -365,7 +368,7 @@ for x in generat{{eu|o}}r:
     ...
 
 ## ex{{e|a}}mple 1
-for x in list(map(f, L)): # map, filter...
+for x in list(map(f, L)):  # map, filter, zip...
     ...
 # →
 for x in map(f, L):
