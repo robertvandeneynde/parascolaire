@@ -278,9 +278,9 @@ very_funny = 'ha' * 3                     # "hahaha"
 
 # comparer, via l'alphabet
 if prenom < 'Frederic':
-    print("Avant Frederic")
+    print("Avant Frederic dans l'alphabet")
 else:
-    print("Après ou est égal à Frederic")
+    print("Après Frederic dans l'alphabet (ou == Frederic)")
 
 # Attention, majuscules, minuscules
 print('A' == 'a')  # False
