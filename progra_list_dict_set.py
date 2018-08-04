@@ -80,7 +80,7 @@ D = {} # Un dictionnaire vide
 
 D = {5:2, 3:4} # Un dictionnaire avec deux éléments
 # Le premier élément a la CLEF 5 et la VALEUR 2
-# Le duxième élément a la clef 3 et la valeur 4
+# Le deuxième élément a la clef 3 et la valeur 4
 
 if 5 in D: # tester si il existe un élément avec la clef 5
     y = D[5] # on demande la valeur de la clef 5 → y = 2
@@ -96,7 +96,7 @@ print(len(D)) # toujours 3 clef différentes
 
 del D[9] # supprimer l'élément à la clef 9
 
-if D != {2;1, 3:4}: # deux dicts sont égaux s'ils ont les mêmes clefs/valeurs
+if D != {2:1, 3:4}: # deux dicts sont égaux s'ils ont les mêmes clefs/valeurs
     print("D != {2:1, 3:4}")
 
 # Vu que les élément sont identifiés par des clefs,

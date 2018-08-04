@@ -108,9 +108,13 @@
                 <p>{{ block.description }}</p>
             {% endif %}
             
-            {% if block.code %}
-                <pre><code class="py">{{ block.code | safe }}</code></pre>
+            {% for elem in block.elements %}
+            {% if elem.is_code %}
+                <pre><code class="py">{{ elem.data | safe }}</code></pre>
+            {% elif elem.is_p %}
+                <p>{{ elem.data | safe }}</p>
             {% endif %}
+            {% endfor %}
             {% endfor %}
         </section>
         {% endfor %}

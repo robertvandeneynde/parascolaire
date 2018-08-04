@@ -45,6 +45,108 @@ def replace_markdown(code):
             lines[i] = a + b
     return '\n'.join(lines)
 
+def find_para(iterable_of_lines):
+    r"""
+    >>> from pprint import pprint
+    >>> pprint(list(find_para('''\
+# Hello
+# World
+
+# Let's python
+a = 5
+
+world = 2
+# wow
+
+# looks nice
+b = 2
+
+# Now we do some stuff
+# in the house
+
+# That's why we want
+# to have fun
+    '''.split('\n'))))
+    [('para', 'Hello World'),
+    ('code', ''),
+    ('code', "# Let's python"),
+    ('code', 'a = 5\n\nworld = 2'),
+    ('code', '# wow'),
+    ('code', ''),
+    ('code', '# looks nice'),
+    ('code', 'b = 2\n'),
+    ('para', 'Now we do some stuff in the house'),
+    ('code', ''),
+    ('para', "That's why we want to have fun"),
+    ('code', '    ')]
+    """
+    from itertools import groupby, chain
+    for key, values in groupby(iterable_of_lines, key=lambda x:x.lstrip().startswith('#')):
+        if key == False:
+            yield 'code', '\n'.join(values)
+        else:
+            it = iter(values)
+            first = next(values)
+            second = next(values, None)
+            if second == None:
+                yield 'code', first
+            else:
+                yield 'para', ' '.join(_.lstrip().lstrip('#').lstrip() for _ in chain([first, second], values))
+
+def group_filter_para(iterable_of_lines):
+    """
+    [('para', 'Hello World'),
+    ('code', ''),
+    ('code', "# Let's python"),
+    ('code', 'a = 5\n\nworld = 2'),
+    ('code', '# wow'),
+    ('code', ''),
+    ('code', '# looks nice'),
+    ('code', 'b = 2\n'),
+    ('para', 'Now we do some stuff in the house'),
+    ('code', ''),
+    ('para', "That's why we want to have fun"),
+    ('code', '    ')]
+    ->
+    [('para', 'Hello World'),
+    ('code', "\n# Let's python\na = 5\n\nworld = 2\n# wow\n\n# looks nice\nb = 2\n"),
+    ('para', 'Now we do some stuff in the house'),
+    ('para', "That's why we want to have fun")]
+    """
+    from itertools import groupby, count
+    C = count()
+    return [
+        (a,b) for a,b in (
+            (('code' if a == 'code' else 'para'), '\n'.join(b[1] for b in b))
+            for a,b in groupby(
+                find_para(iterable_of_lines),
+                key=lambda x:('code' if x[0] == 'code' else str(next(C)))))
+        if b.strip()
+    ]
+    
+    # other implementation
+    # L = list(find_para(iterable_of_lines))
+    #def rnext(default, iterable):
+        #return next(iterable, default)
+    
+    ## code+ -> code
+    #i = 1
+    #while i < len(L):
+        #if L[i][0] == 'code' == L[i-1][0]:
+            #j = rnext(len(L), (j for j in range(i-1, len(L)) if L[j][0] != 'code'))
+            #L[i-1:j] = [('code', '\n'.join(L[x][1] for x in range(i-1,j)))]
+        #i += 1
+    
+    ### remove empty code 
+    #i = 0
+    #while i < len(L):
+        #if L[i][0] == 'code' and not L[i][1].strip():
+            #del L[i]
+        #else:
+            #i += 1
+    
+    #return L
+
 with open(args.filename) as f:
     c = replace_markdown(f.read())
     L = c.split('\n')
@@ -144,7 +246,12 @@ for i, (n1, name, sid) in enumerate(sections_info):
                 'id': name.replace('/', '-').replace(' ', '-') + '-' + str(i+1),
                 'title': '',
                 'description': '',
-                'code': '\n'.join(L[i] for i in block_range),
+                'elements': [
+                    {'is_code': type == 'code',
+                     'is_p': type == 'para',
+                     'data': data}
+                    for type, data in group_filter_para(L[i] for i in block_range)
+                ],
             }
             for i,(block_name, block_range) in enumerate(block_info)
         ],
