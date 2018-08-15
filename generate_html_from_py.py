@@ -32,7 +32,7 @@ def replace_markdown(code):
     # will not do the job in triple quote comments
     """
     lines = code.split('\n')
-    comment = re.compile('^(.*#)(.*)$') # this does not work with "#" in strings
+    comment = re.compile('^(.*?#)(.*)$') # this does not work with "#" in strings
     for i,line in enumerate(lines):
         m = comment.match(line)
         if m:

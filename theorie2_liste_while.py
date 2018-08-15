@@ -15,7 +15,7 @@ if a < 10:
 while a < 10:
     print("Hello")
     
-# Ce programme va afficher "Hello" sans s'arrêter...
+# Ce programme va afficher <code>"Hello"</code> sans s'arrêter...
 # Pour éviter de faire une <em>boucle infinie</em>, il faudrait que la condition devienne fausse,
 # par exemple comme ceci :
 
@@ -23,9 +23,12 @@ i = 0
 while i < 10:
     print("Hello")
     i = i + 1
-   
-#
-# Maintenant, Hello n'est affiché que dix fois ^^
+
+#   
+# Maintenant, <code>"Hello"</code> n'est affiché que dix fois ^^
+
+# En diagramme ça donne :
+# <figure><img height=389 src="while_as_diagram.state-fr.svg"></figure>
 
 # On peut bien sûr utiliser nos variables,
 # ce code affichera <em>Hello 5</em>, <em>Hello 7</em>, <em>Hello 9</em> :
@@ -79,7 +82,7 @@ for x in ma_liste:  # pour chaque élément de ma_liste, que j'appelle "x"
     print(x)  # print(x)
 
 # Tu as toutes les bases pour faire tous les exercices !
-# Je conseille de faire au moins l'exercice 5 (max list) et puis de passer à <code>pygame</code> pour créer des fenêtres !
+# Je conseille de faire au moins l'[exercice 5](exercice5_max_list.py.html) (max list) et puis de passer à <code>pygame</code> pour créer des fenêtres !
 
 # Deux approches sont possibles pour commencer <code>pygame</code> : <ul>
 # <li> Soit tu lances [pygame0_code_minimal.py](pygame0_code_minimal.py.html) et essaie de comprendre|modifier en lisant les commentaires

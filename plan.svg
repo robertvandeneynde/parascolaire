@@ -51,13 +51,13 @@
      inkscape:snap-smooth-nodes="true"
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
-     inkscape:zoom="0.7620798"
-     inkscape:cx="882.67537"
-     inkscape:cy="212.37127"
+     inkscape:zoom="3.0483192"
+     inkscape:cx="210.56282"
+     inkscape:cy="192.86559"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g9618-3"
+     inkscape:current-layer="g9094-6-8"
      inkscape:snap-intersection-paths="false"
      fit-margin-top="10"
      fit-margin-left="10"
@@ -120,7 +120,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="theorie1_egal_if_fr.html"
+           xlink:href="theorie1_egal_if_fr.html#egal"
            id="a9122">Base 1 : =</a>
       </text>
     </g>
@@ -143,7 +143,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="theorie1_egal_if_fr.html"
+           xlink:href="theorie1_egal_if_fr.html#if"
            id="a9140">Base 2 : if</a>
       </text>
     </g>
@@ -187,7 +187,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="theorie2_liste_while.html"
+           xlink:href="theorie2_liste_while.html#while"
            id="a9166">Base 3 : while</a>
         <!-- xlink:href="theorie2_liste_while_fr.html" -->
       </text>
@@ -211,7 +211,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="theorie2_liste_while.html"
+           xlink:href="theorie2_liste_while.html#listes"
            id="a9184">Base 4 : list</a>
         <!-- xlink:href="theorie2_liste_while_fr.html" -->
       </text>
@@ -255,7 +255,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="theorie3_fonctions_et_objets.html"
+           xlink:href="theorie3_fonctions_et_objets.html#objets"
            id="a9210">Base 5 : Objets</a>
       </text>
     </g>
@@ -278,7 +278,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="theorie3_fonctions_et_objets.html"
+           xlink:href="theorie3_fonctions_et_objets.html#fonctions"
            id="a9228">Base 6 : Fonctions</a>
       </text>
     </g>
@@ -728,7 +728,7 @@
        id="g9618">
       <path
          sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
+         style="fill:#202bff;stroke:none;fill-opacity:1"
          inkscape:connector-curvature="0"
          id="path9620"
          d="M 0,0 H 123.20673 V 31.6 H 0 Z"
@@ -1432,7 +1432,7 @@
     <g
        id="g9600-8">
       <path
-         style="fill:#00a9c9;stroke:none"
+         style="fill:#202bff;stroke:none;fill-opacity:1"
          inkscape:connector-curvature="0"
          id="path9602-9"
          d="M 0,0 H 76 V 31.6 H 0 Z"
@@ -1676,7 +1676,7 @@
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
          id="path9450-9"
-         d="M 0,0 H 280.22116 V 31.6 H 0 Z"
+         d="M 0,0 H 284.17308 V 31.6 H 0 Z"
          transform="translate(0.5,0.5)" />
       <text
          id="text9452-1"
@@ -1731,7 +1731,7 @@
        style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
        id="path9838-0"
-       d="M -34.557709,-58.607684 H 18.5 c 3.333333,0 5,3.522436 5,6.85577 V -6.8557696 C 23.5,-3.5224363 25.166667,0 28.5,0 H 43"
+       d="M -30.605786,-58.607684 H 18.5 c 3.333333,0 5,3.522436 5,6.85577 V -6.8557696 C 23.5,-3.5224363 25.166667,0 28.5,0 H 43"
        stroke-miterlimit="10"
        transform="translate(4,4.5)" />
     <path
@@ -1743,6 +1743,7 @@
   </g>
   <g
      id="g9092-5"
+      inkscape:label="topic-2D"
      transform="matrix(0.5,0,0,0.5,50.41388,233.93212)">
     <g
        id="g9094-6"
@@ -1756,18 +1757,18 @@
          style="fill:#79c900;fill-opacity:1;stroke:none" />
       <text
          id="text9098-0-1"
-         y="49.85067"
-         x="39.20829"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66163508px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:1;">
+         y="45.680244"
+         x="39.624744"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6616354px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:1">
         <tspan
-           style="font-size:10.53846187px"
-           id="tspan2070">2D</tspan>
+           style="font-size:10.53846169px"
+           id="tspan2070">Pygame</tspan>
       </text>
       <text
          id="text9098-0-0"
          y="28.949295"
          x="39.53318"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:1">Pygame</text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:1">2D</text>
     </g>
   </g>
   <g
@@ -1945,6 +1946,7 @@
   </g>
   <g
      id="g9092-5-2"
+      inkscape:label="topic-3D"
      transform="matrix(0.5,0,0,0.5,50.14264,336.14667)">
     <g
        id="g9094-6-8"
@@ -1960,12 +1962,12 @@
          id="text9098-0-9"
          y="30.000004"
          x="40.000004"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:1">OpenGL</text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:1">3D</text>
       <text
          id="text9098-0-9-0"
-         y="49.759621"
-         x="40.000004"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.53846187px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:1;">3D</text>
+         y="45.748745"
+         x="39.818058"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.53846169px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:1">OpenGL</text>
     </g>
   </g>
   <g
@@ -2222,22 +2224,30 @@
   <g
      id="g9240-3-5"
      transform="matrix(0.5,0,0,0.5,28.769535,88.051182)">
-    <path
-       transform="translate(0.5,0.5)"
-       sodipodi:nodetypes="ccccc"
-       style="fill:#00a9c9;stroke:none"
-       inkscape:connector-curvature="0"
-       id="path9242-2-6"
-       d="M -3.9519232,0 H 52.432691 V 31.6 H -3.9519232 Z" />
-    <text
-       id="text9244-0-6"
-       x="4.5480766"
-       y="20.200001"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-      <a
-         xlink:href="turtle.fr.html"
-         id="a9246-7-4">Turtle</a>
+    <a
+       xlink:href="turtle.fr.html"
+       id="a9246-7-4">
+      <path
+         transform="translate(0.5,0.5)"
+         sodipodi:nodetypes="ccccc"
+         style="fill:#202bff;fill-opacity:1;stroke:none"
+         inkscape:connector-curvature="0"
+         id="path9242-2-6"
+         d="m -23.711539,0 h 76.14423 v 31.6 h -76.14423 z" />
+      <text
+         id="text9244-0-6"
+         x="4.5480766"
+         y="20.200001"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+          Turtle
     </text>
+      <path
+         sodipodi:nodetypes="ccccccccccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path3100"
+         d="m -9.5712716,3.7362658 -2.5220084,1.45778 v 3.0599 l -2.445078,1.34636 -4.890172,-0.2448 3.667618,2.3255402 -2.200572,6.67868 4.767912,6.74173 -2.44508,3.3047 3.91214,-2.20314 2.1552404,2.26562 2.155238,-2.26562 3.91214,2.20314 -2.445095,-3.3047 4.767927,-6.74173 -2.200584,-6.67868 3.667631,-2.3255402 -4.890172,0.2448 -2.445079,-1.34636 v -3.0599 z"
+         style="fill:#ffffff;stroke:#ffffff;stroke-width:0.36428741;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
   </g>
   <g
      id="g9292-5-0"
@@ -2291,57 +2301,57 @@
   <g
      id="g9238-3"
      transform="matrix(0.5,0,0,0.5,176.24955,2.252011)">
-    <g
-       id="g9240-5">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9242-1"
-         d="M 0,0 H 76.14423 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9244-7"
-         x="32.21154"
-         y="22.175962"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="https://youtu.be/zJ-w2izNvg4"
-           id="a9246-4">Vidéo</a>
-        <!-- <a
-          xlink:href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">Vidéo</a> -->
-      </text>
+    <a
+       xlink:href="https://youtu.be/zJ-w2izNvg4"
+       id="a9246-4">
       <g
-         transform="matrix(0.450824,0,0,0.450824,13.992628,-8.0740402)"
-         id="g5036">
-        <rect
-           style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:2.96394229;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect4929"
-           width="33.597076"
-           height="17.43848"
-           x="-14.374897"
-           y="51.096973"
-           rx="4.9399042"
-           ry="4.9399042" />
-        <circle
-           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98798072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="path4931-3"
-           cx="9.8152523"
-           cy="44.001461"
-           r="7.0955129" />
+         id="g9240-5">
         <path
-           style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.98798078px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 36.053736,50.098514 10e-6,19.4354 -16.831567,-9.7177 z"
-           id="path5000"
-           inkscape:connector-curvature="0" />
-        <circle
-           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98798066;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="path4931-3-3"
-           cx="-5.9924355"
-           cy="44.001457"
-           r="7.0955129" />
+           sodipodi:nodetypes="ccccc"
+           style="fill:#202bff;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0"
+           id="path9242-1"
+           d="M 0,0 H 76.14423 V 31.6 H 0 Z"
+           transform="translate(0.5,0.5)" />
+        <text
+           id="text9244-7"
+           x="32.21154"
+           y="22.175962"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">Vidéo <!-- <a
+          xlink:href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">Vidéo</a> -->
+</text>
+        <g
+           transform="matrix(0.450824,0,0,0.450824,13.992628,-8.0740402)"
+           id="g5036">
+          <rect
+             style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:2.96394229;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect4929"
+             width="33.597076"
+             height="17.43848"
+             x="-14.374897"
+             y="51.096973"
+             rx="4.9399042"
+             ry="4.9399042" />
+          <circle
+             style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98798072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="path4931-3"
+             cx="9.8152523"
+             cy="44.001461"
+             r="7.0955129" />
+          <path
+             style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.98798078px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             d="m 36.053736,50.098514 10e-6,19.4354 -16.831567,-9.7177 z"
+             id="path5000"
+             inkscape:connector-curvature="0" />
+          <circle
+             style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98798066;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="path4931-3-3"
+             cx="-5.9924355"
+             cy="44.001457"
+             r="7.0955129" />
+        </g>
       </g>
-    </g>
+    </a>
   </g>
   <g
      id="g9706-4"
@@ -2402,7 +2412,7 @@
        id="g9600-8-5-8">
       <path
          sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
+         style="fill:#202bff;stroke:none;fill-opacity:1"
          inkscape:connector-curvature="0"
          id="path9602-9-5-3"
          d="M 0,0 H 130.88362 V 31.6 H 0 Z"
@@ -2413,7 +2423,7 @@
          y="19.610546"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
-           xlink:href="progra_equivalences_fr.py.html"
+           xlink:href="progra_equivalences_fr.html"
            id="a3341-9">Équivalences</a>
       </text>
     </g>
@@ -2707,7 +2717,9 @@
   </g>
   <g
      transform="translate(5.1576247,-92.024145)"
+     inkscape:label="topic-theorie"
      id="g2154">
+   <a xlink:href="theorie1_egal_if_fr.html">
     <circle
        style="fill:#79c900;fill-opacity:1;stroke:none;stroke-width:1.34008098"
        id="path9986-3-9-4-1-6"
@@ -2718,7 +2730,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:0.5"
        x="26.449621"
        y="127.04227"
-       id="text9098-0-0-1-0">Python</text>
+       id="text9098-0-0-1-0">Théorie</text>
     <text
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:0.5"
        x="26.509016"
@@ -2726,8 +2738,9 @@
        id="text9098-0-0-1-7-6">
       <tspan
          style="font-size:5.26923084px;stroke-width:0.5"
-         id="tspan2068-4">Théorie</tspan>
+         id="tspan2068-4">Python</tspan>
     </text>
+   </a>
   </g>
   <path
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -2807,117 +2820,132 @@
   <g
      id="g1462"
      transform="translate(0.562826,-67.454201)">
-    <path
-       d="m 355.96495,265.47706 c 0,0 19.11676,0 36.65824,0 v 15.8 h -36.65824 z"
-       id="path9620-6"
-       inkscape:connector-curvature="0"
-       style="fill:#1b1817;fill-opacity:1;stroke:none;stroke-width:0.5"
-       sodipodi:nodetypes="ccccc" />
-    <text
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:0.5"
-       y="275.32706"
-       x="361.92029"
-       id="text9622-9">
-      <a
-         xlink:href="https://github.com/robertvandeneynde/parascolaire-students"
-         id="a9624-8"
-         style="stroke-width:0.5">~/home</a>
-    </text>
-    <g
-       style="stroke-width:1.06817806"
-       transform="matrix(0.93617349,0,0,0.93617349,25.760077,14.874097)"
-       id="g1349">
-      <circle
-         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.58300912;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="path1345"
-         cx="346.14502"
-         cy="276.1272"
-         r="10.771923" />
+    <a
+       xlink:href="https://github.com/robertvandeneynde/parascolaire-students"
+       id="a9624-8"
+       style="stroke-width:0.5">
       <path
-         d="m 346.14502,265.35528 c -5.92394,0 -10.72816,4.80356 -10.72816,10.72947 0,4.73967 3.07394,8.76141 7.33741,10.18081 0.5368,0.0981 0.73242,-0.23316 0.73242,-0.5177 0,-0.2549 -0.009,-0.92936 -0.0145,-1.82447 -2.98436,0.64811 -3.61403,-1.4385 -3.61403,-1.4385 -0.48806,-1.23959 -1.19151,-1.56958 -1.19151,-1.56958 -0.97415,-0.66524 0.0738,-0.65206 0.0738,-0.65206 1.0769,0.0757 1.64334,1.10588 1.64334,1.10588 0.95703,1.63939 2.51145,1.16581 3.12268,0.89116 0.0975,-0.69291 0.37478,-1.16582 0.68105,-1.43389 -2.38235,-0.27137 -4.88721,-1.19151 -4.88721,-5.30283 0,-1.17174 0.41824,-2.12877 1.10456,-2.87897 -0.11065,-0.27137 -0.47884,-1.3621 0.10539,-2.83946 0,0 0.90038,-0.28849 2.95011,1.09929 0.85559,-0.23777 1.77375,-0.35633 2.68599,-0.36094 0.91157,0.005 1.82908,0.12317 2.68599,0.36094 2.04841,-1.38778 2.94747,-1.09929 2.94747,-1.09929 0.58555,1.47736 0.21736,2.56809 0.10736,2.83946 0.68764,0.7502 1.10259,1.70723 1.10259,2.87897 0,4.12186 -2.50881,5.02883 -4.89841,5.29426 0.38466,0.33131 0.72781,0.98601 0.72781,1.98716 0,1.43389 -0.0132,2.59115 -0.0132,2.94287 0,0.28717 0.19365,0.62111 0.7377,0.51638 4.26017,-1.42203 7.33147,-5.44048 7.33147,-10.17949 0,-5.92591 -4.80422,-10.72947 -10.73013,-10.72947"
-         style="fill:#1b1817;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.07035596"
-         id="path16"
-         inkscape:connector-curvature="0" />
-    </g>
+         d="m 355.96495,265.47706 c 0,0 19.11676,0 36.65824,0 v 15.8 h -36.65824 z"
+         id="path9620-6"
+         inkscape:connector-curvature="0"
+         style="fill:#1b1817;fill-opacity:1;stroke:none;stroke-width:0.5"
+         sodipodi:nodetypes="ccccc" />
+      <text
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:0.5"
+         y="275.32706"
+         x="361.92029"
+         id="text9622-9">
+          ~/home
+    </text>
+      <g
+         style="stroke-width:1.06817806"
+         transform="matrix(0.93617349,0,0,0.93617349,25.760077,14.874097)"
+         id="g1349">
+        <circle
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.58300912;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="path1345"
+           cx="346.14502"
+           cy="276.1272"
+           r="10.771923" />
+        <path
+           d="m 346.14502,265.35528 c -5.92394,0 -10.72816,4.80356 -10.72816,10.72947 0,4.73967 3.07394,8.76141 7.33741,10.18081 0.5368,0.0981 0.73242,-0.23316 0.73242,-0.5177 0,-0.2549 -0.009,-0.92936 -0.0145,-1.82447 -2.98436,0.64811 -3.61403,-1.4385 -3.61403,-1.4385 -0.48806,-1.23959 -1.19151,-1.56958 -1.19151,-1.56958 -0.97415,-0.66524 0.0738,-0.65206 0.0738,-0.65206 1.0769,0.0757 1.64334,1.10588 1.64334,1.10588 0.95703,1.63939 2.51145,1.16581 3.12268,0.89116 0.0975,-0.69291 0.37478,-1.16582 0.68105,-1.43389 -2.38235,-0.27137 -4.88721,-1.19151 -4.88721,-5.30283 0,-1.17174 0.41824,-2.12877 1.10456,-2.87897 -0.11065,-0.27137 -0.47884,-1.3621 0.10539,-2.83946 0,0 0.90038,-0.28849 2.95011,1.09929 0.85559,-0.23777 1.77375,-0.35633 2.68599,-0.36094 0.91157,0.005 1.82908,0.12317 2.68599,0.36094 2.04841,-1.38778 2.94747,-1.09929 2.94747,-1.09929 0.58555,1.47736 0.21736,2.56809 0.10736,2.83946 0.68764,0.7502 1.10259,1.70723 1.10259,2.87897 0,4.12186 -2.50881,5.02883 -4.89841,5.29426 0.38466,0.33131 0.72781,0.98601 0.72781,1.98716 0,1.43389 -0.0132,2.59115 -0.0132,2.94287 0,0.28717 0.19365,0.62111 0.7377,0.51638 4.26017,-1.42203 7.33147,-5.44048 7.33147,-10.17949 0,-5.92591 -4.80422,-10.72947 -10.73013,-10.72947"
+           style="fill:#1b1817;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.07035596"
+           id="path16"
+           inkscape:connector-curvature="0" />
+      </g>
+    </a>
   </g>
   <g
      id="g9616-3"
      transform="matrix(0.49999999,0,0,0.49999999,336.65442,177.95711)">
-    <g
-       id="g9618-3">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#e98900;stroke:none;fill-opacity:1"
-         inkscape:connector-curvature="0"
-         id="path9620-8"
-         d="M 0,0 H 123.20673 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9622-3"
-         x="41.034012"
-         y="20.164667"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           id="a9624-7"
-           xlink:href="projets.html">Projet</a>
-      </text>
-    </g>
+    <a
+       xlink:href="projets.html"
+       id="a9624-7">
+      <g
+         id="g9618-3">
+        <path
+           sodipodi:nodetypes="ccccc"
+           style="fill:#202bff;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0"
+           id="path9620-8"
+           d="M 0.5,-7.4038448 H 123.70673 V 24.196156 H 0.5 Z" />
+        <text
+           id="text9622-3"
+           x="43.009972"
+           y="12.26082"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">Projets</text>
+      </g>
+      <g
+         id="g2023"
+         transform="matrix(-1.7930236,0,0,-1.7930236,572.27591,326.59091)"
+         style="stroke-width:1.11543429">
+        <path
+           style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.20825723;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 302.10041,183.39414 2.95523,-2.01571 1.48274,-0.29211 1.09755,0.50136 0.53209,-0.53211 -1.00784,-0.60301 0.20242,-0.20241 5.80797,2.21898 1.45797,-1.45796 -5.15457,-2.90998 0.64058,-0.64058 3.5181,1.29911 0.98308,-0.9831 -2.78527,-1.93626 0.80715,-1.39819 -0.52614,-0.52614 -1.19234,1.19234 -0.26648,-0.26647 -0.26563,-0.26563 1.19234,-1.19235 -0.52699,-0.52699 -1.39733,0.808 -1.93712,-2.78612 -0.9831,0.98308 1.29996,3.51895 -0.64058,0.64058 -2.90997,-5.15457 -1.45797,1.45797 2.21899,5.80798 -0.20242,0.20243 -0.60301,-1.00786 -0.53211,0.53211 0.50051,1.09668 -0.29125,1.4836 z"
+           id="path2004"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccc" />
+      </g>
+    </a>
   </g>
   <g
      id="g9616-7"
      transform="matrix(0.49999999,0,0,0.49999999,590.65776,-41.18402)">
-    <g
-       id="g9618-5">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#1b1817;fill-opacity:1;stroke:none;stroke-width:1"
-         inkscape:connector-curvature="0"
-         id="path9620-6-6"
-         d="m 0.99025066,84.166332 c 0,0 38.23352034,0 73.31648034,0 V 115.76633 H 0.99025066 Z" />
-      <text
-         id="text9622-9-7"
-         x="12.900979"
-         y="103.8663"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1">
-        <a
-           style="stroke-width:1"
-           id="a9624-8-6"
-           xlink:href="https://github.com/robertvandeneynde/parascolaire">Github</a>
-      </text>
+    <a
+       style="stroke-width:1"
+       id="a9624-8-6"
+       xlink:href="https://github.com/robertvandeneynde/parascolaire">
       <g
-         id="g1349-0"
-         transform="matrix(1.8723471,0,0,1.8723471,-659.41954,-417.03965)"
-         style="stroke-width:1.06817806">
-        <circle
-           r="10.771923"
-           cy="276.1272"
-           cx="346.14502"
-           id="path1345-9"
-           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.58300912;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         id="g9618-5">
         <path
+           sodipodi:nodetypes="ccccc"
+           style="fill:#1b1817;fill-opacity:1;stroke:none;stroke-width:1"
            inkscape:connector-curvature="0"
-           id="path16-7"
-           style="fill:#1b1817;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.07035596"
-           d="m 346.14502,265.35528 c -5.92394,0 -10.72816,4.80356 -10.72816,10.72947 0,4.73967 3.07394,8.76141 7.33741,10.18081 0.5368,0.0981 0.73242,-0.23316 0.73242,-0.5177 0,-0.2549 -0.009,-0.92936 -0.0145,-1.82447 -2.98436,0.64811 -3.61403,-1.4385 -3.61403,-1.4385 -0.48806,-1.23959 -1.19151,-1.56958 -1.19151,-1.56958 -0.97415,-0.66524 0.0738,-0.65206 0.0738,-0.65206 1.0769,0.0757 1.64334,1.10588 1.64334,1.10588 0.95703,1.63939 2.51145,1.16581 3.12268,0.89116 0.0975,-0.69291 0.37478,-1.16582 0.68105,-1.43389 -2.38235,-0.27137 -4.88721,-1.19151 -4.88721,-5.30283 0,-1.17174 0.41824,-2.12877 1.10456,-2.87897 -0.11065,-0.27137 -0.47884,-1.3621 0.10539,-2.83946 0,0 0.90038,-0.28849 2.95011,1.09929 0.85559,-0.23777 1.77375,-0.35633 2.68599,-0.36094 0.91157,0.005 1.82908,0.12317 2.68599,0.36094 2.04841,-1.38778 2.94747,-1.09929 2.94747,-1.09929 0.58555,1.47736 0.21736,2.56809 0.10736,2.83946 0.68764,0.7502 1.10259,1.70723 1.10259,2.87897 0,4.12186 -2.50881,5.02883 -4.89841,5.29426 0.38466,0.33131 0.72781,0.98601 0.72781,1.98716 0,1.43389 -0.0132,2.59115 -0.0132,2.94287 0,0.28717 0.19365,0.62111 0.7377,0.51638 4.26017,-1.42203 7.33147,-5.44048 7.33147,-10.17949 0,-5.92591 -4.80422,-10.72947 -10.73013,-10.72947" />
+           id="path9620-6-6"
+           d="m 0.99025066,84.166332 c 0,0 38.23352034,0 73.31648034,0 V 115.76633 H 0.99025066 Z" />
+        <text
+           id="text9622-9-7"
+           x="12.900979"
+           y="103.8663"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1">
+            Github
+      </text>
+        <g
+           id="g1349-0"
+           transform="matrix(1.8723471,0,0,1.8723471,-659.41954,-417.03965)"
+           style="stroke-width:1.06817806">
+          <circle
+             r="10.771923"
+             cy="276.1272"
+             cx="346.14502"
+             id="path1345-9"
+             style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.58300912;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path16-7"
+             style="fill:#1b1817;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.07035596"
+             d="m 346.14502,265.35528 c -5.92394,0 -10.72816,4.80356 -10.72816,10.72947 0,4.73967 3.07394,8.76141 7.33741,10.18081 0.5368,0.0981 0.73242,-0.23316 0.73242,-0.5177 0,-0.2549 -0.009,-0.92936 -0.0145,-1.82447 -2.98436,0.64811 -3.61403,-1.4385 -3.61403,-1.4385 -0.48806,-1.23959 -1.19151,-1.56958 -1.19151,-1.56958 -0.97415,-0.66524 0.0738,-0.65206 0.0738,-0.65206 1.0769,0.0757 1.64334,1.10588 1.64334,1.10588 0.95703,1.63939 2.51145,1.16581 3.12268,0.89116 0.0975,-0.69291 0.37478,-1.16582 0.68105,-1.43389 -2.38235,-0.27137 -4.88721,-1.19151 -4.88721,-5.30283 0,-1.17174 0.41824,-2.12877 1.10456,-2.87897 -0.11065,-0.27137 -0.47884,-1.3621 0.10539,-2.83946 0,0 0.90038,-0.28849 2.95011,1.09929 0.85559,-0.23777 1.77375,-0.35633 2.68599,-0.36094 0.91157,0.005 1.82908,0.12317 2.68599,0.36094 2.04841,-1.38778 2.94747,-1.09929 2.94747,-1.09929 0.58555,1.47736 0.21736,2.56809 0.10736,2.83946 0.68764,0.7502 1.10259,1.70723 1.10259,2.87897 0,4.12186 -2.50881,5.02883 -4.89841,5.29426 0.38466,0.33131 0.72781,0.98601 0.72781,1.98716 0,1.43389 -0.0132,2.59115 -0.0132,2.94287 0,0.28717 0.19365,0.62111 0.7377,0.51638 4.26017,-1.42203 7.33147,-5.44048 7.33147,-10.17949 0,-5.92591 -4.80422,-10.72947 -10.73013,-10.72947" />
+        </g>
       </g>
-    </g>
+    </a>
   </g>
   <g
+      inkscape:label="topic-site-web"
      id="g1564">
-    <circle
-       r="17.902643"
-       cy="151.41649"
-       cx="71.16555"
-       id="path9986-3-9-4-1"
-       style="fill:#79c900;fill-opacity:1;stroke:none;stroke-width:1.34008098" />
-    <text
-       id="text9098-0-0-1"
-       y="153.34882"
-       x="71.038422"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:0.5">
-      <a
-         xlink:href="django.fr.html"
-         id="a1314">Django</a>
+    <a
+       xlink:href="django.fr.html"
+       id="a1314">
+      <circle
+         r="17.902643"
+         cy="151.41649"
+         cx="71.16555"
+         id="path9986-3-9-4-1"
+         style="fill:#79c900;fill-opacity:1;stroke:none;stroke-width:1.34008098" />
+      <text
+         id="text9098-0-0-1"
+         y="153.34882"
+         x="71.038422"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:0.5">Site web</text>
       <text
          id="text9098-0-0-1-7"
          y="162.22151"
@@ -2925,8 +2953,8 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none;stroke-width:0.5">
         <tspan
            id="tspan2068"
-           style="font-size:5.26923084px">Site web</tspan>
+           style="font-size:5.26923084px">Django</tspan>
       </text>
-    </text>
+    </a>
   </g>
 </svg>

@@ -6,7 +6,7 @@ from __future__ import print_function, division
 ### objets ##########
 
 # Un objet permet de grouper plusieurs variables dans un... objet.
-# Par exemple on peut grouper la "vie" et le "mana" dans un objet "personnage"
+# Par exemple on peut grouper la "vie" et le "mana" dans un objet de type "Personnage".
 
 # D'abord on définit la classe de l'objet ci-dessous.
 # Pour l'instant elle est vide mais utilisable.
@@ -17,18 +17,19 @@ class Personnage:
     pass  # vide
 
 # Pour créer un objet on écrit sa classe puis une paire de parenthèses.
-# Vu que la classe est vide, il n'y a rien à l'intérieur de ces parenthèses.
+# Vu que la classe est vide, il n'y a rien à mettre à l'intérieur de ces parenthèses.
 
 bob = Personnage()
 print(bob)  # "objet de la classe Personnage à l'adresse mémoire 0x..."
-# bob est un personnage, oui oui
-# on peut lui mettre des variables !
+
+#
+# Vu que bob est un objet, on peut lui mettre des variables !
 bob.vie = 60 
 bob.max_vie = 100
 bob.mana = 10
 
-# d'autres persos
-
+# On peut créer d'autres personnages,
+# comme alice, ou deux personnages sans noms :
 alice = Personnage()
 alice.vie = 40
 alice.max_vie = 70
@@ -55,7 +56,8 @@ p.mana = 20
 
 les_personnages.append(p)
 
-# Lancez cet exemple sur python tutor, et observez la dynamique des flèches lors du deuxième <code>p =</code>.
+# Lancez [cet exemple](http://pythontutor.com/visualize.html#py=3&mode=display&code=class%20Personnage%3A%0A%20%20%20%20pass%20%20%23%20vide%0A%0A%23%20Pour%20cr%C3%A9er%20un%20objet%20on%20%C3%A9crit%20sa%20classe%20puis%20une%20paire%20de%20parenth%C3%A8ses.%0A%23%20Vu%20que%20la%20classe%20est%20vide%2C%20il%20n%27y%20a%20rien%20%C3%A0%20mettre%20%C3%A0%20l%27int%C3%A9rieur%20de%20ces%20parenth%C3%A8ses.%0A%0Abob%20%3D%20Personnage%28%29%0Aprint%28bob%29%20%20%23%20%22objet%20de%20la%20classe%20Personnage%20%C3%A0%20l%27adresse%20m%C3%A9moire%200x...%22%0A%0A%23%0A%23%20Vu%20que%20bob%20est%20un%20objet%2C%20on%20peut%20lui%20mettre%20des%20variables%20%21%0Abob.vie%20%3D%2060%20%0Abob.max_vie%20%3D%20100%0Abob.mana%20%3D%2010%0A%0A%23%20On%20peut%20cr%C3%A9er%20d%27autres%20personnages%2C%0A%23%20comme%20alice%2C%20ou%20deux%20personnages%20sans%20noms%C2%A0%3A%0Aalice%20%3D%20Personnage%28%29%0Aalice.vie%20%3D%2040%0Aalice.max_vie%20%3D%2070%0Aalice.mana%20%3D%2050%0A%0A%23%20imaginez%20une%20liste%20de%20personnages%20%21%0Ales_personnages%20%3D%20%5Balice%2C%20bob%5D%0A%0Aalice.vie%20%2B%3D%2010%0Aprint%28les_personnages%5B0%5D.vie%29%20%20%23%2050%0Aprint%28les_personnage%5B0%5D%20%3D%3D%20alice%29%20%20%23%20True%0A%0Ap%20%3D%20Personnage%28%29%0Ap.vie%20%3D%2020%0Ap.max_vie%20%3D%2020%0Ap.mana%20%3D%2030%0A%0Ales_personnages.append%28p%29%0A%0Ap%20%3D%20Personnage%28%29%0Ap.vie%20%3D%2025%0Ap.max_vie%20%3D%2025%0Ap.mana%20%3D%2020%0A%0Ales_personnages.append%28p%29)
+# sur pythontutor, et observez la dynamique des flèches lors du deuxième <code>p = Personnage()</code>.
 # Plus d'infos sur ces flèches dans la section <em>En savoir plus</em>.
 
 # Essayez de créer une liste de 100 personnages différents en moins de 10 lignes de code.
@@ -150,14 +152,14 @@ b = calculer_maximum(une_autre_liste)
 # ou utilisée dans une expression
 c = calculer_maximum(une_belle_liste) + calculer_maximum(une_autre_liste)
 
-#
-# Lancez cet exemple dans python tutor!
+# Lancez [cet exemple](http://pythontutor.com/visualize.html#code=def%20calculer_maximum%28la_liste%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Calcule%20le%20maximum%20d'une%20liste%0A%20%20%20%20%0A%20%20%20%201%20Param%C3%A8tre%20d'entr%C3%A9e%20%3A%0A%20%20%20%20%20%20%20%20-%20la_liste%20%3A%20la%20liste%0A%20%20%20%201%20Param%C3%A8tre%20de%20retour%20%3A%0A%20%20%20%20%20%20%20%20-%20le%20maximum%0A%20%20%20%20%22%22%22%0A%20%20%20%20m%20%3D%20la_liste%5B0%5D%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20while%20i%20%3C%20len%28la_liste%29%3A%0A%20%20%20%20%20%20%20%20if%20la_liste%5Bi%5D%20%3E%20m%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20m%20%3D%20la_liste%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20return%20m%0A%20%20%20%20%0Aune_belle_liste%20%3D%20%5B1,2,7,2%5D%0Aune_autre_liste%20%3D%20%5B8,0,1,6%5D%0A%0A%23%20on%20appelle%20la%20fonction%20via%20les%20parenth%C3%A8ses%0Aa%20%3D%20calculer_maximum%28une_belle_liste%29%0A%0A%23%20la%20valeur%20de%20retour%20peut%20%C3%AAtre%20stock%C3%A9e%20dans%20une%20variable...%0Ab%20%3D%20calculer_maximum%28une_autre_liste%29%0A%0A%23%20ou%20utilis%C3%A9e%20dans%20une%20expression%0Ac%20%3D%20calculer_maximum%28une_belle_liste%29%20%2B%20calculer_maximum%28une_autre_liste%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
+# dans pythontutor !
 
 # Les objets et fonctions vont bien ensemble,
 # quand une fonction a accès à un objet elle peut modifier ses attributs:
 
 def donner_potion(perso, montant):
-    """Donne "montant" pv à un perso "perso" sans dépasser son maximum de vie """
+    """Donne "montant" pv à un Personnage "perso" sans dépasser son maximum de vie"""
     perso.vie = perso.vie + montant
     if perso.vie > perso.max_vie:
         perso.vie = perso.max_vie
@@ -165,6 +167,9 @@ def donner_potion(perso, montant):
 # on appelle la fonction avec nos personnages de la base CINQ
 donner_potion(bob, 25)  # 25 points de vie pour bob
 donner_potion(alice, 100)  # 100 points de vie pour alice
+
+# Vous pouvez aussi voir [cet exemple](http://pythontutor.com/visualize.html#code=class%20Personnage%3A%0A%20%20%20%20pass%20%20%23%20vide%0A%0Abob%20%3D%20Personnage%28%29%0Abob.vie%20%3D%2060%20%0Abob.max_vie%20%3D%20100%0Abob.mana%20%3D%2010%0A%0Aalice%20%3D%20Personnage%28%29%0Aalice.vie%20%3D%2040%0Aalice.max_vie%20%3D%2070%0Aalice.mana%20%3D%2050%0A%0Adef%20donner_potion%28perso,%20montant%29%3A%0A%20%20%20%20%22%22%22Donne%20%22montant%22%20pv%20%C3%A0%20un%20perso%20%22perso%22%20sans%20d%C3%A9passer%20son%20maximum%20de%20vie%20%22%22%22%0A%20%20%20%20perso.vie%20%3D%20perso.vie%20%2B%20montant%0A%20%20%20%20if%20perso.vie%20%3E%20perso.max_vie%3A%0A%20%20%20%20%20%20%20%20perso.vie%20%3D%20perso.max_vie%0A%20%20%20%20%20%20%20%20%0A%23%20on%20appelle%20la%20fonction%20avec%20nos%20personnages%20de%20la%20base%20CINQ%0Adonner_potion%28bob,%2025%29%20%20%23%2025%20points%20de%20vie%20pour%20bob%0Adonner_potion%28alice,%20100%29%20%20%23%20100%20points%20de%20vie%20pour%20alice&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
+# sur pythontutor
 
 # Quand une fonction est appelée, python... <ul>
 # <li> crée un bloc dans la mémoire "de gauche"
@@ -260,6 +265,9 @@ def yo(x):
 #
 # Voici un aperçu de mon [article](progra_equivalences.html) obtenues grâce aux fonctions.
 
+#
+# Les fonctions renvoyant un bool :
+
 # avant:
 def f():
     ...
@@ -296,6 +304,9 @@ def f():
 def voyelle(x):
     return x == 'a' or x == 'e' or x == 'i' or x = 'o' or x = 'u'
 
+#
+# Le return dans un if :
+
 # avant
 def f():
     if CONDITION:
@@ -314,7 +325,10 @@ def f():
     return Y
 
 # A et B sont une suite de 0 ou plus instructions,
-# je conseille de faire ceci si il y a peut d'instructions dans "A" et beaucoup dans "B"
+# je conseille de faire ceci si il y a peut d'instructions dans "A" et beaucoup dans "B".
+
+#
+# ∃ et ∀ :
 
 # avant
 def f():
@@ -332,13 +346,21 @@ def f():
 # Lire ça comme <em>il existe un X dans L qui vérifie <b>CONDITION</b></em>
 # ou <em>il existe un X dans L tel que <strong>CONDITION</strong></em>.
 
-# Par exemple: <code>any(x == 2 for x in L)</code> se lit <ul>
+#
+# Par exemple:
+if any(x == 2 for x in L):
+    ...
+
+# Se lit <em>si</em> : <ul>
 # <li> Il existe un <b>2</b> dans <code>L</code>.
 # <li> <em>Il existe un x dans L tel que <code>x == 2</code></em>
 # <li>∃ x ∈ L: x == 2</ul>
 
+#
 # Un conseil: passer à la ligne en fonction de la longueur dans le <code>any</code>!
-# Si c'est <code>return False</code>, puis <code>return True</code> écrivez <code>return not any(...)</code>.
+
+#
+# ∀ est le cas dual de ∃ :
 
 # avant
 def f():
@@ -358,10 +380,18 @@ def f():
 # <li> quel que soit X, il vérifie <strong>CONDITION</strong>
 # <li> pour tous les éléments de X, il vérifie <strong>CONDITION</strong> </ul>
 
-# Par exemple, le code <code>if all(x > 0 for x in L)</code> <ul>
-# <li> si tous les nombres de l sont > 0
-# <li> si pour tous les élements x de L, on a x > 0
-# <li> si ∀ x ∈ L: x > 0 </ul>
+#
+# Par exemple:
+if all(x > 0 for x in L):
+    ...
+    
+# Se lit <em>si</em> : <ul>
+# <li> Tous les nombres de L sont > 0
+# <li> Pour tous les élements x de L, on a x > 0
+# <li> ∀ x ∈ L: x > 0 </ul>
+
+#
+# Plus d'exemples dans mon [article](progra_equivalences.html) sur les équivalences.
 
 ## Paramètres par défaut
 
@@ -391,7 +421,7 @@ print(f(x=5, y=2))
 ## Récursivité
 
 #
-# Méditez là dessus avec python tutor..
+# Méditez là dessus avec pythontutor...
 
 def f(x):
     if x > 0:
@@ -471,7 +501,7 @@ print(group.n)
 
 # Rappelons nous de notre fonction qui prend un objet en paramètre
 def donner_potion(perso, montant):
-    """ Donne "montant" pv à un perso "perso" sans dépasser son maximum de vie """
+    """Donne "montant" pv à un Personnage "perso" sans dépasser son maximum de vie"""
     perso.vie = perso.vie + montant
     if perso.vie > perso.max_vie:
         perso.vie = perso.max_vie
@@ -481,7 +511,7 @@ donner_potion(bob, 25)  # 25 points de vie pour bob
 donner_potion(alice, 100)  # 100 points de vie pour alice
 
 # On peut mettre des fonctions dans les classes,
-# on appelle ça des "méthodes"
+# on appelle ça des <em>méthodes</em>.
 
 # À la place de le faire dans l'espace global, on le fait dans la classe
 # Ces fonctions reçoivent <strong>TOUJOURS</strong> un premier paramètre "self"
@@ -492,7 +522,7 @@ donner_potion(alice, 100)  # 100 points de vie pour alice
 
 class Personnage:
     def boire_potion(self, montant):
-        """Donne montant pv à un perso sans dépasser son maximum de vie"""
+        """Donne montant pv au Personnage sans dépasser son maximum de vie"""
         self.vie = self.vie + montant
         if self.vie > self.max_vie:
             self.vie = self.max_vie
@@ -517,7 +547,7 @@ alice.crier()
 
 ## Contructeur
 
-# On voit des parties du code précédent qui peuvent être répétées.
+# On voit des parties du code précédent qui sont répétées.
 # Ce serait pratique de faire une fonction qui <em>initialise</em> les attributs.
 
 def init_personnage(perso, a, b, c):
@@ -530,8 +560,9 @@ init_personnage(bob, 60, 100, 10)
 alice = Personnage()
 init_personnage(alice, 60, 100, 10)
 
-# Cette fonctionnalité existe : Le constructeur est une fonction qui est appelée
-# à la création de tout objet.
+# Cette fonctionnalité existe : Le constructeur.
+# C'est une fonction qui est appelée à la création de tout objet.
+# Le constructeur d'une classe s'appelle toujours <code>__init__</code>.
 
 class Personnage:
     def __init__(self, a, b, c):
