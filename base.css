@@ -400,3 +400,8 @@ p > code.hljs {
     padding: 2px !important;
     background: transparent !important;
 }
+
+blockquote {
+    text-align: italic;
+    /* the margin is too big but that's alright */
+}

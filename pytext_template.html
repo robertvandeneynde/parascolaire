@@ -66,7 +66,6 @@
         
         {% if description %}
         <section>
-        <p class="lang-switch">
             <p class="lang-switch">
                 {% for other_lang in other_langs %}
                 <a href="{{ other_lang.filename }}"
@@ -95,13 +94,26 @@
         </nav>
         
         {% for section in sections %}
-        <h2 id="{{ section.id }}">{{ section.name }}</h2>
-        
+        {% for x in section.other_ids %}<span id="{{ x }}"></span>{% endfor %}<!--
+        --><h2 id="{{ section.id }}">{{ section.name }}</h2>
+        <!-- {{ section.other_ids }} -->
         <section name="{{ section.id }}">
+            {% if other_langs %}
+            <p class="lang-switch">
+                {% for other_lang in other_langs %}
+                <a href="{{ other_lang.filename }}#{{ section.id }}"
+                   lang="{{ other_lang.lang }}"
+                   hreflang="{{ other_lang.lang }}"><!--
+                    --><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{other_lang.lang}}.png"/><!--
+                    -->{{ other_lang.text }}<!--
+                --></a>
+                {% endfor %}
+            </p>
+            {% endif %}
             
             {% for block in section.blocks %}
             {% if block.name %}
-                <h3 id="{{ block.id }}">{{ block.name }}</h3>
+                <h3 id="{{ block.id }}">{% for x in block.other_ids %}<span id="{{ x }}">{% endfor %}{{ block.name }}{% for x in block.other_ids %}</span>{% endfor %}</h3>
             {% endif %}
             
             {% if block.description %}

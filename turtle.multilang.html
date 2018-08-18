@@ -60,9 +60,9 @@
                 text-align: center;
                 min-width: 160px;
             }
-            table.shortcuts em {
+            /* table.shortcuts em {
                 font-style: normal;
-            }
+            } */
             tr {
                 background-color: rgb(252, 252, 255);
             }
@@ -462,28 +462,17 @@
             
             <figure>
                 <img src="two-colored-squares.svg" />
-                <figcaption>{{
-                    Deux carrés colorés
-                    |
-                    Two colored squares
-                }}</figcaption>
+                <figcaption>{{ Deux carrés colorés | Two colored squares }}</figcaption>
             </figure>
             
             <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: {{ La maison en couleurs | House in color }}</h3>
             
-            <p>{{
-                Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert !
-                |
-                Or you can color your house, the door in red and the roof in green!
-            }}</p>
+            <p>{{ Ou bien tu peux colorier ta maison, la porte en rouge et le toit en vert !
+                | Or you can color your house, the door in red and the roof in green! }}</p>
             
             <figure>
                 <img src="colored-house.svg" />
-                <figcaption>{{
-                    La maison en couleurs
-                    |
-                    House in color 
-                }}</figcaption>
+                <figcaption>{{ La maison en couleurs | House in color }}</figcaption>
             </figure>
             
         </section>
@@ -493,8 +482,8 @@
         <section name="{{raccourcis|shortcuts}}">
             <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{shortcuts|raccourcis}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
 
-            <p><em>No one needs a mouse when editing text</em> &mdash; Robert Vanden Eynde
-            <p><em>La souris, c'est lent, le pad c'est encore pire</em> &mdash; Robert Vanden Eynde
+            <blockquote id="no-mouse">{{Sérieusement, qui a besoin d'une souris quand il édite du texte ?|Seriously, who needs a mouse when editing text?}} &mdash; <a href="https://robertvandeneynde.be/blog/quotes/index.{{fr|en}}.html#no-mouse">Robert Vanden Eynde</a></blockquote>
+            <blockquote id="no-pad">{{La souris, c'est lent... Mais le pad ? C'est pire !|The mouse, that's slow... But trackpad? That's wooorse!}} &mdash; <a href="https://robertvandeneynde.be/blog/quotes/index.{{fr|en}}.html#no-pad">Robert Vanden Eynde</a></blockquote>
             
             <p>{{ Voici selon moi les raccourcis clavier les plus importants pour éditer du texte, ceux-ci marchent <strong>même sur Facebook</strong>,
                 vous n'êtes pas obligé de les lire mais ça permet de coder <strong>super vite</strong> croyez-moi !
@@ -513,77 +502,105 @@
                 <tr><th>Symbol{{e|}}
                     <th>{{Utilité|Use}}
                 
-                <tr><td>←↓↑→
-                    <td>{{Les touches directionnelles (Arrow keys) déplacent le curseur.|Arrows keys (<em>touches directionnelles</em>) move cursor.}}
+                <tr><td><kbd>←</kbd><kbd>↓</kbd><kbd>↑</kbd><kbd>→</kbd>
+                    <td>{{ Les touches directionnelles (Arrow keys) <strong>déplacent</strong> le curseur.
+                        | Arrows keys (<em>touches directionnelles</em>) <strong>move</strong> the cursor.}}
                 
                 <tr><td><kbd>⇧Shift</kbd>
-                    <td>{{Shift (Maj.) permet d'écrire un caractère de niveau 2, comme les majuscules, ou le point sur un clavier AZERTY français.|Shift (<em>Maj.</em>) allows writing a Level 2 character, like the.}}
+                    <td>{{ <kbd>⇧Shift</kbd> (<em>Maj.</em> pour <em>Majuscules</em> sur les claviers de France) permet d'écrire un caractère <strong>de niveau 2</strong>, comme les <strong>majuscules</strong>, ou le point sur un clavier Azerty français.
+                        | <kbd>⇧Shift</kbd> (<em>Maj.</em> on keyboard from France) allows writing a <strong>level 2</strong> character, like the <strong>upper case</strong> letters, the dot on a french Azerty keyboard or the parenthesis on a US-Qwerty. }}
                 
-                <tr><td><kbd>AltGr</kbd>
-                    <td>{{AltGr permet d'écrire un caractère de niveau 3 comme le <code>€</code> sur un AZERTY français, on appuie dessus avec le pouce droit (<kbd>⌥</kbd> sur Mac).|AltGr (Right Alt) allows writing Level 3 characters (<kbd>⌥</kbd> on Mac).}}
+                <tr><td><kbd><a href="https://en.wikipedia.org/wiki/AltGr_key">AltGr</a></kbd>  <!-- French wikipedia page https://fr.wikipedia.org/wiki/Alt_Gr is a stub -->
+                    <td>{{<kbd><a href="https://en.wikipedia.org/wiki/AltGr_key">AltGr</a></kbd> (ou l'<em>Alt de droite</em>) permet d'écrire un caractère de <strong>niveau 3</strong> comme le <code>€</code> sur un Azerty français, on appuie dessus avec le <a href="https://fr.wikipedia.org/wiki/Pouce_(anatomie)">pouce</a> droit (<kbd>⌥</kbd> sur Mac).
+                        | <kbd><a href="https://en.wikipedia.org/wiki/AltGr_key">AltGr</a></kbd> (<em>Right Alt</em>) allows writing <strong>level 3</strong> characters like the <code>€</code> on a french Azerty, the key is pressed using the right <a href="https://en.wikipedia.org/wiki/Thumb">thumb</a> (<kbd>⌥ Option</kbd> on Mac).}}
+                        
+                        {{ Notons que <a href="https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg">certains claviers</a> n'ont pas de touche <kbd>AltGr</kbd>, dans ce cas on doit appuyer sur  <kbd>Ctrl</kbd>+<kbd>Alt</kbd>.
+                         | Let's notice that <a href="https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg">some keyboards</a> don't have a <kbd>AltGr</kbd> key, one must press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>. }}
                 
                 <tr><td><kbd>⌫ Backspace</kbd>
-                    <td>{{Backspace (Retour Arrière) supprime le caractère à gauche.|Backspace (<em>Retour Arrière</em>) deletes the character to the left.}}
+                    <td>{{<kbd>⌫ Backspace</kbd> (<kbd>Ret. Arr.</kbd> pour <em>Retour Arrière</em> sur les claviers de France) <strong>supprime</strong> le caractère à gauche.
+                        | Backspace (<kbd>Ret. Arr.</kbd> for <em>Retour Arrière</em> on keyboard from France) <strong>deletes</strong> the character to the left.}}
                 
-                <tr><td><kbd>Del</kbd>
-                    <td>{{Delete (Suppr.) supprime le caractère à droite (parfois <kbd>⌃Control</kbd>+<kbd>D</kbd> parfois <kbd>Fn</kbd>+<kbd>⌫</kbd> sous Mac).|Delete (<em>Suppr</em>.) deletes the character to the right (sometimes <kbd>⌃Control</kbd>+<kbd>D</kbd> sometimes <kbd>Fn</kbd>+<kbd>⌫</kbd> on Mac).}}
+                <tr><td><kbd>Delete ⌦</kbd>
+                    <td>{{<kbd>Delete ⌦</kbd> (<kbd>Suppr.</kbd> sur les clavier de France) <strong>supprime</strong> le caractère <strong>à droite</strong> (parfois <kbd>⌃Control</kbd>+<kbd>D</kbd> parfois <kbd>Fn</kbd>+<kbd>⌫</kbd> sous Mac).
+                        | <kbd>Delete ⌦</kbd> (<kbd>Suppr.</kbd> on keyboard from France) <strong>deletes</strong> the character <strong>to the right</strong> (sometimes <kbd>⌃Control</kbd>+<kbd>D</kbd> sometimes <kbd>Fn</kbd>+<kbd>⌫</kbd> on Mac).}}
                 
-                <tr><td><kbd>↵</kbd>
-                    <td>{{Enter (Entrée) passe à la ligne.|Enter (<em>Entrée</em>) inserts goes to the next line.}}
-            
+                <tr><td><kbd>↵ Enter</kbd>
+                    <td>{{<kbd>↵ Enter</kbd> (<em>Entrée</em> sur les clavier de France) (<kbd>Return</kbd> sur les claviers américains) <strong>passe à la ligne</strong> ou <strong>exécute une commande</strong> comme <em>envoyer un message</em>.
+                        | <kbd>↵ Enter</kbd> (<em>Entrée</em> on keyboards from France) (<kbd>Return</kbd> on US keyboards) inserts a <strong>new line</strong> or <strong>executes a command</strong> like <em>send a message</em>.}}
+                
+                <tr><td><kbd>⎋ Escape</kbd>
+                    <td>Très utile dans certains applications mais souvent fonctionnalité qu'il fait deviner, {{<kbd>⎋ Escape</kbd> (<em>Échap.</em> pour <em>(s')Échapper</em> sur les clavier de France) retourne à l'<strong>état par défaut</strong>, ça dépend beaucoup de l'application mais cette touche est souvent utilisée pour revenir à l'écran <em>normal</em> d'un programme, commme par exemple après avoir ouvert une fenêtre de paramètres.
+                        | Very useful in certain applications but generally a functionality that must be guessed, <kbd>⎋ Escape</kbd> (<em>Échap.</em> for <em>(s')Échapper</em> on keyboards from France) goes back to <strong>default state</strong>, it depends a lot on the applications but this key is often used to go back to the <em>normal</em> state of a programm, like for example when you open a setting window and you want to quickly close it.}}
+                
             </table>
             
-            <p>D'autres classiques...
+            <p>{{ D'autres classiques, notez que <kbd>Ctrl</kbd> est appuyé avec l'<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> de la main gauche ou sous Mac <kbd>⌘ Command</kbd> appuyé avec le <a href="https://fr.wikipedia.org/wiki/Pouce_(anatomie)">pouce</a> gauche.
+                | Some other classics, let's notice that <kbd>Ctrl</kbd> is pressed using the <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a> of the left hand or on Mac <kbd>⌘ Command</kbd> is pressed using the <a href="https://en.wikipedia.org/wiki/Thumb">thumb</a> of the left hand. }}
             
             <table class="shortcuts">
                 <tr>
                     <td><kbd>Ctrl</kbd> + <kbd>Z</kbd>
-                    <td><em>{{ Annuler | Undo }}</em>
-                        (<kbd>⌘</kbd> + <kbd>Z</kbd> {{sur|on}} Mac).
+                    <td><em>{{ <strong>Annuler</strong>, | <strong>Undo</strong>, }}</em>
+                        {{ en utilisant l'<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> gauche pour <kbd>Ctrl</kbd> (<kbd>⌘</kbd> + <kbd>Z</kbd> sous Mac en utilisant le <a href="https://fr.wikipedia.org/wiki/Pouce_(anatomie)">pouce</a> gauche pour <kbd>⌘</kbd>).
+                         | using left <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a> finger for <kbd>Ctrl</kbd> (<kbd>⌘</kbd> + <kbd>Z</kbd> on Mac using the left <a href="https://en.wikipedia.org/wiki/Thumb">thumb</a> for <kbd>⌘</kbd>). }}
                 
                 <tr>
                     <td><kbd>Ctrl</kbd> + <kbd>C</kbd>
-                    <td><em>{{ Copier | Copy }}</em>
-                        (<kbd>⌘</kbd> + <kbd>C</kbd> {{sur|on}} Mac).
+                    <td><em>{{ <strong>Copier</strong>, | <strong>Copy</strong>, }}</em>
+                        {{ en utilisant l'<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> gauche pour <kbd>Ctrl</kbd> (<kbd>⌘</kbd> + <kbd>C</kbd> sous Mac en utilisant le <a href="https://fr.wikipedia.org/wiki/Pouce_(anatomie)">pouce</a> gauche pour <kbd>⌘</kbd>).
+                         | using left <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a> finger for <kbd>Ctrl</kbd> (<kbd>⌘</kbd> + <kbd>C</kbd> on Mac using the left <a href="https://en.wikipedia.org/wiki/Thumb">thumb</a> for <kbd>⌘</kbd>). }}
                 
                 <tr>
                     <td><kbd>Ctrl</kbd> + <kbd>V</kbd>
-                    <td><em>{{ Coller | Paste }}</em>
-                        (<kbd>⌘</kbd> + <kbd>V</kbd> {{sur|on}} Mac).
-                
+                    <td><em>{{ <strong>Coller</strong>, | <strong>Paste</strong>, }}</em>
+                        {{ en utilisant l'<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> gauche pour <kbd>Ctrl</kbd> (<kbd>⌘</kbd> + <kbd>V</kbd> sous Mac en utilisant le <a href="https://fr.wikipedia.org/wiki/Pouce_(anatomie)">pouce</a> gauche pour <kbd>⌘</kbd>).
+                         | using left <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a> finger for <kbd>Ctrl</kbd> (<kbd>⌘</kbd> + <kbd>V</kbd> on Mac using the left <a href="https://en.wikipedia.org/wiki/Thumb">thumb</a> for <kbd>⌘</kbd>). }}
+
                 <tr>
                     <td><kbd>Ctrl</kbd> + <kbd>X</kbd>
-                    </td><td>
-                        <em>{{ Couper | Cut }}</em>
-                        (<kbd>⌘</kbd> + <kbd>X</kbd> {{sur|on}} Mac).
-                    </td>
+                    <td>
+                        <em>{{ <strong>Couper</strong>, | <strong>Cut</strong>, }}</em>
+                        {{ en utilisant l'<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> gauche pour <kbd>Ctrl</kbd> (<kbd>⌘</kbd> + <kbd>X</kbd> sous Mac en utilisant le <a href="https://fr.wikipedia.org/wiki/Pouce_(anatomie)">pouce</a> gauche pour <kbd>⌘</kbd>).
+                         | using left <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a> finger for <kbd>Ctrl</kbd> (<kbd>⌘</kbd> + <kbd>X</kbd> on Mac using the left <a href="https://en.wikipedia.org/wiki/Thumb">thumb</a> for <kbd>⌘</kbd>). }}
+
                 
                 <tr>
                     <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>Z</kbd>
-                    <td><em>{{ Rétablir (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>)
-                            | Redo (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation) }}</em>
+                    <td><em>{{ <strong>Rétablir</strong>, c'est opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>,
+                            | <strong>Redo</strong>, it's <kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation, }}</em>
                             
-                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>Z</kbd> {{sur|on}} Mac).
+                        {{ en utilisant l'<a href="https://fr.wikipedia.org/wiki/Annulaire_(anatomie)">annulaire</a> gauche pour <kbd>⇧Shift</kbd> ou sous Mac on utilisera plutôt l'<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> gauche pour <kbd>⇧Shift</kbd> car le pouce est utilisé pour <kbd>⌘</kbd>.
+                         | using our left <a href="https://en.wikipedia.org/wiki/Ring_finger">ring finger</a> for <kbd>⇧Shift</kbd> or on Mac we will rather use the left little finger for <kbd>⇧Shift</kbd> because the thumb is used for <kbd>⌘</kbd>. }}
+                            
+                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>Z</kbd> {{sous|on}} Mac).
+                        
+                        <p><em>Note</em>{{ |}}:
+                        
+                        {{ Dans la majorité de mes raccourcis, <kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+Truc est l'<strong>inverse</strong> de <kbd>Ctrl</kbd>+Truc sauf quand l'opération inverse de <kbd>Ctrl</kbd>+Truc n'est pas utile can <kbd>Ctrl</kbd>+Z (Annuler) le fait très bien.
+                         | In the majority of my shortcuts, <kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+Stuff is the <strong>inverse</strong> of <kbd>Ctrl</kbd>+Stuff except when the inverse operation is not useful because <kbd>Ctrl</kbd>+Z (Undo) does its job very well. }}
                 
                 <tr>
                     <td><kbd>Ctrl</kbd> + <kbd>Y</kbd>
-                    <td>{{ <em>Rétablir</em> (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>)... dans certaines applications non basées sur Linux (càd des <em style="font-style:italic">mauvaises</em> applications selon mon humble opinion d'ingénieur, sujet que je peux débattre).
-                            | <em>Redo</em> (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation)... in some applications that are not based on Linux (ie. <em style="font-style:italic">bad</em> applications in my humble engineer opinion, I can debate on that). }}
+                    <td>{{ <strong>Rétablir</strong> (opération inverse de <kbd>Ctrl</kbd> + <kbd>Z</kbd>) dans certaines applications non basées sur Linux (càd des <em style="font-style:italic">mauvaises</em> applications selon mon humble opinion d'ingénieur, sujet que je peux débattre).
+                            | <strong>Redo</strong> (<kbd>Ctrl</kbd> + <kbd>Z</kbd> inverse operation) in some applications that are not based on Linux (ie. <em style="font-style:italic">bad</em> applications in my humble engineer opinion, I can debate on that). }}
                             
-                        (<kbd>⌘</kbd> + <kbd>Y</kbd> {{sur|on}} Mac).
+                        (<kbd>⌘</kbd> + <kbd>Y</kbd> {{sous|on}} Mac).
  
                 <tr>
                     <td><kbd>Ctrl</kbd> + <kbd>F</kbd> 
-                    <td><em>{{ Chercher ! | Search! }}</em> (Ctrl <strong>F</strong>ind)
-                        (<kbd>⌘</kbd> + <kbd>F</kbd> {{sur|on}} Mac).
+                    <td><em>{{ <strong>Chercher</strong> ! | <strong>Search</strong>! }}</em> (Ctrl <strong>F</strong>ind)
+                        (<kbd>⌘</kbd> + <kbd>F</kbd> {{sous|on}} Mac).
                 
                 <tr>
                     <td><kbd>⇱ Home</kbd>
-                    <td>Aller au début de la ligne, peut être également combinée avec <kbd>Shift</kbd> pour sélectionner du texte.
+                    <td>{{Aller au <strong>début</strong> de la ligne ou de la page, peut être également combinée avec <kbd>⇧Shift</kbd> pour sélectionner du texte.
+                        | Go to the <strong>beginning</strong> of the line or the page, can also be used with <kbd>⇧Shift</kbd> to select some text. }}
                 
                 <tr>
                     <td><kbd>⇲ End</kbd>
-                    <td>Aller à la fin de la ligne, peut être également combinée avec <kbd>Shift</kbd> pour sélectionner du texte.
+                    <td>{{ Aller à la <strong>fin</strong> de la ligne ou de la page, peut être également combinée avec <kbd>⇧Shift</kbd> pour sélectionner du texte.
+                        | Go to the <strong>end</strong> of the line or the page, can also be used with <kbd>⇧Shift</kbd> to select some text. }}
             </table>
             
             <p>{{Et maintenant, les peu connus !|And now, the ones people don't know!}}</p>
@@ -595,29 +612,40 @@
                     <td><kbd>Ctrl</kbd>+<kbd>→</kbd>
                     <td colspan="1">{{
                         <em><strong>Mot</strong> suivant</em> (<kbd>⌥</kbd>+<kbd>→</kbd> sur Mac).
+                        <kbd>Ctrl</kbd> (<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> gauche) + <kbd>→</kbd> (main droite) si le <kbd>Ctrl</kbd> de gauche est utilisé ou 
+                        <kbd>Ctrl</kbd> (<a href="https://fr.wikipedia.org/wiki/Pouce_(anatomie)">pouce</a> droit) + <kbd>→</kbd> (<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> droit) pour n'utiliser qu'une main.
                         | <em>Next <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>→</kbd> on Mac).
+                        <kbd>Ctrl</kbd> (left <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a>) + <kbd>→</kbd> (right hand) if the Left <kbd>Ctrl</kbd> is used or 
+                        <kbd>Ctrl</kbd> (right <a href="https://en.wikipedia.org/wiki/Thumb">thumb</a>) + <kbd>→</kbd> (right <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a>) to use only one hand.
                     }}
                     
                 <tr>
                     <td><kbd>Ctrl</kbd>+<kbd>←</kbd>
                     <td colspan="1">{{
                         <em><strong>Mot</strong> précédent</em> (<kbd>⌥</kbd>+<kbd>←</kbd> sur Mac).
+                        <kbd>Ctrl</kbd> (<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> gauche) + <kbd>←</kbd> (main droite) si le <kbd>Ctrl</kbd> de gauche est utilisé ou 
+                        <kbd>Ctrl</kbd> (<a href="https://fr.wikipedia.org/wiki/Pouce_(anatomie)">pouce</a> droit) + <kbd>←</kbd> (<a href="https://fr.wikipedia.org/wiki/Index_(anatomie)">index</a> droit) pour n'utiliser qu'une main.
                         | <em>Previous <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>←</kbd> on Mac).
+                        <kbd>Ctrl</kbd> (left <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a>) + <kbd>→</kbd> (right hand) if the Left <kbd>Ctrl</kbd> is used or 
+                        <kbd>Ctrl</kbd> (right <a href="https://en.wikipedia.org/wiki/Thumb">thumb</a>) + <kbd>←</kbd> (right <a href="https://en.wikipedia.org/wiki/Index_finger">index finger</a>) to use only one hand.
                     }}
                     
                 <tr>
                     <td><kbd>⇧Shift</kbd>+<kbd>→</kbd>
                     <td colspan="1">{{
                         <em><strong>Sélectionner</strong> un caractère vers la droite</em>.
-                        | <em><strong>Select</strong> a character to the right</em>.
+                        <kbd>⇧Shift</kbd> (<a href="https://fr.wikipedia.org/wiki/Index_(anatomie)">index</a> droit) + <kbd>→</kbd> (<a href="https://fr.wikipedia.org/wiki/Auriculaire_(anatomie)">auriculaire</a> droit) pour n'utiliser qu'une main si le <kbd>⇧Shift</kbd> est à gauche des touches.
+                        | <em><strong>Select</strong> a character to the right</em>. 
+                        <kbd>⇧Shift</kbd> (right <a href="https://en.wikipedia.org/wiki/Index_finger">index finger</a>) + <kbd>→</kbd> (right <a href="https://en.wikipedia.org/wiki/Little_finger">little finger</a>) to use only one hand.
                     }}
                     
                 <tr>
                     <td><kbd>⇧Shift</kbd>+<kbd>←</kbd>
                     <td colspan="1">{{
                         <em><strong>Sélectionner</strong> un caractère vers la gauche</em>.
+                        <kbd>⇧Shift</kbd> (index droit) + <kbd>←</kbd> (<a href="https://fr.wikipedia.org/wiki/Majeur_(anatomie)">majeur</a> droit) pour n'utiliser qu'une main si le <kbd>⇧Shift</kbd> est à gauche des flèches.
                         | <em><strong>Select</strong> a character to the left</em>.
-                        
+                        <kbd>⇧Shift</kbd> (right <a href="https://en.wikipedia.org/wiki/Index_finger">index finger</a>) + <kbd>←</kbd> (3rd right finger) to use only one hand if the <kbd>⇧Shift</kbd> is to the left of the arrow keys.
                     }}
                     
                 <tr>
@@ -626,11 +654,15 @@
                         | <em><strong>Select</strong> a <strong>word</strong> to the right</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>→</kbd> on Mac).
                     }}
                     
+                    {{Possible à effectuer avec uniquement la main droite avec un peu d'habitude|Possible to do with the right hand only and a some habits}}.
+                    
                 <tr>
                     <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>←</kbd> </td><td colspan="1">{{
                         <em><strong>Sélectionner</strong> un <strong>mot</strong> vers la gauche</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>←</kbd> sur Mac).
                         | <em><strong>Select</strong> a <strong>word</strong> to the left</em> (<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>←</kbd> on Mac).
                     }}
+                    
+                    {{Possible à effectuer avec uniquement la main droite avec un peu d'habitude|Possible to do with the right hand only and a some habits}}.
                     
                 <tr>
                     <td><kbd>Ctrl</kbd>+<kbd>⌫</kbd>
@@ -642,7 +674,7 @@
                     }}
                     
                 <tr>
-                    <td><kbd>Ctrl</kbd>+<kbd>Del</kbd>
+                    <td><kbd>Ctrl</kbd>+<kbd>Delete ⌦</kbd>
                     <td colspan="1"> {{
                         <em><strong>Supprimer</strong> le <strong>mot</strong> suivant</em> (n'existe pas sur Mac), même remarque que la ligne précédente.
                         | <em><strong>Delete</strong> next <strong>word</strong></em> (<kbd>⌥</kbd>+<kbd>⌫</kbd> on Mac), same note as previous line.
@@ -650,17 +682,26 @@
                     
                 <tr>
                     <td>Double clic <td colspan="1"> {{
-                        <em><strong>Sélectionne le mot</strong> sous la souris.</em>
+                        <em><strong>Sélectionner le mot</strong> sous la souris.</em>
                         |
                         <em><strong>Select the word</strong> under the mouse.</em>
                     }}
                     
                 <tr>
                     <td>Triple clic <td colspan="1"> {{
-                        <em><strong>Sélectionne la ligne</strong> sous la souris.</em>
+                        <em><strong>Sélectionner la ligne</strong> sous la souris, ou parfois tout le paragraphe.</em>
                         |
-                        <em><strong>Select the line</strong> under the mouse.</em>
+                        <em><strong>Select the line</strong> under the mouse, or sometimes the whole paragraph.</em>
                     }}
+                
+                <tr>
+                    <td><kbd>⇧Shift</kbd>+<kbd>⇱ Home</kbd>
+                    <td>{{Sélectionner jusqu'au <strong>début</strong> de la ligne.|Select until the <strong>beginning</strong> of the line.}}
+                
+                <tr>
+                    <td><kbd>⇧Shift</kbd>+<kbd>⇲ End</kbd>
+                    <td>{{Sélectionner jusqu'à la <strong>fin</strong> de la ligne.|Select until the <strong>end</strong> of the line.}}
+                
             </table>
             
             <p>{{ Ça marche partout <strong>même sur Facebook</strong> ! Et remarquez qu'il y a une touche <kbd>Ctrl</kbd> et <kbd>Shift</kbd> juste à côté des flèches, donc vous pouvez faire tout ces raccourcis avec <strong>uniquement la main droite</strong> !
@@ -672,21 +713,20 @@
             <table class="shortcuts">
                 <tr>
                     <td><kbd>Ctrl</kbd>+<kbd>D</kbd> </td>
-                    <td><em>{{ Supprimer une ligne (Ctrl <strong>D</strong>elete) | Delete a line }}</em>
-                        (<kbd>⌘</kbd>+<kbd>D</kbd> {{sur|on}} Mac).
+                    <td>{{ Supprimer une <strong>ligne</strong> (Ctrl <strong>D</strong>elete) | <strong>Delete</strong> a line }}
+                        (<kbd>⌘</kbd>+<kbd>D</kbd> {{sous|on}} Mac).
 
                 <tr>
                     <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>D</kbd>
-                    <td>
-                                    <em>{{ Dupliquer une ligne | Duplicate a line }}</em>
-                                    (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>D</kbd> {{sur|on}} Mac).
+                    <td>{{ <strong>Dupliquer</strong> une ligne | <strong>Duplicate</strong> a line }}
+                        (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>D</kbd> {{sous|on}} Mac).
                 <tr>
                     <td><kbd>Tab ↹</kbd>
-                    <td><em>{{ Indenter les lignes sélectionnées. | Indent the selected lines. }}</em>
+                    <td>{{ <strong>Indenter</strong> les lignes sélectionnées. | Indent the selected lines. }}
 
                 <tr>
                     <td><kbd>⇧Shift</kbd>+<kbd>Tab ↹</kbd>
-                    <td><em>{{ Désindenter les lignes sélectionnées. | Dedent the selected lines. }}</em>
+                    <td>{{ <strong>Désindenter</strong> les lignes sélectionnées. | Dedent the selected lines. }}
             </table>
             
             <p>{{ Ça marche aussi quand vous avez plusieurs lignes sélectionnées,
@@ -703,13 +743,13 @@
                     <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>↑</kbd> 
                     <td>{{ <em>Déplacer la ligne vers le haut</em>
                         | <em>Move line up</em> }}
-                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↑</kbd> {{sur|on}} Mac).
+                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↑</kbd> {{sous|on}} Mac).
 
                 <tr>
                     <td><kbd>Ctrl</kbd>+<kbd>⇧Shift</kbd>+<kbd>↓</kbd>
                     <td>{{ <em>Déplacer la ligne vers le bas</em> 
                         | <em>Move line down</em> }}
-                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↓</kbd> {{sur|on}} Mac).
+                        (<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>↓</kbd> {{sous|on}} Mac).
                         
             </table>
             
@@ -724,7 +764,7 @@
                     <td>
                         {{ <em>Nouvel onglet</em> (puis je tappe ma recherche)
                         | <em>New tab</em> (then I write my search) }}
-                        (<kbd>⌘</kbd> + <kbd>T</kbd> {{sur|on}} Mac).
+                        (<kbd>⌘</kbd> + <kbd>T</kbd> {{sous|on}} Mac).
                     </td>
 
                 <tr>
@@ -734,7 +774,7 @@
                     <td>
                         {{ <em>Mettre le focus sur la barre d'addresse</em> (Ctrl <strong>L</strong>ocation)
                         | <em>Focus location bar</em> }}
-                        (<kbd>⌘</kbd> + <kbd>L</kbd> {{sur|on}} Mac).
+                        (<kbd>⌘</kbd> + <kbd>L</kbd> {{sous|on}} Mac).
                     </td>
 
                 <tr>
@@ -742,7 +782,7 @@
                     <td>
                         {{ <em>Fermer l'onglet</em> (parfois ça m'arrive)
                         | <em>Close tab</em> (sometimes, it happens) }}
-                        (<kbd>⌘</kbd> + <kbd>W</kbd> {{sur|on}} Mac).
+                        (<kbd>⌘</kbd> + <kbd>W</kbd> {{sous|on}} Mac).
                     </td>
 
                 <tr>
@@ -750,7 +790,7 @@
                     <td>
                         {{ <em>Ré-ouvrir le dernier onglet fermé</em>
                         | <em>Reopen last closed tab</em> }}
-                        (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>T</kbd> {{sur|on}} Mac).
+                        (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>T</kbd> {{sous|on}} Mac).
                     </td>
 
                 <tr>
@@ -759,7 +799,7 @@
                     </td>
                     <td>
                         <em>{{ Chercher ! | Search! }}</em> (Ctrl <strong>F</strong>ind)
-                        (<kbd>⌘</kbd> + <kbd>F</kbd> {{sur|on}} Mac).
+                        (<kbd>⌘</kbd> + <kbd>F</kbd> {{sous|on}} Mac).
                     </td>
 
                 <tr>
@@ -774,7 +814,19 @@
                 </tr>
             </table>
             
-            <p>Et je pourrais encore parler de <em>l'art de l'Alt-Tabbing moderne</em>, du <em>Control-Tabbing</em>, du setting firefox pour l'Alt-Tabbing et son AltPageUp en main libre, du bouton <kbd>Home</kbd>, de la stupidité de la touche <kbd>NumLock</kbd> et <kbd>CapsLock</kbd> sous Windows, ou du déplacement furtif de fenêtres via <kbd>Windows</kbd>+<kbd>←↓↑→</kbd>.
+            <p>Et je pourrais encore parler...
+            <ul>
+                <li>de <em>l'art de l'Alt-Tabbing moderne</em>,
+                <li>du <em>Control-Tabbing</em> et du setting Firefox pour l'Alt-Tabbing,
+                <li>de l'<kbd>Alt</kbd>+<kbd>PageUp</kbd> en main libre,
+                <li>du <em>Chercher-Remplacer</em> en mode Texte, Échappement ou Regex, 
+                <li>du <em>Copier coller sans les mains quand on est fainénant et qu'on a la main sur la souris</em> (le copié collé via le clic milieu) qui existe depuis toujours sur Linux et qui n'a étonnament toujours pas été copié sur Windows,
+                <li>de <a href="https://robertvandeneynde.be/blog/unicode">la stupidité de la touche <kbd>NumLock</kbd> et <kbd>CapsLock</kbd> sous Windows</a>,
+                <li>du déplacement furtif de fenêtres via <kbd>⊞ Win</kbd>+<kbd>←↓↑→</kbd>,
+                <li>de <kbd>⊞ Win</kbd>+<kbd>D</kbd> pour aller au bureau... mais que le bureau ça ne sert à rien,
+                <li>du fait que pour lancer un programme on fait juste <kbd>⊞ Win</kbd> suivi des premières lettres du programme suivi de <kbd>↵ Enter</kbd>,
+                <li>d'informatique et d'éducation pendant des heures...
+            </ul>
             
         </section>
         

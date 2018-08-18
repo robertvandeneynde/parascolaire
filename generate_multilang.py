@@ -4,7 +4,7 @@ from __future__ import print_function
 import os, re, shutil, json
 import argparse
 
-from generate_utils import OutFile
+from generate_utils import OutFileGreen as OutFile
 
 p = argparse.ArgumentParser()
 p.add_argument('--files', nargs='*', help='to implement') # TODO to implement
@@ -13,8 +13,14 @@ p.add_argument('--config', nargs='?', default={})
 p.add_argument('--print-only', '--dry-run', action="store_true", help="doesn't create file, only print file concerned")
 a = args = p.parse_args()
 
-warning = lambda *args: print('[Warning]', *args)
-info = lambda *args: print('[Info]', *args)
+def warning(*args): # orange
+    print('\033[33m' + '\aWarning:', *args, '\033[0m')  # \a will BEEEEP or show a notification
+
+def info(*args): # green
+    print('\033[32m' + 'Info:', *args, '\033[0m')
+
+def error(*args): # red
+    print('\033[31m' + '\aError:', *args, '\033[0m')  # \a will BEEEEP or show a notification
 
 LANGS = args.langs
 assert args.print_only or len(LANGS) == 2, "currently only 2 langs"

@@ -5,8 +5,8 @@
 # pour utiliser des fonctions externes, on utilise import
 
 # 1) import <module>
-import random # pour faire du hasard : randrange, randint, shuffle...
-import pygame # notre bibliothèque de fenêtres favorite
+import random  # pour faire du hasard : randrange, randint, shuffle...
+import pygame  # notre bibliothèque de fenêtres favorite
 
 # pour accéder aux fonctions et variables, on utilise module.variable
 a = random.randint(5,10)
@@ -25,7 +25,7 @@ d.rect(ecran, [10, 20, 30, 40])
 # 3) from
 # on peut choisir de n'importer que certaines fonctions/variables
 from random import randint, randrange
-from random import shuffle as melange # en renommmant si on veut
+from random import shuffle as melange  # en renommmant si on veut
 
 L = [1,2,4]
 melange(L)

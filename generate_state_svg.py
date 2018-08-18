@@ -6,7 +6,7 @@ import argparse
 import xml.dom.minidom
 import re
 
-from generate_utils import OutFile
+from generate_utils import OutFileGreen as OutFile
 
 p = argparse.ArgumentParser(description='''
     In a svg file x.svg, look for every layer and creates x.state-{i}.svg
@@ -22,7 +22,9 @@ p = argparse.ArgumentParser(description='''
 
 p.add_argument('svg_file', nargs='+')
 
-p.add_argument('--remove-state-in-filename', action='store_true', help='Filenames will be x.{i}.svg and not x.state-{i}.svg')
+g = p.add_mutually_exclusive_group()
+g.add_argument('--state-in-filename', action='store_true', help='Filenames will be x.state-{i}.svg and not x.{i}.svg (@deprecated)')
+g.add_argument('--remove-state-in-filename', action='store_true', help='Forces --state-in-filename to be False (@deprecated)')
 
 g = p.add_mutually_exclusive_group()
 g.add_argument('--numeric-layers', action='store_true', help='''
@@ -31,6 +33,9 @@ g.add_argument('--layer-name', action='store_true', help='''
     Overrides the default behaviour and create one svg per layer, each svg has the name of the layer''')
 
 a = args = p.parse_args()
+
+if args.remove_state_in_filename:
+    args.state_in_filename = False 
 
 # for x in range(150): print(x, '\033[' + str(x) + 'm', 'Hel', '\033[0m')
 def print_warning(*args): # orange
@@ -114,8 +119,8 @@ for svg_file in args.svg_file:
 
     slides = set_union(info for layer, info in all_infos)
 
-    Format = ("{}.{}.svg" if args.remove_state_in_filename else 
-              "{}.state-{}.svg")
+    Format = ("{}.state-{}.svg" if args.state_in_filename else 
+              "{}.{}.svg" )
     
     for slide in slides:
         new = OutFile(Format.format(svg_filename, slide))
@@ -127,4 +132,3 @@ for svg_file in args.svg_file:
             for layer, info in reversed(all_infos):
                 if slide not in info:
                     root.insertBefore(layer, nexts[layer])
-        print('Created', new.filename)

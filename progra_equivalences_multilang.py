@@ -15,15 +15,15 @@
 ##
 # inverser if/else 
 ##
-if condition:
-    a
+if CONDITION:
+    A
 else:
-    b
+    B
 # ↔
-if not(condition):
-    b
+if not(CONDITION):
+    B
 else:
-    a
+    A
 
 ## ex{{e|a}}mple 1
 if a == 5:
@@ -35,7 +35,7 @@ if not(a == 5):
     waw = 2
 else:
     print("hello")
-# ↔ (not == is !=)
+# ↔ (not == ↔ !=)
 if a != 5:
     waw = 2
 else:
@@ -44,13 +44,13 @@ else:
 ###
 # {{sinon ne rien faire|else do nothing}}
 ###
-if condition:
-    a
+if CONDITION:
+    A
 else:
     pass  # {{ne rien faire|do nothing}}
 # → 
-if condition:
-    a
+if CONDITION:
+    A
 
 ## ex{{e|a}}mple 1
 if a != 5:
@@ -119,17 +119,17 @@ if a <= 10 and a != 5:
 ###
 # if variable 
 ###
-if condition:
-    x = a
+if CONDITION:
+    x = A
 else:
-    x = b
+    x = B
 # →
-x = a if condition else b
+x = A if CONDITION else B
 # →
-x = (a if condition else b)
+x = (A if CONDITION else B)
 # →
-x = (a if condition else
-     b)
+x = (A if CONDITION else
+     B)
 
 ## ex{{e|a}}mple
 if a == 5:
@@ -144,19 +144,19 @@ c = 5 if a == 5 else 0
 ##
 # if elif cascade on variable
 ##
-if condition:
-    x = a
-elif condition2:
-    x = b
-elif condition3:
-    x = c
+if CONDITION:
+    x = A
+elif CONDITION_2:
+    x = B
+elif CONDITION_3:
+    x = C
 else:
-    x = d
+    x = D
 # → 
-x = (a if condition else
-     b if condition2 else
-     c if condition3 else
-     d)
+x = (A if CONDITION else
+     B if CONDITION_2 else
+     C if CONDITION_3 else
+     D)
 
 ## ex{{e|a}}mple
 if a == 5:
@@ -214,21 +214,21 @@ print(({{taille|size}} + 1) + 2 * ({{taille|size}} - 1))  # {{on affiche le rés
 ##
 def f(...):
     ...
-    if condition:
+    if CONDITION:
         return True
     else:
         return False
 # →
 def f(...):
     ...
-    return condition
+    return CONDITION
 
 ## ex{{e|a}}mple 1
 def {{est_pair|is_even}}(x):
-    if x % 2 == 0:  # {{si le reste de la division par deux vaut 0|if the rest of division by 2 is 0}}
-        return True
-    else:
-        return False
+    if x % 2 == 0:    # {{si le reste de la division par deux vaut 0|if the rest of division by 2 is 0}}
+        return True   # Vrai, le nombre est pair
+    else:             # sinon
+        return False  # Faux, le nombre n'est pas pair
 # → (boolean return)
 def {{est_pair|is_even}}(x):
     return x % 2 == 0  # {{x est pair ssi le reste de la division par deux vaut 0|x is even iff the rest of division by 2 is 0}}
@@ -268,13 +268,13 @@ if {{est_pair|is_even}}(4):  # {{si 4 est pair|if 4 is even}}
 ##
 # or
 ##
-if condition:
-    a
-elif condition2:
-    a  # {{même a|same a}}
+if CONDITION:
+    A
+elif CONDITION_2:
+    A  # {{même A|same A}}
 # →
-if condition or condition2:
-    a
+if CONDITION or CONDITION_2:
+    A
     
 ## ex{{e|a}}mple
 if a == 5:
@@ -288,17 +288,17 @@ if a == 5 or a > 10:
 ##
 # or else
 ##
-if condition:
-    a
-elif condition2:
-    a  # {{même a|same a}}
+if CONDITION:
+    A
+elif CONDITION_2:
+    A  # {{même A|same A}}
 else:
-    b
+    B
 # →
-if condition or condition2:
-    a
+if CONDITION or CONDITION_2:
+    A
 else:
-    b
+    B
 
 ## ex{{e|a}}mple
 if a == 5:
@@ -318,20 +318,20 @@ else:
 ##
 def f(...):
     ...
-    if condition:
+    if CONDITION:
         return True
-    if condition2:
+    if CONDITION_2:
         return True
     return False
 # →
 def f(...):
     ...
-    return condition or condition2
+    return CONDITION or CONDITION_2
 # ↔
 def f(...):
     ...
-    return (condition
-            or condition2)
+    return (CONDITION
+            or CONDITION_2)
 
 ## ex{{e|a}}mple
 def {{interessant|interesting}}(x):
@@ -339,7 +339,7 @@ def {{interessant|interesting}}(x):
         return True  # {{il est intéressant|it's interesting}}
     if x == 5:  # {{si x == 5|if x == 5}}
         return True  # {{il est intéressant|it's interesting}}
-    return False  # {{sinon, il n'est pas intéressant|otherwise, it's not}}
+    return False  # {{sinon, il n'est pas intéressant|otherwise, it's not interesting}}
 # → (or return)
 def {{interessant|interesting}}(x):
     return x > 10 or x == 5  # {{x est intéressant si il est > 10 ou == 5|x is interesting if it's > 10 or 5}}
@@ -347,12 +347,12 @@ def {{interessant|interesting}}(x):
 ##
 # and
 ##
-if condition:
-    if condition2:
-        a
+if CONDITION:
+    if CONDITION_2:
+        A
 # →
-if condition and condition2:
-    a
+if CONDITION and CONDITION_2:
+    A
 
 ## ex{{e|a}}mple
 if a == 5:
@@ -365,18 +365,18 @@ if a == 5 and a > 10:
 ##
 # and else
 ##
-if condition:
-    if condition2:
-        a
+if CONDITION:
+    if CONDITION_2:
+        A
     else:
-        b
+        B
 else:
-    b  # {{même b|same b}}
+    B  # {{même b|same b}}
 # →
-if condition and condition2:
-    a
+if CONDITION and CONDITION_2:
+    A
 else:
-    b
+    B
 
 ## ex{{e|a}}mple
 if a == 5:
@@ -397,14 +397,14 @@ else:
 ##
 def f(...):
     ...
-    if condition:
-        return x
+    if CONDITION:
+        return X
     ...
 # ↔
 def f(...):
     ...
-    if condition:
-        return x
+    if CONDITION:
+        return X
     else:
         ...
 
@@ -425,11 +425,11 @@ def f(x):
     return z
 
 # {{Je fais généralement ça quand le <code>"if"</code> est vraiment court comme un simple <code>"return"</code>|I generally do that when the <code>"if"</code> is really short like a simple <code>"return"</code>}}.
-#
+# Souvent, ce sont des cas particuliers ou des cas de base, le code du bas est plus intéressant.
 
 ##
 # for if return True (∃)
-## for-if-return-True
+## for-if-return-True, any, exists, ∃ 
 # {{Voici comment on code un "∃"|Here is how we code a "∃"}}
 def f(...):
     ...
@@ -467,7 +467,7 @@ def {{contient_un_negatif|contains_a_negative}}(L):
 
 ##
 # for if return False (∀)
-## for-if-return-False
+## for-if-return-False, all, forall, ∀
 # {{Voici comment on code un "∀"|Here is how we code a "∀"}}
 def f(...):
     ...
@@ -504,13 +504,13 @@ def {{totalement_positive|totally_positive}}(L):
 
 ##
 # not ∀/∃ ({{lois de De Morgan|De Morgan's laws}})
-##
-# De Morgan on "∀"
+## not-any, not-all
+# De Morgan {{sur|on}} "∀"
 not all(condition for x in L)
 # →
 any(not condition for x in L)
 
-# De Morgan on "∃"
+# De Morgan {{sur|on}} "∃"
 not any(condition for x in L)
 # →
 all(not condition for x in L)
@@ -550,7 +550,7 @@ def {{super_nombre|super_number}}(L):
     for x in L:  # {{pour tous les élements de la liste|for each element in the list}}
         if x > 10:  # {{s'il est > 10|if it's > 10}}
             return x  # {{c'est le super nombre de cette liste|it's the super_number of that list}}
-    return 0
+    return 0  # il n'y a pas de super nombre, on renvoie 0
 # →
 def {{super_nombre|super_number}}(L):
     return next((x for x in L if x > 10), 0)
@@ -566,7 +566,7 @@ L = [e for x in iterable]
 
 ##
 # for append f(x)
-##
+## +, map
 L = []
 for x in iterable:
     L.append(f(x))
@@ -577,7 +577,7 @@ L = [f(x) for x in iterable]
 
 ##
 # for if append
-##
+## 
 L = []
 for x in iterable:
     if condition:
@@ -587,7 +587,7 @@ L = [e for x in iterable if condition]
 
 ##
 # for if f(x) append x
-##
+## +, filter
 L = []
 for x in iterable:
     if f(x):

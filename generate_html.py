@@ -9,7 +9,7 @@ try:
 except ImportError:
     import cgi as html
     
-from generate_utils import OutFile
+from generate_utils import OutFileGreen as OutFile
     
 def django_format(template, **args):
     """Difference with django : arguments are SAFE"""
@@ -157,6 +157,6 @@ if __name__ == '__main__':
                 before = ''
             if res != before:
                 modifs.append(f)
-                with OutFile(f + '.html', 'w') as fl:
+                with OutFile(f + '.html') as fl:
                     fl.write(res)
     print('generate_html:', len(modifs), 'file' + 's' * (len(modifs) != 1) + ' modified' + ':' * bool(modifs), ' '.join(modifs))

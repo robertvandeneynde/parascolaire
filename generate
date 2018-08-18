@@ -6,7 +6,7 @@
 DEFAULT_LANG=fr
 LANGS='fr en'
 
-if [ "$1" = fast ] || [ -z "$1" ]; then
+if [ "$1" = fast ]; then
     FAST=true
 elif [ "$1" = total ] || [ "$1" = slow ] || [ "$1" = all ]; then
     FAST=false

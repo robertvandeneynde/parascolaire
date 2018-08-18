@@ -5,7 +5,7 @@ import os, re
 from functools import partial
 import textwrap
 
-from generate_utils import OutFile
+from generate_utils import OutFileGreen as OutFile
 
 from generate_info import GROUPINGS, EXTS, TRANSLATION_INFO
 

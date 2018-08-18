@@ -1,6 +1,6 @@
 #!coding: utf-8
 
-# ÉCRIRE
+## ÉCRIRE
 
 # L'ouvrir en mode "écriture" (w = write)
 # si le fichier n'existe pas, il sera crée
@@ -19,20 +19,20 @@ f.write("Moi c'est l'éclate !\n")
 # finalement, fermer le fichier
 f.close()
 
-# LIRE
+## LIRE
 
 # ouverture en mode lecture
 f = open('hello.txt')
 for line in f:
     # la ligne contient donc "Salut\n"
-    line = line.strip() # strip enlève les espaces ou \n en début et fin de ligne
+    line = line.strip()  # strip enlève les espaces ou \n en début et fin de ligne
     # line == "Salut"
-    print(line) # on fait quelque chose avec la ligne, ici print
+    print(line)  # on fait quelque chose avec la ligne, ici print
 f.close()
 
 # les lignes peuvent être traitées ou simplement ajoutées à une liste
 
-# WITH
+## WITH
 
 # python propose l'instruction "with" qui permet
 # de faire le close tout seul à la fin du bloc

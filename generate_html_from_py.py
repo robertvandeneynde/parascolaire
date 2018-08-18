@@ -10,6 +10,7 @@ p.add_argument('--out')
 p.add_argument('--langs', nargs='+', default=[])
 p.add_argument('--lang')
 p.add_argument('--lang-url')
+p.add_argument('--id-splitter', default=",")
 a = args = p.parse_args()
 
 assert args.template and args.out 
@@ -18,9 +19,19 @@ if args.langs:
 if (args.lang or args.lang_url) and not args.langs:
     raise ValueError('when in lang mode, give list of langs !')
 
-from generate_utils import OutFile
+assert args.id_splitter != ''
+
+from generate_utils import OutFileGreen as OutFile
 
 import re
+
+def printret(x):
+    from pprint import pprint;
+    pprint([vars(args), x])
+    return x
+
+def slugify(name):
+    return name.replace('/', '-').replace(' ', '-')
 
 def replace_markdown(code):
     """
@@ -194,15 +205,20 @@ while i < len(L):
     if (L[i].startswith('##')
         and ((i+1) < len(L) and L[i+1].startswith('#'))
         and ((i+2) < len(L) and L[i+2].startswith('##'))):
+        # the three conditions are met, we have a section
         section_name = L[i+1].strip('#').strip()
-        section_id = (L[i].strip('#').strip() + ' ' + L[i+2].strip('#').strip()).strip()
-        sections_info.append((i+2, section_name, section_id))
+        section_id_base = (L[i].strip('#').strip() + ' ' + L[i+2].strip('#').strip()).strip()
+        section_ids = [a.strip() for a in section_id_base.split(args.id_splitter)]  # id_splitter defaults to ','
+        if section_ids == ['']:
+            section_ids = []
+        section_ids = [slugify(section_name) if x == '+' else x for x in section_ids]  # the user can write "+" to keep the orginal slug
+        sections_info.append((i+2, section_name, section_ids))
         i = i + 3
     else:
         i = i + 1
 
 sections = []
-for i, (n1, name, sid) in enumerate(sections_info):
+for i, (n1, name, sids) in enumerate(sections_info):
     rang = range(
         n1 + 1,
         sections_info[i+1][0]-2 if (i+1) < len(sections_info) else len(L))
@@ -237,13 +253,15 @@ for i, (n1, name, sid) in enumerate(sections_info):
         if rang # remove empty rang
     ]
     
+    section_id = sids[0] if sids else slugify(name)
     sections.append({
         'name': name,
-        'id': sid or name.replace('/', '-').replace(' ', '-'),
+        'id': section_id,
+        'other_ids': sids[1:],
         'blocks': [
             {
                 'name': block_name,
-                'id': name.replace('/', '-').replace(' ', '-') + '-' + str(i+1),
+                'id': section_id + '-' + str(i+1),
                 'title': '',
                 'description': '',
                 'elements': [
@@ -274,7 +292,7 @@ django.setup()
 
 from django.template import loader
 t2 = loader.get_template(args.template)
-with OutFile(args.out, 'w', print_created=True) as f:
+with OutFile(args.out) as f:
   f.write(t2.render({
     'lang': args.lang or '',
     'download_link': args.filename,

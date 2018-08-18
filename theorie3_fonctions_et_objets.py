@@ -111,25 +111,16 @@ if bob.vie > bob.max_vie:
 # Nous allons donc faire une <strong>FONCTION</strong>:
 
 def calculer_maximum(la_liste):
-    """
-    Calcule le maximum d'une liste
-    
-    1 Paramètre d'entrée :
-        - la_liste : la liste
-    1 Paramètre de retour :
-        - le maximum
-    """
     m = la_liste[0]
     i = 0
     while i < len(la_liste):
         if la_liste[i] > m:
             m = la_liste[i]
         i = i + 1
-        
     return m
 
+#
 # On a fait une fonction, avec un seul paramètre (la liste), et une valeur de retour (le maximum).
-# Nous avons accompagné la fonction d'un petit texte descriptif décrivant ce que fait la fonction (docstring).
 
 #
 # Nous pouvons maintenant l'appeler:
@@ -146,7 +137,7 @@ b = calculer_maximum(une_autre_liste)
 # <li>met les paramètres séparés par des virgules,
 # <li>ferme la parenthèse</ul>
 
-# la valeur de retour peut être stockée dans une variable...
+# remarquez que la valeur de retour peut être stockée dans une variable...
 b = calculer_maximum(une_autre_liste)
 
 # ou utilisée dans une expression
@@ -242,10 +233,12 @@ def generate():
 
 l = generate()
 
+## return
+
 # Remarquez qu'on peut mettre autant de <code>return</code> que l'on veut,
 # quand python lit un return, il arrête tout de suite la fonction et renvoie (ou non) une valeur.
 
-def yo(x):
+def manger(x):
     if x < 0: # si x est négatif
         return -1  # la fonction s'arrête et renvoie -1
     
@@ -256,9 +249,109 @@ def yo(x):
         i = i + 1
     return s
 
-##########################
-# Pour en en savoir plus (fonctions)
-##########################
+# Le mot clé <code>return</code>
+# rappelle que le code <em>retourne</em> dans la fonction appelante.
+
+###
+# Pour en savoir plus (fonctions)
+### pour-en-savoir-plus-fonctions, pour-en-savoir-plus-(fonctions)
+
+## Paramètres par défaut
+
+def f(x, y=5):
+    return x + y
+
+print(f(1))    # x=1, y=5
+print(f(1,2))  # x=1, y=2
+
+# Attention, ne mettre comme valeur par défaut que des objets <em>non modifiables</em> (<em>immutable</em> en anglais)
+# comme des <code>int</code>, <code>str</code>, <code>tuple</code> mais pas 
+# des <code>list</code> ni des objets classiques (la raison est expliquée plus bas).
+
+#
+# Un bon défaut est <code>None</code> qui est une valeur spéciale en Python :
+
+def f(x, y=None):
+    if y is None:
+        y = x + 1
+    return x + y
+
+## Appel utilisant les noms des paramètres
+
+def f(x, y):
+    return x - y
+
+print(f(5, 2))      # 3    
+print(f(5, y=2))    # 3
+print(f(x=5, y=2))  # 3
+print(f(y=2, x=5))  # 3
+
+## Docstring et interfaces
+
+# Un des grand intérêt des fonctions est de les voir comme une boîte noire.
+# Quand quelqu'un voit la première ligne (la <em>signature</em>) de la fonction,
+# <code>def calculer_maximum(la_liste)</code>,
+# il peut comprendre qu'il peut utiliser cette fonction pour calculer
+# le maximum d'une liste <strong>sans en lire son code</strong>.
+
+# Parfois, le nom à lui tout seul n'est pas suffisant pour bien utiliser
+# la fonction, on y ajoute alors une <em>docstring</em>
+# qui est un petit texte expliquant le <strong>rôle</strong> de la fonction.
+# C'est généralement fait via <code>"""</code> et sur plusieurs lignes :
+
+def calculer_maximum(la_liste):
+    """
+    Calcule le maximum d'une liste
+    en utilisant une recherche linéaire.
+    """
+    m = la_liste[0]
+    i = 0
+    while i < len(la_liste):
+        if la_liste[i] > m:
+            m = la_liste[i]
+        i = i + 1
+    return m
+
+# Une docstring doit donner des informations sur son <strong>rôle</strong>
+# et non sur <em>comment</em> elle remplit son rôle.
+# Sur <strong>ce</strong> qu'elle fait et non sur <em>comment</em> elle le fait.
+# L'idée est de donner uniquement les informations pertinentes à la personne <strong>appelant</strong> la fonction,
+# le reste étant des <em>détails d'implémentation</em>.
+
+# Quand on a beaucoup de paramètres d'entrée et de retour dont les noms mérite explications,
+# il est souvent utile de les lister dans la docstring :
+
+def effectuer_un_combat(attaquant, defenseur, butin, lieu):
+    """
+    Effectue un combat entre une équipe attaquante et 
+    une équipe en défense et renvoie la durée du combat.
+    
+    @param attaquant: l'équipe attaquante (de type Equipe)
+    @param defenseur: l'équipe attaquante (de type Equipe)
+    @param lieu: la position de la bataille (un tuple (latitude, longitude))
+    @param butin: le nombre de pièce d'or volées à l'adversaire en cas de victoire (un int)
+    
+    @returns la durée du combat (un timedelta)
+    """
+    ...  # le code effectuant le combat!
+
+# Indiquer les types d'arguments étant une tâche très récurrente et utile,
+# python 3 introduit les annotations en parallèle de la docstring:
+
+def effectuer_un_combat(attaquant:Equipe, defenseur:Equipe, butin:int, lieu:tuple) -> timedelta:
+    """Effectue un combat entre une équipe attaquante et 
+    une équipe en défense en une (latitude, longitude) donnée et renvoie la durée du combat."""
+    ...  # le code effectuant le combat!
+
+# Dans cet exemple, la docstring a pu être épurée
+# les annotations ne doivent pas nécessairement être des types, ce code est possible:
+
+def effectuer_un_combat(attaquant:Equipe, defenseur:Equipe, butin:int, lieu:(float, float)) -> timedelta:
+    ...  # le code effectuant le combat!
+
+# En python 3.7, à condition d'écrire
+# <code>from __future__ import annotations</code>
+# au début du fichier, les variables utilisées commme <code>Equipe</code> ou <code>timedelta</code> ne doivent même pas être déclarées.
 
 ## Simplifications automatiques
 
@@ -266,20 +359,7 @@ def yo(x):
 # Voici un aperçu de mon [article](progra_equivalences.html) obtenues grâce aux fonctions.
 
 #
-# Les fonctions renvoyant un bool :
-
-# avant:
-def f():
-    ...
-    if COND:
-        return X
-    else:
-        return Y
-    
-# après (if fonctionnel)
-def f():
-    ...
-    return X if CONDITION else Y
+# (1) Les fonctions renvoyant un <code>bool</code> :
 
 # avant
 def f():
@@ -304,8 +384,33 @@ def f():
 def voyelle(x):
     return x == 'a' or x == 'e' or x == 'i' or x = 'o' or x = 'u'
 
+# plus d'infos [ici](progra_equivalences.html#boolean-return)
+# et [là](progra_equivalences.html#==-True).
+
 #
-# Le return dans un if :
+# (2) Le if fonctionnel
+
+# avant:
+def f():
+    ...
+    if CONDITION:
+        return X
+    else:
+        return Y
+    
+# après (if fonctionnel)
+def f():
+    ...
+    return X if CONDITION else Y
+
+# Cette transformation n'est pas obligatoire
+# c'est juste un autre style de programmation.
+
+# Plus d'infos [ici](progra_equivalences.html#if-variable)
+# et [là](progra_equivalences.html#if-elif-cascade-on-variable)
+
+#
+# (2) Le return dans un if :
 
 # avant
 def f():
@@ -327,8 +432,11 @@ def f():
 # A et B sont une suite de 0 ou plus instructions,
 # je conseille de faire ceci si il y a peut d'instructions dans "A" et beaucoup dans "B".
 
+# Plus d'infos
+# [ici](progra_equivalences.html#if-return).
+
 #
-# ∃ et ∀ :
+# (3) ∃ et ∀ :
 
 # avant
 def f():
@@ -390,33 +498,11 @@ if all(x > 0 for x in L):
 # <li> Pour tous les élements x de L, on a x > 0
 # <li> ∀ x ∈ L: x > 0 </ul>
 
+# Plus d'infos [ici](progra_equivalences.html#for-if-return-True)
+# et [là](progra_equivalences.html#for-if-return-False)
+
 #
-# Plus d'exemples dans mon [article](progra_equivalences.html) sur les équivalences.
-
-## Paramètres par défaut
-
-def f(x, y=5):
-    return x + y
-
-print(f(1))    # x=1, y=5
-print(f(1,2))  # x=1, y=2
-
-# Attention, ne mettre que des objets "immuable": ni <code>list</code> ni objets (la raison est expliquée plus bas).
-# Un bon défaut est <code>None</code> qui est une valeur spéciale en Python.
-
-def f(x, y=None):
-    if y is None:
-        y = x + 1
-    return x + y
-
-## Appel utilisant les noms des paramètres
-
-def f(x, y):
-    return x + y
-
-print(f(1, 2))
-print(f(1, y=1))
-print(f(x=5, y=2))
+# (4+) Plus d'exemples dans mon [article](progra_equivalences.html) sur les équivalences.
 
 ## Récursivité
 
@@ -495,7 +581,7 @@ print(group.n)
 
 ###
 # Pour en savoir plus (objets)
-###
+### pour-en-savoir-plus-objets, pour-en-savoir-plus-(objets)
 
 ## Méthodes
 

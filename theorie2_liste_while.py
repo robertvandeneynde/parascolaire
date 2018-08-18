@@ -28,7 +28,7 @@ while i < 10:
 # Maintenant, <code>"Hello"</code> n'est affiché que dix fois ^^
 
 # En diagramme ça donne :
-# <figure><img height=389 src="while_as_diagram.state-fr.svg"></figure>
+# <figure><img height=389 src="while_as_diagram.fr.svg"></figure>
 
 # On peut bien sûr utiliser nos variables,
 # ce code affichera <em>Hello 5</em>, <em>Hello 7</em>, <em>Hello 9</em> :
@@ -44,14 +44,15 @@ while i < 10:
 # Les listes permettent de stocker plusieurs valeurs,
 # on peut créer des listes, avec des crochets :
 ma_liste = [1,2,7,2]  # 4 éléments !
+petite_liste = []     # 0 éléments
 
 # 
 # Il existe 4 opérations de base possibles sur les listes :
 
 # 1) Lire
-p = ma_liste[0]  # l'élément numéro 0 est le premier
-d = ma_liste[3]  # vu que notre liste est de taille 4, 3 est le dernier
-t = len(ma_liste)  # len permet de connaître la taille
+p = ma_liste[0]     # l'élément numéro 0 est le premier, ici p = 1
+d = ma_liste[3]     # vu que notre liste est de taille 4, l'indice 3 correspond au dernier élement, ici d = 2
+t = len(ma_liste)   # len permet de connaître la taille, t = 4
 print(ma_liste[5])  # ERREUR, il n'y a pas d'élément "5", le dernier était "3"
 
 # Le <em>numéro</em> est appelé "<em>l'indice</em>",
@@ -148,18 +149,24 @@ for nombre in ma_liste:
     
 # Ce qui peut se lire comme ceci :
 # (imaginons que <code>ma_liste = [1,2,7,2]</code>) <ul>
-# <li><code> nombre = ma_liste[0]; print(nombre)  # 1 </code>
-# <li><code> nombre = ma_liste[1]; print(nombre)  # 2 </code>
-# <li><code> nombre = ma_liste[2]; print(nombre)  # 7 </code>
-# <li><code> nombre = ma_liste[3]; print(nombre)  # 2 </code></ul>
+# <li><code> nombre = ma_liste[0]; print(nombre)  # 1 </code>
+# <li><code> nombre = ma_liste[1]; print(nombre)  # 2 </code>
+# <li><code> nombre = ma_liste[2]; print(nombre)  # 7 </code>
+# <li><code> nombre = ma_liste[3]; print(nombre)  # 2 </code></ul>
 
 # Rien de neuf,
-# ce code peut s'écrire comme ceci avec un while :
+# ce code peut s'écrire comme ceci avec un <code>while</code> :
 i = 0
 while i < len(ma_liste):
     nombre = ma_liste[i]
     print(nombre)
     i = i + 1
+
+#
+# Ou même avec <code>range</code> :
+for i in range(len(ma_liste)):
+    nombre = ma_liste[i]
+    print(nombre)
 
 # Attention, il existe quelques subtiles différences,
 # en cas de doute, utiliser <code>while</code>.
@@ -223,7 +230,8 @@ else:
 ## indices négatifs (python)
 
 ma_liste = [5,2,1,3]
-print(ma_liste[-1])  # 3
+print(ma_liste[-1])  # 3 car -1 veut dire "le dernier"
+print(ma_liste[-2])  # 1 car -2 veut dire "l'avant dernier"
 
 ## le tuple
 
@@ -234,7 +242,7 @@ print(ma_liste[-1])  # 3
 mon_tuple = (1,2,3)
 a = mon_tuple[0]    # Lire
 x = len(mon_tuple)  # Lire
-# Pas écrire, pas append, pas del :(
+# on ne peut pas écrire, pas append, pas del :(
 
 # un tuple peut même se créer sans les parenthèses
 mon_tuple = 1,2,3  # stylé
@@ -272,6 +280,7 @@ prenom = 'Robert'  # même chose
 lettre = prenom[0]    # 'R'
 taille = len(prenom)  # 6
 print(len(lettre))    # 1
+print(len(''))        # 0, la chaîne vide
 
 # on peut faire de drôles de math avec ! (marche aussi sur les list/tuple)
 nom_de_famille = "Vanden Eynde"
@@ -322,10 +331,11 @@ print(ord('\n'))  # 10 le caractère À_LA_LIGNE (LINE FEED: LF)
 print(chr(65))    # A
 
 # slicing (marche aussi sur les list/tuple)
-print(prenom[1:4])  # de 1 à 4 non compris : "obe"
-print(prenom[:3])   # du début à 3 non compris : "Rob" : les 3 premiers
-print(prenom[4:])   # de 4 à la fin : "rt"
-print(prenom[-3:])  # de -3 à la fin : "ert" : les 3 derniers
+print(prenom[1:4])  # de 1 à 4 non compris = "obe"
+print(prenom[:3])   # du début à 3 non compris (les 3 premiers) = "Rob"
+print(prenom[4:])   # de 4 à la fin = "rt"
+print(prenom[-3:])  # de -3 à la fin (les 3 derniers) = "ert"
+print(prenom[10:12])  # les slices ne lançent jamais d'erreur, ici = '' car il n'y a pas de caractères
 
 # string sur plusieurs lignes
 a = '''
@@ -335,12 +345,16 @@ print(a == '\nHello\n')  # True  # \n est le caractère À_LA_LIGNE (LINE FEED: 
 
 ## format
 # 
-# La fonction <code>format</code> est bien utilie pour créer une string depuis un modèle :
+# La fonction <code>format</code> est bien utile pour créer une string depuis un modèle :
 
 phrase = "Bonjour {}, vous avez {} ans".format("Bob", 25)
 
-#
-# Cela permet de bien faire la séparation entre la présentation, et les données (ici Bob et 25).
+# On écrit d'abord le modèle de base contenant des "trous", des "blancs à remplir plus tard"
+# comme sur un formulaire papier/ On dit qu'on veut écire "Bonjour QUELQUE CHOSE, vous avez QUELQUE CHOSE ans".
+# Puis on remplit les "blancs" par la suite.
+
+# Cela permet de bien faire la séparation entre la présentation (ici "Bonjour {}, vous avez {} ans"),
+# et les données (ici "Bob" et 25).
 
 #
 # D'autres fonctionnalités existent :
@@ -367,6 +381,9 @@ longue_phrase = "Bonjour {nom}, vous avez {age}. Votre score est de {score}.".fo
 # si les variables existent déjà...
 nom = "Bob"
 age = 25
+
+# redondant mais explicite
+phrase = "Bonjour {nom}, vous avez {age} ans. Au revoir {nom}.".format(nom=nom, age=age)
 
 # vous pouvez utiliser le "trick" suivant (non conseillé)
 phrase = "Bonjour {nom}, vous avez {age} ans. Au revoir {nom}.".format(**locals())

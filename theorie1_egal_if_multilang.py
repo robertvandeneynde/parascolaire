@@ -29,9 +29,10 @@ print(d)
 print("{{fin|end}}")
 
 # Essayez ce code sur [pythontutor](http://pythontutor.com/visualize.html#code=a%20%3D%205%0Aprint%28a%29%20%20%23%20en%20python%202,%20les%20parenth%C3%A8ses%20n'%C3%A9taient%20pas%20n%C3%A9cessaires%0Aa%20%3D%206%0Aprint%28a%29%0A%0Ab%20%3D%20a%20%2B%201%20%20%20%20%20%20%20%20%23%20b%20vaut%20maintenant%20a%20%2B%201%20%3D%207%0Ac%20%3D%20a%20%2B%20b%20*%202%20%20%20%20%23%20priorit%C3%A9%20des%20op%C3%A9rations%0Ad%20%3D%20%28a%20%2B%20b%29%20*%202%20%20%23%20mettre%20des%20parenth%C3%A8ses%20si%20n%C3%A9cessaire%20!%0Aa%20%3D%20a%20%2B%201%20%20%20%20%20%20%20%20%23%20on%20calcule%20%22a%20%2B%201%22,%20puis%20on%20met%20le%20r%C3%A9sultat%20dans%20a%0Aprint%28a%29%20%20%20%20%20%20%20%20%20%23%20La%20variable%20%22a%22%20a%20donc%20%C3%A9t%C3%A9%20augment%C3%A9e%20de%201%22%0Aprint%28b%29%20%20%20%20%20%20%20%20%20%23%20b%20n'a%20pas%20chang%C3%A9%20depuis%20qu'on%20a%20fait%20%22b%20%3D%22%0Aprint%28c%29%0Aprint%28d%29%0A%0Aprint%28%22{{fin|end}}%22%29&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false) !
-# (cliquez sur <em>visualize Execution</em> puis cliquez sur <em>Forward</em> pour exécuter chaque ligne ou sur <em>Last</em> pour voir uniquement le résultat final).
+# Cliquez sur <strong>Visualize execution</strong> puis cliquez sur <strong>Forward</strong> pour exécuter chaque ligne ou sur <strong>Last</strong> pour voir uniquement le résultat final.
+# Le résultat imprimé en raison de <code>"print"</code> est affiché dans le cadre <em>Print output</em>.
 
-# {{Quelle est la différence entre|What's the difference between}}
+# {{Petite, question, quelle est la différence entre|A little question, what's the difference between}}
 # <code>print(a)</code> {{et|and}} <code>print("a")</code>{{ |}}?
 
 ###
@@ -45,6 +46,10 @@ a = 7
 if a < 10:
     print("{{Coucou|Kookoo}}")
     print("Hello")
+
+# [Remplace](http://pythontutor.com/visualize.html#code=a%20%3D%207%0A%0Aif%20a%20%3C%2010%3A%0A%20%20%20%20print%28%22%7B%7BCoucou%7CKookoo%7D%7D%22%29%0A%20%20%20%20print%28%22Hello%22%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
+# maintenant <code>a = 7</code> par <code>a = 12</code> et relance le programme,
+# quelle va être la difference ?
     
 # {{Ici le programme va afficher "Coucou" puis "Hello" seulement si a est plus petit que 10|Here, the program will display "Kookoo" then "Hello" only if a is smaller than 10}}.
 # {{Sinon, il saute le bloc et donc, ne fait rien|Otherwise, the block is jumped and then, nothing is done}}.
@@ -62,8 +67,8 @@ if {{vie|life}} > 100:
 # {{Pour afficher plusieurs choses on écrit une virgule|To display more than one thing, one must write a comma}}:
 print("{{Votre vie est de|your life is}}", {{vie|life}})  # {{en python 2, les parenthèses n'étaient pas obligatoires|in python 2, the parenthesis were not mandatory}}
 
-# Voici une représentation en diagramme d'un if :
-# <figure><img height=400 src="if_as_diagram.state-{{fr|en}}.svg"/></figure>
+# {{Voici une représentation en diagramme de|Here is a diagram representation of}} [{{ce|that}} if]({{http://pythontutor.com/visualize.html#code=vie%20%3D%2080%0A%0Avie%20%3D%20vie%20%2B%2050%0Aif%20vie%20%3E%20100%3A%0A%20%20%20%20print%28%22Max%20!%22%29%0A%20%20%20%20vie%20%3D%20100%0A%0Aprint%28vie%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false|http://pythontutor.com/visualize.html#code=life%20%3D%2080%0A%0Alife%20%3D%20life%20%2B%2050%0Aif%20life%20%3E%20100%3A%0A%20%20%20%20print%28%22Max!%22%29%0A%20%20%20%20life%20%3D%20100%0A%0Aprint%28life%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false}}) :
+# <figure><img height=400 src="if_as_diagram.{{fr|en}}.svg"/></figure>
 
 #
 # {{On peut faire un <code>else</code>, le code ira dans le <code>else</code> si la condition est fausse|One can do a <code>else</code>, the code will go in the <code>else</code> if the condition is false}}:
@@ -75,8 +80,8 @@ else:
 #
 # {{Ainsi le code précédent affiche <code>"Rempli!"</code> si vie vaut 100, sinon il affiche <code>"Potions!"</code>|Therefore the previous code displays <code>"Full!"</code> if the life is 100, else it displays <code>"Potions!"</code>}}.
 
-# Ou en diagramme :
-# <figure><img height=270 src="ifelse_as_diagram.state-{{fr|en}}.svg"/></figure>
+# {{Voici un diagramme de|Here is a diagram of}} [{{ce|this}} if/else]({{http://pythontutor.com/visualize.html#code=if%20vie%20%3D%3D%20100%3A%0A%20%20%20%20print%28%22Rempli!%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Potions!%22%29%0A%0Aprint%28%22Fin%22%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false|http://pythontutor.com/visualize.html#code=if%20life%20%3D%3D%20100%3A%0A%20%20%20%20print%28%22Full!%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Potions!%22%29%0A%0Aprint%28%22End%22%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false}}) :
+# <figure><img height=270 src="ifelse_as_diagram.{{fr|en}}.svg"/></figure>
 
 # {{Les opérateurs de comparaison sont|The comparison operators are}}
 # <code>"<", ">", "<=", ">=", "==", "!="</code> ({{différent|different}}).
@@ -85,9 +90,8 @@ else:
 # {{Petit exercice, essaie de réécrire le code précédent en utilisant l'opérateur <code>"!="</code> (différent)|As an exercice, try to re-write the previous code by using the <code>"!="</code> (different) operator}}.
 
 # {{Dans un <code>if</code>, on peut mettre n'importe quel code|In a <code>if</code>, one can put any code}},
-# {{comme un <code>"="</code>, un <code>print</code>, ou... un autre <code>if</code>|like a <code>"="</code>, a <code>print</code>, or... another <code>if</code>}}!
+# {{comme un <code>"="</code>, un <code>"print"</code>, ou... un autre <code>"if"</code>|like a <code>"="</code>, a <code>"print"</code>, or... another <code>"if"</code>}}!
 
-# {{Essaie ce programme avec|Try this program with}} a=5 b=5, a=5 b=2, a=2 b=2 {{et voit ce qu'il se passe|and see what is going on}}:
 if a == 5:
     a = 2
     print("Yo")
@@ -99,10 +103,16 @@ else:
     print("Hum")
    
 print(a)
+
+# {{Essaie ce programme avec plusieurs valeurs et vois ce qu'il se passe|Try this program with mutliple values and see what's going on}}{{ |}}: <ul>
+# <li> [<code>a = 5; b = 5;</code>](http://pythontutor.com/visualize.html#code=a%20%3D%205%0Ab%20%3D%205%0A%0Aif%20a%20%3D%3D%205%3A%0A%20%20%20%20a%20%3D%202%0A%20%20%20%20print%28%22Yo%22%29%0A%20%20%20%20if%20b%20%3D%3D%205%3A%0A%20%20%20%20%20%20%20%20print%28%22Hello%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22Tada%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Hum%22%29%0A%20%20%20%0Aprint%28a%29&cumulative=false&curInstr=1&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
+# <li> [<code>a = 5; b = 2;</code>](http://pythontutor.com/visualize.html#code=a%20%3D%205%0Ab%20%3D%202%0A%0Aif%20a%20%3D%3D%205%3A%0A%20%20%20%20a%20%3D%202%0A%20%20%20%20print%28%22Yo%22%29%0A%20%20%20%20if%20b%20%3D%3D%205%3A%0A%20%20%20%20%20%20%20%20print%28%22Hello%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22Tada%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Hum%22%29%0A%20%20%20%0Aprint%28a%29&cumulative=false&curInstr=1&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
+# <li> [<code>a = 2; b = 2;</code>](http://pythontutor.com/visualize.html#code=a%20%3D%202%0Ab%20%3D%202%0A%0Aif%20a%20%3D%3D%205%3A%0A%20%20%20%20a%20%3D%202%0A%20%20%20%20print%28%22Yo%22%29%0A%20%20%20%20if%20b%20%3D%3D%205%3A%0A%20%20%20%20%20%20%20%20print%28%22Hello%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22Tada%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Hum%22%29%0A%20%20%20%0Aprint%28a%29&cumulative=false&curInstr=1&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
+# </ul>
     
-# {{Fais maintenant l'exercice 0 ([exercice0_trier_deux_nombres.py.html]())|Do now the exercice number 0 ([exercice0_trier_deux_nombres.py.html]())}}
+# {{Fais maintenant [l'exercice 0](exercice0_trier_deux_nombres.py.html)|Do now the [exercice number 0](exercice0_trier_deux_nombres.py.html)}}
 # {{et regarde|and look at}} [{{la correction|the correction}}](http://pythontutor.com/visualize.html#code=a%20%3D%205%0Ab%20%3D%202%0A%0Aif%20a%20%3C%20b%3A%0A%20%20%20print%28a%29%0A%20%20%20print%28b%29%0Aelse%3A%0A%20%20%20print%28b%29%0A%20%20%20print%28a%29&py=3)
-# {{sur|on}} [pythontutor](pythontutor.html), {{je t'invite à également tester le cas|I also invite you to test the case}} <code>a=2 b=5</code>.
+# {{sur|on}} [pythontutor](pythontutor.html). {{Pour cet exercice, quels sont les cas à tester ? J'en vois au moins deux !|For that exercise, which case must I test ? I see at least two interesting cases!}}
 
 #
 # J'ai également fait une [vidéo](https://youtu.be/zJ-w2izNvg4) sur cette page de théorie.
@@ -110,8 +120,23 @@ print(a)
 #
 # Pour continuer la théorie, place à [la théorie 2](theorie2_liste_while.py.html)!
 
-# {{Mais avant ça, je conseille de faire les exercices 1 à 4|But before doing that, I suggest to do exercices 1 to 4}},
-# {{tu peux aussi lire la suite qui peut t'être utile pour les exercices 1 à 4.|you can also read the following that can be useful for the exercices 1 to 4}}.
+#
+# {{Mais avant ça, je conseille de faire les exercices 1 à 4|But before doing that, I suggest to do exercices 1 to 4}}.
+
+# <ul>
+# <li> [exercice0_trier_deux_nombres.py](exercice0_trier_deux_nombres.py.html)
+# <li> [exercice1_minute_suivante.py](exercice1_minute_suivante.py.html)
+# <li> [exercice2_minute_suivante_un_print.py](exercice2_minute_suivante_un_print.py.html)
+# </ul>
+
+#
+# {{Tu peux aussi lire la section ci-dessous qui parle de <code>"and/or"</code> car elle <strong>peut</strong> t'être utile pour les exercices 3 et 4|you can also read the the section <strong>below</strong> about <code>"and/or"</code> that can be useful for the exercices 3 and 4}}.
+
+# <ul>
+# <li> [exercice3_trier_trois_nombres.py](exercice3_trier_trois_nombres.py.html)
+# <li> [exercice4_le_sept_parfait.py](exercice4_le_sept_parfait.py.html)
+# <li> [theorie2_liste_while.py](theorie2_liste_while.py.html)
+# </ul>
 
 ## and/or
 #
@@ -122,9 +147,14 @@ if a == 1 and b == 2:
 else:
     print("Da")
 
-# {{Ce programme affiche <code>"Yo"</code> si a est égal à 1 et b est égal à 2, sinon <code>"Da"</code>|This program displays <code>"Yo"</code> if a is equal to 1 and b is equal to 2, <code>"Da"</code> otherwise}}
-# {{les <strong>deux</strong> conditions doivent être vraies|<strong>both</strong> conditions must be true}}.
+# {{Ce programme affiche <code>"Yo"</code> si a est égal à 1 et b est égal à 2, sinon <code>"Da"</code>|This program displays <code>"Yo"</code> if a is equal to 1 and b is equal to 2, <code>"Da"</code> otherwise}}.
+# {{Les <strong>deux</strong> conditions doivent être vraies|<strong>both</strong> conditions must be true}}.
 # {{Il est appelé le <em>et logique</em>|It's called the <em>logical and</em>}}.
+# Voici une représentation en diagramme d'un exemple de <code>"and"</code> :
+# <figure><img height=495 src="and_as_diagram.{{fr|en}}.svg"/></figure>
+
+# [Essayez]({{http://pythontutor.com/visualize.html#code=if%20a%20%3E%205%20and%20a%20%3D%3D%202%3A%0A%20%20%20%20print%28%22Waw%20!%22%29%0A%0Atruc%20%3D%2050%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false|http://pythontutor.com/visualize.html#code=a%20%3D%201%0Ab%20%3D%202%0A%0Aif%20a%20%3E%205%20and%20a%20%3D%3D%202%3A%0A%20%20%20%20print%28%22Wow!%22%29%0A%0Athing%20%3D%2050%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false}})
+# de changer les valeurs de a et b pour vérifier que les flèches corespondent bien au code.
 
 #
 # {{On peut également utiliser <code>"or"</code> |We can also use <code>"or"</code>}}:
@@ -134,9 +164,14 @@ if a == 1 or b == 2:
 else:
     print("Da")
 
-# {{Ce programme affiche <code>"Yo"</code> si a est égal à 1 ou b est égal à 2|This program displays <code>"Yo"</code> if a is equal to 1 or b is equal to 2}}
-# {{<strong>au moins une</strong> des deux conditions doit être vraie|<strong>at least one</strong> condtion must be true}}.
+# {{Ce programme affiche <code>"Yo"</code> si a est égal à 1 ou b est égal à 2|This program displays <code>"Yo"</code> if a is equal to 1 or b is equal to 2}}.
+# {{<strong>Au moins une</strong> des deux conditions doit être vraie|<strong>At least one</strong> condtion must be true}}.
 # {{Il est appelé le <em>ou logique</em>|It's called the <em>logical or</em>}}.
+# Voici une représentation en diagramme d'un exemple de <code>"or"</code> :
+# <figure><img height=400  src="or_as_diagram.{{fr|en}}.svg"/></figure>
+
+# [Essayez]({{http://pythontutor.com/visualize.html#code=if%20a%20%3E%205%20or%20a%20%3D%3D%202%3A%0A%20%20%20%20print%28%22Waw%20!%22%29%0A%0Atruc%20%3D%2050%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false|http://pythontutor.com/visualize.html#code=a%20%3D%201%0Ab%20%3D%202%0A%0Aif%20a%20%3E%205%20or%20a%20%3D%3D%202%3A%0A%20%20%20%20print%28%22Wow!%22%29%0A%0Athing%20%3D%2050%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false}})
+# de changer les valeurs de a et b pour vérifier que les flèches corespondent bien au code.
 
 # {{Attention, si tu mélanges des <code>and</code> et des <code>or</code>,|Beware, if you mix <code>and</code> and <code>or</code>,}}
 # {{utilise des parenthèses pour bien préciser l'ordre des opérations |use parenthesis to be clear on the order you want to use}}:
@@ -176,17 +211,18 @@ a = 2.1 ** 2     # float ** int = float
 a = 10 ** 0.5    # number ** float = float
 a = 2 * 10 ** 6  # 2000000, {{un|a}} int, {{remarquez que l'exposant a priorité sur le|let's notice that power has priority on}} "*"
 
+# {{si on divise 14 par 4 on a 3.5|when 14 is divided by 4, one obtains 3.5}}
+a = 14 / 4         # 3.5 ({{attention ! En python 2|beware! In python 2}}, 14 / 4 = 3)
+a = 14 / 4.0       # 3.5 ({{même en python 2|even in python 2}})
+a = 14 / float(4)  # 3.5 ({{float(4) fait la conversion int → float|float(4) do the conversion int → float}})
+
 # l'opérateur de division entière "//" et l'opérateur de "reste" % (aussi appelé "modulo")
 
-# {{si on divise 14 par 4 on a 3 avec un reste de 2 (comme à l'école primaire !). On a 14 = 3 * 4 + 2|when 14 is divided by 4, one obtains 3 with a rest of 2 (remember primary school!). We have 14 = 3 * 4 + 2}}
-a = 14 / 4         # 3.5 ({{attention ! En python 2|beware! In python 2}}, 14 / 4 = 3)
-a = 14 / 4.0       # 3.5
-a = 14 / float(4)  # 3.5
+# {{si on divise 14 par 4 on a 3 avec un reste de 2 (comme à l'école primaire !) et donc sait que 14 = 3 * 4 + 2.|when 14 is divided by 4, one obtains 3 with a rest of 2 (remember primary school!) therefore we know that 14 = 3 * 4 + 2.}}
+d = 14 // 4  # 3, {{la partie entière|the integer part}}
+m = 14 % 4   # 2, {{le reste|the rest}} ({{on dira|we'll say}} "14 modulo 4 = 2")
 
-div = 14 // 4  # 3, {{la partie entière|the integer part}}
-mod = 14 % 4   # 2, {{le reste|the rest}}
-
-# {{modulo négatifs, observez le cycle 0 1 2 3 4 :|(negative modulos, observe the cycle 0 1 2 3 4:}} (python is cool !)
+# {{modulo négatifs (python is cool !), observez le cycle 0 1 2 3 4 :|(negative modulos (python is cool !), observe the cycle 0 1 2 3 4:}}
 n = -2 % 5  # 3 car -2 = -1 * 5 + 3
 n = -1 % 5  # 4 car -1 = -1 * 5 + 4
 n =  0 % 5  # 0
@@ -205,7 +241,7 @@ x = (5 + 2 * 3
        + 1
        - 2)
 
-## {{écrire en binaire/hexadécimal|write in binary/hexadecimal}}
+## {{écrire en binaire ou hexadécimal|write in binary or hexadecimal}}
 
 print(0b100)     # 4
 print(0xa2)      # 162
@@ -214,7 +250,7 @@ print(bin(4))    # 0b100
 print(int('100', 2))  # 4
 print(int('a2', 16))  # 162
 
-## multiple {{comparaisons|comparisons}}
+## {{comparaisons multiple|multiple comparisons}}
 
 if 2 <= a <= 5:  # 2 <= a and a <= 5
     print("{{a est entre 2 et 5|a is between 2 and 5}}")
@@ -341,6 +377,9 @@ y = False
 z = x or y  # z = True or False = True
 n = not x  # n = not True = False
 g = a < 5 and z
+
+#
+# Nous verrons que manipuler des bool sera plus pratique quand nous apprendront les <em>fonctions</em>.
 
 ## if fonctionnel
 #
