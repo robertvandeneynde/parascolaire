@@ -1,0 +1,3 @@
+#!/bin/bash
+# @deprecated because 'all' is now the default option
+./generate all && ./upload

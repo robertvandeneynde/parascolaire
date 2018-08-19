@@ -405,3 +405,28 @@ blockquote {
     text-align: italic;
     /* the margin is too big but that's alright */
 }
+
+/* nav.external */
+nav.external a {
+    padding: 0px;
+}
+
+nav.external > a:first-child {
+    padding: 15px; 
+}
+nav.external > a:first-child::before {
+    content: "⇒";
+    margin-right: 2px;
+}
+
+nav.external > a+ul, /* TODO: doesn't work like I want */
+nav.external > a+ol {
+    padding-bottom: 0px; 
+}
+
+nav.external ul,
+nav.external ol {
+    margin-right: 20px;
+    /* margin-left: 10px; */
+}
+/* END nav.external */

@@ -55,6 +55,19 @@ var utils = (function(){
         }
     }
     
+    function sectionNameAfterH2Id() {
+        $('h2').each(function(){
+            var n = $(this).next()
+            if(! n.length)
+                return
+            if('section' != n.get(0).tagName.toLowerCase())
+                return
+            if(n.attr('name'))
+                return
+            n.attr('name', $(this).attr('id'))
+        })
+    }
+    
     function makeTitleLinks() {
         makeLinksBetweenTitles('h2', '#')
     
@@ -116,5 +129,6 @@ var utils = (function(){
         dedentPreCode: dedentPreCode,
         makeTitleLinks: makeTitleLinks,
         smoothLinks: smoothLinks,
+        sectionNameAfterH2Id: sectionNameAfterH2Id,
     }
 })();

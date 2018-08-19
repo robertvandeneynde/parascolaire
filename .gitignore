@@ -19,7 +19,10 @@ __pycache__
 *.state-*
 /presences
 
+###
 # read only files not ignored above:
+###
+
 3D.html
 progra_equivalences*.html
 progra_equivalences_en.py
@@ -35,21 +38,28 @@ generate_html_progra_equivalences_multilang.py.test.html
 trier_trois_nombres.en.svg
 trier_trois_nombres.fr.svg
 
+# {X}_multilang_as{Y} generated files
 projects.html
 projets.html
+raccourcis.html
+shortcuts.html
+
 theorie0_installation.html
 theorie1_egal_if_en.py
 theorie1_egal_if_fr.py
 theorie1_egal_if.py
+
+# html that are just copies
 turtle.html
 pythontutor.html
-
-gl_3d_basics.zip
-3d-notation-in-plane.svg
-basics-of-editing-text-on-keyboard.svg
-
 theorie1_egal_if*.html
 theorie2_liste*.html
 theorie3_fonctions_et_objets*.html
 math.html
 django.html
+
+# Lines appended that may be moved to a category above
+gl_3d_basics.zip
+3d-notation-in-plane.svg
+basics-of-editing-text-on-keyboard.svg
+message.txt
