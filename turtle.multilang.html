@@ -279,7 +279,7 @@
                 lt(180)
                 fd(100)
                 lt(90)
-                fd(50 + 50) # {{wow, c'est joli !|wow, that's pretty!}}
+                fd(50 + 50)  # {{wow, c'est joli !|wow, that's pretty!}}
                 lt(90 * 2)
                 fd(40 + 80 * 2)
             </code></pre>
@@ -435,7 +435,7 @@
                 fd(30)
                 color(253, 126, 0)
                 fd(30)
-                color("#ff0060") # color(0xff, 0x00, 0x60)
+                color("#ff0060")  # color(0xff, 0x00, 0x60)
                 fd(30)
             </code></pre>
 
@@ -477,7 +477,7 @@
             
         </section>
         
-        <h2 id="{{raccourcis|shortcuts}}">{{Raccourcis claviers|Keyboard shortcuts}}</h3>
+        <h2 id="{{raccourcis|shortcuts}}">{{Raccourcis claviers|Keyboard shortcuts}}</h2>
             
         <section name="{{raccourcis|shortcuts}}">
             <p class="lang-switch"><a href="turtle.{{en|fr}}.html#{{shortcuts|raccourcis}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
@@ -558,7 +558,7 @@
             }}</p>
             
             <pre><code class="py">
-            def {{carre|square}}({{t|s}}): # {{t est la taille|s is the size}}
+            def {{carre|square}}({{t|s}}):  # {{t est la taille|s is the size}}
               fd({{t|s}})
               lt(90)
               fd({{t|s}})
@@ -795,7 +795,7 @@
             }}</p>
             
             <pre><code class="py">
-            bob = Turtle() # {{ou|or}} Pen()
+            bob = Turtle()  # {{ou|or}} Pen()
             bob.shape("turtle")
             bob.color("blue")
             bob.forward(50)
@@ -840,7 +840,7 @@
             charles = Turtle()
             charles.shape("turtle")
             charles.d{{e|is}}placement = 7
-            liste.append(charles) {{# ajouter à la fin|}}
+            liste.append(charles)  {{# ajouter à la fin|}}
 
             for {{tortue|the_turtle}} in {{liste|the_list}}: # {{ pour chaque tortue dans la liste | for every turtle in the list }} 
               {{ancienne_couleur|previous_color}} = {{tortue|the_turtle}}.color() #{{ on sauve la couleur | we save the color }}
@@ -876,6 +876,44 @@
                   if n == 9:
                     right(90)
                     n = 0
+            </code></pre>
+            
+            <p>{{
+            Et finalement, on peut faire des fonctions <em>récursives</em>.
+            |
+            Et finalement, on peut faire des fonctions <em>récursives</em> :
+            }}</p>
+            
+            <pre><code class="py">
+            def {{arbre|tree}}(t):  # {{comment faire un arbre de taille t ?|how to make a tree of size t?}}
+                if t &lt; 10:  # {{si t est plus petit que 10...|if t is smaller than 10...}}
+                    return  # {{on ne fait rien|let's do nothing}}
+                
+                if t &lt; 20:
+                    color("green")
+                else:
+                    color("brown")
+                
+                fd(t)  # {{on avance de t|let's go forward by t}}
+                
+                lt(30)  # {{on tourne|let's turn}}
+                {{arbre|tree}}(t * 0.7)  # {{on fait un arbre plus petit|let's do a smaller tree}}
+                rt(60)
+                {{arbre|tree}}(t * 0.7)  # {{on fait un autre arbre plus petit|let's do another smaller tree}}
+                lt(30)
+                
+                penup()
+                fd(-t)  # {{revenons à notre position initiale|let's go back where we started}}
+                pendown()
+
+            speed(10)
+            
+            up()
+            lt(90)
+            fd(-200)
+            down()
+            
+            {{arbre|tree}}(100)
             </code></pre>
 
             <h3 id="exerci{{c|s}}e-13">Exerci{{c|s}}e 13{{ |}}: {{ Le village variable | The variable village }}</h3>

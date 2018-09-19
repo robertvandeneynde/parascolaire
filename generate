@@ -48,9 +48,6 @@ fi
 python3 generate_html.py
 # ./generate_ln.py
 python3 generate_ls.py # keep last
-cd home/2017-2018
-python3 generate_index.py
-cd ../..
 
 # ./generate_zip
 # ./generate_state_svg.py triangle-geometry.svg --layer-name

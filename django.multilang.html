@@ -312,10 +312,33 @@
                 <li>Limiter la création des questions aux administrateurs.</li>
             </ul>
             
-            <p class="comment">Les paragraphes en italique indiquent une information complémentaire non nécessaire pour la compréhesion du cours et la réussite du stage, bien entendu, ça peut toujours aider.
+            <p class="comment">Les paragraphes en italique indiquent une information complémentaire non nécessaire pour la compréhesion et la réussite du cours, bien entendu, ça peut toujours aider.
+                C'est un peu comme une section « Pour en savoir plus ».
             <p class="comment">Pour faire un site économique du style, <em>marketplace</em>,
                 on choisira un nom comme <code>funnycoin</code> et non <code>askme</code>, on y verra quelques opérations de base du même style dans ce but.
             
+        </section>
+        
+        <nav>
+            <a href="django.{{en|fr}}.html"><img src="flag-{{en|fr}}.png" /></a>
+        </nav>
+        
+        <nav>
+            <a href="#{{prerequis|prerequisites}}">Prérequis</a>
+        </nav>
+        
+        <nav>
+            <a href="#{{site-statique|static-site}}">Site statique</a>
+            <a href="#{{bdd|db}}">Lire une base de données</a>
+            <a href="#form">Formulaires</a>
+            <a href="#{{bddr|rdb}}">Bases de données <em>relationnelles</em></a>
+        </nav>
+        
+        <h2 id="{{prerequis|prerequisites}}">Prérequis</h2>
+        
+        <section name="{{prerequis|prerequisites}}">
+            <p class="lang-switch"><a href="django.{{en|fr}}.html#{{prerequis|prerequisites}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+
             <p>Une petite connaissance préalable de python est conseillée, vous pouvez avoir un petit rappel de théorie sur mon site
                 <a href="https://robertvandeneynde.be/parascolaire">de programmation pour débutants</a> :
             
@@ -339,22 +362,68 @@
                 <li>Et si vous êtes encore plus chaud, vous pouvez même lire les parties <em>Pour en savoir plus</em>
                     ou bien mes fichiers dont les noms commencent par <a href="https://robertvandeneynde.be/parascolaire/#progra">progra</a> !
             </ol>
+            
+            <nav class="external">
+            
+                <a href="https://robertvandeneynde.be/parascolaire">
+                    Programmation pour débutants </a>
+                
+                <ul>
+                  <li> <a href="https://robertvandeneynde.be/parascolaire/theorie1_egal_if_fr.html">
+                    Théorie 1</a>
+                
+                  <li> <a href="https://youtu.be/zJ-w2izNvg4">
+                    Vidéo de la théorie 1 (en bêta)</a>
+                    
+                    <ul>
+                      <li> <a href="https://robertvandeneynde.be/parascolaire/exercice0_trier_deux_nombres.py.html">
+                        Exercice 0 </a>
+                        
+                      <li> <a href="https://robertvandeneynde.be/parascolaire/exercice1_minute_suivante.py.html">
+                        Exercice 1 </a>
+                    
+                      <li> <a href="https://robertvandeneynde.be/parascolaire/exercice2_minute_suivante_un_print.py.html">
+                        Exercice 2 </a>
+                    
+                      <li> <a href="https://robertvandeneynde.be/parascolaire/exercice3_trier_trois_nombres.py.html">
+                        Exercice 3 </a>
+                    
+                      <li> <a href="https://robertvandeneynde.be/parascolaire/exercice4_le_sept_parfait.py.html">
+                        Exercice 4 (facultatif) </a>
+                    </ul>
+                  </li>
+                    
+                  <li> <a href="https://robertvandeneynde.be/parascolaire/theorie2_liste_while.html">
+                    Théorie 2</a>
+                    
+                    <ul>
+                        <li> <a href="https://robertvandeneynde.be/parascolaire/exercice5_max_list.py.html">
+                            Exercice 5 </a>
+                            
+                        <li> <a href="https://robertvandeneynde.be/parascolaire/exercice6_in_list.py.html">
+                            Exercice 6 (facultatif) </a>
+                        
+                        <li> <a href="https://robertvandeneynde.be/parascolaire/exercice7_filtre_des_grands.py.html">
+                            Exercice 7 (facultatif) </a>
+                        
+                        <li> <a href="https://robertvandeneynde.be/parascolaire/exercice8_somme.py.html">
+                            Exercice 8 (facultatif) </a>
+                            
+                        <li> <a href="https://robertvandeneynde.be/parascolaire/exercice9_doublons.py.html">
+                            Exercice 9 (facultatif) </a>
+                    </ul>
+                  </li>
+                
+                  <li> <a href="https://robertvandeneynde.be/parascolaire/theorie3_fonctions_et_objets.html">Théorie 3</a>
+                  <li> <a href="https://robertvandeneynde.be/parascolaire/#progra">Plus de programmation</a>
+                  
+                </ul>
+            </nav>
         </section>
         
-        <nav>
-            <a href="django.{{en|fr}}.html"><img src="flag-{{en|fr}}.png" /></a>
-        </nav>
+        <h2 id="{{site-statique|static-site}}">Un site statique</h2>
         
-        <nav>
-            <a href="#site-statique">Site statique</a>
-            <a href="#bdd">Lire une base de données</a>
-            <a href="#form">Formulaires</a>
-            <a href="#bddr">Bases de données <em>relationnelles</em></a>
-        </nav>
-        
-        <h2 id="site-statique">Un site statique</h2>
-        
-        <section name="site-statique">
+        <section name="{{site-statique|static-site}}">
             <p class="lang-switch"><a href="django.{{en|fr}}.html" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
             
             <button class="open-all-developpement">Cliquez ici pour faire apparaître toutes les corrections et annexes !</button>
@@ -363,7 +432,7 @@
             Maintenant, place au code django !
             
             <p class="comment">Créez un projet django vide, si vous avez du mal, demandez à vos voisins !
-                j'ai quelques machines virtuelles sous la main si vous voulez facilement vous lancer,
+                J'ai quelques machines virtuelles sous la main si vous voulez facilement vous lancer,
                 ou bien vous pouvez simplement créer un compte sur <a href="https://pythonanywhere.com">pythonanywhere.com</a> que vous soyez sous Windows ou Mac.
                 
             <!--
@@ -512,7 +581,7 @@
             from . import views
 
             urlpatterns = [
-                path('hello/', views.dire_bonjour),
+                path('hello', views.dire_bonjour),
             ]
             </code></pre>
             
@@ -523,7 +592,7 @@
             from . import views
 
             urlpatterns = [
-                url(r'^hello/$', views.dire_bonjour),
+                url(r'^hello$', views.dire_bonjour),
             ]
             </code></pre>
             -->
@@ -559,7 +628,7 @@
             <mark>from .views import base</mark>
 
             urlpatterns = [
-                path('hello/', views<mark>.base</mark>.dire_bonjour),
+                path('hello', views<mark>.base</mark>.dire_bonjour),
             ]
             </code></pre>
             
@@ -596,8 +665,8 @@
             <mark>from .views import base</mark>
 
             urlpatterns = [
-                path('hello/', views<mark>.base</mark>.dire_bonjour),
-                <mark>path('cv/', views.montrer_cv),</mark>
+                path('hello', views<mark>.base</mark>.dire_bonjour),
+                <mark>path('cv', views.montrer_cv),</mark>
             ]
             </code></pre>
             <pre class="developpement" symbol="views.py"><code class="py">
@@ -707,8 +776,14 @@
             <p>Afin que notre page soit plus jolie, on peut apprendre d'autres balises html, si vous 
                 voulez garder un site peu joli mais passer directement au côté fontionnel <a href="#template-et-variables">passez cette section</a>,
                 sinon voici un aperçu de ce qu'un 
+                <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/">
+                    bon tutoriel html</a>
+                    
+                dans son 
                 <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/comment-fait-on-pour-creer-des-sites-web">
-                    bon tutoriel html</a> vous dira :
+                    premier chapitre</a>
+                    
+                vous dira :
             
             <p>Il est plus structuré de mettre le tout dans une balise <code class="html">&lt;html></code>
                     qui contient une balise <code class="html">&lt;head></code> et <code class="html">&lt;body></code>,
@@ -834,7 +909,7 @@
                 
                 <p>Cependant, on recommande aux débutants de toujours fermer ses balises car ils trouvent ça généralement plus clair.
                 
-                <p>Quant aux balises ne devant pas être fermées comme &lt;meta charset="utf-8"> ou &lt;img src="hello.png">,
+                <p>Quant aux balises ne devant pas être fermées comme <code>&lt;meta charset="utf-8"></code> ou <code>&lt;img src="hello.png"></code>,
                     on aime marquer un slash comme ceci <code>&lt;meta charset="utf-8"<mark> /</mark>></code>
                     ou <code>&lt;img src="hello.png"<mark> /</mark>></code>
                     pour rappeler aux lecteurs qu'il n'y aura pas de balise de fermeture,
@@ -842,7 +917,7 @@
             </div>
             
             
-            <p>Finalement, on aimerait que tous les <strong>paragraphes</strong> soient en <span style="color:blue">bleus</span>, on a besoin de CSS !
+            <p>Finalement, on aimerait que tous les <strong>paragraphes</strong> soient en <span style="color:blue">bleu</span>, on a besoin de CSS !
             
             <pre class="developpement" symbol="le_cv.html"><code class="html">
             &lt;html>
@@ -871,15 +946,38 @@
             
                 En une ou deux heures vous aurez déjà de quoi faire un <strong>joli</strong> site web !
                 En effet, avec beaucoup de css, René pourrait arriver à un cv comme <a href="https://robertvandeneynde.be/cv">celui-ci</a>.
+            
+            <nav class="external">
+                <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/">
+                    Tutoriel html et css sur OpenClassrooms
+                </a>
+                
+                <ol>
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604192-comment-fait-on-pour-creer-des-sites-web">
+                        Les bases de HTML5 </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1605060-mettre-en-place-le-css">
+                        Les joies de la mise en forme avec CSS </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1605881-structurer-sa-page">
+                        Mise en page du site </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1606851-les-tableaux">
+                        Fonctionnalités évoluées </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1607901-envoyez-votre-site-sur-le-web">
+                        Annexes </a>
+                </ol>
+            </nav>
 
             <p>D'autres tutoriels existent bien entendu, comme <a href="https://developer.mozilla.org/fr/Apprendre/Commencer_avec_le_web/Les_bases_HTML">celui de Mozilla</a>
             disponible en plein de langues.
             
             <p>Remarquez que si sur pythonanywhere
                 vous utilisez les images,
-                il faudra les uploader et ensuite les configurer vos urls statiques, google est votre ami.
+                il faudra les uploader et ensuite configurer vos urls statiques, google est votre ami.
             
-            <p class="comment">Petite remarque si vous googlez du html ou css,
+            <p class="comment">Petite remarque si vous <strong>googlez</strong> du html ou css,
                 n'allez <strong style="color:red">pas</strong>
                 sur le site <strong style="color:red">w3schools.com</strong>,
                 la qualité y est <a href="#w3fools">médiocre</a>, il n'apparaît en premier dans la liste de Google que
@@ -913,7 +1011,7 @@
                 
             <p class="comment">
                 Un avantage des templates est de séparer le fond, la forme, et les données.
-                Un desinger pourra par exemple écrire un template html avec du joli css, et vous n'aurez qu'à l'inclure dans votre projet
+                Un designer pourra par exemple écrire un template html avec du joli css, et vous n'aurez qu'à l'inclure dans votre projet
                 sans même devoir regarder le code source.
             
             <h3 id="template-et-variables">Un template django peut avoir des variables</h3>
@@ -1041,9 +1139,9 @@
             
         </section>
         
-        <h2 id="bdd">Lire la base de données via un modèle Django</h2>
+        <h2 id="{{bdd|db}}">Lire la base de données via un modèle Django</h2>
         
-        <section name="bdd">
+        <section name="{{bdd|db}}">
             <button class="open-all-developpement">Cliquez ici pour faire apparaître toutes les corrections et annexes !</button>
             
             <p>Nous allons maintenant faire un site web dynamique, 
@@ -1198,7 +1296,7 @@
                     mais vous pouvez quand même les voir en effectuant <code>ls -a</code>.
                 
                 <p class="comment">
-                    Pour avoir un affichage plus joli en couleurs, tappez <code>ls x--color</code>, vous y verrez les <strong>dossiers</strong> en bleus.
+                    Pour avoir un affichage plus joli en couleurs, tappez <code>ls x--color</code>, vous y verrez les <strong>dossiers</strong> en bleu.
                     Il y a moyen que tous vos <code>ls</code> soient en couleurs en écrivant <code>alias ls='ls --color'</code>.
                 
                 <p>Pour changer de dossier, en allant par exemple dans le dossier <code>project/</code> tappez <code>cd project</code> (<code>cd</code> comme <strong>c</strong>hanger <strong>d</strong>ossier).
@@ -1619,7 +1717,7 @@
             <p class="comment">Cette garantie d'être unique est un des exemples
                 pour lequel une base de données, c'est plus qu'un Excel.
             
-            <p>Nous avions activer l'admin pour rajouter facilement des objets,
+            <p>Nous avions activé l'admin pour rajouter facilement des objets,
                 il est également possible de directement modifier le fichier <code>db.sqlite3</code> (si vous êtes)
                 ou de faire du <code>sql</code> directement dans mysql (si vous êtes sous mysql),
                 donc il n'est pas <em>obligatoire</em> de passer par l'admin, c'est juste très pratique.
@@ -1650,18 +1748,18 @@
             
             <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
             urlpatterns = [
-                path('hello/', views.dire_bonjour), 
-                path('cv/', views.montrer_cv),      
-                <mark>path('detail/', views.donner_une_question),</mark> 
+                path('hello', views.dire_bonjour), 
+                path('cv', views.montrer_cv),      
+                <mark>path('detail', views.donner_une_question),</mark> 
             ]
             </code></pre>
             
             <!--
             <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
             urlpatterns = [
-                url(r'^hello/$', views.dire_bonjour), 
-                url(r'^cv/$', views.montrer_cv),      
-                <mark>url(r'^detail/$', views.donner_une_question),</mark>
+                url(r'^hello$', views.dire_bonjour), 
+                url(r'^cv$', views.montrer_cv),      
+                <mark>url(r'^detail$', views.donner_une_question),</mark>
             ]
             </code></pre>
             -->
@@ -2069,7 +2167,7 @@
             <pre class="developpement" symbol="urls.py"><code>
             urlpatterns = [
                 ...,
-                path('summary/', views.donne_les_questions),
+                path('summary', views.donne_les_questions),
             ]
             </code></pre>
             
@@ -2186,7 +2284,7 @@
             <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
             urlpatterns = [
                 ...,
-                path('nonrepondues/', views.pas_de_repondants),
+                path('nonrepondues', views.pas_de_repondants),
             ]
             </code></pre>
             
@@ -2204,7 +2302,7 @@
             <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
             urlpatterns = [
                 ...,
-                url(r'^nonrepondues/$', views.pas_de_repondants),
+                url(r'^nonrepondues$', views.pas_de_repondants),
             ]
             </code></pre>
             -->
@@ -2402,7 +2500,7 @@
             <pre class="developpement" symbol="urls.py"><code class="py">
             urlpatterns = [
                 ...,
-                path('plus_grosse_question/', views.plus_grosse_question),
+                path('plus_grosse_question', views.plus_grosse_question),
             ]
             </code></pre>
             <pre class="developpement" symbol="views.py"><code>
@@ -2591,7 +2689,7 @@
                 <pre class="developpement" symbol="urls.py"><code class="py">
                     urlpatterns = [
                         ...
-                        path('/formulaire_creation_question', views.formulaire_creation_question),
+                        path('formulaire_creation_question', views.formulaire_creation_question),
                     ]
                 </code></pre>
                 <pre class="developpement" symbol="views.py"><code class="py">
@@ -2656,7 +2754,7 @@
                 <pre class="developpement" symbol="urls.py"><code class="py">
                     urlpatterns = [
                         ...
-                        path('/creer_une_question', views.creer_une_question),
+                        path('creer_une_question', views.creer_une_question),
                     ]
                 </code></pre>
                 <pre class="developpement" symbol="views.py"><code class="py">
@@ -3256,9 +3354,9 @@
             <p class="developpement" symbol="Solution">À venir
         </section>
         
-        <h2 id="bddr">Les bases de données... <em>relationnelles</em></h2>
+        <h2 id="{{bddr|rdb}}">Les bases de données... <em>relationnelles</em></h2>
         
-        <section name="bddr">
+        <section name="{{bddr|rdb}}">
             <button class="open-all-developpement">Cliquez ici pour faire apparaître toutes les corrections et annexes !</button>
             
             <h3 id="exerci{{c|s}}e-18">Exerci{{c|s}}e 18{{ |}}: Foreign key, <em>{{fait le café|the holy grale}}</em></h3>

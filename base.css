@@ -415,8 +415,11 @@ nav.external > a:first-child {
     padding: 15px; 
 }
 nav.external > a:first-child::before {
-    content: "⇒";
-    margin-right: 2px;
+    content: "🔗"; /* U+1F517 🔗 LINK SYMBOL */ /* "⇒" */
+    margin-right: 5px;
+}
+nav.external > a:hover:first-child::before {
+    text-decoration: none;
 }
 
 nav.external > a+ul, /* TODO: doesn't work like I want */

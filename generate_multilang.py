@@ -134,7 +134,7 @@ for f in filter(RE.match, os.listdir('.')):
                 new.unlock()
                 shutil.copy(filename, new.filename)
                 new.lock()
-                print('Copy', filename, '->', '(read only)', new.filename)
+                info('Copy', filename, '->', '(read only)', new.filename)
                 del new
             
             # TODO: redirects/symlink
