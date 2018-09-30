@@ -18,6 +18,9 @@
         <script src="utils.js"></script>
         <script src="slides.js"></script>
         <style>
+            mark {
+                background: #ffc;
+            }
             body {
                 background: url('diamond.jpg');
                 background-size: 400px;
@@ -70,13 +73,6 @@
             }
             .slide.next {
                 cursor: pointer;
-            }
-            
-            p.comment, ul.comment, ol.comment {
-                font-style: italic;
-            }
-            p.comment {
-                margin-left: 20px;
             }
             
             code.url {
@@ -217,6 +213,7 @@
                     hljs.highlightBlock(block);
                     // console.log($(block).text())
                 });
+                utils.sectionNameAfterH2Id();
                 utils.makeTitleLinks()
                 utils.smoothLinks()
                 
@@ -366,14 +363,22 @@
             <nav class="external">
             
                 <a href="https://robertvandeneynde.be/parascolaire">
-                    Programmation pour débutants </a>
+                    Programmation pour débutants
+                    <img src="flag-fr.png" style="margin-right: 5px;"><!--
+                    --><img src="flag-en.png" style="margin-right: 5px;"><!--
+                    --></a>
                 
+                <hr/>
                 <ul>
-                  <li> <a href="https://robertvandeneynde.be/parascolaire/theorie1_egal_if_fr.html">
-                    Théorie 1</a>
-                
+                  <li> <a href="https://robertvandeneynde.be/parascolaire/theorie1_egal_if_{{fr|en}}.html">
+                    Théorie 1
+                    <img src="flag-{{fr|en}}.png" style="vertical-align: middle; margin-right: 5px;"></a><!--
+                    --><a href="https://robertvandeneynde.be/parascolaire/theorie1_egal_if_{{en|fr}}.html"><img src="flag-{{en|fr}}.png" style="margin-right: 5px;"></a>
+                    
                   <li> <a href="https://youtu.be/zJ-w2izNvg4">
-                    Vidéo de la théorie 1 (en bêta)</a>
+                    Vidéo de la théorie 1 (en bêta)
+                    <img src="flag-fr.png" style="vertical-align:middle; margin-right: 5px;"></a>
+                    </a>
                     
                     <ul>
                       <li> <a href="https://robertvandeneynde.be/parascolaire/exercice0_trier_deux_nombres.py.html">
@@ -394,7 +399,8 @@
                   </li>
                     
                   <li> <a href="https://robertvandeneynde.be/parascolaire/theorie2_liste_while.html">
-                    Théorie 2</a>
+                    Théorie 2
+                    <img src="flag-fr.png" style="vertical-align: middle; margin-right: 5px;"></a>
                     
                     <ul>
                         <li> <a href="https://robertvandeneynde.be/parascolaire/exercice5_max_list.py.html">
@@ -418,6 +424,41 @@
                   <li> <a href="https://robertvandeneynde.be/parascolaire/#progra">Plus de programmation</a>
                   
                 </ul>
+            </nav>
+            
+            <p>Des connaissances de html, voici mon propre tutoriel html :</p>
+            
+            <nav class="external">
+                <a href="html.html">
+                    Introduction à html et css
+                    <img src="flag-fr.png" style="vertical-align:middle; margin-right: 5px;"></a>
+                </a>
+            </nav>
+            
+            <p>Pour en savoir plus, je recommande l'excellent <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3">tutoriel html</a> de openclassrooms :</p>
+            <nav class="external">
+                <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/">
+                    Tutoriel html et css sur OpenClassrooms
+                    <img src="flag-fr.png" style="vertical-align:middle; margin-right: 5px;"></a>
+                </a>
+                
+                <hr/>
+                <ol>
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604192-comment-fait-on-pour-creer-des-sites-web">
+                        Les bases de HTML5 </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1605060-mettre-en-place-le-css">
+                        Les joies de la mise en forme avec CSS </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1605881-structurer-sa-page">
+                        Mise en page du site </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1606851-les-tableaux">
+                        Fonctionnalités évoluées </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1607901-envoyez-votre-site-sur-le-web">
+                        Annexes </a>
+                </ol>
             </nav>
         </section>
         
@@ -585,24 +626,11 @@
             ]
             </code></pre>
             
-            <!--
-            <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
-            from django.conf.urls import url
-
-            from . import views
-
-            urlpatterns = [
-                url(r'^hello$', views.dire_bonjour),
-            ]
-            </code></pre>
-            -->
-            
             <p>On dit donc que quand on va sur l'<strong>url</strong> <code>hello/</code>, <!-- because it doesn't begin with a slash, one could not write code class="url" -->
                 on va dans <code>views.dire_bonjour</code>, il faut donc aller dans <code>views.py</code> et y définir <code>dire_bonjour</code>.
             
-            <p>Vous devrez donc également modifier (ou créer) le fichier <code>views.py</code> qui se trouve dans le même dossier.
-                Remarquez que certains projets utilisent un <strong>dossier</strong> <code>views/</code>, dans ce cas, suivez <a href="#dossier-views">ces instructions</a>,
-                on y verra :
+            <p>Vous devrez donc également modifier (ou créer) le fichier <code>views.py</code> qui se trouve dans le même dossier, on y verra :
+            <!-- Remarquez que certains projets utilisent un <strong>dossier</strong> <code>views/</code>, dans ce cas, suivez <a href="#dossier-views">ces instructions</a>. -->
             
             <pre class="developpement" symbol="views.py"><code class="py">
             from django.http import HttpResponse
@@ -611,11 +639,24 @@
                 return HttpResponse("Coucou les amis !")
             </code></pre>
             
-            <p class="comment">Attention à la version de django, ce tutoriel est sous django 2.0, mais certains tutoriels sont encore en 1.11 où déjà la première ligne de <code>urls.py</code>
-                est différente.
+            <div class="comment">
+            <p>Attention à la version de django, ce tutoriel est sous django 2.0, mais certains tutoriels sont encore en 1.11 où vous verrez des fichiers <code>urls.py</code>
+                comme ceci :
             
+            <pre class="developpement" symbol="urls.py (django 1.11)"><code class="py">
+            from django<mark>.conf</mark>.urls import <mark>url</mark>
+
+            from . import views
+
+            urlpatterns = [
+                <mark>url</mark>(<mark>r'^hello$'</mark>, views.dire_bonjour),
+            ]
+            </code></pre>
+            </div>
+            
+            <div class="comment">
             <div id="dossier-views"></div>
-            <p class="comment">Si on a vraiment beaucoup d'urls, vous pouvez choisir de ne pas faire un
+            <p>Si on a vraiment beaucoup d'urls, vous pouvez choisir de ne pas faire un
                 <strong>fichier</strong> <code class="bash">views.py</code>
                 mais d'avoir un <strong>dossier</strong> <code class="bash">views/</code>,
                 dans ce cas vous devez créer un (ou plusieurs) fichier(s) <code class="bash">.py</code> dans le dossier <code class="bash">views/</code>,
@@ -638,6 +679,7 @@
             def dire_bonjour(request):
                 return HttpResponse("Coucou les amis !")
             </code></pre>
+            </div>
             
             <p>Que se passe-t-il maintenant quand je vais sur <code class="url">/hello</code> ?
             
@@ -658,17 +700,17 @@
                 <li><em>Cv de René : Surfeur, programmeur mais humain avant tout</em></li>
             </ul>
             
-            <pre class="developpement" symbol="urls.py (django 2.0 avec dossier views)"><code class="py">
+            <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
             from django.urls import path
 
             from . import views
-            <mark>from .views import base</mark>
 
             urlpatterns = [
-                path('hello', views<mark>.base</mark>.dire_bonjour),
+                path('hello', views.dire_bonjour),
                 <mark>path('cv', views.montrer_cv),</mark>
             ]
             </code></pre>
+            
             <pre class="developpement" symbol="views.py"><code class="py">
             from django.http import HttpResponse
             
@@ -805,7 +847,7 @@
                         &lt;li>Programmeur&lt;/li>
                         &lt;li>Mais humain avant tout&lt;/li>
                     &lt;/ul>
-                    &lt;p>&amp;copy; René&lt;/p> &lt;!-- n'importe quel caractère <a href="https://robertvandeneynde.be/blog/unicode/">unicode</a> ! -->
+                    &lt;p>&amp;copy; René &amp;amp; Marie &lt;/p> &lt;!-- n'importe quel caractère <a href="https://robertvandeneynde.be/blog/unicode/">unicode</a> ! -->
                 &lt;/body>
             &lt;/html>
             </code></pre>
@@ -950,8 +992,10 @@
             <nav class="external">
                 <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/">
                     Tutoriel html et css sur OpenClassrooms
+                    <img src="flag-fr.png" style="vertical-align:middle; margin-right: 5px;"></a>
                 </a>
                 
+                <hr/>
                 <ol>
                     <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604192-comment-fait-on-pour-creer-des-sites-web">
                         Les bases de HTML5 </a>
@@ -1107,7 +1151,8 @@
                 utilité principale dans le chapitre suivant !
             
             <p class="comment">Pour en savoir plus sur les templates, je conseille surtout l'<strong>héritage</strong> avec <code>{% extends %}</code>
-                qui est une très bonne façon d'organiser ses templates. Plus d'informations sur la <a>documentation officielle</a>.
+                qui est une très bonne façon d'organiser ses templates. Plus d'informations sur la <a>documentation officielle</a> ou sur
+                <a href="https://tutorial.djangogirls.org/{{fr|en}}/template_extending/">ce tuto</a>.
             
             <h3 id="{{raccourcis|shortcuts}}">Raccourcis clavier</h3>
 
@@ -1122,6 +1167,7 @@
                 <a class="flag" href="{{raccourcis|shortcuts}}.html"><img src="flag-{{fr|en}}.png" /></a>
                 <a class="flag" href="{{shortcuts|raccourcis}}.html"><img src="flag-{{en|fr}}.png" /></a>
                 
+                <hr/>
                 <ol>
                     <li> <a href="{{raccourcis|shortcuts}}#{{touches|keys}}">{{Les touches|The keys}}</a>
                     <li> <a href="{{raccourcis|shortcuts}}#{{classiques|classics}}">{{Les classiques|The classics}}</a>
@@ -1130,6 +1176,7 @@
                     <li> <a href="{{raccourcis|shortcuts}}#browser">{{Navigateur internet|Web browser}}</a>
                 </ol>
                 
+                <hr/>
                 <figure>
                     <a href="basics-of-editing-text-on-keyboard.{{fr|en}}.svg">
                         <img style="max-width:100%; width:535px" src="basics-of-editing-text-on-keyboard.{{fr|en}}.svg"/>
@@ -1212,29 +1259,30 @@
             
             <p>Ensuite, effectuez l'opération de <code>makemigrations</code> suivi de l'opération de <code>migrate</code>,
                 et probablement qu'il y aura une erreur (voir <a href="#migrations_erreurs">ci-dessous</a>).
-                
-            <p class="comment">
-                Si vous vous demandez quelle est la différence entre <code>makemigrations</code> et <code>migrate</code>, lisez ceci :
+             
+            <div class="comment">
+                <p>Si vous vous demandez quelle est la différence entre <code>makemigrations</code> et <code>migrate</code>, lisez ceci :
             
-            <div id="makemigrations_vs_migrate"></div>
-            <ul class="developpement" symbol="makemigrations vs migrate" >
-                <li><code>makemigrations</code> va regarder les changements faits dans models.py et va créer un fichier python dans le dossier migrations, qui <em>décrit</em> les différences, en l'occurence ici, on crée une nouvelle table qui contient deux attributs.
-                <li><code>migrate</code> modifie effectivement la base de données, en l'occurence ici va créer une nouvelle table, on verra plus tard ce qu'il peut arriver à ce moment-ci.
-            </ul>
+                <div id="makemigrations_vs_migrate"></div>
+                <ul class="developpement" symbol="makemigrations vs migrate" >
+                    <li><code>makemigrations</code> va regarder les changements faits dans models.py et va créer un fichier python dans le dossier migrations, qui <em>décrit</em> les différences, en l'occurence ici, on crée une nouvelle table qui contient deux attributs.
+                    <li><code>migrate</code> modifie effectivement la base de données, en l'occurence ici va créer une nouvelle table, on verra plus tard ce qu'il peut arriver à ce moment-ci.
+                </ul>
+            </div>
             
-            <!--
-            <p class="comment">Si vous utilisez une machine virtuelle avec Eclipse, faites clic droit dans Eclipse puis choissiez migrate ou makemigrations ou passez par le terminal
-                en écrivant <code class="bash">python3 manage.py makemigrations</code>
-                ou <code class="bash">python3 manage.py migrate</code>.
-            -->
-            
-            <p class="comment">Sur pythonanywhere, vous devrez passer par la console, <a href="#virtualenv">activez le virtualenv</a> si ça n'est pas déjà fait,
+            <div class="comment">
+            <p>Sur pythonanywhere, vous devrez passer par la console, <a href="#virtualenv">activez le virtualenv</a> si ça n'est pas déjà fait,
                 puis lancez cette commande :
                 
             <pre><code class="bash">python manage.py makemigrations</code></pre>
             
             <p>De la même manière, pour faire l'opération de <em>migrate</em> on écrira bien sûr <code class="bash">python manage.py migrate</code>.
+            </div>
             
+            <p class="comment">Si vous utilisez une machine virtuelle avec Eclipse, faites clic droit dans Eclipse puis choissiez migrate ou makemigrations.
+                Vous pouvez également passer par le terminal
+                    en écrivant <code class="bash">python3 manage.py makemigrations</code>
+                    ou <code class="bash">python3 manage.py migrate</code>.
             
             <div id="migrations_erreurs"></div>
             <p>Voici toutes les erreurs qui peuvent arriver :
@@ -1524,18 +1572,13 @@
             
             <p>Vous avez donc une <strong>base de données</strong> qui s'est créée !
             
-            <p>Une manière simple de voir le contenu de cette base de donnée, est d'activer l'admin :
-            <!--
-            <p class="comment">
-                Si vous avez laissez la configuration par défaut, c'est le petit fichier fichier <code class="bash">db.sqlite3</code>.
+            <div class="comment">
             
-                Vous y verrez le contenu de la base de données ! Remarquez que la création de notre modèle <code>Question</code>
-                correspond bien à la table <code>askme_question</code>.
+            <p>Si vous utilisez une machine virtuelle avec Eclipse et 
+                que vous avez laissez la configuration par défaut, un petit fichier <code class="bash">db.sqlite3</code>
+                vient de se créer.
                 
-                Allez dans la table en question, et <strong>créez y quelques questions</strong>
-                    (en cliquant sur <em>Nouvel enregistrement</em>).
-                    
-            <p class="comment">Comment ouvrir ce fichier sqlite ?
+            <p>Comment ouvrir ce fichier sqlite ?
                 Clic droit dessus
                 > Open With
                 > Other Program
@@ -1543,64 +1586,26 @@
                 > sélectionnez <em>DB Browser for sqlite</em>
                 > cochez la case <em>toujours utiliser ce programme</em>
                 > OK.
-                
-            <p>Il est également plus agréable <a href="#django.contrib.admin">d'activer l'admin</a> pour modifer cette base de données, mais ce n'est pas du tout obligatoire.
-            -->
             
-            <!--
-            <p class="comment">Sur pythonanywhere, on peut choisir d'utiliser mysql,
+            <p>Vous y verrez le contenu de la base de données ! Remarquez que la création de notre modèle <code>Question</code>
+                correspond bien à la table <code>askme_question</code>.
+                
+            <p>Allez dans la table en question, et <strong>créez y quelques questions</strong>
+                    (en cliquant sur <em>Nouvel enregistrement</em>).
+            </div>
+            
+            <div class="comment">
+            
+            <p>Sur pythonanywhere, on peut choisir d'utiliser mysql,
                 qui est un moteur plus élaboré de bases de données,
                 et donc il n'est donc pas aussi facile de voir le contenu de la base de donnée,
                 mais en <a href="#django.contrib.admin">activant l'admin</a>
                 vous pourrez voir vos modèles, il y a également moyen de configurer votre projet pour utiliser sqlite
                 et le fichier <code class="bash">db.sqlite3</code>
-                sera alors téléchargeable puis lisible avec le programme <a href="http://sqlitebrowser.org/">sqlitebrowser</a>.
-            -->
+                sera alors téléchargeable puis lisible avec le programme <a href="http://sqlitebrowser.org/">sqlitebrowser</a>
+                mais je ne détaillerai pas les étapes pour faire cela.
             
-            <div id="django.contrib.admin"></div>
-            <div class="developpement little-box closable" symbol="Activer l'admin de django">
-                
-                <p>Afin d'activer l'admin de django,
-                    créez un superuser avec la commande <code>python manage.py createsuperuser</code>
-                    avec par exemple un username comme <code>pikachu</code>,
-                    un email comme <code>pikachu@pokemon.com</code>,
-                    un mot de passe comme <code>hellohello</code> (oui ça n'écrit pas, ayez confiance).
-                    
-                <p class="comment">
-                    La raison pour laquelle sur linux on n'affiche pas les mots de passe quand on les tappe,
-                    c'est parce que on est très parano, en effet, quelqu'un pourrait <strong>compter le nombre de caractères</strong>
-                    et aurait donc une information sur notre mot de passe.
-                
-                <p>Vous pouvez aller sur <code class="url">/admin</code> et vous connecter (avec <code>pikachu</code>).
-                    Là dedans, vous pouvez créer des <code>User</code> (comme <code>rondoudou</code> et <code>tortank</code>).
-                
-                <p>Ensuite pour avoir vos propres modèles,
-                    modifier le fichier <code>admin.py</code> et vérifier
-                    dans <code>settings.py</code>
-                    que vous avez bien <code>'askme.apps.AskmeConfig'</code>
-                    dans <code>INSTALLED_APP</code>
-                    et que <code class="py">class AskmeConfig</code> est bien dans le fichier <code>apps.py</code>.
-                
-                <p>Et surtout que le fichier <code>admin.py</code> ressemble à ça pour notre app <code>askme</code> :
-                
-                <pre symbol="admin.py"><code>
-                from django.contrib import admin
-                
-                from . import models
-                
-                admin.site.register(models.Question)
-                # rajoutez vos autres modèles ici pour les rendre disponibles dans l'admin.
-                </code></pre>
-                
-                <!--
-                <p>Vous pourriez aussi tout simplement suivre le <a href="https://docs.djangoproject.com/fr/2.0/intro/tutorial02/#introducing-the-django-admin">tutoriel officiel</a>,
-                attention, sur pythonanywhere, vous ne devez pas faire la partie <em>lancer le serveur de développement</em>
-                car ça correspond juste à cliquer sur <em>Reload</em> dans l'onglet <em>Web</em>.
-                -->
-            </div>  
-            
-            <!--
-            <div class="developpement little-box closable" symbol="(Facultatif) Comment configurer le projet pour utiliser sqlite">
+            <!-- <div class="developpement little-box closable" symbol="(Facultatif) Comment configurer le projet pour utiliser sqlite">
                 <p>Dans le fichier settings, recherchez la ligne <code>DATABASES = {...}</code>, mettez toutes ces lignes en commentaire 
                 en y insérant un hashtag <code>#</code> au début des lignes, puis remplacez ça par :
                 
@@ -1614,8 +1619,62 @@
                 </pre></code>
                 
                 <p>Vous devrez relancer <code>makemigrations</code> et <code>migrate</code> après.
+            </div> -->
             </div>
-            -->
+                
+            <p>À la place d'ouvrir directement le fichier 
+            de base de données, ou quand ce fichier n'existe pas ou est difficile d'accès,
+            une autre manière simple de voir le contenu de cette base de donnée, est d'<strong>activer l'admin</strong> :
+            
+            <div id="django.contrib.admin"></div>
+            <div class="developpement little-box closable" symbol="Activer l'admin de django">
+                
+                <p>Afin d'activer l'admin de django,
+                    créez un superuser avec la commande <code>python manage.py createsuperuser</code>
+                    (ou <code><mark>python3</mark> manage.py createsuperuser</code> si vous utilisez une machine virtuelle avec Eclipse),
+                
+                <p class="comment">
+                    Si vous avez l'erreur <code>can't open file 'manage.py': No such file or directory</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> et probablement qu'un petit <code>cd project</code>
+                    ou <code>cd /opt/workspace</code> résoudra le problème car cela changera le dossier en cours.
+                
+                <p>La console vous demande le username de votre superuser, choisissez par exemple <code>pikachu</code>,
+                    ensuite un email comme <code>pikachu@pokemon.com</code>,
+                    un mot de passe comme <code>elektrik</code> (oui ça n'affiche pas le mot de passe, ayez confiance).
+                    
+                <p class="comment">
+                    La raison pour laquelle sur linux on n'affiche pas les mots de passe quand on les tappe,
+                    c'est parce que on est très parano, en effet, quelqu'un pourrait <strong>compter le nombre de caractères</strong>
+                    et aurait donc une information sur notre mot de passe.
+                
+                <p>Vous pouvez aller sur <code class="url">/admin</code> et vous connecter (avec <code>pikachu</code>).
+                    Dans cette interface, vous pouvez créer des <code>User</code> comme <code>rondoudou</code> et <code>tortank</code>
+                    en cliquant sur des boutons.
+                
+                <p>Ensuite, afin d'avoir vos propres modèles dans cette interface,
+                    modifiez le fichier existant <code>admin.py</code>
+                    de telle sorte qu'il ressemble à ça pour notre app <code>askme</code> :
+                    
+                <pre symbol="admin.py"><code>
+                from django.contrib import admin
+                
+                from . import models
+                
+                admin.site.register(models.Question)
+                # rajoutez vos autres modèles ici pour les rendre disponibles dans l'admin.
+                </code></pre>
+                
+                <p>Vous devrez aussi vérifier
+                    dans <code>settings.py</code>
+                    que vous avez bien <code>'askme.apps.AskmeConfig'</code>
+                    dans <code>INSTALLED_APP</code>
+                    et que <code class="py">class AskmeConfig</code> est bien dans le fichier <code>apps.py</code>.
+                
+                <p>Vous auriez aussi pu suivre le <a href="https://docs.djangoproject.com/fr/2.0/intro/tutorial02/#introducing-the-django-admin">tutoriel officiel</a>,
+                attention, sur pythonanywhere, vous ne devez pas faire la partie <em>lancer le serveur de développement</em>
+                car ça correspond à cliquer sur <em>Reload</em> dans l'onglet <em>Web</em>.
+            </div>  
+            
+            <!-- <p>Il est également plus agréable <a href="#django.contrib.admin">d'activer l'admin</a> pour modifer cette base de données, mais ce n'est pas du tout obligatoire. -->
             
             <h3 id="what-is-a-db">Qu'est-ce qu'une base de donnée ?</h3>
             

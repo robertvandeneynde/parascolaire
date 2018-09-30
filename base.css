@@ -414,6 +414,11 @@ nav.external a {
 nav.external > a:first-child {
     padding: 15px; 
 }
+nav.external hr {
+    border-top: 3px dotted #ccc;
+    margin: 0;
+    color: transparent;
+}
 nav.external > a:first-child::before {
     content: "🔗"; /* U+1F517 🔗 LINK SYMBOL */ /* "⇒" */
     margin-right: 5px;
@@ -433,3 +438,18 @@ nav.external ol {
     /* margin-left: 10px; */
 }
 /* END nav.external */
+
+p.comment, ul.comment, ol.comment, div.comment p {
+    font-style: italic;
+}
+p.comment em:before, ul.comment em:before, ol.comment em:before, div.comment p em:before {
+    content: "«";
+}
+p.comment em:after, ul.comment em:after, ol.comment em:after, div.comment p em:after {
+    content: "»";
+}
+p.comment, div.comment {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 2px dotted #ccc;
+}

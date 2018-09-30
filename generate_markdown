@@ -1,3 +1,14 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+    echo "usage: generate_markdown FILE"
+    exit 1
+fi
+
+file="$1"
+file="${file%.*}"  # remove the extension
+
+[ -e "$file.html" ] && chmod +w "$file.html"
 (echo '
     <!-- generated from markdown -->
     <html>
@@ -9,5 +20,6 @@
             crossorigin="anonymous" />
     </head>
     <body style="padding: 0 15px">
-' && ~/Markdown_1.0.1/Markdown.pl "$1.md") > "$1.html"
+' && markdown.pl "$file.md") > "$file.html"
+chmod -w "$file.html"
 

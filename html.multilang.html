@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="{{fr|en}}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <link href="django-with-bird.png" rel="icon" type="image/png" />
+        <title>Créer un site web avec HTML et CSS</title>
+        
+        <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/django-with-bird.png" />
+        <meta property="og:description" content="Créer un site web avec HTML et CSS" />
+        <!-- <meta property="og:url" content="" /> -->
+        <meta property="og:title" content="Créer un site web avec HTML et CSS" />
+        <meta property="og:type" content="article" /> 
+        
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="utils.js"></script>
+        <script src="slides.js"></script>
+        <style>
+            mark {
+                background: #ff9;
+            }
+            body {
+                background: url('diamond.jpg');
+                background-size: 400px;
+            }
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+            figcaption:not(.mandatory) {
+                display: none;
+            }
+            p code.hljs {
+                display: inline !important;
+            }
+            :not(pre) > code {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 2px !important;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            table td, table th {
+                border: 1px solid #ddd;
+                padding: 5px;
+            }
+            kbd {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 2px;
+                font-family: serif;
+                border-radius: 5px;
+                background: white;
+            }
+            table.shortcuts > tbody > tr > td:first-child {
+                text-align: center;
+                min-width: 160px;
+            }
+            table.shortcuts em {
+                font-style: normal;
+            }
+            tr {
+                background-color: rgb(252, 252, 255);
+            }
+            tr.interesting-row {
+                background: rgb(255, 251, 221); /* rgb(255, 250, 240); */
+            }
+            .slide.next {
+                cursor: pointer;
+            }
+            
+            code.url {
+                color: #001eff !important;
+            }
+            figcaption.mandatory {
+                font-style: italic;
+                padding-left: 20px;
+            }
+            
+            .little-box {
+                border: 1px solid black;
+                border-left: 0;
+                border-right: 0;
+                padding: 5px 0;
+            }
+            button {
+                cursor: pointer;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+        $(function(){
+            $('figure.half-size img').each(function(){
+                var self = this;
+                function applyWidth() {
+                    // console.log('applyWidth', self.id, self.src, self.width, $(self).width())
+                    if(self.width) { // attention, self.width != $(self).width()
+                        $(self).css('max-width', self.width / 2)
+                    } else {
+                        setTimeout(applyWidth, 1000);
+                    }
+                }
+                
+                applyWidth();
+                
+                $(this).wrap( $('<a>').attr('href', $(this).attr('src') ) )
+                $(this).parent().append(
+                    $("<figcaption class='mandatory'>Cliquez pour agrandir</figcaption>"))
+            })
+            
+            $('pre.developpement').addClass('closable') // must be before next block
+        
+            var DEFAULT_SYMBOL = '{{Solution|Solution}}';
+            $('.developpement').each(function(){
+                var self = $(this)
+                
+                var substitute = $('<button>').text(
+                    (self.attr('symbol') == 'iff' ? '⇔' : self.attr('symbol') != null ? self.attr('symbol') : DEFAULT_SYMBOL)
+                    + ' ... '
+                    + (self.attr('symbolpost') == 'iff' ? '⇔' : self.attr('symbolpost') != null ? self.attr('symbolpost') : '')
+                );
+                
+                this.substitute = substitute;
+                
+                self.hide().before(substitute)
+                substitute.click(function(){
+                    substitute.hide()
+                    self.fadeIn(800)
+                })
+                
+                if(self.hasClass('closable')) {
+                    self.css('position', 'relative')
+                    self.append($('<button>&#x274c;</button>').css({ // &#x2715; &times; https://stackoverflow.com/questions/7493954/what-is-the-unicode-character-for-the-close-symbol-used-by-twitter-bootstrap#17622391
+                        position: 'absolute',
+                        top: '0px',
+                        right: '0px',
+                        transform: self.is('pre') ? '' : 'translate(0, -50%)',
+                        cursor: 'pointer',
+                    }).click(function(){
+                        // self.fadeOut(300, function(){ substitute.show() })
+                        self.hide()
+                        substitute.show()
+                    }))
+                }
+            })
+            
+            $(".open-all-developpement").click(function(){
+                var p = $(this).parent()
+                if(p.prop('tagName').toLowerCase() != 'section')
+                    p = $(document.body)
+                
+                p.find('.developpement').each(function(){
+                    if(! this.substitute)
+                        return console.log('error, .developpement has no substitute')
+                    
+                    if($(this.substitute).is(':visible')) {
+                        $(this.substitute).click()
+                    }
+                })
+                
+                if(p.attr('name'))
+                    location.hash = '#' + p.attr('name')
+                
+                $(this).hide()
+            })
+        });
+        </script>
+        <script>
+            $(function(){
+                utils.dedentPreCode()
+                var COMMENT_ELEM = [
+                    ['py', ['# ', '']],
+                    ['html', ['&lt;!-- ', ' -->']],
+                ]
+                
+                function forEachComment(callback) {
+                    for(var i = 0; i < COMMENT_ELEM.length; i++)
+                        callback(COMMENT_ELEM[i][0], COMMENT_ELEM[i][1])
+                }
+                
+                $('pre.developpement').each(function(){
+                    var pre = $(this)
+                    var code = pre.find('code')
+                    
+                    if(! code.attr('class')) {
+                        forEachComment(function(k, l) {
+                            if(pre.attr('symbol').indexOf('.' + k) != -1)
+                                code.addClass(k)
+                        })
+                    }
+                    
+                    forEachComment(function(k, l) {
+                        if(code.hasClass(k))
+                            code.html(l[0] + pre.attr('symbol') + l[1] + '\n\n' + $(code).html())
+                    })
+                })
+                
+                $('[contains-code]').each(function(){
+                    var cls = $(this).attr('contains-code')
+                    $(this).find('code:not([class])').addClass(cls)
+                })
+                
+                hljs.initHighlightingOnLoad()
+                $('p > code[class]').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                    // console.log($(block).text())
+                });
+                utils.sectionNameAfterH2Id();
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+                
+                function replaceUrls(hostname) {
+                    $('code.url, .contains-group').each(function(){
+                        var is_group = $(this).is('.contains-group')
+                        var is_code_url = $(this).is('code.url')
+                        
+                        if(! $(this).data('base-url')) {
+                            var path = $(this).text()
+                            $(this).data('base-url', path)
+                            if(! is_group)
+                                $(this).wrap('<a>')
+                        } else {
+                            var path = $(this).data('base-url')
+                        }
+                        
+                        if(is_group) {
+                            if(hostname.indexOf('127.0.0.1') != -1)
+                                var username = 'infosgr42'
+                            else
+                                var username = hostname.split('.')[0] || 'infosgr42'
+                            $(this).text(path.replace(/infosgr42/g, username).replace(/username/g, username))
+                        } else { // code.url
+                            if(path.indexOf('127.0.0.1:8000') != -1) {
+                                var url = path.replace('127.0.0.1:8000', hostname)
+                                $(this).text(url);
+                            } else {
+                                var url = hostname + path
+                            }
+                            $(this).parent().attr('href', 'http://' + url)
+                        }
+                        
+                    })
+                }
+                
+                replaceUrls('127.0.0.1:8000')
+                
+                $('#group_selector_ok').click(function() {
+                    var s = $('#group_selector').val()
+                    // var m = /^infosgr(\d+)$/.exec(s.toLowerCase().trim()) || /^(\d+)$/.exec(s.toLowerCase().trim())
+                    var m = /^(\d+)$/.exec(s.toLowerCase().trim())
+                    var username = m ? 'infosgr' + parseInt(m[1]) : s.trim()
+                    
+                    replaceUrls(username + '.pythonanywhere.com')
+                    
+                    var saved = $('#group_selector_saved');
+                    
+                    if(! saved.data('orignal-template'))
+                        saved.data('orignal-template', saved.text() )
+                    
+                    saved.text( saved.data('orignal-template').replace('{username}', username) ).show()
+                    
+                    setTimeout(function(){
+                        saved.fadeOut();
+                    }, 3000);
+                })
+                
+                $('#group_selector').on('keyup', function(ev){
+                    if(ev.keyCode == 13) {
+                        $('#group_selector_ok').trigger('click')
+                        ev.target.blur()
+                    }
+                })
+                
+                $('#group_selector_saved').hide()
+                
+                $('#group_selector_saved').click(function(){
+                    $(this).fadeOut()
+                })
+            })
+        </script>
+    </head>
+    <body class="algos">
+    <div id="wrapper">
+        <h1><!-- class="nocontent"
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">Créer un site web avec HTML et CSS</span><!--
+        --></h1>
+        
+        <section>
+            <p>Nous suivons <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3">ce tutoriel html</a> de openclassrooms :</p>
+            <nav class="external">
+                <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/">
+                    Tutoriel html et css sur OpenClassrooms
+                    <img src="flag-fr.png" style="vertical-align:middle; margin-right: 5px;"></a>
+                </a>
+                
+                <hr/>
+                <ol>
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604192-comment-fait-on-pour-creer-des-sites-web">
+                        Les bases de HTML5 </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1605060-mettre-en-place-le-css">
+                        Les joies de la mise en forme avec CSS </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1605881-structurer-sa-page">
+                        Mise en page du site </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1606851-les-tableaux">
+                        Fonctionnalités évoluées </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1607901-envoyez-votre-site-sur-le-web">
+                        Annexes </a>
+                </ol>
+            </nav>
+        </section>
+        
+        <nav>
+            <a href="django.{{en|fr}}.html"><img src="flag-{{en|fr}}.png" /></a>
+        </nav>
+        
+        <nav>
+            <a href="#{{fichier-html|html-file}}">Un fichier HTML</a>
+            <a href="#{{css|css}}">La mise en forme avec CSS</a>
+        </nav>
+        
+        <h2 id="{{fichier-html|html-file}}">Un fichier... HTML</h2>
+        
+        <section>
+            <p class="lang-switch"><a href="html.{{en|fr}}.html#{{fichier-html|html-file}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            
+            <h3 id="{{exercice|exercise}}-1">Exercice 1</h3>
+            <p>Créez un fichier <code>.html</code> et affichez la page dans le navigateur Firefox :</p>
+            
+            <pre><code class="html">
+            Je m'appelle Robert !
+            
+            Comment ça
+            va aujourdhui cher lecteur ?
+            </code></pre>
+            
+            <figure>
+                Image à venir, sur Linux Mint :
+                <ol>
+                    <li>ouvrir l'éditeur de texte en appuyant sur la touche <kbd>⊞ Win</kbd>, en tappant <code>texte</code> puis en cliquant sur <em>éditeur de texte</em>,</li>
+                    <li>écrire le texte ci-dessus,</li>
+                    <li>enregistrer le fichier en cliquant sur <em>Fichier > Enregistrer</em> (raccourci <kbd>Ctrl+S</kbd>),</li>
+                    <li>aller dans le dossier <code>Documents/</code>, créez un dossier avec votre nom et allez dedans,</li>
+                    <li>donner un nom terminant par <code>.html</code> comme <code>bla.html</code>,</li>
+                    <li>ouvrir les fichiers en cliquant sur l'icône en bas du <em>gestionnaire de fichiers</em>,</li>
+                    <li>aller dans <code>Documents/robert</code>, vous y voyez votre fichier html ainsi que l'icône d'une planette,
+                    ce qui signifie que c'est une page web,</li>
+                    <li><code>double cliquer</code> sur le fichier, ou <em>clic droit > Ouvrir avec Firefox</em> pour afficher votre page,</li>
+                    <li>retournez dans l'éditeur de texte, modifiez le texte, enregistrez,</li>
+                    <li>retournez dans Firefox, rafraichissez la page en cliquant sur la flèche tournante (raccourci <kbd>Ctrl+R</kbd>).</li>
+                </ol>
+            </figure>
+            
+            <h3 id="{{exercice|exercise}}-2">Exercice 2</h3>
+            <p>Mettez un mot en gras avec <code>&lt;strong>&lt;/strong></code> :</p>
+            
+            <pre><code class="html">
+            Je m'appelle <mark>&lt;strong></mark>Robert<mark>&lt;/strong></mark> !
+            
+            Comment ça
+            va aujourdhui cher lecteur ?
+            </code></pre>
+            
+            <p><code>&lt;strong></code> se lit <em>commencer à mettre en gras</em>
+            et <code>&lt;/strong></code> se lit <em>terminer de mettre en gras</em>.
+            
+            <p>On parle de la <strong>balise</strong> <code>strong</code>.
+            
+            <p>On peut aussi dire que <code>&lt;strong></code> se lit <em>ouverture de la balise <code>strong</code></em>
+                et <code>&lt;/strong></code> se lit <em>fermeture de la balise <code>strong</code></em>
+            
+            <p>Maintenant, à toi ! Met En italique avec la balise <code>&lt;em>&lt;/em></code> :</p>
+            
+            <pre class="developpement" symbol="bla.html"><code class="html">
+            Je m'appelle <mark>&lt;strong>Robert&lt;/strong></mark> !
+            
+            Comment ça
+            va <mark>&lt;em>aujourdhui&lt;/em></mark> cher lecteur ?
+            </code></pre>
+            
+            <p class="comment"><code>strong</code> veut dire <em>fort</em> en anglais, donc mettre en gras c'esst comme écrire plus fort, ou on le met <em>fort en évidence</em>,
+            <code>em</code> est le raccourci de <em>emphase</em>, on met le texte en évidence doucement, on le met en <em>emphase</em>.</p>
+            
+            <h3 id="{{exercice|exercise}}-3">Exercice 3</h3>
+            <p>Faites des <strong>paragraphes</strong> avec <code>&lt;p>&lt;/p></code> pour <strong>passer à la ligne</strong> :</p>
+            
+            <pre><code class="html">
+            <mark>&lt;p></mark>Je m'appelle Robert !<mark>&lt;/p></mark>
+            
+            <mark>&lt;p></mark>Comment ça
+            va aujourdhui cher lecteur ?<mark>&lt;/p></mark>
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-4">Exercice 4</h3>
+            <p>Entre les paragraphes, on met des <strong>titres</strong>, le premier niveau c'est <code>h1</code> puis <code>h2</code>, <code>h3</code>... jusque <code>h6</code>.</p>
+            
+            <pre><code class="html">
+            <mark>&lt;h1></mark>Site de Robert<mark>&lt;/h1></mark>
+            &lt;p>Je m'appelle Robert !&lt;/p>
+            
+            <mark>&lt;h2></mark>Études<mark>&lt;/h2></mark>
+            &lt;p>J'aime l'informatique.&lt;/p>
+            &lt;p>J'ai fait mes études à l'ULB.&lt;/p>
+            
+            <mark>&lt;h2></mark>Compétences non informatique<mark>&lt;/h2></mark>
+            &lt;p>Je sais jongler avec 3 balles.&lt;/p>
+            &lt;p>Je danse avec beaucoup d'énergie.&lt;/p>
+            
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-5">Exercice 5</h3>
+            <p>On peut faire des listes à puces avec <code>ul</code> et des listes ordonnées avec <code>ol</code>.</p>
+            <p>Chaque élément de liste sera dans une balise <code>&lt;li></code>.</p>
+            
+            <pre><code class="html">
+            &lt;p>Mes compétences informatiques :&lt;/p>
+            <mark>&lt;ul></mark>
+                <mark>&lt;li></mark>C++<mark>&lt;/li></mark>
+                <mark>&lt;li></mark>Python<mark>&lt;/li></mark>
+                <mark>&lt;li></mark>Java<mark>&lt;/li></mark>
+            <mark>&lt;/ul></mark>
+            
+            &lt;p>Comment faire un site web :&lt;/p>
+            <mark>&lt;ol></mark>
+                <mark>&lt;li></mark>Apprendre Html<mark>&lt;/li></mark>
+                <mark>&lt;li></mark>Apprendre Css<mark>&lt;/li></mark>
+                <mark>&lt;li></mark>Apprendre Python et Django ou Php<mark>&lt;/li></mark>
+            <mark>&lt;/ol></mark>
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-6">Exercice 6</h3>
+            <p>On peut faire des liens avec <code>&lt;a href="cible_du_lien">&lt;/a></code>.</p>
+            
+            <pre><code class="html">
+            &lt;!-- page1.html -->
+            &lt;p>Va voir mon <mark>&lt;a href="page2.html"></mark>autre<mark>&lt;/a></mark> page
+            ou consulte <mark>&lt;a href="https://robertvandeneynde.be"></mark>mon site<mark>&lt;/a></mark> personel.&lt;/p>
+            </code></pre>
+            
+            <pre><code class="html">
+            &lt;!-- <mark>page2.html</mark> -->
+            &lt;p>Wow !&lt;/p>
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-7">Exercice 7</h3>
+            <p>On peut faire des liens internes avec <code>id="nom"</code> et <code>href="#nom"</code> :
+            
+            <pre><code class="html">
+            &lt;!-- page1.html -->
+            &lt;p>Va voir ma &lt;a href="<mark>#conclusion</mark>">conclusion&lt;/a> sur cette page
+            ou la &lt;a href="<mark>page2.html#conclusion</mark>">conclusion&lt;/a> de l'autre page.&lt;/p>
+            &lt;p>
+                Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici.
+            &lt;/p>
+            &lt;h2 <mark>id="conclusion"</mark>>Conclusion&lt;/h1>
+            &lt;p>Les longs textes c'est rigolo.&lt;/p>
+            </code></pre>
+            
+            <pre><code class="html">
+            &lt;!-- page2.html -->
+            &lt;h1>Page 2&lt;/h1>
+            &lt;h2 <mark>id="un-long-texte"</mark>>Section 1&lt;/h1>
+            &lt;p>
+                Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici.
+            &lt;/p>
+            &lt;h2 <mark>id="conclusion"</mark>>Conclusion&lt;/h1>
+            &lt;p>Les longs textes c'est cool.&lt;/p>
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-8">Exercice 8</h3>
+            <p>Insérer une image téléchargée d'internet avec <code>&lt;img src="nom.png"/></code>,
+            on peut imposer la taille en pixel avec <code>height</code> ou <code>width</code>.</p>
+            
+            <pre><code class="html">
+            &lt;p>Une belle image ci-dessous.&lt;/p>
+            &lt;figure>
+                <mark>&lt;img src="banane.png" /></mark>
+                &lt;img src="banane.png" <mark>height="100"</mark> />
+            &lt;/figure>
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-9">Exercice 9</h3>
+            <p>Englobez le tout dans une balise <code>body</code>, puis rajouter un <code>head</code>
+            avec la balise <code>&lt;meta href="utf-8"/></code> pour gérer les accents,
+            et englobez le tout dans une balise <code>html</code>.</p>
+            
+            <pre><code class="html">
+            <mark>&lt;html></mark>
+            <mark>&lt;head></mark>
+                <mark>&lt;meta charset="utf-8"/></mark>
+                <mark>&lt;title>Magie&lt;/title></mark>
+            <mark>&lt;/head></mark>
+            <mark>&lt;body></mark>
+                &lt;h1>Site de Robert&lt;/h1>
+                &lt;p>Je m'appelle Robert !&lt;/p>
+                
+                &lt;h2>Études&lt;/h2>
+                &lt;p>J'aime l'informatique.&lt;/p>
+                &lt;p>J'ai fait mes études à l'ULB.&lt;/p>
+                
+                &lt;h2>Compétences non informatique&lt;/h2>
+                &lt;p>Je sais jongler avec 3 balles.&lt;/p>
+                &lt;p>Je danse avec beaucoup d'énergie.&lt;/p>
+            <mark>&lt;/body></mark>
+            <mark>&lt;/html></mark>
+            </code></pre>
+            
+        </section>
+        
+        <h2 id="css">Des couleurs et la mise en forme avec CSS</h2>
+        
+        <section>
+            <p class="lang-switch"><a href="html.{{en|fr}}.html#css" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
+            
+            <h3 id="{{exercice|exercise}}-10">Exercice 10</h3>
+            <p>Appliquer du css à une seule balise :</p>
+            <pre><code class="html">
+                    &lt;h1>Site de Robert&lt;/h1>
+                    &lt;p <mark>style="color:green"</mark>>Je m'appelle Robert !&lt;/p>
+
+                    &lt;h2>Études&lt;/h2>
+                    &lt;p>J'aime l'informatique.&lt;/p>
+                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+            </code></pre>
+            
+            <p>Pour mettre plusieurs règles, séparez par un point-virgule :</p>
+            <pre><code class="html">
+                    &lt;h1>Site de Robert&lt;/h1>
+                    &lt;p style="color:green<mark>; background:rose</mark>">Je m'appelle Robert !&lt;/p>
+
+                    &lt;h2>Études&lt;/h2>
+                    &lt;p>J'aime l'informatique.&lt;/p>
+                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-11">Exercice 11</h3>
+            <p>Pour cible une partie de texte, indiquer une balise <code>span</code> :</p>
+            <pre><code class="html">
+                    &lt;h1>Site de Robert&lt;/h1>
+                    &lt;p style="color:green">Je m'appelle <mark>&lt;span style="color:orange"></mark>Robert<mark>&lt;/span></mark> !&lt;/p>
+
+                    &lt;h2>Études&lt;/h2>
+                    &lt;p>J'aime l'informatique.&lt;/p>
+                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-12">Exercice 12</h3>
+            <p>CSS est plus utile quand l'on peut faire des règles générales, genre <em>tous les paragraphes en bleus</em> :</p>
+            <pre><code class="html">
+                &lt;html>
+                &lt;head>
+                    &lt;meta charset="utf-8"/>
+                    &lt;title>Magie&lt;/title>
+                    <mark>&lt;style></mark>
+                    <mark>p {</mark>
+                        <mark>color: blue;</mark>
+                    <mark>}</mark>
+                    <mark>&lt;/style></mark>
+                &lt;/head>
+                &lt;body>
+                    &lt;h1>Site de Robert&lt;/h1>
+                    &lt;p>Je m'appelle Robert !&lt;/p>
+
+                    &lt;h2>Études&lt;/h2>
+                    &lt;p style="color:green">J'aime l'informatique.&lt;/p>
+                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+
+                    &lt;p>Mes compétences informatiques :&lt;/p>
+                    &lt;ul>
+                        &lt;li>C++&lt;/li>
+                        &lt;li>Python&lt;/li>
+                        &lt;li>Java&lt;/li>
+                    &lt;/ul>
+                    
+                    &lt;h2>Compétences non informatique&lt;/h2>
+                    &lt;p>Je sais jongler avec 3 balles.&lt;/p>
+                    &lt;p>Je danse avec beaucoup d'énergie.&lt;/p>
+                &lt;/body>
+                &lt;/html>
+            </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-13">Exercice 13</h3>
+            <p>On peut créer des <strong>classes</strong> pour cibler certains éléments :</p>
+            <pre><code class="html">
+                &lt;html>
+                &lt;head>
+                    &lt;meta charset="utf-8"/>
+                    &lt;title>Magie&lt;/title>
+                    &lt;style>
+                    p {
+                        color: blue;
+                    }
+                    <mark>.important {</mark>
+                        <mark>color: red;</mark>
+                    <mark>}</mark>
+                    <mark>.grand {</mark>
+                        <mark>font-size: 24px;</mark>
+                    <mark>}</mark>
+                    &lt;/style>
+                &lt;/head>
+                &lt;body>
+                    &lt;h1>Site de Robert&lt;/h1>
+                    &lt;p>Je m'appelle Robert !&lt;/p>
+
+                    &lt;h2>Études&lt;/h2>
+                    &lt;p <mark>class="important"</mark>>J'aime l'informatique.&lt;/p>
+                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+
+                    &lt;p>Mes compétences informatiques :&lt;/p>
+                    &lt;ul>
+                        &lt;li>C++&lt;/li>
+                        &lt;li <mark>class="important"</mark>>Python&lt;/li>
+                        &lt;li>Java&lt;/li>
+                    &lt;/ul>
+                    
+                    &lt;h2>Compétences non informatique&lt;/h2>
+                    &lt;p <mark>class="important grand"</mark>>Je sais jongler avec 3 balles.&lt;/p>
+                    &lt;p>Je danse avec beaucoup d'énergie.&lt;/p>
+                &lt;/body>
+                &lt;/html>
+            </code></pre>
+            
+            <p>Remarquez qu'on peut attribuer plusieurs classes en séparant les classes avec une espace.</p>
+            
+            <h3 id="{{exercice|exercise}}-14">Exercice 14</h3>
+            <p>Finalement, il est plus structuré de mettre le css dans un fichier séparé.</p>
+            <pre><code class="html">
+                &lt;html>
+                &lt;head>
+                    &lt;meta charset="utf-8"/>
+                    &lt;title>Magie&lt;/title>
+                    <mark>&lt;link rel="stylesheet" href="style.css" /></mark>
+                &lt;/head>
+                &lt;body>
+                    ...
+                &lt;/body>
+                &lt;/html>
+            </code></pre>
+        </section>
+    </div>
+    </body>
+</html>

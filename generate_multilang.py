@@ -67,22 +67,23 @@ def tr_tag_test_matching(s):
     if S:
         raise ValueError(f'opening not closed: {S}')
 
-def spliti(s, sep, i, default=None):
+def spliti(s:str, sep, i, default:str = None):
     try:
         return s.split(sep)[i]
     except IndexError:
         return default
+    
     # this alg may be faster... but probably not
-    k = 0
-    pn = 0
-    for n in range(len(s)):
-        if s[n] == sep:
-            if k == i:
-                return s[pn:n]
-            else:             
-                k += 1
-                pn = n + 1
-    return s[pn:] if k == i else default
+    #k = 0
+    #pn = 0
+    #for n in range(len(s)):
+    #    if s[n] == sep:
+    #        if k == i:
+    #            return s[pn:n]
+    #        else:             
+    #            k += 1
+    #            pn = n + 1
+    #return s[pn:] if k == i else default
 
 modified = []
 
@@ -120,7 +121,7 @@ for f in filter(RE.match, os.listdir('.')):
         else:
             prev_str = ''
         
-        next_str = RE_TR_TAG.sub(lambda m: spliti(m.group(1), TR_TAG_SEP, i, 'NOT TRANSLATED'), s)
+        next_str = RE_TR_TAG.sub(lambda m: spliti(m.group(1), TR_TAG_SEP, i, 'NOT TRANSLATED ' + spliti(m.group(1), TR_TAG_SEP, 0)), s)
         # ornone = lambda x, y: y if x is None else x
         # next_str = RE_TR.sub(lambda m: ornone(m.group(i+1), m.group(1)), s)
         if prev_str != next_str:
