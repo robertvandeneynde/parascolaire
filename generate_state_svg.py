@@ -18,13 +18,32 @@ p = argparse.ArgumentParser(description='''
     or {7,8,a} (in states 7 8 and a)
     or {1-5} (in states 1,2,3,4,5)
     or {hello-x, world} (in states "hello-w" and "world")
+    
 ''')
+
+'''
+Idea: 
+or {*} include in all slides
+or {a*} include in all slides beginning with a
+or {*a} include in all slides ending with a
+or {a, b, c, 1-5, d*} in slides a, b, c from 1 to 5 and beginning with d
+
+elif '*' in I:
+    L = I.split('*')
+    M = re.compile('.*'.join(map(re.escape, L)))
+    that regex will be used as an alternative way for the layer to be inserted in the slide, based on the slide name
+
+but when done that way, each slide must be declared in some layer because the regex represent an infinite number of slide
+
+Idea: {a1-5} to have {a1,a2,a3,a4,a5}
+'''
 
 p.add_argument('svg_file', nargs='+')
 
 g = p.add_mutually_exclusive_group()
 g.add_argument('--state-in-filename', action='store_true', help='Filenames will be x.state-{i}.svg and not x.{i}.svg (@deprecated)')
 g.add_argument('--remove-state-in-filename', action='store_true', help='Forces --state-in-filename to be False (@deprecated)')
+g.add_argument('-v', '--verbose', action='store_true')
 
 g = p.add_mutually_exclusive_group()
 g.add_argument('--numeric-layers', action='store_true', help='''
@@ -49,7 +68,7 @@ def print_error(*args): # error
     
 for svg_file in args.svg_file:
     if not svg_file.endswith('.svg'):
-        print_error('filename is not .svg', svg_file)
+        print_error('filename {!r} is not .svg'.format(svg_file))
         continue
     
     svg_filename = svg_file[:-4]
@@ -68,12 +87,15 @@ for svg_file in args.svg_file:
             if getattr(x, 'tagName', None) == 'g'
             if x.getAttributeNS(INK, 'groupmode') == 'layer']
 
+    layer_names = {layer: layer.getAttributeNS(INK, 'label').strip() for layer in layers}
+    
     R = re.compile('''
         \{(
         \d+ (- \d+)?
         ((\s+|\s*,\s*) \d+ (- \d+)?)*
         (\s+|\s*,\s*)?
         )\}''', re.X)
+
 
     all_infos = []
     nexts = {}
@@ -84,7 +106,7 @@ for svg_file in args.svg_file:
             all_infos.append((layer, {str(i+1)}))
             continue
         
-        l = layer.getAttributeNS(INK, 'label').strip()
+        l = layer_names[layer]
         
         if args.layer_name:
             all_infos.append((layer, {l}))
@@ -92,7 +114,7 @@ for svg_file in args.svg_file:
         
         m = re.search('\{([^{}]*)\}', l)
         if not m:
-            print_info('Layer on every slide :', l)
+            print_info('Layer {!r} on every slide'.format(l))
             continue
         
         S = set_where_layer_is_in = set()
@@ -122,13 +144,22 @@ for svg_file in args.svg_file:
     Format = ("{}.state-{}.svg" if args.state_in_filename else 
               "{}.{}.svg" )
     
+    for layer in layers:  # should only be with the layers with {} tag
+        layer.setAttribute('style', layer.getAttribute('style').replace('display:none', 'display:inline').replace('display: none', 'display: inline'))
+    
     for slide in slides:
+        if args.verbose:
+            bits = ['Slide {!r}'.format(slide)]
         new = OutFile(Format.format(svg_filename, slide))
         with new as f:
             for layer, info in all_infos:
+                if args.verbose:
+                    bits.append(str((slide, layer_names[layer], slide in info)))
                 if slide not in info:
                     root.removeChild(layer)
             f.write(root.toxml())
             for layer, info in reversed(all_infos):
                 if slide not in info:
                     root.insertBefore(layer, nexts[layer])
+        if args.verbose:
+            print_info(', '.join(bits))

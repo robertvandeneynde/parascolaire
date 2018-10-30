@@ -5,6 +5,12 @@ from __future__ import print_function, division
 # Base {{UNE|ONE}} : "="
 ### {{egal|equal}}
 
+# <nav class="external">
+# <a class="video" href="https://www.youtube.com/watch?v=zJ-w2izNvg4">Programmation — Théorie 1 : Structure, variables et conditions</a>
+# <hr/><ul>
+# </ul>
+# </nav>
+
 # {{Les variables permettent de stocker une valeur dans la mémoire de l'ordinateur |Variables are useful to store a value in the memory of the computer}}:
 # <ul><li> <code>"="</code> {{permet de changer la valeur d'une variable|allows you to change the value of a variable}}
 # <li> <code>print()</code> {{permet de voir à l'écran la valeur d'une variable|allows you to see on screen the value of a variable}} </ul>
@@ -46,15 +52,41 @@ a = 7
 if a < 10:
     print("{{Coucou|Kookoo}}")
     print("Hello")
+    
+# Le code se dit <em>est-ce que a < 10 ? Oui!</em>
+# et donc il affiche <em>Coucou</em>, puis <em>Hello</em>.
 
 # [Remplace](http://pythontutor.com/visualize.html#code=a%20%3D%207%0A%0Aif%20a%20%3C%2010%3A%0A%20%20%20%20print%28%22%7B%7BCoucou%7CKookoo%7D%7D%22%29%0A%20%20%20%20print%28%22Hello%22%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
 # maintenant <code>a = 7</code> par <code>a = 12</code> et relance le programme,
 # quelle va être la difference ?
-    
-# {{Ici le programme va afficher "Coucou" puis "Hello" seulement si a est plus petit que 10|Here, the program will display "Kookoo" then "Hello" only if a is smaller than 10}}.
-# {{Sinon, il saute le bloc et donc, ne fait rien|Otherwise, the block is jumped and then, nothing is done}}.
+
+a = 12  # DIFF
+
+if a < 10:
+    print("{{Coucou|Kookoo}}")
+    print("Hello")
+
+# Quand <code>a = 12</code>, le code se dit <em>est-ce que a < 10 ? Non!</em>
+# il saute le <code>if</code> et ne fait rien.
+
+# {{Le bloc if de ce programme va afficher <em>Coucou</em> puis <em>Hello</em> seulement si a est plus petit que 10|The if-block in this program will display "Kookoo" then "Hello" only if a is smaller than 10}},
+# {{sinon, il saute le bloc et donc, ne fait rien|otherwise, the block is jumped and then, nothing is done}}.
 # [{{Essayez|Try}}](http://pythontutor.com/visualize.html#code=a%20%3D%207%0A%0Aif%20a%20%3C%2010%3A%0A%20%20%20%20print%28%22Coucou%22%29%0A%20%20%20%20print%28%22Hello%22%29&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
-# {{avec d'autres valeurs de "a", comme|with other values of "a", like}} <code>a = 12</code> {{par exemple|for example}}.
+# {{avec d'autres valeurs de <code>a</code>, comme|with other values of <code>a</code>, like}} <code>a = 12</code> ou <code>a = 10</code> {{par exemple|for example}}.
+
+# Mais si on veut quand même faire quelque chose quand la condition est fausse ?
+# C'est là que vient le <code>else</code> :
+
+if a < 10:
+    print("{{Coucou|Kookoo}}")
+    print("Hello")
+else:               # NEW
+    print("Tadaa")  # NEW
+
+# Si a < 10: le programme affiche <em>{{Coucou|Kookoo}}</em> puis <em>Hello</em>,
+# sinon il affiche <em>Tadaa</em>.
+
+## Diagrammes et exemple réels !
 
 #
 # {{Un autre exemple, on veut donner 50 points de vie à un personnage, sans dépasser 100...|Another example, one wants to give 50 life points (hp) to a character, without going over 100...}}
@@ -83,12 +115,21 @@ else:
 # {{Voici un diagramme de|Here is a diagram of}} [{{ce|this}} if/else]({{http://pythontutor.com/visualize.html#code=if%20vie%20%3D%3D%20100%3A%0A%20%20%20%20print%28%22Rempli!%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Potions!%22%29%0A%0Aprint%28%22Fin%22%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false|http://pythontutor.com/visualize.html#code=if%20life%20%3D%3D%20100%3A%0A%20%20%20%20print%28%22Full!%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Potions!%22%29%0A%0Aprint%28%22End%22%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false}}) :
 # <figure><img height=270 src="ifelse_as_diagram.{{fr|en}}.svg"/></figure>
 
+## {{Les opérateurs de comparaison|The comparison operators}}
 # {{Les opérateurs de comparaison sont|The comparison operators are}}
 # <code>"<", ">", "<=", ">=", "==", "!="</code> ({{différent|different}}).
 
 # {{Attention, pour comparer deux valeurs il faut utiliser|Beware, to compare two values, one must use}} <code>"=="</code>.
+# et non <code>"="</code>. 
+# Autrement dit, <em>si un <code>"="</code> est dans un if, il doit avoir être doublé</em>.
+
+# On se rappelle que <code>a = 5</code> veut dire <em>imposer que a vaut 5</em>
+# alors que <code>a == 5</code> veut dire <em>est-ce que a vaut 5 ?</em>
+
+#
 # {{Petit exercice, essaie de réécrire le code précédent en utilisant l'opérateur <code>"!="</code> (différent)|As an exercice, try to re-write the previous code by using the <code>"!="</code> (different) operator}}.
 
+## Récapitulons
 # {{Dans un <code>if</code>, on peut mettre n'importe quel code|In a <code>if</code>, one can put any code}},
 # {{comme un <code>"="</code>, un <code>"print"</code>, ou... un autre <code>"if"</code>|like a <code>"="</code>, a <code>"print"</code>, or... another <code>"if"</code>}}!
 
@@ -138,7 +179,7 @@ print(a)
 # <li> [theorie2_liste_while.py](theorie2_liste_while.py.html)
 # </ul>
 
-## and/or
+## Les conditions combinées avec and et or
 #
 # {{On peut écrire des conditions combinées avec <code>"and"</code> et <code>"or"</code>, par exemple :|One can write combined conditions with <code>"and"</code> and <code>"or"</code>, for example:}}
 
@@ -179,7 +220,7 @@ else:
 if a == 2 or b == 2 and c == 2:  # {{qui du "or" ou du "and" a la priorité ?|Who has the greater priority? The "and" or the "or"?}}
     print("Yo")
 
-# {{équivalent au précédent : or est "comme" un +, and est "comme" un *|equivalent to the previous one: or is "like" a +, and is "like" a *}}
+# {{cette ligne est équivalente à la précédente : or est "comme" un +, and est "comme" un *|this line is equivalent to the previous one: or is "like" a +, and is "like" a *}}
 if a == 2 or (b == 2 and c == 2):
     print("Yo")
     

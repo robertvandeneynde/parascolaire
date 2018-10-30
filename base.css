@@ -420,8 +420,13 @@ nav.external hr {
     color: transparent;
 }
 nav.external > a:first-child::before {
-    content: "🔗"; /* U+1F517 🔗 LINK SYMBOL */ /* "⇒" */
     margin-right: 5px;
+}
+nav.external > a:first-child:not(.video)::before {
+    content: "🔗"; /* U+1F517 🔗 LINK SYMBOL */ /* "⇒" */
+}
+nav.external > a.video:first-child::before {
+    content: "🎥"; /* U+1F3A5 🎥 MOVIE CAMERA */
 }
 nav.external > a:hover:first-child::before {
     text-decoration: none;

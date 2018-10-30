@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-        <link href="django-with-bird.png" rel="icon" type="image/png" />
+        <link href="html-with-bird.png" rel="icon" type="image/png" />
         <title>Créer un site web avec HTML et CSS</title>
         
-        <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/django-with-bird.png" />
+        <meta property="og:image" content="https://robertvandeneynde.be/parascolaire/html-with-bird.png" />
         <meta property="og:description" content="Créer un site web avec HTML et CSS" />
         <!-- <meta property="og:url" content="" /> -->
         <meta property="og:title" content="Créer un site web avec HTML et CSS" />
@@ -31,6 +31,9 @@
             pre {
                 overflow-x: auto;
                 border: 1px solid #ccc;
+            }
+            code.xml .css {
+                opacity: 1;
             }
             figcaption:not(.mandatory) {
                 display: none;
@@ -295,8 +298,15 @@
         --></h1>
         
         <section>
-            <p>Nous suivons <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3">ce tutoriel html</a> de openclassrooms :</p>
-            <nav class="external">
+            <p>Bienvenue dans mon petit tutoriel d'HTML et CSS,
+            ces langages sont très simples à apprendre et permettent de comprendre comment 
+            <strong>toutes</strong> les pages web sont créées 
+            
+            <p>Pour ceux qui ont plus de temps
+            ou veulent plus d'informations, je conseille
+            <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3">ce tutoriel html</a> de openclassrooms.</p>
+            
+            <!-- <nav class="external">
                 <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/">
                     Tutoriel html et css sur OpenClassrooms
                     <img src="flag-fr.png" style="vertical-align:middle; margin-right: 5px;"></a>
@@ -319,7 +329,7 @@
                     <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1607901-envoyez-votre-site-sur-le-web">
                         Annexes </a>
                 </ol>
-            </nav>
+            </nav> -->
         </section>
         
         <nav>
@@ -347,21 +357,32 @@
             </code></pre>
             
             <figure>
-                Image à venir, sur Linux Mint :
-                <ol>
-                    <li>ouvrir l'éditeur de texte en appuyant sur la touche <kbd>⊞ Win</kbd>, en tappant <code>texte</code> puis en cliquant sur <em>éditeur de texte</em>,</li>
-                    <li>écrire le texte ci-dessus,</li>
-                    <li>enregistrer le fichier en cliquant sur <em>Fichier > Enregistrer</em> (raccourci <kbd>Ctrl+S</kbd>),</li>
-                    <li>aller dans le dossier <code>Documents/</code>, créez un dossier avec votre nom et allez dedans,</li>
-                    <li>donner un nom terminant par <code>.html</code> comme <code>bla.html</code>,</li>
-                    <li>ouvrir les fichiers en cliquant sur l'icône en bas du <em>gestionnaire de fichiers</em>,</li>
-                    <li>aller dans <code>Documents/robert</code>, vous y voyez votre fichier html ainsi que l'icône d'une planette,
-                    ce qui signifie que c'est une page web,</li>
-                    <li><code>double cliquer</code> sur le fichier, ou <em>clic droit > Ouvrir avec Firefox</em> pour afficher votre page,</li>
-                    <li>retournez dans l'éditeur de texte, modifiez le texte, enregistrez,</li>
-                    <li>retournez dans Firefox, rafraichissez la page en cliquant sur la flèche tournante (raccourci <kbd>Ctrl+R</kbd>).</li>
-                </ol>
+                Image(s) à venir.
             </figure>
+            
+            <ol>
+                <li>ouvrez l'éditeur de texte en appuyant sur la touche <kbd>⊞ Win</kbd>, en tappant <code>texte</code> puis en cliquant sur <em>éditeur de texte</em>,</li>
+                <li>écrivez le texte ci-dessus en passant plusieurs fois à la ligne,</li>
+                <li>enregistrez le fichier en cliquant sur <em>Fichier > Enregistrer</em> (raccourci <kbd>Ctrl+S</kbd>),</li>
+                <li>donnez un nom terminant par <code>.html</code> comme <code>bla.html</code>,</li>
+                <li>allez dans le dossier <code>Documents/</code>, créez un dossier avec votre nom et allez dedans,</li>
+                <li>ouvrez les fichiers en cliquant sur l'icône en bas du <em>gestionnaire de fichiers</em>,</li>
+                <li>allez dans <code>Documents/robert</code> où bien sûr <code>robert</code> est votre nom, vous y voyez votre fichier html ainsi que l'icône d'une planète,
+                ce qui signifie que c'est une page web,</li>
+                <li><code>double cliquez</code> sur le fichier, ou <em>clic droit > Ouvrir avec Firefox</em> pour afficher votre page,</li>
+                <li>retournez dans l'éditeur de texte, modifiez le texte, enregistrez,</li>
+                <li>retournez dans Firefox, rafraichissez la page en cliquant sur la flèche tournante en haut à gauche de l'écran (raccourci <kbd>Ctrl+R</kbd>).</li>
+            </ol>
+            
+            <p class="comment">Il est également possible d'aller sur <a href="https://codepen.io">codepen.io</a>, de ne <strong>pas</strong> traduire la page en français,
+            d'y cliquer sur <em>Create &rarr; New Pen</em> et d'y écrire dans le bloc <em>HTML</em>. L'interface peut être changée en cliquant sur <em>Change View</em>
+            et en redimensionnant les panneaux CSS et JS dont nous n'avons pas encore besoin.</p>
+            
+            <p>Quel est la différence entre votre code et la page ?</p>
+            <p class="developpement" symbol="Réponse">Réponse: La page ne passe pas à la ligne.</p>
+            <p class="comment">En fonction de votre navigateur, vous verrez peut-être que les accents ne passent pas bien, le code <code>&lt;meta charset="utf-8"/></code> que nous 
+            verrons plus tard règle ce souci.</p>
+            <p>En HTML quand on passe à la ligne on fait des paragraphes, mais pour ça, on a besoin de savior ce qu'est une <strong>balise</strong> !</p>
             
             <h3 id="{{exercice|exercise}}-2">Exercice 2</h3>
             <p>Mettez un mot en gras avec <code>&lt;strong>&lt;/strong></code> :</p>
@@ -381,7 +402,7 @@
             <p>On peut aussi dire que <code>&lt;strong></code> se lit <em>ouverture de la balise <code>strong</code></em>
                 et <code>&lt;/strong></code> se lit <em>fermeture de la balise <code>strong</code></em>
             
-            <p>Maintenant, à toi ! Met En italique avec la balise <code>&lt;em>&lt;/em></code> :</p>
+            <p>Maintenant, à toi ! Met en italique un autre mot avec la balise <code>&lt;em>&lt;/em></code> :</p>
             
             <pre class="developpement" symbol="bla.html"><code class="html">
             Je m'appelle <mark>&lt;strong>Robert&lt;/strong></mark> !
@@ -390,7 +411,7 @@
             va <mark>&lt;em>aujourdhui&lt;/em></mark> cher lecteur ?
             </code></pre>
             
-            <p class="comment"><code>strong</code> veut dire <em>fort</em> en anglais, donc mettre en gras c'esst comme écrire plus fort, ou on le met <em>fort en évidence</em>,
+            <p class="comment"><code>strong</code> veut dire <em>fort</em> en anglais, donc mettre en gras c'est comme écrire plus fort, ou on le met <em>fort en évidence</em>,
             <code>em</code> est le raccourci de <em>emphase</em>, on met le texte en évidence doucement, on le met en <em>emphase</em>.</p>
             
             <h3 id="{{exercice|exercise}}-3">Exercice 3</h3>
@@ -446,7 +467,7 @@
             <pre><code class="html">
             &lt;!-- page1.html -->
             &lt;p>Va voir mon <mark>&lt;a href="page2.html"></mark>autre<mark>&lt;/a></mark> page
-            ou consulte <mark>&lt;a href="https://robertvandeneynde.be"></mark>mon site<mark>&lt;/a></mark> personel.&lt;/p>
+            ou consulte <mark>&lt;a href="https://robertvandeneynde.be"></mark>mon site<mark>&lt;/a></mark> personnel.&lt;/p>
             </code></pre>
             
             <pre><code class="html">
@@ -473,7 +494,7 @@
             &lt;h1>Page 2&lt;/h1>
             &lt;h2 <mark>id="un-long-texte"</mark>>Section 1&lt;/h1>
             &lt;p>
-                Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici. Un long texte ici.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             &lt;/p>
             &lt;h2 <mark>id="conclusion"</mark>>Conclusion&lt;/h1>
             &lt;p>Les longs textes c'est cool.&lt;/p>
@@ -527,34 +548,38 @@
             <h3 id="{{exercice|exercise}}-10">Exercice 10</h3>
             <p>Appliquer du css à une seule balise :</p>
             <pre><code class="html">
-                    &lt;h1>Site de Robert&lt;/h1>
-                    &lt;p <mark>style="color:green"</mark>>Je m'appelle Robert !&lt;/p>
+                &lt;h1>Site de Robert&lt;/h1>
+                &lt;p <mark>style="color:green"</mark>>Je m'appelle Robert !&lt;/p>
 
-                    &lt;h2>Études&lt;/h2>
-                    &lt;p>J'aime l'informatique.&lt;/p>
-                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+                &lt;h2>Études&lt;/h2>
+                &lt;p>J'aime l'informatique.&lt;/p>
+                &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
             </code></pre>
             
             <p>Pour mettre plusieurs règles, séparez par un point-virgule :</p>
             <pre><code class="html">
-                    &lt;h1>Site de Robert&lt;/h1>
-                    &lt;p style="color:green<mark>; background:rose</mark>">Je m'appelle Robert !&lt;/p>
+                &lt;h1>Site de Robert&lt;/h1>
+                &lt;p style="color:green<mark>; background:#fcc</mark>">Je m'appelle Robert !&lt;/p>
 
-                    &lt;h2>Études&lt;/h2>
-                    &lt;p>J'aime l'informatique.&lt;/p>
-                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+                &lt;h2>Études&lt;/h2>
+                &lt;p>J'aime l'informatique.&lt;/p>
+                &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
             </code></pre>
             
             <h3 id="{{exercice|exercise}}-11">Exercice 11</h3>
-            <p>Pour cible une partie de texte, indiquer une balise <code>span</code> :</p>
+            <p>Pour cible une partie de texte, indiquer une balise <code>span</code> et pour grouper des paragraphes ou des titres on utilise <code>div</code> :</p>
             <pre><code class="html">
-                    &lt;h1>Site de Robert&lt;/h1>
-                    &lt;p style="color:green">Je m'appelle <mark>&lt;span style="color:orange"></mark>Robert<mark>&lt;/span></mark> !&lt;/p>
+                &lt;h1>Site de Robert&lt;/h1>
+                &lt;p style="color:green">Je m'appelle <mark>&lt;span style="color:orange"></mark>Robert<mark>&lt;/span></mark> !&lt;/p>
 
-                    &lt;h2>Études&lt;/h2>
-                    &lt;p>J'aime l'informatique.&lt;/p>
-                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+                &lt;h2>Études&lt;/h2>
+                <mark>&lt;div style="color:red"></mark>
+                &lt;p>J'aime l'informatique.&lt;/p>
+                &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+                <mark>&lt;/div></mark>
             </code></pre>
+            <p>À la place de <code>div</code>, on peut aussi utiliser les éléments <code>section</code>, <code>article</code>, <code>nav</code>, <code>aside</code> et d'autres 
+            pour mieux indiquer ce que l'on veut faire.</p>
             
             <h3 id="{{exercice|exercise}}-12">Exercice 12</h3>
             <p>CSS est plus utile quand l'on peut faire des règles générales, genre <em>tous les paragraphes en bleus</em> :</p>
@@ -604,6 +629,7 @@
                     }
                     <mark>.important {</mark>
                         <mark>color: red;</mark>
+                        <mark>background: #fcc;</mark>
                     <mark>}</mark>
                     <mark>.grand {</mark>
                         <mark>font-size: 24px;</mark>
@@ -616,7 +642,7 @@
 
                     &lt;h2>Études&lt;/h2>
                     &lt;p <mark>class="important"</mark>>J'aime l'informatique.&lt;/p>
-                    &lt;p>J'ai fait mes études à l'ULB.&lt;/p>    
+                    &lt;p <mark>class="grand"</mark>>J'ai fait mes études à l'ULB.&lt;/p>    
 
                     &lt;p>Mes compétences informatiques :&lt;/p>
                     &lt;ul>
@@ -648,6 +674,66 @@
                 &lt;/body>
                 &lt;/html>
             </code></pre>
+            
+            <h3 id="{{exercice|exercise}}-15">Exercice 15</h3>
+            <p>Margin, border, padding et les outils de développement, clic droit sur un élément puis Inspecter (ou Examiner),
+            on y voit les règles appliquées, le modèle de boîte et la possibilité de modifier en <em>live</em> ces attributs.
+            Le raccourci clavier pour ouvrir est <kbd>Ctrl+Shift+I</kbd>.</p>
+            
+            <pre><code class="html">
+                &lt;p>Hello, world.&lt;/p>
+                &lt;p class="commentaire">J'aurais pu écrire en français &lt;em>bonjour le monde&lt;/em> mais c'est moins stylé.&lt;/p>
+            </code></pre>
+            <pre><code class="css">
+            .commentaire {
+                margin: 15px;
+                padding: 10px;
+                border: 1px solid black;
+            }
+            </code></pre>
+            <p>Essaie sur le paragraphe suivant et détermine pourquoi il est en italique !</p>
+            <p class="comment">J'aurais pu écrire en français <em>bonjour le monde</em> mais c'est moins stylé.</p>
+            
+            <p>On peut spécifier uniquement un (ou plusieurs) côté(s) :</p>
+            <pre><code class="css">
+            .commentaire {
+                margin-left: 15px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding-left: 10px;
+                border-left: 3px dotted #ccc;
+            }
+            </code></pre>
+            
+            <h3>Pour en savoir plus</h3>
+            
+            <p>Pour en savoir plus, je conseille
+            <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3">ce tutoriel html</a> de openclassrooms.</p>
+            
+            <nav class="external">
+                <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/">
+                    Tutoriel html et css sur OpenClassrooms
+                    <img src="flag-fr.png" style="vertical-align:middle; margin-right: 5px;"></a>
+                </a>
+                
+                <hr/>
+                <ol>
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604192-comment-fait-on-pour-creer-des-sites-web">
+                        Les bases de HTML5 </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1605060-mettre-en-place-le-css">
+                        Les joies de la mise en forme avec CSS </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1605881-structurer-sa-page">
+                        Mise en page du site </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1606851-les-tableaux">
+                        Fonctionnalités évoluées </a>
+
+                    <li> <a href="https://openclassrooms.com/en/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1607901-envoyez-votre-site-sur-le-web">
+                        Annexes </a>
+                </ol>
+            </nav>
         </section>
     </div>
     </body>
