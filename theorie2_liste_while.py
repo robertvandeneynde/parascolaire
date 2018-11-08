@@ -43,7 +43,7 @@ while i < 10:
 
 # Les listes permettent de stocker plusieurs valeurs,
 # on peut créer des listes, avec des crochets :
-ma_liste = [1,2,7,2]  # 4 éléments !
+ma_liste = [3,4,7,4]  # 4 éléments !
 petite_liste = []     # 0 éléments
 
 # 
@@ -97,7 +97,7 @@ for x in ma_liste:  # pour chaque élément de ma_liste, que j'appelle "x"
 ## ajouter et supprimer autre part qu'à la fin d'une liste
 #
 # Parfois, on a besoin de modifier la liste au début ou au milieu :
-ma_liste = [1,2,7,2]
+ma_liste = [3,4,7,4]
 
 # insérer
 ma_liste.insert(2, 10)  # on insère 10 après les 2 premiers éléments, ma_liste vaut [1,2,10,7,2]
@@ -148,7 +148,7 @@ for nombre in ma_liste:
     print(nombre)
     
 # Ce qui peut se lire comme ceci :
-# (imaginons que <code>ma_liste = [1,2,7,2]</code>) <ul>
+# (imaginons que <code>ma_liste = [3,4,7,4]</code>) <ul>
 # <li><code> nombre = ma_liste[0]; print(nombre)  # 1 </code>
 # <li><code> nombre = ma_liste[1]; print(nombre)  # 2 </code>
 # <li><code> nombre = ma_liste[2]; print(nombre)  # 7 </code>

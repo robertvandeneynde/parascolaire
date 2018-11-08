@@ -42,7 +42,7 @@ while($i < 10) {
 /////////////////////////
 
 // on peut créer des array (tableaux, listes)
-$ma_liste = array(1,2,7,2); // 4 éléments !
+$ma_liste = array(3,4,7,4); // 4 éléments !
 
 // 1) Lire
 $premier = $ma_liste[0] // l'élément numéro 0 est le premier

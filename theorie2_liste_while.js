@@ -41,7 +41,7 @@ while(i < 10) {
 ///////////////////////////
 
 // on peut créer des listes, avec des crochets
-ma_liste = [1,2,7,2] // 4 éléments !
+ma_liste = [3,4,7,4] // 4 éléments !
 // 4 opérations de base sont possibles sur les listes
 
 // 1) Lire

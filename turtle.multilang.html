@@ -79,7 +79,7 @@
         <script>
             $(function(){
                 hljs.initHighlightingOnLoad()
-                $('p > code').each(function(i, block) {
+                $('p > code:not(.nohl)').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });
                 utils.dedentPreCode()
@@ -421,9 +421,13 @@
             <p>{{ Pour ce magnifique orange, j'écrirai la commande
                 | For this amazing orange, I will write the command }}
                 <code>color(253, 126, 0)</code>
+
+            <p>{{ Pour faire varier les couleurs, on peut tapper <a href="https://google.com?q=rgb+253+126+0"><code>rgb 253 126 0</code> sur google</a> !
+                Le <code>rgb</code> signifiant <em>red, green, blue</em>. 😉
+                | In order to pick any color, we can <a href="https://google.com?q=rgb+253+126+0">google <code>rgb 256 126 0</code></a>. }}</p>
             
             <p>{{
-            Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code class="hljs-string">#ff0060</code> qui peut s'insérer en écrivant
+            Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code class="nohl"><span class="hljs-string">#ff0060</span></code> qui peut s'insérer en écrivant
             | A lot of <a href="http://hexpicker.com">tools</a> give the color <em>hexadecimal code</em> (<em>hex code</em>), for example I have a nice <span style="color: #ff0060">pink</span> written <code class="hljs-string">#ff0060</code> that can be inserted using
             }} <code class="py">color("#ff0060")</code> {{ou|or}} <code class="py">color(0xff, 0x00, 0x60)</code>.
             

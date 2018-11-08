@@ -233,10 +233,10 @@
                         
                         if(is_group) {
                             if(hostname.indexOf('127.0.0.1') != -1)
-                                var username = 'infosgr42'
+                                var username = 'assomptionedube1'
                             else
-                                var username = hostname.split('.')[0] || 'infosgr42'
-                            $(this).text(path.replace(/infosgr42/g, username).replace(/username/g, username))
+                                var username = hostname.split('.')[0] || 'assomptionedube1'
+                            $(this).text(path.replace(/assomptionedube1/g, username).replace(/username/g, username))
                         } else { // code.url
                             if(path.indexOf('127.0.0.1:8000') != -1) {
                                 var url = path.replace('127.0.0.1:8000', hostname)
@@ -472,95 +472,143 @@
             <p>Lors de mes présentations, j'ai parlé du protocole http, et de la communication entre client et serveur qui ressemblait à un envoi de lettres postales.
             Maintenant, place au code django !
             
-            <p class="comment">Créez un projet django vide, si vous avez du mal, demandez à vos voisins !
+            <!-- <p class="comment">Créez un projet django vide, si vous avez du mal, demandez à vos voisins !
                 J'ai quelques machines virtuelles sous la main si vous voulez facilement vous lancer,
                 ou bien vous pouvez simplement créer un compte sur <a href="https://pythonanywhere.com">pythonanywhere.com</a> que vous soyez sous Windows ou Mac.
+            -->
+            
+            <p>J'ai créé pour toi un projet django, il s'appelle <code>projet</code> et contient une application appelée <code>askme</code>, va dans les fichiers et vérifie ça !
+            
+            <p class="comment">
+                Si tu es sur un Chromebook,
+                connecte-toi à l'utilisateur <code>assomptionedube1</code> sur <a href="https://pythonanywhere.com">pythonanywhere.com</a>,
+                je te donnerai le mot de passe.
+            
+            <div class="comment" style="line-height:2em;">
+                <p>Si vous êtes sur pythonanywhere, le site sera accessible à l'addresse <code class="bash contains-group">assomptionedube1.pythonanywhere.com/</code>
+                en remplaçant bien <code class="bash contains-group">assomptionedube1</code> par votre propre nom d'utilisateur, pour vous facilitez la tâche, entrez votre nom d'utilisateur ici :
                 
-            <!--
-            <div class="developpement" symbol="startproject on pythonanywhere">
-                <p>Ouvre l'onglet <em>Console</em>, et entrez les commandes suivantes :
+                <div>
+                <input type="int" placeholder="assomptionedube1" style="width:240px; margin: 10px; text-align:center;" id="group_selector"/>
+                <button id="group_selector_ok">Ok</button>
+                <span id="group_selector_saved" style="border: 1px solid #0c0; background: #090; color: white; padding: 5px; text-wrap:nowrap;">Page mise à jour pour {username} !</span>
+                </div>
+                
+            </div>
+            
+            <p>Si tu veux savoir comment j'ai fait pour créer un projet, voici les instructions :
+            
+            <div class="developpement little-box closable" symbol="startproject sur pythonanywhere (Chromebook)">
+                <p>Connectez-vous au compte <code>assomptionedube1</code>, je vous donnerai le mot de passe.</p>
+                <p>Ouvrez l'onglet <em>Console</em>, et entrez les commandes suivantes :
                 
                 <pre><code class="bash">
-                mkvirtualenv django2 --python=/usr/bin/python3.6
+                mkvirtualenv django2 --python=/usr/bin/python3.7
                 pip install django
-                python3 -m django startproject mysite
-                mv mysite project
-                cd project
-                python manage.py startapp askme
+                workon django2
+                python3 -m django startproject monsite
+                mv monsite projet
+                cd projet
+                python3 manage.py startapp askme
                 </code></pre>
                 
-                <p>Dans l'onglet <em>Files</em>, vous devriez avoir un dossier <code>project</code> qui contient un dossier <code>mysite</code> et <code>askme</code> !
+                <p>Dans l'onglet <em>Files</em>, vous devriez avoir un dossier <code>projet</code> qui contient un dossier <code>monsite</code> et <code>askme</code> !
                 
-                <p>Dans l'onglet <em>Web</em>, indiquez <code>/home/myusername/.virtualenv/django2</code> dans le champ <em>Virtualenv</em>.
+                <p>Dans l'onglet <em>Web</em>, indiquez <code class="contains-group">/home/assomptionedube1/.virtualenvs/django2</code> dans le champ <em>Virtualenv</em>.
                 
-                <p>Ensuite, créez un fichier dans votre home appelé <code>wsgi.py</code>, on aura donc en <code>/home/myusername/wsgi.py</code> :
+                <!-- <p>Ensuite, créez un fichier dans votre home appelé <code>wsgi.py</code>, on aura donc en <code>/home/myusername/wsgi.py</code> : -->
+                
+                <p>Ensuite, dans l'onglet <em>Web</em>, cliquez sur <code>/var/www/myusername_pythonanywhere_com_wsgi.py</code>, vous y collez ce code :
                 
                 <pre><code class="py">
                     import os
                     import sys
 
-                    path = os.path.expanduser('~/project')
+                    path = os.path.expanduser('~/projet')
                     if path not in sys.path:
                         sys.path.append(path)
-                    os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+                    os.environ['DJANGO_SETTINGS_MODULE'] = 'monsite.settings'
                     from django.core.wsgi import get_wsgi_application
                     from django.contrib.staticfiles.handlers import StaticFilesHandler
                     application = StaticFilesHandler(get_wsgi_application())
                 </code></pre>
                 
-                <p>Et dans l'onglet <em>Web</em>, indiquez <code>/home/myusername/wsgi.py</code> dans le champ nommé <em>WSGI configuration file</em>.
+                <!-- <p>Et dans l'onglet <em>Web</em>, indiquez <code>/home/myusername/wsgi.py</code> dans le champ nommé <em>WSGI configuration file</em>. -->
                 
-                <p>Finalement, lancez le serveur dans l'onglet <em>Web</em>en cliquant sur <em>Reload</em>.
+                <p>Finalement, lancez le serveur dans l'onglet <em>Web</em> en cliquant sur <em>Reload</em>.
                     Veuillez noter qu'en bas de la plage, il y a un truc qui s'appelle <code>error.log</code>,
                     que vous pouvez lire si vous vous doutez que <em>Reload</em> a créé une erreur,
                     après avoir cliqué dessus, vous devrez aller tout en bas de la page pour avoir les messages les plus récents.
-                    
-                <p>Afin que les urls marchent, il faudra ouvrir le fichier <code>mysite/urls.py</code> et y ajouter des lignes pour qu'il soit comme ceci :
+                
+                <p>Ouvrez le fichier <code>monsite/settings.py</code>, cherchez la ligne qui contient <code>ALLOWED_HOSTS</code> et écrivez-y :
+                
+                <pre><code class="py contains-group">
+                ALLOWED_HOSTS = ["assomptionedube1.pythonanywhere.com"]
+                </code></pre>
+                
+                <p>Afin que les urls marchent, il faudra ouvrir le fichier <code>monsite/urls.py</code> et y ajouter des lignes pour qu'il soit comme ceci :
                 
                 <pre><code class="py">
                 from django.contrib import admin
-                from django.urls import include, path
+                from django.urls import include<mark>, path</mark>
 
                 urlpatterns = [
                     path('admin/', admin.site.urls),
-                    path('', include('appaskme.urls')),
+                    <mark>path('', include('askme.urls')),</mark>
                 ]
                 </code></pre>
+                
+                <p>Et l'on créera le fichier <code>askme/urls.py</code> et y ajouter des lignes pour qu'il soit comme ceci :
+                
+                <pre><code class="py">
+                urlpatterns = [
+                    
+                ]
+                </code></pre>
+                
+                <p>Pour avoir les messages en français, j'ai été dans <code>monsite/settings.py</code> et j'ai remplacé la ligne parlant de <code>LANGUAGE_CODE</code> :
+                
+                <pre><code class="py">LANGUAGE_CODE = 'en-us'</code></pre>
 
             </div>
-            -->
-                
-            <!--
-            <div class="developpement" symbol="startproject on linux">
-                <p>Si vous êtes nouveau sur linux, pas besoin de virtualenv, utilisez le <code>python3</code> déjà installé sur votre distribution :
+            <p></p>
+            <div class="developpement little-box closable" symbol="startproject sur linux">
+                <p>Pas besoin de virtualenv, utilisez le <code>python3</code> déjà installé sur votre distribution :
                 
                 <pre><code class="bash">
-                pip3 install Django==2.0
-                python3 -m django startproject mysite
-                mv mysite project
-                cd project
+                python3 -m pip install django
+                python3 -m django startproject monsite
+                mv monsite projet
+                cd projet
                 python3 manage.py startapp askme
                 </code></pre>
                 
-                <p>Cela a créé un dossier <code>project</code> qui contient un dossier <code>mysite</code> et <code>askme</code> !
+                <p>Cela a créé un dossier <code>projet</code> qui contient un dossier <code>monsite</code> et <code>askme</code> !
                 
                 <p>Pour lancer le serveur, <code>python3 manage.py runserver</code>, observez bien ce qui est affiché là-bas, ça peut être utile.
                 
-                <p>Finalement, je vous demande d'ouvrir le fichier <code>mysite/urls.py</code> et d'y ajouter des lignes pour qu'il soit comme ceci :
+                <p>Afin que les urls marchent, il faudra ouvrir le fichier <code>monsite/urls.py</code> et y ajouter des lignes pour qu'il soit comme ceci :
                 
                 <pre><code class="py">
                 from django.contrib import admin
-                from django.urls import include, path
+                from django.urls import include<mark>, path</mark>
 
                 urlpatterns = [
                     path('admin/', admin.site.urls),
-                    path('', include('appaskme.urls')),
+                    <mark>path('', include('askme.urls')),</mark>
+                ]
+                </code></pre>
+                
+                <p>Et l'on créera le fichier <code>askme/urls.py</code> et y ajouter des lignes pour qu'il soit comme ceci :
+                
+                <pre><code class="py">
+                urlpatterns = [
+                    
                 ]
                 </code></pre>
             </div>
-            -->
             
-            <p class="comment">Essayez de faire les exercices. Ensuite, si vous n'arrivez pas, regardez la solution en cliquant sur les boutons !
+            <p>Essayez de faire les exercices. Ensuite, si vous n'arrivez pas, regardez la solution en cliquant sur les boutons !
             Si nous n'arrivez pas à faire un exercice, pas de panique, la correction est là pour vous aider et probablement que vous comprendrez mieux lors d'un exercice ultérieur.
             
             <p>Dernière petite remarque : Django est <strong>vaste</strong>, il permet souvent de faire une chose de <strong>beaucoup de manières différentes</strong>,
@@ -574,23 +622,24 @@
             
             <p class="comment">
                 Pour faire cela sur pythonanywhere, c'est déjà configuré et vous devez juste cliquer sur <em>Reload</em> dans l'onglet <em>Web</em> de pythonanywhere.
+                Veuillez noter qu'en bas de la plage, il y a un truc qui s'appelle <code>error.log</code>,
+                que vous pouvez lire si vous vous doutez que <em>Reload</em> a créé une erreur,
+                après avoir cliqué dessus, vous devrez aller tout en bas de la page pour avoir les messages les plus récents.
+
             
             <!--
             <p class="comment">
                 Si vous utilisez une machine virtuelle et Eclipse, allez dans Eclipse et faites <em>Run as > Django application</em>
                 ou via le terminal comme un pro <code class="bash">python3 manage.py runserver</code>. -->
+            
+            <p class="comment">
+                Si vous êtes sous linux, ouvrez le <em>Terminal</em> puis tappez <code>cd projet</code> pour aller dans le dossier projet,
+                et finalement tappez <code class="bash">python3 manage.py runserver</code> pour lancer le serveur, ne fermez pas le terminal, ça tourne !
                 
             <p>Que se passe-t-il quand je vais sur <code class="url">127.0.0.1:8000/</code> ?
                 
-            <p class="comment" style="line-height:2em;">Si vous êtes sur pythonanywhere, vous devrez plutôt aller sur <code class="bash contains-group">infosgr42.pythonanywhere.com/</code>
-                en remplaçant bien <code class="bash contains-group">infosgr42</code> par votre propre nom d'utilisateur, du coup
-                entrez votre nom d'utilisateur : <input type="int" placeholder="infosgr42" style="width:120px; text-align:center;" id="group_selector"/>
-                puis cliquez sur <button id="group_selector_ok">Ok</button> pour mettre à jour la page.
-                
-                <span id="group_selector_saved" style="border: 1px solid #0c0; background: #090; color: white; padding: 5px; text-wrap:nowrap;">Page mise à jour pour {username} !</span>
-            
             <p class="developpement little-box closable">
-                Il est marqué <em>It works</em> et la petite fusée de Django est affichée.
+                Il est marqué <em>It works</em> ou <em>L'installation c'est déroulée avec succès</em> et la petite fusée de Django est affichée.
             
             <p>Et quand je vais sur <code class="url">127.0.0.1:8000/hello</code> ?
             
@@ -617,12 +666,12 @@
             <p></p>
             
             <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
-            from django.urls import path
+            <mark>from django.urls import path</mark>
 
-            from . import views
+            <mark>from . import views</mark>
 
             urlpatterns = [
-                path('hello', views.dire_bonjour),
+                <mark>path('hello', views.dire_bonjour),</mark>
             ]
             </code></pre>
             
@@ -639,7 +688,7 @@
                 return HttpResponse("Coucou les amis !")
             </code></pre>
             
-            <div class="comment">
+            <!-- <div class="comment">
             <p>Attention à la version de django, ce tutoriel est sous django 2.0, mais certains tutoriels sont encore en 1.11 où vous verrez des fichiers <code>urls.py</code>
                 comme ceci :
             
@@ -652,7 +701,7 @@
                 <mark>url</mark>(<mark>r'^hello$'</mark>, views.dire_bonjour),
             ]
             </code></pre>
-            </div>
+            </div> -->
             
             <div class="comment">
             <div id="dossier-views"></div>
@@ -662,7 +711,7 @@
                 dans ce cas vous devez créer un (ou plusieurs) fichier(s) <code class="bash">.py</code> dans le dossier <code class="bash">views/</code>,
                 comme par exemple <code>base.py</code>, vous devrez alors écrire <code class="bash">urls.py</code> comme ceci  :
             
-            <pre class="developpement" symbol="urls.py (django 2.0 avec dossier views)"><code class="py">
+            <pre class="developpement" symbol="urls.py (avec dossier views)"><code class="py">
             from django.urls import path
 
             from . import views
@@ -673,7 +722,7 @@
             ]
             </code></pre>
             
-            <pre class="developpement" symbol="views/base.py (django 2.0 avec dossier views)"><code class="py">
+            <pre class="developpement" symbol="views/base.py (avec dossier views)"><code class="py">
             from django.http import HttpResponse
             
             def dire_bonjour(request):
@@ -700,7 +749,7 @@
                 <li><em>Cv de René : Surfeur, programmeur mais humain avant tout</em></li>
             </ul>
             
-            <pre class="developpement" symbol="urls.py (django 2.0)"><code class="py">
+            <pre class="developpement" symbol="urls.py"><code class="py">
             from django.urls import path
 
             from . import views
@@ -815,6 +864,7 @@
             
             <h4 id="html-est-joli">Possibilités d'html</h4>
             
+            <div symbol="Possibilités d'html" class="developpement">
             <p>Afin que notre page soit plus jolie, on peut apprendre d'autres balises html, si vous 
                 voulez garder un site peu joli mais passer directement au côté fontionnel <a href="#template-et-variables">passez cette section</a>,
                 sinon voici un aperçu de ce qu'un 
@@ -1058,6 +1108,7 @@
                 Un avantage des templates est de séparer le fond, la forme, et les données.
                 Un designer pourra par exemple écrire un template html avec du joli css, et vous n'aurez qu'à l'inclure dans votre projet
                 sans même devoir regarder le code source.
+            </div>
             
             <h3 id="template-et-variables">Un template django peut avoir des variables</h3>
             
@@ -1226,7 +1277,7 @@
                 <li><code>repondants</code>: le nombre de personnes ayant répondu à cette question, qui sera initialement de zéro mais augmentera.
             </ul>
             
-            <div class="developpement little-box closable" symbol="pour le projet marketplace">
+            <!-- <div class="developpement little-box closable" symbol="pour le projet marketplace">
             
             <p>Pour le projet économique type <em>marketplace</em>, vous pouvez vous entraîner en créant une classe <code>Question</code> comme décris dans le tutoriel,
                 ou bien vous pouvez créer une classe <code>Listing</code> (ou <code>Offre</code>) qui contient les attributs demandés en cours, c'est à dire
@@ -1246,7 +1297,7 @@
                 Avec les <a href="#bddr">bases de données relationnelles</a>, les devises seront également des objets <strong>Devise</strong> mais pour l'instant nous pouvons simplement dire que les devises
                 sont des chaînes de caractères comme <code class="py">"EUR"</code> (<em>string</em> ou <code>str</code> en python, <code>CharField</code> en django).
             
-            </div>
+            </div> -->
             
             <p>On devra donc modifier le fichier <code>models.py</code> :</p>
                 
@@ -1262,28 +1313,27 @@
                 et probablement qu'il y aura une erreur (voir <a href="#migrations_erreurs">ci-dessous</a>).
              
             <div class="comment">
-                <p>Si vous vous demandez quelle est la différence entre <code>makemigrations</code> et <code>migrate</code>, lisez ceci :
+            <p>Sur linux, ouvrez l'application <em>Terminal</em> 
+                puis lancez cette commande :
+                
+            <pre><code class="bash">python3 manage.py makemigrations</code></pre>
             
-                <div id="makemigrations_vs_migrate"></div>
-                <ul class="developpement" symbol="makemigrations vs migrate" >
-                    <li><code>makemigrations</code> va regarder les changements faits dans models.py et va créer un fichier python dans le dossier migrations, qui <em>décrit</em> les différences, en l'occurence ici, on crée une nouvelle table qui contient deux attributs.
-                    <li><code>migrate</code> modifie effectivement la base de données, en l'occurence ici va créer une nouvelle table, on verra plus tard ce qu'il peut arriver à ce moment-ci.
-                </ul>
+            <p>De la même manière, pour faire l'opération de <em>migrate</em> on écrira bien sûr <code class="bash">python3 manage.py migrate</code>.
             </div>
             
             <div class="comment">
             <p>Sur pythonanywhere, vous devrez passer par la console, <a href="#virtualenv">activez le virtualenv</a> si ça n'est pas déjà fait,
                 puis lancez cette commande :
                 
-            <pre><code class="bash">python manage.py makemigrations</code></pre>
+            <pre><code class="bash">python3 manage.py makemigrations</code></pre>
             
-            <p>De la même manière, pour faire l'opération de <em>migrate</em> on écrira bien sûr <code class="bash">python manage.py migrate</code>.
+            <p>De la même manière, pour faire l'opération de <em>migrate</em> on écrira bien sûr <code class="bash">python3 manage.py migrate</code>.
             </div>
             
-            <p class="comment">Si vous utilisez une machine virtuelle avec Eclipse, faites clic droit dans Eclipse puis choissiez migrate ou makemigrations.
+            <!-- <p class="comment">Si vous utilisez une machine virtuelle avec Eclipse, faites clic droit dans Eclipse puis choissiez migrate ou makemigrations.
                 Vous pouvez également passer par le terminal
                     en écrivant <code class="bash">python3 manage.py makemigrations</code>
-                    ou <code class="bash">python3 manage.py migrate</code>.
+                    ou <code class="bash">python3 manage.py migrate</code>. -->
             
             <div id="migrations_erreurs"></div>
             <p>Voici toutes les erreurs qui peuvent arriver :
@@ -1293,7 +1343,7 @@
             
             <li>
             
-            <p>Si vous avez l'erreur <code>can't open file 'manage.py': No such file or directory</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> et probablement qu'un petit <code>cd project</code>
+            <p>Si vous avez l'erreur <code>can't open file 'manage.py': No such file or directory</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> et probablement qu'un petit <code>cd projet</code>
             résoudra le problème :
             
             <div class="developpement little-box closable" contains-code="bash" symbol="cd : changer de dossier en bash">
@@ -1310,7 +1360,7 @@
                     quand vous allez dans l'onglet Files, c'est le dossier que vous voyez,
                     en console linux, on l'appelle tout simple <em>home</em>, <code>$HOME</code> ou encore <code>~</code>.
                 
-                <p>Chaque utilisateur linux a son petit dossier home, qui se trouve dans <code class="contains-group bash">/home/username</code>, sur pythonanywhere votre nom d'utilisateur est <code class="contains-group bash">infosgr42</code> donc votre home se
+                <p>Chaque utilisateur linux a son petit dossier home, qui se trouve dans <code class="contains-group bash">/home/username</code>, sur pythonanywhere votre nom d'utilisateur est <code class="contains-group bash">assomptionedube1</code> donc votre home se
                 trouve dans <code>/home/</code>.
                 
                 <p>En lançant une console linux, on nous voyons l'heure et un petit symbole <code>$</code> :
@@ -1323,17 +1373,17 @@
                 
                 <pre><code class="bash contains-group">
                 14:01 ~ $ pwd
-                /home/infosgr42/
+                /home/assomptionedube1/
                 </code></pre>
                 
                 <p>Pour voir les fichiers qu'il y a dans votre dossier en cours, tappez <code>ls</code> (<strong>l</strong>i<strong>s</strong>ter les fichiers, ou <strong>l</strong>ets <strong>s</strong>ee) :
                 
                 <pre><code>
                 14:02 ~ $ ls
-                README.txt  project  wsgi.py  
+                README.txt  projet  wsgi.py  
                 </code></pre>
                 
-                <p>Nous avons donc un fichier <code>README.txt</code>, un dossier <code>project</code>, et un fichier <code>wsgi.py</code>, ce qui correspond bien à 
+                <p>Nous avons donc un fichier <code>README.txt</code>, un dossier <code>projet</code>, et un fichier <code>wsgi.py</code>, ce qui correspond bien à 
                 la réalité :
                 
                 <figure class="half-size">
@@ -1348,19 +1398,19 @@
                     Pour avoir un affichage plus joli en couleurs, tappez <code>ls x--color</code>, vous y verrez les <strong>dossiers</strong> en bleu.
                     Il y a moyen que tous vos <code>ls</code> soient en couleurs en écrivant <code>alias ls='ls --color'</code>.
                 
-                <p>Pour changer de dossier, en allant par exemple dans le dossier <code>project/</code> tappez <code>cd project</code> (<code>cd</code> comme <strong>c</strong>hanger <strong>d</strong>ossier).
+                <p>Pour changer de dossier, en allant par exemple dans le dossier <code>projet/</code> tappez <code>cd projet</code> (<code>cd</code> comme <strong>c</strong>hanger <strong>d</strong>ossier).
                 
                 <pre><code>
-                14:03 ~ $ cd project
-                14:04 ~/project $ 
+                14:03 ~ $ cd projet
+                14:04 ~/projet $ 
                 </code></pre>
                 
-                <p>Remarquez que la console vous rappelle que vous êtes dans le dossier <code>~/project</code>, ce qui veut dire le dossier <code>project</code> dans votre <code>home</code>.
+                <p>Remarquez que la console vous rappelle que vous êtes dans le dossier <code>~/projet</code>, ce qui veut dire le dossier <code>projet</code> dans votre <code>home</code>.
                 
                 <p>Pour aller dans votre home, tappez juste <code>cd</code> :
                 
                 <pre><code>
-                14:05 ~/project $ cd
+                14:05 ~/projet $ cd
                 14:06 ~ $ 
                 </code></pre>
                 
@@ -1375,8 +1425,8 @@
             <div id="virtualenv"></div>
             <div class="developpement little-box closable" contains-code="bash" symbol="virtualenv">
                 <p>Beaucoup d'installations python utilisent le concept de <code>virtualenv</code> qui permet de gérer des versions de python, sur python anywhere par défaut,
-                on a python <strong>2.7</strong> ou python <strong>3.6</strong> muni de django <strong>1.11</strong>, or on veut <strong>django 2.0</strong>,
-                on va donc créer un <em>virtualenv</em> avec python 3.6 et django 2.0, nous allons l'appeler <code>django2</code>.
+                on a python <strong>2.7</strong> ou python <strong>3.7</strong> muni de django <strong>1.11</strong>, or on veut <strong>django 2.0</strong>,
+                on va donc créer un <em>virtualenv</em> avec python 3.7 et django 2.0, nous allons l'appeler <code>django2</code>.
                 
                 <p class="comment">Sur pythonanywhere, on va utiliser une <strong>console linux</strong> (aussi appelée <strong>terminal</strong>, <strong>shell</strong>, <strong>sh</strong> , <strong>bash</strong> ou <strong>invite de commande</strong>),
                 car ça permet non seulement d'avoir l'air d'un pro mais surtout car ça permet de nous simplifier la vie une fois qu'on y est habitué.
@@ -1391,12 +1441,12 @@
                 <pre><code>which python</code></pre>
                 
                 <p>Si vous voyez <code>/usr/bin/python</code> c'est que vous n'êtes <strong>pas</strong> dans le virtualenv.
-                    Si vous voyez quelque chose qui contient <code>.virtualenv</code> vous êtes dedans.
+                    Si vous voyez quelque chose qui contient <code>.virtualenvs</code> vous êtes dedans.
                     
                 <p>Pour activer un virtualenv sur pythonanywhere, il faut d'abord le créer, lancez cette commande :
                 
                 <pre><code>
-                    mkvirtualenv django2 --python=/usr/bin/python3.6
+                    mkvirtualenv django2 --python=/usr/bin/python3.7
                 </code></pre>
                 
                 <p>Cela va créer votre virtualenv, ensuite il faut l'activer :
@@ -1409,7 +1459,7 @@
                     vous pouvez juste l'activer avec <code>workon django2</code>.
                 
                 <p>Une fois dans le virtualenv, la commande <code>python</code> pourra être utilisée correctement
-                    vérifiez que vous avez bien python 3.6 en tappant <code>python --version</code> et vérifiez que vous avez bien django version 2 en tappant <code>python -m django --version</code>.
+                    vérifiez que vous avez bien python 3.7 en tappant <code>python --version</code> et vérifiez que vous avez bien django version 2 en tappant <code>python -m django --version</code>.
                     Il existe aussi d'autres comandes utiles comme <code>pip</code> ou <code>django-admin</code> que nous n'utiliserons pas pour notre tutoriel.
                 
                 <h4>Indice de virtualenv</h4>
@@ -1452,21 +1502,21 @@
             
             <ol>
             <li>
-            <p>Dans le fichier <code>settings.py</code> (<code>~/project/mysite/settings.py</code>), vérifiez près de la ligne <code class="py">DATABASES =</code> : </li>
+            <p>Dans le fichier <code>settings.py</code> (<code>~/projet/monsite/settings.py</code>), vérifiez près de la ligne <code class="py">DATABASES =</code> : </li>
             
             <pre><code class="py">
             DATABASES = {
                 'default': {
                     'ENGINE': 'django.db.backends.mysql',
-                    'NAME': '<span class="contains-group hljs-string">infosgr42$default</span>',
-                    'USER': '<span class="contains-group hljs-string">infosgr42</span>',
+                    'NAME': '<span class="contains-group hljs-string">assomptionedube1$default</span>',
+                    'USER': '<span class="contains-group hljs-string">assomptionedube1</span>',
                     'PASSWORD': 'supersecret',
-                    'HOST': '<span class="contains-group hljs-string">infosgr42.mysql.pythonanywhere-services.com</span>',
+                    'HOST': '<span class="contains-group hljs-string">assomptionedube1.mysql.pythonanywhere-services.com</span>',
                 }
             }
             </code></pre>
             
-            <p>Vous remplacerez bien sûr votre numéro de groupe dans <code>infosgr42</code>.
+            <p>Vous remplacerez bien sûr votre numéro de groupe dans <code>assomptionedube1</code>.
             
             </li>
             <li>
@@ -1487,7 +1537,7 @@
                 <li>
                 
                 <p>Si l'on vous pose des questions lors de makemigrations et que vous n'arrivez vraiment pas à répondre,
-                vous pouvez <strong>supprimer les migrations</strong> et allant dans le dossier <code>~/project/funnycoin/migrations/</code> et en supprimant tous les fichiers <code>.py</code> :
+                vous pouvez <strong>supprimer les migrations</strong> et allant dans le dossier <code>~/projet/funnycoin/migrations/</code> et en supprimant tous les fichiers <code>.py</code> :
                 
                 <figure class="half-size">
                     <img src="screenshot_pythonanywhere_files_migrations.png" />
@@ -1505,12 +1555,12 @@
                     <img src="screenshot_pythonanywhere_database_list.png" />
                 </figure>
                 
-                <li>Dans l'onglet database, à côté de la base de donnée <code class="contains-group bash">infosgr42$default</code>,
+                <li>Dans l'onglet database, à côté de la base de donnée <code class="contains-group bash">assomptionedube1$default</code>,
                     cliquez dessus pour y ouvrire une console mysql (si votre limite de console est atteinte,
                     allez dans l'onglet <em>Console</em> et fermez en une), et entrez la <strong>commande de la mort</strong> :
                     
                 <pre><code class="contains-group sql">
-                drop database infosgr42$default;
+                drop database assomptionedube1$default;
                 </code></pre>
                 
                 <p>Avec le point-virgule bien entendu.
@@ -1523,7 +1573,7 @@
                 <li>Recréez la base de données, allez dans l'onglet <em>Databases</em> et là où est marqué
                 <em>enter new database name</em>, vous indiquez <code>default</code> et puis cliquez sur <em>Create</em>.
                 
-                Cela va recréer une base de donnée <code class="contains-group bash">infosgr42$default</code>,
+                Cela va recréer une base de donnée <code class="contains-group bash">assomptionedube1$default</code>,
                 vérifiez bien que c'est celle-là <a href="#access_denied_mysql_pythonanywhere">que vous avez indiqué</a> dans <code>settings.py</code>
                 
                 <li>Toutes vos tables sont supprimées, donc vous pouvez faire <code>makemigrations</code> et <code>migrate</code>
@@ -1539,8 +1589,8 @@
             
             <p>L'opération <code>makemigrations</code> sans erreurs ressemble à ceci :
             
-            <pre class="developpement" symbol="python manage.py makemigrations"><code class="text">
-            $ python manage.py makemigrations
+            <pre class="developpement" symbol="python3 manage.py makemigrations"><code class="text">
+            $ python3 manage.py makemigrations
             Migrations for 'askme':
             polls/migrations/0001_initial.py:
                 - Create model Question
@@ -1549,8 +1599,8 @@
             
             <p>L'opération <code>migrate</code> sans erreurs contient une liste de plein de <em>OK</em> comme ceci :
             
-            <pre class="developpement" symbol="python manage.py migrate" ><code class="text">
-            $ python manage.py migrate
+            <pre class="developpement" symbol="python3 manage.py migrate" ><code class="text">
+            $ python3 manage.py migrate
             Operations to perform:
                 Apply all migrations: admin, auth, contenttypes, sessions, askme
             Running migrations:
@@ -1571,9 +1621,19 @@
                 Applying askme.0001_initial... OK
             </code></pre>
             
+            <div class="comment">
+                <p>Si vous vous demandez quelle est la différence entre <code>makemigrations</code> et <code>migrate</code>, lisez ceci :
+            
+                <div id="makemigrations_vs_migrate"></div>
+                <ul class="developpement" symbol="makemigrations vs migrate" >
+                    <li><code>makemigrations</code> va regarder les changements faits dans models.py et va créer un fichier python dans le dossier migrations, qui <em>décrit</em> les différences, en l'occurence ici, on crée une nouvelle table qui contient deux attributs.
+                    <li><code>migrate</code> modifie effectivement la base de données, en l'occurence ici va créer une nouvelle table, on verra plus tard ce qu'il peut arriver à ce moment-ci.
+                </ul>
+            </div>
+            
             <p>Vous avez donc une <strong>base de données</strong> qui s'est créée !
             
-            <div class="comment">
+            <!-- <div class="comment">
             
             <p>Si vous utilisez une machine virtuelle avec Eclipse et 
                 que vous avez laissez la configuration par défaut, un petit fichier <code class="bash">db.sqlite3</code>
@@ -1604,7 +1664,7 @@
                 vous pourrez voir vos modèles, il y a également moyen de configurer votre projet pour utiliser sqlite
                 et le fichier <code class="bash">db.sqlite3</code>
                 sera alors téléchargeable puis lisible avec le programme <a href="http://sqlitebrowser.org/">sqlitebrowser</a>
-                mais je ne détaillerai pas les étapes pour faire cela.
+                mais je ne détaillerai pas les étapes pour faire cela.  -->
             
             <!-- <div class="developpement little-box closable" symbol="(Facultatif) Comment configurer le projet pour utiliser sqlite">
                 <p>Dans le fichier settings, recherchez la ligne <code>DATABASES = {...}</code>, mettez toutes ces lignes en commentaire 
@@ -1621,7 +1681,7 @@
                 
                 <p>Vous devrez relancer <code>makemigrations</code> et <code>migrate</code> après.
             </div> -->
-            </div>
+            <!-- </div> -->
                 
             <p>À la place d'ouvrir directement le fichier 
             de base de données, ou quand ce fichier n'existe pas ou est difficile d'accès,
@@ -1631,11 +1691,11 @@
             <div class="developpement little-box closable" symbol="Activer l'admin de django">
                 
                 <p>Afin d'activer l'admin de django,
-                    créez un superuser avec la commande <code>python manage.py createsuperuser</code>
-                    (ou <code><mark>python3</mark> manage.py createsuperuser</code> si vous utilisez une machine virtuelle avec Eclipse),
+                    créez un superuser avec la commande <code>python3 manage.py createsuperuser</code>.
+                    <!-- (ou <code><mark>python3</mark> manage.py createsuperuser</code> si vous utilisez une machine virtuelle avec Eclipse), -->
                 
                 <p class="comment">
-                    Si vous avez l'erreur <code>can't open file 'manage.py': No such file or directory</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> et probablement qu'un petit <code>cd project</code>
+                    Si vous avez l'erreur <code>can't open file 'manage.py': No such file or directory</code>, c'est que vous n'êtes pas dans le bon <strong>dossier</strong> et probablement qu'un petit <code>cd projet</code>
                     ou <code>cd /opt/workspace</code> résoudra le problème car cela changera le dossier en cours.
                 
                 <p>La console vous demande le username de votre superuser, choisissez par exemple <code>pikachu</code>,
@@ -1747,6 +1807,8 @@
             Remarquez qu'il est très possible que les id ne se suivent pas, par exemple parce que les questions 3 à 6 ont été supprimées de la base de donnée.
             </div>
             
+            <p></p>
+            <div class="developpement" symbol="Terminologie">
             <p class="comment">Cependant, une base de donnée présente des avantages par rapport à un Excel, comme pouvoir être lue facilement depuis un code,
             ou vérifier certains tests, nous verrons ça plus tard.
             
@@ -1778,7 +1840,7 @@
                 pour lequel une base de données, c'est plus qu'un Excel.
             
             <p>Nous avions activé l'admin pour rajouter facilement des objets,
-                il est également possible de directement modifier le fichier <code>db.sqlite3</code> (si vous êtes)
+                il est également possible de directement modifier le fichier <code>db.sqlite3</code> (si vous utilisez sqlite)
                 ou de faire du <code>sql</code> directement dans mysql (si vous êtes sous mysql),
                 donc il n'est pas <em>obligatoire</em> de passer par l'admin, c'est juste très pratique.
             
@@ -1788,6 +1850,8 @@
                 car ce concept est récurrent et <em>base de données</em> c'est long à dire.
             
             <p>Après ce petit discours sur les bases de données, revenons un peu au code !
+            
+            </div>
             
             <h3 id="exerci{{c|s}}e-5">Exerci{{c|s}}e 5{{ |}}: Une page de détail d'une question</h3>
             
@@ -1991,7 +2055,7 @@
                 })
             </code></pre>
             
-            <p class="comment">Les paramètres <code>GET</code> sont souvent utiliser pour les recherches,
+            <p class="comment">Les paramètres <code>GET</code> sont souvent utilisés pour les recherches,
                 essayez d'aller sur <a href="https://google.be/search?q=django">google.be/search?q=django</a> et vous voyez que google utilise <code class="py">request.GET['q']</code> !
             
             <p class="comment">Pourquoi <code>GET</code> ? Car quand on va sur une page en écrivant directement l'url ou en cliquant sur un lien,
@@ -2121,6 +2185,8 @@
             et nous aurons besoin de <strong>listes</strong> ! Direction <a href="#exerci{{c|s}}e-7">la section suivante</a> !
             
             <h4 id="django-clean-urls">{{Plus de django : Urls épurées et url nommées|More django: clean urls and named urls}}</h4>
+            
+            <div class="developpement" symbol="Plus de django : Urls épurées et url nommées|More django: clean urls and named urls">
             <p>Des urls comme <code class="url">/detail?numero=12345</code> ce n'est parfois pas très élégant, avec Django, il est facile de faire <code class="url">/detail/12345</code>, 
             la <a href="https://docs.djangoproject.com/fr/2.0/topics/http/urls/">documentation officielle</a> est très bien mais voici un aperçu des fonctionnalités les plus utiles.
             
@@ -2218,6 +2284,8 @@
             </code></pre>
             
             <p>Plus d'information sur la <a href="https://docs.djangoproject.com/en/2.0/ref/urlresolvers/">documentation officielle</a>.
+            
+            </div>
             
             <h3 id="exerci{{c|s}}e-7">Exerci{{c|s}}e 7{{ |}}: Listes et boucles dans le template</h3>
             
@@ -2454,7 +2522,7 @@
                 qu'en python, le premier élément d'une liste est <strong>à l'indice zéro</strong>.
                 
             <p>Nous allons utiliser ceci pour par exemple afficher la question avec le <strong>moins</strong> de répondants.
-                Nous réutiliserons notre tempalte de l'exercice 5 qui accepte <strong>une seule</strong> question.
+                Nous réutiliserons notre template de l'exercice 5 qui accepte <strong>une seule</strong> question.
             
             <pre class="developpement" symbol="views.py"><code class="py">
             def pas_de_repondants(request):

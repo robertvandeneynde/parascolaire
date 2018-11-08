@@ -45,7 +45,7 @@ public class theorie2_liste_while {
 
     // on peut créer des array (tableaux)
     int[] maListeZero = new int[4]; // 4 élements ! sont initialisés à 0
-    int[] maListe = {1,2,7,2}; // 4 éléments, donnés
+    int[] maListe = {3,4,7,4}; // 4 éléments, donnés
 
     // 1) Lire
     int premier = maListe[0]; // l'élément numéro 0 est le premier

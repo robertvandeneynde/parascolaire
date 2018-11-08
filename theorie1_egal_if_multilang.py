@@ -11,9 +11,15 @@ from __future__ import print_function, division
 # </ul>
 # </nav>
 
+#
+# Allez sur [repl.it python3](https://repl.it/site/languages/python3) ou téléchargez [Wing IDE 101](https://wingware.com/downloads/wingide-101).
+
+#
+# <span class="comment">Cette a été présentée en live dans [cette vidéo](https://www.twitch.tv/videos/332313864)</span>
+
 # {{Les variables permettent de stocker une valeur dans la mémoire de l'ordinateur |Variables are useful to store a value in the memory of the computer}}:
 # <ul><li> <code>"="</code> {{permet de changer la valeur d'une variable|allows you to change the value of a variable}}
-# <li> <code>print()</code> {{permet de voir à l'écran la valeur d'une variable|allows you to see on screen the value of a variable}} </ul>
+# <li> <code>print()</code> {{permet d'afficher à l'écran la valeur d'une variable|allows you to see on screen the value of a variable}} </ul>
 a = 5
 print(a)  # {{en python 2, les parenthèses n'étaient pas nécessaires|in python 2, the parenthesis were not mandatory}}
 a = 6
@@ -33,6 +39,10 @@ print(d)
 #
 # {{Pour afficher du texte, il faut le mettre entre guillemets |To print text, one must put in between quotes}}:
 print("{{fin|end}}")
+
+#
+# {{Pour afficher plusieurs choses on écrit une virgule|To display more than one thing, one must write a comma}}:
+print("{{J'ai|I have}}", a, "{{patates|potatoes}}")  # {{en python 2, les parenthèses n'étaient pas obligatoires|in python 2, the parenthesis were not mandatory}}
 
 # Essayez ce code sur [pythontutor](http://pythontutor.com/visualize.html#code=a%20%3D%205%0Aprint%28a%29%20%20%23%20en%20python%202,%20les%20parenth%C3%A8ses%20n'%C3%A9taient%20pas%20n%C3%A9cessaires%0Aa%20%3D%206%0Aprint%28a%29%0A%0Ab%20%3D%20a%20%2B%201%20%20%20%20%20%20%20%20%23%20b%20vaut%20maintenant%20a%20%2B%201%20%3D%207%0Ac%20%3D%20a%20%2B%20b%20*%202%20%20%20%20%23%20priorit%C3%A9%20des%20op%C3%A9rations%0Ad%20%3D%20%28a%20%2B%20b%29%20*%202%20%20%23%20mettre%20des%20parenth%C3%A8ses%20si%20n%C3%A9cessaire%20!%0Aa%20%3D%20a%20%2B%201%20%20%20%20%20%20%20%20%23%20on%20calcule%20%22a%20%2B%201%22,%20puis%20on%20met%20le%20r%C3%A9sultat%20dans%20a%0Aprint%28a%29%20%20%20%20%20%20%20%20%20%23%20La%20variable%20%22a%22%20a%20donc%20%C3%A9t%C3%A9%20augment%C3%A9e%20de%201%22%0Aprint%28b%29%20%20%20%20%20%20%20%20%20%23%20b%20n'a%20pas%20chang%C3%A9%20depuis%20qu'on%20a%20fait%20%22b%20%3D%22%0Aprint%28c%29%0Aprint%28d%29%0A%0Aprint%28%22{{fin|end}}%22%29&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false) !
 # Cliquez sur <strong>Visualize execution</strong> puis cliquez sur <strong>Forward</strong> pour exécuter chaque ligne ou sur <strong>Last</strong> pour voir uniquement le résultat final.
@@ -65,9 +75,33 @@ a = 12  # DIFF
 if a < 10:
     print("{{Coucou|Kookoo}}")
     print("Hello")
-
+    
 # Quand <code>a = 12</code>, le code se dit <em>est-ce que a < 10 ? Non!</em>
 # il saute le <code>if</code> et ne fait rien.
+
+#
+# Et celui là ? 
+
+a = 7  # DIFF
+
+if a < 10:
+    print("{{Coucou|Kookoo}}")
+print("Hello")  # DIFF
+    
+# Correction: 
+#
+
+# Et celui-là ?
+#
+
+a = 12  # DIFF
+
+if a < 10:
+    print("{{Coucou|Kookoo}}")
+print("Hello")  # DIFF
+    
+# Correction: ...
+#
 
 # {{Le bloc if de ce programme va afficher <em>Coucou</em> puis <em>Hello</em> seulement si a est plus petit que 10|The if-block in this program will display "Kookoo" then "Hello" only if a is smaller than 10}},
 # {{sinon, il saute le bloc et donc, ne fait rien|otherwise, the block is jumped and then, nothing is done}}.
