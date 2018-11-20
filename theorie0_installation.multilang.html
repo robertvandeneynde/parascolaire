@@ -118,6 +118,13 @@
         <section name="en-ligne">
 
         <p>
+        {{ Tester votre code en ligne sur <a href="http://repl.it/site/languages/python3">repl.it pour python3</a>.
+        |  Test your code online on <a href="http://repl.it/site/languages/python3">repl.it pour python3</a>. }}
+        
+        Vous tappez votre code à gauche, vous faites <code>Run</code> et vous voyez le résultat à droite.
+        
+        <p>
+        
         {{ Tester votre code en ligne sur <a href="http://pythontutor.com/visualize.html">pythontutor</a>.
         |  Test your code online on <a href="http://pythontutor.com/visualize.html">pythontutor</a>. }}
         
@@ -158,10 +165,10 @@
         </ul>
         
         <p>{{
-        Le mieux est toujours d'avoir la dernière version de python (<code>3.6</code>)
+        Le mieux est toujours d'avoir la dernière version de python (<code>3.7</code>)
         mais sous windows l'installation de pygame est plus facile avec python <code>3.4</code>.
         |
-        The best is of course to have the last version of python (<code>3.6</code>)
+        The best is of course to have the last version of python (<code>3.7</code>)
         but on Windows the installation of pygame is easier for python <code>3.4</code>.
         }}</p>
 
@@ -175,10 +182,10 @@
         </ul>
         
         <p>
-        {{ Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (<code>3.5</code>, <code>3.6</code>...).
-        Ou bien si vous êtes sous mac, c'est le même niveau de difficulté que d'installer <code>3.6</code> que <code>3.4</code>.
-        | However, to have all the brand new python stuffs, it's better to have more recent versions (<code>3.5</code>, <code>3.6</code>...).
-        Or if you are on mac, it's the same level of difficulty to install <code>3.6</code> or <code>3.4</code>.
+        {{ Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (<code>3.5</code>, <code>3.7</code>...).
+        Ou bien si vous êtes sous mac, c'est le même niveau de difficulté que d'installer <code>3.7</code> que <code>3.4</code>.
+        | However, to have all the brand new python stuffs, it's better to have more recent versions (<code>3.5</code>, <code>3.7</code>...).
+        Or if you are on mac, it's the same level of difficulty to install <code>3.7</code> or <code>3.4</code>.
         }}
         </p>
         
@@ -205,7 +212,52 @@
 
         </section>
         
-        <h2 id="pip-whl">{{Option 3 : Installer via pip et les whl|Option 3: Install via pip and whl}}</h2>
+        <h2 id="pipwin">{{Option 3 : Installer via pipwin|Option 3: Install via pipwin}}</h2>
+        
+        <section name="pipwin">
+        
+          <h3 id="windows">Windows</h3>
+          <ul>
+            
+            <li>
+                Téléchargez python version <code>3.7</code> sur <a href="https://python.org">python.org</a>.
+            </li>
+            
+            <li>
+                Pour télécharger pygame nous allons utiliser <code>pipwin</code>.
+            </li>
+            
+            <li>Ouvrez <code>cmd</code> (cliquez sur le bouton windows en bas à gauche de l'écran → tappez <code>cmd</code>).</li>
+            
+            <li>Entrez la commande suivante :
+            
+                <pre><code class="dos">
+                py -3 -m pip install pipwin
+                </code></pre>
+            </li>
+            
+            <li>Entrez la commande suivante :
+            
+                <pre><code class="dos">
+                py -3 -m pipwin install pygame
+                </code></pre>
+                
+                <p>Elle prend un peu de temps, je n'y peux rien ^^
+            </li>
+            
+          </ul>
+          
+          <p>Si jamais dans le futur vous voyez un tutoriel qui vous dit de tapper une commande du style <code>python TRUC</code>, chez vous ça sera <code>py -3 TRUC</code> ou <code>py -2 TRUC</code> si vous devez utiliser python version 2 ou <code>py -3.7 TRUC</code> si vous devez utiliser une version explicite de python, comme <code>3.7</code>.</p>
+          <p>Si on vous dit d'installer un paquet via <code>pip</code>, par exemple <code>pip install pillow</code>
+          ça sera <code>py -3 -m pipwin install pillow</code> chez vous.
+          
+          <p>Si la commande précédente ne marche pas, c'est probablement que le package n'est pas disponible via <code>pipwin</code>, regardez l'<a href="#pip-whl">Option 4</a>.
+          
+          <p>Vous pouvez maintenant commencer à coder en choisissant un <a href="#choose-ide">IDE</a> !</p>
+        
+        </section>
+        
+        <h2 id="pip-whl">{{Option 4 : Installer via pip et les whl|Option 4: Install via pip and whl}}</h2>
 
         <section name="pip-whl">
         
@@ -214,7 +266,7 @@
         | If you have a problem, send me a <a href="..">mail</a>! }}
         </p>
         
-        <p>{{Téléchargez la dernière version de python (<code>3.6</code>) sur|Download the last python version (<code>3.6</code>) on}} <a href="https://www.python.org/downloads/">python.org</a>.</p>
+        <p>{{Téléchargez la dernière version de python (<code>3.7</code>) sur|Download the last python version (<code>3.7</code>) on}} <a href="https://www.python.org/downloads/">python.org</a>.</p>
         
         <p>{{Nous allons utiliser <em>pip</em> qui permet d'installer n'importe quel paquet python ! Ici nous allons installer le paquet <em>pygame</em> pour faire des fenêtres.
         | We're going to use <em>pip</em> which can install any python package! Here we'll install the <em>pygame</em> package to create windows.
@@ -224,7 +276,7 @@
         | A former python version exist: python 2, to know the differences between python 2 and python 3, read the note <a href="#python-version">below</a>.
         }}</p>
 
-        <h3 id="windows">Windows</h3>
+        <h3 id="windows-whl">Windows</h3>
           <ul>
             
             <li>
@@ -235,7 +287,7 @@
             
             <li>
                 Téléchargez pygame <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame">ici</a>,
-                et téléchargez le fichier whl en fonction de votre version de python (par exemple, j'ai pris <code>pygame‑1.9.3‑cp36‑cp36m‑win32.whl</code> car j'ai python 32 bits version <code>3.6</code>).
+                et téléchargez le fichier whl en fonction de votre version de python (par exemple, j'ai pris <code>pygame‑1.9.3‑cp37‑cp37m‑win32.whl</code> car j'ai python 32 bits version <code>3.7</code>).
             </li>
             
             <li>Ce fichier doit être dans votre dossier <strong>Téléchargements</strong>, il est probable qu'il y est déjà.</li>
@@ -245,7 +297,7 @@
             <li>Entrez la commande suivante :
             
                 <pre><code class="dos">
-                py -3 -m pip install Downloads\pygame-1.9.3-cp36-cp36m-win32.whl
+                py -3 -m pip install Downloads\pygame-1.9.3-cp37-cp37m-win32.whl
                 </code></pre>
             </li>
             
@@ -274,7 +326,7 @@
             
                 <pre><code class="dos">
                 cd %AppData%\..\Local\Programs\Python36-32\Scripts\
-                pip.exe install pygame-1.9.3-cp36-cp36m-win32.whl
+                pip.exe install pygame-1.9.3-cp37-cp37m-win32.whl
                 </code></pre>
             </li>
             
@@ -282,14 +334,14 @@
             
                 <pre><code class="dos">
                 cd %AppData%\..\Local\Programs\Python36-64\Scripts\
-                pip.exe install pygame-1.9.3-cp36-cp36m-win_amd64.whl
+                pip.exe install pygame-1.9.3-cp37-cp37m-win_amd64.whl
                 </code></pre>
             </li>
             -->
             
           </ul>
           
-          <p>Si jamais dans le futur vous voyez un tutoriel qui vous dit de tapper une commande du style <code>python TRUC</code>, chez vous ça sera <code>py -3 TRUC</code> ou <code>py -2 TRUC</code> si vous devez utiliser python version 2 ou <code>py -3.6 TRUC</code> si vous devez utiliser une version explicite de python, comme <code>3.6</code>.</p>
+          <p>Si jamais dans le futur vous voyez un tutoriel qui vous dit de tapper une commande du style <code>python TRUC</code>, chez vous ça sera <code>py -3 TRUC</code> ou <code>py -2 TRUC</code> si vous devez utiliser python version 2 ou <code>py -3.7 TRUC</code> si vous devez utiliser une version explicite de python, comme <code>3.7</code>.</p>
           <p>Si on vous dit d'installer un paquet via <code>pip</code>, par exemple <code>pip install pillow</code> téléchargez le whl sur le <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">site non officiel</a>
           (pour trouver vite un paquet, utilisez <kbd>Ctrl+F</kbd>) et exécutez la commande qu'on vient de faire avec le bon nom de fichier.</p>
           
@@ -299,7 +351,7 @@
         
         <ul>
         
-            <li>Téléchargez la dernière version de python (<code>3.6</code>) sur <a href="https://www.python.org/downloads/">python.org</a>.</li>
+            <li>Téléchargez la dernière version de python (<code>3.7</code>) sur <a href="https://www.python.org/downloads/">python.org</a>.</li>
             
             <li>Installez XCode via l'AppStore... Ça risque de prendre un peu de temps...</li>
             
@@ -351,7 +403,7 @@
         <li>Ouvrez un terminal (cliquez sur l'icône de recherche <img style="border:1px solid #999; vertical-align:middle;" src="mac-search.png" /> en haut à droite de l'écran et tappez <em>Terminal</em> ou bien suivez <a href="http://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac">ceci</a>).
             <ul>
                 <li>Pour tester que python version 3 s'est bien installé, tappez <code>python3</code> puis appuyez sur Enter.</li>
-                <li>Vous devriez voir le texte <em>Python <code>3.6</code></em> et qui finit par <code>>>> </code> affiché à l'écran.</li>
+                <li>Vous devriez voir le texte <em>Python <code>3.7</code></em> et qui finit par <code>>>> </code> affiché à l'écran.</li>
                 <li>Par contre, si vous voyez une phrase du style <em>commande introuvable: python3</em> ou <em>command not found: python3</em>, c'est qu'il ne s'est pas installé.</li>
                 <li>Fermez le terminal</li>
             </ul>

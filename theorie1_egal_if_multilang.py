@@ -7,15 +7,14 @@ from __future__ import print_function, division
 
 # <nav class="external">
 # <a class="video" href="https://www.youtube.com/watch?v=zJ-w2izNvg4">Programmation — Théorie 1 : Structure, variables et conditions</a>
-# <hr/><ul>
-# </ul>
+# </nav>
+# <br/>
+# <nav class="external">
+# <a class="video" href="https://youtu.be/fForqjCBVeY">Théorie 1, prise en main et <code>exercice0</code></a>
 # </nav>
 
 #
-# Allez sur [repl.it python3](https://repl.it/site/languages/python3) ou téléchargez [Wing IDE 101](https://wingware.com/downloads/wingide-101).
-
-#
-# <span class="comment">Cette a été présentée en live dans [cette vidéo](https://www.twitch.tv/videos/332313864)</span>
+# Allez sur [repl.it python3](https://repl.it/site/languages/python3) ou bien ouvrez Wing 101 (téléchargeable sur [le site de Wing](https://wingware.com/downloads/wingide-101)).
 
 # {{Les variables permettent de stocker une valeur dans la mémoire de l'ordinateur |Variables are useful to store a value in the memory of the computer}}:
 # <ul><li> <code>"="</code> {{permet de changer la valeur d'une variable|allows you to change the value of a variable}}
@@ -30,11 +29,14 @@ print(a)
 b = a + 1        # {{b vaut maintenant a + 1 = 7|b is now a + 1 = 7}}
 c = a + b * 2    # {{priorité des opérations|priority of operations}}
 d = (a + b) * 2  # {{mettre des parenthèses si nécessaire !|put parenthesis if needed!}}
-a = a + 1        # {{on calcule "a + 1", puis on met le résultat dans a|calculate "a + 1", then put the result in a}}
-print(a)         # {{La variable "a" a donc été augmentée de 1"|The variable "a" is then incremented by 1.}}
 print(b)         # {{b n'a pas changé depuis qu'on a fait "b ="|b didn't change since the time we did "b ="}}
 print(c)
 print(d)
+
+#
+# {{On peut modifier une variable existante |We can modify an existing variable}}:
+a = a + 1        # {{on calcule "a + 1", puis on met le résultat dans a|calculate "a + 1", then put the result in a}}
+print(a)         # {{La variable "a" a donc été augmentée de 1"|The variable "a" is then incremented by 1.}}
 
 #
 # {{Pour afficher du texte, il faut le mettre entre guillemets |To print text, one must put in between quotes}}:

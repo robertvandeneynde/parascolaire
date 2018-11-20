@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<!--         <link href="turtle.png" rel="icon" type="image/png" /> -->
+        <title>Exercice 0 : Trier deux nombres</title>
+        
+<!--         <meta property="og:image" content="https://..." /> -->
+         <meta property="og:description" content="Écris un programme qui affiche a et b dans l'ordre croissant, sachant que a et b sont deux nombres quelconques, comme a = 1 et b = 2" /> 
+        <!-- <meta property="og:url" content="" /> -->
+<!--         <meta property="og:title" content="" /> -->
+<!--         <meta property="og:type"   content="article" />  -->
+        
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="utils.js"></script>
+        <style>
+            body {
+                /* background: url('diamond.jpg'); */
+                /* background: url('bike-and-tree-and-turtle.png'); */
+                /* background-size: 400px; */
+            }
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+            figcaption {
+                display: none;
+            }
+            p > code {
+                display: inline;
+            }
+            code a {
+                text-decoration: underline;
+            }
+            
+            :not(pre) > code {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 2px !important;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                utils.dedentPreCode()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
+        </script>
+    </head>
+    <body class="codeformat">
+    <div id="wrapper">
+        <h1><!--
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">Exercice 0 : Trier deux nombres</span><!--
+        --></h1>
+        
+        <section name="{{ section.id }}">
+            <h3>Données</h3>
+            <p><code>a</code> et <code>b</code> sont deux nombres <strong>quelconques</strong>.</p>
+            
+            <pre><code class="py">
+                a = 1
+                b = 2
+            </code></pre>
+            
+            <p>Tu devras donc écrire un programme en dessous de ces deux lignes, tu ne peux pas modifier ces lignes !</p>
+            
+            <h3>Énoncé</h3>
+            <p>Écris un programme qui <strong>affiche</strong> les deux nombres <strong>dans l'ordre croissant</strong>.</p>
+            
+            <h3>Exemples</h3>
+            <p>Ici vu qu'on a <code>a = 1</code> et <code>b = 2</code>, le programme devra afficher <code>1 2</code>.</p>
+            <p>Mais si on remplace en haut <code>a = 1</code> par <code>a = 5</code>, on aura <code>a = 5</code> et <code>b = 2</code> et donc le programme devra afficher <code>2 5</code> !</p>
+            <p>Et vu que les deux nombres peuvent être quelconques, on peut avoir le cas où <code>a = 2</code> et <code>b = 2</code>...
+            
+            <h3>Remarques d'affichage</h3>
+            <p>Quand je demande d'afficher <code>1 2</code>, ça peut être sur une ou deux ligne, ceci est bon :
+            
+            <pre><code>
+                1 2
+            </code></pre>
+            
+            <p>Ceci est bon aussi :</p>
+            <pre><code>
+                1
+                2
+            </code></pre>
+        </section>
+    </div>
+    </body>
+</html>

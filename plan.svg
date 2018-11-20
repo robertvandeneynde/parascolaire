@@ -51,13 +51,13 @@
      inkscape:snap-smooth-nodes="true"
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
-     inkscape:zoom="6.0966385"
-     inkscape:cx="335.12513"
-     inkscape:cy="806.29222"
+     inkscape:zoom="3.0483193"
+     inkscape:cx="382.75962"
+     inkscape:cy="769.85459"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g9706-4"
+     inkscape:current-layer="svg9088"
      inkscape:snap-intersection-paths="true"
      fit-margin-top="10"
      fit-margin-left="10"
@@ -301,7 +301,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="exercice0_trier_deux_nombres.py.html"
+           xlink:href="exercice0_trier_deux_nombres.html"
            id="a9246">Exercice 0</a>
       </text>
     </g>
@@ -324,7 +324,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="exercice1_minute_suivante.py.html"
+           xlink:href="exercice1_minute_suivante.html"
            id="a9264">1</a>
       </text>
     </g>
@@ -347,7 +347,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="exercice2_minute_suivante_un_print.py.html"
+           xlink:href="exercice2_minute_suivante_un_print.html"
            id="a9282">2</a>
       </text>
     </g>
@@ -2309,13 +2309,13 @@
            style="fill:#202bff;fill-opacity:1;stroke:none"
            inkscape:connector-curvature="0"
            id="path9242-1"
-           d="M 0,0 H 76.14423 V 31.6 H 0 Z"
+           d="M 0,0 120.54685,0 V 31.6 L 0,31.6 Z"
            transform="translate(0.5,0.5)" />
         <text
            id="text9244-7"
            x="32.21154"
            y="22.175962"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">Vidéo <!-- <a
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">Vidéo Blocs<!-- <a
           xlink:href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">Vidéo</a> -->
 </text>
         <g
@@ -2968,8 +2968,8 @@
      transform="matrix(0.49999999,0,0,0.49999999,100.82136,73.3676)">
     <a
        xlink:href="raccourcis.html"
-       xlink:href_1="shortcuts.html"
-       id="a9246-7-4-7">
+       id="a9246-7-4-7"
+       xlink:href_1="shortcuts.html">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#202bff;fill-opacity:1;stroke:none"
@@ -3019,5 +3019,91 @@
        d="m 594.17234,305.41872 -2,4 -2,-4 2,1 z"
        id="path9752-7-8-0"
        sodipodi:nodetypes="ccccc" />
+  </g>
+  <g
+     id="g9238-3-2"
+     transform="matrix(0.49999999,0,0,0.49999999,176.24955,21.015952)">
+    <a
+        xlink:href="https://youtu.be/fForqjCBVeY"
+       id="a9246-4-7">
+      <g
+         id="g9240-5-0">
+        <path
+           sodipodi:nodetypes="ccccc"
+           style="fill:#202bff;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0"
+           id="path9242-1-9"
+           d="M 0,0 130.27006,0 V 31.6 L 0,31.6 Z"
+           transform="translate(0.5,0.5)" />
+        <text
+           id="text9244-7-3"
+           x="32.21154"
+           y="22.175962"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">Vidéo Python<!-- <a
+          xlink:href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">Vidéo</a> -->
+</text>
+        <g
+           transform="matrix(0.450824,0,0,0.450824,13.992628,-8.0740402)"
+           id="g5036-6">
+          <rect
+             style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:2.96394229;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect4929-0"
+             width="33.597076"
+             height="17.43848"
+             x="-14.374897"
+             y="51.096973"
+             rx="4.9399042"
+             ry="4.9399042" />
+          <circle
+             style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98798072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="path4931-3-6"
+             cx="9.8152523"
+             cy="44.001461"
+             r="7.0955129" />
+          <path
+             style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.98798078px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             d="m 36.053736,50.098514 10e-6,19.4354 -16.831567,-9.7177 z"
+             id="path5000-2"
+             inkscape:connector-curvature="0" />
+          <circle
+             style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.98798066;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="path4931-3-3-6"
+             cx="-5.9924355"
+             cy="44.001457"
+             r="7.0955129" />
+        </g>
+      </g>
+    </a>
+  </g>
+  <g
+     id="g9706-4-3"
+     transform="matrix(0.49999999,0,0,0.49999999,164.36884,23.96024)">
+    <path
+       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       id="path9708-6-3"
+       d="M 0,0 H 16"
+       stroke="transparent"
+       stroke-miterlimit="10"
+       transform="translate(4.7614237,10.411424)" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       id="path9710-0-8"
+       d="M 4.0000163,0 H 16"
+       stroke-miterlimit="10"
+       transform="translate(4.7614237,10.411424)"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#808080;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9712-7-05"
+       d="M 0,0 8,4 0,8 2,4 Z"
+       transform="translate(16.261424,6.4114237)" />
+    <path
+       style="fill:#808080;stroke:none;stroke-width:1"
+       inkscape:connector-curvature="0"
+       id="path9712-7-0-6"
+       d="m 12.76144,6.411424 -8,4 8,4 -2,-4 z" />
   </g>
 </svg>

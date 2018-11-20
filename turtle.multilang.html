@@ -287,6 +287,23 @@
             <p>Nous voyons que la tortue est une super calculette ! Bien mieux que <a href="http://pi.ac3j.fr/wp-content/uploads/2014/01/TIcollege.jpg">cet objet des années 80</a>, crois-moi.
             <p>Remarque que la dernière ligne fait avancer la tortue de 200 pixels, car dans une calculette, le <kbd>×</kbd> se fait avant le <kbd>+</kbd>, et donc <code class="nowrap">40 + 80 * 2 = 40 + 160 = 200</code>, c'est la priorité des opérations.
             
+            <p>Tapper tout ça c'était un peu lent n'est-ce pas ?
+            As-tu pensé à faire <em>Copier-Coller</em> ?
+            
+            <ol>
+                <li>Sélectionne le texte :
+                    <ol>
+                        <li>Met ta souris à gauche du premier caractère (<code>f</code>),
+                        <li>Maintient le clic enfoncé,
+                        <li>Déplace ta souris jusqu'à droite du dernier caractère (<code></code>),
+                        <li>relâche le clic.
+                    </ol>
+                <li>Clic droit (clic de droite, en utilisant ton majeur)
+                <li>Sélectione <em>Copier</em> dans le menu (raccourci <kbd>Ctrl</kbd>+<kbd>C</kbd>).
+                <li>Clique dans la zone de texte à droite.
+                <li>Clic droit → Coller (raccourci <kbd>Ctrl</kbd>+<kbd>V</kbd>).
+            </ol>
+            
         </section>
         
         <h2 id="complex{{e|}}">{{ Formes complexes | Complex shapes }}</h2>
@@ -374,13 +391,13 @@
             </figure>
             
             <p>{{
-                La nouvelle commande <code class="py">penup()</code>, raccourci <code>pu()</code> ou <code>up()</code>,
+                La nouvelle commande <code class="py">penup()</code> (raccourci <code>pu()</code> ou <code>up()</code>)
                 permet de lever le crayon, ainsi la tortue peut bouger sans dessiner.
-                Ensuite, <code>pendown()</code>, raccourci <code>pd()</code> ou <code>down()</code>, repose le crayon pour plus de dessins.
+                Ensuite, <code>pendown()</code> (raccourci <code>pd()</code> ou <code>down()</code>) repose le crayon pour plus de dessins.
                 |
-                The new command <code class="py">penup()</code>, shortcut <code>pu()</code> or <code>up()</code>,
+                The new command <code class="py">penup()</code> (shortcut <code>pu()</code> or <code>up()</code>)
                 can lift the pen up, so that the turtle can move without drawing.
-                We also have, <code>pendown()</code>, shortcut <code>pd()</code> or <code>down()</code>, to put the pen back down for more drawing.
+                We also have, <code>pendown()</code> (shortcut <code>pd()</code> or <code>down()</code>) to put the pen back down for more drawing.
             }}</p>
             
             <p>{{ Que fait ce code ? | What is this code doing? }}</p>
@@ -422,9 +439,9 @@
                 | For this amazing orange, I will write the command }}
                 <code>color(253, 126, 0)</code>
 
-            <p>{{ Pour faire varier les couleurs, on peut tapper <a href="https://google.com?q=rgb+253+126+0"><code>rgb 253 126 0</code> sur google</a> !
+            <p>{{ Pour faire varier les couleurs, on peut tapper <a href="https://google.com/search?q=rgb+253+126+0"><code>rgb 253 126 0</code> sur google</a> !
                 Le <code>rgb</code> signifiant <em>red, green, blue</em>. 😉
-                | In order to pick any color, we can <a href="https://google.com?q=rgb+253+126+0">google <code>rgb 256 126 0</code></a>. }}</p>
+                | In order to pick any color, we can <a href="https://google.com/search?q=rgb+253+126+0">google <code>rgb 256 126 0</code></a>. }}</p>
             
             <p>{{
             Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code class="nohl"><span class="hljs-string">#ff0060</span></code> qui peut s'insérer en écrivant
@@ -454,7 +471,7 @@
             
             <ul>
                 <li>{{En pourcentages :|As percentages:}} <code class="nowrap">100%, 60%, 0%</code>, {{donc 100% rouge, 60% vert et 0% bleu|meaning 100% red, 60% green and 0% blue}}.
-                <li>{{En ratios :|As ratios:}} <code class="nowrap">1.0, 0.6, 0</code>, {{les ratios sont entre 0 et 1 et sont plus <em>mathématiques</em> que les pourcentages.| ratios are between 0 and 1 and are more <em>mathematical</em> than percentages}}.
+                <li>{{En ratios :|As ratios:}} <code class="nowrap">1.0, 0.6, 0</code>, {{les ratios sont entre 0 et 1 et sont plus <em>mathématiques</em> que les pourcentages| ratios are between 0 and 1 and are more <em>mathematical</em> than percentages}}.
                 <li>{{Avec des entiers entre 0 et 255 :|With integers ranging from 0 to 255:}} <code>255, 153, 0</code> {{vu que|because}} <em class="nowrap">153 = 60% 255</em> = <em class="nowrap">0.6 × 255</em> = <code class="nowrap">60 / 100 * 255</code>.
                 <li>{{Avec des entiers écris en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a> :|With integers written in <a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>:}} <code>ff, 99, 0</code> {{vu que 255 vaut|because 255 is}} <code>ff</code> {{en|in}} {{<a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal">hexadécimal</a>|<a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>}} {{, 153 vaut|, 153 is}} <code>99</code> {{et 0 vaut <code>0</code>|and 0 is <code>0</code>}}. {{On note souvent les trois entiers <em>ff, 99, 0</em> en attaché sur 6 caractères avec un <code>#</code> devant, comme ceci : <code>#ff9900</code>.|Often we write the 3 integers <em>ff, 99, 0</em> attached on 6 characters with a <code>#</code> in front, like this: <code>#ff9900</code>.}}
                 <li>{{Et quand les deux chiffres hexadécimaux sont les mêmes pour les trois composantes on ne les répète souvent pas :|And when both hexadecimal digits for the three components are equal, one does not repeat it:}} <code>#f90</code>.

@@ -89,6 +89,9 @@
                 border-right: 0;
                 padding: 5px 0;
             }
+            .closable:not(.little-box) {
+                padding-top: 20px;
+            }
             button {
                 cursor: pointer;
             }
@@ -335,7 +338,8 @@
         
         <section name="{{prerequis|prerequisites}}">
             <p class="lang-switch"><a href="django.{{en|fr}}.html#{{prerequis|prerequisites}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a>
-
+            
+            <h3 id="{{prerequis|prerequisites}}-python">Python</h3>
             <p>Une petite connaissance préalable de python est conseillée, vous pouvez avoir un petit rappel de théorie sur mon site
                 <a href="https://robertvandeneynde.be/parascolaire">de programmation pour débutants</a> :
             
@@ -425,6 +429,8 @@
                   
                 </ul>
             </nav>
+            
+            <h3 id="{{prerequis|prerequisites}}-html-css">Html/Css</h3>
             
             <p>Des connaissances de html, voici mon propre tutoriel html :</p>
             
@@ -675,7 +681,7 @@
             ]
             </code></pre>
             
-            <p>On dit donc que quand on va sur l'<strong>url</strong> <code>hello/</code>, <!-- because it doesn't begin with a slash, one could not write code class="url" -->
+            <p>On dit donc que quand on va sur l'<strong>url</strong> <code>hello</code>, <!-- because it doesn't begin with a slash, one could not write code class="url" -->
                 on va dans <code>views.dire_bonjour</code>, il faut donc aller dans <code>views.py</code> et y définir <code>dire_bonjour</code>.
             
             <p>Vous devrez donc également modifier (ou créer) le fichier <code>views.py</code> qui se trouve dans le même dossier, on y verra :
@@ -864,7 +870,7 @@
             
             <h4 id="html-est-joli">Possibilités d'html</h4>
             
-            <div symbol="Possibilités d'html" class="developpement">
+            <div symbol="Possibilités d'html" class="developpement closable little-box">
             <p>Afin que notre page soit plus jolie, on peut apprendre d'autres balises html, si vous 
                 voulez garder un site peu joli mais passer directement au côté fontionnel <a href="#template-et-variables">passez cette section</a>,
                 sinon voici un aperçu de ce qu'un 
@@ -1030,8 +1036,16 @@
             
             <p>Remarquez que vous pouvez nommer votre fichier html comme vous le voulez, même si c'est le même nom que les fonctions ou les urls.
             
-            <p>Pour en savoir plus sur l'html et le css, j'ai <a href="html.{{fr|en}}.html">une intro sur mon site</a>
-            et ensuite direction le très bon
+            <p>Pour en savoir plus sur l'html et le css, j'ai <a href="html.{{fr|en}}.html">une intro sur mon site</a> :
+            
+            <nav class="external">
+                <a href="html.html">
+                    Introduction à html et css
+                    <img src="flag-fr.png" style="vertical-align:middle; margin-right: 5px;"></a>
+                </a>
+            </nav>
+            
+            <p>Ensuite direction le très bon
                 <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/comment-fait-on-pour-creer-des-sites-web">
                     tutoriel html et css
                 </a>
@@ -1199,7 +1213,7 @@
             &lt;/ul>
             </code></pre>
             
-            <p>Le template peut accepter plein d'autre type de variables, mais nous verrons son
+            <p>Le template peut accepter plein d'autre types de variables, mais nous verrons son
                 utilité principale dans le chapitre suivant !
             
             <p class="comment">Pour en savoir plus sur les templates, je conseille surtout l'<strong>héritage</strong> avec <code>{% extends %}</code>
@@ -1338,7 +1352,7 @@
             <div id="migrations_erreurs"></div>
             <p>Voici toutes les erreurs qui peuvent arriver :
             
-            <ul>
+            <ul class="developpement closable" symbol="Les erreurs pouvant arriver">
             
             
             <li>
@@ -1683,9 +1697,11 @@
             </div> -->
             <!-- </div> -->
                 
-            <p>À la place d'ouvrir directement le fichier 
-            de base de données, ou quand ce fichier n'existe pas ou est difficile d'accès,
-            une autre manière simple de voir le contenu de cette base de donnée, est d'<strong>activer l'admin</strong> :
+            <p>La base de donnée est par défaut un bête fichier .sqlite généré dans le dossier du projet.
+            Il est ouvrable.
+            Certains projets plus audacieux utilisent MySql et donc doivent accéder à la base de donnée via la <em>console sql</em>.
+            
+            <p>Une autre manière simple de voir le contenu de cette base de donnée, est d'<strong>activer l'admin django</strong> :
             
             <div id="django.contrib.admin"></div>
             <div class="developpement little-box closable" symbol="Activer l'admin de django">

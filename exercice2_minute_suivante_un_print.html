@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<!--         <link href="turtle.png" rel="icon" type="image/png" /> -->
+        <title>Exercice 2 : La minute suivante avec un seul print</title>
+        
+<!--         <meta property="og:image" content="https://..." /> -->
+<!--         <meta property="og:description" content="" /> -->
+        <!-- <meta property="og:url" content="" /> -->
+<!--         <meta property="og:title" content="" /> -->
+<!--         <meta property="og:type"   content="article" />  -->
+        
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="utils.js"></script>
+        <style>
+            body {
+                /* background: url('diamond.jpg'); */
+                /* background: url('bike-and-tree-and-turtle.png'); */
+                /* background-size: 400px; */
+            }
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+            figcaption {
+                display: none;
+            }
+            p > code {
+                display: inline;
+            }
+            code a {
+                text-decoration: underline;
+            }
+            
+            :not(pre) > code {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 2px !important;
+            }
+        </style>
+        
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                utils.dedentPreCode()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
+        </script>
+    </head>
+    <body class="codeformat">
+    <div id="wrapper">
+        <h1><!--
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">Exercice 2 : La minute suivante avec un seul print</span><!--
+        --></h1>
+        
+        <section name="{{ section.id }}">
+        
+        <h3>Énoncé</h3>
+        <p>Comme l'exercice précédent !
+        <p>Sauf que tu ne peux avoir <strong>qu'un seul</strong> <code>print</code> dans le code !
+        <p>L'unique <code>print</code> du code sera <code>print(h, m)</code> à la fin du code.
+        
+        <pre><code class="py">
+        h = 15
+        m = 30
+
+        # écris ton code sans print ici
+
+        print(h, m)
+        </code></pre>
+        
+        <p>Rappelle toi que les variables peuvent changer de valeur avec <code>variable = valeur</code>,
+        si ton code précédent avait déjà un seul print, tu peux directement passer à l'exercice suivant...
+        
+        </section>
+    </div>
+    </body>
+</html>

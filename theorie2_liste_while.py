@@ -5,7 +5,8 @@ from __future__ import print_function, division
 # Base TROIS : while #
 ### while ############
 
-# les while sont comme des if, sauf qu'après avoir exécuté leur code, ils recommencent
+# Les <code>while</code> sont comme des <code>if</code>,
+# sauf qu'après avoir exécuté leur code, ils recommencent :
 
 a = 5
 
@@ -15,9 +16,22 @@ if a < 10:
 while a < 10:
     print("Hello")
     
-# Ce programme va afficher <code>"Hello"</code> sans s'arrêter...
+# Comme vous pouvez le voir sur [pythontutor](http://pythontutor.com/visualize.html#code=a%20%3D%205%0A%0Aif%20a%20%3C%2010%3A%0A%20%20%20%20print%28%22Tada%22%29%0A%20%20%20%20%0Awhile%20a%20%3C%2010%3A%0A%20%20%20%20print%28%22Hello%22%29%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
+# ce programme va afficher <code>"Hello"</code> sans s'arrêter...
+
 # Pour éviter de faire une <em>boucle infinie</em>, il faudrait que la condition devienne fausse,
 # par exemple comme ceci :
+
+a = 5
+while a < 10:
+    print("Hello")
+    a = a + 1  # DIFF
+
+#   
+# Maintenant, <code>"Hello"</code> n'est affiché que 5 fois ^^
+
+# On peut renommer la variable,
+# et la faire commencer à zéro :
 
 i = 0
 while i < 10:
@@ -25,7 +39,7 @@ while i < 10:
     i = i + 1
 
 #   
-# Maintenant, <code>"Hello"</code> n'est affiché que dix fois ^^
+# Maintenant, <code>"Hello"</code> est affiché 10 fois ^^
 
 # En diagramme ça donne :
 # <figure><img height=389 src="while_as_diagram.fr.svg"></figure>
@@ -50,23 +64,27 @@ petite_liste = []     # 0 éléments
 # Il existe 4 opérations de base possibles sur les listes :
 
 # 1) Lire
-p = ma_liste[0]     # l'élément numéro 0 est le premier, ici p = 1
-d = ma_liste[3]     # vu que notre liste est de taille 4, l'indice 3 correspond au dernier élement, ici d = 2
+p = ma_liste[0]     # l'élément numéro 0 est le premier, ici p = 3
+d = ma_liste[3]     # vu que notre liste est de taille 4, l'indice 3 correspond au dernier élement, ici d = 4
 t = len(ma_liste)   # len permet de connaître la taille, t = 4
-print(ma_liste[5])  # ERREUR, il n'y a pas d'élément "5", le dernier était "3"
+print(ma_liste[5])  # ERREUR, il n'y a pas d'élément numéro "5", le dernier était le numéro "3"
 
 # Le <em>numéro</em> est appelé "<em>l'indice</em>",
 # l'indice du <code>1</code> dans notre liste est donc <code>0</code>
 
 # 2) Écrire
-ma_liste[0] = 9  # hop ! la liste vaut [9,2,7,2]
+ma_liste[0] = 9  # hop ! la liste vaut [9,4,7,4]
 ma_liste[5] = 2  # ERREUR : IndexError
 
 # 3) Ajouter à la fin
-ma_liste.append(0)  # hop ! la liste vaut [9,2,7,2,0]
+ma_liste.append(0)  # hop ! la liste vaut [9,4,7,4,0]
 
 # 4) Supprimer à la fin
-ma_liste.pop()  # hop ! la liste vaut [9,2,7,2]
+ma_liste.pop()  # hop ! la liste vaut [9,4,7,4]
+
+# Vous pouvez essayer tout ça sur 
+# [pythontutor](http://pythontutor.com/visualize.html#code=%23%20Les%20listes%20permettent%20de%20stocker%20plusieurs%20valeurs,%20on%20peut%20cr%C3%A9er%20des%20listes,%20avec%20des%20crochets%20%3A%0A%0Ama_liste%20%3D%20%5B3,4,7,4%5D%20%20%23%204%20%C3%A9l%C3%A9ments%20!%0Apetite_liste%20%3D%20%5B%5D%20%20%20%20%20%23%200%20%C3%A9l%C3%A9ments%0A%0A%23%20Il%20existe%204%20op%C3%A9rations%20de%20base%20possibles%20sur%20les%20listes%20%3A%0A%0A%23%201%29%20Lire%0Ap%20%3D%20ma_liste%5B0%5D%20%20%20%20%20%23%20l'%C3%A9l%C3%A9ment%20num%C3%A9ro%200%20est%20le%20premier,%20ici%20p%20%3D%203%0Ad%20%3D%20ma_liste%5B3%5D%20%20%20%20%20%23%20vu%20que%20notre%20liste%20est%20de%20taille%204,%20l'indice%203%20correspond%20au%20dernier%20%C3%A9lement,%20ici%20d%20%3D%204%0At%20%3D%20len%28ma_liste%29%20%20%20%23%20len%20permet%20de%20conna%C3%AEtre%20la%20taille,%20t%20%3D%204%0Aprint%28ma_liste%5B5%5D%29%20%20%23%20ERREUR,%20il%20n'y%20a%20pas%20d'%C3%A9l%C3%A9ment%20num%C3%A9ro%20%225%22,%20le%20dernier%20%C3%A9tait%20le%20num%C3%A9ro%20%223%22%0A%0A%23%20Le%20num%C3%A9ro%20est%20appel%C3%A9%20%22l'indice%22,%20l'indice%20du%201%20dans%20notre%20liste%20est%20donc%200%0A%0A%23%202%29%20%C3%89crire%0Ama_liste%5B0%5D%20%3D%209%20%20%23%20hop%20!%20la%20liste%20vaut%20%5B9,2,7,2%5D%0Ama_liste%5B5%5D%20%3D%202%20%20%23%20ERREUR%20%3A%20IndexError%0A%0A%23%203%29%20Ajouter%20%C3%A0%20la%20fin%0Ama_liste.append%280%29%20%20%23%20hop%20!%20la%20liste%20vaut%20%5B9,2,7,2,0%5D%0A%0A%23%204%29%20Supprimer%20%C3%A0%20la%20fin%0Ama_liste.pop%28%29%20%20%23%20hop%20!%20la%20liste%20vaut%20%5B9,2,7,2%5D&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false),
+# rappelez-vous que vous pouvez cliquer sur <em>Edit Code</em> pour éditer le code.
 
 # Les boucles et les listes vont bien ensemble,
 # on peut par exemple afficher tous les éléments d'une liste avec un <code>while</code> :
@@ -100,13 +118,13 @@ for x in ma_liste:  # pour chaque élément de ma_liste, que j'appelle "x"
 ma_liste = [3,4,7,4]
 
 # insérer
-ma_liste.insert(2, 10)  # on insère 10 après les 2 premiers éléments, ma_liste vaut [1,2,10,7,2]
+ma_liste.insert(2, 10)  # on insère 10 après les 2 premiers éléments, ma_liste vaut [3,4,10,7,4]
 
 # delete connaissant l'index
-del ma_liste[3]  # on supprime l'élément d'indice 3, ma_liste vaut [1,2,10,2]
+del ma_liste[3]  # on supprime l'élément d'indice 3, ma_liste vaut [3,4,10,4]
 
 # delete connaissant l'élément: remove
-ma_liste.remove(2)  # on enlève le premier 2 de la liste, ma_liste vaut [1,10,2]
+ma_liste.remove(4)  # on enlève le premier 4 de la liste, ma_liste vaut [3,10,4]
 ma_liste.remove(9)  # ERREUR, pas de 9 dans la liste!
 
 ## for pour compter grâce à range
@@ -149,10 +167,10 @@ for nombre in ma_liste:
     
 # Ce qui peut se lire comme ceci :
 # (imaginons que <code>ma_liste = [3,4,7,4]</code>) <ul>
-# <li><code> nombre = ma_liste[0]; print(nombre)  # 1 </code>
-# <li><code> nombre = ma_liste[1]; print(nombre)  # 2 </code>
+# <li><code> nombre = ma_liste[0]; print(nombre)  # 3 </code>
+# <li><code> nombre = ma_liste[1]; print(nombre)  # 4 </code>
 # <li><code> nombre = ma_liste[2]; print(nombre)  # 7 </code>
-# <li><code> nombre = ma_liste[3]; print(nombre)  # 2 </code></ul>
+# <li><code> nombre = ma_liste[3]; print(nombre)  # 4 </code></ul>
 
 # Rien de neuf,
 # ce code peut s'écrire comme ceci avec un <code>while</code> :
