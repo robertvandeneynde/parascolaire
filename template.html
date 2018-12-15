@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <link href="favicon.png" rel="icon" type="image/png"/>
-        <title>Cours de programmation de jeux vidéos et sites web pour débutants</title>
+        <title>Programmation de jeux vidéos et sites web pour débutants - Cours d'informatique par Robert Vanden Eynde</title>
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="animations.js"></script>
@@ -14,6 +14,7 @@
                 ev.preventDefault()
                 
                 function animateSvg(then) {
+                    return then()  // plan is always there now
                     $('#svg-embed')[location.hash == '#plan' ? 'slideDown' : 'slideUp'](400, then)
                     $('#svg-close')[location.hash == '#plan' ? 'slideDown' : 'slideUp'](400)
                 }
