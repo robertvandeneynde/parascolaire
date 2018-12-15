@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!-- Generated from /home/robert/test/Sat-15-Dec-2018/.git -->
+<html lang="">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<!--         <link href="turtle.png" rel="icon" type="image/png" /> -->
+        <title>Exercice 7: Transformer une liste (opération de map)</title>
+<!--         <meta property="og:image" content="https://..." /> -->
+<!--         <meta property="og:description" content="" /> -->
+        <!-- <meta property="og:url" content="" /> -->
+<!--         <meta property="og:title" content="" /> -->
+<!--         <meta property="og:type"   content="article" />  -->
+        <link rel="stylesheet" type="text/css" href="base.css" />
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="animations.js"></script>
+        <script src="utils.js"></script>
+        <style>
+            body {
+                /* background: url('diamond.jpg'); */
+/*                 background: url('bike-and-tree-and-turtle.png'); */
+/*                 background-size: 400px; */
+            }
+            img:not(.free), pre {
+                max-width: 100%;
+            }
+            pre {
+                overflow-x: auto;
+                border: 1px solid #ccc;
+            }
+            figcaption {
+                display: none;
+            }
+            p > code {
+                display: inline;
+            }
+            code a {
+                text-decoration: underline;
+            }
+        </style>
+        <link id="stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script>
+            $(function(){
+                hljs.initHighlightingOnLoad()
+                utils.dedentPreCode()
+                utils.makeTitleLinks()
+                utils.smoothLinks()
+            })
+        </script>
+    </head>
+    <body class="codeformat">
+    <div id="wrapper">
+        <h1 class=""><!-- nocontent
+            --><a class="homeicon" href="index.html"></a><!--
+            --><span class="text">Exercice 7: Transformer une liste (opération de map)
+            </span><!--
+        --></h1>
+        <section>
+            <nav clas="external"><a href="exercice7_transformer_une_liste.py.html">Cliquez ici pour relire l'énoncé en entier</a></nav>
+            
+            <h3>Données</h3>
+            <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]</code></pre>
+
+            <h3>Énoncé</h3>
+            <p>Créer une <strong>nouvelle</strong> liste contenant chaque nombre augmenté de 1.</p>
+        </section>
+        <!--
+        --><h2 id="resolution">Résolution</h2>
+        <!-- [] -->
+        <section name="resolution"> <!-- name=""> -->
+                <h3 id="v1">V1: Énoncé</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+</code></pre>
+
+                <p>Nous devons créer une <strong>nouvelle</strong> liste contenant chaque nombre augmenté de 1.</p>
+                
+                <h3 id="v2">v2</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  # créer une NOUVELLE liste
+</code></pre>
+                <h3 id="v3">v3</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+a.<span style="color:#296E9B">append(</span>...)  # on va la remplir...
+a.<span style="color:#296E9B">append(</span>...)
+a.<span style="color:#296E9B">append(</span>...) 
+</code></pre>
+                <h3 id="v4">v4</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+a.<span style="color:#296E9B">append(</span>l[0] + 1)  # ici on doit avoir le premier nombre
+a.<span style="color:#296E9B">append(</span>...)
+a.<span style="color:#296E9B">append(</span>...) 
+</code></pre>
+                <h3 id="v5">v5</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+a.<span style="color:#296E9B">append(</span>l[0] + 1)
+a.<span style="color:#296E9B">append(</span>l[1] + 1)
+a.<span style="color:#296E9B">append(</span>l[2] + 1)  # ici les deuxièmes et troisièmes etc.
+</code></pre>
+                <h3 id="v6">v6</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+# passons à une boucle... introduisons i
+i = 0
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+a.<span style="color:#296E9B">append(</span>l[1] + 1)
+a.<span style="color:#296E9B">append(</span>l[2] + 1)
+</code></pre>
+                <h3 id="v7">v7</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+i = 0
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+i = 1
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+i = 2
+a.<span style="color:#296E9B">append(</span>l[i] + 1)  # on a maintenant trois fois la même chose...
+</code></pre>
+                <h3 id="v8">v8</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+i = 0
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+i = i + 1
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+i = i + 1  # on calcule maintenant à partir de l'état précédent
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+</code></pre>
+                <h3 id="v9">v9</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+i = 0
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+i = i + 1  # réorganisation
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+i = i + 1  
+a.<span style="color:#296E9B">append(</span>l[i] + 1)
+i = i + 1 # cette ligne est inutile mais pratique
+</code></pre>
+                <h3 id="v10">v10</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+i = 0
+while ...:  # on a exactement la même chose, boucle !
+    a.<span style="color:#296E9B">append(</span>l[i] + 1)
+    i = i + 1
+</code></pre>
+                <h3 id="v-final-pre">v11 (résolu)</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+i = 0
+while i &lt; <span style="color:#296E9B">len</span>(l):  # on s'arrête quand i dépasse la taille de la liste
+    a.<span style="color:#296E9B">append(</span>l[i] + 1)
+    i = i + 1
+</code></pre>
+                <h3 id="v12">v12</h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+i = 0
+while i &lt; <span style="color:#296E9B">len</span>(l):
+    x = l[i]  # créons une variable x
+    a.<span style="color:#296E9B">append(</span>x + 1)
+    i = i + 1
+</code></pre>
+                <h3 id="v-final"><span id="v13">v13 (résolu)</span></h3>
+                <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = []  
+for x in l:  # c'est une boucle for !
+    a.<span style="color:#296E9B">append(</span>x + 1)
+</code></pre>
+        </section>
+        
+        <h2 id="pour-en-savoir-plus">Pour en savoir plus</h3>
+        <section name="pour-en-savoir-plus">
+            <h3 id="v-final-bis"><span id="v14">v14 (résolu)</span></h3>
+            <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = [x + 1 for x in l]  # comprehension list !  
+</code></pre>
+            <h3 id="v15">v15</h3>
+            <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+a = <span style="color:#296E9B">list</span>(<span style="color:#296E9B">map</span>(plus1, l))  # map, en considérant qu'on a une fonction plus1
+</code></pre>
+
+            <h3 id="v-final-ter"><span id="v16">v16 (résolu)</h3>
+            <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+
+def plus1(x):  # on crée ENSUITE la fonction plus1 vu qu'elle n'existe pas
+    return x + 1
+    
+a = <span style="color:#296E9B">list</span>(<span style="color:#296E9B">map</span>(plus1, l))
+</code></pre>
+            
+            <h3 id="v-final-quater"><span id="v17"><span id="v18">v17 (résolu)</span></h3>
+            <pre><code class="py">l = [1, 2, 7, 6, 2, 5, 8]
+
+a = <span style="color:#296E9B">list</span>(<span style="color:#296E9B">map</span>(lambda x:x+1, l))  # ou on utilise une lambda
+</code></pre>
+        </section>
+    </div>
+    </body>
+</html>
+

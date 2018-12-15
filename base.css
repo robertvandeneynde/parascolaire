@@ -407,6 +407,9 @@ blockquote {
 }
 
 /* nav.external */
+nav.external {
+    margin: 10px 10px 10px 10px;
+}
 nav.external a {
     padding: 0px;
 }
@@ -444,16 +447,20 @@ nav.external ol {
 }
 /* END nav.external */
 
-p.comment, ul.comment, ol.comment, div.comment p {
+p.comment, ul.comment, ol.comment, div.comment p,
+p.info, ul.info, ol.info, div.info p {
     font-style: italic;
 }
-p.comment em:before, ul.comment em:before, ol.comment em:before, div.comment p em:before {
+p.comment em:before, ul.comment em:before, ol.comment em:before, div.comment p em:before,
+p.info em:before, ul.info em:before, ol.info em:before, div.info p em:before {
     content: "«";
 }
-p.comment em:after, ul.comment em:after, ol.comment em:after, div.comment p em:after {
+p.comment em:after, ul.comment em:after, ol.comment em:after, div.comment p em:after,
+p.info em:after, ul.info em:after, ol.info em:after, div.info p em:after {
     content: "»";
 }
-p.comment, div.comment {
+p.comment, div.comment,
+p.info, div.info  {
     margin-left: 10px;
     padding-left: 10px;
     border-left: 2px dotted #ccc;

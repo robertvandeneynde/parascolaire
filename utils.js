@@ -50,7 +50,7 @@ var utils = (function(){
             ).append(
                 $('<a class=next>').attr('href', i == N-1 ? nextHref : I[i+1])
             ).append(
-                $('<a class=permalink>').attr('href', I[i]).attr('title', 'Permalink')
+                $('<a class=permalink>').attr('href', I[i]).attr('title', 'Permalink ' + I[i])
             )
         }
     }

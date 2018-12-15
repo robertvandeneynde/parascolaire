@@ -30,9 +30,9 @@
                 overflow-x: auto;
                 border: 1px solid #ccc;
             }
-            figcaption:not(.mandatory) {
+            /* figcaption:not(.mandatory) {
                 display: none;
-            }
+            } */
             p > code {
                 display: inline;
             }
@@ -232,7 +232,7 @@
             <p>{{Avec tes expériences précédentes, explique, en français que fais la commande <code>forward</code> ? Et les commandes <code>left</code> et <code>right</code> ?
                 |With the experiments you just did, explain in plain english what the <code>forward</code> command do? What about the <code>left</code> and the <code>right</code> commands? }}
             
-            <p><em>{{
+            <p class="info">{{
                 Si vous voulez avoir deux fenêtres différentes pour coder et suivre le tutoriel,
                 <span ng-show="frame_mode">cliquez sur <button class="tutorial-only">Tutoriel uniquement</button>, et ensuite</span>
                 dans une <strong>nouvelle fenêtre</strong>, allez sur <a href="turtle_test.html" target="_blank" style="target-new: window;">cette page</a>.
@@ -242,9 +242,9 @@
                 <span ng-show="frame_mode">click on <button class="tutorial-only">Tutorial only</button>, then</span>
                 <strong>in a new windows</strong> go on <a href="turtle_test.html">this page</a>.
                 One way to do that is to <strong>right</strong> click on the link and select <strong>open in a new window</strong> from the menu.
-            }}</em>
+            }}
             
-            <p><em>{{ Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
+            <p class="info">{{ Je conseille de mettre les deux fenêtres côtes à côte, environ ⅓ de l'écran pour cette page et donc ⅔ pour le code et l'affichage de la tortue.
                 | I suggest to put the two windows next to each other, around ⅓ of the screen for this windows and therefore ⅔ for the code and the rendering of the turtle. }}</em>
             
             <h3 id="exerci{{c|s}}e-2">Exerci{{c|s}}e 2{{ |}}: {{Raccourcis turtle|Turtle shortcuts}}</h3>
@@ -295,7 +295,7 @@
                     <ol>
                         <li>Met ta souris à gauche du premier caractère (<code>f</code>),
                         <li>Maintient le clic enfoncé,
-                        <li>Déplace ta souris jusqu'à droite du dernier caractère (<code></code>),
+                        <li>Déplace ta souris jusqu'à droite du dernier caractère (la parenthèse fermante <code>)</code>),
                         <li>relâche le clic.
                     </ol>
                 <li>Clic droit (clic de droite, en utilisant ton majeur)
@@ -329,21 +329,21 @@
             
             <h3 id="exerci{{c|s}}e-4">Exerci{{c|s}}e 4{{ |}}: {{ La maison | The house }}</h3>
             
-            <p>{{
-                Plus difficile, une maison :
-                |
-                More difficult, a house:
-            }}</p>
+            <p>{{ Plus difficile, cette maison :
+                | More difficult, this house : }}</p>
+            
+            <p class="info">{{ Si tu es un peu perdu, il y a un indice en dessous du dessin 😉
+                | If you're a little lost, there's a hint below the drawing 😉 }}</p>
 
             <figure>
                 <img src="house.svg" />
-                <figcaption>{{ La maison | The house }}</figcaption>
+                <!-- <figcaption>{{ La maison | The house }}</figcaption> -->
             </figure>
             
             <p>{{ Si tu as du mal avec les angles, voici quelques schémas qui peuvent t'être utiles :
                 | If you struggle with angles, here are some drawing that can be handy: }}
                 
-                <em>({{cliquez sur l'image pour passer à l'image suivante|click on the image to see next image}})</em>
+            <p class="info">{{Cliquez sur l'image pour passer à l'image suivante|Click on the image to see next image}}
                 
             
             <figure class="slideshow" style="max-width: 325px;">
@@ -370,8 +370,15 @@
             
             <figure>
                 <img src="fichiers.png" />
-                <figcaption>{{ Plusieurs fichiers | Multiple files }}</figcaption>
+                <!-- <figcaption>{{ Plusieurs fichiers | Multiple files }}</figcaption> -->
             </figure>
+            
+            <p>Et puisque je suis gentil, voici une correction de la maison <a href="">en vidéo</a>... ah, elle n'est pas encore faite cette vidéo ^^
+            <p>Voici le code qui a été (qui va être...) produit dans la vidéo :
+            
+            <nav class="external">
+                <a href="maison.py.html">Correction : Code de la maison</a>
+            </nav>
             
             </section>
             
@@ -387,7 +394,7 @@
             
             <figure>
                 <img src="pendrawing.jpg" />
-                <figcaption>{{Un stylo dessinant une ligne|A pen drawing a line}}</figcaption>
+                <!-- <figcaption>{{Un stylo dessinant une ligne|A pen drawing a line}}</figcaption> -->
             </figure>
             
             <p>{{
@@ -439,9 +446,9 @@
                 | For this amazing orange, I will write the command }}
                 <code>color(253, 126, 0)</code>
 
-            <p>{{ Pour faire varier les couleurs, on peut tapper <a href="https://google.com/search?q=rgb+253+126+0"><code>rgb 253 126 0</code> sur google</a> !
-                Le <code>rgb</code> signifiant <em>red, green, blue</em>. 😉
-                | In order to pick any color, we can <a href="https://google.com/search?q=rgb+253+126+0">google <code>rgb 256 126 0</code></a>. }}</p>
+            <p>{{ Pour faire varier les couleurs, on peut tapper <a href="https://google.com/search?q=color+picker"><code>color picker</code> sur google</a> !
+                <!-- rgb 253 126 0 used to work: Le <code>rgb</code> signifiant <em>red, green, blue</em>. 😉 -->
+                | In order to pick any color, we can <a href="https://google.com/search?q=color+picker">google <code>color picker</code></a>. }}</p>
             
             <p>{{
             Beaucoup <a href="http://hexpicker.com/">d'outils</a> donnent le <em>code hexadécimal</em> (<em>code hexa</em>) d'une couleur, par exemple j'ai un joli <span style="color: #ff0060">rose</span> qui s'écrit <code class="nohl"><span class="hljs-string">#ff0060</span></code> qui peut s'insérer en écrivant
@@ -481,9 +488,14 @@
             
             <p>{{ Essaie de dessiner ceci : | Try to draw this: }}</p>
             
+            <p class="info">{{
+            Le lever de crayon via <code>penup()</code> sera utile pour séparer les deux formes
+            | Lifting the pen using <code>penup()</code> will be useful to separate the two shapes
+            }}</p>
+            
             <figure>
                 <img src="two-colored-squares.svg" />
-                <figcaption>{{ Deux carrés colorés | Two colored squares }}</figcaption>
+                 <!-- <figcaption>{{ Deux carrés colorés | Two colored squares }}</figcaption> -->
             </figure>
             
             <h3 id="exerci{{c|s}}e-6">Exerci{{c|s}}e 6{{ |}}: {{ La maison en couleurs | House in color }}</h3>
@@ -493,7 +505,7 @@
             
             <figure>
                 <img src="colored-house.svg" />
-                <figcaption>{{ La maison en couleurs | House in color }}</figcaption>
+                 <!-- <figcaption>{{ La maison en couleurs | House in color }}</figcaption> -->
             </figure>
             
         </section>
@@ -641,11 +653,11 @@
             
             <figure>
                 <img src="two-different-houses.svg" />
-                <figcaption>{{
+                <!-- <figcaption>{{
                     Deux maisons différentes
                     |
                     Two different houses 
-                }}</figcaption>
+                }}</figcaption> -->
             </figure>
             
         </section>

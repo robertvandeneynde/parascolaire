@@ -14,15 +14,17 @@ from __future__ import print_function, division
 # </nav>
 
 #
-# Allez sur [repl.it python3](https://repl.it/site/languages/python3) ou bien ouvrez Wing 101 (téléchargeable sur [le site de Wing](https://wingware.com/downloads/wingide-101)).
+# <span span>Allez sur [repl.it python3](https://repl.it/site/languages/python3) ou bien ouvrez Wing 101 (téléchargeable sur [le site de Wing](https://wingware.com/downloads/wingide-101)). </i>
 
 # {{Les variables permettent de stocker une valeur dans la mémoire de l'ordinateur |Variables are useful to store a value in the memory of the computer}}:
 # <ul><li> <code>"="</code> {{permet de changer la valeur d'une variable|allows you to change the value of a variable}}
 # <li> <code>print()</code> {{permet d'afficher à l'écran la valeur d'une variable|allows you to see on screen the value of a variable}} </ul>
 a = 5
-print(a)  # {{en python 2, les parenthèses n'étaient pas nécessaires|in python 2, the parenthesis were not mandatory}}
+print(a)
 a = 6
 print(a)
+
+# <span class="comment">{{en python 2, les parenthèses n'étaient pas nécessaires|in python 2, the parenthesis were not mandatory}}
 
 #
 # {{On peut faire des maths |We can do maths}}:

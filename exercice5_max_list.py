@@ -1,6 +1,6 @@
 #! coding: utf-8
 
-l = [1,2,7,2]
+l = [3, 4, 7, 4]
 # l est une liste de taille 4
 # écrire un code qui affiche le maximum de la liste
 # c'est à dire la valeur la plus grande (ici 7)

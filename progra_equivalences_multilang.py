@@ -117,6 +117,19 @@ if a <= 10 and a != 5:
     print('hello')
 
 ###
+# if followed by if not
+###
+if a < b:
+    print("hello")
+if a >= b:
+    print("tada")
+# → (à condition que a et b ne soient pas modifiés dans le if !)
+if a < b:
+    print("hello")
+else:
+    print("tada")
+
+###
 # if variable 
 ###
 if CONDITION:
@@ -636,6 +649,19 @@ for x in L:
 s = sum(a for x in L)
 
 # {{techniquement, "sum" est un cas particulier de "reduce" mais "reduce" est peu utile en python|technically, "sum" is a particular case of "reduce" but "reduce" is a bit useless in python}}
+
+##
+# join
+##
+
+## ex{{e|a}}mple
+s = ''
+for x in L:
+    s += a
+# → (join)
+s = ''.join(a for x in L)
+
+# {{techniquement, "join" est un cas particulier de "reduce" mais "reduce" est peu utile en python|technically, "join" is a particular case of "reduce" but "reduce" is a bit useless in python}}
 
 ##
 # in tuple (python)
