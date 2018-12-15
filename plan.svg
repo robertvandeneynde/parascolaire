@@ -37,9 +37,9 @@
      inkscape:snap-smooth-nodes="true"
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
-     inkscape:zoom="2"
-     inkscape:cx="370.54396"
-     inkscape:cy="302.20758"
+     inkscape:zoom="1"
+     inkscape:cx="713.41472"
+     inkscape:cy="777.48673"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -163,8 +163,6 @@
   <g
      id="g9114"
      transform="matrix(0.5,0,0,0.5,61.91939,23.609351)">
-    <g
-       id="g9116">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -181,13 +179,10 @@
            xlink:href="/home/robert/parascolaire/theorie1_egal_if_fr.html#egal"
            id="a9122">Base 1 : =</a>
       </text>
-    </g>
   </g>
   <g
      id="g9132"
      transform="matrix(0.5,0,0,0.5,120.91939,23.609351)">
-    <g
-       id="g9134">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -204,7 +199,6 @@
            xlink:href="/home/robert/parascolaire/theorie1_egal_if_fr.html#if"
            id="a9140">Base 2 : if</a>
       </text>
-    </g>
   </g>
   <g
      id="g9150"
@@ -230,8 +224,6 @@
   <g
      id="g9158"
      transform="matrix(0.5,0,0,0.5,314.16939,22.109351)">
-    <g
-       id="g9160">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -249,13 +241,10 @@
            id="a9166">Base 3 : while</a>
         <!-- xlink:href="theorie2_liste_while_fr.html" -->
       </text>
-    </g>
   </g>
   <g
      id="g9176"
      transform="matrix(0.5,0,0,0.5,385.91939,22.109351)">
-    <g
-       id="g9178">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -273,7 +262,6 @@
            id="a9184">Base 4 : list</a>
         <!-- xlink:href="theorie2_liste_while_fr.html" -->
       </text>
-    </g>
   </g>
   <g
      id="g9194"
@@ -298,8 +286,6 @@
   <g
      id="g9202"
      transform="matrix(0.5,0,0,0.5,428.05881,154.60934)">
-    <g
-       id="g9204">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -316,13 +302,10 @@
            xlink:href="/home/robert/parascolaire/theorie3_fonctions_et_objets.html#objets"
            id="a9210">Base 5 : Objets</a>
       </text>
-    </g>
   </g>
   <g
      id="g9220"
      transform="matrix(0.5,0,0,0.5,502.30881,154.60934)">
-    <g
-       id="g9222">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -339,13 +322,10 @@
            xlink:href="/home/robert/parascolaire/theorie3_fonctions_et_objets.html#fonctions"
            id="a9228">Base 6 : Fonctions</a>
       </text>
-    </g>
   </g>
   <g
      id="g9238"
      transform="matrix(0.5,0,0,0.5,154.66939,53.60935)">
-    <g
-       id="g9240">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -359,16 +339,13 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
          transform="translate(8.5,8.5)">
         <a
-           xlink:href="/home/robert/parascolaire/exercice0_trier_deux_nombres.html"
+           xlink:href="exercice0_trier_deux_nombres.html"
            id="a9246">Exercice 0</a>
       </text>
-    </g>
   </g>
   <g
      id="g9256"
      transform="matrix(0.5,0,0,0.5,209.16939,53.60935)">
-    <g
-       id="g9258">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -385,13 +362,10 @@
            xlink:href="/home/robert/parascolaire/exercice1_minute_suivante.html"
            id="a9264">1</a>
       </text>
-    </g>
   </g>
   <g
      id="g9274"
      transform="matrix(0.5,0,0,0.5,233.66939,53.60935)">
-    <g
-       id="g9276">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -408,13 +382,10 @@
            xlink:href="/home/robert/parascolaire/exercice2_minute_suivante_un_print.html"
            id="a9282">2</a>
       </text>
-    </g>
   </g>
   <g
      id="g9292"
      transform="matrix(0.5,0,0,0.5,256.16939,53.60935)">
-    <g
-       id="g9294">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -431,13 +402,10 @@
            xlink:href="/home/robert/parascolaire/exercice3_trier_trois_nombres.py.html"
            id="a9300">3</a>
       </text>
-    </g>
   </g>
   <g
      id="g9310"
      transform="matrix(0.5,0,0,0.5,280.66939,23.969921)">
-    <g
-       id="g9312">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -454,13 +422,10 @@
            xlink:href="/home/robert/parascolaire/exercice4_le_sept_parfait.py.html"
            id="a9318">4</a>
       </text>
-    </g>
   </g>
   <g
      id="g9328"
      transform="matrix(0.5,0,0,0.5,425.66939,52.60935)">
-    <g
-       id="g9330">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -477,13 +442,10 @@
            xlink:href="/home/robert/parascolaire/exercice5_max_list.py.html"
            id="a9336">Exercice 5</a>
       </text>
-    </g>
   </g>
   <g
      id="g9346"
      transform="matrix(0.5,0,0,0.5,495.38348,69.537812)">
-    <g
-       id="g9348">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -500,13 +462,10 @@
            xlink:href="/home/robert/parascolaire/exercice6_in_list.py.html"
            id="a9354">6</a>
       </text>
-    </g>
   </g>
   <g
      id="g9364"
      transform="matrix(0.5,0,0,0.5,510.71747,87.705478)">
-    <g
-       id="g9366">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -523,13 +482,10 @@
            xlink:href="/home/robert/parascolaire/exercice7_transformer_une_liste.py.html"
            id="a9372">7</a>
       </text>
-    </g>
   </g>
   <g
      id="g9382"
      transform="matrix(0.5,0,0,0.5,535.71747,87.705478)">
-    <g
-       id="g9384">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -546,13 +502,10 @@
            xlink:href="/home/robert/parascolaire/exercice8_filtre_des_grands.py.html"
            id="a9390">8</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400"
      transform="matrix(0.5,0,0,0.5,560.71747,87.705478)">
-    <g
-       id="g9402">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -569,19 +522,17 @@
            xlink:href="/home/robert/parascolaire/exercice9_somme.py.html"
            id="a9408">9</a>
       </text>
-    </g>
   </g>
   <g
      id="g9446"
      transform="matrix(0.5,0,0,0.5,184.53237,254.84395)">
-    <g
-       id="g9448">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
          id="path9450"
-         d="M 0,0 H 134 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
+         d="M 0,0 H 114.24038 V 31.6 H 0 Z"
+         transform="translate(0.5,0.5)"
+         sodipodi:nodetypes="ccccc" />
       <text
          id="text9452"
          x="0"
@@ -592,13 +543,10 @@
            xlink:href="/home/robert/parascolaire/pygame0_code_minimal.py.html"
            id="a9454">Code de base</a>
       </text>
-    </g>
   </g>
   <g
      id="g9464"
      transform="matrix(0.5,0,0,0.5,106.53238,274.96414)">
-    <g
-       id="g9466">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -615,13 +563,10 @@
            xlink:href="/home/robert/parascolaire/pygame1_dessin.py.html"
            id="a9472">1) Draw</a>
       </text>
-    </g>
   </g>
   <g
      id="g9482"
      transform="matrix(0.5,0,0,0.5,155.78237,274.96414)">
-    <g
-       id="g9484">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -638,13 +583,10 @@
            xlink:href="/home/robert/parascolaire/pygame2_tick.py.html"
            id="a9490">2) Tick</a>
       </text>
-    </g>
   </g>
   <g
      id="g9500"
      transform="matrix(0.5,0,0,0.5,202.53237,274.96414)">
-    <g
-       id="g9502">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -661,13 +603,10 @@
            xlink:href="/home/robert/parascolaire/pygame3_events.py.html"
            id="a9508">3) Events</a>
       </text>
-    </g>
   </g>
   <g
      id="g9518"
      transform="matrix(0.5,0,0,0.5,257.03238,274.96414)">
-    <g
-       id="g9520">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -684,13 +623,10 @@
            xlink:href="/home/robert/parascolaire/pygame4_animations.py.html"
            id="a9526">4) Animation</a>
       </text>
-    </g>
   </g>
   <g
      id="g9536"
      transform="matrix(0.5,0,0,0.5,468.85689,185.17231)">
-    <g
-       id="g9538">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -708,13 +644,10 @@
            xlink:href="/home/robert/parascolaire/pygame5_clavier_souris_events.py.html"
            id="a9544">5) Clavier-Souris (Events)</a>
       </text>
-    </g>
   </g>
   <g
      id="g9558"
      transform="matrix(0.5,0,0,0.5,468.35689,205.81655)">
-    <g
-       id="g9560">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -731,13 +664,10 @@
            xlink:href="/home/robert/parascolaire/pygame6_clavier_souris_state.py.html"
            id="a9566">6) Clavier-Souris (États)</a>
       </text>
-    </g>
   </g>
   <g
      id="g9580"
      transform="matrix(0.5,0,0,0.5,480.35689,227.82472)">
-    <g
-       id="g9582">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -754,13 +684,10 @@
            xlink:href="/home/robert/parascolaire/pygame7_images.py.html"
            id="a9588">7) Images</a>
       </text>
-    </g>
   </g>
   <g
      id="g9598"
      transform="matrix(0.5,0,0,0.5,483.35689,249.8728)">
-    <g
-       id="g9600">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -777,13 +704,10 @@
            xlink:href="/home/robert/parascolaire/pygame8_texte.py.html"
            id="a9606">8) Texte</a>
       </text>
-    </g>
   </g>
   <g
      id="g9616"
      transform="matrix(0.5,0,0,0.5,339.9843,254.86895)">
-    <g
-       id="g9618">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#202bff;fill-opacity:1;stroke:none"
@@ -800,7 +724,6 @@
            xlink:href="/home/robert/parascolaire/projets.html#tutoriel"
            id="a9624">Tutoriel Pygame</a>
       </text>
-    </g>
   </g>
   <g
      id="g9682"
@@ -1268,9 +1191,10 @@
        style="fill:none;stroke:#808080;stroke-width:1.97596157;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
        inkscape:connector-curvature="0"
        id="path9830"
-       d="m 0,0 h 84 v 0.04998779 h 80"
+       d="M -19.759616,0 H 84 v 0.04998779 h 80"
        stroke-miterlimit="10"
-       transform="translate(4,10.38643)" />
+       transform="translate(4,10.38643)"
+       sodipodi:nodetypes="cccc" />
     <path
        style="fill:#808080;stroke:none"
        inkscape:connector-curvature="0"
@@ -1437,8 +1361,6 @@
   <g
      id="g9598-2-4"
      transform="matrix(0.5,0,0,0.5,495.11869,277.0191)">
-    <g
-       id="g9600-8-5">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -1455,7 +1377,6 @@
            xlink:href="/home/robert/parascolaire/algos.html"
            id="a3341">Algos</a>
       </text>
-    </g>
   </g>
   <g
      id="g9962-9"
@@ -1581,14 +1502,12 @@
   <g
      id="g9446-1"
      transform="matrix(0.5,0,0,0.5,154.89295,235.08433)">
-    <g
-       id="g9448-4">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
          id="path9450-9"
-         d="M 0,0 H 284.17308 V 31.6 H 0 Z"
+         d="M 0,0 H 264.41346 V 31.6 H 0 Z"
          transform="translate(0.5,0.5)" />
       <text
          id="text9452-1"
@@ -1600,7 +1519,6 @@
            xlink:href="/home/robert/parascolaire/pygame0_code_minimal_avec_commentaires.py.html"
            id="a9454-0">Code de base (avec commentaires)</a>
       </text>
-    </g>
   </g>
   <g
      id="g9786-6"
@@ -1643,15 +1561,13 @@
        style="fill:none;stroke:#808080;stroke-width:1.97596157;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
        inkscape:connector-curvature="0"
        id="path9838-0"
-       d="M -30.605786,-38.848068 H 18.5 c 3.333333,0 5,3.522436 5,6.85577 V -6.8557696 C 23.5,-3.5224363 25.166667,0 28.5,0 H 43"
+       d="M -50.365402,-38.848068 H 18.5 c 3.333333,0 5,3.522436 5,6.85577 V -6.8557696 C 23.5,-3.5224363 25.166667,0 28.5,0 H 43"
        stroke-miterlimit="10"
        transform="translate(4,4.5)" />
   </g>
   <g
      id="g9464-8"
      transform="matrix(0.5,0,0,0.5,220.58949,317.98742)">
-    <g
-       id="g9466-2">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -1669,13 +1585,10 @@
            xlink:href="/home/robert/parascolaire/3D.fr.html"
            id="a9472-7">Introduction</a>
       </text>
-    </g>
   </g>
   <g
      id="g9482-7"
      transform="matrix(0.5,0,0,0.5,281.19527,317.98742)">
-    <g
-       id="g9484-7">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -1693,13 +1606,10 @@
            xlink:href="/home/robert/parascolaire/gl_shaders.py.html"
            id="a9490-1">Shaders</a>
       </text>
-    </g>
   </g>
   <g
      id="g9500-1"
      transform="matrix(0.5,0,0,0.5,278.91522,353.54704)">
-    <g
-       id="g9502-9">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -1717,7 +1627,6 @@
            xlink:href="/home/robert/parascolaire/gl_shaders_uniforms.py.html"
            id="a9508-9">Uniforms</a>
       </text>
-    </g>
   </g>
   <g
      id="g9794-8"
@@ -1772,8 +1681,6 @@
   <g
      id="g9500-1-9"
      transform="matrix(0.5,0,0,0.5,226.48132,353.54704)">
-    <g
-       id="g9502-9-9">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -1791,13 +1698,10 @@
            xlink:href="/home/robert/parascolaire/gl_shaders_textures.py.html"
            id="a9508-9-6">Textures</a>
       </text>
-    </g>
   </g>
   <g
      id="g9500-1-9-5"
      transform="matrix(0.5,0,0,0.5,238.53484,383.62777)">
-    <g
-       id="g9502-9-9-2">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -1815,7 +1719,6 @@
            xlink:href="https://learnopengl.com"
            id="a9508-9-6-1">learnopengl.com</a>
       </text>
-    </g>
   </g>
   <g
      id="g9786-5"
@@ -1832,8 +1735,6 @@
   <g
      id="g9598-2-7"
      transform="matrix(0.5,0,0,0.5,346.35943,335.79383)">
-    <g
-       id="g9600-8-4">
       <path
          style="fill:#202bff;fill-opacity:1;stroke:none;stroke-width:1"
          inkscape:connector-curvature="0"
@@ -1849,7 +1750,6 @@
            xlink:href="/home/robert/parascolaire/math.html#matrices"
            id="-8">Matrices</a>
       </text>
-    </g>
   </g>
   <g
      id="g1559"
@@ -1869,8 +1769,6 @@
   <g
      id="g9292-5"
      transform="matrix(0.5,0,0,0.5,258.14071,79.09984)">
-    <g
-       id="g9294-4">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -1888,7 +1786,6 @@
            xlink:href="/home/robert/parascolaire/trier_trois_nombres.fr.svg"
            id="a9300-9">Solution en dessin</a>
       </text>
-    </g>
   </g>
   <g
      id="g9946-9"
@@ -1943,8 +1840,6 @@
   <g
      id="g9238-9"
      transform="matrix(0.5,0,0,0.5,10.98588,55.10934)">
-    <g
-       id="g9240-3">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -1961,7 +1856,6 @@
            xlink:href="/home/robert/parascolaire/theorie0_installation.fr.html"
            id="a9246-7">Installation</a>
       </text>
-    </g>
   </g>
   <path
      sodipodi:nodetypes="cssc"
@@ -1999,8 +1893,6 @@
   <g
      id="g9292-5-0"
      transform="matrix(0.5,0,0,0.5,156.41794,79.09983)">
-    <g
-       id="g9294-4-3">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2018,7 +1910,6 @@
            xlink:href="/home/robert/parascolaire/pythontutor.html"
            id="a9300-9-5">Solution pythontutor</a>
       </text>
-    </g>
   </g>
   <g
      id="g9946-9-7"
@@ -2051,7 +1942,6 @@
     <a
        xlink:href="https://youtu.be/zJ-w2izNvg4"
        id="a9246-4">
-      <g
          id="g9240-5">
         <path
            sodipodi:nodetypes="ccccc"
@@ -2131,8 +2021,6 @@
   <g
      id="g9598-2-4-3-1"
      transform="matrix(0.5,0,0,0.5,564.25579,389.41578)">
-    <g
-       id="g9600-8-5-8-3">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2149,13 +2037,10 @@
            xlink:href="/home/robert/parascolaire/progra_exceptions.py.html"
            id="a3341-9-9">try except</a>
       </text>
-    </g>
   </g>
   <g
      id="g9598-2-4-3-7"
      transform="matrix(0.5,0,0,0.5,418.56441,370.88925)">
-    <g
-       id="g9600-8-5-8-9">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2172,13 +2057,10 @@
            xlink:href="/home/robert/parascolaire/progra_list_dict_set.py.html"
            id="a3341-9-4">dict, list, set</a>
       </text>
-    </g>
   </g>
   <g
      id="g9598-2-4-3-3"
      transform="matrix(0.5,0,0,0.5,449.0609,350.81807)">
-    <g
-       id="g9600-8-5-8-7">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2195,13 +2077,10 @@
            xlink:href="/home/robert/parascolaire/progra_hasard.py.html"
            id="a3341-9-2">random</a>
       </text>
-    </g>
   </g>
   <g
      id="g9598-2-4-3-0"
      transform="matrix(0.5,0,0,0.5,564.25579,369.66386)">
-    <g
-       id="g9600-8-5-8-2">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2218,13 +2097,10 @@
            xlink:href="/home/robert/parascolaire/progra_functionals.py.html"
            id="a3341-9-1">functionals</a>
       </text>
-    </g>
   </g>
   <g
      id="g9598-2-4-3-5-0"
      transform="matrix(0.5,0,0,0.5,398.45069,350.81807)">
-    <g
-       id="g9600-8-5-8-8-8">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2241,7 +2117,6 @@
            xlink:href="/home/robert/parascolaire/progra_module_exemple.py.html"
            id="a3341-9-7-9">module</a>
       </text>
-    </g>
   </g>
   <path
      stroke-miterlimit="10"
@@ -2251,27 +2126,8 @@
      inkscape:connector-curvature="0"
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
   <g
-     id="g2406"
-     transform="translate(0,-3.302419)">
-    <path
-       sodipodi:nodetypes="csscc"
-       id="path9750-3"
-       d="m 578.48774,146.13408 h 32.22668 c 1.66666,0 2.5,0.83333 2.5,2.5 v 153.68971 4.5817"
-       stroke-miterlimit="10"
-       style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-       inkscape:connector-curvature="0" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       id="path9752-7"
-       d="m 615.2144,304.65548 -2,4 -2,-4 2,1 z"
-       style="fill:#808080;stroke:none;stroke-width:0.5"
-       inkscape:connector-curvature="0" />
-  </g>
-  <g
      id="g9598-2-4-3-5"
      transform="matrix(0.5,0,0,0.5,434.23555,327.3589)">
-    <g
-       id="g9600-8-5-8-8">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2288,13 +2144,10 @@
            xlink:href="/home/robert/parascolaire/progra_import.py.html"
            id="a3341-9-7">import (code reuse</a>
       </text>
-    </g>
   </g>
   <g
      id="g9598-2-4-3-5-0-1"
      transform="matrix(0.5,0,0,0.5,505.39467,327.3589)">
-    <g
-       id="g9600-8-5-8-8-8-8">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2311,13 +2164,10 @@
            xlink:href="/home/robert/parascolaire/progra_fichier.py.html"
            id="a3341-9-7-9-2">open file</a>
       </text>
-    </g>
   </g>
   <g
      id="g9464-8-4"
      transform="matrix(0.5,0,0,0.5,102.05259,164.92991)">
-    <g
-       id="g9466-2-8">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2335,13 +2185,10 @@
            xlink:href="/home/robert/parascolaire/django.fr.html#site-statique"
            id="a9472-7-1">Site statique </a>
       </text>
-    </g>
   </g>
   <g
      id="g9482-7-0"
      transform="matrix(0.5,0,0,0.5,142.27288,130.21822)">
-    <g
-       id="g9484-7-2">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2359,13 +2206,10 @@
            xlink:href="/home/robert/parascolaire/django.fr.html#bdd"
            id="a9490-1-7">Lire une base de données</a>
       </text>
-    </g>
   </g>
   <g
      id="g9500-1-5"
      transform="matrix(0.5,0,0,0.5,222.12963,164.92991)">
-    <g
-       id="g9502-9-6">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2383,7 +2227,6 @@
            xlink:href="/home/robert/parascolaire/django.fr.html#form"
            id="a9508-9-3">Formulaires</a>
       </text>
-    </g>
   </g>
   <path
      stroke-miterlimit="10"
@@ -2395,8 +2238,6 @@
   <g
      id="g9500-1-9-54"
      transform="matrix(0.5,0,0,0.5,252.67229,130.21822)">
-    <g
-       id="g9502-9-9-1">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2414,7 +2255,6 @@
            xlink:href="/home/robert/parascolaire/django.fr.html#bddr"
            id="a9508-9-6-4">Bases de données relationnelles </a>
       </text>
-    </g>
   </g>
   <g
      transform="translate(5.1576247,-95.326572)"
@@ -2812,8 +2652,6 @@
   <g
      id="g9400-6"
      transform="matrix(0.49999999,0,0,0.49999999,576.47856,69.537812)">
-    <g
-       id="g9402-3">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -2830,7 +2668,6 @@
            xlink:href="/home/robert/parascolaire/exercice10_doublons.py.html"
            id="a9408-6">10</a>
       </text>
-    </g>
   </g>
   <g
      id="g9898-1"
@@ -2907,8 +2744,6 @@
   <g
      id="g9292-5-7"
      transform="matrix(0.49999999,0,0,0.49999999,432.44018,105.9771)">
-    <g
-       id="g9294-4-32">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none"
@@ -2927,7 +2762,6 @@
            id="a9300-9-2">Résolution exo7</a>
       </text>
     </g>
-  </g>
   <g
      id="g9754-6"
      transform="matrix(-0.49999999,0,0,-0.49999999,553.73882,113.41317)">
@@ -3069,9 +2903,7 @@
      inkscape:connector-curvature="0"
      id="path9744-0"
      d="m 603.21196,77.50495 1.41422,4.24264 -4.24263,-1.4142 2.12131,-0.70711 z" />
-  <g
-     id="g1877"
-     transform="translate(0,-3.302419)" />
+
   <path
      style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.49476832;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.49476831, 1.48430494;stroke-dashoffset:0;stroke-opacity:1"
      d="m 24.94101,303.96699 v 96.92376 h 123.5123 v -96.92376 z"
@@ -3101,8 +2933,6 @@
   <g
      transform="matrix(0.49999999,0,0,0.49999999,65.981697,314.6581)"
      id="g9400-6-4">
-    <g
-       id="g9402-3-7">
       <path
          sodipodi:nodetypes="ccccc"
          transform="translate(0.5,0.5)"
@@ -3119,13 +2949,10 @@
            xlink:href="/home/robert/parascolaire/lecture11.py.html"
            id="a9408-6-5">11</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400-8"
      transform="matrix(0.49999999,0,0,0.49999999,93.705911,311.78293)">
-    <g
-       id="g9402-2">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3142,13 +2969,10 @@
            xlink:href="/home/robert/parascolaire/lecture01.py.html"
            id="a9408-64">1</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400-8-6"
      transform="matrix(0.49999999,0,0,0.49999999,111.67385,319.8292)">
-    <g
-       id="g9402-2-2">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3165,13 +2989,10 @@
            xlink:href="/home/robert/parascolaire/lecture02.py.html"
            id="a9408-64-6">2</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400-8-0"
      transform="matrix(0.49999999,0,0,0.49999999,117.8873,340.83115)">
-    <g
-       id="g9402-2-7">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3188,13 +3009,10 @@
            xlink:href="/home/robert/parascolaire/lecture03.py.html"
            id="a9408-64-0">3</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400-8-1"
      transform="matrix(0.49999999,0,0,0.49999999,114.20817,361.69654)">
-    <g
-       id="g9402-2-3">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3211,13 +3029,10 @@
            xlink:href="/home/robert/parascolaire/lecture04.py.html"
            id="a9408-64-2">4</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400-8-1-6"
      transform="matrix(0.49999999,0,0,0.49999999,98.216065,370.92634)">
-    <g
-       id="g9402-2-3-4">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3234,13 +3049,10 @@
            xlink:href="/home/robert/parascolaire/lecture05.py.html"
            id="a9408-64-2-0">5</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400-8-1-6-2"
      transform="matrix(0.49999999,0,0,0.49999999,75.459639,373.64422)">
-    <g
-       id="g9402-2-3-4-9">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3257,13 +3069,10 @@
            xlink:href="/home/robert/parascolaire/lecture06.py.html"
            id="a9408-64-2-0-9">6</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400-8-1-6-2-4"
      transform="matrix(0.49999999,0,0,0.49999999,55.417946,370.22723)">
-    <g
-       id="g9402-2-3-4-9-5">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3281,12 +3090,9 @@
            id="a9408-64-2-0-9-3">7</a>
       </text>
     </g>
-  </g>
   <g
      id="g9400-8-1-6-2-4-7"
      transform="matrix(0.49999999,0,0,0.49999999,39.20947,359.86087)">
-    <g
-       id="g9402-2-3-4-9-5-8">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3303,13 +3109,10 @@
            xlink:href="/home/robert/parascolaire/lecture08.py.html"
            id="a9408-64-2-0-9-3-0">8</a>
       </text>
-    </g>
   </g>
   <g
      id="g9400-8-1-6-2-4-7-4"
      transform="matrix(0.49999999,0,0,0.49999999,30.269204,340.83115)">
-    <g
-       id="g9402-2-3-4-9-5-8-6">
       <path
          style="fill:#00a9c9;stroke:none"
          inkscape:connector-curvature="0"
@@ -3326,13 +3129,10 @@
            xlink:href="/home/robert/parascolaire/lecture09.py.html"
            id="a9408-64-2-0-9-3-0-0">9</a>
       </text>
-    </g>
   </g>
   <g
      transform="matrix(0.49999999,0,0,0.49999999,34.787035,322.06317)"
      id="g9400-6-4-8">
-    <g
-       id="g9402-3-7-5">
       <path
          sodipodi:nodetypes="ccccc"
          transform="translate(0.5,0.5)"
@@ -3349,7 +3149,6 @@
            xlink:href="/home/robert/parascolaire/lecture10.py.html"
            id="a9408-6-5-8">10</a>
       </text>
-    </g>
   </g>
   <g
      id="g9794-8-8"
@@ -3624,16 +3423,16 @@
        inkscape:connector-curvature="0"
        style="fill:#effab4;stroke:none"
        sodipodi:nodetypes="cccccc" />
-    <text
-       transform="translate(5.5,14.591667)"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#454545;stroke:none"
-       y="12.675"
-       x="35.5"
-       id="text9198-7-9">
-      <a
-         xlink:href="#lecture"
-         id="a9200-4-3">Exercices</a>
-    </text>
+    <a
+       xlink:href="exercice0_trier_deux_nombres.html"
+       id="a9200-4-3">
+      <text
+         transform="translate(5.5,14.591667)"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#454545;stroke:none"
+         y="12.675"
+         x="35.5"
+         id="text9198-7-9">Exercices</text>
+    </a>
   </g>
   <g
      transform="matrix(0.49999999,0,0,0.49999999,469.66939,41.588036)"
@@ -3678,8 +3477,6 @@
   <g
      id="g9500-1-5-8"
      transform="matrix(0.49999999,0,0,0.49999999,196.31632,204.76102)">
-    <g
-       id="g9502-9-6-3">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#0087a0;fill-opacity:1;stroke:none"
@@ -3687,17 +3484,16 @@
          id="path9504-0-4-8"
          d="M 0,0 H 204.32212 V 31.6 H 0 Z"
          transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-3"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           id="a9508-9-3-3"
-           xlink:href="">Diagramme Entité-Relation</a>
-      </text>
-    </g>
+      <a
+         id="a9508-9-3-3"
+         xlink:href="#">
+        <text
+           id="text9506-8-6-3"
+           x="0"
+           y="11.7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           transform="translate(8.5,8.5)">Diagramme Entité-Relation</text>
+      </a>
   </g>
   <path
      stroke-miterlimit="10"
@@ -3720,13 +3516,8 @@
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
   <g
-     transform="rotate(-90,89.41845,158.38341)"
-     id="g1732-1" />
-  <g
      id="g9500-1-5-0"
      transform="matrix(0.49999999,0,0,0.49999999,196.31632,185.99708)">
-    <g
-       id="g9502-9-6-8">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#0086a0;fill-opacity:1;stroke:none"
@@ -3734,17 +3525,16 @@
          id="path9504-0-4-6"
          d="M 0,0 H 127.25962 V 31.6 H 0 Z"
          transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-2"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           id="a9508-9-3-4"
-           xlink:href="">Sqlite in Python</a>
-      </text>
-    </g>
+      <a
+         id="a9508-9-3-4"
+         xlink:href="https://docs.python.org/3/library/sqlite.html">
+        <text
+           id="text9506-8-6-2"
+           x="0"
+           y="11.7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           transform="translate(8.5,8.5)">Sqlite en Python</text>
+      </a>
   </g>
   <path
      style="fill:#808080;stroke:none;stroke-width:0.5"
@@ -3758,18 +3548,9 @@
      id="path9796-8-76-1"
      inkscape:connector-curvature="0"
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
-  <path
-     sodipodi:nodetypes="cc"
-     stroke-miterlimit="10"
-     d="m 200.40508,146.26822 v 39.97886"
-     id="path9798-0-8-5"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#808080;stroke-width:0.49399039;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:2.9639424, 2.9639424;stroke-dashoffset:0" />
   <g
      id="g9500-1-5-0-2"
      transform="matrix(0.49999999,0,0,0.49999999,167.05024,165.33308)">
-    <g
-       id="g9502-9-6-8-5">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#0086a0;fill-opacity:1;stroke:none"
@@ -3777,17 +3558,16 @@
          id="path9504-0-4-6-7"
          d="M 0,0 H 46.245194 V 31.6 H 0 Z"
          transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-2-4"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           id="a9508-9-3-4-9"
-           xlink:href="">SQL</a>
-      </text>
-    </g>
+      <a
+         id="a9508-9-3-4-9"
+         xlink:href="https://sqlite.org/lang_select.html">
+        <text
+           id="text9506-8-6-2-4"
+           x="0"
+           y="11.7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+           transform="translate(8.5,8.5)">SQL</text>
+      </a>
   </g>
   <path
      stroke-miterlimit="10"
@@ -3824,13 +3604,6 @@
   <path
      style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
-     id="path9798-0-8-5-5-0-9"
-     d="m 193.93155,195.37947 -29.49373,13.01606"
-     stroke-miterlimit="10"
-     sodipodi:nodetypes="cc" />
-  <path
-     style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-     inkscape:connector-curvature="0"
      id="path9798-0-8-5-5-0-97"
      d="m 164.43782,208.39553 h 29.1285"
      stroke-miterlimit="10"
@@ -3843,18 +3616,11 @@
   <path
      style="fill:#808080;stroke:none;stroke-width:0.5"
      inkscape:connector-curvature="0"
-     id="path9792-6-7-8-2"
-     d="m 192.09289,193.99807 4.46901,0.16692 -2.81495,3.47506 0.0834,-2.2345 z" />
-  <path
-     style="fill:#808080;stroke:none;stroke-width:0.5"
-     inkscape:connector-curvature="0"
      id="path9792-6-7-8-2-5"
      d="m 170.46102,184.06067 3.49264,-2.79308 0.13888,4.46998 -1.39658,-1.74628 z" />
   <g
      id="g9500-1-5-0-20-9"
      transform="matrix(0.49999999,0,0,0.49999999,75.801623,215.46034)">
-    <g
-       id="g9502-9-6-8-7-0">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00ccf2;fill-opacity:1;stroke:none"
@@ -3872,11 +3638,7 @@
            xlink:href="/home/robert/parascolaire/docs.python-requests.org/en/master/"
            id="a9508-9-3-4-1-7">API (requests)</a>
       </text>
-    </g>
   </g>
-  <g
-     transform="translate(2.3951278e-7,-7.748326)"
-     id="g1732-6" />
   <g
      id="g9092-5-3"
      transform="matrix(0.5,0,0,0.5,597.07826,78.7561)"
@@ -4096,9 +3858,6 @@
      id="g9500-1-9-52"
      transform="matrix(0.49999998,0,0,0.49999998,27.478264,447.60367)"
      style="stroke-width:1">
-    <g
-       id="g9502-9-9-0"
-       style="stroke-width:1">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#00a9c9;stroke:none;stroke-width:1"
@@ -4117,15 +3876,11 @@
            style="stroke-width:1"
            xlink:href="">Bleu</a>
       </text>
-    </g>
   </g>
   <g
      id="g9598-2-9"
      transform="matrix(0.5,0,0,0.49999998,4.1109708,466.95006)"
      style="stroke-width:1">
-    <g
-       id="g9600-8-9"
-       style="stroke-width:1">
       <path
          style="fill:#202bff;fill-opacity:1;stroke:none;stroke-width:1"
          inkscape:connector-curvature="0"
@@ -4143,15 +3898,11 @@
            xlink:href=""
            style="stroke-width:1">Bleu foncé</a>
       </text>
-    </g>
   </g>
   <g
      id="g9500-1-5-0-20-9-3"
      transform="matrix(0.49999998,0,0,0.49999998,10.938476,486.29645)"
      style="stroke-width:1">
-    <g
-       id="g9502-9-6-8-7-0-7"
-       style="stroke-width:1">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#0086a0;fill-opacity:1;stroke:none;stroke-width:1"
@@ -4169,7 +3920,6 @@
            xlink:href=""
            style="stroke-width:1">Bleu noir</a>
       </text>
-    </g>
   </g>
   <g
      id="g1758-0"
@@ -4373,8 +4123,6 @@
   <g
      id="g9598-2-4-3-16"
      transform="matrix(0.49999999,0,0,0.49999999,164.01074,401.21773)">
-    <g
-       id="g9600-8-5-8-6">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:url(#linearGradient10006);fill-opacity:1;stroke:none"
@@ -4390,7 +4138,6 @@
            xlink:href=""
            id="a3341-9-96">Légende</a>
       </text>
-    </g>
   </g>
   <g
      id="g9706-4-4"
@@ -4504,8 +4251,6 @@
   <g
      id="g9500-1-5-0-20-9-8"
      transform="matrix(0.49999999,0,0,0.49999999,458.91873,390.90159)">
-    <g
-       id="g9502-9-6-8-7-0-3">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#0086a0;fill-opacity:1;stroke:none"
@@ -4523,13 +4268,10 @@
            xlink:href="/home/robert/parascolaire/docs.python-requests.org/en/master/"
            id="a9508-9-3-4-1-7-2">API (requests)</a>
       </text>
-    </g>
   </g>
   <g
      id="g9500-1-5-0-20-9-8-2"
      transform="matrix(0.49999999,0,0,0.49999999,493.12101,350.81807)">
-    <g
-       id="g9502-9-6-8-7-0-3-7">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#0087a0;fill-opacity:1;stroke:none"
@@ -4547,7 +4289,6 @@
            xlink:href="https://docs.python.org/3/library/json.html"
            id="a9508-9-3-4-1-7-2-4">JSON</a>
       </text>
-    </g>
   </g>
   <g
      id="g9794-8-8-0-6"
@@ -4702,8 +4443,6 @@
   <g
      id="g9500-1-5-0-20-9-8-2-5"
      transform="matrix(0.49999999,0,0,0.49999999,540.54412,350.81807)">
-    <g
-       id="g9502-9-6-8-7-0-3-7-0">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#0087a0;fill-opacity:1;stroke:none"
@@ -4720,7 +4459,6 @@
            xlink:href="https://docs.python.org/3/library/csv.html"
            id="a9508-9-3-4-1-7-2-4-5">CSV</a>
       </text>
-    </g>
   </g>
   <g
      id="g9794-8-8-0-6-4-0-9-6"
@@ -4899,8 +4637,6 @@
   <g
      id="g9598-2-4-3"
      transform="matrix(0.49999999,0,0,0.49999999,558.31305,326.80572)">
-    <g
-       id="g9600-8-5-8">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#202bff;fill-opacity:1;stroke:none"
@@ -4918,12 +4654,9 @@
            id="a3341-9">Équivalences</a>
       </text>
     </g>
-  </g>
   <g
      id="g9500-1-5-0-20"
      transform="matrix(0.49999999,0,0,0.49999999,583.42634,350.81807)">
-    <g
-       id="g9502-9-6-8-7">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#0086a0;fill-opacity:1;stroke:none"
@@ -4941,7 +4674,6 @@
            id="a9508-9-3-4-1"
            xlink:href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>
       </text>
-    </g>
   </g>
   <g
      id="g9794-8-8-0-6-4-0-0-6-0"
@@ -4985,8 +4717,6 @@
   <g
      id="g9598-2-2"
      transform="matrix(0.49999999,0,0,0.49999999,414.65116,299.92602)">
-    <g
-       id="g9600-8-59">
       <path
          sodipodi:nodetypes="ccccc"
          transform="translate(0.5,0.5)"
@@ -5004,7 +4734,6 @@
            id="-1">Physique</a>
       </text>
     </g>
-  </g>
   <g
      id="g9890-3-2"
      transform="matrix(-0.49999999,0,0,-0.49999999,390.76734,297.55423)">
@@ -5185,8 +4914,6 @@
   <g
      id="g9598-2"
      transform="matrix(0.5,0,0,0.5,352.70304,300.25321)">
-    <g
-       id="g9600-8">
       <path
          style="fill:#202bff;fill-opacity:1;stroke:none"
          inkscape:connector-curvature="0"
@@ -5202,7 +4929,6 @@
            xlink:href="/math.html"
            id="">Math 2D</a>
       </text>
-    </g>
   </g>
   <g
      id="g9890-3-2-9"
@@ -5335,4 +5061,46 @@
      inkscape:connector-curvature="0"
      id="path9800-3-5-8"
      d="m 172.287,324.13742 4,2 -4,2 1,-2 z" />
+  <g
+     id="g9746-8"
+     transform="matrix(0.49999999,0,0,0.49999999,573.55881,160.75934)">
+    <path
+       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       id="path9748-2"
+       d="m 0,0 h 271.5 q 5,0 5,5 v 56.151163"
+       stroke="transparent"
+       stroke-miterlimit="10"
+       transform="translate(4,4)" />
+  </g>
+  <path
+     sodipodi:nodetypes="csscc"
+     id="path9750-6"
+     d="m 575.55879,162.75934 17.50468,-0.0848 c 1.66664,-0.008 2.5,0.83333 2.5,2.5 v 133.76194 4.58169"
+     stroke-miterlimit="10"
+     style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+     inkscape:connector-curvature="0" />
+  <path
+     sodipodi:nodetypes="ccccc"
+     id="path9752-0"
+     d="m 597.56345,301.26815 -2,4.00001 -2,-4.00001 2,1.00001 z"
+     style="fill:#808080;stroke:none;stroke-width:0.5"
+     inkscape:connector-curvature="0" />
+  <g
+     id="g2406-1-7-6"
+     transform="translate(-395.96874,-110.96831)">
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       stroke-miterlimit="10"
+       d="m 586.39158,284.45139 h 9.50313 c 1.66666,0 2.22607,0.856 2.5,2.5 v 2.96547 4.5817"
+       id="path9750-3-3-4-6"
+       sodipodi:nodetypes="csscc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#808080;stroke:none;stroke-width:0.5"
+       d="m 600.39469,293.23653 -2,4 -2,-4 2,1 z"
+       id="path9752-7-8-9-4"
+       sodipodi:nodetypes="ccccc" />
+  </g>
 </svg>
