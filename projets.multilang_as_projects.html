@@ -108,7 +108,9 @@
         
             <div><em> <a href="{{projects|projets}}.html#{{tutorial|tutoriel}}" lang="{{en|fr}}" hreflang="{{en|fr}}"><img style="vertical-align:middle; margin-right: 5px;" src="flag-{{en|fr}}.png"/>{{English here!|Français ici !}}</a></em></div>
             
-            <p>Le premier défi demandé au cours sera de copier le <a href="pygame0_code_minimal.py.html">code de base</a> et d'effectuer ces exercices :
+            <nav class="external"><a href="pygame0_code_minimal.py.html">Code de base à télécharger</a>
+                <hr>
+                <p style="margin-left:10px; margin-right:10px; font-size:90%">Afin de vous lancer dans les exercices suivants !</p></nav>
             
             <p class="para-discret"><em>La correction de ce tutoriel se trouve dans
                 <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commits/2D_tutorial">
@@ -129,6 +131,7 @@
                 Plus d'infos sur le système de correction <a href="https://www.facebook.com/robert.vanden.eynde/posts/10155911260243592">ici</a>.</em>
                 
             <ol>
+                <h3 id="exercice-lecture">Lecture du code de base</h3>
                 <li>Quelle est la <strong>taille de l'écran</strong>, en pixels ?
                 <li>Vous voyez 3 formes, un rectangle rouge, un grand cercle bleu et un petit cercle vert, ils ont une certaine position et une certaine taille, <strong>quelles lignes de code indiquent précisément ces informations</strong> ?
                     <a href="collision-rectangle-shape-clean.svg">#CorrectionCarré</a>
@@ -136,6 +139,7 @@
                 <li>Changez la <strong>couleur</strong>, la <strong>position</strong> et la <strong>taille</strong> des éléments, vous pouvez même en dessiner un <strong>quatrième</strong>.
                     Je rappelle qu'une couleur est définie par 3 entiers entre 0 et 255, indiquant la composante de rouge, de vert, et de bleu, petit rappel <a href="turtle.fr.html#color">ici</a>.
                 
+                <h3 id="exercice-animation">Écriture d'une animation</h3>
                 <li>On aimerait que la <strong>balle verte</strong> se déplace vers la droite, il faut créer une <strong>variable</strong> que vous appelez comme vous voulez, que ce soit <code class="py">a</code>, <code class="py">pos</code> ou <code class="py">ma_position</code>.
                   <ol>
                     <li>Au tout début du code, ajoutez <code class="py">a = 100</code> par exemple.
@@ -197,20 +201,22 @@
                     </ol>
                 </li>
                 
-                <li>On peut faire deux dessins différents en fonction du sens !
+                <h3 id="exercice-amelioration-graphique">Amélioration graphique</h3>
+                
+                <li><p>On peut faire deux dessins différents en fonction du sens !
                     Via des formes géométriques ou des images (voir <a href="#2D_tutorial_images">plus bas</a>).
-                    Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>.
+                    <div>  <!-- doesn't break the previous li -->
+                        <img src="triangle.svg" />
+                        <figcaption>Un triangle dessiné grâce à la commande <code class="py">pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code></figcaption>
+                    </div>
+            
+                    <p>Par exemple <em>si sens = -1, dessiner un triangle vers la gauche, sinon dessiner un triangle vers la droite</em>.
                     Les triangles peuvent être dessinés avec <code class="py">pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code>
                     <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/9d428ce5eb8ff62206deedfd44a6a52195276ce1?diff=split">
                         #Correction1</a>
                     <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/d4d500a3f67fc3dc5a28ec5733168ad18700ca50?diff=split">
                         #Correction2</a>
-                    
-            <figure>
-                <img src="triangle.svg" />
-                <figcaption>Un triangle dessiné grâce à la commande <code class="py">pygame.draw.polygon(ecran, ROUGE, [[0,50], [100,0], [100,100]])</code></figcaption>
-            </figure>
-            
+                        
                 <li>Que sera la commande <code class="py">draw.polygon</code> pour que le triangle bouge avec le cercle ?
                 <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/6edca4a554c11419eb1f9ee88ac2c6c5c1b444f5?diff=split">
                     #Correction1</a>
@@ -233,6 +239,8 @@
                 
                     <a href="https://github.com/robertvandeneynde/parascolaire-tutorials/commit/84cfeed841f5632cd98c7216305781b2939e32de?diff=split">
                         #Correction</a>
+                
+                <h3 id="exercice-clavier-souris">Le clavier et la souris</h3>
                 
                 <li>Le cercle bleu ne bouge pas, utilise <a href="pygame5_clavier_souris_events.py.html">le clavier</a>
                     (version ponctuelle) pour faire pour le faire bouger !
