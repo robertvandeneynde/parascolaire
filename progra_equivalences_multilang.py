@@ -236,6 +236,14 @@ def f(...):
     ...
     return CONDITION
 
+## avec une variable
+if CONDITION:
+    res = True
+else:
+    res = False
+# →
+res = CONDITION
+
 ## ex{{e|a}}mple 1
 def {{est_pair|is_even}}(x):
     if x % 2 == 0:    # {{si le reste de la division par deux vaut 0|if the rest of division by 2 is 0}}
@@ -249,6 +257,18 @@ def {{est_pair|is_even}}(x):
 if {{est_pair|is_even}}(4):
     ...
     
+## ex{{e|a}}mple 1'
+if x % 2 == 0:   # {{si le reste de la division par deux vaut 0|if the rest of division by 2 is 0}}
+    res = True   # le résultat est Vrai, le nombre est pair
+else:            # sinon
+    res = False  # le résultat est Faux, le nombre n'est pas pair
+# → (boolean return)
+res = (x % 2 == 0)  # {{le résultat est vrai ssi le reste de la division par deux vaut 0|the result is true iff the rest of division by 2 is 0}}
+# → (renaming)
+{{est_pair|is_even}} = (x % 2 == 0)  # on nomme la variable de manière sémantique
+# ↔ (parenthesis)
+{{est_pair|is_even}} = x % 2 == 0  # parenthèses non nécessaires
+
 ## ex{{e|a}}mple 2
 def {{voyelle|vowel}}(x):
     if x == 'a' or x == 'e' or x == 'i' or x == 'o' or x == 'u':

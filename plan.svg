@@ -10,13 +10,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   viewBox="0 0 642.18752 515.62499"
+   viewBox="0 0 642.18752 562.49999"
    id="svg9088"
    version="1.1"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="plan.svg"
    width="1300"
-   height="1100">
+   height="1200">
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -30,16 +30,16 @@
      inkscape:window-height="989"
      id="namedview9978"
      showgrid="false"
-     inkscape:snap-page="false"
+     inkscape:snap-page="true"
      inkscape:snap-center="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-midpoints="true"
      inkscape:snap-smooth-nodes="true"
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
-     inkscape:zoom="1"
-     inkscape:cx="713.41472"
-     inkscape:cy="777.48673"
+     inkscape:zoom="2"
+     inkscape:cx="975.6881"
+     inkscape:cy="323.93554"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -50,8 +50,8 @@
      fit-margin-right="10"
      fit-margin-bottom="10"
      inkscape:snap-global="true"
-     inkscape:measure-start="1.3844,1047.99"
-     inkscape:measure-end="4.82805,140.75" />
+     inkscape:measure-start="0,1200"
+     inkscape:measure-end="1300,1200" />
   <metadata
      id="metadata9982">
     <rdf:RDF>
@@ -87,10 +87,10 @@
        x2="99.768234"
        y2="-19.267311"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(0,5.9278874)" />
+       gradientTransform="translate(15.807694,-92.870195)" />
   </defs>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,173.26874,292.11219)"
+     transform="matrix(0.49999999,0,0,0.49999999,173.26874,358.30691)"
      id="g9194-6-4-9-2-9-7">
     <path
        transform="translate(0.5,0.5)"
@@ -114,13 +114,13 @@
      sodipodi:nodetypes="ccccccccc"
      inkscape:connector-curvature="0"
      id="path4913-4-2-3-5"
-     d="m 430.99583,250.79044 h -53.35096 l -0.0654,-12.22609 h -40.53624 v 35.73112 h 241.83162 v -93.09823 l -147.87902,2.41051 z"
+     d="M 460.63526,297.22554 H 407.2843 l -0.0654,-12.22609 h -40.53624 v 35.73112 H 602.5864 v -93.09823 l -141.95114,2.41051 z"
      style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.49476832;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.49476827, 1.97907312;stroke-dashoffset:0;stroke-opacity:1" />
   <path
      sodipodi:nodetypes="ccccc"
      inkscape:connector-curvature="0"
      id="path4913-4-2-3-3"
-     d="m 2.3850093,436.89752 v 91.12227 H 630.99177 v -91.12227 z"
+     d="m 2.3850093,486.29656 v 91.12227 H 630.99177 v -91.12227 z"
      style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.49476835;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.49476827, 1.97907313;stroke-dashoffset:0;stroke-opacity:1" />
   <path
      sodipodi:nodetypes="ccccc"
@@ -138,7 +138,7 @@
      sodipodi:nodetypes="ccccc"
      inkscape:connector-curvature="0"
      id="path4913-4-2"
-     d="m 415.50865,129.43359 v 47.52473 h 163.03159 v -47.52473 z"
+     d="m 445.14808,165.98888 v 47.52473 h 163.03159 v -47.52473 z"
      style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.49476832;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.49476831, 1.97907326;stroke-dashoffset:0;stroke-opacity:1" />
   <g
      id="g9106"
@@ -163,42 +163,42 @@
   <g
      id="g9114"
      transform="matrix(0.5,0,0,0.5,61.91939,23.609351)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9118"
-         d="M 0,0 H 85 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9120"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="theorie1_egal_if_fr.html#egal"
-           id="a9122">Base 1 : =</a>
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9118"
+       d="M 0,0 H 85 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9120"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="theorie1_egal_if_fr.html#egal"
+         id="a9122">Base 1 : =</a>
+    </text>
   </g>
   <g
      id="g9132"
      transform="matrix(0.5,0,0,0.5,120.91939,23.609351)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9136"
-         d="M 0,0 H 85 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9138"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="theorie1_egal_if_fr.html#if"
-           id="a9140">Base 2 : if</a>
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9136"
+       d="M 0,0 H 85 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9138"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="theorie1_egal_if_fr.html#if"
+         id="a9140">Base 2 : if</a>
+    </text>
   </g>
   <g
      id="g9150"
@@ -224,48 +224,48 @@
   <g
      id="g9158"
      transform="matrix(0.5,0,0,0.5,314.16939,22.109351)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9162"
-         d="M 0,0 H 112 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9164"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="theorie2_liste_while.html#while"
-           id="a9166">Base 3 : while</a>
-        <!-- xlink:href="theorie2_liste_while_fr.html" -->
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9162"
+       d="M 0,0 H 112 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9164"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="theorie2_liste_while.html#while"
+         id="a9166">Base 3 : while</a>
+      <!-- xlink:href="theorie2_liste_while_fr.html" -->
+    </text>
   </g>
   <g
      id="g9176"
      transform="matrix(0.5,0,0,0.5,385.91939,22.109351)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9180"
-         d="M 0,0 H 97 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9182"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="theorie2_liste_while.html#listes"
-           id="a9184">Base 4 : list</a>
-        <!-- xlink:href="theorie2_liste_while_fr.html" -->
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9180"
+       d="M 0,0 H 97 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9182"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="theorie2_liste_while.html#listes"
+         id="a9184">Base 4 : list</a>
+      <!-- xlink:href="theorie2_liste_while_fr.html" -->
+    </text>
   </g>
   <g
      id="g9194"
-     transform="matrix(0.5,0,0,0.5,472.60689,132.54267)">
+     transform="matrix(0.5,0,0,0.5,502.24632,169.09796)">
     <path
        style="fill:#effab4;stroke:none"
        inkscape:connector-curvature="0"
@@ -285,445 +285,445 @@
   </g>
   <g
      id="g9202"
-     transform="matrix(0.5,0,0,0.5,428.05881,154.60934)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9206"
-         d="M 0,0 H 121 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9208"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="theorie3_fonctions_et_objets.html#objets"
-           id="a9210">Base 5 : Objets</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,457.69824,191.16463)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9206"
+       d="M 0,0 H 121 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9208"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="theorie3_fonctions_et_objets.html#objets"
+         id="a9210">Base 5 : Objets</a>
+    </text>
   </g>
   <g
      id="g9220"
-     transform="matrix(0.5,0,0,0.5,502.30881,154.60934)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9224"
-         d="M 0,0 H 146 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9226"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="theorie3_fonctions_et_objets.html#fonctions"
-           id="a9228">Base 6 : Fonctions</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,531.94824,191.16463)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9224"
+       d="M 0,0 H 146 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9226"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="theorie3_fonctions_et_objets.html#fonctions"
+         id="a9228">Base 6 : Fonctions</a>
+    </text>
   </g>
   <g
      id="g9238"
      transform="matrix(0.5,0,0,0.5,154.66939,53.60935)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9242"
-         d="M 0,0 H 88 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9244"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice0_trier_deux_nombres.html"
-           id="a9246">Exercice 0</a>
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9242"
+       d="M 0,0 H 88 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9244"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice0_trier_deux_nombres.html"
+         id="a9246">Exercice 0</a>
+    </text>
   </g>
   <g
      id="g9256"
      transform="matrix(0.5,0,0,0.5,209.16939,53.60935)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9260"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9262"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice1_minute_suivante.html"
-           id="a9264">1</a>
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9260"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9262"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice1_minute_suivante.html"
+         id="a9264">1</a>
+    </text>
   </g>
   <g
      id="g9274"
      transform="matrix(0.5,0,0,0.5,233.66939,53.60935)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9278"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9280"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice2_minute_suivante_un_print.html"
-           id="a9282">2</a>
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9278"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9280"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice2_minute_suivante_un_print.html"
+         id="a9282">2</a>
+    </text>
   </g>
   <g
      id="g9292"
      transform="matrix(0.5,0,0,0.5,256.16939,53.60935)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9296"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9298"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice3_trier_trois_nombres.py.html"
-           id="a9300">3</a>
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9296"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9298"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice3_trier_trois_nombres.py.html"
+         id="a9300">3</a>
+    </text>
   </g>
   <g
      id="g9310"
      transform="matrix(0.5,0,0,0.5,280.66939,23.969921)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9314"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9316"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice4_le_sept_parfait.py.html"
-           id="a9318">4</a>
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9314"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9316"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice4_le_sept_parfait.py.html"
+         id="a9318">4</a>
+    </text>
   </g>
   <g
      id="g9328"
      transform="matrix(0.5,0,0,0.5,425.66939,52.60935)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9332"
-         d="M 0,0 H 88 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9334"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice5_max_list.py.html"
-           id="a9336">Exercice 5</a>
-      </text>
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9332"
+       d="M 0,0 H 88 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9334"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice5_max_list.py.html"
+         id="a9336">Exercice 5</a>
+    </text>
   </g>
   <g
      id="g9346"
-     transform="matrix(0.5,0,0,0.5,495.38348,69.537812)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9350"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9352"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice6_in_list.py.html"
-           id="a9354">6</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,495.38348,69.537808)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9350"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9352"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice6_in_list.py.html"
+         id="a9354">6</a>
+    </text>
   </g>
   <g
      id="g9364"
-     transform="matrix(0.5,0,0,0.5,510.71747,87.705478)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9368"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9370"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice7_transformer_une_liste.py.html"
-           id="a9372">7</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,510.71747,87.705474)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9368"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9370"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice7_transformer_une_liste.py.html"
+         id="a9372">7</a>
+    </text>
   </g>
   <g
      id="g9382"
-     transform="matrix(0.5,0,0,0.5,535.71747,87.705478)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9386"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9388"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice8_filtre_des_grands.py.html"
-           id="a9390">8</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,535.71747,87.705474)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9386"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9388"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice8_filtre_des_grands.py.html"
+         id="a9390">8</a>
+    </text>
   </g>
   <g
      id="g9400"
-     transform="matrix(0.5,0,0,0.5,560.71747,87.705478)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="exercice9_somme.py.html"
-           id="a9408">9</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,560.71747,87.705474)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="exercice9_somme.py.html"
+         id="a9408">9</a>
+    </text>
   </g>
   <g
      id="g9446"
-     transform="matrix(0.5,0,0,0.5,184.53237,254.84395)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9450"
-         d="M 0,0 H 114.24038 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)"
-         sodipodi:nodetypes="ccccc" />
-      <text
-         id="text9452"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame0_code_minimal.py.html"
-           id="a9454">Code de base</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,184.53237,321.03867)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9450"
+       d="M 0,0 H 114.24038 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       id="text9452"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame0_code_minimal.py.html"
+         id="a9454">Code de base</a>
+    </text>
   </g>
   <g
      id="g9464"
-     transform="matrix(0.5,0,0,0.5,106.53238,274.96414)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9468"
-         d="M 0,0 H 74 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9470"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame1_dessin.py.html"
-           id="a9472">1) Draw</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,106.53238,341.15886)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9468"
+       d="M 0,0 H 74 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9470"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame1_dessin.py.html"
+         id="a9472">1) Draw</a>
+    </text>
   </g>
   <g
      id="g9482"
-     transform="matrix(0.5,0,0,0.5,155.78237,274.96414)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9486"
-         d="M 0,0 H 67 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9488"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame2_tick.py.html"
-           id="a9490">2) Tick</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,155.78237,341.15886)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9486"
+       d="M 0,0 H 67 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9488"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame2_tick.py.html"
+         id="a9490">2) Tick</a>
+    </text>
   </g>
   <g
      id="g9500"
-     transform="matrix(0.5,0,0,0.5,202.53237,274.96414)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504"
-         d="M 0,0 H 86 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame3_events.py.html"
-           id="a9508">3) Events</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,202.53237,341.15886)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504"
+       d="M 0,0 H 86 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame3_events.py.html"
+         id="a9508">3) Events</a>
+    </text>
   </g>
   <g
      id="g9518"
-     transform="matrix(0.5,0,0,0.5,257.03238,274.96414)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9522"
-         d="M 0,0 H 110 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9524"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame4_animations.py.html"
-           id="a9526">4) Animation</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,257.03238,341.15886)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9522"
+       d="M 0,0 H 110 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9524"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame4_animations.py.html"
+         id="a9526">4) Animation</a>
+    </text>
   </g>
   <g
      id="g9536"
-     transform="matrix(0.5,0,0,0.5,468.85689,185.17231)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9540"
-         d="M 0,1.9759616 H 197.27885 V 29.416346 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9542"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame5_clavier_souris_events.py.html"
-           id="a9544">5) Clavier-Souris (Events)</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,498.49632,231.60741)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9540"
+       d="M 0,1.9759616 H 197.27885 V 29.416346 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9542"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame5_clavier_souris_events.py.html"
+         id="a9544">5) Clavier-Souris (Events)</a>
+    </text>
   </g>
   <g
      id="g9558"
-     transform="matrix(0.5,0,0,0.5,468.35689,205.81655)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9562"
-         d="M 0.5,2.4759616 H 183.94712 V 29.916346 H 0.5 Z" />
-      <text
-         id="text9564"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame6_clavier_souris_state.py.html"
-           id="a9566">6) Clavier-Souris (États)</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,497.99632,252.25165)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9562"
+       d="M 0.5,2.4759616 H 183.94712 V 29.916346 H 0.5 Z" />
+    <text
+       id="text9564"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame6_clavier_souris_state.py.html"
+         id="a9566">6) Clavier-Souris (États)</a>
+    </text>
   </g>
   <g
      id="g9580"
-     transform="matrix(0.5,0,0,0.5,480.35689,227.82472)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9584"
-         d="M 0,0 H 88 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9586"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame7_images.py.html"
-           id="a9588">7) Images</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,509.99632,274.25982)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9584"
+       d="M 0,0 H 88 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9586"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame7_images.py.html"
+         id="a9588">7) Images</a>
+    </text>
   </g>
   <g
      id="g9598"
-     transform="matrix(0.5,0,0,0.5,483.35689,249.8728)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602"
-         d="M 0,0 H 76 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame8_texte.py.html"
-           id="a9606">8) Texte</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,512.99632,296.3079)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602"
+       d="M 0,0 H 76 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame8_texte.py.html"
+         id="a9606">8) Texte</a>
+    </text>
   </g>
   <g
      id="g9616"
-     transform="matrix(0.5,0,0,0.5,339.9843,254.86895)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#202bff;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9620"
-         d="M 0,0 H 123.20673 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9622"
-         x="6.5240374"
-         y="20.199999"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="projets.html#tutoriel"
-           id="a9624">Tutoriel Pygame</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,369.62373,301.30405)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#202bff;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9620"
+       d="M 0,0 H 123.20673 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9622"
+       x="6.5240374"
+       y="20.199999"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="projets.html#tutoriel"
+         id="a9624">Tutoriel Pygame</a>
+    </text>
   </g>
   <g
      id="g9682"
@@ -898,7 +898,7 @@
   </g>
   <g
      id="g9738"
-     transform="matrix(0.5,0,0,0.5,579.66939,90.637268)">
+     transform="matrix(0.5,0,0,0.5,579.66939,90.637262)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -949,7 +949,7 @@
   </g>
   <g
      id="g9754"
-     transform="matrix(0.5,0,0,0.5,411.85689,193.98434)">
+     transform="matrix(0.5,0,0,0.5,441.49632,240.41944)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -974,7 +974,7 @@
   </g>
   <g
      id="g9762"
-     transform="matrix(0.5,0,0,0.5,411.85689,226.48434)">
+     transform="matrix(0.5,0,0,0.5,441.49632,272.91944)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1000,7 +1000,7 @@
   </g>
   <g
      id="g9770"
-     transform="matrix(0.5,0,0,0.5,411.85689,241.23434)">
+     transform="matrix(0.5,0,0,0.5,441.49632,287.66944)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1025,33 +1025,8 @@
        d="m 129.14904,-13.894232 8,4 -8,4 2,-4 z" />
   </g>
   <g
-     id="g9778"
-     transform="matrix(0.5,0,0,0.5,411.85689,241.23434)">
-    <path
-       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-       inkscape:connector-curvature="0"
-       id="path9780"
-       d="m 0,0 h 50.5 q 5,0 5,5 v 107 q 0,5 5,5 H 135"
-       stroke="transparent"
-       stroke-miterlimit="10"
-       transform="translate(4,4)" />
-    <path
-       sodipodi:nodetypes="csssc"
-       style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-       inkscape:connector-curvature="0"
-       id="path9782"
-       d="m 54.5,43.519232 c 3.333333,0 5.34896,-1.564791 5,-4.879808 l -0.06731,-0.639425 c -0.34896,-3.315017 1.666665,-4.879808 5,-4.879808 h 75.43269"
-       stroke-miterlimit="10" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       style="fill:#808080;stroke:none"
-       inkscape:connector-curvature="0"
-       id="path9784"
-       d="m 135.36538,29.120191 8,4 -8,4 2,-4 z" />
-  </g>
-  <g
      id="g9786"
-     transform="matrix(0.5,0,0,0.5,82.88703,260.99395)">
+     transform="matrix(0.5,0,0,0.5,82.88703,327.18867)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1078,7 +1053,7 @@
   </g>
   <g
      id="g9794"
-     transform="matrix(0.5,0,0,0.5,142.03237,277.90843)">
+     transform="matrix(0.5,0,0,0.5,142.03237,344.10315)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1103,7 +1078,7 @@
   </g>
   <g
      id="g9802"
-     transform="matrix(0.5,0,0,0.5,187.78237,277.90843)">
+     transform="matrix(0.5,0,0,0.5,187.78237,344.10315)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1128,7 +1103,7 @@
   </g>
   <g
      id="g9810"
-     transform="matrix(0.5,0,0,0.5,244.03237,277.90843)">
+     transform="matrix(0.5,0,0,0.5,244.03237,344.10315)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1153,7 +1128,7 @@
   </g>
   <g
      id="g9818"
-     transform="matrix(0.5,0,0,0.5,82.88703,257.78824)">
+     transform="matrix(0.5,0,0,0.5,82.88703,323.98296)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1177,34 +1152,8 @@
        transform="translate(194.7907,6.4114237)" />
   </g>
   <g
-     id="g9826"
-     transform="matrix(0.5,0,0,0.5,250.03238,257.80074)">
-    <path
-       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-       inkscape:connector-curvature="0"
-       id="path9828"
-       d="m 0,0 h 84 v 0.04998779 h 80"
-       stroke="transparent"
-       stroke-miterlimit="10"
-       transform="translate(4,10.38643)" />
-    <path
-       style="fill:none;stroke:#808080;stroke-width:1.97596157;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
-       inkscape:connector-curvature="0"
-       id="path9830"
-       d="M -19.759616,0 H 84 v 0.04998779 h 80"
-       stroke-miterlimit="10"
-       transform="translate(4,10.38643)"
-       sodipodi:nodetypes="cccc" />
-    <path
-       style="fill:#808080;stroke:none"
-       inkscape:connector-curvature="0"
-       id="path9832"
-       d="M 0,0 8,4 0,8 2,4 Z"
-       transform="translate(163.5,6.4364176)" />
-  </g>
-  <g
      id="g9834"
-     transform="matrix(0.5,0,0,0.5,310.53238,270.64876)">
+     transform="matrix(0.5,0,0,0.5,310.53238,336.84348)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1223,7 +1172,7 @@
   </g>
   <g
      id="g9890"
-     transform="matrix(0.5,0,0,0.5,487.05881,157.55362)">
+     transform="matrix(0.5,0,0,0.5,516.69824,194.10891)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1248,7 +1197,7 @@
   </g>
   <g
      id="g9898"
-     transform="matrix(0.5,0,0,0.5,411.60118,160.50934)">
+     transform="matrix(0.5,0,0,0.5,441.24061,206.94444)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1261,7 +1210,8 @@
        style="fill:#808080;stroke:none"
        inkscape:connector-curvature="0"
        id="path9904"
-       d="m 24.415272,0.5 8,4 -8,4 2,-4 z" />
+       d="m 24.415272,-19.259616 8,4 -8,4 2,-4 z"
+       sodipodi:nodetypes="ccccc" />
   </g>
   <g
      id="g9938"
@@ -1339,44 +1289,24 @@
        d="m 60.41436,28.3 4,-8 4,8 -4,-2 z" />
   </g>
   <g
-     id="g9778-5"
-     transform="matrix(0.5,0,0,0.5,411.85689,241.23434)">
-    <path
-       id="path9780-7"
-       d="m 0,0 h 50.5 q 5,0 5,5 v 107 q 0,5 5,5 H 135"
-       stroke="transparent"
-       stroke-miterlimit="10"
-       transform="translate(4,4)"
-       inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
-    <path
-       transform="translate(4,4)"
-       sodipodi:nodetypes="cssc"
-       style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-       inkscape:connector-curvature="0"
-       id="path9782-3"
-       d="M 1.0098702,39.519232 H 50.5 c 3.66471,0 5.001636,1.300784 5,5 L 55.4899,67.35187"
-       stroke-miterlimit="10" />
-  </g>
-  <g
      id="g9598-2-4"
-     transform="matrix(0.5,0,0,0.5,495.11869,277.0191)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5"
-         d="M 0,0 H 81.927885 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8"
-         x="22.37793"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="algos.html"
-           id="a3341">Algos</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,495.11869,343.21382)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5"
+       d="M 0,0 H 81.927885 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8"
+       x="22.37793"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="algos.html"
+         id="a3341">Algos</a>
+    </text>
   </g>
   <g
      id="g9962-9"
@@ -1432,7 +1362,7 @@
   </g>
   <g
      id="g9890-8"
-     transform="matrix(0.5,0,0,0.5,499.91939,98.553628)">
+     transform="matrix(0.5,0,0,0.5,499.91939,98.553622)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1451,7 +1381,7 @@
   </g>
   <g
      id="g9890-6"
-     transform="matrix(0.5,0,0,0.5,520.96747,90.649768)">
+     transform="matrix(0.5,0,0,0.5,520.96747,90.649762)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1476,7 +1406,7 @@
   </g>
   <g
      id="g9890-9"
-     transform="matrix(0.5,0,0,0.5,545.96747,90.649768)">
+     transform="matrix(0.5,0,0,0.5,545.96747,90.649762)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1501,28 +1431,28 @@
   </g>
   <g
      id="g9446-1"
-     transform="matrix(0.5,0,0,0.5,154.89295,235.08433)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9450-9"
-         d="M 0,0 H 264.41346 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9452-1"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pygame0_code_minimal_avec_commentaires.py.html"
-           id="a9454-0">Code de base (avec commentaires)</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,154.89295,301.27905)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9450-9"
+       d="M 0,0 H 264.41346 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9452-1"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pygame0_code_minimal_avec_commentaires.py.html"
+         id="a9454-0">Code de base (avec commentaires)</a>
+    </text>
   </g>
   <g
      id="g9786-6"
-     transform="matrix(0.5,0,0,0.5,82.88703,260.99395)">
+     transform="matrix(0.5,0,0,0.5,82.88703,327.18867)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1547,7 +1477,7 @@
   </g>
   <g
      id="g9834-2"
-     transform="matrix(0.5,0,0,0.5,310.53238,260.76895)">
+     transform="matrix(0.5,0,0,0.5,310.53238,326.96367)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1567,70 +1497,70 @@
   </g>
   <g
      id="g9464-8"
-     transform="matrix(0.5,0,0,0.5,220.58949,317.98742)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9468-3"
-         d="M 0,0 H 97.711539 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9470-0"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="3D.fr.html"
-           id="a9472-7">Introduction</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,220.58949,384.18214)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9468-3"
+       d="M 0,0 H 97.711539 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9470-0"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="3D.fr.html"
+         id="a9472-7">Introduction</a>
+    </text>
   </g>
   <g
      id="g9482-7"
-     transform="matrix(0.5,0,0,0.5,281.19527,317.98742)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9486-6"
-         d="M 0,0 H 70.951923 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9488-9"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="gl_shaders.py.html"
-           id="a9490-1">Shaders</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,281.19527,384.18214)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9486-6"
+       d="M 0,0 H 70.951923 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9488-9"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="gl_shaders.py.html"
+         id="a9490-1">Shaders</a>
+    </text>
   </g>
   <g
      id="g9500-1"
-     transform="matrix(0.5,0,0,0.5,278.91522,353.54704)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0"
-         d="M 0,0 H 80.072115 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="gl_shaders_uniforms.py.html"
-           id="a9508-9">Uniforms</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,278.91522,419.74176)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0"
+       d="M 0,0 H 80.072115 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="gl_shaders_uniforms.py.html"
+         id="a9508-9">Uniforms</a>
+    </text>
   </g>
   <g
      id="g9794-8"
-     transform="matrix(0.5,0,0,0.5,267.94526,320.93171)">
+     transform="matrix(0.5,0,0,0.5,267.94526,387.12643)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1655,7 +1585,7 @@
   </g>
   <g
      id="g9794-8-1"
-     transform="matrix(0.5,0,0,0.5,217.2193,320.93171)">
+     transform="matrix(0.5,0,0,0.5,217.2193,387.12643)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1680,80 +1610,68 @@
   </g>
   <g
      id="g9500-1-9"
-     transform="matrix(0.5,0,0,0.5,226.48132,353.54704)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-2"
-         d="M 0,0 H 74.14423 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-3"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="gl_shaders_textures.py.html"
-           id="a9508-9-6">Textures</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,226.48132,419.74176)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-2"
+       d="M 0,0 H 74.14423 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-3"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="gl_shaders_textures.py.html"
+         id="a9508-9-6">Textures</a>
+    </text>
   </g>
   <g
      id="g9500-1-9-5"
-     transform="matrix(0.5,0,0,0.5,238.53484,383.62777)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-2-8"
-         d="M 0,0 H 133.42308 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-3-3"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="https://learnopengl.com"
-           id="a9508-9-6-1">learnopengl.com</a>
-      </text>
-  </g>
-  <g
-     id="g9786-5"
-     transform="matrix(0,0.5,-0.5,0,201.17313,371.98243)">
+     transform="matrix(0.5,0,0,0.5,238.53484,449.82249)">
     <path
-       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
        inkscape:connector-curvature="0"
-       id="path9788-2"
-       d="m 0,0 h 16.645349 q 5,0 5,5 v 50 q 0,5 5,5 h 12.645349"
-       stroke="transparent"
-       stroke-miterlimit="10"
-       transform="translate(4,4)" />
+       id="path9504-0-2-8"
+       d="M 0,0 H 133.42308 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-3-3"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="https://learnopengl.com"
+         id="a9508-9-6-1">learnopengl.com</a>
+    </text>
   </g>
   <g
      id="g9598-2-7"
-     transform="matrix(0.5,0,0,0.5,346.35943,335.79383)">
-      <path
-         style="fill:#202bff;fill-opacity:1;stroke:none;stroke-width:1"
-         inkscape:connector-curvature="0"
-         id="path9602-9-8-6-2"
-         d="m 2.19121,0.4434261 81.92789,-6.1e-6 -5e-6,31.600006 H 2.19121 Z"
-         sodipodi:nodetypes="ccccc" />
-      <text
-         id="text9604-9-5"
-         x="11.54755"
-         y="20.773632"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="math.html#matrices"
-           id="-8">Matrices</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,346.35943,401.98855)">
+    <path
+       style="fill:#202bff;fill-opacity:1;stroke:none;stroke-width:1"
+       inkscape:connector-curvature="0"
+       id="path9602-9-8-6-2"
+       d="m 2.19121,0.4434261 81.92789,-6.1e-6 -5e-6,31.600006 H 2.19121 Z"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       id="text9604-9-5"
+       x="11.54755"
+       y="20.773632"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="math.html#matrices"
+         id="-8">Matrices</a>
+    </text>
   </g>
   <g
      id="g1559"
-     transform="translate(119.05068,-5.196365)">
+     transform="translate(119.05068,60.998348)">
     <circle
        style="opacity:1;fill:#00badc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.49476832;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4946"
@@ -1768,28 +1686,28 @@
   </g>
   <g
      id="g9292-5"
-     transform="matrix(0.5,0,0,0.5,258.14071,79.09984)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9296-4"
-         d="M 0,0 H 146.38095 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9298-9"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="trier_trois_nombres.fr.svg"
-           id="a9300-9">Solution en dessin</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,258.14071,79.099836)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9296-4"
+       d="M 0,0 H 146.38095 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9298-9"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="trier_trois_nombres.fr.svg"
+         id="a9300-9">Solution en dessin</a>
+    </text>
   </g>
   <g
      id="g9946-9"
-     transform="matrix(0,0.5,-0.5,0,267.6251,67.278642)">
+     transform="matrix(0,0.5,-0.5,0,267.6251,67.278638)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1840,33 +1758,33 @@
   <g
      id="g9238-9"
      transform="matrix(0.5,0,0,0.5,10.98588,55.10934)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9242-2"
-         d="M -3.9519232,0 H 88 V 31.6 H -3.9519232 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9244-0"
-         x="4.5480766"
-         y="20.200001"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="theorie0_installation.fr.html"
-           id="a9246-7">Installation</a>
-      </text>
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9242-2"
+       d="M -3.9519232,0 H 88 V 31.6 H -3.9519232 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9244-0"
+       x="4.5480766"
+       y="20.200001"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="theorie0_installation.fr.html"
+         id="a9246-7">Installation</a>
+    </text>
   </g>
   <path
      sodipodi:nodetypes="cssc"
      style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path9966-8-3"
-     d="m 55.23588,92.898748 h 12.193125 c 1.666665,0 2.5,-0.83334 2.5,-2.50001 V 41.903102"
+     d="m 55.23588,92.898742 h 12.193125 c 1.666665,0 2.5,-0.83334 2.5,-2.50001 v -48.49563"
      stroke-miterlimit="10" />
   <g
      id="g9240-3-5"
-     transform="matrix(0.5,0,0,0.5,28.769535,84.74874)">
+     transform="matrix(0.5,0,0,0.5,28.769535,84.748734)">
     <a
        xlink:href="turtle.fr.html"
        id="a9246-7-4">
@@ -1892,28 +1810,28 @@
   </g>
   <g
      id="g9292-5-0"
-     transform="matrix(0.5,0,0,0.5,156.41794,79.09983)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9296-4-3"
-         d="M 0,0 H 162.18864 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9298-9-1"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="pythontutor.html"
-           id="a9300-9-5">Solution pythontutor</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,156.41794,79.099826)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9296-4-3"
+       d="M 0,0 H 162.18864 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9298-9-1"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="pythontutor.html"
+         id="a9300-9-5">Solution pythontutor</a>
+    </text>
   </g>
   <g
      id="g9946-9-7"
-     transform="matrix(0,0.5,-0.5,0,165.90233,67.278632)">
+     transform="matrix(0,0.5,-0.5,0,165.90233,67.278628)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -1942,22 +1860,22 @@
     <a
        xlink:href="https://youtu.be/zJ-w2izNvg4"
        id="a9246-4">
-         id="g9240-5">
+         id=&quot;g9240-5&quot;&gt;
         <path
-           sodipodi:nodetypes="ccccc"
-           style="fill:#202bff;fill-opacity:1;stroke:none"
-           inkscape:connector-curvature="0"
-           id="path9242-1"
-           d="M 26.813834,0 H 75.169593 V 31.6 H 26.813834 Z"
-           transform="translate(0.5,0.5)" />
-        <text
-           id="text9244-7"
-           x="32.21154"
-           y="22.175962"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">Blocs<!-- <a
+   sodipodi:nodetypes="ccccc"
+   style="fill:#202bff;fill-opacity:1;stroke:none"
+   inkscape:connector-curvature="0"
+   id="path9242-1"
+   d="M 26.813834,0 H 75.169593 V 31.6 H 26.813834 Z"
+   transform="translate(0.5,0.5)" />
+<text
+   id="text9244-7"
+   x="32.21154"
+   y="22.175962"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">Blocs<!-- <a
           xlink:href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">Vid&#233;o</a> -->
 </text>
-    </a>
+</a>
   </g>
   <g
      id="g9706-4"
@@ -1994,11 +1912,11 @@
      sodipodi:nodetypes="ccccccc"
      inkscape:connector-curvature="0"
      id="path4913-4-2-3"
-     d="m 401.41676,321.22552 v 41.31294 h -33.59135 v 49.80933 h 258.62726 v -91.12227 z"
+     d="m 401.41676,385.44428 v 41.31294 h -33.59135 v 49.80933 h 258.62726 v -91.12227 z"
      style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.49476832;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.49476828, 1.97907316;stroke-dashoffset:0;stroke-opacity:1" />
   <g
      id="g9194-1"
-     transform="matrix(0.5,0,0,0.5,575.82286,305.01815)">
+     transform="matrix(0.5,0,0,0.5,575.82286,371.21287)">
     <path
        sodipodi:nodetypes="cccccc"
        style="fill:#effab4;stroke:none"
@@ -2019,241 +1937,241 @@
   </g>
   <g
      id="g9598-2-4-3-1"
-     transform="matrix(0.5,0,0,0.5,564.25579,389.41578)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3-8"
-         d="M 9.879808,0 H 112.32524 V 31.6 H 9.879808 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8-7-0"
-         x="22.37793"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="progra_exceptions.py.html"
-           id="a3341-9-9">try except</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,564.25579,455.6105)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3-8"
+       d="M 9.879808,0 H 112.32524 V 31.6 H 9.879808 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8-7-0"
+       x="22.37793"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="progra_exceptions.py.html"
+         id="a3341-9-9">try except</a>
+    </text>
   </g>
   <g
      id="g9598-2-4-3-7"
-     transform="matrix(0.5,0,0,0.5,418.56441,370.88925)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3-9"
-         d="M 0,0 H 126.40401 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8-7-32"
-         x="22.37793"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="progra_list_dict_set.py.html"
-           id="a3341-9-4">dict, list, set</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,418.56441,437.08397)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3-9"
+       d="M 0,0 H 126.40401 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8-7-32"
+       x="22.37793"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="progra_list_dict_set.py.html"
+         id="a3341-9-4">dict, list, set</a>
+    </text>
   </g>
   <g
      id="g9598-2-4-3-3"
-     transform="matrix(0.5,0,0,0.5,449.0609,350.81807)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3-1"
-         d="M 0,0 H 74.32721 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8-7-2"
-         x="10.522161"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="progra_hasard.py.html"
-           id="a3341-9-2">random</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,449.0609,417.01279)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3-1"
+       d="M 0,0 H 74.32721 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8-7-2"
+       x="10.522161"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="progra_hasard.py.html"
+         id="a3341-9-2">random</a>
+    </text>
   </g>
   <g
      id="g9598-2-4-3-0"
-     transform="matrix(0.5,0,0,0.5,564.25579,369.66386)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3-17"
-         d="M 9.879808,0 H 112.36456 V 31.6 H 9.879808 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8-7-5"
-         x="22.37793"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="progra_functionals.py.html"
-           id="a3341-9-1">functionals</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,564.25579,435.85858)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3-17"
+       d="M 9.879808,0 H 112.36456 V 31.6 H 9.879808 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8-7-5"
+       x="22.37793"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="progra_functionals.py.html"
+         id="a3341-9-1">functionals</a>
+    </text>
   </g>
   <g
      id="g9598-2-4-3-5-0"
-     transform="matrix(0.5,0,0,0.5,398.45069,350.81807)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3-4-5"
-         d="M 15.807693,0 H 93.446882 V 31.6 H 15.807693 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8-7-3-3"
-         x="28.305815"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="progra_module_exemple.py.html"
-           id="a3341-9-7-9">module</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,398.45069,417.01279)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3-4-5"
+       d="M 15.807693,0 H 93.446882 V 31.6 H 15.807693 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8-7-3-3"
+       x="28.305815"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="progra_module_exemple.py.html"
+         id="a3341-9-7-9">module</a>
+    </text>
   </g>
   <path
      stroke-miterlimit="10"
      stroke="transparent"
-     d="m 578.48774,142.83165 h 135.75 q 2.5,0 2.5,2.5 v 28.07558"
+     d="m 578.48774,192.23069 h 135.75 q 2.5,0 2.5,2.5 v 28.07558"
      id="path9748-0"
      inkscape:connector-curvature="0"
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
   <g
      id="g9598-2-4-3-5"
-     transform="matrix(0.5,0,0,0.5,434.23555,327.3589)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3-4"
-         d="M -23.711539,0 H 122.55861 V 31.6 H -23.711539 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8-7-3"
-         x="-19.117271"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="progra_import.py.html"
-           id="a3341-9-7">import (code reuse</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,434.23555,393.55362)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3-4"
+       d="M -23.711539,0 H 122.55861 V 31.6 H -23.711539 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8-7-3"
+       x="-19.117271"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="progra_import.py.html"
+         id="a3341-9-7">import (code reuse</a>
+    </text>
   </g>
   <g
      id="g9598-2-4-3-5-0-1"
-     transform="matrix(0.5,0,0,0.5,505.39467,327.3589)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3-4-5-7"
-         d="M 0,0 H 101.35073 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8-7-3-3-9"
-         x="22.37793"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="progra_fichier.py.html"
-           id="a3341-9-7-9-2">open file</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,505.39467,393.55362)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3-4-5-7"
+       d="M 0,0 H 101.35073 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8-7-3-3-9"
+       x="22.37793"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="progra_fichier.py.html"
+         id="a3341-9-7-9-2">open file</a>
+    </text>
   </g>
   <g
      id="g9464-8-4"
-     transform="matrix(0.5,0,0,0.5,102.05259,164.92991)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9468-3-0"
-         d="M 0,0 H 101.83675 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9470-0-8"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="django.fr.html#site-statique"
-           id="a9472-7-1">Site statique </a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,121.81221,181.72558)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9468-3-0"
+       d="M 0,0 H 101.83675 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9470-0-8"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="django.fr.html#site-statique"
+         id="a9472-7-1">Site statique </a>
+    </text>
   </g>
   <g
      id="g9482-7-0"
-     transform="matrix(0.5,0,0,0.5,142.27288,130.21822)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9486-6-2"
-         d="M 0,0 H 195.90987 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9488-9-9"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="django.fr.html#bdd"
-           id="a9490-1-7">Lire une base de données</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,162.0325,147.01389)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9486-6-2"
+       d="M 0,0 H 195.90987 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9488-9-9"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="django.fr.html#bdd"
+         id="a9490-1-7">Lire une base de données</a>
+    </text>
   </g>
   <g
      id="g9500-1-5"
-     transform="matrix(0.5,0,0,0.5,222.12963,164.92991)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4"
-         d="M 0,0 H 101.57212 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="django.fr.html#form"
-           id="a9508-9-3">Formulaires</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,241.88925,181.72558)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4"
+       d="M 0,0 H 101.57212 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-6"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="django.fr.html#form"
+         id="a9508-9-3">Formulaires</a>
+    </text>
   </g>
   <path
      stroke-miterlimit="10"
      stroke="transparent"
-     d="m 87.303385,150.09003 h 9.75"
+     d="m 107.063,166.8857 h 9.75"
      id="path9796-8-3-9"
      inkscape:connector-curvature="0"
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
   <g
      id="g9500-1-9-54"
-     transform="matrix(0.5,0,0,0.5,252.67229,130.21822)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-2-5"
-         d="M 0,0 H 246.9445 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-3-5"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="django.fr.html#bddr"
-           id="a9508-9-6-4">Bases de données relationnelles </a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,272.43191,147.01389)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-2-5"
+       d="M 0,0 H 246.9445 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-3-5"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="django.fr.html#bddr"
+         id="a9508-9-6-4">Bases de données relationnelles </a>
+    </text>
   </g>
   <g
      transform="translate(5.1576247,-95.326572)"
@@ -2288,12 +2206,12 @@
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path9796-8-3-9-0"
-     d="m 194.3952,163.9454 h 9.75"
+     d="m 214.15482,180.74107 h 9.75"
      stroke="transparent"
      stroke-miterlimit="10" />
   <g
      id="g2406-1"
-     transform="rotate(-90,293.20298,450.47599)">
+     transform="rotate(-90,311.48063,448.99404)">
     <path
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -2310,7 +2228,7 @@
   </g>
   <g
      id="g2406-1-7"
-     transform="matrix(0,1,1,0,-76.83286,-440.13449)">
+     transform="matrix(0,1,1,0,-57.073244,-423.33882)">
     <path
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -2327,7 +2245,7 @@
   </g>
   <g
      id="g2406-1-3"
-     transform="matrix(1,0,0,-1,-305.32205,457.5313)">
+     transform="matrix(1,0,0,-1,-285.56243,474.32697)">
     <path
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -2344,7 +2262,7 @@
   </g>
   <g
      id="g2406-1-8"
-     transform="matrix(0,1,1,0,-222.17767,-410.49507)">
+     transform="matrix(0,1,1,0,-202.41805,-393.6994)">
     <path
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -2361,7 +2279,7 @@
   </g>
   <g
      id="g1462"
-     transform="translate(0.562826,-70.756619)">
+     transform="translate(45.052975,-24.321522)">
     <a
        xlink:href="https://github.com/robertvandeneynde/parascolaire-students"
        id="a9624-8"
@@ -2397,7 +2315,7 @@
   </g>
   <g
      id="g9616-3"
-     transform="matrix(0.49999999,0,0,0.49999999,336.65442,174.65468)">
+     transform="matrix(0.49999999,0,0,0.49999999,380.17663,221.08978)">
     <a
        xlink:href="projets.html"
        id="a9624-7">
@@ -2430,11 +2348,11 @@
   </g>
   <g
      id="g9240-3-5-2"
-     transform="matrix(0.49999999,0,0,0.49999999,100.82136,70.065182)">
+     transform="matrix(0.49999999,0,0,0.49999999,100.82136,70.065178)">
     <a
        xlink:href="raccourcis.html"
-       id="a9246-7-4-7"
-       xlink:href_1="shortcuts.html">
+       xlink:href_1="shortcuts.html"
+       id="a9246-7-4-7">
       <path
          sodipodi:nodetypes="ccccc"
          style="fill:#202bff;fill-opacity:1;stroke:none"
@@ -2450,7 +2368,7 @@
   </g>
   <g
      id="g9240-3-5-1"
-     transform="matrix(0.49999999,0,0,0.49999999,15.937963,122.33138)">
+     transform="matrix(0.49999999,0,0,0.49999999,25.817771,129.24724)">
     <a
        xlink:href="html.html"
        id="a9246-7-4-8">
@@ -2470,18 +2388,18 @@
   </g>
   <g
      id="g2406-1-78"
-     transform="matrix(0,1,1,0,-256.15581,-444.05828)">
+     transform="matrix(0,1,1,0,-246.276,-437.14242)">
     <path
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        stroke-miterlimit="10"
-       d="m 582.43966,284.45139 h 7.2327 c 1.66666,0 2.5,0.83334 2.5,2.5 v 16.13564 4.5817"
+       d="m 582.43966,284.45139 h 17.11251 c 1.66666,0 3.37031,1.07862 2.5,2.5 v 30.59715"
        id="path9750-3-3-45"
-       sodipodi:nodetypes="csscc" />
+       sodipodi:nodetypes="cscc" />
     <path
        inkscape:connector-curvature="0"
        style="fill:#808080;stroke:none;stroke-width:0.5"
-       d="m 594.17234,305.41872 -2,4 -2,-4 2,1 z"
+       d="m 604.05215,315.29853 -2,4 -2,-4 2,1 z"
        id="path9752-7-8-0"
        sodipodi:nodetypes="ccccc" />
   </g>
@@ -2529,14 +2447,14 @@
            id="text9244-7-0"
            x="32.21154"
            y="22.175962"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#454545;stroke:none;fill-opacity:1;">Vidéos<!-- <a
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#454545;fill-opacity:1;stroke:none">Vidéos<!-- <a
           xlink:href="https://robertvandeneynde.be/clipedia/structure-variables-conditions.mp4">Vid&#233;o</a> -->
 </text>
         <g
            transform="matrix(0.450824,0,0,0.450824,13.992628,-8.0740402)"
            id="g5036-5">
           <rect
-             style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#454545;stroke-width:2.96290807;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#454545;stroke-width:2.96290803;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
              id="rect4929-1"
              width="33.597076"
              height="17.43848"
@@ -2551,7 +2469,7 @@
              cy="44.001461"
              r="7.0955129" />
           <path
-             style="fill:#454545;fill-rule:evenodd;stroke:none;stroke-width:0.98798078px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+             style="fill:#454545;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98798078px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
              d="m 36.053736,50.098514 10e-6,19.4354 -16.831567,-9.7177 z"
              id="path5000-0"
              inkscape:connector-curvature="0" />
@@ -2650,49 +2568,23 @@
   </g>
   <g
      id="g9400-6"
-     transform="matrix(0.49999999,0,0,0.49999999,576.47856,69.537812)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-2"
-         d="M 0,0 H 27.951924 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)"
-         sodipodi:nodetypes="ccccc" />
-      <text
-         id="text9406-0"
-         x="6.5240383"
-         y="20.200001"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="exercice10_doublons.py.html"
-           id="a9408-6">10</a>
-      </text>
-  </g>
-  <g
-     id="g9898-1"
-     transform="matrix(0.49999999,0,0,0.49999999,561.50891,75.4378)">
+     transform="matrix(0.49999999,0,0,0.49999999,576.47856,69.537808)">
     <path
-       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       style="fill:#00a9c9;stroke:none"
        inkscape:connector-curvature="0"
-       id="path9900-2"
-       d="m 0,160.95001 h 5.25 q 5,0 5,-5 V 5 q 0,-5 5,-5 h 1.25"
-       stroke="transparent"
-       stroke-miterlimit="10"
-       transform="translate(4.5114237,4.5)" />
-    <path
-       sodipodi:nodetypes="cc"
-       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-       inkscape:connector-curvature="0"
-       id="path9902-9"
-       d="M -112.2623,0 H 22.427875"
-       stroke-miterlimit="10"
-       transform="translate(4.5114237,4.5)" />
-    <path
-       style="fill:#808080;stroke:none"
-       inkscape:connector-curvature="0"
-       id="path9904-3"
-       d="m 22.439301,0.5 8,4 -8,4 2,-4 z"
+       id="path9404-2"
+       d="M 0,0 H 27.951924 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)"
        sodipodi:nodetypes="ccccc" />
+    <text
+       id="text9406-0"
+       x="6.5240383"
+       y="20.200001"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="exercice10_doublons.py.html"
+         id="a9408-6">10</a>
+    </text>
   </g>
   <g
      id="g9722-8"
@@ -2723,7 +2615,7 @@
   </g>
   <g
      id="g9738-0"
-     transform="matrix(0,0.49999999,-0.49999999,0,589.89774,88.337788)">
+     transform="matrix(0,0.49999999,-0.49999999,0,589.89774,137.73683)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -2742,28 +2634,28 @@
   </g>
   <g
      id="g9292-5-7"
-     transform="matrix(0.49999999,0,0,0.49999999,432.44018,105.9771)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9296-4-6"
-         d="M 0,0 H 128.59729 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9298-9-5"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="correction_exercice7_transformer_une_liste.html"
-           id="a9300-9-2">Résolution exo7</a>
-      </text>
-    </g>
+     transform="matrix(0.49999999,0,0,0.49999999,432.44018,105.97709)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9296-4-6"
+       d="M 0,0 H 128.59729 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9298-9-5"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="correction_exercice7_transformer_une_liste.html"
+         id="a9300-9-2">Résolution exo7</a>
+    </text>
+  </g>
   <g
      id="g9754-6"
-     transform="matrix(-0.49999999,0,0,-0.49999999,553.73882,113.41317)">
+     transform="matrix(-0.49999999,0,0,-0.49999999,553.73882,113.41316)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -2788,7 +2680,7 @@
   </g>
   <g
      id="g1758"
-     transform="translate(0,-3.302419)">
+     transform="translate(19.759616,13.493254)">
     <path
        sodipodi:nodetypes="cccccc"
        d="m 70.45782,189.74538 h 35.03606 l 2.96394,2.96394 v 12.83606 h -38 z"
@@ -2802,12 +2694,12 @@
        id="text9604-9-5-2">
       <a
          xlink:href="theorie3_fonctions_et_objets.html#fonctions"
-         style="stroke-width:0.5"
-         id="-8-4">Base 6</a>
+         id="-8-4"
+         style="stroke-width:0.5">Base 6</a>
     </text>
   </g>
   <g
-     transform="translate(-123.88504,-176.03198)"
+     transform="translate(-104.12542,-159.23631)"
      id="g1559-7">
     <circle
        style="opacity:1;fill:#00b9dc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.49476832;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -2823,7 +2715,7 @@
   </g>
   <g
      id="g2406-1-78-9"
-     transform="rotate(-90,310.74572,479.09105)">
+     transform="rotate(-90,329.02337,477.6091)">
     <path
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -2839,7 +2731,7 @@
        sodipodi:nodetypes="ccccc" />
   </g>
   <g
-     transform="translate(-86.164485,-196.08227)"
+     transform="translate(-66.404869,-179.2866)"
      id="g1559-7-9">
     <circle
        style="opacity:1;fill:#00bbde;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.49476832;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -2855,7 +2747,7 @@
   </g>
   <g
      id="g2406-1-7-9"
-     transform="matrix(0,0.99999998,0.99999998,0,-176.6737,-460.18475)">
+     transform="matrix(0,0.99999998,0.99999998,0,-156.91408,-443.38908)">
     <path
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -2871,7 +2763,7 @@
        sodipodi:nodetypes="ccccc" />
   </g>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,90.503647,110.15682)"
+     transform="matrix(0.49999999,0,0,0.49999999,110.26326,126.95249)"
      id="g9600-8-4-8-5">
     <path
        style="fill:#00ccf2;fill-opacity:1;stroke:none"
@@ -2895,22 +2787,21 @@
      style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path9742-3"
-     d="m 590.70452,76.93047 6.67686,0.0129 c 2.45819,-6.5e-4 2.49187,-0.004 3.87299,1.42628 l 1.25049,1.25661"
+     d="m 590.70452,77.687808 6.67686,0.0129 c 2.45819,-6.5e-4 2.49187,-0.004 3.87299,1.42628 l 1.25049,1.25661"
      stroke-miterlimit="10" />
   <path
      style="fill:#808080;stroke:none;stroke-width:0.5"
      inkscape:connector-curvature="0"
      id="path9744-0"
-     d="m 603.21196,77.50495 1.41422,4.24264 -4.24263,-1.4142 2.12131,-0.70711 z" />
-
+     d="m 602.76007,77.808183 1.41422,4.242638 -4.24263,-1.4142 2.12131,-0.707108 z" />
   <path
      style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.49476832;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.49476831, 1.48430494;stroke-dashoffset:0;stroke-opacity:1"
-     d="m 24.94101,303.96699 v 96.92376 h 123.5123 v -96.92376 z"
+     d="m 24.94101,370.16171 v 96.92376 h 123.5123 v -96.92376 z"
      id="path4913-4-2-5"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="ccccc" />
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,65.9465,339.39018)"
+     transform="matrix(0.49999999,0,0,0.49999999,65.9465,405.5849)"
      id="g9194-6">
     <path
        transform="translate(0.5,0.5)"
@@ -2930,228 +2821,228 @@
     </text>
   </g>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,65.981697,314.6581)"
+     transform="matrix(0.49999999,0,0,0.49999999,65.981697,380.85282)"
      id="g9400-6-4">
-      <path
-         sodipodi:nodetypes="ccccc"
-         transform="translate(0.5,0.5)"
-         d="M 0,0 H 27.951924 V 31.6 H 0 Z"
-         id="path9404-2-4"
-         inkscape:connector-curvature="0"
-         style="fill:#00a9c9;stroke:none" />
-      <text
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         y="20.199999"
-         x="6.5240383"
-         id="text9406-0-8">
-        <a
-           xlink:href="lecture11.py.html"
-           id="a9408-6-5">11</a>
-      </text>
+    <path
+       sodipodi:nodetypes="ccccc"
+       transform="translate(0.5,0.5)"
+       d="M 0,0 H 27.951924 V 31.6 H 0 Z"
+       id="path9404-2-4"
+       inkscape:connector-curvature="0"
+       style="fill:#00a9c9;stroke:none" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       y="20.199999"
+       x="6.5240383"
+       id="text9406-0-8">
+      <a
+         xlink:href="lecture11.py.html"
+         id="a9408-6-5">11</a>
+    </text>
   </g>
   <g
      id="g9400-8"
-     transform="matrix(0.49999999,0,0,0.49999999,93.705911,311.78293)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture01.py.html"
-           id="a9408-64">1</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,93.705911,377.97765)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture01.py.html"
+         id="a9408-64">1</a>
+    </text>
   </g>
   <g
      id="g9400-8-6"
-     transform="matrix(0.49999999,0,0,0.49999999,111.67385,319.8292)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6-8"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06-9"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture02.py.html"
-           id="a9408-64-6">2</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,111.67385,386.02392)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6-8"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06-9"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture02.py.html"
+         id="a9408-64-6">2</a>
+    </text>
   </g>
   <g
      id="g9400-8-0"
-     transform="matrix(0.49999999,0,0,0.49999999,117.8873,340.83115)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6-0"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06-1"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture03.py.html"
-           id="a9408-64-0">3</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,117.8873,407.02587)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6-0"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06-1"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture03.py.html"
+         id="a9408-64-0">3</a>
+    </text>
   </g>
   <g
      id="g9400-8-1"
-     transform="matrix(0.49999999,0,0,0.49999999,114.20817,361.69654)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6-7"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06-7"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture04.py.html"
-           id="a9408-64-2">4</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,114.20817,427.89126)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6-7"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06-7"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture04.py.html"
+         id="a9408-64-2">4</a>
+    </text>
   </g>
   <g
      id="g9400-8-1-6"
-     transform="matrix(0.49999999,0,0,0.49999999,98.216065,370.92634)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6-7-5"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06-7-2"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture05.py.html"
-           id="a9408-64-2-0">5</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,98.216065,437.12106)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6-7-5"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06-7-2"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture05.py.html"
+         id="a9408-64-2-0">5</a>
+    </text>
   </g>
   <g
      id="g9400-8-1-6-2"
-     transform="matrix(0.49999999,0,0,0.49999999,75.459639,373.64422)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6-7-5-0"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06-7-2-9"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture06.py.html"
-           id="a9408-64-2-0-9">6</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,75.459639,439.83894)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6-7-5-0"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06-7-2-9"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture06.py.html"
+         id="a9408-64-2-0-9">6</a>
+    </text>
   </g>
   <g
      id="g9400-8-1-6-2-4"
-     transform="matrix(0.49999999,0,0,0.49999999,55.417946,370.22723)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6-7-5-0-1"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06-7-2-9-0"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture07.py.html"
-           id="a9408-64-2-0-9-3">7</a>
-      </text>
-    </g>
+     transform="matrix(0.49999999,0,0,0.49999999,55.417946,436.42195)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6-7-5-0-1"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06-7-2-9-0"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture07.py.html"
+         id="a9408-64-2-0-9-3">7</a>
+    </text>
+  </g>
   <g
      id="g9400-8-1-6-2-4-7"
-     transform="matrix(0.49999999,0,0,0.49999999,39.20947,359.86087)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6-7-5-0-1-8"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06-7-2-9-0-6"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture08.py.html"
-           id="a9408-64-2-0-9-3-0">8</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,39.20947,426.05559)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6-7-5-0-1-8"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06-7-2-9-0-6"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture08.py.html"
+         id="a9408-64-2-0-9-3-0">8</a>
+    </text>
   </g>
   <g
      id="g9400-8-1-6-2-4-7-4"
-     transform="matrix(0.49999999,0,0,0.49999999,30.269204,340.83115)">
-      <path
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9404-6-7-5-0-1-8-7"
-         d="M 0,0 H 24 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9406-06-7-2-9-0-6-6"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="lecture09.py.html"
-           id="a9408-64-2-0-9-3-0-0">9</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,30.269204,407.02587)">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9404-6-7-5-0-1-8-7"
+       d="M 0,0 H 24 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9406-06-7-2-9-0-6-6"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="lecture09.py.html"
+         id="a9408-64-2-0-9-3-0-0">9</a>
+    </text>
   </g>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,34.787035,322.06317)"
+     transform="matrix(0.49999999,0,0,0.49999999,34.787035,388.25789)"
      id="g9400-6-4-8">
-      <path
-         sodipodi:nodetypes="ccccc"
-         transform="translate(0.5,0.5)"
-         d="M 0,0 H 27.951924 V 31.6 H 0 Z"
-         id="path9404-2-4-3"
-         inkscape:connector-curvature="0"
-         style="fill:#00a9c9;stroke:none" />
-      <text
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         y="20.199999"
-         x="6.5240383"
-         id="text9406-0-8-3">
-        <a
-           xlink:href="lecture10.py.html"
-           id="a9408-6-5-8">10</a>
-      </text>
+    <path
+       sodipodi:nodetypes="ccccc"
+       transform="translate(0.5,0.5)"
+       d="M 0,0 H 27.951924 V 31.6 H 0 Z"
+       id="path9404-2-4-3"
+       inkscape:connector-curvature="0"
+       style="fill:#00a9c9;stroke:none" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       y="20.199999"
+       x="6.5240383"
+       id="text9406-0-8-3">
+      <a
+         xlink:href="lecture10.py.html"
+         id="a9408-6-5-8">10</a>
+    </text>
   </g>
   <g
      id="g9794-8-8"
-     transform="matrix(-0.49999999,0,0,-0.49999999,277.30343,366.90275)">
+     transform="matrix(-0.49999999,0,0,-0.49999999,277.30343,433.09747)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -3177,7 +3068,7 @@
   </g>
   <g
      id="g9794-8-8-0"
-     transform="matrix(-0.49999999,0,0,-0.49999999,350.53314,349.12125)">
+     transform="matrix(-0.49999999,0,0,-0.49999999,350.53314,415.31597)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -3203,7 +3094,7 @@
   </g>
   <g
      id="g2696-1"
-     transform="matrix(0,-0.99999998,-0.99999998,0,802.09626,656.08481)">
+     transform="matrix(0,-0.99999998,-0.99999998,0,802.09626,722.27953)">
     <path
        stroke-miterlimit="10"
        d="m 307.52968,469.70272 h -10.04167 c -3.10023,0 -3.10023,0 -3.10023,3.10023 v 7.09203"
@@ -3219,7 +3110,7 @@
   </g>
   <g
      id="g2696-1-4"
-     transform="matrix(-0.99999998,0,0,0.99999998,624.45091,-143.56529)">
+     transform="matrix(-0.99999998,0,0,0.99999998,624.45091,-77.37057)">
     <path
        stroke-miterlimit="10"
        d="m 307.52968,469.70272 h -12.37822 c -3.10023,0 -3.09409,-5.8e-4 -3.09409,3.04649 v 7.09203"
@@ -3235,7 +3126,7 @@
   </g>
   <g
      id="g2696-1-1-0"
-     transform="rotate(-90,221.42409,465.53423)">
+     transform="rotate(-90,254.52144,498.63158)">
     <path
        stroke-miterlimit="10"
        d="m 294.38778,479.89498 v -19.07599 c 0,-3.10019 0,-3.16979 3.10023,-3.16979 h 24.67295 c 3.10023,0 3.10023,0 3.10023,3.10023 v 10.09204"
@@ -3251,20 +3142,14 @@
   </g>
   <path
      style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.98798078;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 28.608431,207.29356 56.727433,162.64867"
-     id="path1521"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cc" />
-  <path
-     style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.98798078;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 28.284151,207.83334 v 93.13365"
+     d="M 28.284151,264.14825 V 367.16171"
      id="path1527"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
   <g
      id="g9092-5"
      inkscape:label="topic-2D"
-     transform="matrix(0.5,0,0,0.5,50.41388,250.3893)">
+     transform="matrix(0.5,0,0,0.5,50.41388,316.58402)">
     <a
        xlink:href="projets.html#tutoriel"
        id="a1991">
@@ -3297,12 +3182,12 @@
   </g>
   <g
      id="g1732"
-     transform="translate(0,-7.748329)">
+     transform="translate(0,58.446384)">
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path1523"
-       d="m 28.938081,215.2696 31.648324,37.07152"
+       d="m 28.938081,205.38979 31.648324,46.95133"
        style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.98798078;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        d="m 61.757874,250.44262 0.319255,4.46072 -3.760137,-2.42103 2.230364,-0.15962 z"
@@ -3310,19 +3195,28 @@
        inkscape:connector-curvature="0"
        style="fill:#808080;stroke:none;stroke-width:0.5" />
   </g>
-  <path
-     style="fill:#808080;stroke:none;stroke-width:0.5"
-     inkscape:connector-curvature="0"
-     id="path9792-4-5"
-     d="m 54.390517,162.52951 4.025277,-1.94863 -0.856263,4.3894 -0.974315,-2.01265 z" />
+  <g
+     id="g1737">
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1521"
+       d="M 28.608431,263.60847 79.588125,181.87301"
+       style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.98798078;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       d="m 77.193036,182.09146 3.844115,-2.28535 -0.478196,4.4465 -1.142672,-1.92207 z"
+       id="path9792-4-5"
+       inkscape:connector-curvature="0"
+       style="fill:#808080;stroke:none;stroke-width:0.5" />
+  </g>
   <path
      style="fill:#808080;stroke:none;stroke-width:0.5"
      inkscape:connector-curvature="0"
      id="path9800-3-5-9"
-     d="m 30.284151,299.96699 -2,4 -1.99999,-4 1.99999,1 z" />
+     d="m 30.284151,366.16171 -2,4 -1.99999,-4 1.99999,1 z" />
   <g
      id="g9094-6-7"
-     transform="matrix(0.49999999,0,0,0.49999999,595.71837,83.25084)">
+     transform="matrix(0.49999999,0,0,0.49999999,595.71837,83.250834)">
     <circle
        r="13.359375"
        cy="63.438702"
@@ -3337,14 +3231,14 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#f5f5f5;stroke:none">Pratique</text>
   </g>
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:1.9759616;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 70.343121,280.8966 0.181075,18.50376 96.530484,-0.12599 v 26.82985 l 7.55641,-0.01"
+     style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:1.97596157;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 70.343121,347.09132 0.181075,18.50376 96.530484,-0.12599 v 26.82985 l 7.55641,-0.01"
      id="path1523-9"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="ccccc" />
   <g
      id="g9794-8-1-5"
-     transform="matrix(0,0.49999999,-0.49999999,0,199.39535,294.73478)">
+     transform="matrix(0,0.49999999,-0.49999999,0,199.39535,360.9295)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -3356,60 +3250,60 @@
   </g>
   <path
      style="fill:none;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98798078;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.9879808, 1.9759616;stroke-dashoffset:0;stroke-opacity:1"
-     d="m 86.4465,357.57351 10.661151,43.31724"
+     d="m 86.4465,423.76823 10.661151,43.31724"
      id="path1532"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,95.173496,384.64559)"
+     transform="matrix(0.49999999,0,0,0.49999999,95.173496,450.84031)"
      id="g9194-6-2">
     <text
        transform="translate(5.5,14.591667)"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307759px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none;"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307758px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none"
        y="12.675"
        x="35.5"
        id="text9198-7-7">Théorie 1</text>
   </g>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,55.057505,384.5656)"
+     transform="matrix(0.49999999,0,0,0.49999999,55.057505,450.76032)"
      id="g9194-6-2-6">
     <text
        transform="translate(5.5,14.591667)"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307759px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none;"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307758px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none"
        y="12.675"
        x="35.5"
        id="text9198-7-7-8">
       <a
          xlink:href="theorie2_liste_while.html"
-         style="fill:#8c8c8c;fill-opacity:1;font-size:13.17307759px;"
-         id="a9200-4-8-7">Théorie 2</a>
+         id="a9200-4-8-7"
+         style="font-size:13.17307758px;fill:#8c8c8c;fill-opacity:1">Théorie 2</a>
     </text>
   </g>
   <path
      style="fill:none;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98798078;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.9879808, 1.9759616;stroke-dashoffset:0;stroke-opacity:1"
-     d="M 84.42161,339.64018 84.033722,303.96699"
+     d="M 84.42161,405.8349 84.033722,370.16171"
      id="path1532-2"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
   <path
      style="fill:none;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.98798078;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.9879808, 1.9759616;stroke-dashoffset:0;stroke-opacity:1"
-     d="m 32.321148,303.96699 39.771117,35.24295"
+     d="m 32.321148,370.16171 39.771117,35.24295"
      id="path1532-7"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,38.586214,297.79731)"
+     transform="matrix(0.49999999,0,0,0.49999999,38.586214,363.99203)"
      id="g9194-6-2-6-4">
     <text
        transform="translate(5.5,14.591667)"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307759px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none;"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307758px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none"
        y="12.675"
        x="35.5"
        id="text9198-7-7-8-9">
       <a
          xlink:href="theorie3_fonctions_et_objets.html"
-         style="fill:#8c8c8c;fill-opacity:1;font-size:13.17307759px;"
-         id="a9200-4-8-7-9">Théorie 3</a>
+         id="a9200-4-8-7-9"
+         style="font-size:13.17307758px;fill:#8c8c8c;fill-opacity:1">Théorie 3</a>
     </text>
   </g>
   <g
@@ -3455,7 +3349,7 @@
     </text>
   </g>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,340.34007,236.93562)"
+     transform="matrix(0.49999999,0,0,0.49999999,369.9795,283.37072)"
      id="g9194-6-4-9-2">
     <path
        d="M 0.50000016,8.4038466 H 53.346152 L 65.692305,17.370513 V 36.366667 H 0.50000016 Z"
@@ -3475,116 +3369,116 @@
   </g>
   <g
      id="g9500-1-5-8"
-     transform="matrix(0.49999999,0,0,0.49999999,196.31632,204.76102)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#0087a0;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-8"
-         d="M 0,0 H 204.32212 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <a
-         id="a9508-9-3-3"
-         xlink:href="#">
-        <text
-           id="text9506-8-6-3"
-           x="0"
-           y="11.7"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-           transform="translate(8.5,8.5)">Diagramme Entité-Relation</text>
-      </a>
+     transform="matrix(0.49999999,0,0,0.49999999,221.01585,261.07593)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#0087a0;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-8"
+       d="M 0,0 H 204.32212 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <a
+       id="a9508-9-3-3"
+       xlink:href="#">
+      <text
+         id="text9506-8-6-3"
+         x="0"
+         y="11.7"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+         transform="translate(8.5,8.5)">Diagramme Entité-Relation</text>
+    </a>
   </g>
   <path
      stroke-miterlimit="10"
      stroke="transparent"
-     d="m 296.04504,145.3163 v 9.75"
+     d="m 315.80466,162.11197 v 9.75"
      id="path9796-8-76"
      inkscape:connector-curvature="0"
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
   <path
      sodipodi:nodetypes="cc"
      stroke-miterlimit="10"
-     d="m 296.04504,146.26822 v 58.7428"
+     d="m 318.00155,163.06389 0,98.26204"
      id="path9798-0-8"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#808080;stroke-width:0.49399039;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:2.9639424, 2.9639424;stroke-dashoffset:0" />
   <path
      style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.98798072;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 28.749771,206.97181 H 143.54507"
+     d="M 28.749771,263.28672 H 143.54507"
      id="path1523-96"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
   <g
      id="g9500-1-5-0"
-     transform="matrix(0.49999999,0,0,0.49999999,196.31632,185.99708)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#0086a0;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-6"
-         d="M 0,0 H 127.25962 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <a
-         id="a9508-9-3-4"
-         xlink:href="https://docs.python.org/3/library/sqlite.html">
-        <text
-           id="text9506-8-6-2"
-           x="0"
-           y="11.7"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-           transform="translate(8.5,8.5)">Sqlite en Python</text>
-      </a>
+     transform="matrix(0.49999999,0,0,0.49999999,216.07594,232.43218)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#0086a0;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-6"
+       d="M 0,0 H 127.25962 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <a
+       id="a9508-9-3-4"
+       xlink:href="https://docs.python.org/3/library/sqlite.html">
+      <text
+         id="text9506-8-6-2"
+         x="0"
+         y="11.7"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+         transform="translate(8.5,8.5)">Sqlite en Python</text>
+    </a>
   </g>
   <path
      style="fill:#808080;stroke:none;stroke-width:0.5"
      inkscape:connector-curvature="0"
      id="path9792-6-7"
-     d="m 142.54507,204.97181 4,2 -4,2 1,-2 z" />
+     d="m 142.54507,261.28672 4,2 -4,2 1,-2 z" />
   <path
      stroke-miterlimit="10"
      stroke="transparent"
-     d="m 200.40508,145.3163 v 9.75"
+     d="m 220.1647,162.11197 v 9.75"
      id="path9796-8-76-1"
      inkscape:connector-curvature="0"
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
   <g
      id="g9500-1-5-0-2"
-     transform="matrix(0.49999999,0,0,0.49999999,167.05024,165.33308)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#0086a0;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-6-7"
-         d="M 0,0 H 46.245194 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <a
-         id="a9508-9-3-4-9"
-         xlink:href="https://sqlite.org/lang_select.html">
-        <text
-           id="text9506-8-6-2-4"
-           x="0"
-           y="11.7"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-           transform="translate(8.5,8.5)">SQL</text>
-      </a>
+     transform="matrix(0.49999999,0,0,0.49999999,186.80986,211.76818)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#0086a0;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-6-7"
+       d="M 0,0 H 46.245194 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <a
+       id="a9508-9-3-4-9"
+       xlink:href="https://sqlite.org/lang_select.html">
+      <text
+         id="text9506-8-6-2-4"
+         x="0"
+         y="11.7"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+         transform="translate(8.5,8.5)">SQL</text>
+    </a>
   </g>
   <path
      stroke-miterlimit="10"
      stroke="transparent"
-     d="m 184.34896,145.3163 v 9.75"
+     d="m 204.10858,162.11197 v 9.75"
      id="path9796-8-76-1-4"
      inkscape:connector-curvature="0"
      style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
   <path
      sodipodi:nodetypes="cc"
      stroke-miterlimit="10"
-     d="m 184.34896,146.26822 v 19.31486"
+     d="m 204.10858,163.06389 0,58.8341"
      id="path9798-0-8-5-5"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#808080;stroke-width:0.49399039;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:2.9639424, 2.9639424;stroke-dashoffset:0" />
   <g
      id="g9794-8-4-9-9-5"
-     transform="matrix(0,0.49999999,-0.49999999,0,192.52941,190.07719)">
+     transform="matrix(0,0.49999999,-0.49999999,0,212.28903,206.87286)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -3596,51 +3490,56 @@
   <path
      style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
-     id="path9798-0-8-5-5-0"
-     d="m 172.84311,183.67788 -8.40529,24.71765"
-     stroke-miterlimit="10"
-     sodipodi:nodetypes="cc" />
-  <path
-     style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-     inkscape:connector-curvature="0"
      id="path9798-0-8-5-5-0-97"
-     d="m 164.43782,208.39553 h 29.1285"
+     d="m 164.43782,264.71044 h 54.82803"
      stroke-miterlimit="10"
      sodipodi:nodetypes="cc" />
   <path
      style="fill:#808080;stroke:none;stroke-width:0.5"
      inkscape:connector-curvature="0"
      id="path9792-6-7-8"
-     d="m 192.56632,206.39553 4,2 -4,2 1,-2 z" />
-  <path
-     style="fill:#808080;stroke:none;stroke-width:0.5"
-     inkscape:connector-curvature="0"
-     id="path9792-6-7-8-2-5"
-     d="m 170.46102,184.06067 3.49264,-2.79308 0.13888,4.46998 -1.39658,-1.74628 z" />
+     d="m 217.26585,262.71044 4,2 -4,2 1,-2 z"
+     sodipodi:nodetypes="ccccc" />
+  <g
+     id="g1733"
+     transform="translate(0,-9.879808)">
+    <path
+       sodipodi:nodetypes="cc"
+       stroke-miterlimit="10"
+       d="m 192.45558,240.3062 -28.01776,34.28405"
+       id="path9798-0-8-5-5-0"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+    <path
+       d="m 189.97612,240.31543 3.92107,-2.1506 -0.63217,4.42724 -1.07534,-1.9605 z"
+       id="path9792-6-7-8-2-5"
+       inkscape:connector-curvature="0"
+       style="fill:#808080;stroke:none;stroke-width:0.5" />
+  </g>
   <g
      id="g9500-1-5-0-20-9"
-     transform="matrix(0.49999999,0,0,0.49999999,75.801623,215.46034)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00ccf2;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-6-3-5"
-         d="M 0,0 H 113.42789 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-2-1-6"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="docs.python-requests.org/en/master/"
-           id="a9508-9-3-4-1-7">API (requests)</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,75.801623,271.77525)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00ccf2;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-6-3-5"
+       d="M 0,0 H 113.42789 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-6-2-1-6"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="docs.python-requests.org/en/master/"
+         id="a9508-9-3-4-1-7">API (requests)</a>
+    </text>
   </g>
   <g
      id="g9092-5-3"
-     transform="matrix(0.5,0,0,0.5,597.07826,78.7561)"
+     transform="matrix(0.5,0,0,0.5,597.07826,135.071)"
      style="stroke-width:1.97596157;stroke-miterlimit:4;stroke-dasharray:none">
     <g
        id="g9094-6-7-7"
@@ -3663,7 +3562,7 @@
   <g
      style="stroke-width:2"
      id="g9194-6-4-0"
-     transform="matrix(0.5,0,0,0.5,484.76694,485.22978)">
+     transform="matrix(0.5,0,0,0.5,484.76694,534.62882)">
     <path
        sodipodi:nodetypes="cccccc"
        style="fill:#effab4;stroke:none;stroke-width:2"
@@ -3684,7 +3583,7 @@
   </g>
   <g
      style="stroke-width:4"
-     transform="matrix(0.25,0,0,0.25,439.3926,449.13988)"
+     transform="matrix(0.25,0,0,0.25,439.3926,498.53892)"
      inkscape:label="topic-3D"
      id="g9092-5-2-4">
     <a
@@ -3718,7 +3617,7 @@
   </g>
   <g
      style="stroke-width:2"
-     transform="matrix(0.5,0,0,0.5,253.15692,118.44186)"
+     transform="matrix(0.5,0,0,0.5,253.15692,167.8409)"
      id="g2791">
     <path
        sodipodi:nodetypes="ccccc"
@@ -3742,38 +3641,38 @@
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:7.90384626px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="531.59344"
-     y="477.82568"
+     y="527.22473"
      id="text2376-4"><tspan
        sodipodi:role="line"
        id="tspan2374-8"
        x="531.59344"
-       y="477.82568"
+       y="527.22473"
        style="font-size:7.90384626px;stroke-width:0.49399036px">Groupe de sujets</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:7.90384626px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="533.39215"
-     y="497.36987"
+     y="546.76892"
      id="text3631"><tspan
        sodipodi:role="line"
        x="533.39215"
-       y="497.36987"
+       y="546.76892"
        style="font-size:7.90384626px;stroke-width:0.49399036px"
        id="tspan11251">Type d'activité</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:7.90384626px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="300.97153"
-     y="458.67709"
+     y="508.07614"
      id="text2376-8"><tspan
        sodipodi:role="line"
        x="300.97153"
-       y="458.67709"
+       y="508.07614"
        style="font-size:7.90384626px;stroke-width:0.49399036px"
        id="tspan2380-6">X débloque Y (seul prérequis)</tspan></text>
   <g
      style="stroke-width:2"
-     transform="translate(49.892346,125.98815)"
+     transform="translate(49.892346,175.38719)"
      id="g1559-2">
     <circle
        r="4.639596"
@@ -3791,138 +3690,138 @@
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:7.90384626px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="300.50238"
-     y="478.0235"
+     y="527.42255"
      id="text5295"><tspan
        id="tspan2462"
        sodipodi:role="line"
        x="300.50238"
-       y="478.0235"
+       y="527.42255"
        style="font-size:7.90384626px;stroke-width:0.49399036px">Plusieurs prérequis</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:9.87980843px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399039px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="55.439354"
-     y="458.47931"
+     y="507.87836"
      id="text2384"><tspan
        sodipodi:role="line"
        id="tspan2382"
        x="55.439354"
-       y="458.47931"
-       style="stroke-width:0.49399039px;font-size:7.9038464px">Page ou section</tspan></text>
+       y="507.87836"
+       style="font-size:7.90384626px;stroke-width:0.49399039px">Page ou section</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:7.33333332px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399039px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+     style="font-style:normal;font-weight:normal;font-size:7.33333349px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399039px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="54.778629"
-     y="477.82568"
+     y="527.22473"
      id="text6959"><tspan
        sodipodi:role="line"
        x="54.778629"
-       y="477.82568"
-       style="stroke-width:0.49399039px;font-size:7.9038464px"
+       y="527.22473"
+       style="font-size:7.90384626px;stroke-width:0.49399039px"
        id="tspan2386">Introduction (pour commencer) ou complet</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:7.33333332px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399039px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+     style="font-style:normal;font-weight:normal;font-size:7.33333349px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399039px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="54.998871"
-     y="497.17209"
+     y="546.57111"
      id="text6962"><tspan
        sodipodi:role="line"
        x="54.998871"
-       y="497.17209"
-       style="stroke-width:0.49399039px;font-size:7.9038464px"
+       y="546.57111"
+       style="font-size:7.90384626px;stroke-width:0.49399039px"
        id="tspan2388">Lien externe, sujet en construction</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:7.9038464px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399039px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+     style="font-style:normal;font-weight:normal;font-size:7.90384626px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399039px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="54.338142"
-     y="516.71625"
+     y="566.1153"
      id="text6965"><tspan
        id="tspan2426"
        sodipodi:role="line"
        x="54.338142"
-       y="516.71625"
-       style="stroke-width:0.49399039px;font-size:7.9038464px;">Référent un autre sujet dans le graphe</tspan></text>
+       y="566.1153"
+       style="font-size:7.90384626px;stroke-width:0.49399039px">Référent un autre sujet dans le graphe</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:9.87980843px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399033px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="483.57529"
-     y="459.13055"
+     y="508.5296"
      id="text2376-4-0"><tspan
        sodipodi:role="line"
        x="483.57529"
-       y="459.13055"
+       y="508.5296"
        style="font-size:7.90384626px;stroke-width:0.49399033px"
        id="tspan2380-5-6">Cursus, état d'avancement</tspan></text>
   <g
      id="g9500-1-9-52"
-     transform="matrix(0.49999998,0,0,0.49999998,27.478264,447.60367)"
+     transform="matrix(0.49999998,0,0,0.49999998,27.478264,497.00271)"
      style="stroke-width:1">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#00a9c9;stroke:none;stroke-width:1"
-         inkscape:connector-curvature="0"
-         id="path9504-0-2-2"
-         d="M 0,0 H 46.393725 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-3-9"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1"
-         transform="translate(8.5,8.5)">
-        <a
-           id="a9508-9-6-0"
-           style="stroke-width:1"
-           xlink:href="">Bleu</a>
-      </text>
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none;stroke-width:1"
+       inkscape:connector-curvature="0"
+       id="path9504-0-2-2"
+       d="M 0,0 H 46.393725 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-3-9"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1"
+       transform="translate(8.5,8.5)">
+      <a
+         id="a9508-9-6-0"
+         style="stroke-width:1"
+         xlink:href="">Bleu</a>
+    </text>
   </g>
   <g
      id="g9598-2-9"
-     transform="matrix(0.5,0,0,0.49999998,4.1109708,466.95006)"
+     transform="matrix(0.5,0,0,0.49999998,4.1109708,516.3491)"
      style="stroke-width:1">
-      <path
-         style="fill:#202bff;fill-opacity:1;stroke:none;stroke-width:1"
-         inkscape:connector-curvature="0"
-         id="path9602-9-4"
-         d="M 0,0 93.128309,1.264e-6 V 31.600001 L 0,31.6 Z"
-         transform="translate(0.5,0.5)"
-         sodipodi:nodetypes="ccccc" />
-      <text
-         id="text9604-9-51"
-         x="9.5715885"
-         y="20.773632"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1">
-        <a
-           id="-0"
-           xlink:href=""
-           style="stroke-width:1">Bleu foncé</a>
-      </text>
+    <path
+       style="fill:#202bff;fill-opacity:1;stroke:none;stroke-width:1"
+       inkscape:connector-curvature="0"
+       id="path9602-9-4"
+       d="M 0,0 93.128309,1.264e-6 V 31.600001 L 0,31.6 Z"
+       transform="translate(0.5,0.5)"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       id="text9604-9-51"
+       x="9.5715885"
+       y="20.773632"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1">
+      <a
+         id="-0"
+         xlink:href=""
+         style="stroke-width:1">Bleu foncé</a>
+    </text>
   </g>
   <g
      id="g9500-1-5-0-20-9-3"
-     transform="matrix(0.49999998,0,0,0.49999998,10.938476,486.29645)"
+     transform="matrix(0.49999998,0,0,0.49999998,10.938476,535.69549)"
      style="stroke-width:1">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#0086a0;fill-opacity:1;stroke:none;stroke-width:1"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-6-3-5-8"
-         d="M 0,0 79.473303,-2.6400008e-7 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-2-1-6-8"
-         x="6.5240383"
-         y="20.200001"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1">
-        <a
-           id="a9508-9-3-4-1-7-6"
-           xlink:href=""
-           style="stroke-width:1">Bleu noir</a>
-      </text>
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#0086a0;fill-opacity:1;stroke:none;stroke-width:1"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-6-3-5-8"
+       d="M 0,0 79.473303,-2.6400008e-7 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-6-2-1-6-8"
+       x="6.5240383"
+       y="20.200001"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1">
+      <a
+         id="a9508-9-3-4-1-7-6"
+         xlink:href=""
+         style="stroke-width:1">Bleu noir</a>
+    </text>
   </g>
   <g
      id="g1758-0"
-     transform="translate(-59.269344,316.14745)"
+     transform="translate(-59.269344,365.54649)"
      style="stroke-width:1">
     <path
        sodipodi:nodetypes="cccccc"
@@ -3943,7 +3842,7 @@
   </g>
   <g
      id="g9636"
-     transform="translate(-12.84375,25.733862)">
+     transform="translate(-12.84375,75.132902)">
     <g
        id="g9794-8-8-0-1"
        transform="matrix(0.5,0,0,0.5,277.23373,431.58438)"
@@ -4012,7 +3911,7 @@
   <g
      style="stroke-width:2"
      id="g9194-6-4-0-8"
-     transform="matrix(0.49999999,0,0,0.49999999,21.894625,426.61804)">
+     transform="matrix(0.49999999,0,0,0.49999999,21.894625,476.01708)">
     <path
        sodipodi:nodetypes="cccccc"
        style="fill:#effab4;stroke:none;stroke-width:2"
@@ -4035,11 +3934,11 @@
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:9.87980843px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399033px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="300.97153"
-     y="517.67383"
+     y="567.07288"
      id="text2376-8-7"><tspan
        sodipodi:role="line"
        x="300.97153"
-       y="517.67383"
+       y="567.07288"
        style="font-size:7.90384626px;stroke-width:0.49399033px"
        id="tspan2380-6-4">X <tspan
    style="font-size:6.58653879px"
@@ -4048,7 +3947,7 @@
    id="tspan3201">à</tspan> Y</tspan></text>
   <g
      id="g9636-0"
-     transform="translate(-10.867791,85.076163)">
+     transform="translate(-10.867791,134.4752)">
     <g
        id="g9794-8-8-0-1-9"
        transform="matrix(0.5,0,0,0.5,277.23373,431.58438)"
@@ -4108,11 +4007,11 @@
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:7.90384626px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.49399033px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="312.82736"
-     y="497.36987"
+     y="546.76892"
      id="text2376-8-51"><tspan
        sodipodi:role="line"
        x="312.82736"
-       y="497.36987"
+       y="546.76892"
        style="font-size:7.90384626px;stroke-width:0.49399033px"
        id="tspan2380-6-7">X <tspan
    style="font-size:6.58653879px"
@@ -4121,26 +4020,26 @@
    id="tspan3205">sont</tspan> échangeables</tspan></text>
   <g
      id="g9598-2-4-3-16"
-     transform="matrix(0.49999999,0,0,0.49999999,164.01074,401.21773)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:url(#linearGradient10006);fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3-2"
-         d="M 0.4999996,0.5 H 99.768234 V 32.1 H 0.4999996 Z" />
-      <text
-         id="text9604-9-8-7-1"
-         x="22.37793"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href=""
-           id="a3341-9-96">Légende</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,156.1069,450.61677)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:url(#linearGradient10006);fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3-2"
+       d="M 0.4999996,0.5 H 99.768234 V 32.1 H 0.4999996 Z" />
+    <text
+       id="text9604-9-8-7-1"
+       x="22.37793"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href=""
+         id="a3341-9-96">Légende</a>
+    </text>
   </g>
   <g
      id="g9706-4-4"
-     transform="matrix(0,0.49999999,-0.49999999,0,194.28351,424.76682)">
+     transform="matrix(0,0.49999999,-0.49999999,0,186.37967,474.16586)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4171,7 +4070,7 @@
   </g>
   <g
      id="g10083"
-     transform="translate(-12.84375,3.951915)">
+     transform="translate(-12.84375,53.350955)">
     <g
        style="stroke-width:2"
        transform="matrix(0.49999999,0,0,0.49999999,279.2097,492.63389)"
@@ -4238,60 +4137,60 @@
   </g>
   <text
      id="text2376-8-5-17"
-     y="478.0235"
+     y="527.42255"
      x="269.63248"
      style="font-style:normal;font-weight:normal;font-size:9.87980843px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4939903px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        id="tspan2380-6-9-0"
        style="stroke-width:0.4939903px"
-       y="478.0235"
+       y="527.42255"
        x="269.63248"
        sodipodi:role="line">Plus</tspan></text>
   <g
      id="g9500-1-5-0-20-9-8"
-     transform="matrix(0.49999999,0,0,0.49999999,458.91873,390.90159)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#0086a0;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-6-3-5-85"
-         d="M 0,0 H 113.42789 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-2-1-6-2"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="docs.python-requests.org/en/master/"
-           id="a9508-9-3-4-1-7-2">API (requests)</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,458.91873,457.09631)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#0086a0;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-6-3-5-85"
+       d="M 0,0 H 113.42789 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-6-2-1-6-2"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="docs.python-requests.org/en/master/"
+         id="a9508-9-3-4-1-7-2">API (requests)</a>
+    </text>
   </g>
   <g
      id="g9500-1-5-0-20-9-8-2"
-     transform="matrix(0.49999999,0,0,0.49999999,493.12101,350.81807)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#0087a0;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-6-3-5-85-0"
-         d="M -7.9038466,0 H 66.00481 V 31.6 H -7.9038466 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-2-1-6-2-3"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           xlink:href="https://docs.python.org/3/library/json.html"
-           id="a9508-9-3-4-1-7-2-4">JSON</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,493.12101,417.01279)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#0087a0;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-6-3-5-85-0"
+       d="M -7.9038466,0 H 66.00481 V 31.6 H -7.9038466 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-6-2-1-6-2-3"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         xlink:href="https://docs.python.org/3/library/json.html"
+         id="a9508-9-3-4-1-7-2-4">JSON</a>
+    </text>
   </g>
   <g
      id="g9794-8-8-0-6"
-     transform="matrix(0,0.49999999,-0.49999999,0,508.54826,363.78996)">
+     transform="matrix(0,0.49999999,-0.49999999,0,508.54826,429.98468)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4316,7 +4215,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-4-0"
-     transform="matrix(0,0.49999999,-0.49999999,0,459.4509,340.33079)">
+     transform="matrix(0,0.49999999,-0.49999999,0,459.4509,406.52551)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4341,7 +4240,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-4-0-0"
-     transform="matrix(0,0.49999999,-0.49999999,0,449.57108,340.33079)">
+     transform="matrix(0,0.49999999,-0.49999999,0,449.57108,406.52551)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4366,7 +4265,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-4-0-3"
-     transform="matrix(0,0.49999999,-0.49999999,0,479.21051,340.33079)">
+     transform="matrix(0,0.49999999,-0.49999999,0,479.21051,406.52551)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4391,7 +4290,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-4-0-1"
-     transform="matrix(0,0.49999999,-0.49999999,0,498.97013,340.33079)">
+     transform="matrix(0,0.49999999,-0.49999999,0,498.97013,406.52551)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4416,7 +4315,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-4-0-9"
-     transform="matrix(0,0.49999999,-0.49999999,0,528.60956,340.33079)">
+     transform="matrix(0,0.49999999,-0.49999999,0,528.60956,406.52551)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4441,27 +4340,27 @@
   </g>
   <g
      id="g9500-1-5-0-20-9-8-2-5"
-     transform="matrix(0.49999999,0,0,0.49999999,540.54412,350.81807)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#0087a0;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-6-3-5-85-0-8"
-         d="M 5.9278849,0 H 46.245194 V 31.6 H 5.9278849 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-2-1-6-2-3-3"
-         x="10.475962"
-         y="20.200001"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="https://docs.python.org/3/library/csv.html"
-           id="a9508-9-3-4-1-7-2-4-5">CSV</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,540.54412,417.01279)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#0087a0;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-6-3-5-85-0-8"
+       d="M 5.9278849,0 H 46.245194 V 31.6 H 5.9278849 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-6-2-1-6-2-3-3"
+       x="10.475962"
+       y="20.200001"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="https://docs.python.org/3/library/csv.html"
+         id="a9508-9-3-4-1-7-2-4-5">CSV</a>
+    </text>
   </g>
   <g
      id="g9794-8-8-0-6-4-0-9-6"
-     transform="matrix(0,0.49999999,-0.49999999,0,559.23696,340.33079)">
+     transform="matrix(0,0.49999999,-0.49999999,0,559.23696,406.52551)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4486,7 +4385,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-0"
-     transform="matrix(0,0.49999999,-0.49999999,0,389.32034,376.02211)">
+     transform="matrix(0,0.49999999,-0.49999999,0,389.32034,442.21683)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4498,7 +4397,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-7"
-     transform="matrix(0,-0.49999999,0.49999999,0,487.63067,380.36807)">
+     transform="matrix(0,-0.49999999,0.49999999,0,487.63067,446.56279)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4522,7 +4421,7 @@
        sodipodi:nodetypes="ccc" />
   </g>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,372.66056,370.88925)"
+     transform="matrix(0.49999999,0,0,0.49999999,372.66056,437.08397)"
      id="g9600-8-4-8-5-0">
     <path
        style="fill:#00ccf2;fill-opacity:1;stroke:none"
@@ -4543,7 +4442,7 @@
   </g>
   <g
      id="g1758-8"
-     transform="translate(453.3287,188.56631)">
+     transform="translate(453.3287,254.76103)">
     <path
        sodipodi:nodetypes="cccccc"
        d="m 70.45782,189.74538 h 35.03606 l 2.96394,2.96394 v 12.83606 h -38 z"
@@ -4557,13 +4456,13 @@
        id="text9604-9-5-2-2">
       <a
          xlink:href="theorie3_fonctions_et_objets.html#fonctions"
-         style="stroke-width:0.5"
-         id="-8-4-2">Base 6</a>
+         id="-8-4-2"
+         style="stroke-width:0.5">Base 6</a>
     </text>
   </g>
   <g
      id="g9794-8-8-0-6-4-0-0-6"
-     transform="matrix(0.49999999,0,0,0.49999999,407.06441,373.83354)">
+     transform="matrix(0.49999999,0,0,0.49999999,407.06441,440.02826)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4587,7 +4486,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-4-0-0-6-4"
-     transform="matrix(0.49999999,0,0,0.49999999,557.69569,378.53603)">
+     transform="matrix(0.49999999,0,0,0.49999999,557.69569,444.73075)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4611,7 +4510,7 @@
   </g>
   <g
      id="g9794-8-8-0-6-4-0-0-6-4-0"
-     transform="matrix(0.49999999,0,0,0.49999999,557.69569,385.49997)">
+     transform="matrix(0.49999999,0,0,0.49999999,557.69569,451.69469)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4635,48 +4534,48 @@
   </g>
   <g
      id="g9598-2-4-3"
-     transform="matrix(0.49999999,0,0,0.49999999,558.31305,326.80572)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#202bff;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-5-3"
-         d="M 0,0 H 130.88362 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9-8-7"
-         x="22.37793"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="progra_equivalences_fr.html"
-           id="a3341-9">Équivalences</a>
-      </text>
-    </g>
+     transform="matrix(0.49999999,0,0,0.49999999,558.31305,393.00044)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#202bff;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-5-3"
+       d="M 0,0 H 130.88362 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9-8-7"
+       x="22.37793"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="progra_equivalences_fr.html"
+         id="a3341-9">Équivalences</a>
+    </text>
+  </g>
   <g
      id="g9500-1-5-0-20"
-     transform="matrix(0.49999999,0,0,0.49999999,583.42634,350.81807)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         style="fill:#0086a0;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9504-0-4-6-3"
-         d="M 0,0 H 56.125001 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9506-8-6-2-1"
-         x="0"
-         y="11.7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
-         transform="translate(8.5,8.5)">
-        <a
-           id="a9508-9-3-4-1"
-           xlink:href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>
-      </text>
+     transform="matrix(0.49999999,0,0,0.49999999,583.42634,417.01279)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#0086a0;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9504-0-4-6-3"
+       d="M 0,0 H 56.125001 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9506-8-6-2-1"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">
+      <a
+         id="a9508-9-3-4-1"
+         xlink:href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>
+    </text>
   </g>
   <g
      id="g9794-8-8-0-6-4-0-0-6-0"
-     transform="matrix(-0.49999999,0,0,-0.49999999,519.73214,386.14531)">
+     transform="matrix(-0.49999999,0,0,-0.49999999,519.73214,452.34003)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4700,7 +4599,7 @@
   </g>
   <g
      id="g1559-3"
-     transform="translate(289.99968,31.827695)">
+     transform="translate(289.99968,98.022408)">
     <circle
        style="opacity:1;fill:#00badc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.49476832;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4946-4"
@@ -4715,27 +4614,27 @@
   </g>
   <g
      id="g9598-2-2"
-     transform="matrix(0.49999999,0,0,0.49999999,414.65116,299.92602)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         transform="translate(0.5,0.5)"
-         style="fill:#00a9c9;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9-2"
-         d="M 0,0 H 91.903846 V 31.6 H 0 Z" />
-      <text
-         id="text9604-9-4"
-         x="15.148438"
-         y="19.610546"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="physique.html"
-           id="-1">Physique</a>
-      </text>
-    </g>
+     transform="matrix(0.49999999,0,0,0.49999999,414.65116,366.12074)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       transform="translate(0.5,0.5)"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9-2"
+       d="M 0,0 H 91.903846 V 31.6 H 0 Z" />
+    <text
+       id="text9604-9-4"
+       x="15.148438"
+       y="19.610546"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="physique.html"
+         id="-1">Physique</a>
+    </text>
+  </g>
   <g
      id="g9890-3-2"
-     transform="matrix(-0.49999999,0,0,-0.49999999,390.76734,297.55423)">
+     transform="matrix(-0.49999999,0,0,-0.49999999,390.76734,363.74895)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4748,7 +4647,7 @@
        style="fill:none;stroke:#808080;stroke-width:3.95192337;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
        inkscape:connector-curvature="0"
        id="path9894-0-4"
-       d="M 7.999995e-8,-35.567309 44.452927,-47.909385 l 0,-33.496782"
+       d="M 7.999995e-8,-35.567309 44.452927,-47.909385 v -33.496782"
        stroke-miterlimit="10"
        transform="translate(4,10.411424)"
        sodipodi:nodetypes="ccc" />
@@ -4760,7 +4659,7 @@
   </g>
   <g
      id="g9890-3-5"
-     transform="matrix(0.49999999,0,0,0.49999999,373.46388,291.36027)">
+     transform="matrix(0.49999999,0,0,0.49999999,373.46388,357.55499)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4771,7 +4670,7 @@
        transform="translate(4,10.411424)" />
   </g>
   <g
-     transform="translate(103.82749,8.3407378)"
+     transform="translate(103.82749,64.655643)"
      id="g2285">
     <path
        style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.98798078;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -4788,7 +4687,7 @@
   <g
      inkscape:label="topic-site-web"
      id="g1564-3"
-     transform="translate(93.282163,55.55533)">
+     transform="translate(93.282163,111.87023)">
     <a
        id="a1314-2"
        xlink:href="">
@@ -4817,20 +4716,20 @@
   <path
      sodipodi:nodetypes="cc"
      stroke-miterlimit="10"
-     d="m 386.75923,210.52044 0,40.32501"
+     d="m 411.45876,256.95554 v 40.32501"
      id="path9798-0-8-3"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#808080;stroke-width:0.49399036;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:2.96394235, 2.96394235;stroke-dashoffset:0" />
   <path
      sodipodi:nodetypes="cc"
      stroke-miterlimit="10"
-     d="m 386.52878,186.95457 v 7.74787"
+     d="m 411.22831,233.38967 v 7.74787"
      id="path9798-0-8-3-0"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#808080;stroke-width:0.49399033;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:2.9639423, 2.9639423;stroke-dashoffset:0" />
   <g
      id="g9778-5-7"
-     transform="matrix(0.49999999,0,0,0.49999999,377.30816,206.23911)">
+     transform="matrix(0.49999999,0,0,0.49999999,406.94759,252.67421)">
     <path
        id="path9780-7-9"
        d="m 0,0 h 50.5 q 5,0 5,5 v 107 q 0,5 5,5 H 135"
@@ -4845,11 +4744,11 @@
      style="opacity:0.95;fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path9782-3-3"
-     d="m 401.83766,262.99396 h 14.64423 c 1.66667,0 2.5,-0.83334 2.5,-2.5 v -95.23462 c 0,-1.66667 0.83334,-2.5 2.5,-2.5 h 4.57692"
+     d="m 431.47709,309.42906 h 14.64423 c 1.66667,0 2.5,-0.83334 2.5,-2.5 V 201.81463 c 0,-1.66667 0.83334,-2.5 2.5,-2.5 h 4.57692"
      stroke-miterlimit="10" />
   <g
      id="g9616-3-5"
-     transform="matrix(0.49999999,0,0,0.49999999,411.54319,283.61606)">
+     transform="matrix(0.49999999,0,0,0.49999999,411.54319,349.81078)">
     <a
        xlink:href="projets.html#pong"
        id="a9624-7-9">
@@ -4870,7 +4769,7 @@
     </a>
   </g>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,51.386214,114.01856)"
+     transform="matrix(0.49999999,0,0,0.49999999,71.14583,130.81423)"
      id="g9194-6-4-9-2-9">
     <path
        transform="translate(0.5,0.5)"
@@ -4891,7 +4790,7 @@
     </text>
   </g>
   <g
-     transform="matrix(0.49999999,0,0,0.49999999,4.0821937,104.39805)"
+     transform="matrix(0.49999999,0,0,0.49999999,13.962002,111.31391)"
      id="g9194-6-4-9-2-9-2">
     <path
        transform="translate(0.5,0.5)"
@@ -4912,26 +4811,26 @@
   </g>
   <g
      id="g9598-2"
-     transform="matrix(0.5,0,0,0.5,352.70304,300.25321)">
-      <path
-         style="fill:#202bff;fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0"
-         id="path9602-9"
-         d="M 0,0 H 76 V 31.6 H 0 Z"
-         transform="translate(0.5,0.5)" />
-      <text
-         id="text9604-9"
-         x="11.54755"
-         y="20.773632"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
-        <a
-           xlink:href="/math.html"
-           id="">Math 2D</a>
-      </text>
+     transform="matrix(0.5,0,0,0.5,352.70304,366.44793)">
+    <path
+       style="fill:#202bff;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9602-9"
+       d="M 0,0 H 76 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9604-9"
+       x="11.54755"
+       y="20.773632"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         xlink:href="/math.html"
+         id="">Math 2D</a>
+    </text>
   </g>
   <g
      id="g9890-3-2-9"
-     transform="matrix(-0.49999999,0,0,-0.49999999,413.79319,273.26024)">
+     transform="matrix(-0.49999999,0,0,-0.49999999,413.79319,339.45496)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4944,7 +4843,7 @@
        style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
        id="path9894-0-4-2"
-       d="M 8.0000291e-8,-35.567309 H 89.900045 l 0,-23.330056"
+       d="M 8.0000291e-8,-35.567309 H 89.900045 v -23.330056"
        stroke-miterlimit="10"
        transform="translate(4,10.411424)"
        sodipodi:nodetypes="ccc" />
@@ -4957,7 +4856,7 @@
   </g>
   <g
      id="g9730-6-1"
-     transform="matrix(0.49999999,0,0,0.49999999,491.66051,261.12047)">
+     transform="matrix(0.49999999,0,0,0.49999999,491.66051,327.31519)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -4971,35 +4870,35 @@
      style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path9734-8-0"
-     d="m 471.42059,285.1691 h 22.19812"
+     d="m 471.42059,351.36382 h 22.19812"
      stroke-miterlimit="10"
      sodipodi:nodetypes="cc" />
   <path
      style="fill:#808080;stroke:none;stroke-width:0.5"
      inkscape:connector-curvature="0"
      id="path9736-9-7"
-     d="m 491.36869,283.1691 4,2 -4,2 1,-2 z" />
+     d="m 491.36869,349.36382 4,2 -4,2 1,-2 z" />
   <path
      style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path9734-8"
-     d="m 390.95304,308.07602 h 22.19812"
+     d="m 390.95304,374.27074 h 22.19812"
      stroke-miterlimit="10"
      sodipodi:nodetypes="cc" />
   <path
      style="fill:#808080;stroke:none;stroke-width:0.5"
      inkscape:connector-curvature="0"
      id="path9736-9"
-     d="m 410.90116,306.07602 4,2 -4,2 1,-2 z" />
+     d="m 410.90116,372.27074 4,2 -4,2 1,-2 z" />
   <path
-     d="m 443.59411,275.91414 -2,4 -2,-4 2,1 z"
+     d="m 443.59411,342.10886 -2,4 -2,-4 2,1 z"
      id="path9736-9-6"
      inkscape:connector-curvature="0"
      style="fill:#808080;stroke:none;stroke-width:0.5" />
   <g
      inkscape:label="topic-site-web"
      id="g1564"
-     transform="translate(0,-3.302419)">
+     transform="translate(19.759616,13.493254)">
     <a
        xlink:href="django.fr.html"
        id="a1314">
@@ -5028,7 +4927,7 @@
   <g
      id="g9092-5-2"
      inkscape:label="topic-3D"
-     transform="matrix(0.5,0,0,0.5,174.2604,313.53277)">
+     transform="matrix(0.5,0,0,0.5,174.2604,379.72749)">
     <a
        xlink:href="3D.html"
        id="a1998">
@@ -5059,10 +4958,10 @@
      style="fill:#808080;stroke:none;stroke-width:0.5"
      inkscape:connector-curvature="0"
      id="path9800-3-5-8"
-     d="m 172.287,324.13742 4,2 -4,2 1,-2 z" />
+     d="m 172.287,390.33214 4,2 -4,2 1,-2 z" />
   <g
      id="g9746-8"
-     transform="matrix(0.49999999,0,0,0.49999999,573.55881,160.75934)">
+     transform="matrix(0.49999999,0,0,0.49999999,573.55881,210.15838)">
     <path
        style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
        inkscape:connector-curvature="0"
@@ -5072,22 +4971,26 @@
        stroke-miterlimit="10"
        transform="translate(4,4)" />
   </g>
-  <path
-     sodipodi:nodetypes="csscc"
-     id="path9750-6"
-     d="m 575.55879,162.75934 17.50468,-0.0848 c 1.66664,-0.008 2.5,0.83333 2.5,2.5 v 133.76194 4.58169"
-     stroke-miterlimit="10"
-     style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
-     inkscape:connector-curvature="0" />
-  <path
-     sodipodi:nodetypes="ccccc"
-     id="path9752-0"
-     d="m 597.56345,301.26815 -2,4.00001 -2,-4.00001 2,1.00001 z"
-     style="fill:#808080;stroke:none;stroke-width:0.5"
-     inkscape:connector-curvature="0" />
+  <g
+     id="g8313"
+     transform="translate(19.759616)">
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       stroke-miterlimit="10"
+       d="m 585.43862,199.31463 7.62485,-0.0848 c 1.66655,-0.0185 2.5,0.83333 2.5,2.5 v 163.40136 4.58169"
+       id="path9750-6"
+       sodipodi:nodetypes="csscc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#808080;stroke:none;stroke-width:0.5"
+       d="m 597.56345,367.46287 -2,4.00001 -2,-4.00001 2,1.00001 z"
+       id="path9752-0"
+       sodipodi:nodetypes="ccccc" />
+  </g>
   <g
      id="g2406-1-7-6"
-     transform="translate(-395.96874,-110.96831)">
+     transform="translate(-376.20912,-64.533208)">
     <path
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
@@ -5101,5 +5004,163 @@
        d="m 600.39469,293.23653 -2,4 -2,-4 2,1 z"
        id="path9752-7-8-9-4"
        sodipodi:nodetypes="ccccc" />
+  </g>
+  <g
+     transform="matrix(0.27577695,-0.41706961,0.41706961,0.27577695,31.651117,227.25063)"
+     id="g9194-6-2-8">
+    <text
+       transform="translate(5.5,14.591667)"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307758px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none"
+       y="12.675"
+       x="35.5"
+       id="text9198-7-7-3">Route du web</text>
+  </g>
+  <g
+     transform="matrix(0.49999999,0,0,0.49999999,69.207473,247.83399)"
+     id="g9194-6-2-3">
+    <text
+       transform="translate(5.5,14.591667)"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307758px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none"
+       y="12.675"
+       x="35.5"
+       id="text9198-7-7-80">Chemin du data mining</text>
+  </g>
+  <g
+     transform="matrix(0.274027,0.41822144,-0.41822144,0.274027,52.054395,269.62119)"
+     id="g9194-6-2-8-4"
+     style="stroke-width:1">
+    <text
+       transform="translate(5.5,14.591667)"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.17307758px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:1"
+       y="12.675"
+       x="35.5"
+       id="text9198-7-7-3-7">Game</text>
+    <text
+       transform="translate(5.5,14.591667)"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:1"
+       y="26"
+       x="35.5"
+       id="text7381">programming</text>
+  </g>
+  <g
+     transform="matrix(0,-0.49999999,0.49999999,0,14.005503,342.01772)"
+     id="g9194-6-2-3-6">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87980843px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:1"
+       x="37.563648"
+       y="23.107414"
+       id="text1807"><tspan
+         sodipodi:role="line"
+         id="tspan1805"
+         style="stroke-width:0.98798084px"
+         x="37.563648"
+         y="23.107414">En regardant le forgeron...</tspan></text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87980843px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:1"
+       x="36.21336"
+       y="40.428074"
+       id="text7377">
+      <tspan
+         sodipodi:role="line"
+         style="stroke-width:0.98798084px"
+         id="tspan1809"
+         x="36.21336"
+         y="40.428074">on apprend à forger</tspan>
+    </text>
+  </g>
+  <path
+     style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path9734-8-0-9"
+     d="m 441.59411,320.91074 v 22.19812"
+     stroke-miterlimit="10"
+     sodipodi:nodetypes="cc" />
+  <path
+     stroke-miterlimit="10"
+     stroke="transparent"
+     d="m 334.22519,353.17925 h 11.25"
+     id="path9892-3-7-0-6"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+  <path
+     sodipodi:nodetypes="ccc"
+     stroke-miterlimit="10"
+     d="m 328.14176,329.21367 h 51.03345 v -5.4831"
+     id="path9894-0-4-2-8"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+  <path
+     sodipodi:nodetypes="ccccc"
+     d="m 377.17521,324.73057 2,-4 2,4 -2,-1 z"
+     id="path9896-4-3-8-0-7"
+     inkscape:connector-curvature="0"
+     style="fill:#808080;stroke:none;stroke-width:0.5" />
+  <path
+     sodipodi:nodetypes="cc"
+     stroke-miterlimit="10"
+     d="m 241.90256,329.18867 88.50482,0.025"
+     id="path9894-0-4-2-8-9"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+  <path
+     style="fill:none;stroke:#808080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path9734-8-0-9-2"
+     d="M 468.74632,309.42906 H 446.5482"
+     stroke-miterlimit="10"
+     sodipodi:nodetypes="cc" />
+  <g
+     id="g9890-9-4"
+     transform="matrix(0.49999999,0,0,0.49999999,505.63348,72.482096)">
+    <path
+       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       id="path9892-6-5"
+       d="M 0,0 H 22.5"
+       stroke="transparent"
+       stroke-miterlimit="10"
+       transform="translate(4,10.411424)" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       id="path9894-7-0"
+       d="M 0,0 134.69016,1.8222829e-7"
+       stroke-miterlimit="10"
+       transform="translate(4,10.411424)"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#808080;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9896-3-3"
+       d="m 112.19016,1.8222829e-7 8,4.00000001777171 -8,4 2,-4 z"
+       transform="translate(22,6.4114237)"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+  <g
+     id="g9770-8"
+     transform="matrix(0.49999999,0,0,0.49999999,444.6718,309.40502)">
+    <path
+       style="fill:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       id="path9772-8"
+       d="m 0,0 h 49.5 q 5,0 5,5 v 55 q 0,5 5,5 H 129"
+       stroke="transparent"
+       stroke-miterlimit="10"
+       transform="translate(4,4)" />
+    <path
+       transform="translate(4,4)"
+       sodipodi:nodetypes="csc"
+       style="opacity:0.95;fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       id="path9774-9"
+       d="m 49.081734,-9.1290879 c -0.479956,-3.2985981 1.666667,-4.7651441 5,-4.7651441 l 75.567306,0"
+       stroke-miterlimit="10" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#808080;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9776-2"
+       d="m 129.14904,-13.894232 8,4 -8,4 2,-4 z" />
   </g>
 </svg>
