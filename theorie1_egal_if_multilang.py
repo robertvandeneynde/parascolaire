@@ -189,7 +189,7 @@ print(a)
 # <li> [<code>a = 2; b = 2;</code>](http://pythontutor.com/visualize.html#code=a%20%3D%202%0Ab%20%3D%202%0A%0Aif%20a%20%3D%3D%205%3A%0A%20%20%20%20a%20%3D%202%0A%20%20%20%20print%28%22Yo%22%29%0A%20%20%20%20if%20b%20%3D%3D%205%3A%0A%20%20%20%20%20%20%20%20print%28%22Hello%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22Tada%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Hum%22%29%0A%20%20%20%0Aprint%28a%29&cumulative=false&curInstr=1&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
 # </ul>
     
-# {{Fais maintenant [l'exercice 0](exercice0_trier_deux_nombres.py.html)|Do now the [exercice number 0](exercice0_trier_deux_nombres.py.html)}}
+# {{Fais maintenant [l'exercice 0](exercice0_trier_deux_nombres.html)|Do now the [exercice number 0](exercice0_trier_deux_nombres.html)}}
 # {{et regarde|and look at}} [{{la correction|the correction}}](http://pythontutor.com/visualize.html#code=a%20%3D%205%0Ab%20%3D%202%0A%0Aif%20a%20%3C%20b%3A%0A%20%20%20print%28a%29%0A%20%20%20print%28b%29%0Aelse%3A%0A%20%20%20print%28b%29%0A%20%20%20print%28a%29&py=3)
 # {{sur|on}} [pythontutor](pythontutor.html). {{Pour cet exercice, quels sont les cas à tester ? J'en vois au moins deux !|For that exercise, which case must I test ? I see at least two interesting cases!}}
 
@@ -203,9 +203,9 @@ print(a)
 # {{Mais avant ça, je conseille de faire les exercices 1 à 4|But before doing that, I suggest to do exercices 1 to 4}}.
 
 # <ul>
-# <li> [exercice0_trier_deux_nombres.py](exercice0_trier_deux_nombres.py.html)
-# <li> [exercice1_minute_suivante.py](exercice1_minute_suivante.py.html)
-# <li> [exercice2_minute_suivante_un_print.py](exercice2_minute_suivante_un_print.py.html)
+# <li> [exercice0_trier_deux_nombres.py](exercice0_trier_deux_nombres.html)
+# <li> [exercice1_minute_suivante.py](exercice1_minute_suivante.html)
+# <li> [exercice2_minute_suivante_un_print.py](exercice2_minute_suivante_un_print.html)
 # </ul>
 
 #
@@ -214,7 +214,7 @@ print(a)
 # <ul>
 # <li> [exercice3_trier_trois_nombres.py](exercice3_trier_trois_nombres.py.html)
 # <li> [exercice4_le_sept_parfait.py](exercice4_le_sept_parfait.py.html)
-# <li> [theorie2_liste_while.py](theorie2_liste_while.py.html)
+# <li> [theorie2_liste_while.py](theorie2_liste_while.html)
 # </ul>
 
 ## Les conditions combinées avec and et or

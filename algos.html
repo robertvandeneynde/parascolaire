@@ -112,7 +112,7 @@
             </p>
             
             <pre style="display:inline-block; vertical-align: middle;"><code class="python">
-            # perso et obj (objet) sont des rectangles définis par x1, y1, x2, y2 (voir figure)
+            # perso (personnage) et obj (objet) sont des rectangles définis par x1, y1, x2, y2 (voir figure)
             if perso.x2 < obj.x1: # perso est trop à gauche
                 ne touche pas
             elif perso.x1 > obj.x2: # perso est trop à droite
@@ -133,7 +133,7 @@
             </figure>
 
             <p>
-            Pour la 3D, on continuera notre cascade avec <em>trop loin</em> et <em>trop proche</em>. Nous menant à 6 conditions.
+            Pour la 3D, on continuera notre cascade avec <em>trop loin</em> et <em>trop proche</em>, nous menant à 6 conditions.
             </p>
             
             <p>
@@ -142,9 +142,9 @@
             
             <pre><code class="python">
             if perso.x2 < obj.x1 or perso.x1 > obj.x2 or perso.y2 < obj.y1 or perso.y1 > obj.y2:
-                touche
-            else:
                 ne touche pas
+            else:
+                touche
             </code></pre>
 
             <p>

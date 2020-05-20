@@ -13,7 +13,7 @@
    viewBox="0 0 642.18752 562.49999"
    id="svg9088"
    version="1.1"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="plan.svg"
    width="1300"
    height="1200">
@@ -27,7 +27,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="989"
+     inkscape:window-height="977"
      id="namedview9978"
      showgrid="false"
      inkscape:snap-page="true"
@@ -37,9 +37,9 @@
      inkscape:snap-smooth-nodes="true"
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
-     inkscape:zoom="2"
-     inkscape:cx="975.6881"
-     inkscape:cy="323.93554"
+     inkscape:zoom="0.99999999"
+     inkscape:cx="609.43361"
+     inkscape:cy="861.17725"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -89,6 +89,12 @@
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(15.807694,-92.870195)" />
   </defs>
+  <path
+     sodipodi:nodetypes="ccccc"
+     inkscape:connector-curvature="0"
+     id="path4913-4-2-8"
+     d="m 199.54374,98.04932 v 40.3326 h 209.6952 v -40.3326 z"
+     style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.49476826;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.49476829, 1.97907318;stroke-dashoffset:0;stroke-opacity:1" />
   <g
      transform="matrix(0.49999999,0,0,0.49999999,173.26874,358.30691)"
      id="g9194-6-4-9-2-9-7">
@@ -5162,5 +5168,77 @@
        inkscape:connector-curvature="0"
        id="path9776-2"
        d="m 129.14904,-13.894232 8,4 -8,4 2,-4 z" />
+  </g>
+  <g
+     id="g9616-3-5-6"
+     transform="matrix(0.49999999,0,0,0.49999999,218.36455,109.32463)">
+    <g
+       id="g1746">
+      <a
+         xlink:href="exos-divers"
+         id="a9624-7-9-2"
+         transform="translate(-23.464544,11.361779)">
+        <g
+           id="g9618-3-3-6">
+          <path
+             d="M -5.4278849,-13.33173 H 163.22596 V 26.172118 H -5.4278849 Z"
+             id="path9620-8-5-1"
+             inkscape:connector-curvature="0"
+             style="fill:#202bff;fill-opacity:1;stroke:none"
+             sodipodi:nodetypes="ccccc" />
+          <text
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+             y="12.26082"
+             x="7.4426618"
+             id="text9622-3-7-8">
+            <tspan
+               id="tspan1762"
+               style="font-size:18.44230843px">Exercices divers</tspan>
+          </text>
+        </g>
+      </a>
+    </g>
+  </g>
+  <g
+     id="g9292-5-9"
+     transform="matrix(0.49999999,0,0,0.49999999,297.87507,102.16562)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9296-4-7"
+       d="M 0,0 H 162.18864 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9298-9-3"
+       x="4.7950716"
+       y="20.446995"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
+      <a
+         id="a9300-9-6"
+         xlink:href="exos-divers/encodages"
+         style="font-size:12px">Encodages, bits and bytes</a>
+    </text>
+  </g>
+  <g
+     id="g9292-5-0-0"
+     transform="matrix(0.49999999,0,0,0.49999999,297.87507,119.94158)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9296-4-3-3"
+       d="M 0,3.9519233 H 215.5396 V 31.6 H 0 Z"
+       transform="translate(0.5,0.5)" />
+    <text
+       id="text9298-9-1-6"
+       x="7.4972076"
+       y="21.833879"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1">
+      <a
+         style="font-size:12px;stroke-width:1"
+         id="a9300-9-5-1"
+         xlink:href="exos-divers/parse-exams-csv-json-ods">Parse list of exams from text to csv</a>
+    </text>
   </g>
 </svg>

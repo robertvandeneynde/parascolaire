@@ -115,7 +115,7 @@
             }}</p>
             
             <pre style="display:inline-block; vertical-align: middle;"><code class="python">
-            # {{perso et obj (objet) sont des rectangles définis par x1, y1, x2, y2 (voir figure)|charac (character) and obj (object) are rectangles defined by x1, y1, x2, y2 (see figure)}}
+            # {{perso (personnage) et obj (objet) sont des rectangles définis par x1, y1, x2, y2 (voir figure)|charac (character) and obj (object) are rectangles defined by x1, y1, x2, y2 (see figure)}}
             if {{perso|charac}}.x2 < obj.x1: # {{perso est trop à gauche|charac is too much to the left}}
                 {{ne touche pas|no collision}}
             elif {{perso|charac}}.x1 > obj.x2: # {{perso est trop à droite|charac is too much to the right}}
@@ -137,8 +137,8 @@
             </figure>
 
             <p>{{
-            Pour la 3D, on continuera notre cascade avec <em>trop loin</em> et <em>trop proche</em>. Nous menant à 6 conditions.
-            | In 3D, we will continue our cascade with <em>too far</em> and <em>too near</em>. This gives us 6 conditions.
+            Pour la 3D, on continuera notre cascade avec <em>trop loin</em> et <em>trop proche</em>, nous menant à 6 conditions.
+            | In 3D, we will continue our cascade with <em>too far</em> and <em>too near</em>, this gives us 6 conditions.
             }}</p>
             
             <p>{{
@@ -148,9 +148,9 @@
             
             <pre><code class="python">
             if {{perso|charac}}.x2 < obj.x1 or {{perso|charac}}.x1 > obj.x2 or {{perso|charac}}.y2 < obj.y1 or {{perso|charac}}.y1 > obj.y2:
-                {{touche|collision}}
-            else:
                 {{ne touche pas|no collision}}
+            else:
+                {{touche|collision}}
             </code></pre>
 
             <p>{{

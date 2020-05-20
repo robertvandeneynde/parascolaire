@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+    h1 {
+        margin-bottom: -20px;
+    }
+    code {
+        background: #eee;
+    }
+    </style>
+  </head>
+  <body>
+    <p></p>
+    
+<pre style="font-family: Arial; white-space: pre-wrap;">
+<h1>“A friend sent me a list of exams”</h1>
+
+<h3>The input</h3>
+Vous receive this string from a friend, it represents a list of all his/her examinations. You copy it and you store it in a .txt file.
+
+<code>"""
+Samedi 23 : 14h - 18h : MES (Méthodologie Enquête Sondage)
+Mardi 26 : 16h30 - 18h30 : Finance
+Samedi 6 juin : 9-12 : stats 2ème
+16 juin :  : Oral Ndls
+"""</code>
+
+You can retrieve the information of "when you saved it to a txt file" using the "last-time modified date" of the file (or on windows, you can choose the "created date"). This information is easily available in python.
+
+You msut parse the string into the following format :
+
+<code>{day_of_month}, {year}-{month}/{day}, {hour}:{minute} {end_hour}:{end_minute}, {name}</code>
+
+The day of month must be in lowercase, a parameter can be added to your program to choose the language.
+
+<h3>The csv file and the ods file</h3>
+This file will be saved as a "csv" file.
+
+In our example, the .csv file would look like this (but of course this should work with other values) :
+<code>samedi, 2020-05-23 mai, 14:00, 18:00, MES (Méthodologie Enquête Sondage)
+mardi, 2020-05-26, 16h30, 18h30, Finance
+samedi, 2020-06-06, 09:00, 12:00, stats 2ème 
+mardi, 2020-06-16, unknown, unknown, Oral Ndls</code>
+
+In the beginning you don't have to write directly to a file, you can use <code>print</code>.
+
+When you managed to write it to an .csv file, open it using Miscrosoft Excel or Libreoffice Calc or google sheets or office online Excel. Libreoffice is free and store it's spredsheet files as ".ods" (open document spreadsheet).
+
+If you want you can separate into two columns "MES" and "Méthodologie Enquête Sondage", the first one is the name, the second one is the "long name". Sometimes, the long name is empty (when there are no parenthesis).
+
+<h3>The ods file and some graphs</h3>
+- Create a graph where X = date of the exam and Y = hour of the beginning of the exam. If the hour is unknown, remove the exam from the graph
+- Create a bar graph where each bar is labelled by the name of the exam and the value is the hour of beginning
+
+Note: If the hour is unknown, remove the exam from the graph
+Note: if you need, you can add another column being the "timestamp" of the date of the exam. A popular timestamp format is the "Unix timestamp".
+
+<h3> The matrix and the json file</h3>
+After that, if you want, write a code that reads the csv file and convert into one of those python formats :
+
+Choice 1: A matrix where lines are like
+<code>["samedi", 2020, 5, 23, 14, 0, 18, 0, "MES (Méthodologie Enquête Sondage)"]</code>
+
+Choice 2: A list of dictionnaries like 
+<code>{
+    "day": "samedi",
+    "date": "2020-05-23",
+    "name": "MES (Méthodologie Enquête Sondage)",
+    "beg_hour": 14,
+    "beg_min":  0,
+    "end_hour": 18,
+    "end_min":  0
+}</code>
+
+The two formats can be saved as json file (using <code>import json</code> module).
+You can compute for example, the length of all of the exams.
+
+<h3>Specifications details</h3>
+1) If no month is provided, like when "mardi 26" is written.
+    1.1) (easy) you can consider it's current month (or date of the message)
+    1.2) (hard) it's must search the current year for the day at the given information, "mardi 23" will search for all Tuesday the 23rd, if two words exist, raise a ValueError (using code raise ValueError and a message saying "There exist two mardi 23 for year 2020").</ul>
+2) When you don't know what to choose, add a parameter to your program (using input or sys.argv or argparse).
+3) The name of the file to translate can also be a parameter of the program.
+
+<h3>Some tips</h3>
+- Read "théorie 2", especially the part talking about "string" (<a href="https://robertvandeneynde.be/parascolaire/theorie2_liste_while.html">theory 2</a>).
+- To open a txt file read the theory about <a href="https://robertvandeneynde.be/parascolaire/progra_fichier.py.html">file</a>.
+- Here is another theory file about <a href="https://robertvandeneynde.be/parascolaire/progra_list_dict_set.py.html">matrices and dictionaries</a>.
+- To manage datetime, use <code>from datetime import datetime</code>. For instance <code>datetime(2020, 5, 20)</code> can be used to create a datetime and <code>datetime.now()</code> will give the current time as a datetime.
+- To convert from and to json file, use <code>import json</code>.
+- To know more about modules (like random, datetime or json), read the <a href="https://robertvandeneynde.be/parascolaire/progra_import.py.html">module</a> theory file.
+- Pro tip: regex (<code>import re</code>)
+
+How to handle the assignment :
+- Using a git repository, just the url sent by mail
+- Or a zip file containing the files needed for the assignment (the txt file, your python file(s) needed (if more than one file, the main one should be called "main.py"), your .ods or .xlsx file containing the graphs).</ul>
+
+You must handle the assignement each Friday (if you have something of course), I will respond to the mail to give you tips until you finish the assignment (some people will need 1 week, others will need more).
+Cite your sources when you use information from the internet !
+
+If you have any question, contact me on messenger or by mail using the school email adress, even if your question is "I did not understand this part of the assignment".
+</pre>
+    
+  </body>
+</html>
+
