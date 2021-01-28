@@ -1,0 +1,39 @@
+<pre style="font-family: serif">
+(answers in the source code for each &lt;)
+
+# MathInfo
+What is the Triangle de Pascal ? / Quel est le Triangle de pascal ?
+Who is Pascal ?
+What is the first line ?
+<<!-- either [1] or [1, 1] depending on your definition -->
+How to compute each line ?
+<<!-- the first and last number is 1 and all other numbers are sums of two consecutive numbers -->
+What is the length of each line ?
+<<!-- depends what we mean by length, in term of number of integers we have length(line<sub>i+1</sub>) = 1 + length(line<sub>i</sub>)
+     if the lines are 1 then 11 then 121 then 1331, the number of characters is more difficult to calculate :p -->
+Is each line symetrical ? Why (proof) ?
+<<!-- yes if we talk about the list of numbers -->
+
+# Math
+## (a+b)<sup>n</sup>
+- Quel est le rapport avec (a+b)^n (comment faire l'exposant en python?)
+- Pourquoi ça marche ? (Démonstration par induction) / (Proof by induction)
+
+## n choose k (<sup>n</sup><sub>k</sub>) / parmi n choisis k, ou combinatoire de (k, n) : C<sup>k</sup><sub>n</sub> |<a href="https://fr.wikipedia.org/wiki/Combinaison_(math%C3%A9matiques)">Combinaison</a>
+- Quel est le rapport avec n choose k ?
+- Pourquoi ça marche ? (Démonstration)
+
+# Python
+How to represent one line of the triangle ? (Write a translator for each representation)
+<<!-- list of ints like [1, 2, 1] or string with a separator like "1 2 1" or string without separator like "121" (but what happens when we have numbers &gte; 10? -->
+\ What is the canonical representation ?
+<<!-- depends what we mean by "canonical" but the list [1, 2, 1] looks good and simple -->
+
+How to represent multiple lines of the triangle ? (Write a translator for each representation)
+\ What is the canonical representation ?
+
+Each question in the first section must be answered in python
+
+A) Calculate one line based on previous line / Calculer chaque ligne en fonction de la précédente
+B) Print N first lines / Affiche les N première lignes
+C) Numéroter chaque ligne / "Numerote" each line

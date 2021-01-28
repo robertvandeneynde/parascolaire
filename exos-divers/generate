@@ -1,0 +1,7 @@
+cd ~/parascolaire/exos-divers
+# generating index.html
+
+[ -e index.html ] && chmod +w index.html
+python3 generate.py
+chmod -w index.html
+

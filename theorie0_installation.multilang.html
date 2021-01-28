@@ -165,10 +165,10 @@
         </ul>
         
         <p>{{
-        Le mieux est toujours d'avoir la dernière version de python (<code>3.7</code>)
+        Le mieux est toujours d'avoir la dernière version de python (<code>3.9</code>)
         mais sous windows l'installation de pygame est plus facile avec python <code>3.4</code>.
         |
-        The best is of course to have the last version of python (<code>3.7</code>)
+        The best is of course to have the last version of python (<code>3.9</code>)
         but on Windows the installation of pygame is easier for python <code>3.4</code>.
         }}</p>
 
@@ -182,10 +182,10 @@
         </ul>
         
         <p>
-        {{ Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (<code>3.5</code>, <code>3.7</code>...).
-        Ou bien si vous êtes sous mac, c'est le même niveau de difficulté que d'installer <code>3.7</code> que <code>3.4</code>.
-        | However, to have all the brand new python stuffs, it's better to have more recent versions (<code>3.5</code>, <code>3.7</code>...).
-        Or if you are on mac, it's the same level of difficulty to install <code>3.7</code> or <code>3.4</code>.
+        {{ Cependant, pour pouvoir utiliser les nouveautés python, c'est mieux d'utiliser des versions plus récentes (<code>3.5</code>, <code>3.7</code>, <code>3.9</code>...).
+        Ou bien si vous êtes sous mac, c'est le même niveau de difficulté que d'installer <code>3.9</code> que <code>3.4</code>.
+        | However, to have all the brand new python stuffs, it's better to have more recent versions (<code>3.5</code>, <code>3.7</code>, <code>3.9</code>...).
+        Or if you are on mac, it's the same level of difficulty to install <code>3.9</code> or <code>3.4</code>.
         }}
         </p>
         
@@ -216,12 +216,41 @@
         <h2 id="pipwin">{{Option 3 : Installer via pipwin|Option 3: Install via pipwin}}</h2>
         
         <section name="pipwin">
-        
-          <h3 id="windows">Windows</h3>
+          
+          <p>Avant, pygame était difficilement installable via pip, et donc on devait utiliser pipwin ou les whl... Maintenant c'est facile !</p>
+
+          <h3 id="windows">Windows (via pip)</h3>
           <ul>
             
             <li>
-                Téléchargez python version <code>3.7</code> sur <a href="https://python.org">python.org</a>.
+                Téléchargez python version <code>3.9</code> sur <a href="https://python.org">python.org</a>.
+            </li>
+            
+            <li>
+                Pour télécharger pygame nous allons utiliser <code>pip</code>.
+            </li>
+            
+            <li>Ouvrez <code>cmd</code> (cliquez sur le bouton windows en bas à gauche de l'écran → tappez <code>cmd</code>).</li>
+            
+            <li>Entrez la commande suivante :
+            
+                <pre><code class="dos">
+                py -3 -m pip install pygame
+                </code></pre>
+                
+                <p>Elle prend un peu de temps, genre quelques secondes :D 
+            </li>
+            
+          </ul>
+          
+          <p>Si jamais dans le futur vous voyez un tutoriel qui vous dit de tapper une commande du style <code>python TRUC</code>, chez vous ça sera <code>py -3 TRUC</code> ou <code>py -2 TRUC</code> si vous devez utiliser python version 2 ou <code>py -3.7 TRUC</code> si vous devez utiliser une version explicite de python, comme <code>3.7</code>.</p>
+          <p>Vous pouvez maintenant commencer à coder en choisissant un <a href="#choose-ide">IDE</a> !</p>
+        
+          <h3 id="windows">Windows (via pipwin)</h3>
+          <ul>
+            
+            <li>
+                Téléchargez python version <code>3.9</code> sur <a href="https://python.org">python.org</a>.
             </li>
             
             <li>
@@ -247,7 +276,7 @@
             </li>
             
           </ul>
-          
+            
           <p>Si jamais dans le futur vous voyez un tutoriel qui vous dit de tapper une commande du style <code>python TRUC</code>, chez vous ça sera <code>py -3 TRUC</code> ou <code>py -2 TRUC</code> si vous devez utiliser python version 2 ou <code>py -3.7 TRUC</code> si vous devez utiliser une version explicite de python, comme <code>3.7</code>.</p>
           <p>Si on vous dit d'installer un paquet via <code>pip</code>, par exemple <code>pip install pillow</code>
           ça sera <code>py -3 -m pipwin install pillow</code> chez vous.
@@ -261,6 +290,8 @@
         <h2 id="pip-whl">{{Option 4 : Installer via pip et les whl|Option 4: Install via pip and whl}}</h2>
 
         <section name="pip-whl">
+        
+        <p>Cette méthode est plus compliquée que les autres et n'est plus nécessaire depuis que la commande <code>pip install pygame</code> marche sous windows (voir section précédente).
         
         <p>
         {{Si vous avez un souci, envoyez moi un <a href="..">mail</a> !

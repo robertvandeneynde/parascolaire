@@ -1,6 +1,8 @@
 #!/bin/bash
 # ./generate_txt.py
 
+(cd exos-divers && ./generate)
+
 ./generate_markdown calculette
 
 DEFAULT_LANG=fr

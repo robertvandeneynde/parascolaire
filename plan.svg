@@ -13,7 +13,7 @@
    viewBox="0 0 642.18752 562.49999"
    id="svg9088"
    version="1.1"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="plan.svg"
    width="1300"
    height="1200">
@@ -27,7 +27,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="977"
+     inkscape:window-height="997"
      id="namedview9978"
      showgrid="false"
      inkscape:snap-page="true"
@@ -37,9 +37,9 @@
      inkscape:snap-smooth-nodes="true"
      inkscape:object-nodes="true"
      inkscape:object-paths="true"
-     inkscape:zoom="0.99999999"
-     inkscape:cx="609.43361"
-     inkscape:cy="861.17725"
+     inkscape:zoom="4"
+     inkscape:cx="741.13083"
+     inkscape:cy="906.41411"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -93,7 +93,7 @@
      sodipodi:nodetypes="ccccc"
      inkscape:connector-curvature="0"
      id="path4913-4-2-8"
-     d="m 199.54374,98.04932 v 40.3326 h 209.6952 v -40.3326 z"
+     d="m 199.54374,98.04932 v 40.3326 h 214.6351 v -40.3326 z"
      style="fill:#faffe8;fill-opacity:1;fill-rule:evenodd;stroke:#bbbb00;stroke-width:0.49476826;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.49476829, 1.97907318;stroke-dashoffset:0;stroke-opacity:1" />
   <g
      transform="matrix(0.49999999,0,0,0.49999999,173.26874,358.30691)"
@@ -3317,7 +3317,7 @@
      id="g9194-6-4">
     <path
        transform="translate(0.5,0.5)"
-       d="M 0,7.9038466 H 72.60577 L 81,16.870513 V 35.866667 H 0 Z"
+       d="m 0,7.9038466 h 96.31731 l 8.39423,8.9666664 V 35.866667 H 0 Z"
        id="path9196-7-5"
        inkscape:connector-curvature="0"
        style="fill:#effab4;stroke:none"
@@ -3326,11 +3326,10 @@
        xlink:href="exercice0_trier_deux_nombres.html"
        id="a9200-4-3">
       <text
-         transform="translate(5.5,14.591667)"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#454545;stroke:none"
-         y="12.675"
-         x="35.5"
-         id="text9198-7-9">Exercices</text>
+         y="27.266666"
+         x="52.855759"
+         id="text9198-7-9">Exercices Th1</text>
     </a>
   </g>
   <g
@@ -3338,20 +3337,19 @@
      id="g9194-6-4-9">
     <path
        transform="translate(0.5,0.5)"
-       d="M 0,7.9038466 H 72.605769 L 81,16.870513 V 35.866667 H 0 Z"
+       d="m 0,7.9038466 h 92.365385 l 8.394235,8.9666664 V 35.866667 H 0 Z"
        id="path9196-7-5-9"
        inkscape:connector-curvature="0"
        style="fill:#effab4;stroke:none"
        sodipodi:nodetypes="cccccc" />
     <text
-       transform="translate(5.5,14.591667)"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#454545;stroke:none"
-       y="12.675"
-       x="35.5"
+       y="27.266666"
+       x="50.879799"
        id="text9198-7-9-7">
       <a
          xlink:href="exercice5_max_list.py.html"
-         id="a9200-4-3-8">Exercices</a>
+         id="a9200-4-3-8">Exercices Th2</a>
     </text>
   </g>
   <g
@@ -4830,7 +4828,7 @@
        y="20.773632"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
       <a
-         xlink:href="/math.html"
+         xlink:href="math.html"
          id="">Math 2D</a>
     </text>
   </g>
@@ -5207,7 +5205,7 @@
        style="fill:#00a9c9;stroke:none"
        inkscape:connector-curvature="0"
        id="path9296-4-7"
-       d="M 0,0 H 162.18864 V 31.6 H 0 Z"
+       d="M 0,0 H 172.06845 V 31.6 H 0 Z"
        transform="translate(0.5,0.5)" />
     <text
        id="text9298-9-3"
@@ -5215,9 +5213,9 @@
        y="20.446995"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
       <a
-         id="a9300-9-6"
          xlink:href="exos-divers/encodages"
-         style="font-size:12px">Encodages, bits and bytes</a>
+         id="a9300-9-6"
+         style="font-size:12px">1: Encodages, bits and bytes</a>
     </text>
   </g>
   <g
@@ -5228,7 +5226,7 @@
        style="fill:#00a9c9;stroke:none"
        inkscape:connector-curvature="0"
        id="path9296-4-3-3"
-       d="M 0,3.9519233 H 215.5396 V 31.6 H 0 Z"
+       d="M 0,3.9519233 H 225.41941 V 31.6 H 0 Z"
        transform="translate(0.5,0.5)" />
     <text
        id="text9298-9-1-6"
@@ -5236,9 +5234,99 @@
        y="21.833879"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:1">
       <a
+         xlink:href="exos-divers/parse-exams-csv-json-ods"
          style="font-size:12px;stroke-width:1"
-         id="a9300-9-5-1"
-         xlink:href="exos-divers/parse-exams-csv-json-ods">Parse list of exams from text to csv</a>
+         id="a9300-9-5-1">2: Parse list of exams from text to csv</a>
     </text>
+  </g>
+  <flowRoot
+     xml:space="preserve"
+     id="flowRoot1755"
+     style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+       id="flowRegion1757"><rect
+         id="rect1759"
+         width="66.114487"
+         height="49.849873"
+         x="695.43951"
+         y="179.29135" /></flowRegion><flowPara
+       id="flowPara1761" /></flowRoot>  <circle
+     style="opacity:1;fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:#454545;stroke-width:0.66787499;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="path1763"
+     cx="288.24527"
+     cy="108.33965"
+     r="5.0796103" />
+  <text
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:0.5"
+     y="111.60855"
+     x="285.72787"
+     id="text9622-3-7-8-2">
+    <tspan
+       id="tspan1762-2"
+       style="font-size:9.22115421px;stroke-width:0.5">4</tspan>
+  </text>
+  <g
+     id="g9292-5-7-3"
+     transform="matrix(0.49999999,0,0,0.49999999,446.14711,136.35732)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9296-4-6-6"
+       d="M 0,0 224.43143,0 V 31.6 L 0,31.6 Z"
+       transform="translate(0.5,0.5)" />
+    <a
+        id="a9300-9-2-5"
+        xlink:href="https://www.pythonforbeginners.com/gui/how-to-use-pillow">
+    <text
+       id="text9298-9-5-7"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">Image processing (import PIL)</text>
+    </a>
+  </g>
+  <g
+     id="g9292-8_exo-divers-3"
+     transform="matrix(0.49999999,0,0,0.49999999,386.72236,102.42631)"
+     inkscape:label="#exo-divers-3">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9296-45"
+       d="M 3.9519233,3.9519233 H 20.048077 V 25.672115 H 3.9519233 Z"
+       transform="translate(0.5,0.5)"
+       sodipodi:nodetypes="ccccc" />
+    <a
+        xlink:href="exos-divers"
+        id="a963">
+    <text
+       id="text9298-0"
+       x="0"
+       y="11.7"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+       transform="translate(8.5,8.5)">3</text>
+    </a>
+  </g>
+  <g
+     id="exo-divers-4"
+     transform="matrix(0.49999999,0,0,0.49999999,398.72236,102.42631)"
+     inkscape:label="">
+    <path
+       style="fill:#00a9c9;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path9314-1"
+       d="M 3.9519233,3.9519233 H 20.048077 V 25.672115 H 3.9519233 Z"
+       transform="translate(0.5,0.5)"
+       sodipodi:nodetypes="ccccc" />
+    <a
+       xlink:href="exos-divers"
+       id="a963">
+      <text
+         id="text9316-0"
+         x="0"
+         y="11.7"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none"
+         transform="translate(8.5,8.5)">4</text>
+    </a>
   </g>
 </svg>
