@@ -140,7 +140,7 @@
        transform="translate(5.5,14.591667)">
       <a
          id="a9200-6"
-         xlink:href="/home/robert/theorie3_fonctions_et_objets.html">Théorie 3</a>
+         xlink:href="theorie3_fonctions_et_objets.html">Théorie 3</a>
     </text>
   </g>
   <g
@@ -3064,7 +3064,7 @@
     <a
        transform="translate(93.440807,1.2458774)"
        style="stroke-width:4"
-       xlink:href="/home/robert/3D.fr.html"
+       xlink:href="3D.fr.html"
        id="a1998-6">
       <g
          style="stroke-width:4"
@@ -4360,7 +4360,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="a3341-9-9"
-           xlink:href="/home/robert/progra_exceptions.py.html">try except</a>
+           xlink:href="progra_exceptions.py.html">try except</a>
       </text>
     </g>
     <g
@@ -4380,7 +4380,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="a3341-9-4"
-           xlink:href="/home/robert/progra_list_dict_set.py.html">dict, list, set</a>
+           xlink:href="progra_list_dict_set.py.html">dict, list, set</a>
       </text>
     </g>
     <g
@@ -4400,7 +4400,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="a3341-9-2"
-           xlink:href="/home/robert/progra_hasard.py.html">random</a>
+           xlink:href="progra_hasard.py.html">random</a>
       </text>
     </g>
     <g
@@ -4420,7 +4420,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="a3341-9-1"
-           xlink:href="/home/robert/progra_functionals.py.html">functionals</a>
+           xlink:href="progra_functionals.py.html">functionals</a>
       </text>
     </g>
     <g
@@ -4440,7 +4440,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="a3341-9-7-9"
-           xlink:href="/home/robert/progra_module_exemple.py.html">module</a>
+           xlink:href="progra_module_exemple.py.html">module</a>
       </text>
     </g>
     <g
@@ -4460,7 +4460,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="a3341-9-7"
-           xlink:href="/home/robert/progra_import.py.html">import (code reuse</a>
+           xlink:href="progra_import.py.html">import (code reuse</a>
       </text>
     </g>
     <g
@@ -4480,7 +4480,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="a3341-9-7-9-2"
-           xlink:href="/home/robert/progra_fichier.py.html">open file</a>
+           xlink:href="progra_fichier.py.html">open file</a>
       </text>
     </g>
     <g
@@ -4501,7 +4501,7 @@
          transform="translate(8.5,8.5)">
         <a
            id="a9508-9-3-4-1-7-2"
-           xlink:href="/home/robert/docs.python-requests.org/en/master/">API (requests)</a>
+           xlink:href="docs.python-requests.org/en/master/">API (requests)</a>
       </text>
     </g>
     <g
@@ -4774,7 +4774,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="-8-4-9-0"
-           xlink:href="/home/robert/theorie2_liste_while.html#listes">Base 4</a>
+           xlink:href="theorie2_liste_while.html#listes">Base 4</a>
       </text>
     </g>
     <g
@@ -4787,7 +4787,7 @@
          inkscape:connector-curvature="0"
          style="fill:#00ccf2;fill-opacity:1;stroke:none;stroke-width:0.5" />
       <a
-         xlink:href="/home/robert/theorie3_fonctions_et_objets.html#fonctions"
+         xlink:href="theorie3_fonctions_et_objets.html#fonctions"
          id="a4449">
         <text
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.33333349px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none;stroke-width:0.5"
@@ -4885,7 +4885,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
         <a
            id="a3341-9"
-           xlink:href="/home/robert/progra_equivalences_fr.html">Équivalences</a>
+           xlink:href="progra_equivalences_fr.html">Équivalences</a>
       </text>
     </g>
     <g
@@ -5057,7 +5057,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9472-72"
-         xlink:href="/home/robert/pygame1_dessin.py.html">1) Draw</a>
+         xlink:href="pygame1_dessin.py.html">1) Draw</a>
     </text>
   </g>
   <g
@@ -5077,7 +5077,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9490-2"
-         xlink:href="/home/robert/pygame2_tick.py.html">2) Tick</a>
+         xlink:href="pygame2_tick.py.html">2) Tick</a>
     </text>
   </g>
   <g
@@ -5098,7 +5098,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9508-8"
-         xlink:href="/home/robert/pygame3_events.py.html">3) Events</a>
+         xlink:href="pygame3_events.py.html">3) Events</a>
     </text>
   </g>
   <g
@@ -5118,7 +5118,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9526-1"
-         xlink:href="/home/robert/pygame4_animations.py.html">4) Animation</a>
+         xlink:href="pygame4_animations.py.html">4) Animation</a>
     </text>
   </g>
   <g
@@ -5139,7 +5139,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9454-03"
-         xlink:href="/home/robert/pygame0_code_minimal.py.html">Code de base</a>
+         xlink:href="pygame0_code_minimal.py.html">Code de base</a>
     </text>
   </g>
   <g
@@ -5321,7 +5321,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9210-4"
-         xlink:href="/home/robert/theorie3_fonctions_et_objets.html#objets">Base 5 : Objets</a>
+         xlink:href="theorie3_fonctions_et_objets.html#objets">Base 5 : Objets</a>
     </text>
   </g>
   <g
@@ -5341,7 +5341,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9228-2"
-         xlink:href="/home/robert/theorie3_fonctions_et_objets.html#fonctions">Base 6 : Fonctions</a>
+         xlink:href="theorie3_fonctions_et_objets.html#fonctions">Base 6 : Fonctions</a>
     </text>
   </g>
   <path
@@ -5367,7 +5367,7 @@
        transform="translate(5.5,14.591667)">
       <a
          id="a9200-6-2"
-         xlink:href="/home/robert/theorie3_fonctions_et_objets.html">Théorie 3</a>
+         xlink:href="theorie3_fonctions_et_objets.html">Théorie 3</a>
     </text>
   </g>
   <g
@@ -5387,7 +5387,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9210-4-0"
-         xlink:href="/home/robert/theorie3_fonctions_et_objets.html#objets">Base 5 : Objets</a>
+         xlink:href="theorie3_fonctions_et_objets.html#objets">Base 5 : Objets</a>
     </text>
   </g>
   <g
@@ -5407,7 +5407,7 @@
        transform="translate(8.5,8.5)">
       <a
          id="a9228-2-1"
-         xlink:href="/home/robert/theorie3_fonctions_et_objets.html#fonctions">Base 6 : Fonctions</a>
+         xlink:href="theorie3_fonctions_et_objets.html#fonctions">Base 6 : Fonctions</a>
     </text>
   </g>
   <g
@@ -5525,7 +5525,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
       <a
          id="a3341-6"
-         xlink:href="/home/robert/algos.html">Algos</a>
+         xlink:href="algos.html">Algos</a>
     </text>
   </g>
   <g
@@ -5545,7 +5545,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.66666698px;line-height:0%;font-family:Helvetica, Arial, sans-serif;text-anchor:start;fill:#f5f5f5;stroke:none">
       <a
          id="-1-8"
-         xlink:href="/home/robert/physique.html">Physique</a>
+         xlink:href="physique.html">Physique</a>
     </text>
   </g>
 </svg>
